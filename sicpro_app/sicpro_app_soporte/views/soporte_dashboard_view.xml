@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="helpdesk_ticket_kanban_view" model="ir.ui.view">
+    <field name="name">sicpro.app.soporte.equipos.kanban</field>
+    <field name="model">sicpro.app.soporte.equipos</field>
+    <field name="arch" type="xml">
+      <kanban highlight_color="color" class="o_kanban_dashboard" create="0" sample="1">
+        <field name="name"/>
+        <field name="color"/>
+        <field name="todo_ticket_ids"/>
+        <field name="todo_ticket_count"/>
+        <field name="todo_ticket_count_unassigned"/>
+        <field name="todo_ticket_count_unattended"/>
+        <field name="todo_ticket_count_high_priority"/>
+        <templates>
+          <t t-name="menu" t-if="!selection_mode">
+            <div class="container">
+              <div class="o_kanban_card_manage_settings row">
+                <div t-if="widget.editable" role="menuitem" aria-haspopup="true" class="col-6">
+                  <field name="color" widget="kanban_color_picker"/>
+                </div>
+                <div class="col-6">
+                </div>
+              </div>
+            </div>
+          </t>
+          <t t-name="menu">
+            <div class="container">
+              <div class="row">
+                <div class="col-6 o_kanban_card_manage_section o_kanban_manage_view">
+                  <h5 role="menuitem" class="o_kanban_card_manage_title">
+                    <span>Ver</span>
+                  </h5>
+                  <div role="menuitem">
+                    <a name="%(action_helpdesk_ticket_kanban_from_dashboard)d" type="action">
+                      Todas las solicitudes
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+
+          <t t-name="card">
+            <div t-attf-class="oe_kanban_color_#{record.color.raw_value} oe_kanban_global_click">
+              <div class="o_kanban_card_header">
+                <div class="o_kanban_card_header_title">
+                  <div class="o_primary">
+                    <a name="%(action_helpdesk_ticket_kanban_from_dashboard)d" type="action" class="fw-bold">
+                      <field name="name"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container o_kanban_card_content mt-3">
+                <div class="row">
+                  <div class="col-6 o_kanban_primary_left d-flex align-items-center justify-content-center">
+                    <button class="btn btn-primary w-100"
+                            name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
+                            type="action" context="{'search_default_open': 1}">
+                      <field name="todo_ticket_count"/> Por hacer
+                    </button>
+                  </div>
+                  <div class="col-6 o_kanban_primary_right">
+                    <div class="row">
+                      <div class="col-9">
+                        <a name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
+                           type="action" class="text-warning small"
+                           context="{'search_default_unassigned': 1, 'search_default_sin_asignar': 1}">
+                          Sin Asignar
+                        </a>
+                      </div>
+                      <div class="col-3 text-end">
+                        <field name="todo_ticket_count_unassigned"/>
+                      </div>
+                      <div class="col-9">
+                        <a name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
+                           type="action" class="small"
+                           context="{'search_default_unattended': 1, 'search_default_no_procede': 1}">
+                          N. Procede
+                        </a>
+                      </div>
+                      <div class="col-3 text-end">
+                        <field name="todo_ticket_count_unattended"/>
+                      </div>
+                      <div class="col-9">
+                        <a name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
+                           type="action" class="text-danger small"
+                           context="{'search_default_high_priority': 1, 'search_default_prioridad': 1}">
+                          + Prioridad
+                        </a>
+                      </div>
+                      <div class="col-3 text-end">
+                        <field name="todo_ticket_count_high_priority"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+</odoo>

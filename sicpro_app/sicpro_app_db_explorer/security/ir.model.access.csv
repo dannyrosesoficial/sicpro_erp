@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_db_explorer_table,db.explorer.table,model_sicpro_app_db_explorer_table,group_db_admin,1,1,1,1
+access_db_wizard,db.wizard,model_sicpro_app_db_master_password_wizard,group_db_admin,1,1,1,1
+access_db_audit_log,db.audit.log,model_sicpro_app_db_audit_log,group_db_admin,1,0,0,0

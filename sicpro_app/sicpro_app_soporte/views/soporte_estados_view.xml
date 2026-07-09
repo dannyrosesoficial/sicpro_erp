@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_soporte_ticket_stage_search" model="ir.ui.view">
+    <field name="name">sicpro.app.soporte.estados.search</field>
+    <field name="model">sicpro.app.soporte.estados</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Estados">
+        <filter string="Archivados" name="inactive" domain="[('active','=',False)]"/>
+        <separator/>
+        <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_soporte_estados_list" model="ir.ui.view">
+    <field name="name">sicpro.app.soporte.estados.list</field>
+    <field name="model">sicpro.app.soporte.estados</field>
+    <field name="arch" type="xml">
+      <list string="Estados" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+        <field name="company_id" invisible="1"/>
+        <field name="inicial"/>
+        <field name="closed"/>
+        <field name="unattended"/>
+        <field name="pendiente_correo_acceso"/>
+        <field name="fold"/>
+        <field name="descripcion" widget="html"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="soporte_estados_action" model="ir.actions.act_window">
+    <field name="name">Estados</field>
+    <field name="res_model">sicpro.app.soporte.estados</field>
+    <field name="view_mode">list</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear un nuevo estado de soporte
+      </p>
+    </field>
+  </record>
+</odoo>

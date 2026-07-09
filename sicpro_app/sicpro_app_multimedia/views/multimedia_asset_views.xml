@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <!-- Vista List (Estilo Odoo 19 nativo) -->
+    <record id="view_sicpro_multimedia_asset_list" model="ir.ui.view">
+        <field name="name">sicpro.multimedia.asset.list</field>
+        <field name="model">sicpro.multimedia.asset</field>
+        <field name="arch" type="xml">
+            <list string="Catálogo de Archivos Multimedia">
+                <field name="name"/>
+                <field name="res_model_id"/>
+                <field name="res_name"/>
+                <field name="file_type"/>
+                <field name="file_size" widget="human_size"/>
+                <field name="create_date" string="Fecha de Subida"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Kanban Avanzada -->
+    <record id="view_sicpro_multimedia_asset_kanban" model="ir.ui.view">
+        <field name="name">sicpro.multimedia.asset.kanban</field>
+        <field name="model">sicpro.multimedia.asset</field>
+        <field name="arch" type="xml">
+            <kanban class="o_res_partner_kanban">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="file_type"/>
+                <field name="file_size"/>
+                <field name="thumbnail"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill" style="width: 260px; max-width: 260px;">
+                            <div class="o_kanban_image_fill_left d-none d-md-block"
+                                 t-attf-style="background-image:url('data:image/jpeg;base64,#{record.thumbnail.raw_value}')"
+                                 t-if="record.thumbnail.raw_value"/>
+                            <div class="o_kanban_image d-md-none"
+                                 t-attf-style="background-image:url('data:image/jpeg;base64,#{record.thumbnail.raw_value}')"
+                                 t-if="record.thumbnail.raw_value"/>
+                            <div class="o_kanban_image_fill_left d-flex align-items-center justify-content-center bg-light" t-if="!record.thumbnail.raw_value">
+                                <i class="fa fa-file-text-o fa-3x text-muted"/>
+                            </div>
+                            <div class="oe_kanban_details d-flex flex-column justify-content-between p-2">
+                                <div>
+                                    <strong class="o_kanban_record_title" style="word-wrap: break-word;"><field name="name"/></strong>
+                                    <div class="text-muted small mt-1">
+                                        Origen: <field name="res_name"/>
+                                    </div>
+                                    <div class="mt-1">
+                                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center text-muted mutual-info small mt-2">
+                                    <span><field name="file_type"/></span>
+                                    <span><field name="file_size" widget="human_size"/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Vista Formulario Principal -->
+    <record id="view_sicpro_multimedia_asset_form" model="ir.ui.view">
+        <field name="name">sicpro.multimedia.asset.form</field>
+        <field name="model">sicpro.multimedia.asset</field>
+        <field name="arch" type="xml">
+            <form string="Activo Multimedia">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Nombre del Activo"/>
+                        <h1>
+                            <field name="name" placeholder="Ej. Panel Frontal del Vehículo"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Archivo Físico">
+                            <field name="file_content" filename="name" widget="binary"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                        </group>
+                        <group string="Metadatos de Infraestructura">
+                            <field name="file_type"/>
+                            <field name="file_size" widget="human_size"/>
+                            <field name="checksum"/>
+                        </group>
+                    </group>
+                    <group string="Polimorfismo / Vinculación">
+                        <group>
+                            <field name="res_model_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="res_model" invisible="1"/>
+                            <field name="res_id"/>
+                        </group>
+                        <group>
+                            <field name="res_name" string="Registro Destino Real"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Descripción Detallada" name="description_page">
+                            <field name="description" placeholder="Añada anotaciones contextuales sobre esta imagen o documento técnico..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Buscador y Filtros -->
+    <record id="view_sicpro_multimedia_asset_search" model="ir.ui.view">
+        <field name="name">sicpro.multimedia.asset.search</field>
+        <field name="model">sicpro.multimedia.asset</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Multimedia">
+                <field name="name" string="Nombre u Origen" filter_domain="['|', ('name', 'ilike', self), ('description', 'ilike', self)]"/>
+                <field name="res_model_id"/>
+                <field name="tag_ids"/>
+                <filter string="Imágenes (Formatos Clave)" name="filter_images" domain="[('file_type', 'in', ['JPEG', 'PNG', 'WEBP', 'GIF'])]"/>
+                <filter string="Documentos Secundarios" name="filter_docs" domain="[('file_type', '=', 'application/octet-stream')]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Modelo de Destino" name="group_by_model" context="{'group_by': 'res_model_id'}"/>
+                    <filter string="Tipo de Archivo" name="group_by_type" context="{'group_by': 'file_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Ventana de Acción de Entrada -->
+    <record id="action_sicpro_multimedia_asset" model="ir.actions.act_window">
+        <field name="name">Almacén Multimedia Centralizado</field>
+        <field name="res_model">sicpro.multimedia.asset</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_sicpro_multimedia_asset_search"/>
+    </record>
+
+    <!-- Menú de Acceso en la Interfaz -->
+    <menuitem id="menu_sicpro_multimedia_root" name="Multimedia" sequence="25" web_icon="sicpro_app_multimedia,static/description/icon.png"/>
+    <menuitem id="menu_sicpro_multimedia_assets" name="Catálogo de Medios" parent="menu_sicpro_multimedia_root" action="action_sicpro_multimedia_asset" sequence="10"/>
+    <menuitem id="menu_sicpro_multimedia_tags" name="Etiquetas" parent="menu_sicpro_multimedia_root" action="action_sicpro_multimedia_tag" sequence="20"/>
+</odoo>

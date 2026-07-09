@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="metrologia_equipos_views_kanban" model="ir.ui.view">
+    <field name="name">metrologia.direcciones.kanban</field>
+    <field name="model">sicpro.app.metrologia.direcciones</field>
+    <field name="arch" type="xml">
+      <kanban highlight_color="color" class="oe_background_grey o_kanban_dashboard o_maintenance_team_kanban"
+              create="0">
+        <field name="name"/>
+        <field name="color"/>
+        <field name="todo_request_ids"/>
+        <field name="todo_request_count"/>
+        <field name="todo_request_planificado"/>
+        <field name="todo_request_count_laboratorio"/>
+        <field name="todo_request_count_sin_calibrar"/>
+        <field name="todo_request_count_transferencias"/>
+        <templates>
+          <t t-name="menu" t-if="!selection_mode">
+            <div class="container">
+              <div class="o_kanban_card_manage_settings">
+                <div class="row g-0 mb-2">
+                  <div t-if="widget.editable" role="menuitem" aria-haspopup="true" class="col-6">
+                    <field name="color" widget="kanban_color_picker"/>
+                  </div>
+                  <div class="col-6 text-end">
+                    <a role="menuitem" type="open" class="dropdown-item d-inline-block w-auto" title="Abrir">Abrir</a>
+                    <a t-if="widget.editable" role="menuitem" type="edit" class="dropdown-item d-inline-block w-auto"
+                       title="Editar">Editar</a>
+                  </div>
+                </div>
+
+                <div class="o_kanban_card_manage_section o_kanban_manage_view border-top pt-2">
+                  <h5 class="dropdown-header fw-bold text-dark mb-2">Vistas de Control</h5>
+
+                  <div class="row g-1 text-center">
+                    <div class="col-3">
+                      <a role="button" class="btn btn-light btn-sm w-100" name="%(metrologia_equipamiento_action)d"
+                         type="action" title="Todos">Todos</a>
+                    </div>
+                    <div class="col-3">
+                      <a role="button" class="btn btn-light btn-sm w-100" name="%(metrologia_equipamiento_action)d"
+                         type="action" t-att-context="{'search_default_todo': 1}" title="Por hacer">Por hacer</a>
+                    </div>
+                    <div class="col-3">
+                      <a role="button" class="btn btn-light btn-sm w-100" name="%(metrologia_equipamiento_action)d"
+                         type="action" t-att-context="{'search_default_progress': 1}" title="En progreso">Progreso</a>
+                    </div>
+                    <div class="col-3">
+                      <a role="button" class="btn btn-light btn-sm w-100" name="%(metrologia_equipamiento_action)d"
+                         type="action" t-att-context="{'search_default_done': 1}" title="Hecho">Hecho</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+
+          <t t-name="card">
+            <div t-attf-class="oe_kanban_color_#{record.color.raw_value || 0} oe_kanban_card oe_kanban_global_click">
+              <div class="o_kanban_card_header">
+                <div class="o_kanban_card_header_title">
+                  <div class="o_primary fw-bold fs-5">
+                    <a name="%(metrologia_equipamiento_action)d" type="action">
+                      <field name="name"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container o_kanban_card_content mt-2">
+                <div class="row">
+                  <div class="col-6 o_kanban_primary_left d-flex align-items-center">
+                    <button class="btn btn-primary w-100"
+                            name="%(metrologia_equipamiento_action)d"
+                            type="action"
+                            t-att-context="{'search_default_todo': 1}">
+                      <span class="fs-4 fw-bold"><t t-esc="record.todo_request_count.value || 0"/></span>
+                      <br/>
+                      <span class="small">Equipos</span>
+                    </button>
+                  </div>
+
+                  <div class="col-6 o_kanban_primary_right border-start">
+                    <div class="row g-0 mb-1">
+                      <div class="col-9">
+                        <a name="%(metrologia_equipamiento_action)d" type="action" class="small"
+                           t-att-context="{'search_default_aviso_mtto': 1}">Planificado</a>
+                      </div>
+                      <div class="col-3 text-end small fw-bold">
+                        <t t-esc="record.todo_request_planificado.value || 0"/>
+                      </div>
+                    </div>
+                    <div class="row g-0 mb-1">
+                      <div class="col-9">
+                        <a name="%(metrologia_equipamiento_action)d" type="action" class="small"
+                           t-att-context="{'search_default_estado_laboratorio': 1}">En Laboratorio</a>
+                      </div>
+                      <div class="col-3 text-end small fw-bold">
+                        <t t-esc="record.todo_request_count_laboratorio.value || 0"/>
+                      </div>
+                    </div>
+                    <div class="row g-0 mb-1">
+                      <div class="col-9">
+                        <a name="%(metrologia_equipamiento_action)d" type="action" class="small"
+                           t-att-context="{'search_default_estado_sin_calibrar': 1}">Sin Calibrar</a>
+                      </div>
+                      <div class="col-3 text-end small fw-bold">
+                        <t t-esc="record.todo_request_count_sin_calibrar.value || 0"/>
+                      </div>
+                    </div>
+                    <div class="row g-0">
+                      <div class="col-9">
+                        <a name="%(metrologia_equipamiento_action)d" type="action" class="text-danger small fw-bold"
+                           t-att-context="{'search_default_transferencia_pendiente': 1}">Pend. Economía</a>
+                      </div>
+                      <div class="col-3 text-end small fw-bold text-danger">
+                        <t t-esc="record.todo_request_count_transferencias.value || 0"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="metrologia_equipos_dashboard_action" model="ir.actions.act_window">
+    <field name="name">Tablero de Calibración</field>
+    <field name="res_model">sicpro.app.metrologia.direcciones</field>
+    <field name="view_mode">kanban,form</field>
+    <field name="view_id" ref="metrologia_equipos_views_kanban"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Agregar nuevas solicitudes de mantenimiento
+      </p>
+    </field>
+  </record>
+</odoo>

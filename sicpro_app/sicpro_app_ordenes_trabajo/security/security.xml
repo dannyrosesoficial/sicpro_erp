@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <!-- usuarios DVPE-->
+  <data>
+    <!-- Creo los privilegios de permisos Órdenes de Trabajo - Usuarios Internos-->
+    <record id="privilege_ordenes_usuario_dvpe" model="res.groups.privilege">
+      <field name="name">Usuarios Internos</field>
+      <field name="sequence">2</field>
+      <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_ordenes_trabajo"/>
+    </record>
+
+    <record id="grupo_ordenes_visualizar_proceso" model="res.groups">
+      <field name="name">Visualizar órdenes del Proceso</field>
+      <field name="comment">Permisos de lectura</field>
+      <field name="privilege_id" ref="privilege_ordenes_usuario_dvpe"/>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="grupo_ordenes_visualizar_todo" model="res.groups">
+      <field name="name">Visualizar Todas las órdenes</field>
+      <field name="comment">Permisos de lectura</field>
+      <field name="privilege_id" ref="privilege_ordenes_usuario_dvpe"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_ordenes_visualizar_proceso'))]"/>
+    </record>
+
+    <record id="grupo_ordenes_responsable" model="res.groups">
+      <field name="name">Responsable</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_ordenes_usuario_dvpe"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_ordenes_visualizar_todo'))]"/>
+    </record>
+
+    <record id="grupo_ordenes_admin" model="res.groups">
+      <field name="name">Administrador</field>
+      <field name="comment">Permisos de lectura/Escritura/Eliminación</field>
+      <field name="privilege_id" ref="privilege_ordenes_usuario_dvpe"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_ordenes_responsable'))]"/>
+    </record>
+  </data>
+  <data noupdate="0">
+    <record id="ordenes_rule_usuario_proceso" model="ir.rule">
+      <field name="name">Ver órdenes del proceso</field>
+      <field ref="model_sicpro_app_ordenes_trabajo" name="model_id"/>
+      <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+      <field name="groups" eval="[(4, ref('grupo_ordenes_visualizar_proceso'))]"/>
+    </record>
+
+    <record id="ordenes_rule_usuario_staff" model="ir.rule">
+      <field name="name">Ver toda las órdenes</field>
+      <field ref="model_sicpro_app_ordenes_trabajo" name="model_id"/>
+      <field name="domain_force">[(1, '=', 1)]</field>
+      <field name="groups" eval="[(4, ref('grupo_ordenes_visualizar_todo'))]"/>
+    </record>
+  </data>
+
+  <!-- Usuario inversionistas -->
+  <data>
+    <!-- Creo los privilegios de permisos para Órdenes de trabajo - inversionista-->
+    <record id="privilege_ordenes_usuario_inversionista" model="res.groups.privilege">
+      <field name="name">Inversionista</field>
+      <field name="sequence">3</field>
+      <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_ordenes_trabajo"/>
+    </record>
+
+    <record id="grupo_ordenes_visualizar_inversionista" model="res.groups">
+      <field name="name">Visualizar órdenes personales</field>
+      <field name="comment">Permisos de lectura</field>
+      <field name="privilege_id" ref="privilege_ordenes_usuario_inversionista"/>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="grupo_ordenes_visualizar_inversionista_todo" model="res.groups">
+      <field name="name">Visualizar todas las órdenes Inversionistas</field>
+      <field name="comment">Permisos de lectura</field>
+      <field name="privilege_id" ref="privilege_ordenes_usuario_inversionista"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_ordenes_visualizar_inversionista'))]"/>
+    </record>
+  </data>
+  <data noupdate="0">
+    <record id="ordenes_rule_inversionista" model="ir.rule">
+      <field name="name">Ver órdenes inversionistas propias</field>
+      <field ref="model_sicpro_app_ordenes_trabajo" name="model_id"/>
+      <field name="domain_force">[('cliente_id.user_id', '=', user.id)]</field>
+      <field name="groups" eval="[(4, ref('grupo_ordenes_visualizar_inversionista'))]"/>
+    </record>
+
+    <record id="ordenes_rule_inversionista_todo" model="ir.rule">
+      <field name="name">Ver toda las órdenes inversionistas</field>
+      <field ref="model_sicpro_app_ordenes_trabajo" name="model_id"/>
+      <field name="domain_force">[(1, '=', 1)]</field>
+      <field name="groups" eval="[(4, ref('grupo_ordenes_visualizar_inversionista_todo'))]"/>
+    </record>
+  </data>
+
+  <!-- Ejecución de la orden de trabajo -->
+  <data>
+    <!-- Creo los privilegios de permisos programa de la vivienda sindicato-->
+    <record id="privilege_ordenes_ejecucion" model="res.groups.privilege">
+      <field name="name">Ejecución</field>
+      <field name="sequence">4</field>
+      <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_ordenes_trabajo"/>
+    </record>
+
+    <record id="grupo_ordenes_solicitante" model="res.groups">
+      <field name="name">Solicitar Orden</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_ordenes_ejecucion"/>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="grupo_ordenes_validar" model="res.groups">
+      <field name="name">Validar Orden</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_ordenes_ejecucion"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_ordenes_solicitante'))]"/>
+    </record>
+
+    <record id="grupo_ordenes_ejecutor" model="res.groups">
+      <field name="name">Crear Orden</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_ordenes_ejecucion"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_ordenes_validar'))]"/>
+    </record>
+  </data>
+  <data noupdate="0">
+    <record id="ordenes_rule_ejecucion" model="ir.rule">
+      <field name="name">Modificar ejecución de órdenes</field>
+      <field ref="model_sicpro_app_ordenes_trabajo" name="model_id"/>
+      <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+      <field name="groups" eval="[(4, ref('grupo_ordenes_solicitante'))]"/>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SICPRO ERP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #714B67;
+            --primary-dark: #4a2d43;
+            --primary-light: rgba(113, 75, 103, 0.1);
+            --accent: #ff4a17;
+            --bg-dark: #0f172a;
+            --success: #10b981;
+            --info: #3b82f6;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(113, 75, 103, 0.15) 0%, transparent 70%);
+            top: 10%; left: 10%; z-index: 0;
+        }
+        body::after {
+            content: "";
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            bottom: 5%; right: 5%; z-index: 0;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%; height: 100%;
+            top: 0; left: 0; z-index: 1;
+        }
+
+        .login-container {
+            max-width: 1100px; /* Un poco más estrecha */
+            width: 95%;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            border-radius: 40px;
+            overflow: hidden;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 50px 100px rgba(0,0,0,0.6);
+            display: flex;
+            max-height: 90vh; /* Limita la altura para que se vea el fondo */
+        }
+
+        .image-panel {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.8) 0%, rgba(113, 75, 103, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 35px; /* Reducido para achicar altura */
+            position: relative;
+            color: white;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .top-meta { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+        #live-clock { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; color: var(--success); text-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+
+        .info-header h2 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 2rem; margin: 0; letter-spacing: -1px; }
+        .info-header .description { font-size: 0.8rem; opacity: 0.8; margin-top: 8px; margin-bottom: 1.5rem; line-height: 1.4; }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 18px;
+            padding: 12px 18px; /* Más compacto */
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: rgba(255,255,255,0.5); margin-bottom: 5px; }
+        .stat-value { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 700; }
+
+        .user-avatars { display: flex; align-items: center; }
+        .avatar {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            background: #e2e8f0;
+            margin-left: -10px;
+            display: flex; align-items: center; justify-content: center;
+            color: #1e293b; font-size: 0.7rem;
+        }
+        .avatar:first-child { margin-left: 0; }
+        .avatar-more { background: var(--accent); color: white; border: none; font-weight: 800; }
+
+        .module-list { margin-top: 8px; }
+        .module-item { display: flex; align-items: center; justify-content: space-between; font-size: 0.7rem; margin-bottom: 4px; }
+        .module-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 3px; width: 50%; overflow: hidden; }
+        .module-fill { height: 100%; background: var(--info); }
+
+        .form-panel {
+            flex: 1;
+            background: #ffffff;
+            padding: 35px 50px; /* Reducido padding superior e inferior */
+            border-radius: 40px 0 0 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .system-logo { width: 50px; height: auto; margin-bottom: 8px; }
+        .system-name { font-family: 'Outfit', sans-serif; font-weight: 800; color: var(--primary); font-size: 1.8rem; letter-spacing: -1px; }
+
+        .form-control, .form-select { border-radius: 12px; padding: 10px 15px; background-color: #f8fafc; border: 2px solid #e2e8f0; transition: 0.3s; font-size: 0.9rem; }
+        .form-control:focus, .form-select:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-light); background-color: white; }
+
+        .input-group-text { border-radius: 0 12px 12px 0; background-color: #f8fafc; border: 2px solid #e2e8f0; border-left: none; cursor: pointer; }
+
+        .btn-sicpro {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white; font-weight: 700; padding: 12px; border-radius: 12px; border: none; transition: 0.4s; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .btn-sicpro:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(113, 75, 103, 0.3); }
+
+        .social-icon {
+            width: 35px; height: 35px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center;
+            background: #f1f5f9; color: var(--primary); margin: 0 5px; transition: 0.3s; text-decoration: none;
+        }
+        .social-icon:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+
+        .status-dot { height: 8px; width: 8px; background-color: var(--success); border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 8px var(--success); animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        @media (max-width: 991px) {
+            .login-container { flex-direction: column; height: auto; overflow-y: auto; max-height: 95vh; }
+            .image-panel { display: none; }
+            .form-panel { border-radius: 0; padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="login-container">
+    <div class="image-panel">
+        <div class="top-meta">
+            <div>
+                <span class="status-dot"></span><span class="small fw-bold">NODO CENTRAL ACTIVO</span>
+            </div>
+            <div class="text-end">
+                <div id="live-clock">00:00:00</div>
+                <div style="font-size: 0.55rem; opacity: 0.6; letter-spacing: 1px;">CUBA SERVER TIME</div>
+            </div>
+        </div>
+
+        <div class="info-header">
+            <h2>SICPRO</h2>
+            <p class="description">
+                Gestión integral de infraestructura crítica y redes empresariales. Monitoreo proactivo de nodos y balanceo de carga automatizado.
+            </p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label">Usuarios Conectados</div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="stat-value">1,248</div>
+                <div class="user-avatars">
+                    <div class="avatar"><i class="fas fa-user-tie"></i></div>
+                    <div class="avatar" style="background: #bae6fd;"><i class="fas fa-user-shield"></i></div>
+                    <div class="avatar" style="background: #fed7aa;"><i class="fas fa-user-cog"></i></div>
+                    <div class="avatar avatar-more">+24</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label">Módulos Más Utilizados</div>
+            <div class="module-list">
+                <div class="module-item">
+                    <span>Inventario</span>
+                    <div class="module-bar"><div class="module-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="module-item">
+                    <span>Contabilidad</span>
+                    <div class="module-bar"><div class="module-fill" style="width: 60%; background: var(--accent);"></div></div>
+                </div>
+                <div class="module-item">
+                    <span>Recursos Humanos</span>
+                    <div class="module-bar"><div class="module-fill" style="width: 45%; background: var(--success);"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label">Salud del Ecosistema</div>
+            <div class="stat-value">99.98% <small style="font-size: 0.6rem; color: var(--success);">OPTIMAL</small></div>
+            <p style="font-size: 0.6rem; opacity: 0.7; margin-top: 5px; margin-bottom: 0;">
+                <i class="fas fa-check-circle me-1" style="color:var(--success)"></i> Sincronización estable. <br>
+                <i class="fas fa-check-circle me-1" style="color:var(--success)"></i> Balanceo activo.
+            </p>
+        </div>
+
+        <div class="mt-auto text-center opacity-50 small" style="font-size: 0.7rem;">
+            <i class="fas fa-fingerprint me-2"></i> Acceso Seguro | Danny Rose's 🌹
+        </div>
+    </div>
+
+    <div class="form-panel">
+        <div class="text-center mb-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" alt="Logo SICPRO" class="system-logo">
+            <div class="system-name">SICPRO ERP</div>
+            <p class="text-muted small fw-bold" style="font-size: 0.7rem; margin-bottom: 0;">ADMINISTRACIÓN DE SISTEMAS</p>
+        </div>
+
+        <form>
+            <div class="mb-2">
+                <label class="form-label small fw-bold text-muted" style="font-size: 0.65rem;">BASE DE DATOS</label>
+                <select class="form-select" required>
+                    <option value="" selected disabled>Seleccione base de datos...</option>
+                    <option value="prod">SICPRO_PRODUCCION</option>
+                    <option value="test">SICPRO_TESTING</option>
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label small fw-bold text-muted" style="font-size: 0.65rem;">USUARIO</label>
+                <input type="text" class="form-control" placeholder="admin.rose" required>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label small fw-bold text-muted" style="font-size: 0.65rem;">CONTRASEÑA</label>
+                <div class="input-group">
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required style="border-right:none;">
+                    <span class="input-group-text" onclick="togglePassword()">
+                        <i id="toggleIcon" class="fa fa-eye text-muted"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="remember">
+                    <label class="form-check-label small text-muted" for="remember" style="font-size: 0.7rem;">Recordarme</label>
+                </div>
+                <a href="#" class="small text-decoration-none fw-bold" style="color: var(--accent); font-size: 0.7rem;">¿Olvidó su contraseña?</a>
+            </div>
+
+            <div class="d-grid gap-2 mb-2">
+                <button type="submit" class="btn-sicpro">
+                    Iniciar Sesión <i class="fas fa-rocket ms-2"></i>
+                </button>
+            </div>
+
+            <div class="text-center mb-3">
+                <a href="#" class="small text-decoration-none" style="color: var(--primary); font-weight: 600; font-size: 0.7rem;">¿Problemas con el acceso?</a>
+            </div>
+
+            <div class="text-center mt-1 border-top pt-3">
+                <div class="d-flex justify-content-center">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="small text-muted mt-2 mb-0" style="font-size: 0.65rem;">© 2026 Danny Rose's 🌹</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 40 },
+            "color": { "value": "#ffffff" },
+            "opacity": { "value": 0.1 },
+            "size": { "value": 2 },
+            "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.05 },
+            "move": { "enable": true, "speed": 0.5 }
+        }
+    });
+
+    function updateClock() {
+        const now = new Date();
+        const options = { timeZone: 'America/Havana', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        document.getElementById('live-clock').innerText = now.toLocaleTimeString('es-CU', options);
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    function togglePassword() {
+        const passwordInput = document.getElementById('password');
+        const toggleIcon = document.getElementById('toggleIcon');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleIcon.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            toggleIcon.classList.replace('fa-eye-slash', 'fa-eye');
+        }
+    }
+</script>
+
+</body>
+</html>

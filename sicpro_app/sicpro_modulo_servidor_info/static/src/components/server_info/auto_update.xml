@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+    <t t-name="sicpro_server_info.AutoUpdate">
+        <div class="o_server_info p-4 border rounded shadow-sm bg-view">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+                <h2 class="m-0"><i class="fa fa-server me-2 text-primary"/>Estado del Servidor</h2>
+
+              <div class="d-flex align-items-center">
+                    <select class="form-select form-select-sm rounded-pill me-2 shadow-sm"
+                            style="width: auto;"
+                            t-on-change="onIntervalChange">
+                        <option value="2000">2s</option>
+                      <option value="5000" selected="selected">5s</option>
+                      <option value="10000">10s</option>
+                      <option value="30000">30s</option>
+                    </select>
+                <button class="btn btn-outline-primary btn-sm rounded-pill shadow-sm" t-on-click="manualUpdate">
+                        <i t-attf-class="fa fa-refresh me-1 {{state.isRefreshing ? 'fa-spin' : ''}}"/>
+                  Actualizar
+                    </button>
+                </div>
+            </div>
+
+          <t t-if="state.loading">
+                <div class="text-center p-3 text-muted"><i class="fa fa-spin fa-spinner me-2"/>Sincronizando...</div>
+            </t>
+          <t t-else="">
+                <div t-if="state.stats.disk?.percent > 90"
+                     class="alert alert-danger d-flex align-items-center mb-4 border-0 shadow-sm">
+                    <i class="fa fa-exclamation-triangle me-3 fa-lg"/>
+                  <div><strong>¡Alerta de Disco!</strong> El espacio libre es crítico (menor al 10%).</div>
+                </div>
+
+            <div class="row g-4 text-center text-md-start">
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-between fw-bold mb-1">
+                            <span><i class="fa fa-microchip me-1 text-primary"/> CPU</span>
+                          <span t-esc="(state.stats.cpu?.usage || 0) + '%'"/>
+                        </div>
+                      <div class="progress" style="height: 12px;">
+                            <div class="progress-bar" role="progressbar"
+                                 t-attf-style="width: {{state.stats.cpu?.usage}}%;"
+                                 t-attf-class="progress-bar {{state.stats.cpu?.usage > 80 ? 'bg-danger' : (state.stats.cpu?.usage > 50 ? 'bg-warning' : 'bg-success')}}"/>
+                        </div>
+                      <div class="small text-muted mt-1 text-center"><t t-esc="state.stats.cpu?.count"/> Núcleos</div>
+                    </div>
+
+              <div class="col-md-4 border-start-md">
+                        <div class="d-flex justify-content-between fw-bold mb-1">
+                            <span><i class="fa fa-memory me-1 text-primary"/> RAM</span>
+                          <span t-esc="(state.stats.ram?.percent || 0) + '%'"/>
+                        </div>
+                <div class="progress" style="height: 12px;">
+                            <div class="progress-bar" role="progressbar"
+                                 t-attf-style="width: {{state.stats.ram?.percent}}%;"
+                                 t-attf-class="progress-bar {{state.stats.ram?.percent > 85 ? 'bg-danger' : 'bg-success'}}"/>
+                        </div>
+                <div class="small text-muted mt-1 text-end">
+                            <t t-esc="formatBytes(state.stats.ram?.used)"/> / <t
+                    t-esc="formatBytes(state.stats.ram?.total)"/>
+                        </div>
+                    </div>
+
+              <div class="col-md-4 border-start-md">
+                        <div class="d-flex justify-content-between fw-bold mb-1">
+                            <span><i class="fa fa-hdd-o me-1 text-primary"/> DISCO</span>
+                          <span t-esc="(state.stats.disk?.percent || 0) + '%'"/>
+                        </div>
+                <div class="progress" style="height: 12px;">
+                            <div class="progress-bar" role="progressbar"
+                                 t-attf-style="width: {{state.stats.disk?.percent}}%;"
+                                 t-attf-class="progress-bar {{state.stats.disk?.percent > 90 ? 'bg-danger' : 'bg-info'}}"/>
+                        </div>
+                <div class="small text-muted mt-1 text-end">
+                            Libre: <t t-esc="formatBytes(state.stats.disk?.free)"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

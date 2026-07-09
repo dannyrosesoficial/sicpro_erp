@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#    PROYECTO: SICPRO ERP
+#    AUTOR: Daniel Barrero Reyes (Danny Rose's)
+#    CONTACTO: daniel.borrero@etecsa.cu
+#    Copyright (C) 2020-2026 SICPRO ERP.
+#    Todos los derechos reservados.
+##############################################################################
+
+import re
+
+from odoo import api, fields, models, tools
+
+MENU_ITEM_SEPARATOR = "/"
+NUMBER_PARENS = re.compile(r"\(([0-9]+)\)")
+
+
+class IrUiMenu(models.Model):
+    _inherit = 'ir.ui.menu'
+
+    def _get_full_name(self, level=6):
+        if level <= 0:
+            return '...'
+        if self.parent_id:
+            try:
+                name = self.parent_id._get_full_name(level - 1) + MENU_ITEM_SEPARATOR + (self.name or "")
+            except Exception:
+                name = self.name or "..."
+        else:
+            name = self.name
+        return name
+

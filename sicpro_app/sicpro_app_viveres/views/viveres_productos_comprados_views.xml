@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_form_viveres_productos_comprados_filter" model="ir.ui.view">
+    <field name="name">sicpro.app.viveres.productos.comprados.search</field>
+    <field name="model">sicpro.app.viveres.productos.comprados</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="producto_id"/>
+        <field name="name"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+        <separator/>
+        <group>
+          <filter string='Producto' name="producto_id" domain="[]" context="{'group_by': 'producto_id'}"/>
+          <filter string='Fecha' name="fecha" domain="[]" context="{'group_by': 'fecha'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_form_viveres_productos_comprados" model="ir.ui.view">
+    <field name="name">sicpro.app.viveres.productos.comprados.form</field>
+    <field name="model">sicpro.app.viveres.productos.comprados</field>
+    <field name="arch" type="xml">
+      <form string="Productos comprados">
+        <header>
+        </header>
+        <sheet>
+          <field name="active" invisible="1"/>
+          <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                  invisible="active"/>
+          <field name="image_1920" widget="image" class="oe_avatar"
+                 options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+          <group>
+            <group>
+              <field name="numero"/>
+              <field name="producto_id"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </group>
+            <group name="group_right">
+              <field name="fecha"/>
+              <field name="precio"/>
+              <field name="color" widget="color_picker"/>
+            </group>
+          </group>
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_list_viveres_productos_comprados" model="ir.ui.view">
+    <field name="name">sicpro.app.viveres.productos.comprados.list</field>
+    <field name="model">sicpro.app.viveres.productos.comprados</field>
+    <field name="arch" type="xml">
+      <list string="Productos comprados" sample="1"
+            decoration-success="estado == 'entregado'" decoration-warning="estado == 'pendiente'">
+        <!--field name="is_check"/-->
+        <field name="estado" class="font-weight-bold" widget="badge"
+               decoration-success="estado == 'entregado'" decoration-warning="estado == 'pendiente'"/>
+        <field name="producto_id"/>
+        <field name="fecha"/>
+        <field name="precio"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="viveres_productos_comprados_action" model="ir.actions.act_window">
+    <field name="name">Productos comprados</field>
+    <field name="res_model">sicpro.app.viveres.productos.comprados</field>
+    <field name="view_mode">list,form</field>
+  </record>
+</odoo>

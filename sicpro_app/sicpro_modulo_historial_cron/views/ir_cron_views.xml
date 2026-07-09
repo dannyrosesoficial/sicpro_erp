@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="ir_cron_view_form" model="ir.ui.view">
+    <field name="name">ir.cron.view.form.inherit</field>
+    <field name="model">ir.cron</field>
+    <field name="inherit_id" ref="base.ir_cron_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='priority']" position="after">
+        <field name="enable_history" widget="boolean_toggle"/>>
+      </xpath>
+    </field>
+  </record>
+</odoo>

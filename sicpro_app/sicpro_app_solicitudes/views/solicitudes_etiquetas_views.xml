@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="solicitudes_etiquetas_list" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.etiquetas.list</field>
+    <field name="model">sicpro.app.solicitudes.etiquetas</field>
+    <field name="arch" type="xml">
+      <list string="Etiquetas" editable="bottom">
+        <field name="name"/>
+        <field name="color" widget="color_picker"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="solicitudes_etiquetas_form" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.etiquetas.form</field>
+    <field name="model">sicpro.app.solicitudes.etiquetas</field>
+    <field name="arch" type="xml">
+      <form string="Etiquetas">
+        <sheet>
+          <div class="oe_title">
+            <div class="oe_edit_only">
+              <label for="name"/>
+            </div>
+            <h1>
+              <field name="name"/>
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="color" widget="color_picker"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="solicitudes_etiquetas_action" model="ir.actions.act_window">
+    <field name="name">Etiquetas</field>
+    <field name="res_model">sicpro.app.solicitudes.etiquetas</field>
+    <field name="view_id" ref="solicitudes_etiquetas_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear etiquetas para las oportunidades
+      </p>
+      <p>
+        Aquí puede crear nuevas etiquetas para definir sus oportunidades.
+      </p>
+    </field>
+  </record>
+</odoo>

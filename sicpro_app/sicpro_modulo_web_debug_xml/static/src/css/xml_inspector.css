@@ -1,0 +1,36 @@
+.xml-inspector-overlay {
+    position: absolute;
+    background: rgba(0, 160, 157, 0.2);
+    border: 2px solid #00a09d;
+    pointer-events: none;
+    z-index: 999998;
+    transition: all 0.1s ease;
+    box-shadow: 0 0 0 2px rgba(0, 160, 157, 0.1);
+}
+
+.xml-inspector-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #00a09d 0%, #008a87 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000000;
+    font-size: 14px;
+    font-weight: 500;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}

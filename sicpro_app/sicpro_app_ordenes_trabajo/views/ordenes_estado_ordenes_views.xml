@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="ordenes_estado_ordenes_list" model="ir.ui.view">
+    <field name="name">sicpro.app.ordenes.trabajo.list</field>
+    <field name="model">sicpro.app.ordenes.trabajo</field>
+    <field name="priority">80</field>
+    <field name="arch" type="xml">
+      <list string="Estado de Órdenes" create="false" edit="false" delete="false">
+        <field name="uo_abreviatura"/>
+        <field name="provincia_id"/>
+        <field name="agrupacion_id"/>
+        <field name="especialidad_letra"/>
+        <field name="name" string="Consecutivo"/>
+        <field name="titulo"/>
+        <field name="pep"/>
+        <field name="trimestre"/>
+        <field name="fecha_solicitud_orden"/>
+        <field name="fecha_creacion_orden" string="Fecha de Creación"/>
+        <field name="estado_id"/>
+        <field name="mes_inicio"/>
+        <field name="mes_fin"/>
+        <field name="especialista_id"/>
+        <field name="cliente_id"/>
+        <field name="cliente_cargo"/>
+        <field name="problemas_ids"/>
+        <field name="observaciones_actualizacion"/>
+        <field name="as_numero"/>
+        <field name="as_valor"/>
+        <field name="ficha_costo_valor"/>
+        <field name="horas_estimadas"/>
+        <field name="horas_reales"/>
+        <field name="alcance"/>
+        <field name="anio"/>
+        <field name="avance_obra" widget="percentage"/>
+        <field name="fecha_inicio_real"/>
+        <field name="fecha_fin_real"/>
+        <field name="dias_instalacion"/>
+        <field name="fecha_paralizacion" string="Última paralización"/>
+        <field name="motivo_paralizacion"/>
+        <field name="priority" widget="priority"/>
+        <field name="proyecto_id" string="Tenencia de Proyecto"/>
+        <field name="company_abreviatura"/>
+      </list>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="ordenes_estado_ordenes_action">
+    <field name="name">Estado de las Órdenes de Trabajo</field>
+    <field name="res_model">sicpro.app.ordenes.trabajo</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="ordenes_estado_ordenes_list"/>
+    <field name="search_view_id" ref="ordenes_trabajo_search"/>
+    <field name="context">{'search_default_anio': datetime.datetime.now().year}</field>
+  </record>
+</odoo>

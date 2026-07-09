@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates>
+    <t t-name="main_menu.WidgetAnnouncement">
+        <div class="widget-announcement">
+            <textarea
+                t-if="props.userIsAdmin"
+                class="form-control"
+                t-att-value="props.announcement"
+                t-on-input="e => props.onChangeAnnouncement(e.target.value)"
+                maxlength="140"
+                placeholder="Post an announcement"/>
+            <button
+                t-if="props.userIsAdmin"
+                class="btn btn-primary"
+                t-on-click="props.onSaveAnnouncement">
+                Save</button>
+            <div t-if="!props.userIsAdmin" class="text-container">
+                <p t-out="props.announcement" class="text-black"/>
+            </div>
+        </div>
+    </t>
+</templates>

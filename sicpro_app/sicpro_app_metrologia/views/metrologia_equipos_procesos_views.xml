@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="metrologia_procesos_equipos_view_list" model="ir.ui.view">
+    <field name="name">metrologia.direcciones.list</field>
+    <field name="model">sicpro.app.metrologia.direcciones</field>
+    <field name="arch" type="xml">
+      <list string="Equipo de Calibración" editable="bottom">
+        <field name="name"/>
+        <field name="company_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="gestores" widget="many2many_tags" placeholder="Gestores"
+               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="metrologia_equipos_view_search" model="ir.ui.view">
+    <field name="name">metrologia.direcciones.search</field>
+    <field name="model">sicpro.app.metrologia.direcciones</field>
+    <field name="arch" type="xml">
+      <search string="Search">
+        <field string="Team" name="name"/>
+        <filter string="Archivado" domain="[('active', '=', False)]" name="inactive"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="metrologia_procesos_equipos_action" model="ir.actions.act_window">
+    <field name="name">Equipos de Mantenimiento</field>
+    <field name="res_model">sicpro.app.metrologia.direcciones</field>
+    <field name="view_mode">list,kanban,form</field>
+    <field name="search_view_id" ref="metrologia_equipos_view_search"/>
+    <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'list', 'view_id': ref('metrologia_procesos_equipos_view_list')})]"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Agregar una dirección de proceso para mantenimiento
+      </p>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+        <record id="modulo_url_gitlab_action" model="ir.actions.act_url">
+            <field name="name">Gitlab</field>
+            <field name="type">ir.actions.act_url</field>
+            <field name="target">new</field>
+            <field name="url">https://gitlab.etecsa.cu/</field>
+        </record>
+
+        <menuitem name="Gitlab" id="menu_gitlab_root" groups="base.group_system" action="modulo_url_gitlab_action"
+                  web_icon="sicpro_app_gitlab,static/description/icon.png" sequence="300"/>
+</odoo>

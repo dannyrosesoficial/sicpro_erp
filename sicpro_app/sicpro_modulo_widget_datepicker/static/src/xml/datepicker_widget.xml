@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates>
+  <t t-name="FieldDateMultipleDate" owl="1">
+    <input type="text"
+           class="input_datepicker o-autocomplete--input o_input"
+           t-ref="inputdate"
+           t-on-click="(ev) => this._onSelectDateField(ev)"/>
+  </t>
+</templates>

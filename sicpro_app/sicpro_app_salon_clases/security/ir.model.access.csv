@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+salon_clases_etiquetas_base.user,Etiquetas base.user,model_sicpro_app_salon_clases_etiquetas,base.group_user,1,0,0,0
+salon_clases_temas_base.user,Temas base.user,model_sicpro_app_salon_clases_temas,base.group_user,1,0,0,0
+salon_clases_tipo_base.user,Tipo base.user,model_sicpro_app_salon_clases_tipo,base.group_user,1,0,0,0
+
+salon_clases_usuario,clases usuario,model_sicpro_app_salon_clases,grupo_app_salon_clases_usuario,1,0,0,0
+
+salon_clases_etiquetas_responsable,Etiquetas responsable,model_sicpro_app_salon_clases_etiquetas,grupo_app_salon_clases_responsable,1,1,1,0
+salon_clases_temas_responsable,Temas responsable,model_sicpro_app_salon_clases_temas,grupo_app_salon_clases_responsable,1,1,1,0
+salon_clases_tipo_responsable,Tipo responsable,model_sicpro_app_salon_clases_tipo,grupo_app_salon_clases_responsable,1,1,1,0
+
+salon_clases_etiquetas_admin,Etiquetas admin,model_sicpro_app_salon_clases_etiquetas,grupo_app_salon_clases_admin,1,1,1,1
+salon_clases_temas_admin,Temas admin,model_sicpro_app_salon_clases_temas,grupo_app_salon_clases_admin,1,1,1,1
+salon_clases_admin,Clases admin,model_sicpro_app_salon_clases,grupo_app_salon_clases_admin,1,1,1,1
+salon_clases_tipo_admin,tipo admin,model_sicpro_app_salon_clases_tipo,grupo_app_salon_clases_admin,1,1,1,1

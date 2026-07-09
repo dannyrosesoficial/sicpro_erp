@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+	<record id="informe_credencial_laptop_action" model="ir.actions.report">
+		<field name="name">Credencial Laptop</field>
+		<field name="model">sicpro.app.credenciales</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">sicpro_app_credenciales.informe_credencial_laptop</field>
+		<field name="report_file">sicpro_app_credenciales.informe_credencial_laptop</field>
+		<field name="print_report_name">'Credencial Laptop'</field>
+		<field name="binding_model_id" ref="model_sicpro_app_credenciales"/>
+		<field name="binding_type">report</field>
+	</record>
+
+
+	<template id="informe_credencial_laptop">
+		<!-- Página credencial laptop -->
+		<t t-call="web.html_container">
+			<div t-attf-class="article">
+				<div style="margin: auto; width: 990px;">
+					<t t-set="i" t-value="0"/>
+					<t t-foreach="docs" t-as="inf">
+						<t t-if="inf.tiene_laptop">
+							<t t-set="i" t-value="i+1"/>
+							<t t-call="sicpro_app_credenciales.credencial_laptop"/>
+							<t t-if="i == 3">
+								<t t-set="i" t-value="0"/>
+								<div style="page-break-after: always;"/>
+							</t>
+						</t>
+					</t> 
+				</div>
+			</div>
+		</t>
+	</template>
+
+	<template id="credencial_laptop">
+		<t t-if="i &lt;= 3">
+			<div style="position: relative; overflow: visible; width: 100%;">
+				<t t-set="bordes_recorte_back" t-value="' height: 325px; width: 480px; overflow: hidden; border: 2px dashed black; border-top: 0'"/>
+				<t t-if="i == 1">
+					<t t-set="bordes_recorte_back" t-value="'height: 325px; width: 480px; overflow: hidden; border: 2px dashed black'"/>
+				</t>
+				<div t-attf-style="{{ bordes_recorte_back }}">
+					<div style="height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px black;">
+						<div style="position: relative; margin: 190px auto auto auto; height: 30px; width: 425px; text-align: center;">
+							<p style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 105%">DIVISIÓN DE PROYECTO Y EJECUCIÓN DE OBRAS</p>
+						</div>
+					</div>
+				</div>
+				<t t-set="bordes_recorte_front" t-value="'position relative; margin: -325px auto auto 480px; height: 325px; width: 480px; overflow: hidden; border: 2px dashed black; border-top: 0; border-left: 0'"/>
+				<t t-if="i == 1">
+					<t t-set="bordes_recorte_front" t-value="'position relative; margin: -325px auto auto 480px; height: 325px; width: 480px; overflow: hidden; border: 2px dashed black; border-left: 0'"/>
+				</t>
+				<div t-attf-style="{{ bordes_recorte_front }}">
+					<div style="height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px darkblue; border-left: solid 75px darkblue;">
+						<div style="height: 60px; width: 290px; position: absolute; margin: auto; margin-left: -75px; text-align: center; -webkit-transform: rotate(270deg) translate(-100%); -webkit-transform-origin: left top">
+							<b><p style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 300% ; margin: 10px auto; color: white; font-weight: 900;;">MTCP</p></b>
+						</div>
+						<img src="/sicpro_app_credenciales/static/src/img/laptop-triangulo-izquierda.png" alt="Triángulo transparente" style=" width: 375px; height: 290px; position: absolute;"/>
+						<div style="position: relative; margin: 5px auto auto 120px; height: 65px; width: 230px; text-align: center;">
+							<img alt="Logo" src="sicpro_app_credenciales/static/src/img/etecsaId_300_8.png" width="230" height="65"/>
+						</div>
+						<div style="position: relative; margin: 25px auto auto 5px; height: 25px; width: 375px; text-align: center;">
+							<div style="width: 22%; text-align: left;"><h1 style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 900; font-size: 100%; position: relative; margin: 3% auto auto 0">Nombre:</h1></div>
+							<div style="position relative; margin: -25px auto auto 22%; width: 75%; text-align: left; height: 25px; line-height: 25px; background: white; overflow: hidden"><p style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 800; font-size: 90%; position: relative; margin: 0 auto auto 0" t-field="inf.name_corto"/></div>
+						</div>
+						<div style="position: relative; margin: 5px auto auto 5px; height: 25px; width: 375px; text-align: center;">
+							<div style="width: 22%; text-align: left;"><h1
+									style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 900; font-size: 100%; position: relative; margin: 3% auto auto 0"><b>
+								No. CI:</b></h1></div>
+							<t t-if="inf.personal_externo==True">
+								<div style="position relative; margin: -25px auto auto 22%; width: 30%; text-align: left; height: 25px; line-height: 25px; background: white; overflow: hidden"><p
+										style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 800; font-size: 95%; position: relative; margin: 0 auto auto 0"
+										t-field="inf.especial_identification_id"/></div>
+							</t>
+							<t t-else="">
+								<div style="position relative; margin: -25px auto auto 22%; width: 30%; text-align: left; height: 25px; line-height: 25px; background: white; overflow: hidden"><p
+										style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 800; font-size: 95%; position: relative; margin: 0 auto auto 0"
+										t-field="inf.identification_id"/></div>
+							</t>
+						</div>
+						<div style="position: relative; margin: 5px auto auto 5px; height: 25px; width: 375px; text-align: center;">
+							<div style="width: 22%; text-align: left;"><h1 style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 900; font-size: 90%; position: relative; margin: 3% auto auto 0"><b>No. Serie:</b></h1></div>
+							<div style="position relative; margin: -23px auto auto 22%; width: 40%; text-align: left; height: 25px; line-height: 25px; background: white; overflow: hidden"><p style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 800; font-size: 90%; position: relative; margin: 0 auto auto 0" t-field="inf.laptop_no_serie"/></div>
+						</div>
+						<div style="position: relative; margin: 5px auto auto 5px; height: 25px; width: 375px; text-align: center;">
+							<div style="width: 22%; text-align: left;"><h1 style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 900; font-size: 95%; position: relative; margin: 3% auto auto 0"><b>No. Inv:</b></h1></div>
+							<div style="position relative; margin: -25px auto auto 22%; width: 40%; text-align: left; height: 25px; line-height: 25px; background: white; overflow: hidden"><p style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 800; font-size: 95%; position: relative; margin: 0 auto auto 0" t-field="inf.laptop_no_inventario"/></div>
+						</div>
+						<div style="position: relative; margin: 5px auto auto 5px; height: 25px; width: 375px; text-align: center;">
+							<div style="width: 22%; text-align: left;"><h1 style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 900; font-size: 100%; position: relative; margin: 3% auto auto 0"><b>Folio:</b></h1></div>
+							<div style="position relative; margin: -25px auto auto 22%; width: 18%; text-align: left; height: 25px; line-height: 25px; background: white; overflow: hidden"><p style="font-family: Arial, 'Times New Roman', sans-serif; font-weight: 800; font-size: 95%; position: relative; margin: 0 auto auto 0" t-field="inf.laptop_no_folio"/></div>
+						</div>
+						<div style="position: relative; margin: 25px auto auto auto; height: 25px; width: 345px; border-top: 1px solid black; text-align: center;">
+							<p style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 65%; font-weight: 800">Director Central División de Proyecto y Ejecución De Obras</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</t>
+
+	</template>
+
+</odoo>

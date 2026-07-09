@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data>
+    <!-- MENU DE USUARIO -->
+    <menuitem
+        id="menu_internos_root" name="Servicios Internos"
+        web_icon="sicpro_app_servicios_internos,static/description/icon.png"
+        groups="grupo_app_internos_usuario" sequence="30"/>
+
+    <menuitem
+        id="menu_servicios_internos" name="Operaciones"
+        parent="menu_internos_root" sequence="2"/>
+    <menuitem
+        id="menu_servicios_internos_lineas" name="Gestión de Líneas" action="internos_lineas_views_actions"
+        parent="menu_servicios_internos" sequence="1"/>
+    <menuitem
+        id="menu_servicios_internos_fijos" name="Gestión de Fijos" action="internos_fijos_views_actions"
+        parent="menu_servicios_internos" sequence="2"/>
+    <menuitem
+        id="menu_servicios_internos_correos" name="Gestión de Correos" action="internos_correos_views_actions"
+        parent="menu_servicios_internos" sequence="3"/>
+    <menuitem
+        id="menu_servicios_internos_nauta" name="Gestión de Nauta" action="internos_nauta_views_actions"
+        parent="menu_servicios_internos" sequence="4"/>
+
+    <menuitem
+        id="menu_servicios_internos_solicitudes" name="Solicitudes"
+        parent="menu_internos_root" sequence="3"/>
+    <menuitem
+        id="menu_servicios_internos_solicitudes_anexo1" name="Solicitud de Anexo 1"
+        action="internos_solicitudes_anexo1_views_actions"
+        parent="menu_servicios_internos_solicitudes" sequence="1"/>
+    <menuitem
+        id="menu_servicios_internos_solicitudes_anexo2" name="Solicitud de Anexo 2"
+        action="internos_solicitudes_anexo2_views_actions"
+        parent="menu_servicios_internos_solicitudes" sequence="2"/>
+    <menuitem
+        id="menu_servicios_internos_solicitudes_compromiso" name="Compromiso Nauta"
+        action="internos_solicitudes_compromiso_views_actions"
+        parent="menu_servicios_internos_solicitudes" sequence="3"/>
+    <menuitem
+        id="menu_servicios_internos_solicitudes_planilla_unica" name="Planilla Única"
+        action="internos_solicitudes_planilla_unica_views_actions"
+        parent="menu_servicios_internos_solicitudes" sequence="4"/>
+
+    <menuitem
+        id="menu_servicios_internos_config" name="Configuración"
+        parent="menu_internos_root" sequence="4"/>
+    <menuitem
+        id="menu_servicios_internos_solicitudes_observaciones" name="Nomenclador de Observaciones"
+        action="internos_solicitudes_observaciones_views_actions"
+        parent="menu_servicios_internos_config" sequence="1"/>
+  </data>
+</odoo>

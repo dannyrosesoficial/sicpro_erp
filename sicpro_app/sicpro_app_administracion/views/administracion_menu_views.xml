@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <menuitem name="Administración" id="menu_administracion"
+            web_icon="sicpro_app_administracion,static/description/icon.png"
+            sequence="10" groups="grupo_app_administracion_admin"/>
+
+  <menuitem id="menu_tablero_administracion_accesos" name="Tablero de Gestión" parent="menu_administracion"
+            sequence="2" action="administracion_menu_accesos_dashboard_action"/>
+
+  <!--Menu donde se van a agrupar todos los menus administrativos-->
+  <menuitem id="menu_configuracion_administrador" name="Configuración" parent="menu_administracion" sequence="4"/>
+
+  <menuitem id="menu_accesos_administracion_accesos" name="Configurar accesos" sequence="1"
+            parent="menu_configuracion_administrador" action="administracion_menu_accesos_action"/>
+
+  <menuitem id="menu_administracion_1" action="sicpro_app_administracion_action"
+            name="Administración" parent="menu_configuracion_administrador" sequence="2"/>
+
+  <menuitem id="sicpro_otros_menu" name="Otros Menus" parent="menu_administracion_1" sequence="205"/>
+
+  <menuitem id="menu_administracion_3" name="Auditorías" parent="menu_configuracion_administrador" sequence="90"/>
+
+  <menuitem id="menu_administracion_4" name="Usuarios y Procesos" parent="menu_configuracion_administrador"
+            sequence="90"/>
+  <menuitem id="menu_administracion_usuarios" action="base.action_res_users" name="Usuarios"
+            parent="menu_administracion_4" sequence="1"/>
+  <menuitem id="menu_administracion_roles" name="Roles" parent="menu_administracion_4"
+            action="sicpro_modulo_roles.action_res_users_role_list" sequence="2"/>
+  <menuitem id="menu_administracion_grupos" action="base.action_res_groups"
+            name="Grupos" parent="menu_administracion_4" sequence="4"/>
+  <menuitem id="menu_administracion_procesos" action="base.action_res_company_form"
+            name="Gestión de procesos" parent="menu_administracion_4" sequence="5"/>
+
+  <menuitem id="base.menu_custom" name="Técnico" parent="menu_administracion" sequence="110"
+            groups="base.group_system"/>
+
+</odoo>

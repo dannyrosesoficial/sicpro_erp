@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <data>
+        <menuitem name="Copias de seguridad" id="backup_root_menu" sequence="10"
+                  parent="sicpro_app_administracion.menu_configuracion_administrador" groups="base.group_user"/>
+
+        <menuitem name="Proceso de copia de seguridad"  parent="backup_root_menu" sequence="1"
+                  action="sicpro_modulo_backup_server.sicpro_backup_local_action_view" id="menu_sicpro_backup_local"/>
+
+        <menuitem name="Servidores remotos" id="sicpro_backup_remote_server_menu" parent="backup_root_menu"
+                   action="sicpro_modulo_backup_server.sicpro_backup_remote_server_action_view" sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+
+  <menuitem id="menu_action_auditlog_rule_list" parent="sicpro_app_administracion.menu_administracion_3"
+            action="action_auditlog_rule_list" sequence="20"/>
+
+  <menuitem id="menu_audit_logs" parent="sicpro_app_administracion.menu_administracion_3"
+            action="action_auditlog_log_list" sequence="21"/>
+
+  <menuitem id="menu_action_auditlog_http_session_list" parent="sicpro_app_administracion.menu_administracion_3"
+            action="action_auditlog_http_session_list" sequence="22"/>
+
+  <menuitem id="menu_auditlog_line" parent="sicpro_app_administracion.menu_administracion_3"
+            action="action_auditlog_line" sequence="23"/>
+
+  <menuitem id="menu_action_auditlog_http_request_list" parent="sicpro_app_administracion.menu_administracion_3"
+            action="action_auditlog_http_request_list" sequence="24"/>
+</odoo>

@@ -1,0 +1,25 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+modulo_web_galeria_public,Galería public,model_sicpro_modulo_web_galeria,base.group_public,1,0,0,0
+modulo_web_equipo_public,Equipo public,model_sicpro_modulo_web_equipo,base.group_public,1,0,0,0
+modulo_web_manuales_public,Manuales public,model_sicpro_modulo_web_manuales,base.group_public,1,0,0,0
+modulo_web_trabajadores_public,trabajadores public,model_sicpro_modulo_web_trabajadores,base.group_public,1,0,0,0
+
+modulo_web_galeria_web,Galería Web,model_sicpro_modulo_web_galeria,base.group_user,1,0,0,0
+modulo_web_equipo_web,Equipo Web,model_sicpro_modulo_web_equipo,base.group_user,1,0,0,0
+modulo_web_manuales_web,Manuales Web,model_sicpro_modulo_web_manuales,base.group_user,1,0,0,0
+modulo_web_version_Web,Version Web,model_sicpro_modulo_web_version,base.group_user,1,0,0,0
+modulo_web_version_line_Web,Version line Web,model_sicpro_modulo_web_version_line,base.group_user,1,0,0,0
+modulo_web_evolucion_Web,evolucion Web,model_sicpro_modulo_web_evolucion,base.group_user,1,0,0,0
+modulo_web_faq_web,faq Web,model_sicpro_modulo_web_preguntas,base.group_user,1,0,0,0
+modulo_web_trabajadores_web,trabajadores Web,model_sicpro_modulo_web_trabajadores,base.group_user,1,0,0,0
+modulo_web_aviso_mantenimiento_web,aviso mantenimiento Web,model_sicpro_modulo_web_aviso_mantenimiento,base.group_user,1,0,0,0
+
+modulo_web_galeria_system,Galería System,model_sicpro_modulo_web_galeria,base.group_user,1,1,1,1
+modulo_web_equipo_system,Equipo System,model_sicpro_modulo_web_equipo,base.group_system,1,1,1,1
+modulo_web_manuales_system,Manuales System,model_sicpro_modulo_web_manuales,base.group_system,1,1,1,1
+modulo_web_version_system,Version System,model_sicpro_modulo_web_version,base.group_system,1,1,1,1
+modulo_web_version_line_system,Version line System,model_sicpro_modulo_web_version_line,base.group_system,1,1,1,1
+modulo_web_evolucion_system,evolucion System,model_sicpro_modulo_web_evolucion,base.group_system,1,1,1,1
+modulo_web_faq_system,faq System,model_sicpro_modulo_web_preguntas,base.group_system,1,1,1,1
+modulo_web_trabajadores_system,trabajadores system,model_sicpro_modulo_web_trabajadores,base.group_system,1,1,1,1
+modulo_web_aviso_mantenimiento_system,aviso mantenimiento system,model_sicpro_modulo_web_aviso_mantenimiento,base.group_system,1,1,1,1

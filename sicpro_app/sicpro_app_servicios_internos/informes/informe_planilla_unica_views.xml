@@ -1,0 +1,1796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="informe_servicios_internos_planilla_unica_action" model="ir.actions.report">
+    <field name="name">Planilla Única</field>
+    <field name="model">sicpro.app.servicios.internos.solicitudes</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">sicpro_app_servicios_internos.informe_servicios_internos_planilla_unica</field>
+    <field name="report_file">sicpro_app_servicios_internos.informe_servicios_internos_planilla_unica</field>
+    <field name="print_report_name">'Planilla Única'</field>
+  </record>
+
+  <template id="informe_servicios_internos_planilla_unica">
+    <!-- Página evaluación del proveedor -->
+    <t t-call="web.html_container">
+      <!-- sección del header -->
+      <div t-attf-class="header" t-att-style="report_header_style">
+        <div class="row">
+          <div class="col-3 mb4">
+            <img src="sicpro_app_servicios_internos/static/src/img/etecsaId_300_8.png"
+                 style="max-height: 55px;" alt="Logo"/>
+          </div>
+        </div>
+        <div class="row zero_min_height">
+          <div class="col-12">
+            <div style="border-bottom: 1px solid black;"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <small>División de Proyectos y Ejecución de Obras</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- sección de los datos -->
+      <div t-attf-class="article">
+        <!-- sección del page -->
+        <t t-foreach="docs" t-as="inf">
+
+          <table cellspacing="0" border="0">
+            <colgroup width="118"></colgroup>
+            <colgroup width="95"></colgroup>
+            <colgroup
+                width="104"></colgroup>
+            <colgroup width="140"></colgroup>
+            <colgroup width="132"></colgroup>
+            <colgroup width="93"></colgroup>
+            <colgroup width="105"></colgroup>
+            <tbody>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="7"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;MODELO DE SOLICITUD DE USUARIOS&quot;}"
+                    valign="middle" height="20" align="center" bgcolor="#FFFFFF">
+                  <b>
+                    <font
+                        face="Calibri">MODELO DE SOLICITUD DE USUARIOS
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Fecha de Solicitud:&quot;}"
+                    valign="middle" height="25" align="center" bgcolor="#FFFFFF">
+                  <b>
+                    <font
+                        face="Calibri">Fecha de Solicitud:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5" sdval="45783" sdnum="3082;0;DD/MM/AA"
+                    data-sheets-value="{ &quot;1&quot;: 3, &quot;3&quot;: 45783}"
+                    data-sheets-numberformat="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DD\/MM\/AA&quot;, &quot;3&quot;: 1}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <b>
+                    <font face="Calibri">
+                      <span t-field="inf.fecha_solicitud"/>
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <t t-set="tipo_movimiento" t-value="inf.tipo_movimiento"/>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Tipo de Movimiento&quot;}"
+                    valign="middle" height="45" align="center">
+                  <b>
+                    <font face="Calibri">Tipo
+                      de Movimiento
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Alta&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">Alta</font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font size="3">
+                      <t t-if="tipo_movimiento == 'alta'">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Modificación&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">Modificación</font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font size="3">
+                      <t t-if="tipo_movimiento == 'modificacion'">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Baja&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">Baja</font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font size="3">
+                      <t t-if="tipo_movimiento == 'baja'">X</t>
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="7"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Datos del solicitante: &quot;}"
+                    valign="middle" height="22" align="center">
+                  <b>
+                    <font face="Calibri">Datos
+                      del solicitante:
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Nombre y Apellidos:&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">Nombre
+                      y Apellidos:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Daniel Barrero&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span t-field="inf.solicitante_trabajador.name"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Cargo:&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">
+                      Cargo:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;admin sicpro&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span t-field="inf.solicitante_ocupacion_id.name"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Correo:&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">
+                      Correo:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;correo&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span
+                        t-field="inf.solicitante_correo"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unidad Organizativa:&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">Unidad
+                      Organizativa:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DVPE&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span t-field="inf.solicitante_area_id.name"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="7"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Datos del usuario solicitado:&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">Datos
+                      del usuario solicitado:
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Nombre y Apellidos:&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">Nombre
+                      y Apellidos:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;danny roses&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span
+                        t-field="inf.beneficiario_trabajador.name"/>
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;CI:&quot;}"
+                    valign="middle" align="left">
+                  <b>
+                    <font face="Calibri">CI:</font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;CI:&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span
+                        t-field="inf.beneficiario_CI"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Cargo:&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">
+                      Cargo:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;adimistrador sicpro&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span t-field="inf.beneficiario_ocupacion_id.name"/>
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;SAP:&quot;}"
+                    valign="middle" align="left">
+                  <b>
+                    <font face="Calibri">SAP:</font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;202365,32658,2&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span
+                        t-field="inf.beneficiario_sap"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Correo:&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">
+                      Correo:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;daniel.borrero#¡@etecsa&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span t-field="inf.beneficiario_correo"/>
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Telef:&quot;}"
+                    valign="middle" align="left">
+                  <b>
+                    <font face="Calibri">Telef:</font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" sdval="52183663" sdnum="3082;" valign="middle" align="left">
+                  <font
+                      face="Calibri">
+                    <span t-field="inf.telefono"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Dirección Territorial:&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">Dirección
+                      Territorial:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;habana&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">-</font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;IP:&quot;}"
+                    valign="middle" align="left">
+                  <b>
+                    <font face="Calibri">IP:</font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;192,168,24,36&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span
+                        t-field="inf.ip"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unidad Organizativa:&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">Unidad
+                      Organizativa:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DTHA&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">
+                    <span t-field="inf.beneficiario_area_id.name"/>
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Almacén SAP:&quot;}"
+                    valign="middle" align="left">
+                  <b>
+                    <font face="Calibri">Almacén SAP:</font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;mantilla&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">
+                    <span t-field="inf.almacen"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Dirección IP (PC):&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">Dirección
+                      IP (PC):
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left">
+                  <b>
+                    <font face="Calibri">
+                      <br></br>
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Observaciones:&quot;}"
+                    valign="middle" height="39" align="left">
+                  <b>
+                    <font face="Calibri">
+                      Observaciones:
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ob&quot;}"
+                    valign="top" align="left">
+                  <font face="Calibri">
+                    <span t-field="inf.observaciones"/>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="7"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Sistemas o aplicaciones  &quot;}"
+                    valign="middle" height="22" align="center">
+                  <b>
+                    <font face="Calibri">Sistemas
+                      o aplicaciones
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="7"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot; (Marcar con una X delante del nombre del sistema a solicitar)&quot;}"
+                    valign="middle" height="22" align="center">
+                  <font face="Calibri">
+                    (Marcar con una X delante del nombre del sistema a solicitar)
+                  </font>
+                </td>
+              </tr>
+
+
+              <tr>
+                <t t-set="app_OperCAT" t-value="inf.app_OperCAT"/>
+                <t t-set="app_ReportesSINBADPLUS" t-value="inf.app_ReportesSINBADPLUS"/>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_OperCAT == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Oper CAT&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">Oper
+                    CAT
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_ReportesSINBADPLUS == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Reportes SINBADPLUS&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">Reportes
+                    SINBADPLUS
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <t t-set="app_WebTransfer" t-value="inf.app_WebTransfer"/>
+                <t t-set="app_SINBADPLUS_GOS" t-value="inf.app_SINBADPLUS_GOS"/>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_WebTransfer == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;WebTransfer&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">
+                    WebTransfer
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_SINBADPLUS_GOS == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;SINBADPLUS\/GOS&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">
+                    SINBADPLUS/GOS
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <t t-set="app_Boulevard_MiTransfer" t-value="inf.app_Boulevard_MiTransfer"/>
+                <t t-set="app_COBROS" t-value="inf.app_COBROS"/>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_Boulevard_MiTransfer == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Boulevard MiTransfer&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">Boulevard
+                    MiTransfer
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_COBROS == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;COBROS&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">
+                    COBROS
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <t t-set="app_RUNA" t-value="inf.app_RUNA"/>
+                <t t-set="app_eCRM" t-value="inf.app_eCRM"/>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_RUNA == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;RUNA&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">RUNA</font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_eCRM == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;eCRM&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">eCRM</font>
+                </td>
+              </tr>
+              <tr>
+                <t t-set="app_KBS" t-value="inf.app_KBS"/>
+                <t t-set="app_Capa_servicios" t-value="inf.app_Capa_servicios"/>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_KBS == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;KBS&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">KBS</font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_Capa_servicios == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Capa de servicios&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">Capa
+                    de servicios
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <t t-set="app_SIGEN" t-value="inf.app_SIGEN"/>
+                <t t-set="app_SIGC" t-value="inf.app_SIGC"/>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_SIGEN == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;SIGEN&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">
+                    SIGEN
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_SIGC == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;SIGC&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">SIGC</font>
+                </td>
+              </tr>
+              <tr>
+                <t t-set="app_reclamaciones_SIGEN" t-value="inf.app_reclamaciones_SIGEN"/>
+                <t t-set="app_SADTEL" t-value="inf.app_SADTEL"/>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_reclamaciones_SIGEN == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Módulo de reclamaciones de SIGEN&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">Módulo
+                    de reclamaciones de SIGEN
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_SADTEL == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;SADTEL&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">
+                    SADTEL
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <t t-set="app_Avila_DocPro" t-value="inf.app_Avila_DocPro"/>
+                <t t-set="app_GESNAUTA" t-value="inf.app_GESNAUTA"/>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_Avila_DocPro == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Avila DocPro&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">Avila
+                    DocPro
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_GESNAUTA == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;GESNAUTA&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">
+                    GESNAUTA
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <t t-set="app_Nauta_interna" t-value="inf.app_Nauta_interna"/>
+                <t t-set="app_GESCOM" t-value="inf.app_GESCOM"/>
+                <t t-set="horas_nauta" t-value="inf.horas_nauta"/>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_Nauta_interna == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Nauta interna&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">Nauta
+                    interna
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;50H X  80H X&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">
+                    50H <t t-if="horas_nauta == '50'">X</t> 80H
+                    <t t-if="horas_nauta == '80'">
+                      X
+                    </t>
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">
+                      <t t-if="app_GESCOM == True">X</t>
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;GESCOM&quot;}"
+                    valign="middle" align="left" bgcolor="#FFFFFF">
+                  <font face="Calibri">
+                    GESCOM
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Roles&quot;}"
+                    valign="middle" height="21" align="center">
+                  <b>
+                    <font face="Calibri">
+                      Roles
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" rowspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Perfil&quot;}"
+                    valign="middle" align="center" bgcolor="#FFFFFF">
+                  <b>
+                    <font face="Calibri">
+                      Perfil
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot; (Marcar con una X delante del rol a solicitar)&quot;}"
+                    valign="middle" height="23" align="center">
+                  <font face="Calibri">
+                    (Marcar con una X delante del rol a solicitar)
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo de Punto de Venta Minipunto&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo de Punto
+                    de Venta Minipunto
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" rowspan="12"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivos y Técnicos&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">Ejecutivos y
+                      Técnicos
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo de Punto de Venta Masivo&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo de Punto
+                    de Venta Masivo
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo de Punto de Venta Empresas&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo de Punto
+                    de Venta Empresas
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo de Centro Atención Telefónica  (CAT)&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo de
+                    Centro Atención Telefónica (CAT)
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo de Centro de Coordinación de los Servicios&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo de
+                    Centro de Coordinación de los Servicios
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutiva de Taller de Reparaciones&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutiva de
+                    Taller de Reparaciones
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo de Área Especial&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo de Área
+                    Especial
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo Facturación (TI)&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo
+                    Facturación (TI)
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Técnico de Asistencia Técnica de Datos&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Técnico de
+                    Asistencia Técnica de Datos
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Técnico en Gestión Económica (TI)&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Técnico en Gestión
+                    Económica (TI)
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Técnico de Mesa de Ayuda de Plataformas&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Técnico de Mesa de
+                    Ayuda de Plataformas
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Técnico del Taller de Reparaciones&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Técnico del Taller
+                    de Reparaciones
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo Punto de Venta Masivo EP&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo Punto de
+                    Venta Masivo EP
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" rowspan="5"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefes de Brigada y Supervisores&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">Jefes de
+                      Brigada y Supervisores
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo de Facturación EP (TI)&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo de
+                    Facturación EP (TI)
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutivo Punto de Venta Empresas EP&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Ejecutivo Punto de
+                    Venta Empresas EP
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe de Brigada Taller de Reparaciones&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Jefe de Brigada
+                    Taller de Reparaciones
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Supervisor de Centro Atención Telefónica  (CAT)&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Supervisor de
+                    Centro Atención Telefónica (CAT)
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe de Oficina Comercial Masivo&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Jefe de Oficina
+                    Comercial Masivo
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" rowspan="6"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefes de Unidad&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">Jefes de
+                      Unidad
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe de Oficina Comercial Empresas&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Jefe de Oficina
+                    Comercial Empresas
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe de Centro de Coordinación de los Servicios&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Jefe de Centro de
+                    Coordinación de los Servicios
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe de Unidad de Facturación &quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Jefe de Unidad de
+                    Facturación
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe de Oficina Área Especial&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Jefe de Oficina
+                    Área Especial
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe de Taller de Reparaciones&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Jefe de Taller de
+                    Reparaciones
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Comercialización Masivo Territorial&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Comercialización Masivo Territorial
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" rowspan="8"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialistas Territoriales&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">Especialistas
+                      Territoriales
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Comercialización Corporativo  Territorial&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Comercialización Corporativo Territorial
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Soporte Comercial Territorial&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Soporte Comercial Territorial
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe de Taller de Reparaciones&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Jefe de Taller de
+                    Reparaciones
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista en Gestión Económica Territorial (TI)&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista en
+                    Gestión Económica Territorial (TI)
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista de Protección al Consumidor Territorial&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista de
+                    Protección al Consumidor Territorial
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista de Área Especial &quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista de
+                    Área Especial
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Antifraude Territorial&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Antifraude Territorial
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Comercialización Masivo Nacional&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Comercialización Masivo Nacional
+                  </font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" rowspan="11"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialistas Nacionales&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">Especialistas
+                      Nacionales
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Comercialización Corporativo&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Comercialización Corporativo
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista de Soporte a Plataformas &quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista de
+                    Soporte a Plataformas
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista en Gestión Económica Nacional&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista en
+                    Gestión Económica Nacional
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Soporte Comercial Nacional&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Soporte Comercial Nacional
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe de Taller de Reparaciones Nacional&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Jefe de Taller de
+                    Reparaciones Nacional
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista de Protección al Consumidor Nacional&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista de
+                    Protección al Consumidor Nacional
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Antifraude Nacional&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Antifraude Nacional
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Comercial Internacional&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Comercial Internacional
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Logística Comercial&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista
+                    Logística Comercial
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    valign="middle" height="19" align="center">
+                  <b>
+                    <font face="Calibri"></font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista Cobro&quot;}"
+                    valign="middle" align="left">
+                  <font face="Calibri">Especialista Cobro</font>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Aprobado por (Sólo para Soporte Comercial del territorio)&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">Aprobado
+                      por (Solo para Soporte Comercial del territorio)
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Firma digital:&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">Firma
+                      digital:
+                    </font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Nombre:&quot;}"
+                    height="19" align="left">
+                  <font face="Calibri">Nombre:</font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left">
+                  <br></br>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" rowspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left">
+                  <br></br>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Cargo:&quot;}"
+                    height="19" align="left">
+                  <font face="Calibri">Cargo:</font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left">
+                  <br></br>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Fecha:&quot;}"
+                    height="19" align="left">
+                  <font face="Calibri">Fecha:</font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left">
+                  <br></br>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="5"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Ejecutado por (Sólo para el área rectora que ejecuta)&quot;}"
+                    valign="middle" height="19" align="left">
+                  <b>
+                    <font face="Calibri">Ejecutado
+                      por (Sólo para el área rectora que ejecuta)
+                    </font>
+                  </b>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ID Ticket:&quot;}"
+                    valign="middle" align="center">
+                  <b>
+                    <font face="Calibri">ID Ticket:</font>
+                  </b>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Nombre:&quot;}"
+                    height="19" align="left">
+                  <font face="Calibri">Nombre:</font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left">
+                  <br></br>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" rowspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left">
+                  <br></br>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Cargo:&quot;}"
+                    height="19" align="left">
+                  <font face="Calibri">Cargo:</font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left">
+                  <br></br>
+                </td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Fecha:&quot;}"
+                    height="19" align="left">
+                  <font face="Calibri">Fecha:</font>
+                </td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left">
+                  <br></br>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </t>
+        <t t-call="web.address_layout"/>
+      </div>
+      <t t-out="0"/>
+
+      <!-- sección del footer -->
+      <div t-attf-class="footer o_standard_footer">
+        <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+          Cuba.
+        </span>
+        <div style="border-top: 1px solid black;">
+          <ul class="list-inline mb4">
+            <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+              <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu
+            </span>
+            <br/>
+            <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+              Justicia de la República de Cuba.
+              Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.
+            </span>
+          </ul>
+          <div t-if="report_type == 'pdf'" class="text-center text-muted">
+            Página:
+            <span class="page"/>
+            /
+            <span class="topage"/>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+</odoo>

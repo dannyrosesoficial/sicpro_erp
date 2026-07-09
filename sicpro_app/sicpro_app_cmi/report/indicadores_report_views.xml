@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_informes_indicadores_pivot" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.indicadores.graficos.pivot</field>
+    <field name="model">sicpro.app.cmi.indicadores.graficos</field>
+    <field name="arch" type="xml">
+      <pivot string="Análisis de los Contratos" display_quantity="true"
+             disable_linking="false" sample="1">
+        <field name="name" type="row"/>
+        <field name="mes" type="row"/>
+      </pivot>
+    </field>
+  </record>
+
+  <record id="view_informes_indicadores_graph" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.indicadores.graficos.graph</field>
+    <field name="model">sicpro.app.cmi.indicadores.graficos</field>
+    <field name="arch" type="xml">
+      <graph string="Análisis de los Contratos" stacked="0" type="bar" sample="1" disable_linking="true">
+        <field name="name" type="row"/>
+        <field name="valor" type="measure" operator="+"/>
+        <field name="tipo" type="col" string="Tipo"/>
+      </graph>
+    </field>
+  </record>
+
+  <record id="view_informes_indicadores_informes_search" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.indicadores.graficos.informes.search</field>
+    <field name="model">sicpro.app.cmi.indicadores.graficos</field>
+    <field name="arch" type="xml">
+      <search string="Indicador">
+        <field name="mes"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="action_informes_indicadores_informes_graph" model="ir.actions.act_window">
+    <field name="name">Análisis de los Indicadores</field>
+    <field name="res_model">sicpro.app.cmi.indicadores.graficos</field>
+    <field name="view_mode">graph</field>
+    <field name="search_view_id" ref="view_informes_indicadores_informes_search"/>
+    <field name="view_id" ref="view_informes_indicadores_graph"/>
+  </record>
+
+  <record id="action_informes_indicadores_informes_pivot" model="ir.actions.act_window">
+    <field name="name">Análisis de los Indicadores</field>
+    <field name="res_model">sicpro.app.cmi.indicadores.graficos</field>
+    <field name="view_mode">pivot</field>
+    <field name="search_view_id" ref="view_informes_indicadores_informes_search"/>
+    <field name="view_id" ref="view_informes_indicadores_pivot"/>
+  </record>
+</odoo>

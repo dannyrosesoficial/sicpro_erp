@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="transferencias_gastos_cj74_wizard_view" model="ir.ui.view">
+    <field name="name">sicpro.app.transferencias.gastos.cj74.wizard.form</field>
+    <field name="model">sicpro.app.transferencias.gastos.cj74.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Transferir Gastos">
+        <div class="col-lg-12 font-weight-bold">
+          Transferir CJ74 a Economía
+        </div>
+        <group string="Cuentas del Mes que serán enviados a revisión económica.">
+          <field name="anio"/>
+          <field name="mes_ids" widget="many2many_tags"
+                 options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        </group>
+        <div class="alert alert-danger text-center" role="alert" style="margin-bottom:0px;">
+          <strong>ATENCIÓN: </strong> Solo se puede enviar un mes a la vez.
+        </div>
+        <footer>
+          <button name="enviar_cj74_gastos" string="Enviar" type="object" class="btn-primary"/>
+          <button string="Cancelar" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="transferencias_gastos_cj74_wizard_action" model="ir.actions.act_window">
+    <field name="name">Revisión Económica de los Gastos</field>
+    <field name="res_model">sicpro.app.transferencias.gastos.cj74.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+</odoo>

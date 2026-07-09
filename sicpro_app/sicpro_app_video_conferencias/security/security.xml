@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data>
+    <record model="ir.rule" id="sicpro_app_video_conferencias_rule">
+      <field name="name">VideoConferencias</field>
+      <field name="model_id" ref="sicpro_app_video_conferencias.model_sicpro_app_videoconferencias"/>
+      <field name="domain_force">[('participants', 'in', user.id)]</field>
+      <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+      <field name="perm_read" eval="True"/>
+      <field name="perm_create" eval="True"/>
+      <field name="perm_unlink" eval="True"/>
+      <field name="perm_write" eval="True"/>
+    </record>
+  </data>
+</odoo>
+

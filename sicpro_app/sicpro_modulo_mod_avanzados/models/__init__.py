@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#    PROYECTO: SICPRO ERP
+#    AUTOR: Daniel Barrero Reyes (Danny Rose's)
+#    CONTACTO: daniel.borrero@etecsa.cu
+#    Copyright (C) 2020-2026 SICPRO ERP.
+#    Todos los derechos reservados.
+##############################################################################
+
+from . import res_config_settings
+from . import ir_module_module
+from . import ir_model_fields
+from . import web_environment_ribbon_backend
+from . import ir_http
+from . import ir_module_addons_path

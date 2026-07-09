@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data>
+    <record id="sicpro_modulo_usuario_desactivar_roles_form" model="ir.ui.view">
+      <field name="name">sicpro.modulo.usuario.desactivar.form</field>
+      <field name="model">res.users.role</field>
+      <field name="inherit_id" ref="sicpro_modulo_roles.view_res_users_role_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//group[@name='code']" position="inside">
+          <field name="tipo_desactivar"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

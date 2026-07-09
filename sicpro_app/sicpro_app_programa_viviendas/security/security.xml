@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <data>
+    <!-- Creo los privilegios de permisos programa de la vivienda sindicato-->
+    <record id="privilege_vivienda_sindicato" model="res.groups.privilege">
+      <field name="name">Sindicato</field>
+      <field name="sequence">1</field>
+      <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_programa_vivienda"/>
+    </record>
+    <record id="grupo_app_vivienda_secretario" model="res.groups">
+      <field name="name">Secretario sindical</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_vivienda_sindicato"/>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+
+    <!-- Creo los privilegios de permisos programa de la vivienda operaciones-->
+    <record id="privilege_vivienda_operaciones" model="res.groups.privilege">
+      <field name="name">Operaciones</field>
+      <field name="sequence">2</field>
+      <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_programa_vivienda"/>
+    </record>
+    <record id="grupo_app_vivienda_visualizar" model="res.groups">
+      <field name="name">Usuario</field>
+      <field name="comment">Permisos de lectura</field>
+      <field name="privilege_id" ref="privilege_vivienda_operaciones"/>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="grupo_app_vivienda_secretario_general" model="res.groups">
+      <field name="name">Secretario general</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_vivienda_operaciones"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_vivienda_visualizar'))]"/>
+    </record>
+    <record id="grupo_app_vivienda_validar" model="res.groups">
+      <field name="name">Validar solicitud</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_vivienda_operaciones"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_vivienda_secretario_general'))]"/>
+    </record>
+    <record id="grupo_app_vivienda_logistica" model="res.groups">
+      <field name="name">Logística</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_vivienda_operaciones"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_vivienda_validar'))]"/>
+    </record>
+    <record id="grupo_app_vivienda_economia" model="res.groups">
+      <field name="name">Economía</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_vivienda_operaciones"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_vivienda_logistica'))]"/>
+    </record>
+    <record id="grupo_app_vivienda_responsable" model="res.groups">
+      <field name="name">Responsable</field>
+      <field name="comment">Permisos de lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_vivienda_operaciones"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_vivienda_economia'))]"/>
+    </record>
+    <record id="grupo_app_vivienda_admin" model="res.groups">
+      <field name="name">Administrador</field>
+      <field name="comment">Permisos de lectura/Escritura/Eliminación</field>
+      <field name="privilege_id" ref="privilege_vivienda_operaciones"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_vivienda_responsable'))]"/>
+    </record>
+  </data>
+
+  <data>
+    <!-- Regla de permisos para los secretarios sindicales -->
+    <record id="vivienda_trabajador_secretarios_vivienda_rule" model="ir.rule">
+      <field name="name">Regla de usuarios para secretarios sindicales</field>
+      <field name="model_id" ref="model_sicpro_app_vivienda_trabajador"/>
+      <field name="domain_force">[('seccion_sindical', '=', user.trabajador.seccion_sindical_id.id)]</field>
+      <field name="groups" eval="[(4, ref('grupo_app_vivienda_secretario'))]"/>
+    </record>
+
+    <!-- Regla de permisos de los usuarios que visualizan -->
+    <record id="vivienda_trabajador_visualizar_vivienda_rule" model="ir.rule">
+      <field name="name">Regla de usuarios para visualizar todos los trabajadores</field>
+      <field name="model_id" ref="model_sicpro_app_vivienda_trabajador"/>
+      <field name="domain_force">[(1, '=', 1)]</field>
+      <field name="groups" eval="[(4, ref('grupo_app_vivienda_visualizar'))]"/>
+    </record>
+
+    <record id="vivienda_trabajador_validar_trabajadores_rule" model="ir.rule">
+      <field name="name">Regla de usuarios que ver todos los trabajadores</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores"/>
+      <field name="domain_force">[(1, '=', 1)]</field>
+      <field name="groups" eval="[(4, ref('grupo_app_vivienda_validar'))]"/>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <!-- Tipos de actividades config -->
+  <record id="mail_activity_type_action_config_maintenance" model="ir.actions.act_window">
+    <field name="name">Tipos de Actividad</field>
+    <field name="res_model">mail.activity.type</field>
+    <field name="view_mode">list,form</field>
+    <field name="domain">['|', ('res_model', '=', False), ('res_model', '=', 'maintenance.request')]</field>
+    <field name="context">{'default_res_model': 'maintenance.request'}</field>
+  </record>
+</odoo>

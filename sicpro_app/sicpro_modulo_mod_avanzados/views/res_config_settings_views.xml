@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="app_res_config_settings_view_form" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.inherit.sicpro_cloud</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//app[@name='general_settings']" position="before">
+        <app name="sicpro_cloud" data-string="Opciones avanzadas" string="Opciones avanzadas" data-key="sicpro_cloud"
+             logo="/sicpro_modulo_mod_avanzados/static/src/img/SICPROERP.png" groups="base.group_erp_manager">
+          <div id="app_odooai_banner"
+               class="row app_settings_header my-0 ms-0 mw-100 bg-warning bg-opacity-25">
+            <div class="col-lg-12 col-md-12 ms-0 o_setting_box">
+              <div class="o_setting_right_pane border-start-0 ms-0 ps-0">
+                <div class="content-group">
+                  <div class="row mt8">
+                    <label class="h2 bg-warning text-white" for="app_system_name"/>
+                    <field name="app_system_name"/>
+                    <div name="app_odooai_link">
+                      <a href="https://sicproerp.dvpe.etecsa.cu" target="_blank">Visite la web
+                        para màs información. https://sicproerp.dvpe.etecsa.cu
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2>UI Config</h2>
+          <div class="row mt16 o_settings_container" name="app_ui_config">
+            <group string="Navigator">
+              <group>
+                <field name="app_navbar_pos_pc"/>
+              </group>
+              <group>
+                <field name="app_navbar_pos_mobile"/>
+              </group>
+            </group>
+            <group string="User Menu">
+              <group>
+                <field name="app_show_lang"/>
+                <field name="app_show_debug"/>
+                <field name="app_show_documentation"/>
+                <field name="app_show_support"/>
+                <field name="app_show_account"/>
+              </group>
+              <group>
+                <field name="app_show_enterprise"/>
+                <field name="app_show_share"/>
+                <field name="app_show_poweredby"/>
+                <field name="group_show_author_in_apps"/>
+                <field name="app_show_odoo_referral"/>
+              </group>
+            </group>
+            <group string="User Menu Content">
+              <label for="app_documentation_url"/>
+              <div>
+                <field name="app_documentation_url"/>
+              </div>
+              <label for="app_documentation_dev_url"/>
+              <div>
+                <field name="app_documentation_dev_url"/>
+              </div>
+              <label for="app_support_url"/>
+              <div>
+                <field name="app_support_url"/>
+              </div>
+              <label for="app_account_title"/>
+              <div>
+                <field name="app_account_title"/>
+              </div>
+              <label for="app_account_url"/>
+              <div>
+                <field name="app_account_url"/>
+              </div>
+              <label for="app_ribbon_name"/>
+              <div>
+                <field name="app_ribbon_name"/>
+                <div>
+                  <span>Configura en Falso para ocultar</span>
+                </div>
+              </div>
+            </group>
+          </div>
+        </app>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="action_odooai_cloud_config" model="ir.actions.act_window">
+    <field name="name">SICPRO ERP</field>
+    <field name="res_model">res.config.settings</field>
+    <field name="view_mode">form</field>
+    <field name="context">{'module': 'sicpro_modulo_mod_avanzados', 'bin_size': False}</field>
+  </record>
+</odoo>

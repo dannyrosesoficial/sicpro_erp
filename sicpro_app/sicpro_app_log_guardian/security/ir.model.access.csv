@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_log_source_user,log.source.user,model_sicpro_log_source,group_log_guardian_user,1,0,0,0
+access_log_record_user,log.record.user,model_sicpro_log_record,group_log_guardian_user,1,1,0,0
+
+access_log_source_admin,log.source.admin,model_sicpro_log_source,group_log_guardian_admin,1,1,1,1
+access_log_severity_admin,log.severity.admin,model_sicpro_log_severity,group_log_guardian_admin,1,1,1,1
+access_log_anomaly_admin,log.anomaly.admin,model_sicpro_log_anomaly_rule,group_log_guardian_admin,1,1,1,1
+access_log_tag_admin,log.tag.admin,model_sicpro_log_tag,group_log_guardian_admin,1,1,1,1
+access_log_record_admin,log.record.admin,model_sicpro_log_record,group_log_guardian_admin,1,1,1,1

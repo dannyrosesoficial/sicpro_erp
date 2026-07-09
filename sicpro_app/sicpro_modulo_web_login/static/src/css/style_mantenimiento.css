@@ -1,0 +1,280 @@
+/**
+ * SICPRO Maintenance Styles
+ * Developer: Danny Rose's 🌹
+ */
+
+:root {
+    --primary: #714B67;
+    --accent: #ff4a17;
+    --bg: #050810;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --neon-blue: #3b82f6;
+    --success: #10b981;
+}
+
+/* --- Base Layout --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg);
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#canvas-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: radial-gradient(circle at center, #161b22 0%, #050810 100%);
+}
+
+.main-wrapper {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 850px;
+    width: 90%;
+    text-align: center;
+}
+
+/* --- UI Elements --- */
+.upgrade-badge {
+    background: rgba(255, 74, 23, 0.1);
+    color: var(--accent);
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 74, 23, 0.3);
+    display: inline-block;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px rgba(255, 74, 23, 0.15);
+    animation: slideUp 0.8s ease-out forwards, pulse-border 2s infinite;
+}
+
+.hero-title {
+    font-size: clamp(3.5rem, 12vw, 6.3rem);
+    font-weight: 900;
+    margin: 0;
+    line-height: 0.8;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    animation: slideUp 1s ease-out forwards;
+}
+
+.hero-title span {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+}
+
+.hero-title b {
+    display: block;
+    background: linear-gradient(to bottom, #fff, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glitch 4s infinite alternate;
+}
+
+.description {
+    margin-top: 25px;
+    font-size: 1.1rem;
+    color: #94a3b8;
+    animation: slideUp 1s ease-out 0.3s forwards;
+    opacity: 0;
+    line-height: 1.6;
+}
+
+/* --- Status Cards --- */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+    width: 100%;
+    animation: slideUp 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.data-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 25px 15px;
+    border-radius: 24px;
+    transition: all 0.4s;
+}
+
+.data-card:hover {
+    border-color: var(--accent);
+    background: rgba(255, 74, 23, 0.05);
+    transform: translateY(-8px);
+}
+
+.data-card i {
+    color: var(--accent);
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.data-label {
+    font-family: 'JetBrains Mono';
+    font-size: 0.65rem;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.data-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* --- Footer --- */
+.footer {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    animation: slideUp 1s ease-out 0.9s forwards;
+    opacity: 0;
+}
+
+.footer span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+}
+
+.footer i {
+    margin-right: 8px;
+    color: var(--primary);
+}
+
+.tag-active {
+    color: var(--success) !important;
+    animation: pulse-active 2s infinite;
+}
+
+/* --- Admin Access & Modals --- */
+.admin-backdoor {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: rgba(255, 74, 23, 0.05);
+    border: 1px solid rgba(255, 74, 23, 0.1);
+    opacity: 0.8;
+}
+
+.admin-backdoor:hover {
+    opacity: 1;
+    background: rgba(255, 74, 23, 0.15);
+    box-shadow: 0 0 20px rgba(255, 74, 23, 0.2);
+    transform: scale(1.05);
+}
+
+.sicpro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 8, 16, 0.95);
+    backdrop-filter: blur(20px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.sicpro-modal {
+    background: #11141d;
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid var(--primary);
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.sicpro-modal input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #333;
+    color: white;
+    outline: none;
+}
+
+.btn-sicpro-go {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* --- Animations --- */
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0px rgba(255, 74, 23, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(255, 74, 23, 0.4); }
+    100% { box-shadow: 0 0 0px rgba(255, 74, 23, 0.2); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0px); }
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 0 0 var(--accent), -2px 0 0 var(--neon-blue); }
+    25% { text-shadow: -2px 0 0 var(--accent), 2px 0 0 var(--neon-blue); }
+    100% { text-shadow: 2px 0 0 var(--accent), -2px 0 0 var(--neon-blue); }
+}
+
+@keyframes pulse-active {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .status-grid { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; gap: 10px; }
+}

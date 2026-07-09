@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="cmi_perspectivas_periodo_views_kanban" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.perspectivas.periodos.kanban</field>
+    <field name="model">sicpro.app.cmi.perspectivas.periodos</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_mobile" create="false" sample="1">
+        <field name="id"/>
+        <field name="name"/>
+        <field name="color"/>
+        <field name="anio_temp"/>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+              <div class="o_kanban_image_fill_left o_kanban_image_full"
+                   t-attf-style="background-image: url(#{'/web/image/sicpro.app.cmi.perspectivas.periodos/' + record.id.raw_value + '/image_128'})"
+                   role="img"/>
+
+              <div class="oe_kanban_details d-flex flex-column">
+                <t t-set="title_class" t-value="'text-success'"/> <t t-if="record.name.value == 'Anual'">
+                <t t-set="title_class" t-value="'text-danger'"/>
+              </t>
+                <t t-elif="['Primer Semestre', 'Segundo Semestre'].includes(record.name.value)">
+                  <t t-set="title_class" t-value="'text-warning'"/>
+                </t>
+                <t t-elif="record.name.value.includes('Trimestre')">
+                  <t t-set="title_class" t-value="'text-primary'"/>
+                </t>
+
+                <strong t-attf-class="o_kanban_record_title fw-bold #{title_class}" style="font-size: 1.3rem;">
+                  <field name="name"/>
+                </strong>
+
+                <div class="mt-1">
+                  <strong class="text-dark fw-bold" style="font-size: 1.1rem;">
+                    Año: <field name="anio_temp"/>
+                  </strong>
+                </div>
+
+                <div class="o_kanban_record_bottom mt-auto pt-2">
+                  <div class="oe_kanban_bottom_left">
+                    <button class="btn btn-primary btn-sm" name="action_objetivos_anuales" type="object">
+                      Ver Período
+                    </button>
+                  </div>
+                  <div class="oe_kanban_bottom_right">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="cmi_perspectivas_periodo_dashboard_action" model="ir.actions.act_window">
+    <field name="name">Tablero de Períodos</field>
+    <field name="res_model">sicpro.app.cmi.perspectivas.periodos</field>
+    <field name="view_mode">kanban</field>
+    <field name="view_id" ref="cmi_perspectivas_periodo_views_kanban"/>
+  </record>
+
+  <record id="cmi_perspectivas_periodo_views_list" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.perspectivas.periodos.list</field>
+    <field name="model">sicpro.app.cmi.perspectivas.periodos</field>
+    <field name="arch" type="xml">
+      <list string="Periodos" editable="bottom">
+        <field name="active" widget="boolean_toggle"/>
+        <field name="name" readonly="1"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="cmi_perspectivas_periodo_list_action" model="ir.actions.act_window">
+    <field name="name">Filtros de Períodos</field>
+    <field name="res_model">sicpro.app.cmi.perspectivas.periodos</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="cmi_perspectivas_periodo_views_list"/>
+  </record>
+
+  <record id="cmi_perspectivas_periodo_filter" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.perspectivas.periodos.filter</field>
+    <field name="model">sicpro.app.cmi.perspectivas.periodos</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Periodos">
+        <field name="name"/>
+        <separator/>
+        <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        <separator/>
+      </search>
+    </field>
+  </record>
+</odoo>

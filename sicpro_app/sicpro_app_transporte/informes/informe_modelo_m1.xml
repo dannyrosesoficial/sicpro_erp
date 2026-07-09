@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="informe_modelo_m1" model="ir.actions.report">
+    <field name="name">Modelo M1</field>
+    <field name="model">sicpro.app.transporte.piquera</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">sicpro_app_transporte.informe_piquera_modelo_m1</field>
+    <field name="report_file">sicpro_app_transporte.informe_piquera_modelo_m1</field>
+    <field name="print_report_name">'Modelo M1'</field>
+    <field name="binding_model_id" ref="sicpro_app_transporte.model_sicpro_app_transporte_piquera"/>
+    <field name="binding_type">report</field>
+  </record>
+
+  <template id="informe_piquera_modelo_m1">
+    <t t-call="web.html_container">
+      <div t-attf-class="article">
+        <div style="margin: auto; height: 100px; width: 1000px">
+          <t t-foreach="docs" t-as="inf">
+            <t t-call="sicpro_app_transporte.modelo_m1"/>
+          </t>
+        </div>
+      </div>
+    </t>
+  </template>
+
+  <template id="modelo_m1">
+    <div class="modelo_m1">
+      <div>
+        <div class="text-centered m1"><span class="text-centered">MODELO M-1</span></div>
+        <div class="text-centered solicitud"><span>SOLICITUD DE TRANSPORTACIÓN LOCAL DVPE</span></div>
+        <h6 class="text-left unidad-solicitante">UNIDAD ORGANIZATIVA SOLICITANTE: <span
+            t-field="inf.solicitante"></span></h6>
+      </div>
+      <table>
+        <tbody>
+          <tr class="header">
+            <th>FECHA DEL SERVICIO</th>
+            <th>CANTIDAD DE PERSONAS</th>
+            <th>LUGAR DE SALIDA</th>
+            <th>HORA DE SALIDA</th>
+            <th class="long">LUGAR DE DESTINO</th>
+            <th>HORA DE REGRESO</th>
+            <th>CONTACTO</th>
+            <th class="long">OBSERVACIONES</th>
+          </tr>
+          <tr>
+            <td><span t-field="inf.fecha_servicio"/></td>
+            <td><span t-field="inf.cantidad_personas"/></td>
+            <td><span t-field="inf.salida"/></td>
+            <td><span t-field="inf.hora_salida" t-options="{'widget': 'float_time'}"/></td>
+            <td class="long"><span t-field="inf.destino"/></td>
+            <td><span t-field="inf.hora_regreso" t-options="{'widget': 'float_time'}"/></td>
+            <td><span t-field="inf.movil"/></td>
+            <td class="long"><span t-field="inf.observaciones"/></td>
+          </tr>
+          <tr>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="long empty"></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="long empty"></td>
+          </tr>
+          <tr>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="long empty"></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="long empty"></td>
+          </tr>
+          <tr>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="long empty"></td>
+            <td class="empty"></td>
+            <td class="empty"></td>
+            <td class="long empty"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="container-text container-left">
+        <div class="text-left wide first-margin">
+          <p>Persona Autorizada</p>
+        </div>
+        <div class="line-over text-left wide margin">
+          <p>Nombre y Apellidos</p>
+        </div>
+        <div class="line-over text-left wide margin">
+          <p>Cargo</p>
+        </div>
+        <div class="line-over text-left wide margin">
+          <p>Firma</p>
+        </div>
+        <div class="wide margin">
+          <p>Fecha:</p>
+          <div class="line-under text-left half-wide to-right"></div>
+        </div>
+      </div>
+
+      <div class="container-text container-right">
+        <div class="text-left wide first-margin">
+          <p>Solicitado Por</p>
+        </div>
+        <div class="line-over text-left wide margin">
+          <p>Nombre y Apellidos</p>
+        </div>
+        <div class="line-over text-left wide margin">
+          <p>Cargo</p>
+        </div>
+        <div class="line-over text-left wide margin">
+          <p>Firma</p>
+        </div>
+        <div class="wide margin">
+          <p>Fecha:</p>
+          <div class="line-under text-left half-wide to-right"></div>
+        </div>
+      </div>
+    </div>
+  </template>
+</odoo>

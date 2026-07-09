@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <record id="view_db_audit_log_list" model="ir.ui.view">
+        <field name="name">sicpro.app.db.audit.log.list</field>
+        <field name="model">sicpro.app.db.audit.log</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0" decoration-info="field_name != False">
+                <field name="change_date"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="model_name"/>
+                <field name="res_id"/>
+                <field name="field_name"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_db_audit_log_search" model="ir.ui.view">
+        <field name="name">sicpro.app.db.audit.log.search</field>
+        <field name="model">sicpro.app.db.audit.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="user_id"/>
+                <field name="model_name"/>
+                <field name="field_name"/>
+                <group>
+                    <filter string="Usuario" name="group_user" context="{'group_by':'user_id'}"/>
+                    <filter string="Tabla" name="group_model" context="{'group_by':'model_name'}"/>
+                    <filter string="Fecha" name="group_date" context="{'group_by':'change_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_report_db_audit" model="ir.actions.act_window">
+        <field name="name">Auditoría de DB Master</field>
+        <field name="res_model">sicpro.app.db.audit.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

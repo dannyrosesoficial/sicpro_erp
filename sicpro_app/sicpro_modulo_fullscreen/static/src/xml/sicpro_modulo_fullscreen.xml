@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+
+    <t t-name="odoo_fullscreen_mode.Fullscreen">
+        <div class="d-flex align-items-center">
+            <button t-if="!state.isFullscreen"
+                    class="o-dropdown dropdown-toggle mx-1"
+                    t-att-title="'Expandir Pantalla'"
+                    t-on-click="toggleFullscreen">
+                <i class="fa fa-expand" title="Expandir Pantalla" aria-label="Expandir Pantalla"/>
+            </button>
+
+          <button t-else=""
+                  class="o-dropdown dropdown-toggle mx-1"
+                  t-att-title="'Minimizar Pantalla'"
+                  t-on-click="toggleFullscreen">
+                <i class="fa fa-compress" title="Minimizar Pantalla" aria-label="Minimizar Pantalla"/>
+            </button>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <menuitem id="menu_desactivar_usuarios" name="Configuración para desactivar usuarios" sequence="6"
+            parent="sicpro_app_administracion.menu_administracion_4" action="desactivar_usuario_action"
+            groups="base.group_system"/>
+</odoo>

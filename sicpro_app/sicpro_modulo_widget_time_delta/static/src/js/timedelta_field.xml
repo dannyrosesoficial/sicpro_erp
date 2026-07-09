@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates id="template" xml:space="preserve">
+    <t t-name="sicpro_modulo_widget_time_delta.FieldTimeDelta" owl="1">
+
+        <div t-ref="el">
+            <span t-if="props.readonly" t-esc="formattedValue"/>
+          <input
+              t-else=""
+              t-att-id="props.id"
+              t-ref="timeDecimal"
+              t-att-value="value"
+              class="timedelta"
+              autocomplete="off"/>
+        </div>
+	</t>
+</templates>

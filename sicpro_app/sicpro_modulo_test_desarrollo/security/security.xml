@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+
+    <!-- Creo los privilegios de acceso al >Test de Desarrollo -->
+    <record id="privilege_test_desarrollo" model="res.groups.privilege">
+      <field name="name">Tests de Desarrollo</field>
+      <field name="sequence">3</field>
+      <field name="category_id" ref="base.module_category_master_data"/>
+    </record>
+
+    <record id="grupo_test_desarrollo" model="res.groups">
+      <field name="name">Activar Test</field>
+      <field name="comment">Permisos Completos</field>
+      <field name="privilege_id" ref="privilege_test_desarrollo"/>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+  </data>
+</odoo>

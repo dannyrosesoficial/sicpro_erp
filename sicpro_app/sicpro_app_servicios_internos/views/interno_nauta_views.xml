@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_internos_nauta_filtro" model="ir.ui.view">
+    <field name="name">sicpro.app.servicios.internos.nauta.filtro</field>
+    <field name="model">sicpro.app.servicios.internos.nauta</field>
+    <field name="arch" type="xml">
+      <search string="Cuentas Nauta">
+        <field name="name"/>
+        <field name="horas"/>
+        <field name="fecha_entregada"/>
+        <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        <separator/>
+        <group>
+          <separator/>
+          <filter string="Fecha de entrega" name="fecha_entregada"
+                  context="{'group_by':'fecha_entregada'}"/>
+          <filter string="Proceso" name="company_id" context="{'group_by':'company_id'}"/>
+          <filter string="Departamentos" name="area_id" context="{'group_by':'area_id'}"/>
+          <filter string="Puestos de Trabajo" name="ocupacion_id" context="{'group_by':'ocupacion_id'}"/>
+        </group>
+        <searchpanel>
+          <field name="company_id" enable_counters="1" expand="1" icon="fa-building"/>
+          <field name="area_id" enable_counters="1" icon="fa-map-marker"/>
+          <field name="ocupacion_id" enable_counters="1" icon="fa-users"/>
+        </searchpanel>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_internos_nauta_form" model="ir.ui.view">
+    <field name="name">sicpro.app.servicios.internos.nauta.form</field>
+    <field name="model">sicpro.app.servicios.internos.nauta</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+        </header>
+        <field name="active" invisible="1"/>
+        <sheet>
+          <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                  invisible="active"/>
+          <div class="oe_title">
+            <h1 class="d-flex">
+              <field name="name" placeholder="Nombre del trabajador"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </h1>
+            <h2>
+              <field name="identification_id"/>
+            </h2>
+          </div>
+          <group>
+            <group>
+              <field name="usuario_nauta"/>
+              <label for="horas"/>
+              <div>
+                <field name="horas" class="oe_inline"/>
+                <span class="font-weight-bold" style="width:142px;"> Horas</span>
+              </div>
+            </group>
+            <group>
+              <field name="fecha_entregada"/>
+              <field name="compromiso"/>
+            </group>
+          </group>
+          <group>
+            <group>
+              <field name="plaza_id"/>
+              <field name="correo_trabajo" widget="email"/>
+              <field name="inicio_contrato"/>
+              <field name="clase_contrato"/>
+            </group>
+            <group>
+              <field name="company_id"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="area_id"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="ocupacion_id" domain="[('area_id', '=', area_id)]"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="parent_id" required="0"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </group>
+          </group>
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_internos_nauta_list" model="ir.ui.view">
+    <field name="name">sicpro.app.servicios.internos.nauta.list</field>
+    <field name="model">sicpro.app.servicios.internos.nauta</field>
+    <field name="arch" type="xml">
+      <list string="Cuentas Nauta">
+        <field name="plaza_id"/>
+        <field name="name"/>
+        <field name="ocupacion_id"/>
+        <field name="area_id"/>
+        <field name="company_id"/>
+        <field name="fecha_entregada"/>
+        <field name="horas"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="internos_nauta_views_actions" model="ir.actions.act_window">
+    <field name="name">Gestión de Cuentas Nauta</field>
+    <field name="res_model">sicpro.app.servicios.internos.nauta</field>
+    <field name="view_mode">list,form</field>
+    <field name="search_view_id" ref="view_internos_nauta_filtro"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Agregar un nuevo registro nauta
+      </p>
+    </field>
+  </record>
+</odoo>

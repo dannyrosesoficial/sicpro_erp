@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+administacion_iconos_usuario,Iconos usuario,model_sicpro_nomenclador_iconos,base.group_user,1,0,0,0
+administacion_iconos_admin,Iconos admin,model_sicpro_nomenclador_iconos,sicpro_modulo_nomencladores.grupo_sicpro_nomencladores_admin,1,1,1,1
+

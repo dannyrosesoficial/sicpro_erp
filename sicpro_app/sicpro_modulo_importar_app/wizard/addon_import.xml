@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="module_integration_wizard_view" model="ir.ui.view">
+    <field name="name">addon.import.wizard.form</field>
+    <field name="model">addon.import.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Asistente de integración de módulos">
+        <sheet>
+          <group>
+            <field name="module_file"/>
+            <field name="path" widget="radio" invisible="no_addons_path" options="{'horizontal': True}"/>
+            <field name="no_addons_path" invisible="1"/>
+            <field name="custom_addons_path" invisible="not no_addons_path"
+                   placeholder="e.g. /opt/odoo/sicproerpo/sicpro_app"/>
+            <field name="overwrite_existing_module"/>
+          </group>
+        </sheet>
+        <footer>
+          <button string="Cancelar" class="btn btn-secondary" special="cancel" help="Cancelar eliminación"/>
+          <button string="Confirmar" name="confirm_integration" type="object" class="oe_highlight"
+                  data-hotkey="q" help="Confirmar integración"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="module_integration_wizard" model="ir.actions.act_window">
+    <field name="name">Integración del módulo</field>
+    <field name="res_model">addon.import.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+    <field name="view_id" ref="module_integration_wizard_view"/>
+  </record>
+</odoo>

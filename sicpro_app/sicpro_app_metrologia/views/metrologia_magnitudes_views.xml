@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="metrologia_magnitudes_view_list" model="ir.ui.view">
+    <field name="name">metrologia.magnitudes.list</field>
+    <field name="model">sicpro.app.metrologia.magnitud</field>
+    <field name="arch" type="xml">
+      <list string="Magnitudes" editable="bottom">
+        <field name="name"/>
+        <field name="magnitud_corta"/>
+        <field name="active" column_invisible="1"/>
+        <field name="vigencia"/>
+        <field name="dias"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="metrologia_magnitudes_view_search" model="ir.ui.view">
+    <field name="name">metrologia.magnitudes.search</field>
+    <field name="model">sicpro.app.metrologia.magnitud</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field string="Magnitud" name="name"/>
+        <filter string="Archivado" domain="[('active', '=', False)]" name="active"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="metrologia_magnitudes_action" model="ir.actions.act_window">
+    <field name="name">Magnitudes</field>
+    <field name="res_model">sicpro.app.metrologia.magnitud</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="metrologia_magnitudes_view_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Agregar magnitudes para el control de los equipos
+      </p>
+    </field>
+  </record>
+</odoo>

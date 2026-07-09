@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="cmi_indicadores_view_list" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.indicadores.list</field>
+    <field name="model">sicpro.app.cmi.indicadores</field>
+    <field name="arch" type="xml">
+      <list string="Indicadores">
+        <field name="name"/>
+        <field name="activity_ids" widget="list_activity"/>
+        <field name="porciento_avance_barra" string="% Barra 1" widget="progressbar"/>
+        <field name="detalles" string="Detalles"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="cmi_indicadores_view_filter" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.indicadores.filter</field>
+    <field name="model">sicpro.app.cmi.indicadores</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Indicadores">
+        <field name="name"/>
+        <field name="anio"/>
+        <field name="id" invisible="1"/>
+        <field name="obj_anuales_id" invisible="1"/>
+        <separator/>
+        <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        <separator/>
+      </search>
+    </field>
+  </record>
+
+  <record id="cmi_indicadores_view_form" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.indicadores.form</field>
+    <field name="model">sicpro.app.cmi.indicadores</field>
+    <field name="arch" type="xml">
+      <form string="Indicadores">
+        <header>
+          <button name="crear_sub_indicadores" string="Activar el indicador para comenzar la gestión"
+                  type="object"
+                  invisible="activador_visible == False"
+                  groups="sicpro_app_cmi.grupo_app_cmi_responsable,sicpro_app_cmi.grupo_app_cmi_admin"/>
+
+          <button name="%(solicitar_cambios_indicadores_modal_action)d" string="Solicitar Cambios"
+                  type="action" class="oe_highlight" context="{'default_id': id}"
+                  invisible="indicadores_visible == False"
+                  groups="sicpro_app_cmi.grupo_app_cmi_ejecutor,sicpro_app_cmi.grupo_app_cmi_responsable,sicpro_app_cmi.grupo_app_cmi_admin"/>
+        </header>
+        <sheet>
+          <div class="oe_title">
+            <field name="anio" invisible="1"/>
+            <field name="grupo_responsable" invisible="1"/>
+            <field name="grupo_read_only" invisible="1"/>
+            <field name="diferencia_acumulado" invisible="1"/>
+            <field name="real_acumulado" invisible="1"/>
+            <field name="meta_acumulado" invisible="1"/>
+            <field name="obj_anuales_id" invisible="1"/>
+            <field name="active" invisible="1"/>
+            <field name="indicadores_visible" invisible="1"/>
+            <field name="activador_visible" invisible="1"/>
+            <field name="seguridad_responsable" invisible="1"/>
+            <h1>
+              <field name="name" placeholder="Seleccione el título del indicador"
+                     readonly="grupo_responsable != True"/>
+            </h1>
+          </div>
+          <group>
+            <field name="detalles" string="Detalles del Indicador"
+                   readonly="grupo_responsable != True"/>
+          </group>
+          <group>
+            <group>
+              <field name="user_id" string="Creado por:" widget="many2one_avatar_user" readonly="1"/>
+              <field name="responsable_follower" invisible="1"/>
+              <label for="responsable_id" string="Responsable"/>
+              <div class="o_row no-gutters d-flex">
+                <field name="responsable_id"
+                       readonly="seguridad_responsable == True or grupo_responsable != True"
+                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                       widget="many2one_avatar_user"/>
+                <button class="btn-danger oe_edit_only text-white" type="object" name="unsubscribe_responsable"
+                        icon="fa-warning" title="Cambiar el responsable del indicador"
+                        invisible="indicadores_visible == False or grupo_responsable != True"/>
+              </div>
+              <field name="condicion_presupuesto" widget="boolean_toggle"
+                     readonly="grupo_responsable != True"/>
+            </group>
+            <group>
+              <div class="col-12" invisible="indicadores_visible == False">
+                <div class="o_row no-gutters d-flex">
+                  <field name="porciento_avance_barra" string="-" widget="percentpie"/>
+                  <span class='font-weight-bold'>GRAFICAR</span>
+                  <button class="btn-default text-primary" type="object"
+                          name="grafica_indicadores_ids_graph" context="{'default_id': id}"
+                          icon="fa-area-chart" title="Vista de Gráfico"/>
+                  <button class="btn-default text-primary" type="object"
+                          name="grafica_indicadores_ids_pivot" context="{'default_id': id}"
+                          icon="fa-arrows-alt" title="Vista de Pivot"/>
+                </div>
+              </div>
+            </group>
+          </group>
+          <group>
+            <field name="comentario" string="Comentarios del Indicador"
+                   readonly="grupo_responsable != True"/>
+          </group>
+
+          <notebook invisible="indicadores_visible == False">
+            <page name="indicadores" string="Comportamiento Mensual">
+              <group>
+                <div class="col-12">
+                  <field name="indicadores_ids" mode="list" nolabel="1"
+                         readonly="grupo_read_only == False"
+                         invisible="condicion_presupuesto == True">
+                    <list limit="12" create="false" edit="true" delete="false" sample="1">
+                      <field name="indicador_id" column_invisible="1"/>
+                      <field name="grupo_responsable" column_invisible="1"/>
+                      <field name="condicion_presupuesto" column_invisible="1"/>
+                      <field name="name" column_invisible="1"/>
+                      <field name="mes" readonly="1" class="font-weight-bold"/>
+                      <field name="real" sum="1"/>
+                      <field name="meta" sum="1"
+                             readonly="grupo_responsable != True"/>
+                      <field name="diferencia" class="font-weight-bold"
+                             decoration-danger="diferencia &lt; 0"
+                             decoration-success="diferencia &gt;= 0"/>
+                      <field name="porciento" class="font-weight-bold" widget="percentage"
+                             readonly="1"/>
+                      <field name="comentario"/>
+                      <field name="incumplido" column_invisible="True"/>
+                    </list>
+                    <form string="Indicadores">
+                      <group>
+                        <group string=" Valor Real">
+                          <field name="real" sum="1"/>
+                        </group>
+                        <group string=" Valor Meta">
+                          <field name="meta" sum="1"/>
+                        </group>
+                      </group>
+                    </form>
+                  </field>
+                  <field name="indicadores_ids_2" mode="list" nolabel="1"
+                         readonly="grupo_read_only == False"
+                         invisible="condicion_presupuesto != True">
+                    <list limit="12" create="false" edit="true" delete="false" sample="1">
+                      <field name="indicador_id" column_invisible="1"/>
+                      <field name="grupo_responsable" column_invisible="1"/>
+                      <field name="condicion_presupuesto" column_invisible="1"/>
+                      <field name="name" column_invisible="1"/>
+                      <field name="mes" readonly="1" class="font-weight-bold"/>
+                      <field name="real"/>
+                      <field name="meta" sum="1"
+                             readonly="grupo_responsable != True"/>
+                      <field name="diferencia" class="font-weight-bold"
+                             decoration-success="diferencia &lt; 0"
+                             decoration-danger="diferencia &gt;= 0"/>
+                      <field name="porciento" class="font-weight-bold" widget="percentage" readonly="1"/>
+                      <field name="comentario"/>
+                      <field name="incumplido" column_invisible="True"/>
+                    </list>
+                    <form string="Indicadores">
+                      <group>
+                        <group string=" Valor Real">
+                          <field name="real" sum="1"/>
+                        </group>
+                        <group string=" Valor Meta">
+                          <field name="meta" sum="1"/>
+                        </group>
+                      </group>
+                    </form>
+                  </field>
+                </div>
+              </group>
+              <group>
+                <div class="col-12"/>
+                <div class="d-flex">
+                  <div class="flex-grow-1 pr-5"><strong>Avance: </strong></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Ene</strong><field name="porciento_enero"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Feb</strong><field name="porciento_febrero"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Mar</strong><field name="porciento_marzo"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Abr</strong><field name="porciento_abril"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>May</strong><field name="porciento_mayo"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Jun</strong><field name="porciento_junio"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Jul</strong><field name="porciento_julio"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Ago</strong><field name="porciento_agosto"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Sep</strong><field name="porciento_septiembre"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Oct</strong><field name="porciento_octubre"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Nov</strong><field name="porciento_noviembre"
+                                                                                       widget="percentage"/></div>
+                  <div class="flex-grow-1 pr-5 text-center"><strong>Dic</strong><field name="porciento_diciembre"
+                                                                                       widget="percentage"/></div>
+                </div>
+              </group>
+            </page>
+            <page name="acciones" string="Acciones">
+              <group>
+                <div class="row">
+                  <div class="col-lg-10 d-flex">
+                    <field name="acciones_ids" mode="list" nolabel="1"
+                           context="{'default_anio': anio, 'default_indicador_id': id,}"
+                           readonly="grupo_read_only != True">
+                      <list editable="bottom" sample="1">
+                        <field name="indicador_id" column_invisible="1"/>
+                        <field name="estado_terminado" column_invisible="1"/>
+                        <field name="grupo_responsable" column_invisible="1"/>
+                        <field name="anio" column_invisible="1"/>
+                        <field name="user_id" column_invisible="1"/>
+                        <field name="seguir" string="Seguir" widget="boolean_toggle"
+                               readonly="grupo_responsable != True"/>
+                        <field name="responsable_id"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="name"/>
+                        <field name="fecha_inicio" string="Inicio"/>
+                        <field name="fecha_fin" string="Cumplimiento"/>
+                        <field name="controla_id"/>
+                        <field name="modo_control" optional="hide"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="participantes_ids" widget="many2many_tags" optional="hide"
+                               options="{'color_field': 'color', 'no_create_edit': True}"/>
+                        <field name="estado_id" class="font-weight-bold"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                      </list>
+                    </field>
+                  </div>
+                </div>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="cmi_indicadores_views_kanban" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.indicadores.kanban</field>
+    <field name="model">sicpro.app.cmi.indicadores</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_mobile" create="true" sample="1">
+        <field name="name"/>
+        <field name="color"/>
+        <field name="user_id"/>
+        <field name="porciento_avance_barra"/>
+        <field name="diferencia_acumulado"/>
+        <field name="condicion_presupuesto"/>
+        <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+              <div class="o_kanban_record_top mb16">
+                <div class="o_kanban_record_headings mt4">
+                  <i class="fa fa-bullhorn text-warning me-2" title="Indicador"/>
+                  <span class="fw-bold text-dark" t-att-title="record.name.value">
+                    <field name="name"/>
+                  </span>
+                </div>
+
+                <div class="o_kanban_record_subtitle">
+                  <t t-if="!record.condicion_presupuesto.raw_value">
+                    <i t-if="record.diferencia_acumulado.raw_value &lt; 0" class="fa fa-chevron-down text-danger"
+                       title="Atención"/>
+                    <i t-if="record.diferencia_acumulado.raw_value &gt; 0" class="fa fa-chevron-up text-success"
+                       title="Correcto"/>
+                    <i t-if="record.diferencia_acumulado.raw_value == 0" class="fa fa-exchange text-info"
+                       title="Cuidado"/>
+                  </t>
+                  <t t-if="record.condicion_presupuesto.raw_value">
+                    <i t-if="record.diferencia_acumulado.raw_value &lt; 0" class="fa fa-chevron-down text-success"
+                       title="Correcto"/>
+                    <i t-if="record.diferencia_acumulado.raw_value &gt; 0" class="fa fa-chevron-up text-danger"
+                       title="Atención"/>
+                    <i t-if="record.diferencia_acumulado.raw_value == 0" class="fa fa-exchange text-danger"
+                       title="Cuidado"/>
+                  </t>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center fw-bold my-2">
+                <div class="progress flex-grow-1" style="height: 10px;">
+                  <t t-set="bar_class" t-value="'bg-success'"/>
+
+                  <t t-if="!record.condicion_presupuesto.raw_value">
+                    <t t-if="record.diferencia_acumulado.raw_value &lt; 0" t-set="bar_class" t-value="'bg-danger'"/>
+                  </t>
+                  <t t-if="record.condicion_presupuesto.raw_value">
+                    <t t-if="record.diferencia_acumulado.raw_value &gt; 0" t-set="bar_class" t-value="'bg-danger'"/>
+                  </t>
+
+                  <div t-attf-class="progress-bar #{bar_class}"
+                       role="progressbar"
+                       t-attf-style="width: #{record.porciento_avance_barra.raw_value}%"
+                       t-att-aria-valuenow="record.porciento_avance_barra.raw_value"
+                       aria-valuemin="0"
+                       aria-valuemax="100">
+                  </div>
+                </div>
+                <span class="text-dark ms-2">
+                  <t t-esc="Math.round(record.porciento_avance_barra.raw_value)"/>%
+                </span>
+              </div>
+
+              <div class="o_kanban_record_bottom mt-2">
+                <div class="oe_kanban_bottom_left">
+                  <div class="d-flex text-muted small">
+                    <span class="me-1">R:</span>
+                    <field name="real_acumulado_kanban" class="fw-bold text-dark me-2"/>
+                    <span class="me-1">M:</span>
+                    <field name="meta_acumulado_kanban" class="fw-bold text-dark"/>
+                  </div>
+                </div>
+                <div class="oe_kanban_bottom_right d-flex align-items-center">
+                  <field name="activity_ids" widget="kanban_activity"/>
+                  <field name="responsable_id" widget="many2one_avatar_user" class="ms-2"/>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="cmi_indicadores_dashboard_action" model="ir.actions.act_window">
+    <field name="name">Tablero de Indicadores</field>
+    <field name="res_model">sicpro.app.cmi.indicadores</field>
+    <field name="view_mode">kanban,list,form</field>
+    <field name="search_view_id" ref="cmi_indicadores_view_filter"/>
+    <field name="view_id" ref="cmi_indicadores_views_kanban"/>
+    <field name="context">{'search_default_filtro_anual': 1, 'default_filtro_anual': 1}</field>
+    <field name="domain">[('obj_anuales_id', '=', active_id)]</field>
+  </record>
+
+  <record id="call_cmi_indicadores_dashboard_action" model="ir.actions.act_window">
+    <field name="name">Tablero de Indicadores</field>
+    <field name="res_model">sicpro.app.cmi.indicadores</field>
+    <field name="view_mode">kanban,list,form</field>
+    <field name="search_view_id" ref="cmi_indicadores_view_filter"/>
+    <field name="view_id" ref="cmi_indicadores_views_kanban"/>
+  </record>
+
+  <record id="call_form_cmi_indicadores_dashboard_action" model="ir.actions.act_window">
+    <field name="name">Tablero de Indicadores</field>
+    <field name="res_model">sicpro.app.cmi.indicadores</field>
+    <field name="view_mode">form</field>
+    <field name="search_view_id" ref="cmi_indicadores_view_filter"/>
+    <field name="view_id" ref="cmi_indicadores_view_form"/>
+  </record>
+</odoo>

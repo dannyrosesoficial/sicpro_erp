@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_calendario_event_form_inherit" model="ir.ui.view">
+    <field name="name">calendar.event.form</field>
+    <field name="model">calendar.event</field>
+    <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//field[@name='name']" position="replace">
+        <field name="name" placeholder="por ejemplo, Reunión de trabajo"/>
+        <group>
+          <div class="col-sm-12"><h5>
+            <field name="actividades_organizativas"
+                   placeholder="Seleccione las actividades organizativas…" class='oe_edit_only'
+                   options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+          </h5></div>
+        </group>
+      </xpath>
+
+      <xpath expr="//div[hasclass('d-flex') and hasclass('align-items-baseline')]" position="before">
+        <field name="tipo_dvpe" invisible="1"/>
+        <field name="participantes_ids" widget="many2manyattendee" placeholder="Seleccione los cargos…"
+               context="{'force_email':True}" class="oe_inline o_calendar_attendees"
+               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+               invisible="not tipo_dvpe" required="tipo_dvpe"/>
+
+      </xpath>
+
+      <xpath expr="//field[@name='partner_ids']" position="attributes">
+        <attribute name="options">{'no_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
+      </xpath>
+      <xpath expr="//field[@name='partner_ids']" position="after">
+        <div class="sm-2">
+          <button name="action_enviar_actualizacion_evento" type="object" string=" NOTIFICAR CAMBIOS "
+                  help="Enviar actualización del evento a los participantes." icon="fa-envelope"/>
+        </div>
+        <div>
+          <label for="prioridad"/>
+          <field name="prioridad" widget="priority" nolabel="0"
+                 help="La prioridad se ajusta automáticamente en dependencia del tipo de plan de impresión."/>
+        </div>
+      </xpath>
+
+      <xpath expr="//div[@name='send_buttons']" position="attributes">
+        <attribute name="string"> ENVIAR CORREO </attribute>
+        <attribute name="invisible">1</attribute>
+      </xpath>
+
+
+      <xpath expr="//field[@name='location']" position="replace">
+        <field name="tipo_ubicacion" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+
+        <field name="location" invisible="tipo_ubicacion != 'otro'"
+               required="tipo_dvpe and tipo_ubicacion == 'otro'"/>
+
+        <field name="ubicacion" invisible="tipo_ubicacion == 'otro'"
+               required="tipo_ubicacion != 'otro'"
+               domain="[('tipo','=',tipo_ubicacion)]"
+               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+      </xpath>
+
+      <xpath expr="//field[@name='categ_ids']" position="replace">
+        <field name="tipo"
+               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="tipo_tarea"
+               invisible="not tipo_dvpe" required="tipo_dvpe"/>
+      </xpath>
+
+      <xpath expr="//field[@name='user_id']" position="after">
+        <field name="dirige" widget="many2manyattendee" placeholder="Seleccionar quien dirigen…"
+               invisible="tipo_ubicacion == 'externo'"
+               context="{'force_email':True}" class="oe_inline o_calendar_attendees"
+               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+
+        <field name="dirige_externos" widget="many2many_tags" placeholder="Seleccionar quien dirigen…"
+               string="Dirige" invisible="tipo_ubicacion != 'externo'"
+               class="oe_inline o_calendar_attendees"
+               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+      </xpath>
+
+      <xpath expr="//field[@name='description']" position="before">
+        <field name="categ_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+      </xpath>
+
+      <xpath expr="//page[@name='page_invitations']" position="attributes">
+        <attribute name="groups">base.group_user</attribute>
+      </xpath>
+
+      <xpath expr="//page[@name='page_invitations']" position="after">
+        <page name="cumplimiento" string="Cumplimiento">
+          <group>
+            <group string="Cumplimiento">
+              <field name="cumplimiento_tarea" string="Estado" widget="radio" options="{'horizontal': true}"/>
+              <field name="incumplimiento_causa" string="Causa"
+                     invisible="cumplimiento_tarea != 'incumplida'" required="cumplimiento_tarea == 'incumplida'"/>
+            </group>
+            <group string="Modificación">
+              <field name="modificacion_tarea" widget="boolean_toggle"/>
+              <field name="modificacion_usuario" widget="many2manyattendee" placeholder="Modificaron la tarea…"
+                     invisible="not modificacion_tarea" required="modificacion_tarea"
+                     context="{'force_email':True}" class="oe_inline o_calendar_attendees"
+                     options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </group>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_calendario_event_list_inherit" model="ir.ui.view">
+    <field name="name">calendar.event.list</field>
+    <field name="model">calendar.event</field>
+    <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//list" position="attributes">
+        <attribute name="default_order">start desc</attribute>
+      </xpath>
+      <xpath expr="//field[@name='stop']" position="after">
+        <field name="prioridad" widget="priority"/>
+      </xpath>
+      <xpath expr="//field[@name='location']" position="replace">
+        <field name="ubicacion"/>
+        <field name="location" string="Otra Ubicación"/>
+      </xpath>
+      <xpath expr="//field[@name='partner_ids']" position="after">
+        <field name="participantes_ids" string="Plan DVPE" widget="many2many_tags"
+               readonly="recurrency" optional="show"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_calendario_event_calendar_inherit" model="ir.ui.view">
+    <field name="name">calendar.event.calendar</field>
+    <field name="model">calendar.event</field>
+    <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+    <field name="arch" type="xml">
+      <xpath expr="//calendar" position="attributes">
+        <attribute name="mode">month</attribute>
+      </xpath>
+
+      <xpath expr="//field[@name='partner_ids']" position="replace">
+        <field name="partner_ids" options="{'block': True, 'icon': 'fa fa-users'}"
+                       filters="1" widget="many2manyattendeeexpandable" write_model="calendar.filters"
+                       write_field="partner_id" filter_field="partner_checked" avatar_field="avatar_128"/>
+
+        <field name="tipo_dvpe" invisible="1"/>
+        <field name="prioridad" invisible="0" widget="priority"/>
+        <field name="tipo" invisible="not tipo_dvpe"/>
+        <field name="participantes_ids" options="{'block': True, 'icon': 'fa fa-users'}"
+               widget="many2manyattendee" invisible="not tipo_dvpe"/>
+      </xpath>
+
+      <xpath expr="//field[@name='location']" position="replace">
+        <field name="tipo_ubicacion" invisible="1"/>
+        <field name="ubicacion" invisible="tipo_ubicacion == 'otro'"/>
+        <field name="location" invisible="tipo_ubicacion != 'otro'"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

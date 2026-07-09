@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <template id="favicon_icon" inherit_id="web.layout" name="Web layout">
+    <xpath expr="//head/link[@rel='shortcut icon']" position="attributes">
+      <attribute name="t-att-href">
+        env['res.company'].sudo()._get_favicon() or '/sicpro_modulo_tema_favicon/static/src/img/favicon.png'
+      </attribute>
+    </xpath>
+  </template>
+</odoo>

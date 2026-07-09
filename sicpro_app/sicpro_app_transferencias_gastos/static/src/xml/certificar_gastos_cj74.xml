@@ -1,0 +1,19 @@
+<templates xml:space="preserve">
+
+    <t t-name="sicpro_app_transferencias_certificar" t-inherit="web.ListView" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o_list_button_add')]" position="before">
+            <t t-if="props.resModel === 'sicpro.app.transferencias.gastos'">
+                <button type="button"
+                        class="btn btn-success ms-1"
+                        t-on-click="_onCertificar_cj74">
+                    <i class="fa fa-check-square-o me-1"/> Certificar
+                </button>
+            </t>
+        </xpath>
+
+        <xpath expr="//button[hasclass('o_list_button_add')]" position="attributes">
+            <attribute name="t-if">props.resModel !== 'sicpro.app.transferencias.gastos'</attribute>
+        </xpath>
+    </t>
+
+</templates>

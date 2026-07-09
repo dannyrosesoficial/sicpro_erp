@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record model="ir.ui.view" id="el_module_integration_module_view_kanban_apps_inherit">
+    <field name="name">Apps Kanban Data Modules</field>
+    <field name="model">ir.module.module</field>
+    <field name="inherit_id" ref="base.module_view_kanban"/>
+    <field name="arch" type="xml">
+      <field name="application" position="after">
+        <field name="is_uploaded"/>
+      </field>
+
+      <xpath expr="//t[@t-name='menu']" position="inside">
+        <t t-set="uploaded" t-value="record.is_uploaded.raw_value"/>
+        <a t-if="uploaded" name="install_python_required_packages" type="object" role="menuitem"
+           class="dropdown-item" groups="base.group_system"> Instalar paquetes
+        </a>
+      </xpath>
+
+      <xpath expr="//footer" position="inside">
+        <button name="remove_from_the_addons_directory" type="object" class="btn btn-sm btn-outline-danger ms-auto"
+                groups="base.group_system" confirm="¿Quiere eliminar este módulo del directorio de módulos?"
+                invisible="state not in ('uninstalled', 'uninstallable') or not is_uploaded" title="Eliminar del disco">
+          <i class="fa fa-trash"/>
+        </button>
+      </xpath>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="el_module_integration_view_module_filter_apps_inherit">
+    <field name="name">Search Data Modules</field>
+    <field name="model">ir.module.module</field>
+    <field name="inherit_id" ref="base.view_module_filter"/>
+    <field name="arch" type="xml">
+      <filter name="not_installed" position="after">
+        <filter name="is_uploaded" string="Subido Manualmente" domain="[('is_uploaded', '=', True)]"/>
+      </filter>
+    </field>
+  </record>
+
+  <menuitem id="menu_view_sicpro_module_import" name="Importar Aplicación SICPRO" groups="base.group_no_one"
+            action="module_integration_wizard" parent="base.menu_management" sequence="110"/>
+
+</odoo>

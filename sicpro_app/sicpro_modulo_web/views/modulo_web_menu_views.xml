@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <menuitem id="modulo_web_menu" name="Configuración WebSite"
+            parent="sicpro_app_administracion.menu_configuracion_administrador" sequence="4"/>
+
+  <menuitem id="modulo_web_galeria_menu" name="Galería Web" action="web_galeria_action"
+            parent="sicpro_modulo_web.modulo_web_menu" sequence="2"/>
+
+  <menuitem id="modulo_web_preguntas_menu" name="Preguntas frecuentes" action="web_preguntas_action"
+            parent="sicpro_modulo_web.modulo_web_menu" sequence="3"/>
+
+  <menuitem id="modulo_web_equipo_menu" name="Equipo de Trabajo" action="web_equipo_action"
+            parent="sicpro_modulo_web.modulo_web_menu" sequence="4"/>
+
+  <menuitem id="modulo_web_manuales_menu" name="Manuales del sistema" action="web_manuales_action"
+            parent="sicpro_modulo_web.modulo_web_menu" sequence="5"/>
+
+  <menuitem id="modulo_web_trabajadores_menu" name="Principales Contactos" action="web_trabajadores_action"
+            parent="sicpro_modulo_web.modulo_web_menu" sequence="6"/>
+
+  <menuitem id="menu_sicpro_version_sub" name="Log de Versiones" parent="sicpro_modulo_web.modulo_web_menu"
+            sequence="12" action="action_sicpro_version"/>
+
+  <menuitem id="menu_sicpro_evolution" name="Evolución"
+            parent="sicpro_modulo_web.modulo_web_menu" action="action_sicpro_web_evolucion" sequence="13"/>
+
+  <menuitem id="menu_sicpro_aviso_mantenimiento" name="Aviso de Mantenimiento"
+            parent="sicpro_modulo_web.modulo_web_menu" action="action_aviso_mantenimiento" sequence="100"/>
+
+</odoo>

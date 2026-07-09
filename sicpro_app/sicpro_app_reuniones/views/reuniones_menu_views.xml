@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data>
+
+        <menuitem name="Reuniones"
+                  id="menu_reuniones_root"
+                  sequence="10" groups="group_reuniones_usuario"
+                  web_icon="sicpro_app_reuniones,static/description/icon.png"/>
+
+        <!--Inicio: Menu Dashboard-->
+<!--        <record id="menu_reuniones_dashboard_action" model="ir.actions.client">-->
+<!--            <field name="name">Dashboard</field>-->
+<!--            <field name="tag">sicpro_dashboard_view</field>-->
+<!--            <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.reuniones'}</field>-->
+<!--        </record>-->
+<!--        <menuitem id="menu_reuniones_dashboard" name="Dashboard"-->
+<!--                  parent="menu_reuniones_root" action="menu_reuniones_dashboard_action" sequence="1"-->
+<!--                  groups="group_reuniones_usuario"/>-->
+        <!--Fin: Menu Dashboard-->
+
+        <menuitem name="Reuniones" id="menu_reuniones_menu" parent="menu_reuniones_root" sequence="2"/>
+        <menuitem name="Reuniones" id="menu_reuniones" parent="menu_reuniones_menu"
+                  action="action_event_view" sequence="1"/>
+        <menuitem name="Acuerdos" id="menu_acuerdos" parent="menu_reuniones_menu"
+                  action="action_acuerdos_view" sequence="2"/>
+
+        <menuitem name="Despachos" id="menu_despachos_menu" parent="menu_reuniones_root" sequence="2"/>
+        <menuitem name="Despachos" id="menu_despachos" parent="menu_despachos_menu"
+                  action="action_despachos_view" sequence="1"/>
+        <menuitem name="Decisiones" id="menu_decisiones" parent="menu_despachos_menu"
+                  action="action_decisiones_view" sequence="2"/>
+
+
+        <menuitem name="Informes" id="menu_reuniones_informes" parent="menu_reuniones_root" sequence="50"/>
+        <menuitem name="Participantes" id="menu_action_registration" parent="menu_reuniones_informes"
+                  action="action_registration" sequence="4"/>
+        <menuitem name="Reuniones" id="event_event_menu_pivot_report" action="event_event_action_pivot"
+                  parent="menu_reuniones_informes" sequence="3"/>
+
+
+        <menuitem name="Configuración" id="menu_reuniones_configuracion" parent="menu_reuniones_root" sequence="99"
+                  groups="group_reuniones_responsable,group_reuniones_secretaria"/>
+        <menuitem name="Estados Reuniones" id="menu_reuniones_estados_reuniones" action="acuerdos_estados_action"
+                  sequence="1" parent="menu_reuniones_configuracion" groups="group_reuniones_responsable"/>
+        <menuitem name="Categorías y Etiquetas" id="menu_reuniones_categorias" parent="menu_reuniones_configuracion"
+                  sequence="3" action="acuerdos_categorias_action_list"
+                  groups="group_reuniones_responsable,group_reuniones_secretaria"/>
+        <menuitem name="Lugares de Reunión" id="menu_reuniones_lugares" parent="menu_reuniones_configuracion"
+                  sequence="4" action="reuniones_lugares_action"
+                  groups="group_reuniones_responsable,group_reuniones_secretaria"/>
+        <menuitem name="Mail Schedulers" id="menu_event_mail_schedulers"
+                  parent="menu_reuniones_configuracion" sequence="10"/>
+
+
+    </data>
+</odoo>

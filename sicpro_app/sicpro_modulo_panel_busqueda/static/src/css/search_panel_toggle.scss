@@ -1,0 +1,141 @@
+html .o_web_client .o_content {
+    overflow: auto;
+    scrollbar-width: thin;
+
+    .table-responsive thead {
+        position: sticky !important;
+        top: 0px !important;
+        z-index: 100; // Asegura que no se oculte tras el contenido
+    }
+}
+
+.o_searchview_icon.oi.oi-search.me-2 {
+    color: #714B67;
+}
+
+.modal.show .modal-dialog {
+    max-width: 90%;
+}
+
+.o_form_view .o_form_sheet_bg > .o_form_sheet {
+    max-width: 90%;
+}
+
+.o_renderer_with_searchpanel.o_list_view.o_list_optional_columns {
+    overflow: visible;
+}
+
+.o_controller_with_searchpanel,
+.o_component_with_search_panel {
+    display: flex; // Necesario para que el SearchPanel y la lista coexistan
+
+    .o_search_panel {
+        position: sticky !important;
+        top: 0px !important;
+        padding-left: 6px;
+        border-right: 1px solid #dee2e6;
+        background-color: #dfe2e275;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        margin-left: 4px;
+        flex: 0 0 auto !important; // Corregido: evita que el panel colapse o se expanda solo
+        resize: horizontal;
+        border: 1px solid #50a0f0;
+        border-radius: 6px;
+
+        .o_search_panel_section_header {
+            padding: 4px 0;
+        }
+
+        .o_search_panel_category {
+            .o_search_panel_field {
+                li.o_search_panel_category_value {
+                    position: relative; // Fundamental para posicionar las líneas
+
+                    &::before {
+                        content: ""; // Corregido: esencial para que la línea exista
+                        position: absolute;
+                        width: 1px;
+                        top: -6px;
+                        left: -12px;
+                        background: #714B67;
+                        height: 100%;
+                    }
+
+                    &::after {
+                        content: ""; // Corregido
+                        position: absolute;
+                        top: 16px;
+                        left: -12px;
+                        width: 12px;
+                        height: 1px;
+                        background:#714B67;
+                    }
+
+                    &:last-child::before {
+                        height: 22px;
+                    }
+
+                    .o_search_panel_label_title {
+                        padding-left: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Botón de Toggle
+    .btn-search-panel-toggle {
+        width: 10px;
+        height: 100px;
+        border-width: 0;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+        outline: none;
+        color: #714B67;
+        position: sticky !important;
+        top: calc(50% - 60px) !important;
+        cursor: pointer;
+    }
+
+    .hide-panel::before {
+        color: #714B67;
+        margin-left: 4px;
+    }
+
+    .show-panel::before {
+        color: #714B67;
+        margin-left: 6px;
+    }
+
+    #ad_search_panel, .show-panel {
+        background: linear-gradient(to right, #4accba73, #4ff4cea1, #4accbacf);
+        margin-left: 0px;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    .o_renderer_with_searchpanel {
+        > thead {
+            position: sticky !important;
+            top: 0px !important;
+            z-index: 10;
+        }
+    }
+}
+
+// Variables de Odoo y compatibilidad
+.o_search_panel {
+    --treeEntry-padding-h: 16px;
+    width: var(--SearchPanel-width, 280px);
+    font-size: var(--SearchPanel-fontSize, 1em);
+}
+
+.o_treeEntry::before, .o_treeEntry::after {
+    position: absolute;
+    left: var(--treeEntry--beforeAfter-left, calc(var(--treeEntry-padding-h, 1rem) * .5));
+    background: var(--treeEntry--beforeAfter-color, #dee2e6);
+    content: '';
+}

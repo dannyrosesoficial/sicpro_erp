@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="informe_planilla_acceso_action" model="ir.actions.report">
+    <field name="name">Planilla de Acceso</field>
+    <field name="model">sicpro.modulo.solicitud.acceso</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">sicpro_modulo_web_registro.informe_planilla_acceso</field>
+    <field name="report_file">sicpro_modulo_web_registro.informe_planilla_acceso</field>
+    <field name="print_report_name">'Planilla de Acceso - %s' % (object.name)</field>
+    <field name="binding_model_id" ref="model_sicpro_modulo_solicitud_acceso"/>
+    <field name="binding_type">report</field>
+    <field name="paperformat_id" ref="base.paperformat_euro"/>
+  </record>
+
+  <template id="informe_planilla_acceso">
+    <t t-call="web.html_container">
+      <div class="header">
+        <div class="row">
+          <div class="col-3 mb4">
+            <img t-att-src="'/sicpro_modulo_web_registro/static/src/img/etecsaId_300_8.png'"
+                 style="max-height: 55px;"
+                 alt="Logo"/>
+          </div>
+        </div>
+        <div class="row zero_min_height">
+          <div class="col-12">
+            <div style="border-bottom: 1px solid black;"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <small> División de Proyectos y Ejecución de Obras</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="article">
+        <t t-foreach="docs" t-as="inf">
+          <div class="page">
+            <table class="table table-bordered"
+                   style="border: 1px solid black; width: 100%; table-layout: fixed; border-collapse: collapse;">
+              <tbody>
+                <tr>
+                  <td colspan="11" class="text-center" valign="middle" style="height: 33px; border: 1px solid black;">
+                    <h3><strong>Formulario de Solicitud de Accesos a SICPRO ERP</strong></h3>
+                  </td>
+                </tr>
+                <tr style="background-color: #f2f2f2;">
+                  <td colspan="11" align="left" valign="middle" height="23" style="border: 1px solid black;">
+                    <strong><font size="3"> DATOS DEL USUARIO</font></strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="border: 1px solid black; padding-left: 5px;">Nombre y Apellidos:</td>
+                  <td colspan="6" style="border: 1px solid black; padding-left: 5px;"><span t-field="inf.name"/></td>
+                  <td colspan="3" rowspan="2" style="border: 1px solid black; padding-left: 5px;">Firma:</td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="border: 1px solid black; padding-left: 5px;">Carnet de identidad:</td>
+                  <td colspan="6" style="border: 1px solid black; padding-left: 5px;"><span
+                      t-field="inf.carne_identidad"/></td>
+                </tr>
+                <tr>
+                  <td colspan="4" style="border: 1px solid black; padding-left: 5px;">Nueva incorporación:</td>
+                  <td align="center" style="border: 1px solid black;">Si [ <t t-if="inf.tipo_movimiento == 'alta'">X</t> ]</td>
+                  <td align="center" style="border: 1px solid black;">No [ <t t-if="inf.tipo_movimiento != 'alta'">X</t> ]</td>
+                  <td colspan="2" style="border: 1px solid black; text-align: center;">Código SAP RH:</td>
+                  <td colspan="3" style="border: 1px solid black; text-align: center;"><strong><span
+                      t-field="inf.codigo_sap"/></strong></td>
+                </tr>
+                <tr>
+                  <td colspan="7" style="border: 1px solid black; padding-left: 5px;">Impuesto del reglamento de
+                    redes:</td>
+                  <td colspan="4" style="border: 1px solid black; padding-left: 5px;"><strong>X</strong></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="border: 1px solid black; padding-left: 5px;">Unidad Organizativa:</td>
+                  <td colspan="3" style="border: 1px solid black; padding-left: 5px;"><span t-field="inf.uo"/></td>
+                  <td style="border: 1px solid black; padding-left: 5px;">Área:</td>
+                  <td colspan="5" style="border: 1px solid black; padding-left: 5px;"><span t-field="inf.area"/></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="border: 1px solid black; padding-left: 5px;">Cargo:</td>
+                  <td colspan="5" style="border: 1px solid black; padding-left: 5px;"><span t-field="inf.cargo"/></td>
+                  <td style="border: 1px solid black; padding-left: 5px;">Teléfono(s):</td>
+                  <td colspan="3" style="border: 1px solid black; padding-left: 5px;"><span
+                      t-field="inf.telefonos"/></td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="border: 1px solid black; padding-left: 5px;">Correo:</td>
+                  <td colspan="9" style="border: 1px solid black; padding-left: 5px;"><span t-field="inf.email"/></td>
+                </tr>
+
+                <tr style="background-color: #f2f2f2;">
+                  <td colspan="11" style="border: 1px solid black; padding-left: 5px;"><strong>PERMISOS A
+                    SOLICITAR</strong></td>
+                </tr>
+
+                <tr>
+                  <td colspan="11" style="border: 1px solid black; padding: 10px;">
+                    <strong>Roles solicitados:</strong>
+                    <t t-foreach="inf.role_line_ids" t-as="line">
+                      <span class="badge badge-secondary"
+                            style="color: black; border: 1px solid #ccc; padding: 2px; margin-right: 5px;"
+                            t-field="line.role_id.name"/>
+                    </t>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="11" style="border: 1px solid black; padding-left: 5px;">
+                    <strong>Fundamentación:</strong> <span t-field="inf.fundamentacion_especificaciones"/>
+                  </td>
+                </tr>
+
+                <tr style="background-color: #f2f2f2;">
+                  <td colspan="5" style="border: 1px solid black; text-align: center;"><strong>SOLICITADO
+                    POR</strong></td>
+                  <td colspan="6" style="border: 1px solid black; text-align: center;"><strong>AUTORIZADO
+                    POR</strong></td>
+                </tr>
+                <tr>
+                  <td colspan="5" style="border: 1px solid black; height: 80px; vertical-align: top; padding: 5px;">
+                    <strong>Nombre: </strong><span t-field="inf.solicitado_por_nombre_apellidos"/><br/>
+                    <strong>Cargo: </strong><span t-field="inf.solicitado_por_cargo"/><br/>
+                    <strong>UO: </strong><span t-field="inf.solicitado_por_unidad_organizativa"/><br/>
+                    <strong>Teléf: </strong><span t-field="inf.solicitado_por_telefono"/>
+                  </td>
+                  <td colspan="6" style="border: 1px solid black; height: 80px; vertical-align: top; padding: 5px;">
+                    <strong>Nombre: </strong><span t-field="inf.autorizado_por_nombre_apellidos"/><br/>
+                    <strong>Cargo: </strong><span t-field="inf.autorizado_por_cargo"/><br/>
+                    <strong>UO: </strong><span t-field="inf.autorizado_por_unidad_organizativa"/><br/>
+                    <strong>Teléf: </strong><span t-field="inf.autorizado_por_telefono"/>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="6" style="border: 0px;"></td>
+                  <td colspan="3" style="border: 1px solid black; text-align: right; padding-right: 5px;"><strong>No
+                    Consecutivo:</strong></td>
+                  <td colspan="2" style="border: 1px solid black; text-align: center; background-color: #ffffcc;">
+                    <strong><u><span t-field="inf.numero_consecutivo"/></u></strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </t>
+      </div>
+
+      <div class="footer">
+        <div class="text-center" style="border-top: 1px solid black;">
+          Página <span class="page"/> de <span class="topage"/>
+        </div>
+      </div>
+    </t>
+  </template>
+</odoo>

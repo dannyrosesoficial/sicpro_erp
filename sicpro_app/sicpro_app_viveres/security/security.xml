@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+
+  <data>
+    <!-- Creo los privilegios de permisos para los Víveres - logística-->
+    <record id="privilege_viveres_logistica" model="res.groups.privilege">
+      <field name="name">Víveres Logística</field>
+      <field name="sequence">1</field>
+      <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_alimentacion"/>
+    </record>
+
+    <record id="grupo_app_viveres_resumen_usuario" model="res.groups">
+      <field name="name">Visualizar</field>
+      <field name="comment">Permisos de lectura</field>
+      <field name="privilege_id" ref="privilege_viveres_logistica"/>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="grupo_app_viveres_resumen_ejecutor" model="res.groups">
+      <field name="name">Ejecutor</field>
+      <field name="comment">Permisos de Lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_viveres_logistica"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_viveres_resumen_usuario'))]"/>
+    </record>
+    <record id="grupo_app_viveres_resumen_responsable" model="res.groups">
+      <field name="name">Responsable</field>
+      <field name="comment">Permisos de Lectura/Escritura/Config</field>
+      <field name="privilege_id" ref="privilege_viveres_logistica"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_viveres_resumen_ejecutor'))]"/>
+    </record>
+    <record id="grupo_app_viveres_admin" model="res.groups">
+      <field name="name">Administrador</field>
+      <field name="comment">Permisos Completos</field>
+      <field name="privilege_id" ref="privilege_viveres_logistica"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_viveres_resumen_responsable'))]"/>
+    </record>
+  </data>
+
+  <data>
+    <!-- Creo los privilegios de permisos para los Víveres - Áreas-->
+    <record id="privilege_viveres_areas" model="res.groups.privilege">
+      <field name="name">Víveres Áreas</field>
+      <field name="sequence">2</field>
+      <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_alimentacion"/>
+    </record>
+
+    <record id="grupo_app_viveres_areas_usuario" model="res.groups">
+      <field name="name">Visualizar</field>
+      <field name="comment">Permisos de lectura</field>
+      <field name="privilege_id" ref="privilege_viveres_areas"/>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="grupo_app_viveres_areas_ejecutor" model="res.groups">
+      <field name="name">Ejecutor</field>
+      <field name="comment">Permisos de Lectura/Escritura</field>
+      <field name="privilege_id" ref="privilege_viveres_areas"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_viveres_areas_usuario'))]"/>
+    </record>
+    <record id="grupo_app_viveres_areas_responsable" model="res.groups">
+      <field name="name">Jefe</field>
+      <field name="comment">Permisos de Lectura/Escritura/Config</field>
+      <field name="privilege_id" ref="privilege_viveres_areas"/>
+      <field name="implied_ids" eval="[(4, ref('grupo_app_viveres_areas_ejecutor'))]"/>
+    </record>
+  </data>
+</odoo>

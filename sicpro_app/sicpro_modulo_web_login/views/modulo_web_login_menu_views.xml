@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <menuitem id="menu_web_mantenimiento" name="Activar el Mantenimiento" parent="sicpro_modulo_web.modulo_web_menu"
+            action="sicpro_modulo_web_login.action_sicpro_mantenimiento" sequence="101"/>
+</odoo>

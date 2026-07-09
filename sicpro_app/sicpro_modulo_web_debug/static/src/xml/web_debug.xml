@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<templates id="template" xml:space="preserve">
+     <t t-if="is_employee" t-name="sicpro_modulo_web_debug.WKDebug">
+        <div class="o-dropdown dropdown o-dropdown--no-caret">
+            <button class="dropdown-toggle o-dropdown--narrow o-dropdown oe_activate_debug_mode"
+                    t-on-click="oe_activate_debug_mode" title="Modo Desarrollador" href="?debug">
+                <i class="fa fa-code"/>
+            </button>
+        </div>
+    </t>
+</templates>

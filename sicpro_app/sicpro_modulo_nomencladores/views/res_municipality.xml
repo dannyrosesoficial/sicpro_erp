@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_municipio_search" model="ir.ui.view">
+    <field name="name">res.municipality.search</field>
+    <field name="model">res.municipality</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="country_id"/>
+        <field name="state_id"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_municipio_list" model="ir.ui.view">
+    <field name="name">res.municipality.list</field>
+    <field name="model">res.municipality</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="country_id"/>
+        <field name="state_id"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_municipio_form" model="ir.ui.view">
+    <field name="name">res.municipality.form</field>
+    <field name="model">res.municipality</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="code"/>
+          </group>
+          <group>
+            <field name="country_id"/>
+            <field name="state_id"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_list_municipios" model="ir.actions.act_window">
+    <field name="name">Municipios</field>
+    <field name="res_model">res.municipality</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Municipios</p>
+    </field>
+  </record>
+
+  <!-- Extender res_partner -->
+  <record id="view_form_partner_inherited" model="ir.ui.view">
+    <field name="name">view_partner_municipaly_form</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='street2']" position="after">
+        <field name="res_municipality_id" placeholder="Municipio…" context="{'state_id': state_id,
+                    'default_state_id': state_id}"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

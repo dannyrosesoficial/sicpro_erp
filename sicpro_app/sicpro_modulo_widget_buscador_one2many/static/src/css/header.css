@@ -1,0 +1,18 @@
+.oe_search_value {
+    border-radius: 25px;
+    border: 2px solid #eceff2;
+    padding: 8px 15px; /* Ajuste para mejor balance visual */
+    width: 100%;       /* Es mejor usar max-width para que sea responsivo */
+    max-width: 600px;
+    height: auto;      /* Deja que el padding maneje la altura para evitar cortes de texto */
+    color: #495057;
+    font-size: 16px;
+    outline: none;     /* Quita el borde azul por defecto al hacer click */
+    transition: border-color 0.3s ease; /* Suaviza el cambio al enfocar */
+}
+
+/* Efecto visual cuando el usuario hace clic para escribir */
+.oe_search_value:focus {
+    border-color: #71639e; /* Color corporativo de Odoo o Sicpro */
+    box-shadow: 0 0 5px rgba(113, 99, 158, 0.2);
+}

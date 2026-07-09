@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <record model="res.groups.privilege" id="privilege_db_explorer">
+        <field name="name">DB Explorer</field>
+        <field name="sequence">15</field>
+        <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_administracion_general"/>
+    </record>
+
+    <record id="group_db_admin" model="res.groups">
+        <field name="name">Super DBA (Acceso Crudo)</field>
+        <field name="privilege_id" ref="privilege_db_explorer"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

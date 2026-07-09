@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sicpro_ldap_registros_usuario,Registros LDAP usuario,model_sicpro_app_modulo_ldap_registros,base.group_user,1,0,0,0
+sicpro_ldap_registros_admin,Registros LDAP admin,model_sicpro_app_modulo_ldap_registros,base.group_system,1,0,0,0
+sicpro_ldap_historial_usuario,Historial LDAP usuario,model_sicpro_app_modulo_ldap_historial,base.group_user,1,0,0,0
+sicpro_ldap_historial_admin,Historial LDAP admin,model_sicpro_app_modulo_ldap_historial,base.group_system,1,0,0,0

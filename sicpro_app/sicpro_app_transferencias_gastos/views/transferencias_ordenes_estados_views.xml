@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="transferencias_ordenes_estados_search" model="ir.ui.view">
+    <field name="name">Buscar Estados</field>
+    <field name="model">sicpro.app.transferencias.gastos.ordenes.estados</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Estados">
+        <field name="name"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="transferencias_ordenes_estados_list" model="ir.ui.view">
+    <field name="name">ssicpro.app.transferencias.gastos.ordenes.estados.list</field>
+    <field name="model">sicpro.app.transferencias.gastos.ordenes.estados</field>
+    <field name="arch" type="xml">
+      <list string="Estados" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+        <field name="inicial"/>
+        <field name="terminado"/>
+        <field name="devuelto_economia"/>
+        <field name="cron_morosidad"/>
+        <field name="fold"/>
+        <field name="valor_tecnico_gastos"/>
+        <field name="color_barra" widget="badge"
+               decoration-info="color_barra == 'info'" decoration-warning="color_barra == 'warning'"
+               decoration-danger="color_barra == 'danger'" decoration-success="color_barra == 'success'"/>
+        <field name="rol_interno"/>
+        <field name="active" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="transferencias_ordenes_estados_action" model="ir.actions.act_window">
+    <field name="name">Estados</field>
+    <field name="res_model">sicpro.app.transferencias.gastos.ordenes.estados</field>
+    <field name="view_id" ref="transferencias_ordenes_estados_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Agregue un nuevo estado
+      </p>
+    </field>
+  </record>
+</odoo>

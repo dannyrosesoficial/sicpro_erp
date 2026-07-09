@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="nomenclador_territorio_filter_view" model="ir.ui.view">
+    <field name="name">Buscar Unidades Organizativa</field>
+    <field name="model">sicpro.nomenclador.territorios</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Unidades Organizativa">
+        <field name="name" string="Unidad Organizativa"/>
+        <field name="provincias_id" string="Provincia"/>
+        <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="nomenclador_territorio_list_view" model="ir.ui.view">
+    <field name="name">nomenclador.territorio.list.view</field>
+    <field name="model">sicpro.nomenclador.territorios</field>
+    <field name="arch" type="xml">
+      <list string="Unidad Organizativa" editable="bottom">
+        <field name="codigo" width="5"/>
+        <field name="abreviatura"/>
+        <field name="name"/>
+        <field name="provincias_id"/>
+        <field name="active" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="action_nomenclador_territorio" model="ir.actions.act_window">
+    <field name="name">Unidades Organizativas</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.nomenclador.territorios</field>
+    <field name="view_mode">list</field>
+  </record>
+</odoo>

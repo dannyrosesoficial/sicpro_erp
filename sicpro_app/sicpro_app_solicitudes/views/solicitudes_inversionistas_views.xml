@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="solicitudes_inversionista_cancelada_form" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.motivo.wizard.t2.form</field>
+    <field name="model">sicpro.app.solicitudes.motivo.wizard</field>
+    <field name="priority">60</field>
+    <field name="arch" type="xml">
+      <form string="Motivo de Cancelación del Cliente">
+        <group class="oe_title">
+          <field name="action_type" invisible="1"/>
+          <field name="motivo_cancelacion" required="1"/>
+        </group>
+        <footer>
+          <button name="action_procesar" string="Enviar" type="object" class="btn-primary"/>
+          <button string="Cancelar" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="solicitudes_inversionista_cancelada_action" model="ir.actions.act_window">
+    <field name="name">Motivo de Cancelación</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.app.solicitudes.motivo.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="solicitudes_inversionista_cancelada_form"/>
+    <field name="target">new</field>
+    <field name="context">{'default_action_type': 'cancel_t2'}</field>
+  </record>
+
+  <record id="solicitudes_inversionista_search" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.inversionista.search</field>
+    <field name="model">sicpro.app.solicitudes.oportunidades</field>
+    <field name="arch" type="xml">
+      <search string="Buscar iniciativas">
+        <field name="name" string="Iniciativas" filter_domain="['|','|', ('partner_name', 'ilike', self),
+                    ('partner_id', 'ilike', self), ('name', 'ilike', self)]"/>
+        <field name="tag_ids" string="Etiquetas" filter_domain="[('tag_ids', 'ilike', self)]"/>
+        <field name="partner_id"/>
+        <field name="id_solicitud" string="Solicitud ID"/>
+        <field name="pep_corto" string="Número SAP"/>
+        <field name="anio" string="Año"/>
+        <separator/>
+        <filter string="Nuevas Solicitudes" name="estado_interno_filter"
+                domain="[('estado_interno', 'in', ('nuevo','rechazada_dtp'))]"/>
+        <separator/>
+        <filter string="Fecha de Solicitud" name="fecha_solicitud_trabajo" date="fecha_solicitud_trabajo"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+        <group>
+          <filter string="Cliente" name="partner_id_group" context="{'group_by':'partner_id'}"/>
+          <filter string="Territorio" name="territorio_id_group" context="{'group_by':'territorio_id'}"/>
+          <filter name="provincia_id_group" string="Provincia" context="{'group_by': 'provincia_id'}"/>
+          <filter string="Prioridad" name="priority_group" context="{'group_by':'priority'}"/>
+          <filter string="Proceso Ejecutor" name="company_id_group" context="{'group_by':'company_id'}"/>
+          <separator orientation="vertical"/>
+          <filter string="Fecha de creación" context="{'group_by':'fecha_solicitud_trabajo:month'}"
+                  name="month_group"/>
+          <filter string="Año" context="{'group_by':'anio'}" name="anio_group"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="solicitudes_inversionista_list" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.inversionista.list</field>
+    <field name="model">sicpro.app.solicitudes.oportunidades</field>
+    <field name="priority">50</field>
+    <field name="arch" type="xml">
+      <list string="Iniciativas"
+            decoration-warning="estado_interno == 'rechazada_dtp'"
+            decoration-danger="estado_interno in ['cancelada_cliente', 'cancelada_ejecutor']"
+            decoration-success="estado_interno == 'aprobada'">
+        <field name="estado_interno"/>
+        <field name="name" string="Iniciativa"/>
+        <field name="pep_corto"/>
+        <field name="partner_id"/>
+        <field name="partner_name"/>
+        <field name="territorio_id"/>
+        <field name="priority" widget="priority"/>
+        <field name="fecha_solicitud_trabajo"/>
+        <field name="company_id"/>
+        <field name="tipo" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="solicitudes_inversionista_form" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.inversionista.form</field>
+    <field name="model">sicpro.app.solicitudes.oportunidades</field>
+    <field name="priority">50</field>
+    <field name="arch" type="xml">
+      <form class="o_lead_opportunity_form">
+        <header>
+          <field name="estado_interno" invisible="1"/>
+          <field name="tipo" invisible="1"/>
+
+          <button name="action_archivar_subsolicitud" string="Archivar Subsolicitud" type="object"
+                  class="oe_highlight"
+                  invisible="type == 'oportunidad' or active == False or estado_interno != 'nuevo' or tipo == 'principal'"/>
+
+          <button name="action_desarchivar_subsolicitud" string="Activar Subsolicitud" type="object"
+                  invisible="type == 'oportunidad' or active != False or estado_interno != 'nuevo' or tipo == 'principal'"/>
+
+          <button name="action_inversionista_liberar" string="Liberar" type="object" class="oe_highlight"
+                  invisible="type == 'oportunidad' or active == False or estado_interno != 'nuevo' or tipo != 'principal'"/>
+
+          <button name="action_inversionista_restaurar_rechazada" string="Restaurar" type="object"
+                  invisible="type == 'oportunidad' or active == False or estado_interno != 'rechazada_dtp' or tipo != 'principal' or rechazada_subsolicitud == True"/>
+
+          <button name="%(solicitudes_inversionista_cancelada_action)d" string="Cancelar" type="action"
+                  invisible="type == 'oportunidad' or active == False or estado_interno != 'rechazada_dtp' or tipo != 'principal'"/>
+
+          <button name="action_inversionista_restaurar_cancelada" string="Restaurar" type="object"
+                  invisible="type == 'oportunidad' or active == False or estado_interno != 'cancelada_cliente' or tipo != 'principal'"/>
+
+          <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"
+                 invisible="active == False or type == 'iniciativa'"/>
+
+        </header>
+        <sheet>
+          <field name="active" invisible="1"/>
+          <field name="user_id" invisible="1"/>
+          <field name="type" invisible="1"/>
+          <field name="rechazada_subsolicitud" invisible="1"/>
+
+          <widget name="web_ribbon" title="Archivado" bg_color="text-bg-danger"
+                  invisible="active == True"/>
+          <widget name="web_ribbon" title="Cancelada" bg_color="text-bg-danger"
+                  invisible="estado_interno not in ['cancelada_cliente', 'cancelada_ejecutor']"/>
+          <widget name="web_ribbon" title="Rechazado" bg_color="text-bg-warning"
+                  invisible="estado_interno not in ['rechazada_dtp', 'rechazada_ejecutor']"/>
+
+          <div class="oe_title">
+            <label for="name" class="oe_edit_only" string="Iniciativa"/>
+            <h1>
+              <field name="name" placeholder="ej. Nombre de la solicitud de trabajo"
+                     readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+            </h1>
+            <h4>
+              <field name="especialidad" readonly="1" domain="[('company_id', '=', company_id)]"
+                     invisible="rechazada_subsolicitud != True"/>
+              <div class="text-danger" invisible="rechazada_subsolicitud != True">
+                <strong>ATENCIÓN: </strong>La especialidad mostrada ha sido rechazada,
+                para volverla a solicitar debera crear una nueva solicitud de trabajo independiente.
+              </div>
+            </h4>
+            <h2 class="o_row row no-gutters d-flex">
+              <div class="col">
+                <label for="valor_sap_cup" class="oe_edit_only"/>
+                <div class="o_row">
+                  <field name="company_currency" invisible="1"/>
+                  <field name="valor_sap_cup" class="oe_inline" widget='monetary'
+                         readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"
+                         options="{'currency_field': 'company_currency'}"/>
+                </div>
+              </div>
+            </h2>
+          </div>
+
+          <group>
+            <group>
+              <field name="partner_id" readonly="partner_id != False"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="partner_name"/>
+              <field name="territorio_id" options="{'no_open': True}"/>
+              <field name="provincia_id" options="{'no_open': True}"/>
+              <field name="website" widget="url" placeholder="ej. https://www.etecsa.cu"/>
+            </group>
+            <group>
+              <field name="cargo"/>
+              <field name="telefono_fijo"/>
+              <field name="telefono_movil"/>
+              <field name="correo" widget="email"/>
+              <field name="pagina_web" widget="url"/>
+            </group>
+            <group>
+              <field name="tag_ids" widget="many2many_tags"
+                     readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"
+                     options="{'color_field': 'color', 'no_create_edit': True}"/>
+              <field name="id_solicitud"/>
+              <field name="anio" invisible="1"/>
+            </group>
+            <group>
+              <field name="priority" widget="priority"/>
+            </group>
+            <group>
+              <field name="pep_corto"
+                     readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+              <field name="tipo_plan" widget="radio" options="{'horizontal': true}"/>
+              <field name="c_mep"/>
+            </group>
+            <group>
+              <field name="company_id" string="Proceso"
+                     readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="lugar_trabajo" required="1"/>
+            </group>
+          </group>
+          <group string="Detalles importantes sobre la solicitud" class="oe_title">
+            <field name="observaciones_grupo_ejecutor" placeholder="Añadir una observación..."
+                   required="1"/>
+          </group>
+          <group>
+            <field name="motivo_rechazo" readonly="1"
+                   invisible="estado_interno != 'rechazada_dtp'"/>
+            <field name="motivo_cancelacion" readonly="1"
+                   invisible="estado_interno not in ['cancelada_cliente', 'cancelada_ejecutor']"/>
+          </group>
+          <field name="pestana_especialidades" invisible="1"/>
+          <notebook>
+            <page string="información extra"
+                  invisible="type == 'oportunidad' or tipo != 'principal'">
+              <group>
+                <group string="Asignación" name="categorization">
+                  <field name="company_cliente" options="{'no_create': True}"/>
+                </group>
+                <group string="Análisis">
+                  <field name="fecha_solicitud_trabajo" readonly="1"/>
+                  <field name="fecha_aprobacion"/>
+                </group>
+              </group>
+            </page>
+            <page string="Especialidades del Trabajo"
+                  invisible="pestana_especialidades == False or tipo != 'principal'">
+              <field name="hijos_ids" mode="kanban"
+                     context="{'default_id': id, 'default_name': name, 'default_partner_id': partner_id,
+                                   'default_tipo': 'subsolicitud', 'default_tag_ids': tag_ids, 'default_pep_corto': pep_corto,
+                                   'default_company_id': company_id, 'default_priority': priority, 'default_estado_interno': estado_interno,
+                                   'default_lugar_trabajo': lugar_trabajo, 'default_observaciones_grupo_ejecutor': observaciones_grupo_ejecutor,
+                                   'default_c_mep': c_mep, 'default_oportunidad_especialidad': id,}">
+                <kanban class="o_kanban_mobile">
+                  <field name="id"/>
+                  <field name="especialidad"/>
+                  <field name="pep"/>
+                  <field name="image_128"/>
+                  <field name="description"/>
+                  <field name="lugar_trabajo"/>
+                  <field name="c_mep"/>
+                  <field name="observaciones_grupo_ejecutor"/>
+                  <templates>
+                    <t t-name="card">
+                      <div
+                          class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban d-flex align-items-start">
+
+                        <div class="o_kanban_image_fill_left o_kanban_image_full"
+                             t-attf-style="background-image: url('/web/image/sicpro.app.solicitudes.oportunidades/#{record.id.raw_value}/image_128'); min-width: 128px; width: 128px; height: 128px; background-size: cover; background-position: center;"
+                             role="img"/>
+
+                        <div class="oe_kanban_details ps-3">
+                          <strong class="o_kanban_record_title oe_partner_heading">
+                            <field name="especialidad"/>
+                          </strong>
+                          <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                          <ul class="list-unstyled">
+                            <li t-if="record.pep.raw_value"><field name="pep"/></li>
+                            <li t-if="record.description.raw_value">
+                              <strong>Alcance: </strong><field name="description"/>
+                            </li>
+                          </ul>
+                          <div class="oe_kanban_partner_links"/>
+                        </div>
+                      </div>
+                    </t>
+                  </templates>
+                </kanban>
+                <form>
+                  <sheet>
+                    <h1>
+                      <label for="oportunidad_especialidad" string="Oportunidad: "/>
+                      <field name="oportunidad_especialidad" class="col-10" required="1"
+                             readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"
+                             placeholder="ej. Nombre de la Solicitud de Trabajo Principal"
+                             options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    </h1>
+                    <field name="company_id" invisible="1"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="partner_id" string="Cliente" invisible="1"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="estado_interno" invisible="1"/>
+                    <field name="tipo" invisible="1"/>
+                    <field name="pep_corto" invisible="1"/>
+                    <field name="name" invisible="1"/>
+                    <field name="partner_name" invisible="1"/>
+                    <field name="territorio_id" invisible="1"/>
+                    <field name="provincia_id" invisible="1"/>
+                    <field name="website" invisible="1"/>
+                    <field name="cargo" invisible="1"/>
+                    <field name="telefono_fijo" invisible="1"/>
+                    <field name="telefono_movil" invisible="1"/>
+                    <field name="correo" widget="email" invisible="1"/>
+                    <field name="pagina_web" widget="url" invisible="1"/>
+                    <group>
+                      <group>
+                        <field name="especialidad" domain="[('company_id', '=', company_id)]"
+                               readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"
+                               required="1"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="tag_ids" widget="many2many_tags"
+                               readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"
+                               options="{'color_field': 'color', 'no_create_edit': True}"/>
+                        <field name="id_solicitud"/>
+                      </group>
+                      <group>
+                        <field name="company_currency" invisible="1"/>
+                        <field name="valor_sap_cup" class="oe_inline" widget='monetary'
+                               readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"
+                               options="{'currency_field': 'company_currency'}"/>
+                        <field name="pep"
+                               readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                        <field name="priority" widget="priority"/>
+                      </group>
+                    </group>
+                    <notebook>
+                      <page string="Documentación">
+                        <group string="Documentación para el Proyectista">
+                          <group>
+                            <field name="microlocalizacion"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="enia"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                          </group>
+                          <group>
+                            <field name="ipf"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                          </group>
+                        </group>
+                        <group string="Documentación Técnica">
+                          <group string="Proyecto">
+                            <field name="ejecucion_proyecto"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="consecutivo_proyecto"
+                                   invisible="ejecucion_proyecto == False"
+                                   required="ejecucion_proyecto == True"/>
+                          </group>
+                          <group string="Tarea Técnica">
+                            <field name="ejecucion_tt"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="codigo_tt"
+                                   invisible="ejecucion_tt == False"/>
+                          </group>
+                          <group string="Documentación Digital">
+                            <field name="attachment_ids" widget="many2many_binary"
+                                   class="oe_inline"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                          </group>
+                        </group>
+                      </page>
+                      <page string="Equipos y Materiales">
+                        <group string="Equipos y Materiales para la Ejecución">
+                          <group string="Datos del Equipamiento">
+                            <field name="datos_equipamiento_1"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="datos_equipamiento_2"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="datos_equipamiento_3"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="datos_equipamiento_4"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="datos_equipamiento_5"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                          </group>
+                          <group string="Datos de los Materiales">
+                            <field name="datos_materiales_1"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="datos_materiales_2"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="datos_materiales_3"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                            <field name="datos_materiales_4"
+                                   readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                          </group>
+                        </group>
+                      </page>
+                      <page string="Alcance los Trabajos">
+                        <field name="description" placeholder="Añadir una descripción..."
+                               readonly="estado_interno not in ['nuevo', 'rechazada_dtp']"/>
+                      </page>
+                    </notebook>
+                  </sheet>
+                </form>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="solicitudes_inversionista_kanban" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.inversionista.kanban</field>
+    <field name="model">sicpro.app.solicitudes.oportunidades</field>
+    <field name="priority" eval="50"/>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_mobile" archivable="false">
+        <field name="name"/>
+        <field name="partner_id"/>
+        <field name="priority"/>
+        <field name="tag_ids"/>
+        <field name="user_id"/>
+        <field name="activity_ids"/>
+        <field name="activity_state"/>
+        <progressbar field="activity_state"
+                     colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_content oe_kanban_global_click">
+              <div>
+                <strong class="o_kanban_record_title"><span><field name="name"/></span></strong>
+              </div>
+              <div>
+                <span class="o_kanban_record_subtitle"><field name="partner_id"/></span>
+              </div>
+              <div>
+                <field name="tag_ids" widget="many2many_tags"/>
+              </div>
+              <div class="o_kanban_record_bottom">
+                <div class="oe_kanban_bottom_left">
+                  <field name="priority" widget="priority"/>
+                  <div class="o_kanban_inline_block">
+                    <field name="activity_ids" widget="kanban_activity"/>
+                  </div>
+                </div>
+                <div class="oe_kanban_bottom_right">
+                  <field name="partner_id" widget="many2one_avatar_user"/>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="solicitudes_inversionista_calendar" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.inversionista.calendar</field>
+    <field name="model">sicpro.app.solicitudes.oportunidades</field>
+    <field name="priority" eval="2"/>
+    <field name="arch" type="xml">
+      <calendar string="Iniciativas" mode="month" date_start="activity_date_deadline" color="user_id"
+                hide_time="true" event_limit="5">
+        <field name="partner_id" avatar_field="image_128"/>
+      </calendar>
+    </field>
+  </record>
+
+  <record id="solicitudes_inversionista_activity" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.inversionista.activity</field>
+    <field name="model">sicpro.app.solicitudes.oportunidades</field>
+    <field name="arch" type="xml">
+      <activity string="Iniciativas y oportunidades">
+        <field name="partner_id"/>
+        <templates>
+          <div t-name="activity-box">
+            <img t-att-src="'/web/image/sicpro.app.clientes/' + record.partner_id.raw_value + '/image_128'"
+                 t-att-title="record.partner_id.value" t-att-alt="record.partner_id.value"/>
+            <div>
+              <field name="name" display="full"/>
+            </div>
+          </div>
+        </templates>
+      </activity>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="solicitudes_inversionista_action">
+    <field name="name">Iniciativas</field>
+    <field name="res_model">sicpro.app.solicitudes.oportunidades</field>
+    <field name="view_mode">list,kanban,calendar,form,activity</field>
+    <field name="domain">['&amp;', ('type', '=', 'iniciativa'), ('tipo', '=', 'principal')]</field>
+    <field name="search_view_id" ref="solicitudes_inversionista_search"/>
+    <field name="context">{'search_default_anio': (context_today().strftime('%Y')),
+                           'search_default_estado_interno_filter': 1}
+    </field>
+    <field name="view_ids" eval="[(5, 0, 0),
+    (0, 0, {'view_mode': 'list', 'view_id': ref('solicitudes_inversionista_list')}),
+    (0, 0, {'view_mode': 'kanban', 'view_id': ref('solicitudes_inversionista_kanban')}),
+    (0, 0, {'view_mode': 'form', 'view_id': ref('solicitudes_inversionista_form')}),
+    (0, 0, {'view_mode': 'calendar', 'view_id': ref('solicitudes_inversionista_calendar')}),
+    (0, 0, {'view_mode': 'activity', 'view_id': ref('solicitudes_inversionista_activity')})
+  ]"/>
+  </record>
+</odoo>

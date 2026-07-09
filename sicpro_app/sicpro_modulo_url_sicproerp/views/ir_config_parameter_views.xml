@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record model="ir.ui.view" id="view_ir_config_inherit_form">
+    <field name="name">base.view_ir_config_inherit_form</field>
+    <field name="model">ir.config_parameter</field>
+    <field name="inherit_id" ref="base.view_ir_config_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//form" position="attributes">
+        <attribute name="js_class">web_url_view_ir_config_inherit_form</attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="view_ir_config_inherit_list">
+    <field name="name">base.view_ir_config_inherit_list</field>
+    <field name="model">ir.config_parameter</field>
+    <field name="inherit_id" ref="base.view_ir_config_list"/>
+    <field name="arch" type="xml">
+      <xpath expr="//list" position="attributes">
+        <attribute name="edit">0</attribute>
+      </xpath>
+    </field>
+  </record>
+</odoo>

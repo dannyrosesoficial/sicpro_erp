@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates>
+    <t t-name="main_menu.AddBookmark">
+        <DropdownItem class="'o_import_menu'" onSelected.bind="addBookmark">
+            <i class="fa fa-fw fa-plus me-1"/>Agregar marcador
+        </DropdownItem>
+    </t>
+</templates>

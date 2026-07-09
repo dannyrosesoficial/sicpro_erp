@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="trabajadores_equipo_tecnico_search" model="ir.ui.view">
+    <field name="name">sicpro.app.trabajadores.equipo.tecnico.search</field>
+    <field name="model">sicpro.app.trabajadores.equipo.tecnico</field>
+    <field name="arch" type="xml">
+      <search string="Equipo Técnico">
+        <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+        <field name="name"/>
+        <field name="lider"/>
+        <group>
+          <filter string="Lider de Equipo" name="lider_equipo" domain="[]" context="{'group_by':'lider'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="trabajadores_equipo_tecnico_view_form" model="ir.ui.view">
+    <field name="name">sicpro.app.trabajadores.equipo.tecnico.form</field>
+    <field name="model">sicpro.app.trabajadores.equipo.tecnico</field>
+    <field name="arch" type="xml">
+      <form string="Equipo Técnico">
+        <sheet>
+
+          <div name="button_box" class="oe_button_box">
+            <button class="oe_stat_button" icon="fa-users">
+              <field string="Trabajadores" name="trabajadores_count" widget="statinfo"/>
+            </button>
+          </div>
+          <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                  invisible="active"/>
+          <div class="oe_title">
+            <label for="name" class="oe_edit_only" string="Equipo Técnico"/>
+            <h1>
+              <field name="name" placeholder="Nombre del Equipo Técnico..."/>
+            </h1>
+            <div name="options_active"/>
+          </div>
+          <group>
+            <group name="left">
+              <field name="active" invisible="1"/>
+              <label for="lider" string="Lider de Equipo"/>
+              <div class="o_address_format">
+                <field name="lider" class="o_address_street"
+                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                <field name="lider_ocupacion_id" class="o_address_street"/>
+                <field name="lider_movil_trabajo" class="o_address_street"/>
+                <field name="lider_correo_trabajo" class="o_address_street"/>
+              </div>
+            </group>
+            <group>
+              <field name="company_id" invisible="1"/>
+              <field name="color" widget="color_picker"/>
+            </group>
+            <group name="right">
+            </group>
+          </group>
+          <notebook>
+            <page name="members" string="Miembros del equipo">
+              <field name="member_ids" widget="many2many">
+                <kanban highlight_color="color" quick_create="false" create="true" delete="true">
+                  <field name="id"/>
+                  <field name="name"/>
+                  <field name="ocupacion_id"/>
+                  <field name="movil_trabajo"/>
+                  <field name="correo_trabajo"/>
+                  <field name="color"/>
+                  <templates>
+                    <t t-name="card">
+                      <div
+                          t-attf-class="oe_kanban_card oe_kanban_global_click oe_applicant_kanban oe_semantic_html_override #{!selection_mode ? 'oe_kanban_color_' + record.color.raw_value : ''}">
+
+                        <div class="o_kanban_record_top d-flex align-items-start">
+                          <div class="o_kanban_image_fill_left d-none d-md-block"
+                               t-attf-style="background-image: url('/web/image/sicpro.app.trabajadores/#{record.id.raw_value}/image_128')">
+                          </div>
+
+                          <img t-if="record.id.raw_value"
+                               t-attf-src="/web/image/sicpro.app.trabajadores/#{record.id.raw_value}/image_128"
+                               class="oe_avatar o_image_40_cover me-2"
+                               alt="Avatar"/>
+                          <div class="o_kanban_record_headings ms-2">
+                            <strong class="o_kanban_record_title">
+                              <field name="name"/>
+                            </strong>
+                            <div class="text-muted">
+                              <small><field name="ocupacion_id"/></small>
+                            </div>
+                            <div class="mt-1">
+                              <i class="fa fa-phone me-1"
+                                 t-if="record.movil_trabajo.value"
+                                 title="Teléfono móvil de trabajo"/>
+                              <strong><field name="movil_trabajo"/></strong>
+                            </div>
+
+                            <div class="o_kanban_record_subtitle">
+                              <field name="correo_trabajo" widget="email"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="o_kanban_record_bottom mt-2">
+                          <div class="oe_kanban_bottom_left">
+                          </div>
+                          <div class="oe_kanban_bottom_right">
+                          </div>
+                        </div>
+                      </div>
+                    </t>
+                  </templates>
+                </kanban>
+              </field>
+            </page>
+
+            <page name="areas" string="Áreas Asociados">
+              <field name="areas_ids" widget="many2many">
+                <kanban highlight_color="color" quick_create="false" create="true" delete="true">
+                  <field name="name"/>
+                  <field name="centro_costo"/>
+                  <field name="manager_id"/>
+                  <field name="parent_id"/>
+                  <field name="company_id"/>
+                  <field name="color"/>
+                  <templates>
+                    <t t-name="card">
+                      <div
+                          t-attf-class="oe_kanban_card oe_kanban_global_click oe_applicant_kanban oe_semantic_html_override #{!selection_mode ? 'oe_kanban_color_' + record.color.raw_value : ''}">
+
+                        <div class="o_kanban_record_top d-flex align-items-start">
+                          <div class="me-3">
+                            <span class="fa fa-building-o fa-2x text-muted" title="Estructura"/>
+                          </div>
+
+                          <div class="o_kanban_record_headings ms-2">
+                            <strong class="o_kanban_record_title d-block mb-1">
+                              <field name="name"/>
+                            </strong>
+
+                            <div class="text-muted small">
+                              <i class="fa fa-university me-1" title="Compañía / Institución"/>
+                              <field name="company_id"/>
+                            </div>
+
+                            <div class="mt-1">
+                              <i class="fa fa-user-circle-o me-1 text-primary" title="Responsable / Manager"/>
+                              <strong><field name="manager_id"/></strong>
+                            </div>
+
+                            <div class="mt-2">
+                              <span class="badge rounded-pill bg-light text-dark border">
+                                <i class="fa fa-calculator me-1 text-secondary" title="Centro de Costo"/>
+                                <field name="centro_costo"/>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="o_kanban_record_bottom mt-3 border-top pt-2">
+                          <div class="oe_kanban_bottom_left">
+                          </div>
+                          <div class="oe_kanban_bottom_right">
+                          </div>
+                        </div>
+                      </div>
+                    </t>
+                  </templates>
+                </kanban>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="trabajadores_equipo_tecnico_view_list" model="ir.ui.view">
+    <field name="name">sicpro.app.trabajadores.equipo.tecnico.list</field>
+    <field name="model">sicpro.app.trabajadores.equipo.tecnico</field>
+    <field name="arch" type="xml">
+      <list string="Equipo Técnico" sample="1" multi_edit="1">
+        <field name="sequence" widget="handle"/>
+        <field name="name" readonly="1"/>
+        <field name="active" invisible="1"/>
+        <field name="lider"/>
+        <field name="member_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+        <field name="company_id" groups="base.group_multi_company"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="trabajadores_equipo_tecnico_view_kanban" model="ir.ui.view">
+    <field name="name">crm.team.kanban</field>
+    <field name="model">sicpro.app.trabajadores.equipo.tecnico</field>
+    <field name="arch" type="xml">
+      <kanban highlight_color="color" class="o_kanban_mobile" sample="1">
+        <field name="name"/>
+        <field name="user_id"/>
+        <field name="trabajadores_count"/>
+        <field name="company_id"/>
+        <field name="color"/>
+        <templates>
+          <t t-name="menu" t-if="!selection_mode">
+            <div class="container">
+              <div class="o_kanban_card_manage_settings row">
+                <div t-if="widget.editable" role="menuitem" aria-haspopup="true" class="col-6">
+                  <field name="color" widget="kanban_color_picker"/>
+                </div>
+                <div class="col-6">
+                  <a t-if="widget.editable" role="menuitem" type="edit" class="dropdown-item">Editar</a>
+                  <a t-if="widget.deletable" role="menuitem" type="delete" class="dropdown-item">Eliminar</a>
+                  <ul class="oe_kanban_colorpicker" data-field="color"/>
+                </div>
+              </div>
+            </div>
+          </t>
+          <t t-name="card">
+            <div
+                t-attf-class="oe_kanban_card oe_kanban_global_click oe_applicant_kanban oe_semantic_html_override #{!selection_mode ? 'oe_kanban_color_' + record.color.raw_value : ''}">
+              <div class="oe_kanban_content">
+                <div class="row">
+                  <div class="col-8 o_kanban_record_title">
+                    <strong><field name="name"/></strong>
+                  </div>
+                  <div class="col-4 text-end">
+                    <field name="user_id" widget="many2one_avatar_user"/>
+                  </div>
+                </div>
+
+                <div class="row mt-2">
+                  <div class="col-12">
+                    <field name="member_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                  </div>
+                </div>
+
+                <div class="o_kanban_record_bottom mt-2">
+                  <div class="oe_kanban_bottom_left">
+                  </div>
+                  <div class="oe_kanban_bottom_right">
+                    <span class="fa fa-users text-black-50" title="Total Trabajadores">
+                      <t t-esc="record.trabajadores_count.value"/>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="trabajadores_equipo_tecnico_action" model="ir.actions.act_window">
+    <field name="name">Equipo Técnico</field>
+    <field name="res_model">sicpro.app.trabajadores.equipo.tecnico</field>
+    <field name="view_id" ref="trabajadores_equipo_tecnico_search"/>
+    <field name="view_mode">kanban,list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Aquí define el equipo técnico que atiende la gestión de Capital Humano
+      </p>
+    </field>
+  </record>
+</odoo>

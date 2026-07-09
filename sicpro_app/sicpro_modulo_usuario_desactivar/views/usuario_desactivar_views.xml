@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record model="ir.ui.view" id="desactivar_usuario_list_view">
+  <field name="name">sicpro.app.modulo.usuario.desactivar.list</field>
+  <field name="model">sicpro.app.modulo.usuario.desactivar</field>
+  <field name="priority">20</field>
+  <field name="arch" type="xml">
+    <list string="Desactivar usuarios" editable="bottom" create="false">
+      <field name="name" widget="boolean_toggle"/>
+      <field name="dias"/>
+      <field name="color"/>
+      <field name="tipo" readonly="1"/>
+      <field name="avisos" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"
+             placeholder="Seleccionar tiempo de avisos"/>
+      <field name="usuario_excepcion_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create': True}"
+             placeholder="Usuarios protegidos..."/>
+      <field name="company_id" readonly="1" optional="hide"/>
+    </list>
+  </field>
+</record>
+
+  <record id="desactivar_usuario_action" model="ir.actions.act_window">
+    <field name="name">Desactivación de Usuarios</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.app.modulo.usuario.desactivar</field>
+    <field name="view_id" ref="desactivar_usuario_list_view"/>
+    <field name="view_mode">list</field>
+  </record>
+</odoo>

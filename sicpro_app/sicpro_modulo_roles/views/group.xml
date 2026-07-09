@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="res_groups_view_form" model="ir.ui.view">
+    <field name="name">res.groups.form - sicpro_modulo_roles</field>
+    <field name="model">res.groups</field>
+    <field name="inherit_id" ref="base.view_groups_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet/group" position="before">
+        <div name="button_box" class="oe_button_box">
+          <button class="oe_stat_button" name="action_view_roles" type="object"
+                  icon="fa-gears" invisible="not role_count">
+            <field string="Roles de usuario" name="role_count" widget="statinfo"/>
+          </button>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>

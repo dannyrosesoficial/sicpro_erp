@@ -1,0 +1,150 @@
+/* Danny: Variables de Z-Index alineadas con Odoo 19 🌹 */
+// Forzamos que esté por encima wizard (que suele ser 1050)
+$o-sicpro-zindex-ui: 1100;
+
+/* Estilos de la Barra de Herramientas Flotante */
+.oe-toolbar.oe-floating {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    min-height: 44px; // Un poco más alto para facilitar el toque en tablets
+    border-radius: 6px;
+    padding: 0 12px;
+    background-color: #FFF;
+    border: 1px solid rgba(0,0,0,0.1); // Danny: Para que resalte en fondos blancos
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: $o-sicpro-zindex-ui;
+    animation: fadeInDownSmall 0.2s ease-out;
+
+    /* Separadores de botones */
+    > .btn-group:not(.d-none) ~ .btn-group:not(.d-none)::before {
+        content: "";
+        width: 1px;
+        height: 20px;
+        background: #dee2e6;
+        margin: 0 10px;
+    }
+
+    .btn {
+        border: none;
+        background: transparent;
+        color: #495057;
+        padding: 6px 10px;
+        font-weight: 500;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            color: var(--primary);
+            background-color: rgba(var(--primary-rgb), 0.08);
+            transform: translateY(-1px);
+        }
+
+        &.active {
+            color: white;
+            background-color: var(--primary);
+        }
+    }
+}
+
+/* Widget de Recorte (Cropper) para SICPRO */
+.o_we_crop_widget {
+    background-color: rgba(0, 0, 0, 0.7); // Un poco más oscuro para centrar la atención
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1055;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .o_we_crop_buttons {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        .btn-group {
+            background: white;
+            border-radius: 50px; // Estilo "Pill" más moderno
+            padding: 2px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        button, label {
+            padding: 8px 16px;
+            border-radius: 50px !important;
+            border: none;
+            background: white;
+            color: #333;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+
+            &:hover { background: #f0f0f0; }
+            &.active {
+                background: var(--primary);
+                color: white;
+            }
+        }
+    }
+}
+
+/* Danny: Control de dimensiones del área de recorte 🌹 */
+.o_sicpro_container_image {
+    width: 100%;
+    max-width: 600px;
+    height: 450px;
+    margin: 0 auto;
+    border: 1px solid rgba(255,255,255,0.1);
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+/* Forzamos visibilidad de la rejilla de Cropper.js */
+.cropper-container {
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    .cropper-view-box {
+        outline: 1px solid #fff;
+        outline-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .cropper-line, .cropper-point {
+        background-color: var(--primary); // Danny: Rejilla del color de tu tema
+    }
+}
+
+/* Animaciones */
+@keyframes fadeInDownSmall {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Danny: Estilo para el botón deshabilitado 🌹 */
+button:disabled {
+    cursor: not-allowed;
+    filter: grayscale(1);
+    opacity: 0.8;
+}
+
+/* Danny: Asegura que el texto dentro de botones con carga no rote 🌹 */
+.btn i.fa-spin + span {
+    display: inline-block;
+    transform: none !important;
+    animation: none !important;
+}

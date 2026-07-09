@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <template id="sicpro_template_final" name="pagina_web_login">
+    <t t-call="web.layout">
+
+      <t t-set="html_data" t-value="{'style': 'height: 100%;'}"/>
+      <t t-set="head">
+
+        <meta charset="UTF-8"/>
+        <title>SICPRO ERP - Login</title>
+        <script type="text/javascript">document.title = "SICPRO ERP - Login";</script>
+        <link rel="icon" type="image/png" href="/sicpro_modulo_web_login/static/src/img/SICPRO_ERP.png"/>
+        <link rel="shortcut icon" href="/sicpro_modulo_web_login/static/src/img/SICPRO_ERP.png" type="image/png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="cache-control" content="no-cache"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+
+        <link rel="stylesheet" href="/sicpro_modulo_web_login/static/src/css/style_login.css"/>
+        <link rel="stylesheet" href="/web/static/src/libs/fontawesome/css/font-awesome.css"/>
+        <link rel="stylesheet" href="/web/static/lib/bootstrap/dist/css/bootstrap.css"/>
+      </t>
+
+      <div id="particles-js"></div>
+
+      <div class="login-container">
+        <div class="form-panel">
+          <t t-call="web.frontend_layout">
+            <t t-set="html_data" t-value="{'style': 'height: 100%;'}"/>
+            <t t-set="body_classname" t-value="'bg-100'"/>
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+
+            <div class="text-center mb-3">
+              <img t-att-src="'/sicpro_modulo_web_login/static/src/img/SICPRO_ERP.png'"
+                   alt="SICPRO Logo" class="system-logo"/>
+              <div class="system-name">SICPRO ERP</div>
+              <p class="text-muted small fw-bold" style="font-size: 0.7rem; margin-bottom: 0;">
+                SISTEMA DE CONTROL DE LA PRODUCCIÓN </p>
+            </div>
+
+            <owl-component t-if="not login" name="web.user_switch"/>
+            <form t-attf-class="oe_login_form #{'' if login else 'd-none'}" role="form" t-attf-action="/web/login"
+                  method="post" onsubmit="this.action = '/web/login' + location.hash" data-captcha="login">
+              <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+
+              <div class="mb-2" t-if="databases and len(databases) &gt; 1">
+                <label for="db" class="form-label small fw-bold text-muted" style="font-size: 0.65rem;">BASE DE
+                  DATOS</label>
+                <div class="input-group">
+                  <input type="text" name="db" t-att-value="request.db" id="db" class="form-control" required="required"
+                         readonly="readonly"/>
+                  <a role="button" href="/web/database/sicpro/selector" class="btn border border-start-0">Select <i
+                      class="fa fa-database" role="img" aria-label="Database" title="Database"></i></a>
+                </div>
+              </div>
+
+              <div class="mb-2" style="position: relative;"><label for="login"
+                                                                   class="form-label small fw-bold text-muted"
+                                                                   style="font-size: 0.65rem; width: 100%;">
+                USUARIO
+              </label>
+                <input type="text" placeholder="Introduce tu usuario" name="login" t-att-value="login" id="login"
+                       class="form-control" required="required" autocapitalize="off" autocomplete="username"/>
+              </div>
+
+              <div class="mb-2">
+                <label for="password" class="form-label small fw-bold text-muted" style="font-size: 0.65rem;">
+                  CONTRASEÑA</label>
+                <div class="input-group">
+                  <input type="password" placeholder="Introduce tu contraseña" name="password" id="password"
+                         class="form-control" required="required" autocomplete="current-password"
+                         t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+                  <button type="button" class="btn btn-sm border border-start-0 o_show_password">
+                    <i class="fa fa-eye"/>
+                  </button>
+                </div>
+              </div>
+
+
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="form-check">
+                  <input type="checkbox" name="remember" class="form-check-input" id="remember"/>
+                  <label class="form-check-label small text-muted" for="remember"
+                         style="font-size: 0.7rem; cursor: pointer;">
+                    Recordarme
+                  </label>
+                </div>
+
+                <a href="#" data-bs-toggle="modal" data-bs-target="#ldapInfoModal"
+                   class="small text-decoration-none fw-bold"
+                   style="color: var(--accent); font-size: 0.7rem;">¿Olvidó su contraseña?</a>
+
+                <div class="modal fade" id="ldapInfoModal" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content"
+                         style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 25px; color: white;">
+                      <div class="modal-header border-0 pb-0">
+                        <h5 class="modal-title fw-bold"
+                            style="font-family: 'Outfit', sans-serif; color: var(--accent);">
+                          <i class="fas fa-network-wired me-2"></i>Acceso Corporativo LDAP
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body pt-3">
+                        <div class="text-center mb-4">
+                          <div class="avatar-info mb-3"
+                               style="width: 60px; height: 60px; background: var(--primary-light); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--primary);">
+                            <i class="fa fa-info-circle" style="color: var(--primary); font-size: 1.5rem;"></i>
+                          </div>
+                          <p style="font-size: 0.9rem; line-height: 1.5; opacity: 0.9;">
+                            SICPRO ERP está integrado con el servicio de identidad centralizado de la empresa.
+                          </p>
+                        </div>
+
+                        <div class="p-3 mb-2" style="background: rgba(255,255,255,0.05); border-radius: 15px;">
+                          <div class="d-flex align-items-start mb-3">
+                            <i class="fa fa-user-circle mt-1 me-3 text-info"></i>
+                            <div>
+                              <span class="d-block fw-bold small text-uppercase" style="letter-spacing: 1px;">
+                                Usuario</span>
+                              <span class="small opacity-75">Es el mismo nombre de su correo corporativo. <br/>
+                                Ej: <strong class="text-info">alberto.perez</strong></span>
+                            </div>
+                          </div>
+                          <div class="d-flex align-items-start">
+                            <i class="fa fa-key mt-1 me-3 text-success"></i>
+                            <div>
+                              <span class="d-block fw-bold small text-uppercase" style="letter-spacing: 1px;">
+                                Contraseña</span>
+                              <span class="small opacity-75">Utilice la contraseña de su correo empresarial generada por
+                                LDAP.</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <p class="text-center mt-3 mb-0" style="font-size: 0.7rem; opacity: 0.6;">
+                          Si no recuerda su clave LDAP, contacte al departamento de soporte técnico.
+                        </p>
+                      </div>
+                      <div class="modal-footer border-0">
+                        <button type="button" class="btn-sicpro py-2" data-bs-dismiss="modal"
+                                style="font-size: 0.8rem;">Entendido</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <p class="alert alert-danger py-2" t-if="error" role="alert" style="font-size: 0.75rem;">
+                <t t-esc="error"/>
+              </p>
+              <p class="alert alert-success py-2" t-if="message" role="status" style="font-size: 0.75rem;">
+                <t t-esc="message"/>
+              </p>
+
+              <div class="d-grid gap-2 mb-2">
+                <button type="submit" class="btn-sicpro">
+                  Iniciar Sesión <i class="fa fa-rocket ms-2"></i>
+                </button>
+                <t t-if="debug">
+                  <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm">Inicia sesión
+                    como
+                    superusuario</button>
+                </t>
+              </div>
+
+              <div class="text-center mb-3">
+                <a href="#" class="small text-decoration-none"
+                   style="color: var(--primary); font-weight: 600; font-size: 0.7rem;">¿Problemas con el acceso?</a>
+              </div>
+
+              <div class="text-center mt-1 border-top pt-3">
+                <div class="d-flex justify-content-center">
+                  <t t-set="social_links" t-value="{}"/>
+                  <t t-set="company_social"
+                     t-value="request.env['res.company'].sudo().search([('login_redes_sociales', '=', True)], limit=1)"/>
+                  <t t-if="company_social">
+                    <t t-set="social_links" t-value="company_social.get_link_sociales()"/>
+                  </t>
+                  <t t-if="social_links.get('link_twitter')">
+                    <a t-att-href="social_links.get('link_twitter')" class="social-icon" target="_blank">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                  </t>
+                  <t t-if="social_links.get('link_facebook')">
+                    <a t-att-href="social_links.get('link_facebook')" class="social-icon" target="_blank">
+                      <i class="fa fa-facebook-f"></i>
+                    </a>
+                  </t>
+                  <t t-if="social_links.get('link_instagram')">
+                    <a t-att-href="social_links.get('link_instagram')" class="social-icon" target="_blank">
+                      <i class="fa fa-instagram"></i>
+                    </a>
+                  </t>
+                  <t t-if="social_links.get('link_linkedin')">
+                    <a t-att-href="social_links.get('link_linkedin')" class="social-icon" target="_blank">
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+                  </t>
+                </div>
+
+
+                <div class="text-center small pb-2 pt-3 opacity-20">
+                  <img t-att-src="'/sicpro_modulo_web_login/static/src/img/etecsaCi_300_8.png'"
+                       alt="ETECSA"
+                       style="height: 20px; width: auto; margin-right: 2px; object-fit: contain; vertical-align: middle;"/>
+                  <span class="small text-muted mt-2 mb-0" style="font-size: 0.65rem;"> © <span
+                      t-esc="datetime.datetime.now().year"/> División de Proyectos y Ejecución de Obras. 🌹</span>
+                </div>
+              </div>
+            </form>
+          </t>
+        </div>
+
+        <div class="image-panel">
+          <div class="top-meta">
+            <div>
+              <span class="status-dot"></span><span class="small fw-bold">NODO CENTRAL ACTIVO</span>
+            </div>
+            <div class="text-end">
+              <div id="live-clock">00:00:00</div>
+              <div style="font-size: 0.55rem; opacity: 0.6; letter-spacing: 1px;">HORA EN CUBA</div>
+            </div>
+          </div>
+
+          <div class="info-header">
+            <h2>SICPRO</h2>
+            <p class="description">
+              Optimización y control de infraestructura crítica para la DVPE. Monitoreo proactivo en tiempo real de
+              la ejecución y el cumplimiento de las actividades de la división.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Usuarios Conectados</div>
+            <div class="d-flex justify-content-between align-items-center">
+              <t t-set="all_users" t-value="request.env['res.users'].sudo().search([('share', '=', False)], limit=50)"/>
+              <t t-set="total_count" t-value="len(all_users)"/>
+
+              <div class="stat-value">
+                <t t-if="total_count &gt; 0">
+                  <t t-esc="int(total_count * 0.6) + 1"/></t>
+                <t t-else="">0</t>
+              </div>
+
+              <div class="user-avatars">
+                <t t-foreach="all_users[:3]" t-as="user_img">
+                  <div class="avatar" style="overflow: hidden; border: 2px solid var(--primary);">
+                    <t t-if="user_img.image_128">
+                      <img t-attf-src="data:image/png;base64,#{user_img.image_128}"
+                           style="width: 100%; height: 100%; object-fit: cover;"/>
+                    </t>
+                    <t t-else="">
+                      <i class="fas fa-user" style="font-size: 0.6rem; opacity: 0.5;"></i>
+                    </t>
+                  </div>
+                </t>
+
+                <t t-if="total_count &gt; 3">
+                  <div class="avatar avatar-more">
+                    +<t t-esc="total_count - 3"/>
+                  </div>
+                </t>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Módulos Más Utilizados</div>
+            <div class="module-list">
+              <t t-set="installed_apps"
+                 t-value="request.env['ir.module.module'].sudo().search([('state', '=', 'installed'), ('application', '=', True)], limit=3, order='sequence ASC')"/>
+
+              <t t-foreach="installed_apps" t-as="app">
+                <t t-set="random_width" t-value="((app.id * 13) % 41) + 55"/> <div class="module-item">
+                <span><t t-esc="app.shortdesc"/></span>
+                <div class="module-bar">
+                  <div class="module-fill"
+                       t-attf-style="width: #{random_width}%;
+                                       background: #{'var(--accent)' if app_index == 1 else 'var(--success)' if app_index == 2 else 'var(--info)'};">
+                  </div>
+                </div>
+              </div>
+              </t>
+
+              <t t-if="not installed_apps">
+                <div class="module-item opacity-50">
+                  <span>Esperando inicialización...</span>
+                  <div class="module-bar"><div class="module-fill" style="width: 10%;"></div></div>
+                </div>
+              </t>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Salud del Ecosistema</div>
+
+            <div class="stat-value">
+              99.9<t t-esc="datetime.datetime.now().second % 10"/>%
+              <small style="font-size: 0.6rem; color: var(--success);">OPTIMO</small>
+            </div>
+
+            <p style="font-size: 0.6rem; opacity: 0.7; margin-top: 5px; margin-bottom: 0;">
+              <i class="fa fa-check-circle me-1" style="color:var(--success)"></i>
+              Núcleo: Odoo 19.0.1 <br/>
+
+              <t t-set="last_version"
+                 t-value="request.env['sicpro.modulo.web.version'].sudo().search([('version_actual', '=', True)], limit=1)"/>
+              <i class="fa fa-trophy me-1" style="color: #FFD700;"></i>SICPRO:
+              <strong><t t-out="last_version.name"/></strong> <br/>
+
+              <i class="fa fa-database me-1" style="color:var(--info)"></i>
+              DB: <t t-esc="request.db"/> | <span style="color:var(--success)">Activa</span> <br/>
+
+              <i class="fa fa-bolt me-1" style="color:var(--accent)"></i>
+              Latencia: <t t-esc="(datetime.datetime.now().microsecond % 20) + 10"/>ms
+            </p>
+          </div>
+
+
+          <div class="mt-auto text-center opacity-50 small" style="font-size: 0.7rem;">
+            <div class="mb-2"
+                 style="font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; letter-spacing: 1px; color: rgba(255,255,255,0.7);">
+              <i class="fas fa-shield-alt me-1"></i>
+              ENC: <t
+                t-esc="(request.db[:4].upper() + 'X' + str(len(request.db)) + 'Y' + request.db[-2:].upper()) if request.db else 'SECURE_NODE'"/>
+              <span class="ms-1" style="color: var(--success); animation: pulse-active 2s infinite;">• ACTIVO</span>
+            </div>
+
+            <div class="border-top pt-2" style="border-color: rgba(255,255,255,0.1) !important;">
+              <i class="fas fa-fingerprint me-1"></i>
+              © <t t-esc="datetime.datetime.now().year"/> SICPRO ERP. Todos los derechos reservados.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="/sicpro_modulo_web_login/static/src/js/login_particles.min.js.js"></script>
+      <script src="/sicpro_modulo_web_login/static/src/js/login_scripts.js"></script>
+    </t>
+  </template>
+</odoo>

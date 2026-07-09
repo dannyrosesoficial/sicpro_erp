@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="clientes_ldap_filter_view" model="ir.ui.view">
+    <field name="name">sicpro.app.clientes.search.inherit</field>
+    <field name="model">sicpro.app.clientes</field>
+    <field name="inherit_id" ref="sicpro_app_clientes.clientes_filter_view"/>
+    <field name="arch" type="xml">
+      <filter name="provincia_id" position="after">
+        <filter name="tipo_cliente" string="Tipo de Cliente" context="{'group_by': 'tipo_cliente'}"/>
+      </filter>
+    </field>
+  </record>
+
+  <record id="clientes_ldap_view_form" model="ir.ui.view">
+    <field name="name">sicpro.app.clientes.views.form</field>
+    <field name="model">sicpro.app.clientes</field>
+    <field name="inherit_id" ref="sicpro_app_clientes.clientes_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='tipo_registro']" position="after">
+        <div invisible="tipo_registro == 'entidad'">
+          <field name="tipo_cliente" class="font-weight-bold" widget="radio" options="{'horizontal': true}"/>
+          <div class="col-6 oe_edit_only" invisible="tipo_cliente == 'local'">
+            <div class="o_row no-gutters d-flex">
+              <span class='font-weight-bold'>Buscar No. PEP</span>
+              <field name="buscar_pep"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </div>
+          </div>
+        </div>
+      </xpath>
+      <field name="pagina_web" position="after">
+        <field name="pep" placeholder="No. Plaza del Cliente" invisible="tipo_registro == 'entidad'"/>
+      </field>
+    </field>
+  </record>
+
+  <record id="clientes_ldap_view_list" model="ir.ui.view">
+    <field name="name">sicpro.app.clientes.views.list</field>
+    <field name="model">sicpro.app.clientes</field>
+    <field name="inherit_id" ref="sicpro_app_clientes.clientes_view_list"/>
+    <field name="arch" type="xml">
+      <field name="name" position="before">
+        <field name="tipo_cliente" optional="hide"/>
+      </field>
+    </field>
+  </record>
+</odoo>

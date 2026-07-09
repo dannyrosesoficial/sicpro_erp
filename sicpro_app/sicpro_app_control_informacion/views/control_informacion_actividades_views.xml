@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="control_informacion_list" model="ir.ui.view">
+    <field name="name">sicpro.app.control.informacion.actividad.list</field>
+    <field name="model">sicpro.app.control.informacion.actividad</field>
+    <field name="priority">10</field>
+    <field name="arch" type="xml">
+      <list string="Actividades de Control" editable="bottom">
+        <field name="name"/>
+        <field name="dia_entrega"/>
+        <field name="gestores" widget="many2many_tags"
+               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="areas" widget="many2many_tags"
+               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="active" column_invisible="1"/>
+        <field name="descripcion"/>
+        <field name="notificar" widget="many2many_tags" options="{'color_field': 'color'}"/>
+        <field name="color" widget="color_picker" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="control_informacion_action" model="ir.actions.act_window">
+    <field name="name">Actividades de Control</field>
+    <field name="res_model">sicpro.app.control.informacion.actividad</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="control_informacion_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear nueva actividad
+      </p>
+    </field>
+  </record>
+</odoo>

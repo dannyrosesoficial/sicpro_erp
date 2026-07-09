@@ -1,0 +1,378 @@
+/* ========================================================================
+   VARIABLES Y CONFIGURACIÓN GLOBAL (Compatible con Odoo 19 / Bootstrap 5)
+   ======================================================================== */
+:root {
+    --primary: #714B67;
+    --primary-hover: #5a3c52;
+    --primary-light: #f4eff2;
+    --primary-glow: rgba(113, 75, 103, 0.25);
+    --secondary: #64748b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bg-color: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.98);
+    --text-dark: #2d232b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 25px -5px rgba(113, 75, 103, 0.1);
+    --shadow-hover: 0 20px 25px -5px rgba(113, 75, 103, 0.2);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 16px;
+}
+
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #f4eff2 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ========================================================================
+   ESTRUCTURA Y LAYOUT
+   ======================================================================== */
+header {
+    background: linear-gradient(90deg, #4a3143 0%, var(--primary) 100%);
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 20px rgba(74, 49, 67, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.header-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+    flex-grow: 1;
+    position: relative;
+}
+
+/* ========================================================================
+   COMPONENTES: CARDS Y VISTAS
+   ======================================================================== */
+.page-view {
+    display: none;
+    opacity: 0;
+    transform: scale(0.98) translateY(20px);
+    transition: var(--transition);
+}
+
+.page-view.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    animation: slideUpFadeBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes slideUpFadeBounce {
+    0% { opacity: 0; transform: scale(0.95) translateY(30px); }
+    70% { transform: scale(1.01) translateY(-5px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(113, 75, 103, 0.1);
+    transition: var(--transition);
+    backdrop-filter: blur(20px);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.card-title {
+    font-size: 1.35rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+    display: inline-block;
+}
+
+/* ========================================================================
+   FORMULARIOS
+   ======================================================================== */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.full-width {
+    grid-column: 1 / -1 !important;
+    display: block;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input, select, textarea {
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: #fcfcfc;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+    background-color: #fff;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* CHECKBOXES */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    background: #fff;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.checkbox-item:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.checkbox-item input {
+    accent-color: var(--primary);
+    transform: scale(1.2);
+}
+
+/* ========================================================================
+   BOTONES
+   ======================================================================== */
+.btn {
+    padding: 0.85rem 1.75rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+}
+
+.btn-secondary { background-color: var(--secondary); color: white; }
+.btn-success { background: var(--success); color: white; }
+.btn-danger { background: var(--danger); color: white; }
+
+.actions-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px dashed var(--border-color);
+}
+
+/* ========================================================================
+   ESTRUCTURAS ESPECIALES (STEPPER, SUMMARY, MODAL)
+   ======================================================================== */
+.stepper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    gap: 1rem;
+    position: relative;
+}
+
+.step-indicator {
+    padding: 0.6rem 1.5rem;
+    background: white;
+    color: var(--secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.step-indicator.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+    transform: scale(1.05);
+}
+
+.user-summary {
+    background: var(--primary-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 5px solid var(--primary);
+}
+
+.user-summary p {
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(113, 75, 103, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.user-summary span {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* MODALES */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(45, 35, 43, 0.6); backdrop-filter: blur(5px);
+    display: none; align-items: center; justify-content: center; z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: flex;
+    animation: fadeIn 0.3s forwards;
+}
+
+.modal-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: scale(0.9);
+    transition: var(--transition);
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ========================================================================
+   ANIMACIONES DE NIVELES DE ACCESO (Odoo 19 / FA 6 Compatible)
+   ======================================================================== */
+.access-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.access-item {
+    transition: var(--transition);
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.access-item:hover {
+    background: var(--primary-light);
+    transform: translateX(8px);
+}
+
+.access-item i {
+    width: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.access-item:hover i {
+    animation: pulseIcon 0.8s infinite alternate;
+}
+
+@keyframes pulseIcon {
+    from { transform: scale(1); }
+    to { transform: scale(1.35); }
+}
+
+/* Estilo para advertencias parpadeantes */
+.text-danger i.fa-triangle-exclamation,
+.fa-exclamation-triangle {
+    animation: blinkWarning 1.5s infinite;
+}
+
+@keyframes blinkWarning {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* Clases de utilidad de texto */
+.text-success { color: var(--success) !important; }
+.text-warning { color: var(--warning) !important; }
+.text-danger { color: var(--danger) !important; }
+

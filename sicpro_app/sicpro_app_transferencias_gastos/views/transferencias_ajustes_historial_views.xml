@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="transferencias_ajustes_cj74_historial_list_view" model="ir.ui.view">
+      <field name="name">sicpro.app.transferencias.gastos.ajustes.historial.list</field>
+      <field name="model">sicpro.app.transferencias.gastos.ajustes.historial</field>
+      <field name="arch" type="xml">
+        <list string="Historial de Ajuste de Transferencias de Gastos">
+          <field name="anio"/>
+          <field name="mes"/>
+          <field name="name"/>
+          <field name="valor_var_nuevo"/>
+          <field name="valor_var_anterior"/>
+          <field name="cl_coste"/>
+          <field name="company_abreviatura"/>
+          <field name="create_date" string="Creado"/>
+          <field name="create_uid" string="Usuario"/>
+          <field name="company_id" invisible="1"/>
+          <field name="company_currency" column_invisible="True"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="transferencias_ajustes_cj74_historial_filter" model="ir.ui.view">
+      <field name="name">sicpro.app.transferencias.gastos.ajustes.historial.search</field>
+      <field name="model">sicpro.app.transferencias.gastos.ajustes.historial</field>
+      <field name="arch" type="xml">
+        <search string="Buscar">
+          <field name="name"/>
+          <field name="anio"/>
+          <field name="mes"/>
+          <separator/>
+          <group>
+            <filter name="name" string="Orden de Trabajo" context="{'group_by': 'name'}"/>
+            <filter name="anio" string="Año" context="{'group_by': 'anio'}"/>
+            <filter name="mes" string="Mes" context="{'group_by': 'mes'}"/>
+            <filter name="cl_coste" string="Cuenta" context="{'group_by': 'cl_coste'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="transferencias_ajustes_cj74_historial_action">
+      <field name="name">Historial de Ajuste de Transferencias de Gastos</field>
+      <field name="res_model">sicpro.app.transferencias.gastos.ajustes.historial</field>
+      <field name="view_mode">list</field>
+    </record>
+</odoo>

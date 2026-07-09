@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="res_config_settings_view_form_server_info" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.inherit.server.info</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//form" position="inside">
+        <app data-string="Monitor del Servidor" string="Monitor del Servidor" name="sicpro_modulo_servidor_info">
+          <block title="Estado del Servidor SICPRO ERP" id="server_stats_block">
+            <widget name="auto_update"/>
+          </block>
+        </app>
+      </xpath>
+    </field>
+  </record>
+</odoo>

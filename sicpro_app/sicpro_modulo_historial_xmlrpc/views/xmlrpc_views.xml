@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="xml_rpc_log_view_list" model="ir.ui.view">
+    <field name="name">xml.rpc.log.view.list</field>
+    <field name="model">xml.rpc.log</field>
+    <field name="arch" type="xml">
+      <list string="Historial de solicitudes XML-RPC">
+        <field name="model"/>
+        <field name="method"/>
+        <field name="create_uid"/>
+        <field name="create_date"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="xml_rpc_log_view_form" model="ir.ui.view">
+    <field name="name">xml.rpc.log.view.form</field>
+    <field name="model">xml.rpc.log</field>
+    <field name="arch" type="xml">
+      <form string="Detalle solicitud XML-RPC">
+        <sheet>
+          <group>
+            <field name="model"/>
+            <field name="method"/>
+            <field name="data"/>
+            <field name="return_msg"/>
+          </group>
+          <group>
+            <field name="create_uid"/>
+            <field name="create_date"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="xml_rpc_log_action" model="ir.actions.act_window">
+    <field name="name">Historial de Solicitudes XmlRPC</field>
+    <field name="res_model">xml.rpc.log</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <menuitem id="config_log_menu" name="Historial de Solicitudes XmlRPC" action="xml_rpc_log_action"
+            parent="sicpro_app_administracion.menu_administracion_3" sequence="10"/>
+</odoo>

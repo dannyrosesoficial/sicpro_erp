@@ -1,0 +1,168 @@
+/* =========================================
+   VARIABLES Y CONFIGURACIÓN BASE
+   ========================================= */
+:root {
+    --primary: #714B67;
+    --primary-light: #fdf2f8;
+    --accent: #ff4a17;
+    --bg-body: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: rgba(0, 0, 0, 0.08);
+    --glass: rgba(255, 255, 255, 0.9);
+}
+
+[data-bs-theme="dark"] {
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+    --primary-light: #2d1b28;
+    --glass: rgba(15, 23, 42, 0.9);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+/* =========================================
+   BOTONES Y NAVEGACIÓN
+   ========================================= */
+.btn-sicpro {
+    background: var(--primary);
+    color: white !important;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-sicpro:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(113, 75, 103, 0.4);
+}
+
+.navbar {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+/* =========================================
+   DIRECTORIO Y TARJETAS (ESTRECHAS)
+   ========================================= */
+.access-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    height: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.access-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dir-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+/* =========================================
+   BUSCADOR
+   ========================================= */
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 40px;
+}
+
+.search-input {
+    padding: 12px 20px 12px 50px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    width: 100%;
+    outline: none;
+    transition: 0.3s;
+    background: var(--bg-card);
+    color: var(--text-main);
+}
+
+.search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(113, 75, 103, 0.1);
+}
+
+/* =========================================
+   ANIMACIÓN DE OLAS (WAVES)
+   ========================================= */
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+.parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+.parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+.parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+@keyframes move-forever {
+    0% { transform: translate3d(-90px, 0, 0); }
+    100% { transform: translate3d(85px, 0, 0); }
+}
+
+@media (max-width: 768px) {
+    .waves { height: 40px; min-height: 40px; }
+}
+
+/* =========================================
+   ANIMACIONES DE APOYO
+   ========================================= */
+@keyframes pulse {
+    0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+    100% { transform: scale(0.9); }
+}
+
+.status-dot {
+    height: 10px; width: 10px;
+    background: #2ecc71;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="survey_user_input_view_form_inherit" model="ir.ui.view">
+    <field name="name">survey.user_input.view.form.inherit.sicpro</field>
+    <field name="model">survey.user_input</field>
+    <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="trabajador_id"
+               options="{'no_create': True, 'no_edit': True}"
+               placeholder="Identificación del trabajador..."/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="survey_user_input_view_list_inherit" model="ir.ui.view">
+    <field name="name">survey.user_input.view.list.inherit.sicpro</field>
+    <field name="model">survey.user_input</field>
+    <field name="inherit_id" ref="survey.survey_user_input_view_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="trabajador_id" optional="show"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

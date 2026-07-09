@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+    <t t-name="sicpro_modulo_widget_audio.audio_widget" owl="1">
+        <div><audio t-att-src="this.props.record.data[this.props.name]" controls="controls"/></div>
+    </t>
+</templates>

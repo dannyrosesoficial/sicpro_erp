@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <!-- Creo los privilegios de permisos a Clientes-->
+  <record id="privilege_clientes" model="res.groups.privilege">
+    <field name="name">Clientes</field>
+    <field name="sequence">1</field>
+    <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_solicitudes_obras"/>
+  </record>
+
+  <record id="grupo_app_clientes_usuario" model="res.groups">
+    <field name="name">Usuarios</field>
+    <field name="comment">Permisos de lectura</field>
+    <field name="privilege_id" ref="privilege_clientes"/>
+    <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+  </record>
+
+  <record id="grupo_app_clientes_ejecutor" model="res.groups">
+    <field name="name">Ejecutor</field>
+    <field name="comment">Permisos de Lectura/Escritura</field>
+    <field name="privilege_id" ref="privilege_clientes"/>
+    <field name="implied_ids" eval="[(4, ref('grupo_app_clientes_usuario'))]"/>
+  </record>
+
+  <record id="grupo_app_clientes_responsable" model="res.groups">
+    <field name="name">Responsable</field>
+    <field name="comment">Permisos de Lectura/Escritura/Config</field>
+    <field name="privilege_id" ref="privilege_clientes"/>
+    <field name="implied_ids" eval="[(4, ref('grupo_app_clientes_ejecutor'))]"/>
+  </record>
+
+  <record id="grupo_app_clientes_admin" model="res.groups">
+    <field name="name">Administrador</field>
+    <field name="comment">Permisos Completos</field>
+    <field name="privilege_id" ref="privilege_clientes"/>
+    <field name="implied_ids" eval="[(4, ref('grupo_app_clientes_responsable'))]"/>
+  </record>
+</odoo>

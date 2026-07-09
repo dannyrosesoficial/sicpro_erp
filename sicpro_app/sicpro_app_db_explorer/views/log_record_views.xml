@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <record id="view_log_record_form" model="ir.ui.view">
+        <field name="name">sicpro.log.record.form</field>
+        <field name="model">sicpro.log.record</field>
+        <field name="arch" type="xml">
+            <form string="Registro de Log">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="new,investigating,resolved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="source_id"/>
+                            <field name="severity_id"/>
+                        </group>
+                        <group>
+                            <field name="log_date"/>
+                            <field name="trace_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Fragmento Capturado">
+                            <field name="message" widget="text" nolabel="1" class="o_log_live_viewer"/>
+                        </page>
+                        <page string="Análisis y Solución">
+                            <group>
+                                <field name="root_cause" placeholder="Explique la causa raíz del error..."/>
+                                <field name="solution_applied" placeholder="Código o cambios realizados para solucionarlo..."/>
+                                <field name="action_plan" placeholder="¿Qué se hará para que no vuelva a ocurrir?"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_log_record_tree" model="ir.ui.view">
+        <field name="name">sicpro.log.record.list</field>
+        <field name="model">sicpro.log.record</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'new'" decoration-success="state == 'resolved'">
+                <field name="log_date"/>
+                <field name="name"/>
+                <field name="source_id"/>
+                <field name="severity_id"/>
+                <field name="state" widget="badge" decoration-success="state == 'resolved'" decoration-danger="state == 'new'"/>
+            </list>
+        </field>
+    </record>
+</odoo>

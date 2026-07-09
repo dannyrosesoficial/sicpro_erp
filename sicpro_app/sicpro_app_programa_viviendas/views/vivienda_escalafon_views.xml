@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="vivienda_escalafon_list" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.escalafon.list</field>
+    <field name="model">sicpro.app.vivienda.escalafon</field>
+    <field name="arch" type="xml">
+      <list string="Escalafón" editable="bottom">
+        <field name="name" placeholder="ej. 1"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="vivienda_escalafon_action" model="ir.actions.act_window">
+    <field name="name">Escalafón</field>
+    <field name="res_model">sicpro.app.vivienda.escalafon</field>
+    <field name="view_id" ref="vivienda_escalafon_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear número de escalafón para el programa de la vivienda
+      </p>
+    </field>
+  </record>
+</odoo>

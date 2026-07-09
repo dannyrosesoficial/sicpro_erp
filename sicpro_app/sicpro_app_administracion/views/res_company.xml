@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="identificador_company_list" model="ir.ui.view">
+    <field name="name">res.users.inversionista.identificador.list</field>
+    <field name="model">res.company</field>
+    <field name="inherit_id" ref="base.view_company_tree"/>
+    <field name="arch" type="xml">
+      <field name="partner_id" position="after">
+        <field name="id"/>
+        <field name="identificador_corto"/>
+        <field name="ejecuta_proceso"/>
+      </field>
+    </field>
+  </record>
+
+  <record id="identificador_company_form" model="ir.ui.view">
+    <field name="name">res.company.identificador.form</field>
+    <field name="model">res.company</field>
+    <field name="inherit_id" ref="base.view_company_form"/>
+    <field name="arch" type="xml">
+      <field name="name" position="after">
+        <br/>
+        <label for="id" string="Identificador del Proceso"/>
+        <h2><field name="id" readonly="1"/></h2>
+      </field>
+      <field name="company_registry" position="after">
+        <field name="ejecuta_proceso"/>
+        <field name="identificador_corto"/>
+        <field name="login_redes_sociales"/>
+      </field>
+      <field name="currency_id" position="after">
+      </field>
+      <xpath expr="//group[@name='social_media']" position="replace">
+        <group string="Social Media" name="social_media" groups="base.group_no_one"
+               invisible="not login_redes_sociales">
+          <field name="link_twitter"/>
+          <field name="link_facebook"/>
+          <field name="link_linkedin"/>
+          <field name="link_instagram"/>
+          <field name="link_dvpe"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

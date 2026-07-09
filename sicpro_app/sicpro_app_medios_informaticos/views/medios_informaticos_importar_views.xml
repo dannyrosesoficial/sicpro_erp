@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="medios_informaticos_importar_list" model="ir.ui.view">
+    <field name="name">sicpro.app.medios.informaticos.importar.list</field>
+    <field name="model">sicpro.app.medios.informaticos.importar</field>
+    <field name="priority">50</field>
+    <field name="arch" type="xml">
+      <list string="Importar Medios Informaticos" decoration-bf="0" create="0" sample="1"
+            decoration-warning="name == 'nuevo'">
+        <field name="name" readonly="1" class="font-weight-bold" widget="badge"
+               decoration-info="name == 'pendiente'" decoration-warning="name == 'nuevo'"/>
+        <field name="medio_informatico"/>
+        <field name="equipo"/>
+        <field name="tipo_equipo"/>
+        <field name="denominacion"/>
+        <field name="local"/>
+        <field name="emplazamiento"/>
+        <field name="activo_fijo"/>
+        <field name="no_pieza_fab"/>
+        <field name="responsable"/>
+        <field name="trabajador_id"/>
+      </list>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="medios_informaticos_importar_action">
+    <field name="name">PM SAP</field>
+    <field name="res_model">sicpro.app.medios.informaticos.importar</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="medios_informaticos_importar_list"/>
+    <field name="context">{'search_default_pendiente': 1}</field>
+  </record>
+</odoo>

@@ -1,0 +1,23 @@
+/* Estilos para el visor de DB Explorer */
+.o_db_explorer_kanban_card {
+    border-left: 4px solid #17a2b8;
+    transition: all 0.3s ease;
+}
+
+.o_db_explorer_kanban_card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.o_db_explorer_locked {
+    border-left-color: #ffc107;
+}
+
+.o_db_explorer_unlocked {
+    border-left-color: #dc3545;
+}
+
+.o_db_explorer_protected_icon {
+    font-size: 1.2em;
+    cursor: help;
+}

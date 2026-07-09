@@ -1,0 +1,46 @@
+.o_web_client .o_trabajadores_kanban {
+
+    // Lógica del Botón Seguir (Mismo principio de hover)
+    .o_follow_btn.o_following {
+        .o_unfollow {
+            display: none;
+        }
+
+        &:hover {
+            background-color: var(--danger, #dc3545);
+            color: white;
+
+            .o_following {
+                display: none;
+            }
+            .o_unfollow {
+                display: inline;
+            }
+        }
+    }
+
+    // Iconos de resumen del trabajador
+    .o_employee_summary_icons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        > span {
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+        }
+    }
+
+    // Imagen redondeada en dispositivos móviles
+    .o_hr_rounded_circle {
+        // En Bootstrap 5 / Odoo 19, es mejor usar variables o la clase nativa
+        // pero mantenemos tu lógica personalizada para pantallas pequeñas
+        @include media-breakpoint-down(sm) {
+            border-radius: 50% !important;
+            object-fit: cover; // Asegura que la foto no se estire
+            width: 40px;      // Tamaño sugerido para optimizar espacio en móvil
+            height: 40px;
+        }
+    }
+}

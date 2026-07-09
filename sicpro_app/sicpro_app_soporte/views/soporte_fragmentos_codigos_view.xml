@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_soporte_fragmento_codigos_search" model="ir.ui.view">
+    <field name="name">sicpro.app.soporte.fragmentos.codigos.search</field>
+    <field name="model">sicpro.app.soporte.fragmentos.codigos</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Fragmentos">
+        <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+        <field name="tipo_codigo"/>
+        <separator/>
+        <filter string="Archivados" name="inactive" domain="[('active','=',False)]"/>
+        <separator/>
+        <filter string="Códigos Python" name="tipo_python" domain="[('tipo_codigo','=','python')]"/>
+        <filter string="Códigos Xml" name="tipo_xml" domain="[('tipo_codigo','=','xml')]"/>
+        <filter string="Otros Códigos" name="tipo_otros" domain="[('tipo_codigo','=','otros')]"/>
+        <separator/>
+        <group>
+          <filter string='Usuario' name="user_id" context="{'group_by': 'user_id'}"/>
+          <filter string='Tipo de Código' name="tipo_codigo" context="{'group_by': 'tipo_codigo'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_soporte_fragmento_codigos_form" model="ir.ui.view">
+    <field name="name">sicpro.app.soporte.fragmentos.codigos.form</field>
+    <field name="model">sicpro.app.soporte.fragmentos.codigos</field>
+    <field name="arch" type="xml">
+      <form string="Fragmentos">
+        <header>
+        </header>
+        <sheet>
+          <div class="oe_title">
+            <label for="name"/>
+            <h1><field name="name"/></h1>
+          </div>
+          <group name="main">
+            <group name="main_left">
+              <field name="active" invisible="1"/>
+              <field name="tipo_codigo"/>
+              <field name="user_id"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </group>
+            <group name="main_right">
+              <field name="create_date" string="Fecha de Creado"/>
+              <field name="color" widget="color_picker"/>
+            </group>
+          </group>
+          <field name="codigo_python" widget="ace" options="{'mode': 'python'}"
+                 invisible="tipo_codigo != 'python'"/>
+          <field name="codigo_xml" widget="ace" options="{'mode': 'xml'}" invisible="tipo_codigo != 'xml'"/>
+          <field name="codigo_otros" widget="ace" invisible="tipo_codigo != 'otros'"/>
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_soporte_fragmento_codigos_list" model="ir.ui.view">
+    <field name="name">sicpro.app.soporte.fragmentos.codigos.list</field>
+    <field name="model">sicpro.app.soporte.fragmentos.codigos</field>
+    <field name="arch" type="xml">
+      <list string="Fragmentos">
+        <field name="name"/>
+        <field name="tipo_codigo"/>
+        <field name="user_id"/>
+        <field name="create_date" string="Fecha de Creado"/>
+        <field name="color" widget="color_picker"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="soporte_fragmento_codigos_action" model="ir.actions.act_window">
+    <field name="name">Fragmentos de Códigos</field>
+    <field name="res_model">sicpro.app.soporte.fragmentos.codigos</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Agregar un nuevo fragmento de código para el desarrollo
+      </p>
+    </field>
+  </record>
+</odoo>

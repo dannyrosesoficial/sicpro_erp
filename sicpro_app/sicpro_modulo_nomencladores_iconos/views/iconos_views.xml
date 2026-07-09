@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data>
+        <record id="sicpro_nomenclador_iconos_filter_view" model="ir.ui.view">
+            <field name="name">sicpro.nomenclador.iconos.search</field>
+            <field name="model">sicpro.nomenclador.iconos</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Íconos">
+                    <field name="name" string="Nombre o Clase" filter_domain="['|', ('name', 'ilike', self), ('clase_icono', 'ilike', self)]"/>
+                    <field name="tipo"/>
+                    <separator/>
+                    <filter string="Archivados" name="inactive" domain="[('active', '=', False)]"/>
+                    <separator/>
+                    <filter string="FA Standard" name="tipo_fa" domain="[('tipo', '=', 'fa')]"/>
+                    <filter string="Solid" name="tipo_fas" domain="[('tipo', '=', 'fas')]"/>
+                    <filter string="Regular" name="tipo_far" domain="[('tipo', '=', 'far')]"/>
+                    <filter string="Brands" name="tipo_fab" domain="[('tipo', '=', 'fab')]"/>
+                    <group>
+                        <filter string="Tipo de Estilo" name="group_by_tipo" context="{'group_by': 'tipo'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="sicpro_nomenclador_iconos_list" model="ir.ui.view">
+            <field name="name">sicpro.nomenclador.iconos.list</field>
+            <field name="model">sicpro.nomenclador.iconos</field>
+            <field name="arch" type="xml">
+                <list editable="bottom" sample="1" multi_edit="1">
+                    <field name="preview" widget="html" string="Vista" readonly="1" width="60px"/>
+                    <field name="name" placeholder="Ej: Cámara de Seguridad"/>
+                    <field name="tipo" decoration-info="tipo == 'fa'" decoration-warning="tipo == 'fas'" decoration-success="tipo == 'fab'"/>
+                    <field name="clase_icono" placeholder="ej. fa-camera"/>
+                    <field name="active" column_invisible="True"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_sicpro_nomenclador_iconos" model="ir.actions.act_window">
+            <field name="name">Nomenclador de Iconos</field>
+            <field name="res_model">sicpro.nomenclador.iconos</field>
+            <field name="view_mode">list</field>
+            <field name="search_view_id" ref="sicpro_nomenclador_iconos_filter_view"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Registra los iconos de Font Awesome.
+                </p>
+                <p>
+                    Utiliza <strong>fas</strong> para iconos rellenos y <strong>fab</strong> para logotipos.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

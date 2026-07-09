@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="nomenclador_centro_planificacion_filter_view" model="ir.ui.view">
+    <field name="name">Buscar Centro de Planificación</field>
+    <field name="model">sicpro.nomenclador.centro.planificacion</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Centro de Planificación">
+        <field name="name" string="Centro de Planificación"/>
+        <field string="Descripción" name="descripcion"/>
+        <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="nomenclador_centro_planificacion_list_view" model="ir.ui.view">
+    <field name="name">nomenclador.centro.planificacion.list.view</field>
+    <field name="model">sicpro.nomenclador.centro.planificacion</field>
+    <field name="arch" type="xml">
+      <list string="Centros de Planificación (CePl)" editable="bottom">
+        <field name="name"/>
+        <field name="descripcion"/>
+        <field name="active" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="action_nomenclador_cepl" model="ir.actions.act_window">
+    <field name="name">Centros de Planificación</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.nomenclador.centro.planificacion</field>
+    <field name="view_mode">list</field>
+  </record>
+</odoo>
+
+

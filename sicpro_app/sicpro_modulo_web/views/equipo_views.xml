@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record model="ir.ui.view" id="web_equipo_search_view">
+    <field name="name">sicpro.modulo.web.equipo.search</field>
+    <field name="model">sicpro.modulo.web.equipo</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="name"/>
+        <field name="cargo"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="web_equipo_form_view" model="ir.ui.view">
+    <field name="name">sicpro.modulo.web.equipo.form</field>
+    <field name="model">sicpro.modulo.web.equipo</field>
+    <field name="arch" type="xml">
+      <form string="Equipo de Trabajo">
+        <sheet>
+          <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                  invisible="active == True"/>
+          <field name="image_1920" widget="image" class="oe_avatar"
+                 options='{"preview_image": "image_1920", "size": [128, 128]}'/>
+          <div class="oe_title">
+            <field name="active" invisible="1"/>
+            <label for="name" string="Nombre del Trabajador"/>
+            <h1>
+              <field name="name" default_focus="1" placeholder="Ej. Danny Rose"/>
+            </h1>
+            <h4>
+              <label for="cargo" string="Cargo: " class="oe_edit_only"/>
+              <field name="cargo" placeholder="Ej. Desarrollador Senior"/>
+            </h4>
+          </div>
+
+          <group string="Contacto y Redes Sociales">
+            <group>
+              <field name="cuenta_correo" widget="email"/>
+              <field name="cuenta_gitlab" widget="url"/>
+              <field name="cuenta_linkedin" widget="url"/>
+            </group>
+            <group>
+              <field name="cuenta_twitter" widget="url"/>
+              <field name="cuenta_facebook" widget="url"/>
+              <field name="cuenta_instagram" widget="url"/>
+            </group>
+          </group>
+
+          <separator string="Responsabilidades / Biografía"/>
+          <field name="responsabilidad" widget="html" options="{'style-inline': true}"/>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="web_equipo_list_view">
+    <field name="name">sicpro.modulo.web.equipo.list</field>
+    <field name="model">sicpro.modulo.web.equipo</field>
+    <field name="arch" type="xml">
+      <list string="Equipo de trabajo">
+        <field name="sequence" widget="handle"/>
+        <field name="image_1920" widget="image" options="{'size': [40, 40]}" string="Foto"/>
+        <field name="name"/>
+        <field name="cargo"/>
+        <field name="cuenta_correo"/>
+        <field name="responsabilidad" optional="hide"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="web_equipo_action" model="ir.actions.act_window">
+    <field name="name">Equipo de Trabajo</field>
+    <field name="res_model">sicpro.modulo.web.equipo</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Agregar usuario al equipo de trabajo…
+      </p>
+    </field>
+  </record>
+</odoo>

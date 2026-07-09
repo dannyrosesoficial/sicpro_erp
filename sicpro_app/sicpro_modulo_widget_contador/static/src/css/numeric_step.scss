@@ -1,0 +1,42 @@
+.widget_numeric_step {
+    display: inline-flex; // Asegura que los botones y el input se alineen
+    align-items: center;
+
+    // Los botones se ocultan por defecto en dispositivos con puntero (PC)
+    @media (hover: hover) {
+        .btn_numeric_step {
+            visibility: hidden;
+            transition: visibility 0.2s; // Una transición suave ayuda a la UX
+        }
+    }
+
+    // Se muestran al pasar el mouse por encima del contenedor
+    &:hover .btn_numeric_step {
+        visibility: visible;
+    }
+}
+
+.o_numeric_step_cell {
+    // En Odoo 19, el ancho de las columnas en las listas (list view)
+    // se gestiona de forma más dinámica.
+    // Asegúrate de que esta clase se aplique al <td> o al contenedor del widget.
+    min-width: calc(92px + 2ex + 4 * #{$btn-padding-x});
+}
+
+/* Ocultar flechas nativas en Chrome, Safari, Edge y Opera */
+.widget_numeric_step input::-webkit-outer-spin-button,
+.widget_numeric_step input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Ocultar flechas nativas en Firefox */
+.widget_numeric_step input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.widget_numeric_step .o_input {
+    border-radius: 0; /* Para que encaje bien entre los botones */
+    border-left: none;
+    border-right: none;
+}

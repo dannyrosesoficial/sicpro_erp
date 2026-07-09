@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <template id="web_plantilla_registro">
+    <t t-call-assets="web.assets_common" t-js="false"/>
+    &lt;!DOCTYPE html&gt;
+    <html lang="es">
+      <head>
+        <meta charset="UTF-8"/>
+        <title>SICPRO ERP - Solicitud de Acceso</title>
+        <script type="text/javascript">document.title = "SICPRO ERP - Acceso";</script>
+        <link rel="icon" type="image/png" href="/sicpro_modulo_web_registro/static/src/img/SICPRO_ERP.png"/>
+        <link rel="shortcut icon" href="/sicpro_modulo_web_registro/static/src/img/SICPRO_ERP.png" type="image/png"/>
+        <link class="origin" rel="stylesheet" href="/web/static/lib/bootstrap/dist/css/bootstrap.css"/>
+        <link class="origin" rel="stylesheet" href="/web/static/src/libs/fontawesome/css/font-awesome.css"/>
+        <link rel="stylesheet" href="/sicpro_modulo_web_registro/static/src/css/style.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="cache-control" content="no-cache"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+      </head>
+
+      <body>
+        <header>
+          <div class="header-title">
+            <img width="28" height="28" t-att-src="'/sicpro_modulo_web_registro/static/src/img/SICPRO_ERP_blanco.png'"
+                 alt="SICPRO Logo" class="system-logo"/>
+            SICPRO ERP
+          </div>
+          <div style="font-size: 0.95rem; font-weight: 500; opacity: 0.9;">Gestión de Solicitudes de Acceso</div>
+        </header>
+
+        <div class="main-container">
+          <div class="stepper">
+            <div id="ind-step1" class="step-indicator active">1. Identificación</div>
+            <div id="ind-step2" class="step-indicator">2. Verificación</div>
+            <div id="ind-step3" class="step-indicator">3. Formulario</div>
+          </div>
+
+          <div id="step1" class="page-view active">
+            <div class="card" style="max-width: 650px; margin: 0 auto;">
+              <h2 class="card-title">Identificación de Usuario</h2>
+
+              <form id="formSearch" onsubmit="searchUser(event)" novalidate="novalidate">
+                <div class="form-grid">
+                  <div class="form-group full-width">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="s_nombre" name="s_nombre" required="required" placeholder="Juan Pérez"/>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="s_correo" name="s_correo" required="required"
+                           placeholder="juan@empresa.com"/>
+                  </div>
+
+                  <div class="form-group">
+                    <label>ID del Trabajador (Código SAP)</label>
+                    <input type="text" id="s_id" name="s_id" required="required" placeholder="Ej. 1234"/>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Tipo de Usuario</label>
+                    <select id="s_tipo" name="s_tipo" required="required">
+                      <option value="" disabled="disabled" selected="selected">Seleccione...</option>
+                      <option value="interno">Interno</option>
+                      <option value="externo">Externo / Inversionista</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="actions-bar">
+                  <button type="submit" class="btn btn-primary">Buscar Usuario</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div id="step2" class="page-view">
+            <div class="form-grid" style="grid-template-columns: 1fr 1fr;">
+              <div class="card">
+                <h2 class="card-title">Niveles de Acceso</h2>
+                <div style="font-size: 0.9rem; color: #444; line-height: 1.5;">
+
+                  <p style="margin-bottom: 12px; border-bottom: 1px solid #fee2e2; padding-bottom: 8px;">
+                    <span class="text-danger"><i class="fa fa-exclamation-triangle"></i></span>
+                    <strong style="color: #b91c1c;">Responsabilidades de los Usuarios</strong>
+                  </p>
+
+                  <div class="access-list">
+                    <div class="access-item">
+                      <span class="text-success"><i class="fa fa-check-circle"></i></span>
+                      <strong>Tipo de usuario:</strong> <small>Normal o administración.</small>
+                    </div>
+                    <div class="access-item">
+                      <span class="text-success"><i class="fa fa-comments"></i></span>
+                      <strong>Canales:</strong> <small>Comunicación interna asociada al proceso.</small>
+                    </div>
+                    <div class="access-item">
+                      <span class="text-success"><i class="fa fa-eye"></i></span>
+                      <strong>Rol Usuario:</strong> <small>Solo visualización de aplicaciones.</small>
+                    </div>
+                    <div class="access-item">
+                      <span class="text-success"><i class="fa fa-search-plus"></i></span>
+                      <strong>Rol Visualiza Todo:</strong> <small>Visualización avanzada de subprocesos.</small>
+                    </div>
+                    <div class="access-item">
+                      <span class="text-success"><i class="fa fa-pencil-square"></i></span>
+                      <strong>Rol Ejecutor:</strong> <small>Visualizar, crear, modificar y archivar.</small>
+                    </div>
+                    <div class="access-item">
+                      <span class="text-warning"><i class="fa fa-cog"></i></span>
+                      <strong>Rol Responsable:</strong> <small>Configuración de nomencladores.</small>
+                    </div>
+                    <div class="access-item">
+                      <span class="text-warning"><i class="fa fa-shield"></i></span>
+                      <strong>Rol Administrador:</strong> <small>Permisos elevados. Permite eliminar.</small>
+                    </div>
+                  </div>
+
+                  <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #ccc; font-size: 0.85rem;">
+                    <p style="color: #b91c1c; margin-bottom: 4px;">
+                      <i class="fa fa-link"></i> Los roles heredan el permiso del <strong>Rol Ejecutor</strong>.
+                    </p>
+                    <p style="color: #b91c1c;">
+                      <i class="fa fa-calendar"></i> Validez de roles: <strong>1 Año</strong>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <h2 class="card-title">Estado del Trabajador</h2>
+                <div id="userSummary" class="user-summary"
+                     style="margin-bottom: 1.5rem; padding: 10px; background: #f8f9fa; border-radius: 8px;"></div>
+
+                <div class="form-grid" style="gap: 1rem;">
+                  <button id="btnCreate" class="btn btn-success" style="display:none;"
+                          onclick="seleccionarAccion('crear')">Nueva Alta</button>
+
+                  <button id="id_btn_reiniciar" class="btn btn-warning" style="display:none;"
+                          onclick="seleccionarAccion('reiniciar')">Reiniciar Usuario</button>
+
+                  <button id="btnModify" class="btn btn-primary" style="display:none;"
+                          onclick="seleccionarAccion('modificar')">Modificar Accesos</button>
+                  <button id="btnDelete" class="btn btn-danger" style="display:none;"
+                          onclick="seleccionarAccion('eliminar')">Solicitar Baja</button>
+                </div>
+
+                <div class="actions-bar" style="justify-content: flex-start; margin-top: 2rem;">
+                  <button class="btn btn-secondary" onclick="goToStep(1)">← Volver al Buscador</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="step3" class="page-view">
+            <form id="mainForm" class="needs-validation" novalidate="novalidate">
+              <input type="hidden" name="solicitud" id="hidden_solicitud" value="crear"/>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="color: var(--primary);" id="formMainTitle">Detalle de Solicitud</h2>
+                <span id="formModeBadge"
+                      style="color: white; background: var(--primary); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; text-transform: uppercase;">
+                  MODO</span>
+              </div>
+
+              <div class="card">
+                <h3 class="card-title">1. Datos del Usuario</h3>
+                <div class="form-grid">
+                  <div class="form-group full-width">
+                    <label>Nombre Completo</label>
+                    <input type="text" name="nombre" id="f_nombre" required="required"/>
+                  </div>
+                  <div class="form-group">
+                    <label>Carnet de Identidad (CI)</label>
+                    <input type="text" name="carnet" id="f_ci" required="required" maxlength="11"
+                           placeholder="Ej. 900101..."/>
+                  </div>
+                  <div class="form-group">
+                    <label>Nivel Escolar</label>
+                    <select name="nivel" id="f_nivel" required="required">
+                      <option value="" disabled="disabled" selected="selected">Seleccione...</option>
+                      <option value="medio">Técnico Medio</option>
+                      <option value="superior">Superior</option>
+                      <option value="postgrado">Postgrado</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Cargo</label>
+                    <input type="text" name="cargo" id="f_cargo" required="required"/>
+                  </div>
+                  <div class="form-group">
+                    <label>Área / Departamento</label>
+                    <input type="text" name="area" id="f_area" required="required"/>
+                  </div>
+                  <div class="form-group">
+                    <label>Unidad Organizativa (UO)</label>
+                    <input type="text" name="uo" id="f_uo" required="required"/>
+                  </div>
+                  <div class="form-group">
+                    <label>ID Trabajador / Plaza</label>
+                    <input type="text" name="plaza" id="f_id" readonly="readonly"
+                           style="background: #e9ecef; color: #495057;"/>
+                  </div>
+                  <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" name="correo" id="f_correo" required="required"/>
+                  </div>
+                  <div class="form-group">
+                    <label>Teléfono / Contacto</label>
+                    <input type="text" name="contacto" id="f_telefono" required="required" placeholder="Fijo o móvil"/>
+                  </div>
+                  <div class="form-group">
+                    <label>Tipo Usuario</label>
+                    <input type="text" name="tipo_usuario" id="f_tipo" readonly="readonly"
+                           style="background: #e9ecef; color: #495057;"/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3 class="card-title">2. Permisos y Roles de Acceso</h3>
+                <h4 class="full-width"
+                    style="color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase;">
+                  Grupos de Roles de Aplicaciones
+                </h4>
+
+                <div class="form-grid" style="margin-bottom: 2rem;">
+                  <t t-set="registros_ids"
+                     t-value="request.env['sicpro.modulo.web.registro.roles'].sudo().search([('active', '=', True)])"/>
+                  <t t-foreach="registros_ids" t-as="data_registro">
+                    <div class="form-group">
+                      <label t-att-title="data_registro['descripcion']">
+                        <i class="fa fa-cubes" style="margin-right: 5px; color: var(--primary);"></i>
+                        <t t-out="data_registro['name']"/>
+                      </label>
+                      <select t-att-name="data_registro['name']" t-att-id="'sel_' + data_registro['name']"
+                              class="form-control">
+                        <option value="">Ninguno / Sin acceso</option>
+                        <t t-foreach="data_registro.roles" t-as="data_roles">
+                          <option t-att-value="data_roles['nombre_registro']" t-att-title="data_roles['descripcion']">
+                            <t t-out="data_roles['nombre_registro']"/>
+                          </option>
+                        </t>
+                      </select>
+                    </div>
+                  </t>
+                </div>
+
+                <h4 class="full-width"
+                    style="color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase;">
+                  Permisos Especiales (Opcional)
+                </h4>
+
+                <div class="checkbox-group"
+                     style="margin-bottom: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                  <t t-set="roles_esp"
+                     t-value="request.env['res.users.role'].sudo().search([('roles_especiales', '=', True), ('active', '=', True)])"/>
+                  <t t-foreach="roles_esp" t-as="re">
+                    <label style="font-weight: normal; cursor: pointer;">
+                      <input type="checkbox" t-att-name="re.nombre_registro" style="margin-right: 8px;"/>
+                      <t t-out="re.nombre_registro"/>
+                    </label>
+                  </t>
+                </div>
+
+                <div class="form-group full-width">
+                  <label>Fundamentación / Detalles de Uso</label>
+                  <textarea name="detalles_uso_sistema" id="f_motivo_general" required="required" rows="4"
+                            placeholder="Explique brevemente la necesidad de estos accesos..."></textarea>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3 class="card-title">3. Firmas y Autorizaciones</h3>
+                <div class="form-grid">
+                  <h4 class="full-width"
+                      style="color: var(--primary); margin-bottom: 1rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 5px;">
+                    Jefe Inmediato
+                  </h4>
+                  <div class="form-group"><label>Nombre y Apellidos</label><input type="text"
+                                                                                  name="nombre_jefe_inmediato"
+                                                                                  required="required"/></div>
+                  <div class="form-group"><label>Cargo</label><input type="text" name="cargo_jefe_inmediato"
+                                                                     required="required"/></div>
+                  <div class="form-group"><label>Unidad Organizativa</label><input type="text" name="uo_jefe_inmediato"
+                                                                                   required="required"/></div>
+                  <div class="form-group"><label>Teléfono</label><input type="text" name="telefono_jefe_inmediato"
+                                                                        required="required"/></div>
+                </div>
+
+                <div class="form-grid" style="margin-top: 1.5rem;">
+                  <h4 class="full-width"
+                      style="color: var(--primary); margin-bottom: 1rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 5px;">
+                    Director del Área
+                  </h4>
+                  <div class="form-group"><label>Nombre y Apellidos</label><input type="text" name="nombre_director"
+                                                                                  required="required"/></div>
+                  <div class="form-group"><label>Cargo</label><input type="text" name="cargo_director"
+                                                                     required="required"/></div>
+                  <div class="form-group"><label>Unidad Organizativa</label><input type="text" name="uo_director"
+                                                                                   required="required"/></div>
+                  <div class="form-group"><label>Teléfono</label><input type="text" name="telefono_director"
+                                                                        required="required"/></div>
+                </div>
+              </div>
+
+              <div class="actions-bar">
+                <button type="button" class="btn btn-secondary" onclick="goToStep(2)">← Volver</button>
+                <button type="submit" class="btn btn-primary" id="btnSubmitForm">Enviar Solicitud Oficial</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="modalAlert" class="modal-overlay">
+          <div class="modal-content">
+            <div id="modalIcon" style="font-size: 3rem; margin-bottom: 1rem;"></div>
+            <h3 id="modalTitle" style="margin-bottom: 1rem;"></h3>
+            <p id="modalMessage" style="color: var(--text-muted); margin-bottom: 2rem;"></p>
+            <button class="btn btn-primary" onclick="closeModal()" style="width: 100%;">Entendido</button>
+          </div>
+        </div>
+
+        <script src="/sicpro_modulo_web_registro/static/src/js/web_registro_actions.js"></script>
+      </body>
+    </html>
+  </template>
+</odoo>

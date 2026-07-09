@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="view_list_sicpro_app_video_conferencias" model="ir.ui.view">
+      <field name="name">sicpro_app_video_conferencias.view.list</field>
+      <field name="model">sicpro.app.videoconferencias</field>
+      <field name="arch" type="xml">
+        <list decoration-muted="closed">
+          <field name="name"/>
+          <field name="closed" invisible="1"/>
+          <field name="date"/>
+          <field name="date_delay" widget="float_time"/>
+          <field name="participants" widget="many2many_tags"/>
+          <field name="external_participants" widget="many2many_tags"/>
+          <field name="url" widget="url" string="Link"/>
+          <button name="open" type="object" string="Unirse"
+                  class="btn-primary"
+                  invisible="closed"/>
+        </list>
+      </field>
+    </record>
+
+    <record id="view_form_sicpro_app_video_conferencias" model="ir.ui.view">
+      <field name="name">sicpro_app_video_conferencias.view.form</field>
+      <field name="model">sicpro.app.videoconferencias</field>
+      <field name="arch" type="xml">
+        <form string="VideoConferencia">
+          <header>
+            <field name="current_user" invisible="1"/>
+            <field name="create_uid" invisible="1"/>
+            <field name="closed" invisible="1"/>
+
+            <button name="open" type="object" string="Unirse a la Sala"
+                    class="oe_highlight"
+                    invisible="closed or not create_uid"/>
+
+            <button name="action_close_meeting" string="Cerrar Sala"
+                    type="object" groups="base.group_user"
+                    invisible="closed or not create_uid"/>
+
+            <button name="action_reopen_meeting" string="Reabrir Sala"
+                    type="object" groups="base.group_user"
+                    invisible="not closed or not create_uid"/>
+          </header>
+          <sheet>
+            <div class="oe_title">
+              <label for="name" string="Nombre de la Sala"/>
+              <h1>
+                <field name="name" placeholder="Ej. Reunión de Proyectos SICPRO"/>
+              </h1>
+            </div>
+            <group name="info">
+              <group>
+                <field name="date"/>
+                <field name="date_delay" widget="float_time"/>
+                <field name="participants" widget="many2many_tags"
+                       options="{'no_create': True}"/>
+                <field name="url" widget="url" string="Compartir Link"
+                       placeholder="https://meet.jit.si/..."/>
+              </group>
+              <group>
+                <field name="create_date" string="Fecha de Creación" readonly="1"/>
+              </group>
+            </group>
+
+            <notebook>
+              <page string="Participantes Externos" name="external_participants">
+                <field name="external_participants" context="{'default_meet': id}">
+                  <list editable="bottom">
+                    <field name="usuario"/>
+                    <field name="name"/>
+                    <field name="meet" invisible="1"/>
+                    <field name="send_mail" widget="boolean_toggle"/>
+                    <field name="mail_sent" readonly="1"/>
+                  </list>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id='action_meeting' model='ir.actions.act_window'>
+      <field name="name">Video Conferencias</field>
+      <field name="res_model">sicpro.app.videoconferencias</field>
+      <field name="view_mode">list,calendar,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Crear Video Conferencia
+        </p>
+      </field>
+    </record>
+
+    <menuitem id="menu_meeting" name="Conferencias" action="action_meeting" sequence="99"
+              web_icon="sicpro_app_video_conferencias,static/description/icon.png" groups="base.group_user"/>
+</odoo>

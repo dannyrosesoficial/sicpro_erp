@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="sicpro_modulo_roles_search_inherit_external" model="ir.ui.view">
+    <field name="name">sicpro.modulo.web.rol.registros.search</field>
+    <field name="model">res.users.role</field>
+    <field name="inherit_id" ref="sicpro_modulo_roles.view_res_users_role_search"/>
+    <field name="arch" type="xml">
+      <xpath expr="//filter[@name='inactive']" position="after">
+        <separator/>
+        <field name="nombre_registro"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="sicpro_modulo_roles_form_inherit_external" model="ir.ui.view">
+    <field name="name">sicpro.modulo.web.rol.registros.form</field>
+    <field name="model">res.users.role</field>
+    <field name="inherit_id" ref="sicpro_modulo_roles.view_res_users_role_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//group[@name='code']" position="inside">
+        <field name="nombre_registro"
+               style="font-weight: bold; color: #714B67;"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

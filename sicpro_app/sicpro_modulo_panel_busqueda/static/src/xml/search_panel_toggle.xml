@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+    <t t-inherit="web.SearchBar" t-inherit-mode="extension" owl="1">
+        <xpath expr="//i[hasclass('o_searchview_icon')]" position="before">
+            <button
+                class="btn btn-link p-0 o_search_panel_toggle_btn"
+                t-att-class="panelState and !panelState.visible ? 'closed' : ''"
+                type="button"
+                t-on-click="onToggleSearchPanel"
+                t-attf-style="color: #5A4F7F !important; border: none; background: none; transition: all 0.3s ease; margin-right: 8px; display: inline-flex; align-items: center;"
+            >
+                <i class="oi oi-panel-right"
+                   style="font-size: 0.8rem; transition: transform 0.3s ease;"
+                   t-att-class="panelState and !panelState.visible ? 'fa-flip-horizontal' : ''"
+                   role="img"/>
+            </button>
+            <span class="mx-1 separator_vertical"
+                  style="border-left: 1px solid #dee2e6; height: 1.2rem; display: inline-block; vertical-align: middle; opacity: 0.7;">
+            </span>
+            <span class="me-1"></span>
+        </xpath>
+    </t>
+
+    <t t-inherit="web.SearchPanel" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[1]" position="attributes">
+            <attribute name="t-if">state.visible or state.pinned</attribute>
+        </xpath>
+    </t>
+
+    <t t-inherit="web.SearchPanel.Category" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[hasclass('o_toggle_fold')]" position="replace">
+            <button class="o_toggle_fold btn p-0 px-1 flex-shrink-0 text-center">
+                <t t-if="value.childrenIds.length">
+                    <i class="fa" style="color: #714B67; padding-right:4px;"
+                       t-att-class="{
+                          'fa-minus-square-o' : state.expanded[section.id][valueId],
+                          'fa-plus-square-o':  !state.expanded[section.id][valueId]
+                       }"/>
+                </t>
+                <t t-else="">
+                    <i style="color: #714B67; padding-right:4px;" class="fa fa-file-o"/>
+                </t>
+            </button>
+        </xpath>
+    </t>
+</templates>

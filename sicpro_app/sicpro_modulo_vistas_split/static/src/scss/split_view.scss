@@ -1,0 +1,171 @@
+.o_list_view_split {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+
+    &.o_list_view_split_vertical {
+        flex-direction: column;
+    }
+
+    .o_list_renderer {
+        flex: 1;
+        overflow: auto;
+        transition: width 0.3s, height 0.3s;
+    }
+
+    .o_split_view_pane {
+        width: 50%;
+        min-width: 0; // Allow pane to shrink below content size
+        max-width: 100%;
+        border-left: 1px solid #dee2e6;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        transition: width 0.3s, height 0.3s;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+        overflow-x: hidden; // Prevent horizontal overflow
+        flex-shrink: 1; // Allow pane to shrink if needed
+
+        &.o_split_view_vertical {
+            width: 100%;
+            height: 50%;
+            border-left: none;
+            border-top: 1px solid #dee2e6;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .o_view_controller {
+            height: 100%;
+            overflow: auto; // Restore auto to allow scrolling
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; // Prevent horizontal overflow
+
+            // Target any form view inside the split pane, including those with o_xxl_form_view class
+            // We use high specificity to override Odoo's default responsive behaviors
+            // IMPORTANT: Always use column layout in split panes regardless of screen size,
+            // because the split pane is a constrained container, not the full screen
+            &.o_form_view.o_split_view_form,
+            &.o_form_view.o_xxl_form_view.o_split_view_form {
+                display: flex;
+                flex-direction: column !important;
+                height: 100%;
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden !important;
+                overflow-y: hidden !important; // Prevent form view from scrolling, let children handle it
+
+                // Force form renderer to always use column layout (chatter at bottom)
+                // This overrides Odoo's screen-size-based responsive behavior
+                .o_form_renderer {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    flex-wrap: nowrap !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    height: 100% !important;
+                    min-height: 0 !important;
+                    overflow-x: hidden !important;
+                    overflow-y: hidden !important; // Let children handle scrolling
+                }
+
+                >.o_form_view_container {
+                    flex-direction: column !important;
+                    display: flex !important;
+                    flex-wrap: nowrap !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    flex: 0 1 auto !important; // Don't grow, only take needed space, allow shrinking
+                    min-height: 0 !important; // Allow shrinking below content
+                    overflow-x: hidden !important;
+                    overflow-y: auto !important; // Allow scrolling if form is too tall
+                }
+
+                .o_form_sheet_bg {
+                    max-width: 100% !important;
+                    width: 100% !important;
+                    border-right: none !important;
+                    flex: 0 0 auto !important;
+                    margin: 0 !important;
+                    overflow-x: hidden !important;
+                }
+
+                >.o_FormRenderer_chatterContainer {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    border-left: none !important;
+                    border-top: 1px solid #dee2e6;
+                    margin-top: 0 !important;
+                    padding-top: 1rem !important;
+                    overflow-x: hidden !important;
+                    overflow-y: auto !important;
+                    flex: 1 1 0 !important; // Grow to fill remaining space
+                    min-height: 450px !important; // Ensure substantial minimum visible height
+                    max-height: none !important; // Allow it to grow as much as needed
+
+                    // Override potential side-chatter styles
+                    position: relative !important;
+                    height: auto !important;
+
+                    // Ensure internal chatter components behave
+                    .o_chatter_header_container {
+                        padding-left: 1rem;
+                        padding-right: 1rem;
+                    }
+                }
+            }
+
+            .o_form_view {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+
+                .o_form_view_container {
+                    flex-direction: column !important;
+                    display: flex;
+                }
+
+                .o_form_sheet_bg {
+                    max-width: 100% !important;
+                    width: 100% !important;
+                    border-right: none !important;
+                }
+
+                .o_FormRenderer_chatterContainer {
+                    width: 100% !important;
+                    border-left: none !important;
+                    border-top: 1px solid #dee2e6;
+                    margin-top: 0;
+                    padding-top: 1rem;
+                    overflow: auto;
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
+
+.o_split_view_resizer {
+    width: 5px;
+    cursor: col-resize;
+    background-color: #f1f1f1;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+
+    &:hover {
+        background-color: #e1e1e1;
+    }
+}
+
+// Always prevent horizontal overflow in horizontal split views
+// The split pane is a constrained container, so we always use column layout
+// regardless of screen size to prevent horizontal scrolling
+.o_list_view_split:not(.o_list_view_split_vertical) {
+    overflow-x: hidden !important;
+    
+    // Ensure the split pane itself doesn't cause overflow
+    .o_split_view_pane {
+        // Additional constraints already applied above, but ensure overflow is hidden
+        overflow-x: hidden !important;
+    }
+}

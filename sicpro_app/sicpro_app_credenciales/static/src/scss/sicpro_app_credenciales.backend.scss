@@ -1,0 +1,90 @@
+/* Contenedor del campo HTML en Odoo */
+.oe_form_field_html {
+    position: relative;
+    word-wrap: break-word;
+    overflow: visible; // Cambiado de hidden para permitir que los botones de imagen sobresalgan si es necesario
+    border: 1px solid var(--border-color, #dee2e6);
+    border-radius: 0.375rem;
+
+    /* Grupo de botones de vista de código */
+    .odoo-editor #codeview-btn-group {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    /* Estilos del área editable (OWL Editor) */
+    .note-editable, .odoo-editor-editable {
+        font: inherit !important;
+        color: inherit !important;
+
+        /* Tipografía específica para las credenciales de SICPRO */
+        p, div {
+            font-family: 'Lucida Grande', Helvetica, Verdana, Arial, sans-serif;
+            font-size: 13px;
+            margin-bottom: 0;
+        }
+
+        /* AJUSTE CRÍTICO: Aseguramos que los widgets de imagen dentro del HTML
+           no hereden comportamientos que bloqueen el clic.
+        */
+        .o_field_image {
+            pointer-events: auto !important;
+        }
+    }
+
+    p, ul > li > p {
+        margin: 0;
+    }
+
+    /* Manejo de Iframe */
+    > iframe {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        min-height: 300px;
+        min-height: calc(100vh - 170px);
+
+        &.o_readonly {
+            border: none;
+            background-color: transparent;
+        }
+    }
+
+    /* Tablas dentro del diseñador */
+    table.table.table-bordered {
+        table-layout: fixed;
+        width: 100%;
+    }
+}
+
+/* Modo Pantalla Completa (Fullscreen) - Rediseñado para OWL */
+.o_field_widgetTextHtml_fullscreen {
+    .oe_form_field_html.o_form_fullscreen_ancestor {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 1100 !important;
+        background: white;
+
+        iframe, .odoo-editor-editable {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            border: 0;
+        }
+    }
+
+    /* Ocultar elementos sobrantes en pantalla completa */
+    > :not(.modal):not(.modal-backdrop):not(.o_form_fullscreen_ancestor) {
+        display: none !important;
+    }
+}
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <menuitem id="menu_administracion_solicitudes_roles" name="Solicitudes de Acceso" action="action_solicitud_roles"
+            parent="sicpro_app_administracion.menu_administracion_4" groups="base.group_system" sequence="5"/>
+
+  <menuitem id="modulo_web_registro_roles_menu" name="Registro de Roles" action="web_registro_roles_action"
+            parent="sicpro_modulo_web.modulo_web_menu" sequence="14"/>
+</odoo>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <template id="sicpro_template_mantenimiento" name="pagina_web_mantenimiento">
+    &lt;!DOCTYPE html&gt;
+    <html lang="es">
+      <head>
+        <meta charset="UTF-8"/>
+        <title>SICPRO ERP - Mantenimiento</title>
+        <script type="text/javascript">document.title = "SICPRO ERP - Mantenimiento";</script>
+        <link rel="icon" type="image/png" href="/sicpro_modulo_web_login/static/src/img/SICPRO_ERP.png"/>
+        <link rel="shortcut icon" href="/sicpro_modulo_web_login/static/src/img/SICPRO_ERP.png" type="image/png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="cache-control" content="no-cache"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+
+        <link rel="stylesheet" href="/sicpro_modulo_web_login/static/src/css/style_mantenimiento.css"/>
+        <link rel="stylesheet" href="/web/static/src/libs/fontawesome/css/font-awesome.css"/>
+        <link rel="stylesheet" href="/web/static/lib/bootstrap/dist/css/bootstrap.css"/>
+
+
+      </head>
+      <body>
+        <canvas id="canvas-particles"></canvas>
+
+        <div class="main-wrapper">
+          <div class="upgrade-badge"><i class="fa fa-bolt me-1"></i> System Upgrade</div>
+          <h1 class="hero-title"><span>OPTIMIZANDO</span><b>SICPRO</b></h1>
+          <p class="description">
+            Ejecutando procesos de <strong>optimización de alta prioridad</strong> en los servidores de la
+            <span style="color: var(--accent); text-shadow: 0 0 10px rgba(255, 74, 23, 0.3);">DVPE</span>.
+            Esta actualización garantiza la integridad de los datos y la máxima eficiencia en la gestión de la
+            producción.
+            El acceso se restablecerá automáticamente al finalizar la sincronización del ecosistema.
+          </p>
+
+          <div class="row g-3 mt-5 px-3">
+
+            <div class="col-12 col-md-4">
+              <div class="rounded-4 p-3 shadow-lg h-100 d-flex flex-column align-items-center justify-content-center"
+                   style="background-color: #1a1d23; border: 1px solid #2d323a; min-height: 160px;">
+                <i class="fa fa-microchip mb-3" style="color: #ff5722; font-size: 1.8rem;"></i>
+                <div class="text-uppercase mb-2 text-center"
+                     style="color: #888; letter-spacing: 1px; font-size: 0.65rem; font-weight: 700;">ESTADO
+                  CENTRAL</div>
+                <div class="fw-bold text-white text-center" id="status-text"
+                     style="font-size: 1.3rem; letter-spacing: 0.5px; line-height: 1.2;">RECONSTRUCCIÓN</div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="rounded-4 p-3 shadow-lg h-100 d-flex flex-column align-items-center justify-content-center"
+                   style="background-color: #1a1d23; border: 1px solid #2d323a; min-height: 160px;">
+                <i class="fa fa-refresh fa-spin mb-3" style="color: #ff5722; font-size: 1.8rem;"></i>
+                <div class="text-uppercase mb-2 text-center"
+                     style="color: #888; letter-spacing: 1px; font-size: 0.65rem; font-weight: 700;">SINCRONIZACIÓN DE
+                  BASE DE DATOS</div>
+                <div class="fw-bold text-white text-center" id="sync-percent"
+                     style="font-size: 1.3rem; line-height: 1;">39.3%</div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="rounded-4 p-3 shadow-lg h-100 d-flex flex-column align-items-center justify-content-center"
+                   style="background-color: #1a1d23; border: 1px solid #2d323a; min-height: 160px;">
+                <i class="fa fa-clock-o mb-3" style="color: #ff5722; font-size: 1.8rem;"></i>
+                <div class="text-uppercase mb-2 text-center"
+                     style="color: #888; letter-spacing: 1px; font-size: 0.65rem; font-weight: 700;">TIEMPO
+                  ESTIMADO</div>
+                <div class="fw-bold text-center" id="countdown-timer"
+                     style="color: #ff5722; font-size: 1.3rem; font-family: 'Courier New', monospace;">00:24:16</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!--          <div class="status-grid">-->
+          <!--            <div class="data-card">-->
+          <!--              <i class="fa fa-microchip"></i>-->
+          <!--              <div class="data-label">Estado central</div>-->
+          <!--              <div class="data-value" id="status-text">RECONSTRUCCIÓN</div>-->
+          <!--            </div>-->
+          <!--            <div class="data-card">-->
+          <!--              <i class="fa fa-sync-alt fa-spin"></i>-->
+          <!--              <div class="data-label">Sincronización de base de datos</div>-->
+          <!--              <div class="data-value" id="sync-percent">0.0%</div>-->
+          <!--            </div>-->
+          <!--            <div class="data-card">-->
+          <!--              <i class="fa fa-clock"></i>-->
+          <!--              <div class="data-label">Tiempo Estimado</div>-->
+          <!--              <div class="data-value" id="countdown-timer" style="color: var(&#45;&#45;accent);">&#45;&#45;:&#45;&#45;:&#45;&#45;</div>-->
+          <!--            </div>-->
+          <!--          </div>-->
+
+          <div class="footer">
+            <t t-set="last_version"
+               t-value="request.env['sicpro.modulo.web.version'].sudo().search([('version_actual', '=', True)], limit=1)"/>
+            <span><i class="fa-solid fa-code-fork" style="color: #FFD700;"></i> ODOO_CORE: v19.0.1</span>
+            <span><i class="fa fa-trophy" style="color: #FFD700;"></i> SICPRO: <strong><t
+                t-out="last_version.name"/></strong></span>
+            <span class="tag-active"><i class="fa fa-lock" style="color: #FFD700;"></i> PROTOCOLO SEGURO ACTIVO</span>
+            <span><i class="fa fa-id-card-o me-1" style="color: #FFD700;"></i> © <t
+                t-esc="datetime.datetime.now().year"/> SICPRO ERP. Todos los derechos reservados.</span>
+          </div>
+        </div>
+
+        <div class="admin-backdoor" onclick="openStep1()">
+          <i class="fa fa-user-shield"></i> ACCESO DE ADMINISTRADOR
+        </div>
+
+        <div id="admin_bridge" style="display:none;">
+          <span id="os_key"><t t-out="secret_pass"/></span>
+        </div>
+
+        <div id="step-pass" class="sicpro-overlay">
+          <div class="sicpro-modal"
+               style="display: flex; flex-direction: column; align-items: center; min-width: 280px;">
+            <h3 style="margin:0;">ACCESO DE ADMINISTRADOR</h3>
+            <p style="font-size:0.7rem; color:gray; margin-bottom: 20px;">Protocolo de Identidad Requerido</p>
+
+            <input type="password" id="master-input" placeholder="Contraseña Maestra"
+                   style="width: 100%; max-width: 200px; margin-bottom: 15px; text-align: center;"/>
+
+            <button class="btn-sicpro-go" onclick="checkKey()" style="width: 100%; max-width: 200px;">VERIFICAR</button>
+
+            <p id="err-msg" style="color:var(--accent); font-size:0.7rem; display:none; margin-top:10px;">Acceso
+              Denegado</p>
+
+            <button onclick="closeAll()"
+                    style="background:none; border:none; color:gray; font-size:0.6rem; margin-top:20px; cursor:pointer;">
+              ABORTAR</button>
+          </div>
+        </div>
+
+        <div id="step-login" class="sicpro-overlay">
+          <div class="sicpro-modal"
+               style="display: flex; flex-direction: column; align-items: center; min-width: 300px; padding: 30px;">
+            <h3 style="margin:0;">SICPRO LOGIN</h3>
+            <p style="font-size:0.7rem; color:gray; margin-bottom: 20px;">Autenticación de Sistema</p>
+
+            <t t-if="error">
+              <div id="login-error-alert"
+                   style="width: 220px; background: rgba(255,0,0,0.1); border: 1px solid #ff4444; color: white; padding: 8px; border-radius: 4px; font-size: 0.7rem; margin-bottom: 15px; text-align: center;">
+                <span t-esc="error"/>
+              </div>
+            </t>
+
+            <form action="/web/login" method="post"
+                  style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+              <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+              <input type="hidden" name="access" value="help"/>
+              <input type="hidden" name="redirect" value="/web"/>
+
+              <t t-if="databases and len(databases) &gt; 1">
+                <input type="text" name="db" t-att-value="db or request.db"
+                       placeholder="Base de Datos" required="1"
+                       style="width: 220px; text-align: center; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #444; background: rgba(255,255,255,0.05); color: white;"/>
+              </t>
+              <t t-else="">
+                <input type="hidden" name="db" t-att-value="db or request.db"/>
+              </t>
+
+              <input type="text" name="login" placeholder="Usuario" required="1"
+                     t-att-value="login"
+                     style="width: 220px; text-align: center; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #444; background: rgba(255,255,255,0.05); color: white;"/>
+
+              <input type="password" name="password" placeholder="Password" required="1"
+                     style="width: 220px; text-align: center; padding: 10px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #444; background: rgba(255,255,255,0.05); color: white;"/>
+
+              <button type="submit" class="btn-sicpro-go" style="width: 220px; padding: 12px; cursor: pointer;">
+                ACCEDER
+              </button>
+            </form>
+
+            <button onclick="closeAll()"
+                    style="background:none; border:none; color:gray; font-size:0.6rem; margin-top:20px; cursor:pointer; text-transform: uppercase;">
+              Cerrar Panel
+            </button>
+          </div>
+        </div>
+
+
+        <div id="odoo_data_bridge" style="display:none;">
+          <span id="os_date"><t t-out="start_date"/></span>
+          <span id="om_time"><t t-out="maintenance_time"/></span>
+        </div>
+
+        <script src="/sicpro_modulo_web_login/static/src/js/mantenimiento_contador.js"></script>
+        <script src="/sicpro_modulo_web_login/static/src/js/mantenimiento_login.js"></script>
+
+      </body>
+    </html>
+  </template>
+</odoo>

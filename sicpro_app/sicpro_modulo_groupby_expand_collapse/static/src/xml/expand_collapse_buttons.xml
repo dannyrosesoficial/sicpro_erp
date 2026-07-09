@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+  <t t-inherit="web.ListView" t-inherit-mode="extension">
+    <xpath expr="//Layout/t[@t-set-slot='control-panel-always-buttons']" position="after">
+      <div class="groupby-header-btn">
+        <button t-if="model.root.groupBy.length > 0" type="button"
+                class="btn btn-secondary fa fa-expand expand-collapse-btn" title="Expandir"
+                t-on-click="() => this.expandlist()"/>
+        <button t-if="model.root.groupBy.length > 0" type="button"
+                class="btn btn-secondary fa fa-compress expand-collapse-btn" title="Colapsar Grupo"
+                t-on-click="() => this.collapselist()"/>
+      </div>
+    </xpath>
+  </t>
+
+  <t t-name="account.ListView.Buttons.Groupby" t-inherit="web.ListView">
+    <xpath expr="//Layout/t[@t-set-slot='control-panel-always-buttons']" position="after">
+      <div class="groupby-header-btn">
+      <button t-if="model.root.groupBy.length > 0" type="button"
+              class="btn btn-secondary fa fa-expand expand-collapse-btn" title="Expandir" t-on-click="expandlist"/>
+        <button t-if="model.root.groupBy.length > 0" type="button"
+                class="btn btn-secondary fa fa-compress expand-collapse-btn" title="Colapsar Grupo"
+                t-on-click="collapselist"/>
+      </div>
+    </xpath>
+  </t>
+</templates>

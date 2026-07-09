@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="sicpro_modulo_web_database_action" model="ir.actions.act_url">
+    <field name="name">Gestor de Base de Datos</field>
+    <field name="type">ir.actions.act_url</field>
+    <field name="target">new</field>
+    <field name="url">web/database/sicpro/manager</field>
+  </record>
+
+  <menuitem id="menu_web_base_datos" parent="sicpro_app_administracion.menu_administracion_1" sequence="3"
+            action="sicpro_modulo_web_database_action" name="Gestor de Base de Datos"/>
+
+</odoo>

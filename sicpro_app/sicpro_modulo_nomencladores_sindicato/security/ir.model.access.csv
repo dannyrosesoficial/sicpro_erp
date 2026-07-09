@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+nomenclador_sindicato_usuario,Sindicato usuario,model_sicpro_nomenclador_sindicato,base.group_user,1,0,0,0
+nomenclador_sindicato_admin,Sindicato admin,model_sicpro_nomenclador_sindicato,sicpro_modulo_nomencladores.grupo_sicpro_nomencladores_admin,1,1,1,1

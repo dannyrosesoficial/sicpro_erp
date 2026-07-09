@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="formato_papel_horizontal_vivienda_anexo_4" model="report.paperformat">
+    <field name="name">Papel Horizontal Vivienda anexo 4</field>
+    <field name="format">A4</field>
+    <field name="orientation">Landscape</field>
+  </record>
+
+  <record id="informe_modelo_vivienda_anexo_4_action" model="ir.actions.report">
+    <field name="name">Registro de Trabajadores Beneficiados</field>
+    <field name="model">sicpro.app.vivienda.reporte.anexo4</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="paperformat_id" ref="formato_papel_horizontal_vivienda_anexo_4"/>
+    <field name="report_name">sicpro_app_programa_viviendas.informe_modelo_vivienda_anexo_4</field>
+    <field name="report_file">sicpro_app_programa_viviendas.informe_modelo_vivienda_anexo_4</field>
+    <field name="print_report_name">'Registro de Trabajadores Beneficiados'</field>
+    <field name="binding_model_id" ref="model_sicpro_app_vivienda_reporte_anexo4"/>
+    <field name="binding_type">report</field>
+  </record>
+
+  <template id="informe_modelo_vivienda_anexo_4">
+
+    <t t-call="web.html_container">
+
+      <!-- sección del header -->
+      <div t-attf-class="header" t-att-style="report_header_style">
+        <div class="row">
+          <div class="col-3 mb4">
+            <img src="sicpro_app_programa_viviendas/static/src/img/etecsaId_300_8.png" style="max-height: 55px;"
+                 alt="Logo"/>
+          </div>
+        </div>
+        <div class="row zero_min_height">
+          <div class="col-12">
+            <div style="border-bottom: 1px solid black;"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <small> División de Proyectos y Ejecución de Obras</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- sección de datos -->
+      <div t-attf-class="article">
+        <!-- sección del page -->
+        <t t-foreach="docs" t-as="inf">
+
+          <table border="0" cellspacing="0">
+            <colgroup width="61"></colgroup> <colgroup width="354"></colgroup> <colgroup
+              width="98"></colgroup> <colgroup width="81"></colgroup> <colgroup width="90"></colgroup>
+            <colgroup width="104"></colgroup> <colgroup width="113"></colgroup> <colgroup
+              width="532"></colgroup>
+            <tbody>
+              <tr>
+                <td colspan="8"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DIVISIÓN DE LOGÍSTICA Y SERVICIOS&quot;}"
+                    align="center" height="18"><b><font color="#000000" face="Arial">DIVISIÓN
+                  DE LOGÍSTICA Y SERVICIOS</font></b></td>
+              </tr>
+              <tr>
+                <td colspan="8"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ANEXO 4 REG 4- PE-SG-001\/23: REGISTRO DE TRABAJADORES BENEFICIADOS &quot;}"
+                    align="center" height="18"><b><font color="#000000" face="Arial">ANEXO
+                  4 REG 4- PE-SG-001/23: REGISTRO DE TRABAJADORES BENEFICIADOS </font></b></td>
+              </tr>
+              <tr>
+                <td colspan="8"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;CON EL PROGRAMA DE LA VIVIENDA POR LA VÍA DEL ESFUERZO PROPIO DEL TRABAJADOR&quot;}"
+                    align="center" height="18"><b><font color="#000000" face="Arial">CON
+                  EL PROGRAMA DE LA VIVIENDA POR LA VÍA DEL ESFUERZO PROPIO DEL
+                  TRABAJADOR</font></b></td>
+              </tr>
+              <tr>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="center" height="18"><b><font color="#000000" face="Arial">
+                </font></b></td>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left"><font face="Times New Roman">
+                </font></td>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left"><font face="Times New Roman">
+                </font></td>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left"><font face="Times New Roman">
+                </font></td>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left"><font face="Times New Roman">
+                </font></td>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left"><font face="Times New Roman">
+                </font></td>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left"><font face="Times New Roman">
+                </font></td>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left"><font face="Times New Roman">
+                </font></td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;No&quot;}"
+                    align="center" valign="middle" height="36"><b><font color="#000000"
+                                                                        face="Arial">No</font></b></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Nombre y apellidos del trabajador&quot;}"
+                    align="center" valign="middle"><b><font color="#000000" face="Arial">Nombre
+                  y apellidos del trabajador</font></b></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Vía&quot;}"
+                    align="center"><b><font color="#000000" face="Arial">Vía</font></b></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Fecha&quot;}"
+                    align="center"><b><font color="#000000" face="Arial">Fecha</font></b></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Valor CUP&quot;}"
+                    align="center" valign="middle"><b><font color="#000000" face="Arial">Valor
+                  CUP</font></b></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    rowspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Observaciones&quot;}"
+                    align="center" valign="middle"><b><font color="#000000" face="Arial">
+                  Observaciones</font></b></td>
+              </tr>
+              <tr>
+                <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;M\/R&quot;}"
+                    align="center"><b><font color="#000000" face="Arial">M/R</font></b></td>
+                <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;T&quot;}"
+                    align="center"><b><font color="#000000" face="Arial">T</font></b></td>
+                <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Inicio&quot;}"
+                    align="center"><b><font color="#000000" face="Arial">Inicio</font></b></td>
+                <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Cierre&quot;}"
+                    align="center"><b><font color="#000000" face="Arial">Cierre</font></b></td>
+              </tr>
+              <t t-set="beneficiados" t-value="inf.report_busca_programa()"/>
+              <t t-set="count_lista" t-value="1"/>
+              <t t-foreach='beneficiados' t-as='programa'>
+                <tr>
+                  <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      sdval="1" sdnum="9226;" align="center" height="18"><font color="#000000"
+                                                                               face="Arial"><span
+                      t-out="count_lista"/></font></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="left"><font color="#000000" face="Arial"><t t-out="programa['nombre']"/>
+                  </font></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="center"><font color="#000000" face="Arial">
+                    <t t-if="programa['via_m_r']==True">X</t></font></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="center"><font color="#000000" face="Arial">
+                    <t t-if="programa['via_t']==True">X</t></font></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="center"><font color="#000000" face="Arial"><t
+                      t-out="programa['inicio']" t-options="{'widget': 'date'}"/></font></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="center"><font color="#000000" face="Arial"><t
+                      t-out="programa['cierre']" t-options="{'widget': 'date'}"/></font></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="center"><font color="#000000" face="Arial">$<t
+                      t-out="programa['monto']"/></font></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="left"><font color="#000000" face="Arial"><t
+                      t-out="programa['observaciones']"/></font></td>
+                </tr>
+                <t t-set="count_lista" t-value="count_lista + 1"/>
+              </t>
+
+            </tbody>
+          </table>
+
+        </t>
+        <t t-call="web.address_layout"/>
+      </div>
+      <t t-out="0"/>
+
+      <!-- sección del footer -->
+      <div t-attf-class="footer o_standard_footer">
+        <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+          Cuba.</span>
+        <div style="border-top: 1px solid black;">
+          <ul class="list-inline mb4">
+            <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+              <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+            <br/>
+            <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+              Justicia de la República de Cuba.
+              Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+          </ul>
+          <div t-if="report_type == 'pdf'" class="text-center text-muted">
+            Página: <span class="page"/> / <span class="topage"/>
+          </div>
+        </div>
+      </div>
+
+    </t>
+  </template>
+
+</odoo>

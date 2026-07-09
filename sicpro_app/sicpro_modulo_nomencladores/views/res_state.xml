@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_country_state_search_inherit_sicpro" model="ir.ui.view">
+    <field name="name">res.country.state.search.inherit.sicpro</field>
+    <field name="model">res.country.state</field>
+    <field name="inherit_id" ref="base.view_country_state_search"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='country_id']" position="after">
+        <filter string="Cuba" name="filter_cuba" domain="[('country_id.code', '=', 'CU')]"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_list_provincias_inherited" model="ir.ui.view">
+    <field name="name">view_provincias_inherited_list</field>
+    <field name="model">res.country.state</field>
+    <field name="inherit_id" ref="base.view_country_state_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="abreviatura" placeholder="Ej. HAB" invisible="country_id != %(base.cu)d"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="action_country_state_sicpro" model="ir.actions.act_window">
+    <field name="name">Provincias de Cuba</field>
+    <field name="res_model">res.country.state</field>
+    <field name="view_mode">list,form</field>
+    <field name="search_view_id" ref="view_country_state_search_inherit_sicpro"/>
+    <field name="context">{'search_default_filter_cuba': 1, 'default_country_id': 49}
+    </field>
+  </record>
+</odoo>

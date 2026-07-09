@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="reporte_vivienda_anexo4_wizard" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.reporte.anexo4.form</field>
+    <field name="model">sicpro.app.vivienda.reporte.anexo4</field>
+    <field name="arch" type="xml">
+      <form string="Anexo 4">
+        <group>
+          <field name="reporte_general" widget="boolean_toggle"/>
+          <field name="etapa" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                 invisible="reporte_general" required="not reporte_general"/>
+        </group>
+        <footer>
+          <button name="generar_reporte" string="Imprimir" type="object" class="btn-primary"/>
+          <button string="Cancelar" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="reporte_vivienda_anexo4_action" model="ir.actions.act_window">
+    <field name="name">Registro de Trabajadores Beneficiados (Anexo 4)</field>
+    <field name="res_model">sicpro.app.vivienda.reporte.anexo4</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="reporte_vivienda_anexo4_wizard"/>
+    <field name="target">new</field>
+  </record>
+</odoo>

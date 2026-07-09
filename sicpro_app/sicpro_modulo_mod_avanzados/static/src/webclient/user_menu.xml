@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+    <t t-name="sicpro_modulo_mod_avanzados.UserMenu" t-inherit="web.UserMenu" t-inherit-mode="extension">
+        <xpath expr="//t[@t-key='element_index']" position="before">
+            <t t-if="app_show_lang">
+                <t t-foreach="app_lang_list" t-as="lang" t-key="lang.id">
+                    <DropdownItem attrs="{ 'data-lang': lang.id, 'data-code': lang.code }"
+                                  onSelected="() => this.setLang(lang.code)">
+                        <img class="flag"
+                             t-att-src="'/sicpro_modulo_mod_avanzados/static/src/img/flags/' + lang['code'] + '.png'"/>
+                      <t t-out="lang.name"/>
+                      <i class="fa fa-check" t-if="user_lang == lang.code"></i>
+                    </DropdownItem>
+                </t>
+            </t>
+        </xpath>
+    </t>
+
+  <t t-name="sicpro_modulo_mod_avanzados.UserMenu" t-inherit="web.BurgerUserMenu" t-inherit-mode="extension">
+        <xpath expr="//t[@t-key='element_index']" position="before">
+            <t t-if="app_show_lang">
+                <t t-foreach="app_lang_list" t-as="lang" t-key="lang.id">
+                    <DropdownItem attrs="{ 'data-lang': lang.id, 'data-code': lang.code }" class="'py-3 fs-4'"
+                                  onSelected="() => this.setLang(lang.code)">
+                        <img class="flag"
+                             t-att-src="'/sicpro_modulo_mod_avanzados/static/src/img/flags/' + lang['code'] + '.png'"/>
+                      <t t-out="lang.name"/>
+                      <i class="fa fa-check" t-if="user_lang == lang.code"></i>
+                    </DropdownItem>
+                </t>
+            </t>
+        </xpath>
+    </t>
+</templates>

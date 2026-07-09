@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+
+    <!--Menus principal Nomencladores-->
+    <menuitem id="menu_nomenclador_sindicato" name="Secciones Sindicales"
+              parent="sicpro_modulo_nomencladores.menu_nomencladores_root" action="nomenclador_sindicato_action"
+              sequence="25"/>
+
+</odoo>

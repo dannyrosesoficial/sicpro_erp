@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <menuitem id="menu_ldap_contactos" action="action_sicpro_modulo_ldap_registros" name="Contactos LDAP"
+            parent="sicpro_app_contactos.menu_contactos" groups="base.group_user" sequence="5"/>
+
+  <menuitem id="menu_ldap_registros" name="Registros LDAP"
+            parent="sicpro_app_administracion.menu_configuracion_administrador" sequence="3"/>
+
+  <menuitem id="menu_ldap_historial_registros" parent="menu_ldap_registros" sequence="1"
+            action="ldap_historial_action_window" name="Historial de Registros LDAP"/>
+</odoo>

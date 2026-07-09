@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="motivos_devolucion_list" model="ir.ui.view">
+    <field name="name">sicpro.app.control.informacion.motivos.devolucion.list</field>
+    <field name="model">sicpro.app.control.informacion.motivos.devolucion</field>
+    <field name="arch" type="xml">
+      <list string="Motivos" editable="bottom">
+        <field name="name"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="motivo_devolucion_action" model="ir.actions.act_window">
+    <field name="name">Motivos de devoluciones</field>
+    <field name="res_model">sicpro.app.control.informacion.motivos.devolucion</field>
+    <field name="view_id" ref="motivos_devolucion_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear motivo de devolución
+      </p>
+    </field>
+  </record>
+</odoo>

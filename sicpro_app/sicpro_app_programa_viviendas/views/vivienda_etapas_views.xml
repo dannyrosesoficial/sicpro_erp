@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="vivienda_etapas_search" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.etapas.search</field>
+    <field name="model">sicpro.app.vivienda.etapas</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="name"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="vivienda_etapas_list" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.etapas.list</field>
+    <field name="model">sicpro.app.vivienda.etapas</field>
+    <field name="arch" type="xml">
+      <list string="Etapas" editable="bottom">
+        <field name="name" placeholder="ej. Etapa 1"/>
+        <field name="company_id" column_invisible="1"/>
+        <field name="company_currency" column_invisible="1"/>
+        <field name="monto"/>
+        <field name="vencimiento_presupuesto"/>
+        <field name="fecha_inicio"/>
+        <field name="fecha_fin"/>
+        <field name="estado" widget="badge" decoration-success="estado=='terminada'"
+               decoration-warning="estado=='activa'"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="vivienda_etapas_action" model="ir.actions.act_window">
+    <field name="name">Etapas</field>
+    <field name="res_model">sicpro.app.vivienda.etapas</field>
+    <field name="view_id" ref="vivienda_etapas_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear etapa del programa de la vivienda
+      </p>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="app_sequence_view_list" model="ir.ui.view">
+    <field name="name">app.ir.sequence.list</field>
+    <field name="model">ir.sequence</field>
+    <field name="inherit_id" ref="base.sequence_view_tree"/>
+    <field name="arch" type="xml">
+      <field name="code" position="before">
+        <field name="id" optional="show"/>
+      </field>
+    </field>
+  </record>
+</odoo>

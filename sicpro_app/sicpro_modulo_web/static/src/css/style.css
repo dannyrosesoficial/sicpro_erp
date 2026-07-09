@@ -1,0 +1,410 @@
+:root {
+    --primary: #714B67;
+    --primary-light: #fdf2f8;
+    --accent: #ff4a17;
+    --bg-body: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: rgba(0, 0, 0, 0.08);
+    --glass: rgba(255, 255, 255, 0.9);
+}
+
+[data-bs-theme="dark"] {
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+    --primary-light: #2d1b28;
+    --glass: rgba(15, 23, 42, 0.9);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+}
+
+/* --- Componentes --- */
+.section-padding {
+    padding: 80px 0;
+}
+
+.btn-sicpro {
+    background: var(--primary);
+    color: white !important;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-sicpro:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(113, 75, 103, 0.4);
+}
+
+/* Brillo animado en el botón */
+.btn-sicpro::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: rotate(45deg);
+    transition: 0.8s;
+    left: -100%;
+}
+
+.btn-sicpro:hover::after {
+    left: 100%;
+}
+
+/* --- Top Bar Status --- */
+.top-bar {
+    background: var(--primary);
+    color: white;
+    padding: 10px 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-dot {
+    height: 10px;
+    width: 10px;
+    background: #2ecc71;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+    margin-right: 5px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(46, 204, 113, 0);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+/* --- Navbar --- */
+.navbar {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand i {
+    color: var(--primary);
+    margin-right: 12px;
+    font-size: 1.6rem;
+}
+
+.theme-switch {
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 50px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* --- Hero con Fondo Animado --- */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at top right, var(--primary-light), transparent);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Partículas de fondo (Offline CSS) */
+.bg-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.shape {
+    position: absolute;
+    background: var(--primary);
+    border-radius: 50%;
+    opacity: 0.05;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.05;
+    }
+    50% {
+        transform: translateY(-100px) rotate(180deg);
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 0.05;
+    }
+}
+
+.hero-img {
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    animation: imgFloat 6s ease-in-out infinite;
+}
+
+@keyframes imgFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* --- Bento Grid --- */
+.access-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.access-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.access-card i {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.access-card:hover i {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--accent);
+}
+
+/* --- Dashboard Styles --- */
+.dash-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* --- Directorio Styles --- */
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 40px;
+}
+
+.search-container i {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    color: var(--primary);
+}
+
+.search-input {
+    padding: 12px 20px 12px 50px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    width: 100%;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(113, 75, 103, 0.1);
+}
+
+/* --- Roadmap Changelog --- */
+.timeline-item {
+    border-left: 3px solid var(--primary);
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    top: 0;
+    width: 19px;
+    height: 19px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 4px solid var(--bg-body);
+}
+
+.v-badge {
+    background: var(--accent);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* --- Galería --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 180px;
+    grid-gap: 15px;
+}
+
+.gallery-item {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item.wide {
+    grid-column: span 2;
+}
+
+.gallery-item.tall {
+    grid-row: span 2;
+}
+
+/* --- Modal Styles --- */
+.modal-content {
+    border-radius: 30px;
+    border: none;
+    background: var(--bg-card);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border);
+    padding: 25px;
+}
+
+.form-control {
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    background: var(--primary-light);
+}
+
+/* --- Developer Section --- */
+.dev-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.dev-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 40px 20px;
+    transition: 0.4s;
+}
+
+.dev-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.dev-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.dev-social a {
+    color: white;
+    opacity: 0.6;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    margin: 0 10px;
+}
+
+.dev-social a:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.dev-tag {
+    background: var(--primary);
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Footer --- */
+footer {
+    background: #0f172a;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 80px 0 20px;
+}
+
+footer h3 i {
+    margin-right: 10px;
+}

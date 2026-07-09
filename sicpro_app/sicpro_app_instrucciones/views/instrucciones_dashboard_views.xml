@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="instrucciones_views_kanban" model="ir.ui.view">
+    <field name="name">sicpro.app.instrucciones.instruccion.kanban</field>
+    <field name="model">sicpro.app.instrucciones.instruccion</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_dashboard" create="true" sample="1" limit="10">
+        <field name="id"/>
+        <field name="name"/>
+        <field name="color"/>
+        <field name="es_favorito"/>
+        <field name="user_id"/>
+        <field name="instructor"/>
+        <field name="correo"/>
+        <field name="todo_request_count"/>
+        <field name="todo_request_count_aprobados"/>
+        <field name="todo_request_count_suspensos"/>
+        <templates>
+          <t t-name="card">
+            <div
+                t-attf-class="oe_kanban_global_click #{!selection_mode ? 'oe_kanban_color_' + record.color.raw_value : ''}">
+              <div class="dropdown-menu" role="menu">
+                <t t-if="widget.editable">
+                  <a role="menuitem" type="edit" class="dropdown-item font-weight-bold">
+                    Configuración
+                  </a>
+                </t>
+                <div role="separator" class="dropdown-divider"/>
+                <ul class="oe_kanban_colorpicker" data-field="color"/>
+              </div>
+              <div class="o_kanban_card_header">
+                <div class="o_kanban_card_header_title">
+                  <div class="o_primary">
+                    <field name="es_favorito" widget="boolean_favorite" class="mr-2"/>
+                    <strong><field name="name"/></strong>
+                  </div>
+                  <div class="o_kanban_record_subtitle mt-1">
+                    <div class="d-flex align-items-center">
+                      <field name="user_id" widget="many2one_avatar_user"/>
+                      <span class="ml-2 text-muted"><field name="instructor"/></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container o_kanban_card_content mt-3">
+                <div class="row">
+                  <div class="col-6">
+                    <button class="btn btn-primary btn-sm" name="%(instrucciones_trabajadores_action)d" type="action">
+                      <field name="todo_request_count"/> Participantes
+                    </button>
+                  </div>
+                  <div class="col-6 o_kanban_primary_right text-right">
+                    <div class="text-success">
+                      <strong><field name="todo_request_count_aprobados"/></strong> Aprobados
+                    </div>
+                    <div class="text-danger">
+                      <strong><field name="todo_request_count_suspensos"/></strong> Suspensos
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-3 border-top pt-2">
+                  <div class="col-12 d-flex justify-content-between align-items-center">
+                    <small class="text-muted">
+                      <i class="fa fa-envelope mr-1" title="Correo electrónico"/>
+                      <field name="correo"/>
+                    </small>
+                    <div>
+                      <button class="btn btn-icon btn-outline-secondary fa fa-print"
+                              title="Imprimir"
+                              name="emitir_modelo_instruccion"
+                              type="object"
+                              groups="sicpro_app_instrucciones.grupo_app_instruciones_responsable"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                <div class="o_kanban_card_manage_section o_kanban_manage_view">
+                  <div role="menuitem" class="dropdown-header">Opciones</div>
+                  <div role="menuitem"><a type="edit">Editar Instrucción</a></div>
+                </div>
+                <div role="menuitem" aria-haspopup="true" class="o_no_padding_kanban_colorpicker">
+                  <ul class="oe_kanban_colorpicker" data-field="color" role="menu"/>
+                </div>
+              </div>
+
+              <div class="o_kanban_record_bottom mt-2">
+                <div class="oe_kanban_bottom_left">
+                </div>
+                <div class="oe_kanban_bottom_right">
+                  <button class="btn btn-link btn-sm p-0"
+                          name="%(instrucciones_trabajadores_action_crear)d"
+                          type="action"
+                          context="{'default_instrucciones_id': id}">
+                    INICIAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="instrucciones_dashboard_action" model="ir.actions.act_window">
+    <field name="name">Tablero de Instrucciones</field>
+    <field name="res_model">sicpro.app.instrucciones.instruccion</field>
+    <field name="view_mode">kanban,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crea tu primera instrucción para los trabajadores
+      </p>
+    </field>
+  </record>
+</odoo>

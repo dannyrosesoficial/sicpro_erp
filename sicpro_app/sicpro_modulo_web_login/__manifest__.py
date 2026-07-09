@@ -1,0 +1,41 @@
+# -*- encoding: utf-8 -*-
+
+{
+    'name': 'SICPRO: Web Login SICPRO ERP',
+    'version': '19.0.0.0.1',
+    'category': 'Website',
+    'summary': 'Crear una nueva configuración del login para SICPRO ERP',
+    'description': 'Crear una nueva configuración del login para SICPRO ERP',
+    'author': 'Daniel Barrero Reyes',
+    'maintainer': 'Daniel Barrero Reyes / Soporte Técnico SICPRO',
+    'support': 'daniel.borrero@etecsa.cu',
+    'price': 0,
+    'currency': 'CUP',
+    'company': 'División de Proyectos y Ejecución de Obras',
+    'website': 'https://www.facebook.com/dannyroses.oficial/',
+    'license': 'AGPL-3',
+    'sequence': 3,
+    "depends": [ "base",
+                'base_setup',
+                 'web',
+                'sicpro_modulo_web',
+                "sicpro_app_administracion",
+                ],
+    "data": [
+        'security/ir.model.access.csv',
+        'data/sicpro_modulo_web_mantenimiento.xml',
+        'templates/login_template.xml',
+        'templates/mantenimiento_template.xml',
+        'views/mantenimiento_views.xml',
+        'views/modulo_web_login_menu_views.xml',
+    ],
+    'assets': {
+    'web.assets_frontend': [
+        'sicpro_modulo_web_login/static/src/xml/user_switch.xml',
+    ],
+},
+    "installable": True,
+    'application': True,
+    "auto_install": False,
+    "pre_init_hook": "pre_init_check",
+}

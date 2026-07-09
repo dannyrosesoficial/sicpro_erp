@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<templates xml:space="preserve">
+	<t t-name="sicpro_modulo_tema_dialogos.Dialog" t-inherit="web.Dialog" t-inherit-mode="extension" >
+	    <xpath expr="//div[@t-attf-class='modal-{{props.size}}']" position="attributes">
+	    	<attribute name="t-attf-class">modal-{{ this.data?.size || 'lg' }}</attribute>
+	    </xpath>
+	</t>
+
+	<t  t-name="sicpro_modulo_tema_dialogos.Dialog.header" t-inherit="web.Dialog.header" t-inherit-mode="extension">
+	    <xpath expr="//h4[hasclass('modal-title')]" position="attributes">
+	    	<attribute name="class" add="flex-shrink-0 w-75" separator=" " />
+	    </xpath>
+	    <xpath expr="//button[@t-on-click='onExpand']" position="attributes">
+	    	<attribute name="class">fa fa-lg fa-external-link btn o_expand_button</attribute>
+	    	<attribute name="style">margin-top: 2px !important;</attribute>
+	    </xpath>
+	    <xpath expr="//t[@t-if='!fullscreen']" position="before">
+	    	<button
+				t-if="!fullscreen"
+				type="button" class="btn float-end me-1 mk_btn_dialog_size" t-on-click="() => this.onClickDialogSizeToggle()"
+				t-att-title="this.data?.size === 'fs' ? 'Restaurar tamaño' : 'Expandir a pantalla completa'">
+				<i t-attf-class="fa fa-lg {{ this.data?.size === 'fs' ? 'fa-compress' : 'fa-expand' }}" />
+			</button>
+	    </xpath>
+	</t>
+</templates>

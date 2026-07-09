@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data>
+        <record id="acuerdos_estados_view_form" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.estados.view.form</field>
+            <field name="model">sicpro.app.reuniones.estados</field>
+            <field name="arch" type="xml">
+                <form string="Estados">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="pipe_end"/>
+                            </group>
+                            <group>
+                                <field name="fold"/>
+                                <field name="sequence"/>
+                            </group>
+                        </group>
+                        <group string="Descripción de la tarea">
+                            <field name="description" placeholder="Agregar descripción..." nolabel="1" colspan="2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="acuerdos_estados_view_list" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.estados.view.list</field>
+            <field name="model">sicpro.app.reuniones.estados</field>
+            <field name="arch" type="xml">
+                <list string="Estados">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="acuerdos_estados_action" model="ir.actions.act_window">
+            <field name="name">Estados</field>
+            <field name="res_model">sicpro.app.reuniones.estados</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+
+    </data>
+</odoo>

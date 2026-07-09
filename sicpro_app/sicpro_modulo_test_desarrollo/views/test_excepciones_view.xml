@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="view_test_exceptions_model" model="ir.ui.view">
+      <field name="name">sicpro.modulo.test.exceptions.form</field>
+      <field name="model">sicpro.modulo.test.exceptions</field>
+      <field name="arch" type="xml">
+        <form string="Test exceptions">
+          <sheet>
+            <div class="alert alert-info" role="alert">
+              <i class="fa fa-info-circle me-2" title="Información adicional"/>
+              Cada botón genera una excepción específica en el servidor.
+              Los botones marcados con <strong>*</strong> utilizan <code>safe_eval()</code>.
+            </div>
+            <group>
+              <group string="Excepciones Estándar">
+                <label for="generate_redirect_warning" string="RedirectWarning"/>
+                <div class="d-flex align-items-center">
+                  <button name="generate_redirect_warning" type="object" icon="fa-external-link"
+                          class="btn-outline-primary me-2"/>
+                  <span class="text-muted small">Warning con botón de redirección</span>
+                </div>
+                <label for="generate_user_error" string="UserError"/>
+                <div class="d-flex align-items-center">
+                  <button name="generate_user_error" type="object" icon="fa-warning" class="btn-outline-primary me-2"/>
+                  <span class="text-muted small">Mensaje de advertencia estándar</span>
+                </div>
+                <label for="generate_access_error" string="AccessError"/>
+                <div class="d-flex align-items-center">
+                  <button name="generate_access_error" type="object" icon="fa-lock" class="btn-outline-primary me-2"/>
+                  <span class="text-muted small">Error de permisos de acceso</span>
+                </div>
+                <label for="generate_validation_error" string="ValidationError"/>
+                <div class="d-flex align-items-center">
+                  <button name="generate_validation_error" type="object" icon="fa-check-square-o"
+                          class="btn-outline-primary me-2"/>
+                  <span class="text-muted small">Error de validación (Python constraints)</span>
+                </div>
+              </group>
+              <group string="Excepciones con Safe Eval (*)">
+                <label for="generate_user_error_safe_eval" string="UserError*"/>
+                <div class="d-flex align-items-center">
+                  <button name="generate_user_error_safe_eval" type="object" icon="fa-warning"
+                          class="btn-outline-secondary me-2"/>
+                  <span class="text-muted small">UserError dentro de evaluación segura</span>
+                </div>
+                <label for="generate_undefined_safe_eval" string="Undefined*"/>
+                <div class="d-flex align-items-center">
+                  <button name="generate_undefined_safe_eval" type="object" icon="fa-bug"
+                          class="btn-outline-secondary me-2"/>
+                  <span class="text-muted small">Error de servidor (Traceback completo)</span>
+                </div>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_test_exceptions" model="ir.actions.act_window">
+      <field name="name">Test Excepciones</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">sicpro.modulo.test.exceptions</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_test_exceptions" name="Test Excepciones" action="action_test_exceptions"
+              parent="test_menu_root" sequence="1"/>
+</odoo>

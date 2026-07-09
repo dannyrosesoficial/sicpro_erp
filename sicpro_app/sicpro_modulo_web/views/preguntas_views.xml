@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="web_preguntas_search_view" model="ir.ui.view">
+    <field name="name">sicpro.modulo.web.preguntas.search</field>
+    <field name="model">sicpro.modulo.web.preguntas</field>
+    <field name="arch" type="xml">
+      <search string="Buscar FAQ">
+        <field name="name" string="Pregunta"/>
+        <field name="respuesta"/>
+        <separator/>
+        <filter string="Archivados" name="inactive" domain="[('active', '=', False)]"/>
+        <group>
+          <filter string="Activos" name="group_by_active" context="{'group_by': 'active'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="web_preguntas_list_view" model="ir.ui.view">
+    <field name="name">sicpro.modulo.web.preguntas.list</field>
+    <field name="model">sicpro.modulo.web.preguntas</field>
+    <field name="arch" type="xml">
+      <list string="Preguntas Frecuentes">
+        <field name="sequence" widget="handle"/>
+        <field name="preview" widget="html" readonly="1" string="Icono" width="50px"/>
+        <field name="name" string="Pregunta"/>
+        <field name="icono_id" options="{'no_create': True, 'no_open': True}"/>
+        <field name="active" widget="boolean_toggle"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="web_preguntas_form_view" model="ir.ui.view">
+    <field name="name">sicpro.modulo.web.preguntas.form</field>
+    <field name="model">sicpro.modulo.web.preguntas</field>
+    <field name="arch" type="xml">
+      <form string="Pregunta Frecuente">
+        <sheet>
+          <div class="oe_title">
+            <label for="name" string="Pregunta"/>
+            <h1>
+              <field name="name" placeholder="Ej: ¿Cómo restablecer mi contraseña?"/>
+            </h1>
+          </div>
+          <group>
+            <group>
+              <label for="icono_id"/>
+              <div class="o_row">
+                <field name="icono_id" options="{'no_create': True}"/>
+                <field name="preview" widget="html" class="ms-2"/>
+              </div>
+              <field name="sequence" invisible="1"/>
+            </group>
+            <group>
+              <field name="active" widget="boolean_toggle"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Contenido de la Respuesta" name="respuesta_page">
+              <field name="respuesta"
+                     placeholder="Escribe aquí la solución detallada..."
+                     style="min-height: 150px;"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="web_preguntas_action" model="ir.actions.act_window">
+    <field name="name">Preguntas Frecuentes</field>
+    <field name="res_model">sicpro.modulo.web.preguntas</field>
+    <field name="view_mode">list,form</field>
+    <field name="search_view_id" ref="web_preguntas_search_view"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crea tu primera pregunta frecuente.
+      </p>
+      <p>
+        Las preguntas que configures aquí aparecerán automáticamente en la sección de FAQ de la página de inicio.
+      </p>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="view_sicpro_web_evolucion_list" model="ir.ui.view">
+        <field name="name">sicpro.modulo.web.evolucion.list</field>
+        <field name="model">sicpro.modulo.web.evolucion</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="periodo" placeholder="ej. 2024 - Q1"/>
+                <field name="name" placeholder="ej. Fase 1: Despliegue"/>
+                <field name="subtitulo" placeholder="ej. Estandarización Operativa"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_sicpro_web_evolucion" model="ir.actions.act_window">
+        <field name="name">Evolución Estratégica</field>
+        <field name="res_model">sicpro.modulo.web.evolucion</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

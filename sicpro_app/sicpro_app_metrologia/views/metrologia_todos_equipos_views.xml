@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="metrologia_todos_equipos_view_search" model="ir.ui.view">
+    <field name="name">sicpro.app.metrologia.equipos.search</field>
+    <field name="model">sicpro.app.metrologia.equipos</field>
+    <field name="priority">150</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field string="Equipos" name="name" filter_domain="[
+                    '|', '|', '|',
+                    ('name', 'ilike', self), ('model', 'ilike', self), ('serial_no', 'ilike', self)]"/>
+        <field name="trabajador_id"/>
+        <separator/>
+        <filter string="Planificado" name="aviso_mtto" domain="[('aviso_mtto', '=', True)]"/>
+        <filter string="En Laboratorio" name="estado_laboratorio" domain="[('estado_laboratorio', '=', True)]"/>
+        <filter string="Sin Calibrar" name="estado_sin_calibrar" domain="[('estado_sin_calibrar', '=', True)]"/>
+        <filter string="Pendiente por Economía" name="transferencia_pendiente"
+                domain="[('transferencia_pendiente', '=', True)]"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+        <group>
+          <filter string='Tipo de Mantenimiento' name="tipo" domain="[]" context="{'group_by': 'tipo'}"/>
+          <filter string='Siguiente de Mantenimiento' name="siguiente_mtto" domain="[]"
+                  context="{'group_by': 'fecha_siguiente_mtto'}"/>
+          <filter string='Magnitud' name="magnitud" domain="[]" context="{'group_by': 'magnitud'}"/>
+          <filter string='Equipos de Mantenimiento' name="equipos" domain="[]"
+                  context="{'group_by': 'equipo_mantenimiento_id'}"/>
+          <filter string='Gestor de Equipos' name="gestores" domain="[]" context="{'group_by': 'gestor_id'}"/>
+          <filter string='Centro de Calibración' name="centro_calibracion" domain="[]"
+                  context="{'group_by': 'centro_calibracion'}"/>
+          <filter string='Año de Mantenimiento' name="anio" domain="[]" context="{'group_by': 'anio_mtto'}"/>
+          <filter string='Proceso' name="proceso" domain="[]" context="{'group_by': 'company_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="metrologia_todos_equipos_view_list" model="ir.ui.view">
+    <field name="name">sicpro.app.metrologia.equipos.list</field>
+    <field name="model">sicpro.app.metrologia.equipos</field>
+    <field name="priority">150</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="trabajador_id"/>
+        <field name="inventario"/>
+        <field name="inmovilizado"/>
+        <field name="tarjeta"/>
+        <field name="marca"/>
+        <field name="model"/>
+        <field name="fecha_ultimo_mtto"/>
+        <field name="tipo"/>
+        <field name="centro_calibracion"/>
+        <field name="estado_id"/>
+        <field name="fecha_siguiente_mtto"/>
+        <field name="equipo_mantenimiento_id" optional="hide"/>
+        <field name="gestor_id" optional="hide"/>
+        <field name="company_id" optional="hide"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="metrologia_todos_equipos_view_graph" model="ir.ui.view">
+    <field name="name">sicpro.app.metrologia.equipos.graph</field>
+    <field name="model">sicpro.app.metrologia.equipos</field>
+    <field name="priority">150</field>
+    <field name="arch" type="xml">
+      <graph string="Análisis de Equipos por Gestor" type="bar" stacked="1" sample="1">
+        <field name="gestor_id" type="row"/>
+        <field name="estado_id" type="col"/>
+      </graph>
+    </field>
+  </record>
+
+  <record id="metrologia_todos_equipos_view_pivot" model="ir.ui.view">
+    <field name="name">sicpro.app.metrologia.equipos.pivot</field>
+    <field name="model">sicpro.app.metrologia.equipos</field>
+    <field name="priority">150</field>
+    <field name="arch" type="xml">
+      <pivot string="Solicitud de Mantenimiento" display_quantity="1" sample="1">
+        <field name="gestor_id" type="row"/>
+        <field name="estado_id" type="col"/>
+      </pivot>
+    </field>
+  </record>
+
+  <record id="metrologia_todos_equipos_action" model="ir.actions.act_window">
+    <field name="name">Todos los Equipos</field>
+    <field name="res_model">sicpro.app.metrologia.equipos</field>
+    <field name="view_mode">list,form,graph,pivot</field>
+    <field name="view_id" ref="metrologia_todos_equipos_view_list"/>
+    <field name="search_view_id" ref="metrologia_todos_equipos_view_search"/>
+  </record>
+</odoo>

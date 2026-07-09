@@ -1,0 +1,44 @@
+<odoo>
+  <record id="view_qr_code_list" model="ir.ui.view">
+    <field name="name">qrcode.generator.list</field>
+    <field name="model">qrcode.generator</field>
+    <field name="arch" type="xml">
+      <list string="QR Codes">
+        <field name="name"/>
+        <field name="url"/>
+        <field name="qr_code_image" widget="image"/>
+        <button string="Descargar" type="object" name="download_qr_code" class="btn-secondary"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_qr_code_form" model="ir.ui.view">
+    <field name="name">qrcode.generator.form</field>
+    <field name="model">qrcode.generator</field>
+    <field name="arch" type="xml">
+      <form string="Generador de códigos QR">
+        <group>
+          <label for="name"> Name </label>
+          <field name="name"/>
+          <label for="url"> URL </label>
+          <field name="url"/>
+          <label for="qr_code_image"> Código QR </label>
+          <field name="qr_code_image" widget="image" readonly="1"/>
+          <group>
+            <button string="Generar" type="object" name="generate_qr_code" class="btn-primary"/>
+            <button string="Descargar" type="object" name="download_qr_code" class="btn-secondary"/>
+          </group>
+        </group>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_qr_code" model="ir.actions.act_window">
+    <field name="name">Generador de códigos QR</field>
+    <field name="res_model">qrcode.generator</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <menuitem name="Generador de códigos QR" id="menu_qr_code_generator" action="action_qr_code"
+            parent="sicpro_app_administracion.menu_administracion_1" sequence="25"/>
+</odoo>

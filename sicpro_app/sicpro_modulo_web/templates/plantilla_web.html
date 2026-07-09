@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SICPRO ERP | Sistema Integral de Gestión 2026 🌹</title>
+    
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/9321/9321769.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Outfit:wght@300;600;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #714B67;
+            --primary-light: #fdf2f8;
+            --accent: #ff4a17;
+            --bg-body: #ffffff;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: rgba(0,0,0,0.08);
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+
+        [data-bs-theme="dark"] {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(255,255,255,0.1);
+            --primary-light: #2d1b28;
+            --glass: rgba(15, 23, 42, 0.9);
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg-body); 
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .navbar-brand { font-family: 'Outfit', sans-serif; font-weight: 800; }
+
+        /* --- Componentes --- */
+        .section-padding { padding: 80px 0; }
+        .btn-sicpro { 
+            background: var(--primary); 
+            color: white !important; 
+            padding: 12px 30px; 
+            border-radius: 50px; 
+            border: none; 
+            font-weight: 600; 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            text-decoration: none; 
+            display: inline-block; 
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-sicpro:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(113, 75, 103, 0.4); }
+        
+        /* Brillo animado en el botón */
+        .btn-sicpro::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: 0.8s;
+            left: -100%;
+        }
+        .btn-sicpro:hover::after { left: 100%; }
+
+        /* --- Top Bar & Status --- */
+        .top-bar { background: var(--primary); color: white; padding: 10px 0; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .status-dot { height: 10px; width: 10px; background: #2ecc71; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; margin-right: 5px; }
+        @keyframes pulse { 0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(46,204,113,0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46,204,113,0); } 100% { transform: scale(0.9); } }
+
+        /* --- Navbar --- */
+        .navbar { background: var(--glass); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }
+        .navbar-brand i { color: var(--primary); margin-right: 12px; font-size: 1.6rem; }
+        .theme-switch { cursor: pointer; padding: 8px 15px; border-radius: 50px; background: var(--primary-light); color: var(--primary); font-weight: bold; }
+
+        /* --- Hero con Fondo Animado --- */
+        .hero { 
+            min-height: 80vh; 
+            display: flex; 
+            align-items: center; 
+            background: radial-gradient(circle at top right, var(--primary-light), transparent); 
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Partículas de fondo (Offline CSS) */
+        .bg-shapes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .shape { position: absolute; background: var(--primary); border-radius: 50%; opacity: 0.05; animation: float 20s infinite linear; }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.05; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 0.1; }
+            100% { transform: translateY(0) rotate(360deg); opacity: 0.05; }
+        }
+
+        .hero-img { 
+            border-radius: 40px; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
+            animation: imgFloat 6s ease-in-out infinite; 
+        }
+        @keyframes imgFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* --- Bento Grid --- */
+        .access-card { background: var(--bg-card); border-radius: 24px; padding: 25px; text-align: center; border: 1px solid var(--border); transition: 0.3s; text-decoration: none; color: inherit; display: block; height: 100%; }
+        .access-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .access-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; transition: 0.3s; }
+        .access-card:hover i { transform: scale(1.2) rotate(5deg); color: var(--accent); }
+
+        /* --- Dashboard Styles --- */
+        .dash-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 20px; transition: 0.3s; }
+        .progress { height: 8px; border-radius: 10px; background: rgba(0,0,0,0.05); }
+
+        /* --- Directorio Styles --- */
+        .search-container { position: relative; max-width: 500px; margin: 0 auto 40px; }
+        .search-container i { position: absolute; left: 20px; top: 15px; color: var(--primary); }
+        .search-input { padding: 12px 20px 12px 50px; border-radius: 50px; border: 1px solid var(--border); width: 100%; outline: none; transition: 0.3s; }
+        .search-input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(113, 75, 103, 0.1); }
+
+        /* --- Roadmap & Changelog --- */
+        .timeline-item { border-left: 3px solid var(--primary); padding-left: 30px; position: relative; margin-bottom: 40px; }
+        .timeline-item::before { content: ''; position: absolute; left: -11px; top: 0; width: 19px; height: 19px; background: var(--primary); border-radius: 50%; border: 4px solid var(--bg-body); }
+        .v-badge { background: var(--accent); color: white; padding: 3px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: bold; }
+
+        /* --- Galería --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; grid-gap: 15px; }
+        .gallery-item { border-radius: 20px; overflow: hidden; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item.wide { grid-column: span 2; }
+        .gallery-item.tall { grid-row: span 2; }
+
+        /* --- Modal Styles --- */
+        .modal-content { border-radius: 30px; border: none; background: var(--bg-card); }
+        .modal-header { border-bottom: 1px solid var(--border); padding: 25px; }
+        .form-control { border-radius: 12px; padding: 12px; border: 1px solid var(--border); background: var(--primary-light); }
+
+        /* --- Developer Section --- */
+        .dev-section { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden; }
+        .dev-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 40px 20px; transition: 0.4s; }
+        .dev-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-10px); border-color: var(--accent); }
+        .dev-avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary); margin-bottom: 20px; padding: 5px; }
+        .dev-social a { color: white; opacity: 0.6; font-size: 1.2rem; transition: 0.3s; margin: 0 10px; }
+        .dev-social a:hover { opacity: 1; color: var(--accent); }
+        .dev-tag { background: var(--primary); font-size: 0.7rem; padding: 4px 12px; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- Footer --- */
+        footer { background: #0f172a; color: rgba(255,255,255,0.7); padding: 80px 0 20px; }
+        footer h3 i { margin-right: 10px; }
+    </style>
+</head>
+<body data-bs-theme="light">
+
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <span class="status-dot"></span> 
+                <span class="fw-bold">Sistemas Operativos 100%</span>
+                <span class="mx-3 d-none d-md-inline opacity-50">|</span>
+                <span class="small d-none d-md-inline"><i class="fas fa-clock me-1"></i> Mantenimiento: 20 Feb, 02:00 AM</span>
+            </div>
+            <div class="d-flex gap-3 align-items-center">
+                <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                <div class="theme-switch" id="themeBtn"><i class="fas fa-moon"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand fs-3 d-flex align-items-center" href="#">
+                <i class="fas fa-layer-group"></i>
+                SICPRO <span style="color:var(--accent); margin-left: 5px;">🌹</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav ms-auto fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#directorio">Directorio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#manuales">Manuales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#roadmap">Evolución</a></li>
+                    <li class="nav-item ms-lg-3"><a href="#" class="btn-sicpro" data-bs-toggle="modal" data-bs-target="#ticketModal">SOLICITAR TICKET</a></li>
+                    <li class="nav-item ms-lg-2"><a href="#" class="btn btn-outline-primary rounded-pill px-4 py-2 border-2">ENTRAR</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="bg-shapes">
+            <div class="shape" style="width: 80px; height: 80px; top: 10%; left: 10%; animation-delay: 0s;"></div>
+            <div class="shape" style="width: 150px; height: 150px; top: 60%; left: 5%; animation-delay: -5s;"></div>
+            <div class="shape" style="width: 100px; height: 100px; top: 20%; left: 80%; animation-delay: -2s;"></div>
+        </div>
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="v-badge mb-3 d-inline-block">VERSIÓN 2026.1</span>
+                    <h1 class="display-2 mb-4">Control Total de la <br><span style="color:var(--primary)">Producción.</span></h1>
+                    <p class="lead mb-5 opacity-75">Plataforma centralizada de la División de Proyectos y Ejecución de Obras para el monitoreo de recursos y cumplimiento de metas.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn-sicpro shadow-lg px-5">Login ERP</a>
+                        <a href="#about" class="btn btn-outline-secondary rounded-pill px-4 py-2 fw-bold">Ver Más</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0 text-center" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" class="img-fluid hero-img" alt="Digital Management">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" class="section-padding" style="background: var(--primary-light);">
+        <div class="container">
+            <h2 class="text-center fw-black mb-5">Dashboard de Ejecución Nacional</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="dash-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold mb-0">Obras Habana Central</h6>
+                            <span class="badge bg-success">85%</span>
+                        </div>
+                        <div class="progress mb-2"><div class="progress-bar" style="width: 85%; background: var(--primary);"></div></div>
+                        <p class="small text-muted mb-0">Meta: 100% Mayo 2026</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="dash-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold mb-0">Suministros de Acero</h6>
+                            <span class="badge bg-warning text-dark">62%</span>
+                        </div>
+                        <div class="progress mb-2"><div class="progress-bar" style="width: 62%; background: var(--accent);"></div></div>
+                        <p class="small text-muted mb-0">En tránsito desde puerto.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="dash-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold mb-0">Presupuesto Ejecutado</h6>
+                            <span class="badge bg-info text-dark">48%</span>
+                        </div>
+                        <div class="progress mb-2"><div class="progress-bar" style="width: 48%; background: #0dcaf0;"></div></div>
+                        <p class="small text-muted mb-0">Q1-Q2 Periodo Fiscal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center fw-black mb-5">Ecosistema Digital</h2>
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-2" data-aos="fade-up"><a href="#" class="access-card"><i class="fas fa-cloud"></i><br><b>Nube</b></a></div>
+                <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="100"><a href="#" class="access-card"><i class="fas fa-envelope"></i><br><b>Correo</b></a></div>
+                <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="200"><a href="#" class="access-card"><i class="fab fa-gitlab"></i><br><b>GitLab</b></a></div>
+                <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="300"><a href="#" class="access-card"><i class="fas fa-video"></i><br><b>Reunión</b></a></div>
+                <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="400"><a href="#" class="access-card"><i class="fas fa-id-card"></i><br><b>Portal RH</b></a></div>
+                <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="500"><a href="#" class="access-card"><i class="fas fa-user-shield"></i><br><b>Seguridad</b></a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="directorio" class="section-padding bg-light" style="background-color: var(--primary-light) !important;">
+        <div class="container">
+            <h2 class="text-center fw-black mb-2">Directorio de Capital Humano</h2>
+            <p class="text-center text-muted mb-5">Encuentra rápidamente a los líderes de cada unidad operativa.</p>
+            
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="dirSearch" class="search-input" placeholder="Buscar por nombre, cargo o especialidad...">
+            </div>
+
+            <div class="row g-4" id="dirList">
+                <div class="col-md-4 dir-item">
+                    <div class="access-card text-start d-flex align-items-center">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" class="rounded-circle me-3" style="width:60px; height:60px; object-fit:cover;">
+                        <div>
+                            <h6 class="fw-bold mb-0">Danny Rose 🌹</h6>
+                            <small class="text-primary">Project Leader</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 dir-item">
+                    <div class="access-card text-start d-flex align-items-center">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=100&q=80" class="rounded-circle me-3" style="width:60px; height:60px; object-fit:cover;">
+                        <div>
+                            <h6 class="fw-bold mb-0">Ing. Maria Lopez</h6>
+                            <small class="text-muted">Jefa de Compras</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 dir-item">
+                    <div class="access-card text-start d-flex align-items-center">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" class="rounded-circle me-3" style="width:60px; height:60px; object-fit:cover;">
+                        <div>
+                            <h6 class="fw-bold mb-0">Arq. Carlos Ruiz</h6>
+                            <small class="text-muted">Especialista A</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-5 shadow" alt="DVPE Team">
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <h2 class="display-5 mb-4">División de Proyectos y Ejecución de Obras</h2>
+                    <p class="opacity-75 mb-4">SICPRO es la herramienta insignia para la transformación digital en la construcción y proyectos en Cuba, permitiendo trazabilidad total y optimización de materiales.</p>
+                    <div class="row g-3 fw-bold">
+                        <div class="col-6"><i class="fas fa-check-circle text-primary me-2"></i> Reportes 24/7</div>
+                        <div class="col-6"><i class="fas fa-check-circle text-primary me-2"></i> Control de Costos</div>
+                        <div class="col-6"><i class="fas fa-check-circle text-primary me-2"></i> Seguridad SSL</div>
+                        <div class="col-6"><i class="fas fa-check-circle text-primary me-2"></i> Soporte Local</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark text-white text-center">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3"><h3>1,240</h3><p class="small opacity-50">PROYECTOS</p></div>
+                <div class="col-md-3"><h3>45k</h3><p class="small opacity-50">DOCUMENTOS</p></div>
+                <div class="col-md-3"><h3>98%</h3><p class="small opacity-50">EFICIENCIA</p></div>
+                <div class="col-md-3"><h3>500+</h3><p class="small opacity-50">USUARIOS</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="manuales" class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5">Centro de Conocimiento</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in">
+                    <div class="access-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h5>Manual de Usuario</h5>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">Descargar PDF</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="access-card">
+                        <i class="fas fa-video"></i>
+                        <h5>Vídeo Tutoriales</h5>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">Ver Playlist</a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="access-card">
+                        <i class="fas fa-book"></i>
+                        <h5>Guía Técnica</h5>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-3">Consultar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="section-padding bg-light" style="background-color: var(--primary-light) !important;">
+        <div class="container">
+            <h2 class="text-center mb-5">Galería de Impacto</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item wide tall"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&w=400&q=80"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=400&q=80"></div>
+                <div class="gallery-item wide"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="mb-5">Evolución del Sistema</h2>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <span class="v-badge">2024</span>
+                        <h6 class="mt-2 fw-bold">Lanzamiento Base</h6>
+                        <p class="small opacity-75">Implementación de módulos de ejecución y compras regionales.</p>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                        <span class="v-badge">2025</span>
+                        <h6 class="mt-2 fw-bold">Integración Nube</h6>
+                        <p class="small opacity-75">Sincronización remota y visualización de planos en la plataforma.</p>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                        <span class="v-badge">2026</span>
+                        <h6 class="mt-2 fw-bold">IA Predictiva</h6>
+                        <p class="small opacity-75">Gestión inteligente de riesgos y alertas tempranas de suministro.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-5">Log de Versiones</h2>
+                    <div class="bg-card p-4 rounded-4 border">
+                        <h6 class="fw-bold">v2026.1.4 <span class="badge bg-success ms-2">Estable</span></h6>
+                        <ul class="small opacity-75 mt-3">
+                            <li>Optimización del motor de base de datos PostgreSQL.</li>
+                            <li>Nuevo selector de Modo Oscuro en la interfaz web.</li>
+                            <li>Corrección de exportación en PDF para Wkhtmltopdf.</li>
+                            <li>Integración de zona horaria America/Havana corregida.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Preguntas Frecuentes</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion accordion-flush" id="faqAcc">
+                        <div class="accordion-item rounded-3 mb-3 border">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" data-bs-toggle="collapse" data-bs-target="#q1">¿Cómo recupero mi acceso?</button></h2>
+                            <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Debe solicitar el reseteo al administrador de red de su unidad operativa.</div></div>
+                        </div>
+                        <div class="accordion-item rounded-3 mb-3 border">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" data-bs-toggle="collapse" data-bs-target="#q2">¿Funciona sin conexión?</button></h2>
+                            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">SICPRO requiere conexión a la red interna para sincronizar los datos del servidor central.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="developers" class="section-padding dev-section text-white">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <h2 class="display-5 fw-bold mb-3">Arquitectos del Sistema</h2>
+                <div class="v-badge bg-primary">Dev Core Team 🌹</div>
+                <p class="mt-4 opacity-75 mx-auto" style="max-width: 600px;">El ingenio detrás de cada línea de código en SICPRO, transformando procesos complejos en soluciones elegantes.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4" data-aos="flip-left">
+                    <div class="dev-card text-center">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=200&q=80" class="dev-avatar" alt="Danny Rose">
+                        <h4 class="fw-bold mb-1">Danny Rose 🌹</h4>
+                        <span class="dev-tag">Lead Architect & CEO</span>
+                        <p class="small opacity-50 mt-3 px-3">Visionario principal de la arquitectura SICPRO y optimización de infraestructura crítica.</p>
+                        <div class="dev-social">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="dev-card text-center">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" class="dev-avatar" alt="Dev Team">
+                        <h4 class="fw-bold mb-1">Equipo de Innovación</h4>
+                        <span class="dev-tag">Full Stack Squad</span>
+                        <p class="small opacity-50 mt-3 px-3">Especialistas en Odoo 19, Python y despliegue sobre contenedores Docker optimizados.</p>
+                        <div class="dev-social">
+                            <a href="#"><i class="fab fa-gitlab"></i></a>
+                            <a href="#"><i class="fab fa-python"></i></a>
+                            <a href="#"><i class="fab fa-docker"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="ticketModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header bg-sicpro text-white">
+                    <h5 class="modal-title fw-bold"><i class="fas fa-ticket-alt me-2"></i>Solicitud de Soporte 🌹</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="survey_submit">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="small fw-bold mb-1">Nombre Completo</label>
+                                <input type="text" class="form-control" placeholder="Ej. Juan Pérez" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small fw-bold mb-1">Unidad Operativa</label>
+                                <input type="text" class="form-control" placeholder="Ej. Habana Proyectos" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="small fw-bold mb-1">Tipo de Solicitud</label>
+                                <select class="form-control">
+                                    <option>Agregar nueva funcionalidad</option>
+                                    <option>Modificar datos existentes</option>
+                                    <option>Reportar error técnico</option>
+                                    <option>Solicitar acceso</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="small fw-bold mb-1">Descripción Detallada</label>
+                                <textarea class="form-control" rows="4" placeholder="Describa qué desea agregar o modificar en el sistema..."></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <button type="submit" class="btn-sicpro w-100">ENVIAR SOLICITUD 🌹</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <h3 class="text-white d-flex align-items-center"><i class="fas fa-layer-group"></i> SICPRO <span style="color:var(--accent); margin-left:8px;">🌹</span></h3>
+                    <p class="mt-4 small">Líderes en tecnología aplicada a la gestión de obras y proyectos a nivel nacional.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white fw-bold mb-4">Información</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Políticas de Seguridad</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Estatutos de la DVPE</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Soporte Técnico</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white fw-bold mb-4">Ubicación</h6>
+                    <p class="small"><i class="fas fa-map-marker-alt me-2"></i> Calle Santiago, Habana, Cuba.</p>
+                    <p class="small"><i class="fas fa-phone me-2"></i> +53 7 8XX-XXXX</p>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary">
+            <div class="text-center small opacity-50">
+                © 2026 DVPE Innovación. Danny Rose's 🌹.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        const themeBtn = document.getElementById('themeBtn');
+        const body = document.body;
+        
+        themeBtn.addEventListener('click', () => {
+            if (body.getAttribute('data-bs-theme') === 'light') {
+                body.setAttribute('data-bs-theme', 'dark');
+                themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                body.setAttribute('to-bs-theme', 'light');
+                body.setAttribute('data-bs-theme', 'light');
+                themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        document.getElementById('dirSearch').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let items = document.querySelectorAll('.dir-item');
+            items.forEach(item => {
+                let text = item.innerText.toLowerCase();
+                item.style.display = text.includes(filter) ? '' : 'none';
+            });
+        });
+
+        document.getElementById('survey_submit').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Solicitud enviada con éxito! El equipo de Danny Rose 🌹 la procesará pronto.');
+            bootstrap.Modal.getInstance(document.getElementById('ticketModal')).hide();
+            this.reset();
+        });
+    </script>
+</body>
+</html>

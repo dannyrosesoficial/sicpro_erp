@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_despachos_form">
+            <field name="name">sicpro.app.reuniones.despachos.form</field>
+            <field name="model">sicpro.app.reuniones.despachos</field>
+            <field name="arch" type="xml">
+                <form string="Despachos" class="o_event_form_view">
+                    <header>
+                        <button name="notificar_participantes" string="Notificar participantes" type="object"
+                                class="oe_highlight" icon="fa-envelope"
+                                groups="sicpro_app_reuniones.group_reuniones_secretaria,sicpro_app_reuniones.group_reuniones_director"/>
+                        <field name="estados" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                                invisible="active"/>
+
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" placeholder="Ej. UO/ DEPARTAMENTO/ ESPECIALISTAS"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="active" invisible="1"/>
+                                <field name="organizador_id"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="responsable"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            </group>
+                            <group>
+                                <field name="fecha_inicio" class="oe_inline"/>
+                                <field name="lugar" class="o_address_street"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                        <notebook>
+                            <page string="Participantes" name="participantes">
+                                <field name="participantes_ids" mode="list">
+                                    <list string="Participantes del despacho" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="cargo"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Agenda/Puntos a tratar" name="agenda">
+                                <field name="agenda_ids" mode="list">
+                                    <list string="Agenda del despacho" editable="bottom">
+                                        <field name="name"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Comentarios de los puntos tratados" name="comentarios">
+                                <field name="comentarios_ids" context="{'default_registro_activo': context.get('id')}"
+                                       mode="list">
+                                    <list string="Comentarios del despacho" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="registro_activo" invisible="1"/>
+                                        <field name="agenda_ids" domain="[('despacho_id', '=', registro_activo)]"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Decisiones" name="decisiones">
+                                <field name="decisiones_ids" mode="list,form">
+                                    <list string="Decisiones del despacho">
+                                        <field name="estado"/>
+                                        <field name="name"/>
+                                        <field name="responsable_ids" widget="many2many_tags"
+                                               options="{'color_field': 'color'}"/>
+                                        <field name="fecha_inicio"/>
+                                        <field name="fecha_fin"/>
+                                        <field name="cumplimiento" widget="progressbar"/>
+                                    </list>
+                                    <form string="Decisiones de Reuniones">
+                                        <sheet>
+                                            <div class="oe_title">
+                                                <field name="estado" invisible="1"/>
+                                                <field name="estado_id" invisible="1"/>
+                                                <field name="rechazado" invisible="1"/>
+                                                <field name="es_responsable" invisible="1"/>
+                                                <label for="name" class="oe_edit_only"/>
+                                                <h1>
+                                                    <field name="name" placeholder="Decisión: "
+                                                           readonly="estado != 'borrador'"/>
+                                                </h1>
+                                                <field name="description"
+                                                       readonly="estado != 'borrador'"/>
+                                                <div class="oe_title pr-0">
+                                                    <h2 class="d-flex flex-row justify-content-between">
+                                                        <field name="consecutivo" class="o_task_name text-truncate"/>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                            <group>
+                                                <group>
+                                                    <field name="reunion" column_invisible="True"
+                                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                    <field name="periodo_reunion"/>
+                                                    <field name="otra_reunion"
+                                                           readonly="estado != 'borrador'"/>
+                                                    <field name="modelo_reunion" options="{'color_field': 'color','no_create': True,
+                                                                       'no_create_edit':True, 'no_open': True}"/>
+                                                    <field name="responsable_ids" widget="many2many_tags"
+                                                           options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                </group>
+                                                <group>
+                                                    <field name="participantes_ids" widget="many2many_tags"
+                                                           column_invisible="True"
+                                                           options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                    <field name="fecha_inicio"
+                                                           readonly="estado != 'borrador'"/>
+                                                    <field name="fecha_fin"
+                                                           readonly="estado != 'borrador'"/>
+                                                    <field name="cumplimiento" widget="progressbar"/>
+                                                </group>
+                                            </group>
+                                            <group>
+                                                <field name="motivo_rechazo" readonly="1"
+                                                       invisible="not rechazado"/>
+
+                                                <field name="motivo_cancelacion" readonly="1"
+                                                       invisible="estado != 'cancelado'"/>
+                                            </group>
+                                            <group string="Resultados">
+                                                <field name="resultado" nolabel="1"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                    <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_despachos_list">
+            <field name="name">sicpro.app.reuniones.despachos.list</field>
+            <field name="model">sicpro.app.reuniones.despachos</field>
+            <field name="arch" type="xml">
+                <list string="Despachos">
+                    <field name="name"/>
+                    <field name="organizador_id" readonly="1" optional="hide"/>
+                    <field name="responsable" readonly="1" widget="many2one_avatar_user"/>
+                    <field name="company_id" readonly="1" optional="show"/>
+                    <field name="fecha_inicio" readonly="1" widget="date"/>
+                    <field name="message_needaction" invisible="1" readonly="1"/>
+                    <field name="activity_exception_decoration" widget="activity_exception" readonly="1"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_despachos_kanban">
+    <field name="name">sicpro.app.reuniones.despachos.kanban</field>
+    <field name="model">sicpro.app.reuniones.despachos</field>
+    <field name="arch" type="xml">
+        <kanban class="o_event_kanban_view" quick_create="false" default_group_by="estados" group_create="false"
+                group_delete="false" group_edit="false" sample="1">
+            <field name="responsable"/>
+            <field name="name"/>
+            <field name="estados" options='{"group_by_tooltip": {"description": "Description"}}'/>
+            <field name="lugar"/>
+            <field name="fecha_inicio"/>
+            <field name="activity_ids"/>
+            <field name="activity_state"/>
+            <field name="organizador_id"/>
+            <field name="agenda_count"/>
+            <templates>
+                <t t-name="card">
+                    <div t-attf-class="d-flex flex-column p-0 oe_kanban_card oe_kanban_global_click">
+                        <div class="o_kanban_content p-0 m-0 position-relative row d-flex flex-fill">
+                            <div class="col-3 bg-primary p-2 text-center d-flex flex-column justify-content-center text-white">
+
+                                <div class="o_event_fontsize_20">
+                                    <t t-esc="record.fecha_inicio.value.substring(0,2)"/>
+                                </div>
+                                <div>
+                                    <t t-esc="record.fecha_inicio.value.substring(3,5)"/>
+                                    <t t-esc="record.fecha_inicio.value.substring(6,10)"/>
+                                </div>
+                                <div class="small">
+                                    <t t-esc="record.fecha_inicio.value.split(' ')[1] || ''"/>
+                                </div>
+                            </div>
+
+                            <div class="col-9 py-2 px-3 d-flex flex-column justify-content-between pt-3">
+                                <div>
+                                    <div class="o_kanban_record_title o_text_overflow font-weight-bold"
+                                         t-att-title="record.name.value">
+                                        <field name="name"/>
+                                    </div>
+                                    <div t-if="record.lugar.value">
+                                        <i class="fa fa-map-marker text-muted mr-1" title="Localización"/>
+                                        <span class="o_text_overflow o_event_kanban_location"
+                                              t-esc="record.lugar.value"/>
+                                    </div>
+                                    <h5 class="o_event_fontsize_11 p-0 mt-2">
+                                        <div t-if="record.agenda_count.raw_value > 0">
+                                            <i class="fa fa-edit text-muted mr-1" title="Agenda"/>
+                                            Cantidad de puntos: <span t-esc="record.agenda_count.value"/>
+                                        </div>
+                                    </h5>
+                                </div>
+                                <div class="o_kanban_record_bottom mt-auto border-top pt-2">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right d-flex align-items-center">
+                                        <field name="organizador_id" widget="many2one_avatar_user"/>
+                                        <field name="responsable" widget="many2one_avatar_user"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+        <record model="ir.ui.view" id="view_despachos_calendar">
+            <field name="name">sicpro.app.reuniones.despachos.calendar</field>
+            <field name="model">sicpro.app.reuniones.despachos</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar date_start="fecha_inicio" string="Despacho programado" mode="month" event_limit="5">
+                    <field name="responsable" avatar_field="image_128"/>
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_despachos_search">
+            <field name="name">sicpro.app.reuniones.despachos.search</field>
+            <field name="model">sicpro.app.reuniones.despachos</field>
+            <field name="arch" type="xml">
+                <search string="Despachos">
+                    <field name="name" string="Despachos"/>
+                    <field name="responsable"/>
+                    <filter string="Mis Despachos" name="misdespachos" domain="[('responsable', '=', uid)]"/>
+                    <filter string="Mensajes sin leer" name="message_needaction"
+                            domain="[('message_needaction', '=', True)]"/>
+                    <separator/>
+                    <filter string="Fecha de Inicio" name="fecha_inicio_2" date="fecha_inicio"/>
+                    <separator/>
+                    <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                    <separator/>
+                    <filter invisible="1" string="Late Activities" name="activities_overdue"
+                            domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                            help="Show all records which has next action date is before today"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today"
+                            domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                            domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <group>
+                        <filter string="Responsable" name="responsable" context="{'group_by': 'responsable'}"/>
+                        <filter string="Fecha de Inicio" name="fecha_inicio" domain="[]"
+                                context="{'group_by': 'fecha_inicio'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_despachos_view">
+            <field name="name">Gestión de los Despachos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.reuniones.despachos</field>
+            <field name="view_mode">kanban,calendar,list,form</field>
+            <field name="search_view_id" ref="view_despachos_search"/>
+            <field name="context">{'search_default_fecha_inicio_1': (context_today().strftime('%Y')), }</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Agregar nuevo Despacho
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

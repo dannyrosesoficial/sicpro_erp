@@ -1,0 +1,53 @@
+# -*- encoding: utf-8 -*-
+
+{
+    'name': 'SICPRO: Web Registro Usuario',
+    'version': '19.0.0.0.1',
+    'category': 'Website',
+    'summary': 'Muestra la página para realizar el registro de usuario '
+               'al sistema',
+    'description': 'Muestra la página para realizar el registro de usuario '
+                   'al sistema',
+    'author': 'Daniel Barrero Reyes',
+    'maintainer': 'Daniel Barrero Reyes / Soporte Técnico SICPRO',
+    'support': 'daniel.borrero@etecsa.cu',
+    'price': 0,
+    'currency': 'CUP',
+    'company': 'División de Proyectos y Ejecución de Obras',
+    'website': 'https://www.facebook.com/dannyroses.oficial/',
+    'license': 'AGPL-3',
+    'sequence': 3,
+    "depends": [
+        'base',
+        'web',
+        "http_routing",
+        'sicpro_modulo_web',
+        'sicpro_app_trabajadores',
+        'sicpro_modulo_web_login',
+        'sicpro_modulo_roles',
+        'sicpro_modulo_ldap_local',
+        'sicpro_app_clientes',
+        'sicpro_app_administracion',
+    ],
+    "data": [
+        'security/ir.model.access.csv',
+        'informes/informe_planilla_acceso_views.xml',
+        'data/mail_template.xml',
+        'templates/registro_template.xml',
+        'templates/web_template.xml',
+        'templates/login_template.xml',
+        'views/sequency.xml',
+        'views/solicitud_roles_views.xml',
+        'views/res_users_views.xml',
+        'views/roles_views.xml',
+        'views/registro_roles_views.xml',
+        'views/modulo_web_menu_views.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [],
+    },
+    "installable": True,
+    'application': True,
+    "auto_install": False,
+    "pre_init_hook": "pre_init_check",
+}

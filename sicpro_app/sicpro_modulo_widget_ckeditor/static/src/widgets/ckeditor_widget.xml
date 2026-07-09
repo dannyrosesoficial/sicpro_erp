@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="sicpro_modulo_widget_ckeditor.CkEditorField">
+        <div t-ref="div">
+            <textarea id="editor" t-ref="textarea"/>
+        </div>
+    </t>
+
+</templates>

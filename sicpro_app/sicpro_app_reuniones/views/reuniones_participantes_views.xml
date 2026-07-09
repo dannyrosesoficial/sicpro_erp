@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_event_registration_list">
+            <field name="name">sicpro.app.reuniones.participantes.list</field>
+            <field name="model">sicpro.app.reuniones.participantes</field>
+            <field name="arch" type="xml">
+                <list string="Registration" multi_edit="1" sample="1">
+                    <field name="create_date" optional="show" string="Registration Date"/>
+                    <field name="fecha_invitacion" optional="hide"/>
+                    <field name="name"/>
+                    <field name="email" optional="show"/>
+                    <field name="phone" optional="show"/>
+                    <field name="mobile" optional="hide"/>
+                    <field name="reunion_id" invisible="context.get('default_reunion_id')"/>
+                    <field name="state" readonly="0"/>
+                    <field name="company_id" optional="hide"/>
+                    <field name="message_needaction" invisible="1"/>
+
+                    <button name="action_confirm" string="Confirm" invisible="state != 'draft'" type="object" icon="fa-check"/>
+                    <button name="action_set_done" string="Mark as Attending" invisible="state != 'open'" type="object"
+                            icon="fa-level-down"/>
+                    <button name="action_cancel" string="Cancel" invisible="state not in ['draft', 'open']" type="object" icon="fa-times"/>
+
+                    <field name="activity_exception_decoration" widget="activity_exception"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_event_registration_form">
+            <field name="name">sicpro.app.reuniones.participantes.form</field>
+            <field name="model">sicpro.app.reuniones.participantes</field>
+            <field name="arch" type="xml">
+                <form string="Participantes">
+                    <header>
+                        <button name="action_confirm" string="Confirmar" invisible="state != 'draft'" type="object"
+                                class="oe_highlight"/>
+                        <button name="action_set_done" string="Asistido" invisible="state != 'open'" type="object"
+                                class="oe_highlight"
+                                groups="sicpro_app_reuniones.group_reuniones_secretaria"/>
+                        <button name="action_set_draft" string="Establecer a no confirmado" invisible="state not in ['cancel', 'done']"
+                                type="object"/>
+                        <button name="action_cancel" string="Cancelar Registro" invisible="state != 'draft'" type="object"/>
+
+                        <field name="state" nolabel="1" colspan="2" widget="statusbar"
+                               statusbar_visible="draft,open,done"/>
+                    </header>
+                    <sheet string="Participantes">
+                        <div class="oe_button_box" name="button_box"/>
+                        <group>
+                            <h1>
+                                <field name="reunion_id" readonly="state != 'draft'"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                       nolabel="1"/>
+                            </h1>
+                        </group>
+                        <div><h2><field name="tipo_reunion"/></h2></div>
+                        <group>
+                            <group string="Asistente" name="attendee">
+                                <field name="name" readonly="state != 'draft'"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="company_trabajador"/>
+                                <field name="email"/>
+                                <field name="phone" class="o_force_ltr"/>
+                                <field name="mobile" class="o_force_ltr"/>
+                            </group>
+                            <group string="Información del evento" name="event">
+                                <field name="fecha_invitacion"/>
+                                <field name="date_closed" readonly="state != 'draft'"/>
+                                <field name="fecha_inicio_reunion"/>
+                                <field name="fecha_fin_reunion"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="event_registration_view_kanban" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.participantes.kanban</field>
+            <field name="model">sicpro.app.reuniones.participantes</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <kanban class="o_event_attendee_kanban_view" default_order="name, create_date desc" sample="1">
+                    <field name="name"/>
+                    <field name="company_trabajador"/>
+                    <field name="state"/>
+                    <field name="email"/>
+                    <templates>
+                        <t t-name="event_attendees_kanban_icons_desktop">
+                            <div class="d-none d-md-block h-100">
+                                <div id="event_attendees_kanban_icons_desktop"
+                                     class="h-100 float-right p-2 d-flex align-items-end flex-column">
+                                    <a class="btn btn-md btn-primary" string="Confirmar Asistencia"
+                                       name="action_confirm" type="object" invisible="state != 'draft'" role="button">
+                                        <i class="fa fa-check" role="img" aria-label="Confirm button"
+                                           title="Confirmar Asistencia"/>
+                                    </a>
+                                    <a class="btn btn-md btn-primary" string="Confirmar Participación"
+                                       name="action_set_done" type="object" invisible="state != 'open'" role="button"
+                                       groups="sicpro_app_reuniones.group_reuniones_secretaria">
+                                        <i class="fa fa-user-plus" role="img" aria-label="Attended button"
+                                           title="Confirmar Participación"/>
+                                    </a>
+                                    <span class="text-muted" invisible="state != 'done'">Asistido</span>
+                                    <span class="text-danger" invisible="state != 'cancel'">Cancelado</span>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-name="event_attendees_kanban_icons_mobile">
+                            <div id="event_attendees_kanban_icons_mobile" class="d-md-none h-100 pl-4">
+                                <a class="btn btn-primary d-flex justify-content-center align-items-center h-100 w-100"
+                                   string="Confirm Registration" name="action_confirm" type="object" invisible="state != 'draft'"
+                                   role="button">
+                                    <i class="fa fa-check fa-3x" role="img" aria-label="Confirm button"
+                                       title="Confirm Registration"/>
+                                </a>
+                                <a class="btn btn-primary d-flex justify-content-center align-items-center h-100 w-100"
+                                   string="Confirm Attendance" name="action_set_done" type="object" invisible="state != 'open'"
+                                   role="button">
+                                    <i class="fa fa-user-plus fa-3x" role="img" aria-label="Attended button"
+                                       title="Confirm Attendance"/>
+                                </a>
+                                <div class="d-flex justify-content-center align-items-center h-100 w-100">
+                                    <span class="text-muted" invisible="state != 'done'">Attended</span>
+                                    <span class="text-muted" invisible="state != 'cancel'">Canceled</span>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-name="card">
+                            <div class="oe_kanban_global_click o_event_registration_kanban container-fluid p-0">
+                                <div class="row h-100">
+                                    <div class="col-9 pr-0">
+                                        <div class="oe_kanban_content h-100">
+                                            <div class="o_kanban_record_body pt-1 pl-2 h-100 d-flex flex-column">
+                                                <b class="o_kanban_record_title"><field name="name"/></b>
+                                                <field name="reunion_id" invisible="context.get('default_reunion_id')"/>
+                                                <span invisible="not company_trabajador">
+                                                    Proceso: <field name="company_trabajador"/></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="event_attendees_kanban_icons" class="col-3 pl-0">
+                                        <t t-call="event_attendees_kanban_icons_desktop"/>
+                                        <t t-call="event_attendees_kanban_icons_mobile"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_event_registration_calendar" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.participantes.calendar</field>
+            <field name="model">sicpro.app.reuniones.participantes</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar date_start="fecha_inicio_reunion" date_stop="fecha_fin_reunion"
+                          string="Participación en reuniones" color="reunion_id" event_limit="5">
+                    <field name="reunion_id" filters="1"/>
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_event_registration_pivot">
+            <field name="name">sicpro.app.reuniones.participantes.pivot</field>
+            <field name="model">sicpro.app.reuniones.participantes</field>
+            <field name="arch" type="xml">
+                <pivot string="Participantes" display_quantity="True" sample="1">
+                    <field name="reunion_id" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_event_registration_graph">
+            <field name="name">sicpro.app.reuniones.participantes.graph</field>
+            <field name="model">sicpro.app.reuniones.participantes</field>
+            <field name="arch" type="xml">
+                <graph string="Participantes" sample="1">
+                    <field name="reunion_id"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_registration_search">
+            <field name="name">sicpro.app.reuniones.participantes.search</field>
+            <field name="model">sicpro.app.reuniones.participantes</field>
+            <field name="arch" type="xml">
+                <search string="Participantes">
+                    <field name="id" string="Registration ID"/>
+                    <field name="name" string="Participantes"
+                           filter_domain="['|', ('name', 'ilike', self), ('email', 'ilike', self)]"/>
+                    <separator/>
+                    <filter string="Mensajes sin leer" name="message_needaction"
+                            domain="[('message_needaction','=',True)]"/>
+                    <filter string="Previsto" name="expected" domain="[('state', 'in', ['draft', 'open', 'done'])]"/>
+                    <separator/>
+                    <filter string="No confirmado" name="unconfirmed" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Confirmado" name="confirmed" domain="[('state', '=', 'open')]"/>
+                    <filter string="Asistido" name="attended" domain="[('state', '=', 'done')]"/>
+                    <separator/>
+                    <filter string="Fecha de registro" name="filter_fecha_invitacion" date="fecha_invitacion"/>
+                    <filter string="Fecha inicio reunión" name="filter_fecha_inicio_reunion"
+                            date="fecha_inicio_reunion"/>
+                    <filter string="Fecha de asistencia" name="filter_date_closed" date="date_closed"/>
+                    <field name="reunion_id"/>
+                    <field name="company_trabajador"/>
+                    <field name="company_id"/>
+                    <filter invisible="1" string="Late Activities" name="activities_overdue"
+                            domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                            help="Show all records which has next action date is before today"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today"
+                            domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                            domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <group>
+                        <filter string="Proceso del trabajador" name="Proceso" domain="[]"
+                                context="{'group_by':'company_trabajador'}"/>
+                        <filter string="Reunión" name="group_event" domain="[]" context="{'group_by':'reunion_id'}"/>
+                        <filter string="Estado" name="status" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Fecha de registro" name="createmonth" domain="[]"
+                                context="{'group_by': 'create_date:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_registration" model="ir.actions.act_window">
+            <field name="name">Participantes</field>
+            <field name="res_model">sicpro.app.reuniones.participantes</field>
+            <field name="view_mode">pivot,graph,kanban,list,form</field>
+            <field name="search_view_id" ref="view_registration_search"/>
+        </record>
+
+        <record id="act_event_registration_from_event" model="ir.actions.act_window">
+            <field name="res_model">sicpro.app.reuniones.participantes</field>
+            <field name="name">Participantes</field>
+            <field name="view_mode">kanban,list,form,calendar,graph</field>
+            <field name="domain">[('reunion_id', '=', active_id)]</field>
+            <field name="context">{'default_reunion_id': active_id}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear Participantes de las Reuniones
+                </p>
+            </field>
+        </record>
+
+        <record id="event_registration_action" model="ir.actions.act_window">
+            <field name="res_model">sicpro.app.reuniones.participantes</field>
+            <field name="name">Participantes</field>
+            <field name="view_mode">kanban,list,form,calendar,graph</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear Participantes de las Reuniones
+                </p>
+            </field>
+        </record>
+
+        <record id="event_registration_action_list" model="ir.actions.act_window">
+            <field name="name">Event registrations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.reuniones.participantes</field>
+            <field name="view_mode">list,kanban,form,calendar,graph</field>
+        </record>
+
+    </data>
+</odoo>

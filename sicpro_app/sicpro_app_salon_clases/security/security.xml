@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <!-- Creo los privilegios de permisos del Salón de clases-->
+    <record id="privilege_salon_clases" model="res.groups.privilege">
+            <field name="name">Salón de Clases</field>
+            <field name="sequence">2</field>
+            <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_gestión_documentos"/>
+        </record>
+
+    <record id="grupo_app_salon_clases_usuario" model="res.groups">
+            <field name="name">Usuario</field>
+            <field name="comment">Permisos de Lectura</field>
+            <field name="privilege_id" ref="privilege_salon_clases"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_app_salon_clases_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="privilege_id" ref="privilege_salon_clases"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_salon_clases_usuario'))]"/>
+        </record>
+
+         <record id="grupo_app_salon_clases_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="privilege_id" ref="privilege_salon_clases"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_salon_clases_responsable'))]"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record model="ir.ui.view" id="login_user_detail_list_view">
+    <field name="name">Detalles de inicio de sesión</field>
+    <field name="model">sicpro.modulo.registro.usuarios</field>
+    <field name="arch" type="xml">
+      <list create="false" edit="false">
+        <field name="name"/>
+        <field name="date_time"/>
+        <field name="logout_time"/>
+        <field name="system_use_time"/>
+        <field name="ip_address"/>
+        <field name="navegador_web"/>
+        <field name="sistema_operativo"/>
+        <field name="vpn"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="login_user_detail_filter" model="ir.ui.view">
+    <field name="name">Buscar Registro</field>
+    <field name="model">sicpro.modulo.registro.usuarios</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="name"/>
+        <field name="date_time"/>
+        <field name="ip_address"/>
+        <field name="navegador_web"/>
+        <field name="sistema_operativo"/>
+        <filter string="SO Linux" name="sistema_operativo" domain="[('sistema_operativo', '=','Linux')]"/>
+        <filter string="SO Windows" name="sistema_operativo" domain="[('sistema_operativo', '=','Windows')]"/>
+        <separator/>
+        <filter string="SO Móvil" name="sistema_operativo" domain="[('sistema_operativo', '=','SO Desconocido')]"/>
+        <separator/>
+        <filter string="VPN" name="vpn" domain="[('ip_address', 'ilike','172.')]"/>
+        <separator/>
+        <group>
+          <filter string="Usuario" name="name" context="{'group_by':'name'}"/>
+          <filter string="Dirección IP" name="ip_address" context="{'group_by':'ip_address'}"/>
+          <filter string="Sistema Operativo" name="sistema_operativo" context="{'group_by':'sistema_operativo'}"/>
+          <filter string="Tipo de Navegador" name="navegador_web" context="{'group_by': 'navegador_web'}"/>
+          <separator orientation="vertical"/>
+          <filter string="Fecha Ingreso" context="{'group_by':'date_time:month'}" name="date_time"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="login_user_detail_action_window">
+    <field name="name">Detalles de inicio de sesión</field>
+    <field name="res_model">sicpro.modulo.registro.usuarios</field>
+    <field name="view_mode">list</field>
+  </record>
+
+  <menuitem name="Logs de Sesión Usuarios" id="sicpro_modulo_usuario_registro.menu_1_list" sequence="4"
+            parent="sicpro_app_administracion.menu_administracion_3" action="login_user_detail_action_window"/>
+</odoo>

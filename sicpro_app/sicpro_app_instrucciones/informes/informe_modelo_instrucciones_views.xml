@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="formato_papel_horizontal_instrucciones" model="report.paperformat">
+        <field name="name">Papel Horizontal Instrucciones</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">25</field>
+    </record>
+
+    <record id="informe_modelo_instrucciones_action" model="ir.actions.report">
+        <field name="name">Modelo de Instrucciones Periódicas</field>
+        <field name="model">sicpro.app.instrucciones.instruccion</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="paperformat_id" ref="formato_papel_horizontal_instrucciones"/>
+        <field name="report_name">sicpro_app_instrucciones.informe_modelo_instruccion</field>
+        <field name="report_file">sicpro_app_instrucciones.informe_modelo_instruccion</field>
+        <field name="print_report_name">'Instruccion_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_sicpro_app_instrucciones_instruccion"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="informe_modelo_instruccion">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="inf">
+                <t t-call="web.external_layout">
+                    <t t-set="instruccion_id" t-value="inf.id"/>
+                    <t t-foreach="inf.area_id" t-as="area_obj">
+                        <div class="page" style="page-break-after: always;">
+                            <div class="text-center mb-4">
+                                <h4 style="font-family: Arial Black; font-style: italic;">
+                                    REGISTRO DE INSTRUCCIÓN DE SEGURIDAD Y SALUD EN EL TRABAJO
+                                </h4>
+                                <h5 style="border: 1px solid black; padding: 5px; font-family: Arial Black;">
+                                    DIVISIÓN DE PROYECTOS Y EJECUCIÓN DE OBRAS
+                                </h5>
+                            </div>
+
+                            <table class="table table-sm table-bordered" style="border: 1px solid black; font-family: 'Times New Roman';">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2"><strong>(1) Tipo de Instrucción:</strong></td>
+                                        <td colspan="2"><span t-field="inf.tipo"/></td>
+                                        <td colspan="5"><strong>Certifico:</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"><strong>Dirección o División:</strong> <span t-field="inf.company_id.name"/></td>
+                                        <td colspan="5"><strong>Jefe de Dpto de Capital Humano</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><strong>Fecha:</strong></td>
+                                        <td colspan="2"><span t-field="inf.fecha_fin"/></td>
+                                        <td colspan="5" class="text-center"><em>Firma y Sello</em></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-sm table-bordered mt-4" style="border: 1px solid black; font-size: 10pt;">
+                                <thead class="thead-light text-center">
+                                    <tr>
+                                        <th rowspan="2" class="align-middle">No</th>
+                                        <th rowspan="2" class="align-middle">(2) Nombres y Apellidos</th>
+                                        <th rowspan="2" class="align-middle">Cargo</th>
+                                        <th rowspan="2" class="align-middle">(3) U.O</th>
+                                        <th rowspan="2" class="align-middle">(4) Eval.</th>
+                                        <th rowspan="2" class="align-middle">Instructor</th>
+                                        <th rowspan="2" class="align-middle">Cargo Instructor</th>
+                                        <th colspan="2">Firmas</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Instruido</th>
+                                        <th>Instructor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="count_participantes" t-value="1"/>
+                                    <t t-foreach="inf.request_ids.filtered(lambda x: x.area_id.id == area_obj.id)" t-as="p">
+                                        <tr>
+                                            <td class="text-center"><t t-esc="count_participantes"/></td>
+                                            <td><span t-field="p.name"/></td>
+                                            <td><span t-field="p.ocupacion_titulo"/></td>
+                                            <td><span t-field="p.area_id.name"/></td>
+                                            <td class="text-center"><strong><span t-field="p.encuesta_calificacion"/></strong></td>
+                                            <td><span t-field="inf.user_id.name"/></td>
+                                            <td><span t-field="inf.user_id.ocupacion_id.name"/></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <t t-set="count_participantes" t-value="count_participantes + 1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            <div class="row mt-4">
+                                <div class="col-7 border" style="min-height: 120px;">
+                                    <strong>(5) Materiales didácticos utilizados:</strong>
+                                    <div class="mt-2">
+                                        <span t-field="inf.descripcion"/>
+                                    </div>
+                                </div>
+                                <div class="col-5 border">
+                                    <small>
+                                        <strong>Leyenda:</strong><br/>
+                                        (1) Nombre de la instrucción impartida.<br/>
+                                        (2) Trabajador que recibe la instrucción.<br/>
+                                        (3) U.O: Unidad Organizativa / Área.<br/>
+                                        (4) Nota final de la evaluación.<br/>
+                                        (5) Legislaciones, Resoluciones, Normas aplicadas.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,33 @@
+/* Widget de color en la vista Formulario */
+.o_form_view .o_field_color .o_input {
+    width: 100% !important;
+}
+
+.o_form_view .o_field_color .o_color_preview {
+    border: 1px solid #ccc;
+    display: inline-block;
+    height: 18px;
+    width: 40px;
+    margin-right: 10px;
+    position: relative;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+/* Widget de color en la vista de Lista (Tree View) */
+.o_list_renderer .o_field_color {
+    display: flex;
+    align-items: center;
+}
+
+.o_list_renderer .o_field_color .o_color_dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Clase para ocultar el texto hexadecimal */
+.color-value-hidden {
+    display: none !important;
+}

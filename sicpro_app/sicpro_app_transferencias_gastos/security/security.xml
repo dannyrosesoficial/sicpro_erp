@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <data>
+        <!-- Creo los privilegios de permisos para las transferencias de gastos-->
+        <record id="privilege_transferencias_gastos" model="res.groups.privilege">
+            <field name="name">Transferencias</field>
+            <field name="sequence">1</field>
+            <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_gestión_gastos"/>
+        </record>
+
+        <record id="grupo_transferencias_visualizar" model="res.groups">
+            <field name="name">Visualizar todas las Transferencias</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_visualizar_proceso" model="res.groups">
+            <field name="name">Visualizar por Procesos</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
+            <!-- CORRECCIÓN: Para evitar que el inversionista herede este acceso total, hacemos que este grupo herede del Inversionista -->
+            <!-- <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar'))]"/> -->
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_inversionistas'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_inversionistas" model="res.groups">
+            <field name="name">Gestión del Inversionista</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
+            <!-- CORRECCIÓN: Ahora es el eslabón más restrictivo base, heredando directo de la visualización básica -->
+            <!-- <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar_proceso'))]"/> -->
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_ejecutores_procesos" model="res.groups">
+            <field name="name">Gestión del Ejecutor</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
+            <!-- CORRECCIÓN: Apuntamos al grupo de procesos para mantener la escala ascendente de poder -->
+            <!-- <field name="implied_ids" eval="[(4, ref('grupo_transferencias_inversionistas'))]"/> -->
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar_proceso'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_dtp_procesos" model="res.groups">
+            <field name="name">Gestión del Técnico Productivo</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_ejecutores_procesos'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_economia" model="res.groups">
+            <field name="name">Gestión Económica</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_dtp_procesos'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_economia'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos de lectura/Escritura/Eliminación</field>
+            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_responsable'))]"/>
+        </record>
+    </data>
+    <data noupdate="0">
+        <record id="transferencia_visualizar_proceso" model="ir.rule">
+            <field name="name">Visualizar solo los gastos del proceso</field>
+            <field ref="model_sicpro_app_transferencias_gastos" name="model_id"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('grupo_transferencias_visualizar_proceso'))]"/>
+        </record>
+        <record id="transferencia_visualizar_ordenes_proceso" model="ir.rule">
+            <field name="name">Visualizar solo los gastos Órdenes del proceso</field>
+            <field ref="model_sicpro_app_transferencias_gastos_ordenes" name="model_id"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('grupo_transferencias_visualizar_proceso'))]"/>
+        </record>
+        <record id="transferencia_visualizar_historial_proceso" model="ir.rule">
+            <field name="name">Visualizar historial de ajustes por proceso</field>
+            <field ref="model_sicpro_app_transferencias_gastos_ajustes_historial" name="model_id"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('grupo_transferencias_visualizar_proceso'))]"/>
+        </record>
+
+        <record id="transferencia_visualizar_inversionistas" model="ir.rule">
+            <field name="name">Visualizar solo los gastos del Inversionista</field>
+            <field ref="model_sicpro_app_transferencias_gastos" name="model_id"/>
+            <field name="domain_force">[('cliente_id.user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('grupo_transferencias_inversionistas'))]"/>
+        </record>
+        <record id="transferencia_visualizar_ordenes_inversionistas" model="ir.rule">
+            <field name="name">Visualizar solo los gastos de Órdenes del Inversionista</field>
+            <field ref="model_sicpro_app_transferencias_gastos_ordenes" name="model_id"/>
+            <field name="domain_force">[('cliente_id.user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('grupo_transferencias_inversionistas'))]"/>
+        </record>
+        <record id="transferencia_visualizar_historial_inversionistas" model="ir.rule">
+            <field name="name">Visualizar historial de ajustes del Inversionista</field>
+            <field ref="model_sicpro_app_transferencias_gastos_ajustes_historial" name="model_id"/>
+            <field name="domain_force">[('cliente_id.user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('grupo_transferencias_inversionistas'))]"/>
+        </record>
+
+        <record id="transferencia_visualizar_economia" model="ir.rule">
+            <field name="name">Visualizar todo los gastos Economía</field>
+            <field ref="model_sicpro_app_transferencias_gastos" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_transferencias_economia'))]"/>
+        </record>
+        <record id="transferencia_visualizar_ordenes_economia" model="ir.rule">
+            <field name="name">Visualizar todos los gastos de Órdenes Economía</field>
+            <field ref="model_sicpro_app_transferencias_gastos_ordenes" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_transferencias_economia'))]"/>
+        </record>
+        <record id="transferencia_visualizar_historial_economia" model="ir.rule">
+            <field name="name">Visualizar historial de ajustes Economía</field>
+            <field ref="model_sicpro_app_transferencias_gastos_ajustes_historial" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_transferencias_economia'))]"/>
+        </record>
+    </data>
+</odoo>

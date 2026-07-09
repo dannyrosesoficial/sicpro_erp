@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates>
+    <t t-name="sicpro_modulo_marcadores.MainMenu">
+        <div class="background"/>
+        <div class="main-menu">
+            <div class="widgets" t-if="showWidgets">
+                <WidgetHour
+                    userIsAdmin="userIsAdmin"
+                    announcement="announcement"/>
+                <WidgetAnnouncement
+                    userIsAdmin="userIsAdmin"
+                    announcement="announcement"
+                    onChangeAnnouncement.bind="onChangeAnnouncement"
+                    onSaveAnnouncement.bind="onSaveAnnouncement"/>
+            </div>
+            <div class="apps-container">
+                <t t-foreach="apps" t-as="app" t-key="app.id">
+                    <a t-on-click="() => this.onClickModule(app)">
+                        <img t-if="app.webIcon" class="module-icon" t-attf-src="{{app.webIconData}}"/>
+                        <img t-if="!app.webIcon" class="module-icon" src="/sicpro_modulo_marcadores/static/src/img/default_icon.png"/>
+                        <p t-esc="app.name" class="text-white fs-5 text-truncate"/>
+                     </a>
+                </t>
+             </div>
+        </div>
+    </t>
+</templates>

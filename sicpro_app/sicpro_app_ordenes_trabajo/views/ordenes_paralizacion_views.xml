@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="ordenes_paralizacion_list" model="ir.ui.view">
+    <field name="name">sicpro.app.ordenes.paralizacion.list</field>
+    <field name="model">sicpro.app.ordenes.paralizacion</field>
+    <field name="arch" type="xml">
+      <list string="Etiquetas" editable="bottom">
+        <field name="name"/>
+        <field name="active" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="ordenes_paralizacion_action" model="ir.actions.act_window">
+    <field name="name">Motivos de Paralización</field>
+    <field name="res_model">sicpro.app.ordenes.paralizacion</field>
+    <field name="view_id" ref="ordenes_paralizacion_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear motivo de paralización
+      </p>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="reporte_sesion_usuario_action" model="ir.actions.act_window">
+    <field name="name">Reporte de Sesión de Usuarios</field>
+    <field name="res_model">sicpro.modulo.registro.usuarios.reporte</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+  <record id="reporte_registro_usuario_report" model="ir.actions.report">
+    <field name="name">Reporte de Sesión de Usuarios</field>
+    <field name="model">sicpro.modulo.registro.usuarios.reporte</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">sicpro_modulo_usuario_registro.reporte_usuarios_report</field>
+    <field name="report_file">sicpro_modulo_usuario_registro.reporte_usuarios_report</field>
+    <field name="print_report_name">'Reporte de Sesión de Usuarios'</field>
+    <field name="binding_type">report</field>
+  </record>
+
+  <menuitem id="menu_report_login_user_details" name="Reporte de Sesión de Usuarios"
+            action="reporte_sesion_usuario_action"
+            parent="sicpro_app_administracion.menu_administracion_3" sequence="7"/>
+</odoo>

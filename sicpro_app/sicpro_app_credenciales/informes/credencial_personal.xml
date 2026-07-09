@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="formato_papel_horizontal_credencial_personal_action" model="report.paperformat">
+    <field name="name">Papel Horizontal Credencial Personal</field>
+    <field name="format">A4</field>
+    <field name="orientation">Portrait</field>
+    <field name="margin_top">7</field>
+    <field name="margin_bottom">1</field>
+    <field name="margin_left">7</field>
+    <field name="margin_right">7</field>
+    <field name="header_line" eval="False"/>
+    <field name="header_spacing">3</field>
+  </record>
+
+  <record id="informe_credencial_personal_action" model="ir.actions.report">
+    <field name="name">Credencial Personal</field>
+    <field name="model">sicpro.app.credenciales</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="paperformat_id" ref="formato_papel_horizontal_credencial_personal_action"/>
+    <field name="report_name">sicpro_app_credenciales.informe_credencial_personal</field>
+    <field name="report_file">sicpro_app_credenciales.informe_credencial_personal</field>
+    <field name="print_report_name">'Credencial Personal'</field>
+    <field name="binding_model_id" ref="model_sicpro_app_credenciales"/>
+    <field name="binding_type">report</field>
+  </record>
+
+  <template id="informe_credencial_personal">
+    <!-- Página credencial personal -->
+    <t t-call="web.html_container">
+      <div t-attf-class="article">
+        <div style=" width: 990px;">
+          <t t-set="i" t-value="0"/>
+          <t t-foreach="docs" t-as="inf">
+            <t t-set="i" t-value="i+1"/>
+            <t t-call="sicpro_app_credenciales.credencial_personal"/>
+            <t t-if="i == 3">
+              <t t-set="i" t-value="0"/>
+              <div style="page-break-after: always;"/>
+            </t>
+          </t>
+        </div>
+      </div>
+
+    </t>
+  </template>
+
+  <template id="credencial_personal">
+    <t t-if="i &lt;= 3">
+      <div style="position: relative; overflow: visible; width: 100%;">
+        <t t-set="bordes_recorte_back"
+           t-value="'height: 490px; width: 330px; overflow: hidden; border: 2px dashed black; border-top: 0'"/>
+        <t t-if="i == 1">
+          <t t-set="bordes_recorte_back"
+             t-value="'height: 490px; width: 330px; overflow: hidden; border: 2px dashed black'"/>
+        </t>
+
+        <t t-set="color_titulo_back"
+           t-value="'height: 465px; width: 305px; margin: 10.5px auto auto auto; border: solid 1px grey; border-top: solid 85px rgb(128,128,128); border-radius: 20px;'"/>
+        <t t-if="'PERMANENTE' in inf.tipo_credencial.name">
+          <t t-set="color_titulo_back"
+             t-value="'height: 465px; width: 305px; margin: 10.5px auto auto auto; border: solid 1px grey; border-top: solid 85px rgb(8,52,128); border-radius: 20px;'"/>
+        </t>
+        <t t-if="'CONSTRUCTOR' in inf.tipo_credencial.name">
+          <t t-set="color_titulo_back"
+             t-value="'height: 465px; width: 305px; margin: 10.5px auto auto auto; border: solid 1px grey; border-top: solid 85px rgb(0,12,66); border-radius: 20px;'"/>
+        </t>
+        <t t-if="'ESPECIAL' in inf.tipo_credencial.name">
+          <t t-set="color_titulo_back"
+             t-value="'height: 465px; width: 305px; margin: 10.5px auto auto auto; border: solid 1px grey; border-top: solid 85px rgb(0,204,255); border-radius: 20px;'"/>
+        </t>
+        <div t-attf-style="{{ bordes_recorte_back }}">
+          <div t-attf-style="{{ color_titulo_back }}">
+
+            <div
+                style="height: 60px; width: 290px; position: absolute; margin:-45px auto auto 8px; text-align: center; -webkit-transform: rtranslate(-40%); -webkit-transform-origin: center top">
+              <b><h1
+                  style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 220% ; color: white; font-weight: 700"
+                  t-field="inf.tipo_credencial"/></b>
+            </div>
+            <div style="height: 455px; width: 275px; margin: 10.5px auto auto auto;">
+              <div style="position: relative; margin: 25px auto auto 15px; text-align: left;">
+                <p style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 100%">
+                  ACCESOS</p>
+              </div>
+              <t t-if="'PERMANENTE' not in inf.tipo_credencial.name and 'CONSTRUCTOR' not in inf.tipo_credencial.name">
+                <div
+                    style="position: relative; margin: 25px auto auto auto; height: 30px; width: 245px; border-top: 1px black; text-align: center;">
+                  <h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: auto; margin-left: 1px; margin-top: 13px; font-size: 130%; font-weight: 600"
+                      t-field="inf.accesos_credencial"/>
+                </div>
+                <div
+                    style="position: relative; margin: 15px auto auto auto; height: 30px; width: 245px; border-top: 1px solid black; text-align: center;"/>
+                <div
+                    style="position: relative; margin: 5px auto auto auto; height: 30px; width: 245px; text-align: left;">
+                  <h5 style="font-family: Calibri, 'Times New Roman', sans-serif; font-size: 100% position: relative; margin: -10px auto auto auto;">
+                    Válido hasta:</h5>
+                  <div style="height: 100%; width: 50%; text-align: left; margin: -24px 55%"><p
+                      style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 110%"
+                      t-field="inf.fecha_valida"/></div>
+                </div>
+                <div
+                    style="position: relative; margin: 60px auto auto auto; height: 20px; width: 225px; border-top: 1px solid black; text-align: center;">
+                  <p style="font-family: Calibri, 'Times New Roman', sans-serif; font-size: 85% position: relative; margin: 15px auto auto auto;">
+                    FIRMA AUTORIZADA</p>
+                </div>
+              </t>
+              <t t-else="">
+                <div
+                    style="position: relative; margin: 25px auto auto auto; height: 30px; width: 245px; border-top: 1px  black; text-align: center;">
+                  <h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: auto; margin-left: 1px; margin-top: 13px; font-size: 130%; font-weight: 600"
+                      t-field="inf.accesos_credencial"/>
+                </div>
+                <div
+                    style="position: relative; margin: 15px auto auto auto; height: 30px; width: 245px; border-top: 1px solid black; text-align: center;"/>
+                <div
+                    style="position: relative; margin: 15px auto auto auto; height: 30px; width: 245px; border-top: 1px  black; text-align: center;"/>
+                <div
+                    style="position: relative; margin: 27px auto auto auto; height: 20px; width: 225px; border-top: 1px solid black; text-align: center;">
+                  <p style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 85% position: relative; margin: 15px auto auto auto;">
+                    FIRMA AUTORIZADA</p>
+                </div>
+              </t>
+              <div
+                  style="position: relative; margin: 30px auto auto 35px; height: 65px; width: 185px; text-align: center;">
+                <img alt="Logo" src="sicpro_app_credenciales/static/src/img/etecsaId_300_8.png"
+                     width="200" height="65"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <t t-set="bordes_recorte_front"
+           t-value="'position relative; margin: -490px auto auto 330px; height: 490px; width: 330px; overflow: hidden; border: 2px dashed black; border-top: 0; border-left: 0;'"/>
+        <t t-if="i == 1">
+          <t t-set="bordes_recorte_front"
+             t-value="'position relative; margin: -490px auto auto 330px; height: 490px; width: 330px; overflow: hidden; border: 2px dashed black; border-left: 0'"/>
+        </t>
+
+        <div t-attf-style="{{ bordes_recorte_front }}">
+          <div t-attf-style="{{ color_titulo_back }}">
+            <div
+                style="height: 60px; width: 290px; position: absolute; margin: -45px auto auto -50px; text-align: center; -webkit-transform: translate(20%); -webkit-transform-origin: center top">
+              <b><h1
+                  style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 220% ; color: white; font-weight: 700"
+                  t-field="inf.tipo_credencial"/></b>
+            </div>
+            <div
+                style="position: relative; margin: 15px auto auto 70px; height: 160px; width: 160px; text-align: center;">
+              <span t-field="inf.credencial_image_1920"
+                    t-options='{"widget": "image", "style": "min-height: 160px; min-width: 160px; max-height: 160px; max-width: 160px"}'
+                    style="text-align: center"/>
+            </div>
+            <div style="position: relative; height: 30px; width: 100%; margin: 17px auto auto 27px; text-align: left;">
+              <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 100%; font-weight: 400"
+                  t-field="inf.name"/>
+            </div>
+
+            <div style="margin: 15px auto auto 27px; height: 25px; width: 100%; text-align: left; clear: both;">
+              <div style="width: auto; margin-right: 5px; float: left; text-align: left; overflow: hidden;">
+                <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-weight: 400; font-size: 100%; margin: 0; line-height: 25px;">
+                  CI.
+                </h1>
+              </div>
+              <div style="width: auto; float: left; text-align: left; overflow: hidden;">
+                <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 100%; font-weight: 400; margin: 0; line-height: 25px;"
+                    t-field="inf.identification_id"/>
+              </div>
+            </div>
+
+            <div style="height: 110px; width: 100%; margin: 0px auto auto 2px; overflow: hidden;">
+              <div style="height: 110px; width: 60%; margin-left: 0px; margin-top: 0px;">
+                <div
+                    style="position: relative; height: 50%; width: 100%; margin: 20px auto auto 24px; text-align: left">
+                  <t t-if="'PERMANENTE' in inf.tipo_credencial.name">
+                    <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 150%; font-weight: 700"
+                        t-field="inf.no_credencial_permanente"/>
+                  </t>
+                  <t t-if="'CONSTRUCTOR' in inf.tipo_credencial.name">
+                    <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 150%; font-weight: 700"
+                        t-field="inf.no_credencial_constructores"/>
+                  </t>
+                  <t t-if="'ESPECIAL' in inf.tipo_credencial.name">
+                    <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 150%; font-weight: 700"
+                        t-field="inf.no_credencial_especial"/>
+                  </t>
+                  <t t-if="'PROVISIONAL' in inf.tipo_credencial.name">
+                    <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 150%; font-weight: 700"
+                        t-field="inf.no_credencial_provisional"/>
+                  </t>
+
+                </div>
+
+                <div style="height: 50%; width: 100%; margin: -12px auto auto 24px; text-align: left; clear: both;">
+                  <div style="width: auto; float: left; text-align: left; overflow: hidden; margin-right: 5px;">
+                    <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; color: black; font-size: 190%; font-weight: 400; margin: 0; line-height: 40px;"
+                        t-field="inf.alcance_credencial"/>
+                  </div>
+                  <div style="width: auto; float: left; text-align: left; overflow: hidden; margin-right: 5px;">
+                    <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; color: black; font-weight: 400; font-size: 190%; margin: 0; line-height: 40px;">
+                      /
+                    </h1>
+                  </div>
+                  <div style="width: auto; float: left; text-align: left; overflow: hidden;">
+                    <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; color: black; font-size: 190%; font-weight: 700; margin: 0; line-height: 40px;"
+                        t-field="inf.siglas_credencial"/>
+                  </div>
+                </div>
+
+              </div>
+              <div style="position: relative; height: 110px; width: 40%; margin: -130px auto auto 170px;">
+                <div
+                    style="position: relative; margin: 0px auto auto 0px; height: 100%; width: 100%; text-align: left;">
+                  <img alt="Logo" src="sicpro_app_credenciales/static/src/img/etecsaId_300_4.png"
+                       width="90" height="90"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+
+
+  <!--	Primera versión discontinuada por cambios en la empresa-->
+  <!--	<template id="credencial_personal">-->
+  <!--		<t t-if="i &lt;= 3">-->
+  <!--			<div style="position: relative; overflow: visible; width: 100%;">-->
+  <!--				<t t-set="bordes_recorte_back" t-value="'height: 325px; width: 480px; overflow: hidden; border: 2px dashed black; border-top: 0'"/>-->
+  <!--				<t t-if="i == 1">-->
+  <!--					<t t-set="bordes_recorte_back" t-value="'height: 325px; width: 480px; overflow: hidden; border: 2px dashed black'"/>-->
+  <!--				</t>-->
+  <!--				<div t-attf-style="{{ bordes_recorte_back }}">-->
+  <!--					<t t-set="colores_bordes_back" t-value="'height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px orange; overflow: hidden'"/>-->
+  <!--					<t t-if="'PERMANENTE' in inf.tipo_credencial.name">-->
+  <!--						<t t-set="colores_bordes_back"-->
+  <!--						   t-value="'height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px darkblue; overflow: hidden'"/>-->
+  <!--					</t>-->
+  <!--					<t t-if="'CONSTRUCTORES' in inf.tipo_credencial.name">-->
+  <!--						<t t-set="colores_bordes_back"-->
+  <!--						   t-value="'height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px black; overflow: hidden'"/>-->
+  <!--					</t>-->
+  <!--					<t t-if="'ESPECIAL' in inf.tipo_credencial.name">-->
+  <!--						<t t-set="colores_bordes_back"-->
+  <!--						   t-value="'height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px darkgreen; overflow: hidden'"/>-->
+  <!--					</t>-->
+  <!--					&lt;!&ndash; Reconocido por Odoo: https://github.com/odoo/odoo/issues/16610 - Con el cambio de wkhtmltopdf-->
+  <!--					no funciona el atributo opacity. La solución recomendada es usar rgba pero tampoco funciona&ndash;&gt;-->
+
+  <!--					&lt;!&ndash; Solución encontrada hasta el momento: usar imágenes de capturas realizadas al div en un html-->
+  <!--					independiente en el que el atributo opacity si funciona &ndash;&gt;-->
+  <!--					<div t-attf-style="{{ colores_bordes_back }}">-->
+  <!--						<t t-set="colores_triangulo_back" t-value="'provisional'"/>-->
+  <!--						<t t-if="'PERMANENTE' in inf.tipo_credencial.name">-->
+  <!--							<t t-set="colores_triangulo_back" t-value="'permanente'"/>-->
+  <!--						</t>-->
+  <!--						<t t-if="'CONSTRUCTORES' in inf.tipo_credencial.name">-->
+  <!--							<t t-set="colores_triangulo_back" t-value="'constructores'"/>-->
+  <!--						</t>-->
+  <!--						<t t-if="'ESPECIAL' in inf.tipo_credencial.name">-->
+  <!--							<t t-set="colores_triangulo_back" t-value="'especial'"/>-->
+  <!--						</t>-->
+  <!--						<img alt="triángulo transparente" t-attf-src="sicpro_app_credenciales/static/src/img/{{ colores_triangulo_back }}-triangulo-derecha.png" style="width: 445px; height: 290px; position: absolute;"/>-->
+  <!--						<h6 style="position: relative; margin: 15px auto auto 15px; font-family: Arial, 'Times New Roman', sans-serif; font-size: 115%" >ACCESOS:</h6>-->
+  <!--						<div style="position: relative; margin: 35px auto auto auto; height: 30px; width: 280px; text-align: center;  overflow: hidden;">-->
+  <!--							<u>-->
+  <!--								&lt;!&ndash;			      			este es el original, pero se cambió por el problema del servidor de producción&ndash;&gt;-->
+  <!--								&lt;!&ndash;							<h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: auto; margin-left: 10px; font-size: 160%; font-weight: 600" t-field="inf.accesos_credencial"/>&ndash;&gt;-->
+  <!--								<h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: auto; margin-left: 1px; font-size: 150%; font-weight: 600"-->
+  <!--									t-field="inf.accesos_credencial"/>-->
+  <!--							</u>-->
+  <!--						</div>-->
+  <!--						<div style="position: relative; margin: 145px auto auto auto; height: 20px; width: 275px; border-top: 1px solid black; text-align: center;">-->
+  <!--							<p style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 85%">FIRMA AUTORIZADA</p>-->
+  <!--						</div>-->
+  <!--						<div style="position: relative; margin: -120px auto auto 10px; height: 25px; width: 270px; overflow: hidden;">-->
+  <!--							<t t-if="'PERMANENTE' not in inf.tipo_credencial.name and 'CONSTRUCTORES' not in inf.tipo_credencial.name">-->
+  <!--								<div style="height: 100%; width: 50%; text-align: left;"><p-->
+  <!--										style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 97%">VÁLIDO-->
+  <!--									HASTA:</p></div>-->
+  <!--								&lt;!&ndash;							este es el original, pero se cambió por el problema del servidor de producción&ndash;&gt;-->
+  <!--								&lt;!&ndash;							<div style="height: 100%; width: 45%; text-align: left; margin: -30px 55%"><p style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 135%" t-field="inf.fecha_valida"/></div>&ndash;&gt;-->
+  <!--								<div style="height: 100%; width: 50%; text-align: left; margin: -30px 50%"><p-->
+  <!--										style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 130%"-->
+  <!--										t-field="inf.fecha_valida"/></div>-->
+  <!--							</t>-->
+  <!--						</div>-->
+  <!--					</div>-->
+  <!--				</div>-->
+
+  <!--				<t t-set="bordes_recorte_front" t-value="'position relative; margin: -325px auto auto 480px; height: 325px; width: 480px; overflow: hidden; border: 2px dashed black; border-top: 0; border-left: 0;'"/>-->
+  <!--				<t t-if="i == 1">-->
+  <!--					<t t-set="bordes_recorte_front" t-value="'position relative; margin: -325px auto auto 480px; height: 325px; width: 480px; overflow: hidden; border: 2px dashed black; border-left: 0'"/>-->
+  <!--				</t>-->
+  <!--				<div t-attf-style="{{ bordes_recorte_front }}">-->
+  <!--					<t t-set="colores_bordes_front" t-value="'height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px orange; border-left: solid 75px orange;'"/>-->
+  <!--					<t t-if="'PERMANENTE' in inf.tipo_credencial.name">-->
+  <!--						<t t-set="colores_bordes_front" t-value="'height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px darkblue; border-left: solid 75px darkblue;'"/>-->
+  <!--					</t>-->
+  <!--					<t t-if="'CONSTRUCTORES' in inf.tipo_credencial.name">-->
+  <!--						<t t-set="colores_bordes_front" t-value="'height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px black; border-left: solid 75px black;'"/>-->
+  <!--					</t>-->
+  <!--					<t t-if="'ESPECIAL' in inf.tipo_credencial.name">-->
+  <!--						<t t-set="colores_bordes_front" t-value="'height: 300px; width: 455px; margin: 10.5px auto auto auto; border: solid 5px darkgreen; border-left: solid 75px darkgreen;'"/>-->
+  <!--					</t>-->
+  <!--					<div t-attf-style="{{ colores_bordes_front }}">-->
+  <!--						<div style="height: 60px; width: 290px; position: absolute; margin: auto; margin-left: -70px; text-align: center; -webkit-transform: rotate(270deg) translate(-100%); -webkit-transform-origin: left top">-->
+  <!--							<b><h1 style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 170% ; margin: 20px auto; color: white; font-weight: 900" t-field="inf.tipo_credencial"/></b>-->
+  <!--						</div>-->
+  <!--						<div style="height: 160px; width: 365px; margin: 5px auto auto 5px;">-->
+  <!--							<div style="position: relative; margin: 0px auto auto 0px; height: 160px; width: 160px; text-align: center;">-->
+  <!--								<span t-field="inf.credencial_image_1920" t-options='{"widget": "image", "style": "min-height: 160px; min-width: 160px; max-height: 160px; max-width: 160px"}' style="text-align: center"/>-->
+  <!--							</div>-->
+  <!--							<div style="position: relative; margin: -160px auto auto 165px; height: 65px; width: 185px; text-align: center;">-->
+  <!--								<img alt="Logo" src="sicpro_app_credenciales/static/src/img/etecsaId_300_8.png" width="200" height="65"/>-->
+  <!--							</div>-->
+  <!--							<t t-if="'PERMANENTE' in inf.tipo_credencial.name">-->
+  <!--								<div style="position: absolute; height: 60px; width: 220px; margin: 20px auto auto 145px; text-align: center">-->
+  <!--									<h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: 10px auto auto auto; font-size: 200%; font-weight: 700" t-field="inf.no_credencial_permanente"/>-->
+  <!--								</div>-->
+  <!--							</t>-->
+  <!--							<t t-if="'CONSTRUCTORES' in inf.tipo_credencial.name">-->
+  <!--								<div style="position: absolute; height: 60px; width: 220px; margin: 20px auto auto 145px; text-align: center">-->
+  <!--									<h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: 10px auto auto auto; font-size: 200%; font-weight: 700" t-field="inf.no_credencial_constructores"/>-->
+  <!--								</div>-->
+  <!--							</t>-->
+  <!--							<t t-if="'ESPECIAL' in inf.tipo_credencial.name">-->
+  <!--								<div style="position: absolute; height: 60px; width: 220px; margin: 20px auto auto 145px; text-align: center">-->
+  <!--									<h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: 10px auto auto auto; font-size: 200%; font-weight: 700" t-field="inf.no_credencial_especial"/>-->
+  <!--								</div>-->
+  <!--							</t>-->
+  <!--							<t t-if="'PROVISIONAL' in inf.tipo_credencial.name">-->
+  <!--								<div style="position: absolute; height: 60px; width: 220px; margin: 20px auto auto 145px; text-align: center">-->
+  <!--									<h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: 10px auto auto auto; font-size: 200%; font-weight: 700" t-field="inf.no_credencial_provisional"/>-->
+  <!--								</div>-->
+  <!--							</t>-->
+  <!--						</div>-->
+  <!--						<div style="height: 124px; width: 365px; margin: 1px auto auto 5px; overflow: hidden;">-->
+  <!--							<div style="height: 75px; width: 365px; overflow: hidden;">-->
+  <!--								<div style="position: relative; height: 12px; width: 345px; margin: auto; margin-top: 20px; text-align: center;">-->
+  <!--									<h1 style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 100%; font-weight: 800" t-field="inf.name_corto"/>-->
+  <!--								</div>-->
+  <!--								<div style="position: relative; height: 25px; width: 345px; margin: auto; margin-top: 5px; text-align: center; border-top: 1px solid black;">-->
+  <!--									<p style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 85%">NOMBRES Y APELLIDOS</p>-->
+  <!--								</div>-->
+  <!--							</div>-->
+  <!--							<div style="height: 55px; width: 365px; margin: -10px auto auto 1px; overflow: hidden;">-->
+  <!--								<div style="height: 55px; width: 50%; margin-left: -2%; margin-top: 10px;">-->
+  <!--									<div style="height: 30%; width: 80%; margin: auto; margin-top: 20px; text-align: center; overflow: hidden">-->
+  <!--										<t t-if="inf.personal_externo==True">-->
+  <!--											&lt;!&ndash;											este es el original, pero se cambió por el problema del servidor de producción&ndash;&gt;-->
+  <!--											&lt;!&ndash;											<h3 style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 105%; font-weight: 800; margin: 1% auto"&ndash;&gt;-->
+  <!--											&lt;!&ndash;												t-field="inf.especial_identification_id"/>&ndash;&gt;-->
+  <!--											<h3 style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 100%; font-weight: 800; margin: auto auto"-->
+  <!--												t-field="inf.especial_identification_id"/>-->
+  <!--										</t>-->
+  <!--										<t t-else="">-->
+  <!--											&lt;!&ndash;											este es el original, pero se cambió por el problema del servidor de producción&ndash;&gt;-->
+  <!--											&lt;!&ndash;											<h3 style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 105%; font-weight: 800; margin: 1% auto"&ndash;&gt;-->
+  <!--											&lt;!&ndash;												t-field="inf.identification_id"/>&ndash;&gt;-->
+  <!--											<h3 style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 100%; font-weight: 800; margin: auto auto"-->
+  <!--												t-field="inf.identification_id"/>-->
+  <!--										</t>-->
+  <!--									</div>-->
+  <!--									<div style="height: 55%; width: 95%; margin: auto auto; text-align: center; border-top: 1px solid black">-->
+  <!--										<p style="font-family: Arial, 'Times New Roman', sans-serif; font-size: 60%">NUMERO CARNET DE IDENTIDAD</p>-->
+  <!--									</div>-->
+  <!--								</div>-->
+  <!--								<div style="position: relative; height: 90%; width: 50%; margin: -18% 50%;">-->
+  <!--									<t t-set="colores_alcance_bordes_front" t-value="'height: 110%; width: 63%; text-align: center; border: 2px solid orange; overflow: hidden; padding-top: 5%; padding-bottom: 5%;'"/>-->
+  <!--									<t t-if="'PERMANENTE' in inf.tipo_credencial.name">-->
+  <!--										<t t-set="colores_alcance_bordes_front" t-value="'height: 110%; width: 63%; text-align: center; border: 2px solid darkblue; overflow: hidden; padding-top: 5%; padding-bottom: 5%;'"/>-->
+  <!--									</t>-->
+  <!--									<t t-if="'CONSTRUCTORES' in inf.tipo_credencial.name">-->
+  <!--										<t t-set="colores_alcance_bordes_front" t-value="'height: 110%; width: 63%; text-align: center; border: 2px solid black; overflow: hidden; padding-top: 5%; padding-bottom: 5%;'"/>-->
+  <!--									</t>-->
+  <!--									<t t-if="'ESPECIAL' in inf.tipo_credencial.name">-->
+  <!--										<t t-set="colores_alcance_bordes_front" t-value="'height: 110%; width: 63%; text-align: center; border: 2px solid darkgreen; overflow: hidden; padding-top: 5%; padding-bottom: 5%;'"/>-->
+  <!--									</t>-->
+  <!--									<div t-attf-style="{{ colores_alcance_bordes_front }}">-->
+  <!--										<h1 style="font-family: Arial, 'Times New Roman', sans-serif; color: blue; position: relative; font-size: 200%; font-weight: 700" t-field="inf.alcance_credencial"/>-->
+  <!--									</div>-->
+  <!--									<t t-set="colores_siglas_bordes_front" t-value="'height: 110%; width: 37%; text-align: center; border: 2px solid orange; margin: -29.35% 63%; overflow: hidden; border-left: 0; padding-top: 5%; padding-bottom: 5%;'"/>-->
+  <!--									<t t-if="'PERMANENTE' in inf.tipo_credencial.name">-->
+  <!--										<t t-set="colores_siglas_bordes_front" t-value="'height: 110%; width: 37%; text-align: center; border: 2px solid darkblue; margin: -29.35% 63%; overflow: hidden; border-left: 0; padding-top: 5%; padding-bottom: 5%;'"/>-->
+  <!--									</t>-->
+  <!--									<t t-if="'CONSTRUCTORES' in inf.tipo_credencial.name">-->
+  <!--										<t t-set="colores_siglas_bordes_front" t-value="'height: 110%; width: 37%; text-align: center; border: 2px solid black; margin: -29.35% 63%; overflow: hidden; border-left: 0; padding-top: 5%; padding-bottom: 5%;'"/>-->
+  <!--									</t>-->
+  <!--									<t t-if="'ESPECIAL' in inf.tipo_credencial.name">-->
+  <!--										<t t-set="colores_siglas_bordes_front" t-value="'height: 110%; width: 37%; text-align: center; border: 2px solid darkgreen; margin: -29.35% 63%; overflow: hidden; border-left: 0; padding-top: 5%; padding-bottom: 5%;'"/>-->
+  <!--									</t>-->
+  <!--									<div t-attf-style="{{ colores_siglas_bordes_front }}">-->
+  <!--										<h1 style="font-family: Arial, 'Times New Roman', sans-serif; color: blue; position: relative; font-size: 200%; font-weight: 700" t-field="inf.siglas_credencial"/>-->
+  <!--									</div>-->
+  <!--								</div>-->
+  <!--							</div>-->
+  <!--						</div>-->
+  <!--					</div>-->
+  <!--				</div>-->
+  <!--			</div>-->
+  <!--		</t>-->
+  <!--	</template>-->
+
+</odoo>

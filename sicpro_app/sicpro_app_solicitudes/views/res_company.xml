@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="jefe_proceso_company_form" model="ir.ui.view">
+    <field name="name">res.company.jefe.proceso.form</field>
+    <field name="model">res.company</field>
+    <field name="inherit_id" ref="base.view_company_form"/>
+    <field name="arch" type="xml">
+      <field name="company_registry" position="after">
+        <field name="jefe_proceso" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+      </field>
+    </field>
+  </record>
+</odoo>

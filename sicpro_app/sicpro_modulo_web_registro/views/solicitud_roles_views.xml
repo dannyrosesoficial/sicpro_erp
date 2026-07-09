@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="solicitudes_acceso_rechazada_form" model="ir.ui.view">
+    <field name="name">sicpro.modulo.solicitud.acceso.rechazar.form</field>
+    <field name="model">sicpro.modulo.solicitud.acceso.rechazar</field>
+    <field name="priority">10</field>
+    <field name="arch" type="xml">
+      <form string="Motivo de Rechazo">
+        <group class="oe_title">
+          <field name="motivo_rechazo"/>
+        </group>
+        <footer>
+          <button name="action_motivo_rechazo" string="Enviar" type="object" class="btn-primary"/>
+          <button string="Cancelar" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="solicitudes_acceso_rechazada_action" model="ir.actions.act_window">
+    <field name="name">Motivo de Rechazo</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.modulo.solicitud.acceso.rechazar</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="solicitudes_acceso_rechazada_form"/>
+    <field name="target">new</field>
+  </record>
+
+  <record id="view_solicitud_roles_filter" model="ir.ui.view">
+    <field name="name">sicpro.modulo.solicitud.acceso.filter</field>
+    <field name="model">sicpro.modulo.solicitud.acceso</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="numero_consecutivo"/>
+        <field name="name"/>
+        <field name="solicitado_por_fecha" string="Fecha"/>
+        <field name="codigo_sap"/>
+        <field name="area"/>
+        <separator/>
+        <filter string="Pendientes" name="estado_pendiente" domain="[('estado', '=', 'pendiente')]"/>
+        <filter string="Ejecutadas" name="estado_ejecutada" domain="[('estado', '=', 'ejecutado')]"/>
+        <separator/>
+        <filter string="Rechazadas" name="estado_rechazada" domain="[('estado', '=', 'rechazado')]"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+        <separator/>
+        <group>
+          <filter name="solicitado_por_fecha" string="Fecha de Solicitud"
+                  context="{'group_by': 'solicitado_por_fecha'}"/>
+          <filter name="name" string="Usuario" context="{'group_by': 'name'}"/>
+          <filter name="codigo_sap" string="# Plaza" context="{'group_by': 'codigo_sap'}"/>
+          <filter name="tipo_movimiento" string="Tipo Solicitud" context="{'group_by': 'tipo_movimiento'}"/>
+          <filter name="area" string="Área" context="{'group_by': 'area'}"/>
+          <filter name="estado" string="Estado" context="{'group_by': 'estado'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_solicitud_roles_list" model="ir.ui.view">
+    <field name="name">sicpro.modulo.solicitud.acceso.list</field>
+    <field name="model">sicpro.modulo.solicitud.acceso</field>
+    <field name="arch" type="xml">
+      <list string="Solicitudes de Roles" create="false" sample="1"
+            decoration-info="estado == 'pendiente'"
+            decoration-success="estado == 'ejecutado'"
+            decoration-danger="estado == 'rechazado'">
+        <field name="numero_consecutivo"/>
+        <field name="tipo_movimiento"/>
+        <field name="solicitado_por_fecha"/>
+        <field name="name"/>
+        <field name="codigo_sap"/>
+        <field name="area"/>
+        <field name="cargo"/>
+        <field name="estado" widget="badge"
+               decoration-info="estado == 'pendiente'"
+               decoration-success="estado == 'ejecutado'"
+               decoration-danger="estado == 'rechazado'"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_solicitud_roles_form" model="ir.ui.view">
+    <field name="name">sicpro.modulo.solicitud.acceso.form</field>
+    <field name="model">sicpro.modulo.solicitud.acceso</field>
+    <field name="priority" eval="1"/>
+    <field name="arch" type="xml">
+      <form string="Solicitudes de Roles" create="false">
+        <header>
+          <button name="%(sicpro_app_clientes.action_clientes)d" string="Crear Inversionista" type="action"
+                  invisible="tipo_movimiento != 'alta' or estado != 'pendiente'"/>
+
+          <button name="%(base.action_res_users)d" string="Crear Usuario" type="action"
+                  invisible="tipo_movimiento != 'alta' or estado != 'pendiente'"/>
+
+          <button name="buscar_usuario_inversionista" string="Buscar Usuario" type="object" class="oe_highlight"
+                  invisible="estado != 'pendiente'"/>
+
+          <button name="actualizar_usuario_roles_aprobar" string="Aprobar" type="object" class="oe_highlight"
+                  invisible="estado != 'pendiente' or existe_usuario != True"/>
+
+          <button name="%(solicitudes_acceso_rechazada_action)d" string="Rechazar" type="action"
+                  invisible="estado != 'pendiente'"/>
+
+          <button name="correo_actualiza_roles" string="Enviar Correo de Actualización de Roles" type="object"
+                  invisible="estado != 'ejecutado' or correo_actualizacion_roles == True"/>
+
+          <field name="estado" widget="statusbar" options="{'clickable': '0'}"/>
+        </header>
+
+        <div class="alert alert-info text-center" role="alert"
+             invisible="tipo_usuario != 'externo' or existe_inversionista == False"
+             style="margin-bottom: 0px !important;">
+          <strong>El registro de inversionistas existe en el sistema, es posible actualizar los roles.</strong>
+        </div>
+        <div class="alert alert-warning text-center" role="alert"
+             invisible="tipo_usuario != 'externo' or existe_inversionista == True"
+             style="margin-bottom: 0px !important;">
+          <strong>El registro de inversionistas para este usuario no existe en el sistema.</strong>
+        </div>
+
+        <div class="alert alert-info text-center" role="alert"
+             invisible="existe_usuario != True or estado == 'ejecutado'"
+             style="margin-bottom: 0px !important;">
+          <strong>El usuario existe en el sistema, es posible actualizar los roles.</strong>
+        </div>
+        <div class="alert alert-danger text-center" role="alert"
+             invisible="existe_usuario == True" style="margin-bottom: 0px !important;">
+          <strong>El usuario no existe en el sistema, no es posible actualizar los roles.</strong>
+        </div>
+
+        <sheet>
+          <div class="oe_button_box" name="button_box"/>
+          <widget name="web_ribbon" title="Archivado" bg_color="text-bg-danger"
+                  invisible="active == True"/>
+          <div class="oe_title mb24">
+            <field name="active" invisible="1"/>
+            <field name="tipo_usuario" invisible="1"/>
+            <field name="existe_inversionista" invisible="1"/>
+            <field name="rechazado" invisible="1"/>
+            <field name="existe_usuario" invisible="1"/>
+            <field name="correo_actualizacion_roles" invisible="1"/>
+            <h1>
+              <field class="o_text_overflow" name="name" readonly="1"/>
+            </h1>
+            <h2>
+              <field name="numero_consecutivo" readonly="1"/>
+            </h2>
+          </div>
+
+          <group>
+            <group>
+              <field name="carne_identidad" readonly="1"/>
+              <field name="tipo_usuario" readonly="1"/>
+              <label for="codigo_sap"/>
+              <div style="width:160px;">
+                <field name="codigo_sap" readonly="estado == 'ejecutado'"
+                       widget="CopyClipboardChar"/>
+              </div>
+              <field name="nivel_escolar" readonly="1"/>
+            </group>
+            <group>
+              <field name="uo" readonly="1"/>
+              <field name="area" readonly="1"/>
+              <field name="cargo" readonly="1"/>
+              <field name="telefonos" readonly="1"/>
+              <field name="email" readonly="1"/>
+            </group>
+          </group>
+
+          <group>
+            <field name="tipo_movimiento" widget="radio" options="{'horizontal': true}"/>
+          </group>
+
+          <group>
+            <group string="Fundamentar el motivo de la solicitud">
+              <field name="fundamentacion_especificaciones" nolabel="1" readonly="1"/>
+            </group>
+            <group string="Fundamentar la solicitud de permisos especiales">
+              <field name="fundamentacion_especiales" nolabel="1" readonly="1"/>
+            </group>
+          </group>
+
+          <group string="Motivo del rechazo" invisible="rechazado != True">
+            <field name="rechazado_motivo" nolabel="1" readonly="estado == 'ejecutado'"/>
+          </group>
+
+          <notebook colspan="4">
+            <page string="Autorización">
+              <group>
+                <field name="fecha_recibido" readonly="estado == 'ejecutado'"/>
+              </group>
+              <group>
+                <group string="Solicitado">
+                  <field name="solicitado_por_nombre_apellidos" readonly="1"/>
+                  <field name="solicitado_por_cargo" readonly="1"/>
+                  <field name="solicitado_por_unidad_organizativa" readonly="1"/>
+                  <field name="solicitado_por_fecha" readonly="estado == 'ejecutado'"/>
+                  <field name="solicitado_por_telefono" readonly="1"/>
+                </group>
+                <group string="Autorizado">
+                  <field name="autorizado_por_nombre_apellidos" readonly="1"/>
+                  <field name="autorizado_por_cargo" readonly="1"/>
+                  <field name="autorizado_por_unidad_organizativa" readonly="1"/>
+                  <field name="autorizado_por_fecha" readonly="estado == 'ejecutado'"/>
+                  <field name="autorizado_por_telefono" readonly="1"/>
+                </group>
+              </group>
+            </page>
+
+            <page string="Roles de Accesos" invisible="tipo_movimiento == 'baja'">
+              <group>
+                <group string="Configuración de fechas para los Roles">
+                  <div class="o_row">
+                    <field name="fecha_inicio" class="oe_inline" readonly="estado == 'ejecutado'"/>
+                    <span class="oe_grey"> - </span>
+                    <field name="fecha_fin" class="oe_inline" readonly="estado == 'ejecutado'"/>
+                  </div>
+                </group>
+                <group string="Actualizar datos de los Roles">
+                  <button name="actualizar_fecha_roles" string="Actualizar Fechas"
+                          type="object" class="oe_highlight"
+                          invisible="fecha_inicio == False or fecha_fin == False or estado == 'ejecutado'"/>
+                </group>
+              </group>
+
+              <field name="role_ids" invisible="1"/>
+              <field name="role_line_ids" nolabel="1" readonly="estado == 'ejecutado'">
+                <list editable="bottom" decoration-muted="not aprobado">
+                  <field name="role_id" domain="[('id', 'not in', parent.role_ids)]"
+                         readonly="aprobado == True"/>
+                  <field name="desde" readonly="aprobado == True"/>
+                  <field name="hasta" readonly="aprobado == True"/>
+                  <field name="aprobado" invisible="1"/>
+                  <field name="user_id" invisible="1"/>
+                  <button name="aprobar_rol" string="Aprobar ROL" type="object" icon="fa-check" class="btn-primary"
+                          invisible="aprobado != False or desde == False or hasta == False"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_solicitud_roles" model="ir.actions.act_window">
+    <field name="name">Solicitudes de Accesos</field>
+    <field name="res_model">sicpro.modulo.solicitud.acceso</field>
+    <field name="view_mode">list,form</field>
+    <field name="search_view_id" ref="view_solicitud_roles_filter"/>
+    <field name="context">{'search_default_estado_pendiente': 1}</field>
+  </record>
+</odoo>

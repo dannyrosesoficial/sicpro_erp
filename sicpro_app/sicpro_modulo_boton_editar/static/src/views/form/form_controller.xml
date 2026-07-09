@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+    <t t-inherit="web.FormView" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='control-panel-create-button']//button[@t-if='canCreate']" position="after">
+            <t t-if="isReadOnly()">
+                <button type="button"
+                        class="btn btn-outline-primary o_form_button_edit ms-1"
+                        data-hotkey="j"
+                        t-on-click="onClickEditBtn">
+                    Editar
+                </button>
+            </t>
+        </xpath>
+    </t>
+</templates>

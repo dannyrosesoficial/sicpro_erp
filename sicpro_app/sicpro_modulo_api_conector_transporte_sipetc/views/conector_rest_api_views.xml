@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <!-- Heredo la vista de formulario del conector rest api -->
+  <record id="transporte_conector_rest_api_inherit" model="ir.ui.view">
+    <field name="name">transporte.conector.rest.api.form</field>
+    <field name="model">sicpro.modulo.api.conector</field>
+    <field name="inherit_id" ref="sicpro_modulo_api_conector.conector_rest_api_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='conector_api_cron']" position="before">
+        <button name="conector_api_cron_sicpro_app_transporte_sipetc"
+                string="Ejecutar Cron"
+                type="object"
+                class="oe_highlight"
+                invisible="name != 'sicpro.app.transporte.sipetc'"/>
+      </xpath>
+
+      <xpath expr="//button[@name='conector_api_test']" position="before">
+        <button name="conector_api_test_sicpro_app_transporte_sipetc"
+                string=" Test de Conexión"
+                type="object"
+                icon="fa-television"
+                invisible="name != 'sicpro.app.transporte.sipetc'"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

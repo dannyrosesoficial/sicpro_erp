@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <record id="action_report_log_history" model="ir.actions.report">
+        <field name="name">Reporte de Histórico de Logs</field>
+        <field name="model">sicpro.log.record</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_log_guardian.report_log_history_template</field>
+        <field name="report_file">sicpro_app_log_guardian.report_log_history_template</field>
+        <field name="print_report_name">'Historial_Logs_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_sicpro_log_record"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_log_history_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Reporte de Incidencia: <span t-field="doc.name"/></h2>
+                        <div class="row mt32 mb32">
+                            <div class="col-auto">
+                                <strong>Fuente:</strong> <p t-field="doc.source_id.name"/>
+                            </div>
+                            <div class="col-auto">
+                                <strong>Nivel:</strong> <p t-field="doc.severity_id.name"/>
+                            </div>
+                            <div class="col-auto">
+                                <strong>Fecha:</strong> <p t-field="doc.log_date"/>
+                            </div>
+                        </div>
+                        <h3>Mensaje Capturado</h3>
+                        <pre><span t-field="doc.message"/></pre>
+                        <h3>Solución Aplicada</h3>
+                        <p t-field="doc.solution_applied"/>
+                        <h3>Plan de Acción (Prevención)</h3>
+                        <p t-field="doc.action_plan"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

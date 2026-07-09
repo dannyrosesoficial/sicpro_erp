@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>SICPRO ERP - Gestión de Base de Datos</title>
+    <link rel="icon" type="image/png" href="/sicpro_modulo_web_base_datos/static/src/img/favicon.png"/>
+    <link rel="shortcut icon" href="/sicpro_modulo_web_base_datos/static/src/img/favicon.png" type="image/png"/>
+
+    <link rel="stylesheet" href="/web/static/src/libs/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/web/static/lib/bootstrap/dist/css/bootstrap.css" />
+
+    <script src="/web/static/lib/bootstrap/js/dist/util/index.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/dom/data.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/dom/event-handler.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/dom/manipulator.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/dom/selector-engine.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/util/config.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/util/component-functions.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/util/backdrop.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/util/focustrap.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/util/scrollbar.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/base-component.js"></script>
+    <script src="/web/static/lib/bootstrap/js/dist/modal.js"></script>
+    <script src="/web/static/src/public/database_manager.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary: #714B67;
+            --accent: #ff4a17;
+            --text-main: #f1f5f9;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: radial-gradient(circle at top right, #1e1b4b, var(--bg-dark));
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container { padding-top: 2rem; padding-bottom: 2rem; }
+
+        .o_database_list {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-main {
+            max-height: 80px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+        }
+
+        .list-group-item {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 12px !important;
+            margin-bottom: 12px;
+            padding: 15px 20px !important;
+            transition: all 0.3s ease;
+        }
+
+        .list-group-item:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border-color: var(--primary) !important;
+        }
+
+        .list-group-item a {
+            color: var(--text-main) !important;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary) !important;
+            border: none !important;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 10px;
+            color: white !important;
+        }
+
+        .btn-danger {
+            background: #ef4444 !important;
+            border: none !important;
+            border-radius: 10px;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            color: white;
+        }
+
+        .modal-header { border-bottom: 1px solid var(--border); }
+        .modal-footer { border-top: 1px solid var(--border); }
+
+        .form-control, .form-select {
+            background: rgba(15, 23, 42, 0.8) !important;
+            border: 1px solid var(--border) !important;
+            color: white !important;
+            border-radius: 10px;
+        }
+
+        .alert { border-radius: 15px; border: none; }
+        .btn-close { filter: invert(1); }
+        .db-icon { opacity: 0.6; margin-right: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 o_database_list">
+                <img src="/sicpro_modulo_web_base_datos/static/src/img/logo_sicpro.png" class="img-fluid d-block mx-auto logo-main"/>
+
+                <h3 class="text-center mb-4 fw-light">SICPRO <span class="fw-bold">Bases de Datos</span></h3>
+
+                <t t-if="not list_db">
+                    <div class="alert alert-danger text-center shadow-sm">
+                        Gestor de bases de datos desactivado.
+                    </div>
+                </t>
+
+                <t t-elif="insecure and databases">
+                    <div class="alert alert-warning border-0 bg-warning bg-opacity-10 text-warning">
+                        <i class="fa fa-shield me-2"></i> <strong>Atención:</strong>
+                        <a href="#" class="text-warning fw-bold" data-bs-toggle="modal" data-bs-target=".o_database_master">Proteger con Contraseña Maestra</a>.
+                    </div>
+                </t>
+
+                <t t-if="error">
+                    <div class="alert alert-danger" t-out="error"></div>
+                </t>
+
+                <t t-if="list_db and databases">
+                    <div class="list-group mb-4">
+                        <t t-foreach="databases" t-as="db">
+                            <div class="list-group-item d-flex align-items-center p-3">
+                                <a t-attf-href="/odoo?db={{ db }}" class="d-block flex-grow-1">
+                                    <i class="fa fa-database db-icon"></i>
+                                    <t t-out="db" />
+                                    <t t-if="db in incompatible_databases">
+                                        <i class="fa fa-warning ms-2 text-warning" title="Incompatible"></i>
+                                    </t>
+                                </a>
+                                <t t-if="manage">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" t-att-data-db="db" data-bs-toggle="modal" data-bs-target=".o_database_backup" class="o_database_action btn btn-secondary">
+                                            <i class="fa fa-floppy-o me-1"></i> Backup
+                                        </button>
+                                        <button type="button" t-att-data-db="db" data-bs-toggle="modal" data-bs-target=".o_database_duplicate" class="o_database_action btn btn-secondary">
+                                            <i class="fa fa-files-o me-1"></i> Duplicar
+                                        </button>
+                                        <button type="button" t-att-data-db="db" data-bs-toggle="modal" data-bs-target=".o_database_delete" class="o_database_action btn btn-danger">
+                                            <i class="fa fa-trash-o me-1"></i> Eliminar
+                                        </button>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+                    </div>
+
+                    <t t-if="manage">
+                        <div class="d-grid gap-2 d-md-flex mt-4">
+                            <button type="button" data-bs-toggle="modal" data-bs-target=".o_database_create" class="btn btn-primary flex-grow-1">Crear</button>
+                            <button type="button" data-bs-toggle="modal" data-bs-target=".o_database_restore" class="btn btn-primary flex-grow-1">Restaurar</button>
+                            <button type="button" data-bs-toggle="modal" data-bs-target=".o_database_master" class="btn btn-primary flex-grow-1">Contraseña Maestra</button>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center mt-3">
+                            <a href="/web/database/manager" class="text-white-50">Gestionar Bases de Datos</a>
+                        </div>
+                    </t>
+                </t>
+
+                <t t-elif="list_db">
+                    <form role="form" action="/web/database/create" method="post" class="mt-4">
+                        <t t-call="create_form" />
+                        <input type="submit" value="Crear base de datos" class="btn btn-primary w-100 mt-4"/>
+                    </form>
+                    <div class="text-center mt-3">
+                        <a role="button" data-bs-toggle="modal" data-bs-target=".o_database_restore" class="text-white-50 small">O restaurar una base de datos</a>
+                    </div>
+                </t>
+
+                <div class="text-center mt-5 opacity-50 small">
+                    © 2026 SICPRO ERP. Todos los derechos reservados. 🌹
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade o_database_create" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form role="form" action="/web/database/create" method="post">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Crear Base de Datos</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body p-4">
+                            <t t-call="create_form" />
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Continuar" class="btn btn-primary px-5"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade o_database_restore" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Restaurar Base de Datos</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form id="form_restore_db" role="form" action="/web/database/restore" method="post" enctype="multipart/form-data">
+                        <div class="modal-body p-4">
+                            <t t-call="master_input" />
+                            <div class="mb-3 mt-3">
+                                <label for="backup_file" class="form-label small">Archivo de Respaldo</label>
+                                <input id="backup_file" type="file" name="backup_file" class="form-control required"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dbname_restore" class="form-label small">Nombre de la Base de Datos</label>
+                                <input id="dbname_restore" type="text" name="name" class="form-control" required="required" t-att-pattern="pattern"/>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input id="neutralize_database_restore" type="checkbox" name="neutralize_database" class="form-check-input" />
+                                <label for="neutralize_database_restore" class="form-check-label small ms-2">Neutralizar BD</label>
+                            </div>
+                            <div class="bg-dark bg-opacity-25 p-3 rounded">
+                                <div class="form-check mb-2">
+                                    <input id="radio_copy_true" name="copy" type="radio" class="form-check-input" value="true" checked="1" />
+                                    <label for="radio_copy_true" class="form-check-label">Es una copia</label>
+                                </div>
+                                <div class="form-check">
+                                    <input id="radio_copy_false" name="copy" type="radio" class="form-check-input" value="false" />
+                                    <label for="radio_copy_false" class="form-check-label">Fue movida de servidor</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Restaurar" class="btn btn-primary w-100"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade o_database_master" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content border-0">
+                    <form id="form_change_pwd" role="form" action="/web/database/change_password" method="post">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Contraseña Maestra</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body p-4">
+                            <t t-set="set_master_pwd" t-value="True" />
+                            <t t-call="master_input" />
+                            <div class="mt-4 pt-4 border-top border-secondary">
+                                <label for="master_pwd_new" class="form-label small">Nueva Contraseña Maestra</label>
+                                <div class="input-group">
+                                    <input id="master_pwd_new" type="password" name="master_pwd_new" class="form-control" required="required" autocomplete="new-password"/>
+                                    <span class="fa fa-eye o_little_eye input-group-text border-0" aria-hidden="true" style="cursor: pointer;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Actualizar" class="btn btn-primary w-100"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade o_database_duplicate" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="form-duplicate-db" role="form" action="/web/database/duplicate" method="post">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Duplicar Base de Datos</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body p-4">
+                            <t t-set="set_master_pwd" t-value="False" />
+                            <t t-call="master_input" />
+                            <div class="mb-3 mt-3">
+                                <label for="dbname_duplicate" class="form-label small opacity-50">Original</label>
+                                <input id="dbname_duplicate" type="text" name="name" class="form-control bg-transparent" readonly="readonly"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="new_name" class="form-label small">Nuevo Nombre</label>
+                                <input id="new_name" type="text" name="new_name" class="form-control" required="required" t-att-pattern="pattern"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Continuar" class="btn btn-primary w-100"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade o_database_delete" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="form_drop_db" role="form" action="/web/database/drop" method="post">
+                        <div class="modal-header bg-danger bg-opacity-10 border-0">
+                            <h4 class="modal-title text-danger">Eliminar Base de Datos</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body p-4 text-center">
+                            <t t-call="master_input" />
+                            <div class="mt-4">
+                                <label class="small opacity-50">Confirmar eliminación de:</label>
+                                <input id="dbname_delete" type="text" name="name" class="form-control bg-transparent border-0 text-center fw-bold fs-4" required="required" readonly="readonly"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <input type="submit" value="Eliminar Permanentemente" class="btn btn-danger w-100"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade o_database_backup" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="form_backup_db" role="form" action="/web/database/backup" method="post">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Backup de Seguridad</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body p-4">
+                            <t t-call="master_input" />
+                            <div class="mb-3 mt-3">
+                                <label for="dbname_backup" class="form-label small opacity-50">Base de Datos</label>
+                                <input id="dbname_backup" type="text" name="name" class="form-control bg-transparent" readonly="readonly"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="backup_format" class="form-label small">Formato de Archivo</label>
+                                <select id="backup_format" name="backup_format" class="form-select">
+                                    <option value="zip">zip (con filestore)</option>
+                                    <option value="dump">pg_dump (solo estructura)</option>
+                                </select>
+                            </div>
+                            <div class="form-check form-switch mt-3">
+                                <input id="filestore" type="checkbox" name="filestore" value="1" checked="1" class="form-check-input" />
+                                <label for="filestore" class="form-check-label small ms-2">Incluir archivos adjuntos</label>
+                                <input type="hidden" name="filestore" value="0"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <input type="submit" value="Descargar Backup" class="btn btn-primary w-100"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

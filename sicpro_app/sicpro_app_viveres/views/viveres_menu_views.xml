@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+
+  <menuitem id="viveres_menu_root" name="Víveres"
+            web_icon="sicpro_app_viveres,static/description/icon.png" sequence="50"
+            groups="grupo_app_viveres_resumen_usuario,grupo_app_viveres_areas_usuario"/>
+
+  <!--Inicio: Menu Operaciones-->
+  <menuitem id="viveres_menu_operaciones" name="Operaciones" parent="viveres_menu_root" sequence="20"/>
+
+  <menuitem id="menu_operaciones_producto_comprado" name="Producto comprado" parent="viveres_menu_operaciones"
+            action="viveres_productos_comprados_action" sequence="10"
+            groups="grupo_app_viveres_admin,grupo_app_viveres_resumen_ejecutor,grupo_app_viveres_resumen_responsable"/>
+
+  <menuitem id="menu_operaciones_entrega_area" name="Entrega al área" parent="viveres_menu_operaciones"
+            action="viveres_areas_entregas_action" sequence="20"
+            groups="grupo_app_viveres_admin,grupo_app_viveres_resumen_ejecutor,grupo_app_viveres_resumen_responsable,grupo_app_viveres_areas_ejecutor,grupo_app_viveres_areas_responsable"/>
+
+  <menuitem id="menu_operaciones_entrega_trabajador" name="Entrega al trabajador" parent="viveres_menu_operaciones"
+            action="viveres_trabajadores_entregas_action" sequence="25"
+            groups="grupo_app_viveres_admin,grupo_app_viveres_areas_ejecutor,grupo_app_viveres_areas_responsable"/>
+
+  <menuitem id="menu_operaciones_efectivo" name="Recogida efectivo" parent="viveres_menu_operaciones"
+            action="viveres_areas_efectivo_action" sequence="30"
+            groups="grupo_app_viveres_admin,grupo_app_viveres_resumen_ejecutor,grupo_app_viveres_resumen_responsable,grupo_app_viveres_areas_ejecutor,grupo_app_viveres_areas_responsable"/>
+  <!--Fin: Menu Operaciones-->
+
+  <!--Inicio: Menu Reportes-->
+  <menuitem id="viveres_menu_reportes" name="Reportes" parent="viveres_menu_root" sequence="30"
+            groups="grupo_app_viveres_resumen_usuario,grupo_app_viveres_areas_usuario,grupo_app_viveres_admin,grupo_app_viveres_resumen_ejecutor,grupo_app_viveres_areas_ejecutor,grupo_app_viveres_resumen_responsable,grupo_app_viveres_areas_responsable"/>
+
+  <menuitem id="menu_reportes_entregas_gral" name="Entregas generales" parent="viveres_menu_reportes"
+            action="viveres_resumen_action" sequence="10"/>
+
+  <menuitem id="menu_reportes_entrega_area" name="Entregas por área" parent="viveres_menu_reportes"
+            action="viveres_areas_entregas_resumenes_action" sequence="20"/>
+
+  <menuitem id="menu_reportes_fondo" name="Fondo" parent="viveres_menu_reportes"
+            action="viveres_areas_fondo_action" sequence="30"/>
+
+  <menuitem id="menu_reportes_cierres" name="Cierres" parent="viveres_menu_reportes"
+            action="viveres_cierre_action" sequence="40"/>
+
+  <menuitem id="menu_reportes_altas_bajas" name="Altas y Bajas" parent="viveres_menu_reportes"
+            action="viveres_areas_altas_bajas_action" sequence="50"/>
+  <!--Fin: Menu Reportes-->
+
+  <!--Inicio: Menu Config-->
+  <menuitem id="viveres_menu_configuracion" name="Configuración" parent="viveres_menu_root" sequence="40"
+            groups="grupo_app_viveres_admin,grupo_app_viveres_resumen_responsable"/>
+
+  <menuitem id="menu_config_areas" name="Seleccionar áreas" parent="viveres_menu_configuracion"
+            action="viveres_areas_action" sequence="10"/>
+
+  <menuitem id="menu_config_producto" name="Producto" parent="viveres_menu_configuracion"
+            action="viveres_productos_action" sequence="20"/>
+  <!--Fin: Menu Config-->
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="sequence_view_alnas_roman_sequence" model="ir.ui.view">
+    <field name="name">ir.sequence.form.sicpro_modulo_sequence_romanos</field>
+    <field name="model">ir.sequence</field>
+    <field name="inherit_id" ref="base.sequence_view"/>
+    <field name="arch" type="xml">
+      <data>
+        <field name="padding" position="after">
+          <field name="is_roman" string="En romano" widget="boolean_toggle"/>
+        </field>
+        <xpath expr="//page[@name='sequence']/group[2]/group[2]" position="inside">
+          <span colspan="2">Numeración romana: %%(roman_*key*)s</span>
+        </xpath>
+      </data>
+    </field>
+  </record>
+</odoo>

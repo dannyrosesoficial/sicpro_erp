@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <template id="web_plantilla_inicio" name="pagina_inicial">
+    <t t-call="web.layout">
+      <t t-set="head">
+        <meta charset="UTF-8"/>
+        <title>SICPRO ERP - Inicio</title>
+        <script type="text/javascript">document.title = "SICPRO ERP - Inicio";</script>
+        <link rel="icon" type="image/png" href="/sicpro_modulo_web/static/src/img/SICPRO_ERP.png"/>
+        <link rel="shortcut icon" href="/sicpro_modulo_web/static/src/img/SICPRO_ERP.png" type="image/png"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="cache-control" content="no-cache"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+
+        <link rel="stylesheet" href="/web/static/src/libs/fontawesome/css/font-awesome.css"/>
+        <link rel="stylesheet" href="/web/static/lib/bootstrap/dist/css/bootstrap.css"/>
+
+        <link rel="stylesheet" href="/sicpro_modulo_web/static/src/css/aos.css"/>
+        <link rel="stylesheet" href="/sicpro_modulo_web/static/src/css/animacion.css"/>
+        <link rel="stylesheet" href="/sicpro_modulo_web/static/src/css/style.css"/>
+      </t>
+
+      <div id="wrap" class="oe_structure">
+        <div class="top-bar">
+          <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="status-dot"></span>
+              <span class="fw-bold">Sistemas Operativos 100%</span>
+              <span class="mx-3 d-none d-md-inline opacity-50">|</span>
+
+              <span class="small d-none d-md-inline">
+                <t t-set="aviso_mtto"
+                   t-value="request.env['sicpro.modulo.web.aviso.mantenimiento'].sudo().search([], limit=1)"/>
+
+                <t t-if="aviso_mtto and aviso_mtto.mantenimiento_activo">
+                  <style>
+                    @keyframes blinker { 50% { opacity: 0.3; } }
+                    .blink-maintenance { animation: blinker 2s linear infinite; color: #FFD700; font-weight: bold; }
+                  </style>
+                  <span class="blink-maintenance">
+                    <i class="fa-solid fa-clock me-1"/>Mantenimiento: <t t-out="aviso_mtto.get_fecha_formateada()"/>
+                  </span>
+                </t>
+                <t t-else="">
+                  <span class="text-warning">
+                    <i class="fa-solid fa-circle-check me-1"/>Sin mantenimientos planificados
+                  </span>
+                </t>
+              </span>
+
+            </div>
+
+            <!--    inicio de sección de redes sociales-->
+            <div class="d-flex gap-3 align-items-center">
+              <t t-set="social_links" t-value="{}"/>
+              <t t-set="company_social"
+                 t-value="request.env['res.company'].sudo().search([('login_redes_sociales', '=', True)], limit=1)"/>
+              <t t-if="company_social">
+                <t t-set="social_links" t-value="company_social.get_link_sociales()"/>
+              </t>
+
+              <t t-if="social_links.get('link_twitter')">
+                <a t-att-href="social_links.get('link_twitter')" class="text-white" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </t>
+
+              <t t-if="social_links.get('link_facebook')">
+                <a t-att-href="social_links.get('link_facebook')" class="text-white" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </t>
+
+              <t t-if="social_links.get('link_instagram')">
+                <a t-att-href="social_links.get('link_instagram')" class="text-white" target="_blank">
+                  <i class="fa fa-instagram"></i>
+                </a>
+              </t>
+
+              <t t-if="social_links.get('link_linkedin')">
+                <a t-att-href="social_links.get('link_linkedin')" class="text-white" target="_blank">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </t>
+
+              <div class="theme-switch" id="themeBtn" style="cursor: pointer;">
+                <i class="fa fa-moon-o"></i>
+              </div>
+
+            </div>
+            <!--    fin de sección de redes sociales-->
+
+          </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg sticky-top">
+          <div class="container">
+            <a class="navbar-brand fs-3 d-flex align-items-center" href="#">
+              <img t-att-src="'/sicpro_modulo_web/static/src/img/SICPRO_ERP.png'"
+                   alt="SICPRO Logo"
+                   style="height: 40px; width: auto; margin-right: 12px; object-fit: contain;"/>
+              SICPRO ERP
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+              <ul class="navbar-nav ms-auto fw-semibold">
+                <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#directorio">Directorio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="#manuales">Manuales</a></li>
+                <li class="nav-item"><a class="nav-link" href="#roadmap">Evolución</a></li>
+                <li class="nav-item ms-lg-3"><a href="#" class="btn-sicpro" data-bs-toggle="modal"
+                                                data-bs-target="#ticketModal">SOLICITAR TICKET</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <section id="hero" class="hero">
+          <div class="bg-shapes">
+            <div class="shape" style="width: 80px; height: 80px; top: 10%; left: 10%;"/>
+            <div class="shape" style="width: 150px; height: 150px; top: 60%; left: 5%; animation-delay: -5s;"/>
+            <div class="shape" style="width: 100px; height: 100px; top: 20%; left: 80%; animation-delay: -2s;"/>
+          </div>
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6" data-aos="fade-right">
+
+                <!--    inicio de sección version actual-->
+                <t t-set="last_version"
+                   t-value="request.env['sicpro.modulo.web.version'].sudo().search([('version_actual', '=', True)], limit=1)"/>
+                <span t-if="last_version" class="v-badge mb-3 d-inline-block">
+                  VERSIÓN <t t-out="last_version.name"/>
+                </span>
+                <!--    fin de sección version actual-->
+
+                <h1 class="display-2 mb-4">Sistema Integral de Control de la <br/><span style="color:var(--primary)">
+                  Producción.</span></h1>
+                <p class="lead mb-5 opacity-75 fw-bold">
+                  Plataforma centralizada de la División de Proyectos y Ejecución de Obras
+                  para el monitoreo de recursos y cumplimiento de metas.
+                </p>
+                <div class="d-flex gap-3">
+                  <a href="/sicpro/login" class="btn-sicpro shadow-lg px-5">Login SICPRO</a>
+                </div>
+              </div>
+
+              <div class="col-lg-6 mt-5 mt-lg-0 d-flex align-items-center justify-content-end"
+                   style="min-height: 60vh; position: relative; z-index: 10;">
+                <div style="position: relative; width: 100%; text-align: right;">
+                  <img t-att-src="'/sicpro_modulo_web/static/src/img/principal.png'"
+                       class="hero-img"
+                       alt="DVPE"
+                       style="height: 32vh !important;
+                    width: auto !important;
+                    max-width: none !important;
+                    object-fit: contain;
+                    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
+                    /* El truco: Usar transform en lugar de margin para no romper el layout */
+                    transform: translateX(100px);
+                    position: relative;"/>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Inicio Animación -->
+        <div class="waves-container" style="width: 100%; overflow: hidden; line-height: 0; background: transparent;">
+          <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
+               class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"
+               style="width: 100%; height: 60px; min-height: 40px;">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+            </defs>
+            <g class="parallax">
+              <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255, 120, 0, 0.3)"/>
+              <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255, 120, 0, 0.5)"/>
+              <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255, 120, 0, 0.7)"/>
+              <use xlink:href="#gentle-wave" x="48" y="7" fill="#ffffff"/>
+            </g>
+          </svg>
+        </div>
+        <!--Fin Animación-->
+
+        <!--    inicio de sección del dashboard-->
+        <section id="dashboard" class="section-padding" style="background: var(--primary-light);">
+          <div class="container">
+            <t t-set="dash" t-value="request.env['sicpro.modulo.web.version'].sudo().get_dashboard_data_web()"/>
+
+            <h2 class="fw-bold text-center fw-black mb-5">Dashboard de Ejecución Nacional <t t-out="dash['anio']"/></h2>
+
+            <div class="row g-4">
+              <div class="col-md-4" data-aos="fade-up">
+                <div class="dash-card">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="fw-bold mb-0">Solicitudes Procesadas</h6>
+                    <span class="badge bg-success"><t t-out="dash['solicitudes']['valor']"/>%</span>
+                  </div>
+                  <div class="progress mb-2">
+                    <div class="progress-bar"
+                         t-attf-style="width: #{dash['solicitudes']['valor']}%; background: var(--primary);"/>
+                  </div>
+                  <p class="small text-muted mb-0"><t t-out="dash['solicitudes']['texto']"/></p>
+                </div>
+              </div>
+
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="dash-card">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="fw-bold mb-0">O.T. Ejecutándose</h6>
+                    <span class="badge bg-warning text-dark"><t t-out="dash['ot']['valor']"/>%</span>
+                  </div>
+                  <div class="progress mb-2">
+                    <div class="progress-bar"
+                         t-attf-style="width: #{dash['ot']['valor']}%; background: var(--accent);"/>
+                  </div>
+                  <p class="small text-muted mb-0"><t t-out="dash['ot']['texto']"/></p>
+                </div>
+              </div>
+
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="dash-card">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="fw-bold mb-0">Gastos Certificados</h6>
+                    <span class="badge bg-info text-dark"><t t-out="dash['gastos']['valor']"/>%</span>
+                  </div>
+                  <div class="progress mb-2">
+                    <div class="progress-bar"
+                         t-attf-style="width: #{dash['gastos']['valor']}%; background: #0dcaf0;"/>
+                  </div>
+                  <p class="small text-muted mb-0"><t t-out="dash['gastos']['texto']"/></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección del dashboard-->
+
+        <!--    inicio de sección de accesos-->
+        <section class="section-padding">
+          <div class="container">
+            <h2 class="fw-bold text-center mb-5" style="color: #714B67;">Ecosistema Digital</h2>
+            <div class="row g-4 text-center">
+              <div class="col-6 col-md-2" data-aos="fade-up"><a href="https://nube.etecsa.cu" class="access-card"><i
+                  class="fa fa-cloud"/> <br/><b>Nube</b></a></div>
+              <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://webmail.etecsa.cu/" class="access-card"><i
+                    class="fa fa-envelope"/> <br/><b>Correo</b></a></div>
+              <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://gitlab.etecsa.cu" class="access-card"><i
+                    class="fa fa-gitlab"/> <br/><b>GitLab</b></a></div>
+              <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="300">
+                <a href="https://jitsi.etecsa.cu/" class="access-card"><i
+                    class="fa fa-video-camera"/> <br/><b>Reunión</b></a></div>
+              <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://autogestionpersonal.etecsa.cu" class="access-card"><i
+                    class="fa fa-id-card"/> <br/><b>Autogestión</b></a></div>
+              <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://www.portal.etecsa.cu" class="access-card"><i
+                    class="fa fa-globe"/> <br/><b>Portal</b></a></div>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección de accesos-->
+
+        <!--    inicio de sección contactos-->
+        <section id="directorio" class="section-padding bg-light"
+                 style="background-color: var(--primary-light) !important;">
+          <div class="container">
+            <h2 class="fw-bold text-center fw-black mb-2">Directorio de Capital Humano</h2>
+            <p class="text-center text-muted mb-5">Encuentra rápidamente a los líderes de cada área de la DVPE.</p>
+            <div class="search-container">
+              <i class="fa fa-search"/>
+              <input type="text" id="dirSearch" class="search-input"
+                     placeholder="Buscar por nombre, cargo o especialidad..."/>
+            </div>
+            <t t-set="datos_trabajadores"
+               t-value="request.env['sicpro.modulo.web.trabajadores'].sudo().buscar_datos_trabajadores()"/>
+
+            <div class="row g-4" id="dirList">
+              <t t-foreach="datos_trabajadores" t-as="emp">
+                <div class="col-lg-3 col-md-4 col-sm-6 dir-item" data-aos="fade-up">
+                  <div class="access-card text-start d-flex align-items-center p-3" style="min-height: 100px;">
+
+                    <div class="me-3" style="width: 45px; height: 45px; flex-shrink: 0;">
+                      <img t-att-src="emp.get('imagen') or '/web/static/img/placeholder.png'"
+                           class="rounded-circle shadow-sm"
+                           style="width: 100%; height: 100%; object-fit: cover;"
+                           t-att-alt="emp.get('nombre')"
+                           onerror="this.src='/web/static/img/placeholder.png'"/>
+                    </div>
+
+                    <div class="flex-grow-1 overflow-hidden">
+                      <h6 class="fw-bold mb-0 text-truncate" style="font-size: 0.9rem; color: #333;"
+                          t-att-title="emp.get('nombre')">
+                        <t t-out="emp.get('nombre')"/>
+                      </h6>
+
+                      <small class="text-muted d-block text-truncate mb-1" style="font-size: 0.75rem;">
+                        <t t-out="emp.get('puesto')"/>
+                      </small>
+
+                      <div class="d-flex align-items-center mt-2">
+                        <div class="d-flex gap-2">
+                          <t t-if="emp.get('correo')">
+                            <a t-attf-href="mailto:#{emp.get('correo')}" class="contact-icon"
+                               style="color: var(--primary-color);">
+                              <i class="fa fa-envelope" style="font-size: 0.8rem;"/>
+                            </a>
+                          </t>
+                          <t t-if="emp.get('movil')">
+                            <a t-attf-href="tel:#{emp.get('movil')}" class="contact-icon"
+                               style="color: var(--primary-color);">
+                              <i class="fa fa-mobile" style="font-size: 0.8rem;"/>
+                            </a>
+                          </t>
+                          <t t-if="emp.get('telefono')">
+                            <a t-attf-href="tel:#{emp.get('telefono')}" class="contact-icon"
+                               style="color: var(--primary-color);">
+                              <i class="fa fa-phone" style="font-size: 0.8rem;"/>
+                            </a>
+                          </t>
+                        </div>
+
+                        <div class="ms-auto text-end">
+                          <small class="text-muted"
+                                 style="font-size: 0.6rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">
+                            <t t-out="emp.get('departamento')"/>
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </t>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección contactos-->
+
+        <!--    inicio de sección que es sicpro-->
+        <section id="about" class="section-padding">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                <img
+                    src="/sicpro_modulo_web/static/src/img/about.png"
+                    class="img-fluid rounded-5 shadow" alt="SICPROERP"/>
+              </div>
+              <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                <h2 class="display-5 mb-4">Qué es SICPRO ERP y Principales ventajas.</h2>
+                <p class="opacity-75 fst-italic mb-4">
+                  SICPRO ERP es una suite de aplicaciones de gestión, que absolutamente todo funcionan de manera
+                  integrada debido a que incluye una gama de módulos de fácil uso, para optimizar y rentabilizar
+                  los procesos de trabajo.
+                  Su objetivo es englobar en un único software todas las herramientas que necesita la DVPE para la
+                  operatividad en sus Procesos.
+                </p>
+                <div class="row g-3 fw-bold">
+                  <div class="col-6"><i class="fa fa-check-circle text-primary me-2"/> Funciona en la nube, lo que
+                    garantiza tu conexión desde cualquier lugar.</div>
+                  <div class="col-6"><i class="fa fa-check-circle text-primary me-2"/> Se utiliza mediante un navegador
+                    web, sin importar la plataforma o fabricante del dispositivo
+                    desde donde te conectes.</div>
+                  <div class="col-6"><i class="fa fa-check-circle text-primary me-2"/> Todos los módulos están
+                    integrados en una única plataforma,
+                    por lo que no es necesario el empleo de varios sistemas a la vez.</div>
+                  <div class="col-6"><i class="fa fa-check-circle text-primary me-2"/> Con el sistema de permisos
+                    puedes establecer niveles de acceso a los distintos colaboradores y
+                    departamentos, facilitando el control.</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección que es sicpro-->
+
+        <!--    inicio de sección de estadísticas-->
+        <section class="bg-dark text-white text-center">
+          <div class="container" data-aos="fade-up">
+            <t t-set="stats" t-value="request.env['sicpro.modulo.web.version'].get_sicpro_estadisticas_web()"/>
+
+            <div class="row g-4">
+              <div class="col-md-3">
+                <div class="p-3">
+                  <i class="fa fa-users mb-3 text-primary-light" style="font-size: 2rem; opacity: 0.7;"></i>
+                  <h3 class="fw-bold display-6 mb-1">
+                    <t t-out="stats['usuarios']"/>
+                  </h3>
+                  <p class="small text-uppercase fw-light opacity-75" style="letter-spacing: 2px;">Usuarios</p>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="p-3">
+                  <i class="fa fa-industry mb-3 text-primary-light" style="font-size: 2rem; opacity: 0.7;"></i>
+                  <h3 class="fw-bold display-6 mb-1">
+                    <t t-out="stats['companias']"/>
+                  </h3>
+                  <p class="small text-uppercase fw-light opacity-75" style="letter-spacing: 2px;">Procesos</p>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="p-3">
+                  <i class="fa fa-clipboard mb-3 text-primary-light" style="font-size: 2rem; opacity: 0.7;"></i>
+                  <h3 class="fw-bold display-6 mb-1">
+                    <t t-out="stats['solicitudes']"/>
+                  </h3>
+                  <p class="small text-uppercase fw-light opacity-75" style="letter-spacing: 2px;">
+                    Solicitudes <t t-out="stats['anio_actual']"/>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="p-3">
+                  <i class="fa fa-shield mb-3 text-primary-light" style="font-size: 2rem; opacity: 0.7;"></i>
+                  <h3 class="fw-bold display-6 mb-1">
+                    <t t-out="stats['auditoria']"/>
+                  </h3>
+                  <p class="small text-uppercase fw-light opacity-75" style="letter-spacing: 2px;">Trazabilidad Logs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección de estadísticas-->
+
+        <!--    inicio de sección de manuales-->
+        <section id="manuales" class="section-padding">
+          <div class="container">
+            <h2 class="fw-bold text-center mb-5" style="color: #714B67;">Centro de Conocimiento</h2>
+            <div class="row g-4">
+              <t t-set="manuales_ids"
+                 t-value="request.env['sicpro.modulo.web.manuales'].sudo().buscar_datos_manuales()"/>
+              <t t-foreach="manuales_ids" t-as="data_manuales">
+                <div class="col-md-4" data-aos="zoom-in" t-att-data-aos-delay="data_manuales_index * 100">
+                  <div class="access-card">
+                    <i t-att-class="data_manuales['icono_clase_completa']"/>
+                    <h5><t t-out="data_manuales['nombre']"/></h5>
+                    <p class="text-muted small"><t t-out="data_manuales['descripcion']"/></p>
+                    <a t-att-href="data_manuales['manual']"
+                       class="btn btn-sm btn-outline-primary mt-3"
+                       target="_blank">
+                      <t t-out="data_manuales['texto_boton']"/>
+                    </a>
+                  </div>
+                </div>
+              </t>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección de manuales-->
+
+        <!--    inicio de sección galería-->
+        <section id="galeria" class="section-padding bg-light"
+                 style="background-color: var(--primary-light) !important;">
+          <div class="container">
+            <h2 class="fw-bold text-center mb-5">Galería de Impacto</h2>
+            <t t-set="fotos_galeria" t-value="request.env['sicpro.modulo.web.galeria'].sudo().buscar_datos_img()"/>
+            <div class="gallery-grid">
+              <t t-foreach="fotos_galeria" t-as="foto">
+                <div
+                    t-attf-class="gallery-item #{'wide' if foto['tipo'] == 'wide' else ''} #{'tall' if foto['tipo'] == 'tall' else ''} #{'wide tall' if foto['tipo'] == 'wide_tall' else ''}"
+                    data-aos="zoom-in">
+                  <img t-att-src="foto['imagen']"
+                       t-att-alt="foto['nombre']"
+                       loading="lazy"/>
+                  <div class="gallery-overlay"
+                       style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; background: linear-gradient(transparent, rgba(0,0,0,0.6)); color: white; opacity: 0; transition: 0.3s;"
+                       onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0">
+                    <span class="small"><t t-out="foto['nombre']"/></span>
+                  </div>
+                </div>
+              </t>
+
+              <t t-if="not fotos_galeria">
+                <div class="text-center w-100 py-5">
+                  <p class="text-muted">No hay imágenes disponibles en la galería.</p>
+                </div>
+              </t>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección galería-->
+
+        <!--    inicio de sección de versiones-->
+        <section id="roadmap" class="section-padding">
+          <div class="container">
+            <t t-set="hitos"
+               t-value="request.env['sicpro.modulo.web.evolucion'].sudo().search([('active','=',True)], order='sequence asc')"/>
+            <t t-set="v_actual"
+               t-value="request.env['sicpro.modulo.web.version'].sudo().search([('version_actual', '=', True)], limit=1)"/>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <h2 class="mb-5">Evolución del Sistema</h2>
+
+                <t t-foreach="hitos" t-as="hito">
+                  <div class="timeline-item" data-aos="fade-left" t-att-data-aos-delay="hito_index * 100">
+                    <span class="v-badge"><t t-out="hito.periodo"/></span>
+                    <h6 class="mt-2 fw-bold"><t t-out="hito.name"/></h6>
+                    <p class="small opacity-75">
+                      <strong><t t-out="hito.subtitulo"/></strong>
+                    </p>
+                  </div>
+                </t>
+
+                <t t-if="not hitos">
+                  <div class="timeline-item" data-aos="fade-left">
+                    <span class="v-badge">INFO</span>
+                    <h6 class="mt-2 fw-bold">Roadmap en definición</h6>
+                    <p class="small opacity-75">Cargue hitos en el backend para ver la evolución.</p>
+                  </div>
+                </t>
+              </div>
+
+              <div class="col-lg-6">
+                <h2 class="mb-5">Log de Versiones</h2>
+
+                <t t-if="v_actual">
+                  <div class="bg-card p-4 rounded-4 border">
+                    <h6 class="fw-bold">
+                      <t t-out="v_actual.name"/>
+                      <span class="badge bg-success ms-2">Estable</span>
+                    </h6>
+                    <ul class="small opacity-75 mt-3">
+                      <t t-foreach="v_actual.line_ids" t-as="line">
+                        <li><t t-out="line.name"/></li>
+                      </t>
+                    </ul>
+                    <div class="mt-3 text-end">
+                      <span class="small opacity-50" style="font-size: 0.7rem;">
+                        Publicado: <t t-out="v_actual.date_release"/>
+                      </span>
+                    </div>
+                  </div>
+                </t>
+
+                <t t-else="">
+                  <div class="bg-card p-4 rounded-4 border text-center">
+                    <p class="small opacity-75">No hay una versión activa configurada.</p>
+                  </div>
+                </t>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección de versiones-->
+
+        <!--    inicio de sección de preguntas frecuentes-->
+        <section id="faq" class="section-padding" style="background-color: #f8f9fa;">
+          <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+              <h2 class="fw-bold" style="color: #714B67;">F.A.Q</h2>
+              <h2 class="fw-bold" style="color: #714B67;">Centro de Ayuda</h2>
+              <p class="text-muted">Encuentra respuestas rápidas a las dudas más comunes</p>
+            </div>
+            <t t-set="faq_data" t-value="request.env['sicpro.modulo.web.preguntas'].sudo().buscar_datos_faq()"/>
+            <div class="row justify-content-center">
+              <div class="col-lg-9">
+                <div class="accordion accordion-flush" id="accordionSicpro">
+                  <t t-foreach="faq_data" t-as="faq">
+                    <div class="accordion-item mb-3 shadow-sm border-0 rounded-3" data-aos="fade-up"
+                         t-att-data-aos-delay="faq_index * 50">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed rounded-3 fw-bold" type="button"
+                                data-bs-toggle="collapse"
+                                t-attf-data-bs-target="#collapseFAQ#{faq['id']}"
+                                style="padding: 1.5rem;">
+                          <i t-att-class="faq['icono'] + ' me-3'" style="color: #714B67; width: 25px;"></i>
+                          <t t-out="faq['pregunta']"/>
+                        </button>
+                      </h2>
+                      <div t-attf-id="collapseFAQ#{faq['id']}" class="accordion-collapse collapse"
+                           data-bs-parent="#accordionSicpro">
+                        <div class="accordion-body text-muted px-5 pb-4" style="line-height: 1.6;">
+                          <t t-out="faq['respuesta']"/>
+                        </div>
+                      </div>
+                    </div>
+                  </t>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección de preguntas frecuentes-->
+
+        <!--    inicio de sección de equipo de desarrollo-->
+        <section id="developers" class="section-padding dev-section text-white">
+          <div class="container">
+            <div class="text-center mb-5" data-aos="fade-down">
+              <h2 class="display-5 fw-bold mb-3">Arquitectos del Sistema</h2>
+              <div class="v-badge bg-gray">Equipo de desarrollo 🌹</div>
+              <p class="mt-4 opacity-75 mx-auto" style="max-width: 600px;">
+                El ingenio detrás de cada línea de código en SICPRO, transformando procesos complejos en soluciones
+                elegantes.
+              </p>
+            </div>
+
+            <t t-set="miembros" t-value="request.env['sicpro.modulo.web.equipo'].sudo().buscar_datos_equipos()"/>
+
+            <div class="row g-4 justify-content-center">
+              <t t-foreach="miembros" t-as="persona">
+                <div class="col-md-4" data-aos="flip-left">
+                  <div class="dev-card text-center">
+                    <img t-att-src="persona['imagen']"
+                         class="dev-avatar"
+                         t-att-alt="persona['nombre']"/>
+
+                    <h4 class="fw-bold mb-1"><t t-out="persona['nombre']"/></h4>
+                    <span class="dev-tag"><t t-out="persona['cargo']"/></span>
+
+                    <div class="small opacity-50 mt-3 px-3">
+                      <t t-out="persona['responsabilidad']"/>
+                    </div>
+
+                    <div class="dev-social">
+                      <t t-if="persona['correo']">
+                        <a t-attf-href="mailto:#{persona['correo']}"><i class="fa fa-mail-bulk"/></a>
+                      </t>
+                      <t t-if="persona['facebook']">
+                        <a t-att-href="persona['facebook']" target="_blank"><i class="fa fa-facebook"/></a>
+                      </t>
+                      <t t-if="persona['twitter']">
+                        <a t-att-href="persona['twitter']" target="_blank"><i class="fa fa-twitter"/></a>
+                      </t>
+                      <t t-if="persona['instagram']">
+                        <a t-att-href="persona['instagram']" target="_blank"><i class="fa fa-instagram"/></a>
+                      </t>
+                      <t t-if="persona['linkedin']">
+                        <a t-att-href="persona['linkedin']" target="_blank"><i class="fa fa-linkedin"/></a>
+                      </t>
+                      <t t-if="persona['gitlab']">
+                        <a t-att-href="persona['gitlab']" target="_blank"><i class="fa fa-gitlab"/></a>
+                      </t>
+                    </div>
+                  </div>
+                </div>
+              </t>
+            </div>
+          </div>
+        </section>
+        <!--    fin de sección de equipo de desarrollo-->
+
+        <!--    inicio wizard del tiquet-->
+        <div class="modal fade" id="ticketModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+              <div class="modal-header bg-sicpro text-white" style="background: var(--primary) !important;">
+                <h5 class="modal-title fw-bold"><i class="fa fa-ticket-alt me-2"/>Solicitud de Soporte</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"/>
+              </div>
+              <div class="modal-body p-4">
+                <form id="survey_submit" action="/website/form/" method="post">
+                  <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="small fw-bold mb-1">Nombre Completo</label>
+                      <input type="text" name="name" class="form-control" placeholder="Ej. Juan Pérez" required="1"/>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="small fw-bold mb-1">Unidad Operativa</label>
+                      <input type="text" name="unit" class="form-control" placeholder="Ej. Habana Proyectos"
+                             required="1"/>
+                    </div>
+                    <div class="col-12">
+                      <label class="small fw-bold mb-1">Tipo de Solicitud</label>
+                      <select name="type" class="form-control">
+                        <option>Agregar nueva funcionalidad</option>
+                        <option>Modificar datos existentes</option>
+                        <option>Reportar error técnico</option>
+                        <option>Solicitar acceso</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label class="small fw-bold mb-1">Descripción Detallada</label>
+                      <textarea name="description" class="form-control" rows="4"
+                                placeholder="Describa qué desea agregar o modificar..."/>
+                    </div>
+                  </div>
+                  <div class="mt-4 text-center">
+                    <button type="submit" class="btn-sicpro w-100">ENVIAR SOLICITUD</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--    fin wizard del tiquet-->
+
+        <!--    inicio del footer-->
+        <footer>
+          <div class="container">
+            <div class="row g-4">
+
+              <div class="col-md-5">
+                <h3 class="text-white d-flex align-items-center mb-4">
+                  <img t-att-src="'/sicpro_modulo_web/static/src/img/SICPRO_ERP_blanco.png'"
+                       alt="SICPRO Logo"
+                       style="height: 40px; width: auto; margin-right: 12px; object-fit: contain;"/>
+                  SICPRO ERP
+                </h3>
+                <p class="mt-4 small text-white-50" style="line-height: 1.6;">
+                  Es una solución que se enfoca en las necesidades de la DVPE, convirtiéndose en un
+                  sistema de gestión de la información, estructurado para satisfacer las demandas de soluciones de la
+                  gestión empresarial, basado en el ofrecimiento de una solución completa que permita a los procesos
+                  claves y de apoyo evaluar, implementar y gestionar más fácilmente su negocio.
+                </p>
+              </div>
+
+              <div class="col-md-3 ps-md-5">
+                <h6 class="text-white fw-bold mb-4" style="padding-top: 12px;">Información</h6>
+                <ul class="list-unstyled small">
+                  <li class="mb-3"><a href="#hero" class="text-white-50 text-decoration-none hover-link">Inicio</a></li>
+                  <li class="mb-3"><a href="#about" class="text-white-50 text-decoration-none hover-link">
+                    Nosotros</a></li>
+                  <li class="mb-3">
+                    <a href="#" class="text-white-50 text-decoration-none hover-link" data-bs-toggle="modal"
+                       data-bs-target="#ticketModal">Soporte Técnico</a>
+                  </li>
+                  <li class="mb-3"><a href="https://www.dvpe.etecsa.cu/"
+                                      class="text-white-50 text-decoration-none hover-link">Portal DVPE</a></li>
+                </ul>
+              </div>
+
+              <div class="col-md-4">
+                <h6 class="text-white fw-bold mb-4" style="padding-top: 12px;">Ubicación</h6>
+                <div class="text-white-50">
+                  <p class="small mb-2 d-flex"><i class="fas fa-map-marker-alt me-3 mt-1"/> Avenida Carlos III / Calle
+                    Santiago y Belascoaín, Habana, Cuba.</p>
+                  <p class="small mb-2 d-flex"><i class="fa fa-building me-3 mt-1"/> Edificio Masónico</p>
+                  <p class="small mb-2 d-flex"><i class="fa fa-map me-3 mt-1"/> Oficina 920</p>
+                  <p class="small mb-2 d-flex"><i class="fa fa-phone me-3 mt-1"/> +53 52183663</p>
+                  <p class="small mb-2 d-flex align-items-center">
+                    <i class="fa fa-envelope me-3"/>
+                    <a href="mailto:daniel.borrero@etecsa.cu" class="text-decoration-none text-reset">
+                      daniel.borrero@etecsa.cu
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <hr class="my-5 border-secondary" style="opacity: 0.2;"/>
+
+            <div class="text-center small pb-4 opacity-75">
+              <img t-att-src="'/sicpro_modulo_web/static/src/img/etecsaCi_300_6_blanco.png'"
+                   alt="ETECSA"
+                   style="height: 20px; width: auto; margin-right: 8px; object-fit: contain; vertical-align: middle;"/>
+              <span style="vertical-align: middle;"> © <span t-esc="datetime.datetime.now().year"/> División de
+                Proyectos y Ejecución de Obras. 🌹</span>
+            </div>
+          </div>
+        </footer>
+        <!--    fin del footer-->
+      </div>
+
+      <script src="/sicpro_modulo_web/static/src/js/bootstrap.bundle.min.js"></script>
+      <script src="/sicpro_modulo_web/static/src/js/aos.js"></script>
+      <script src="/sicpro_modulo_web/static/src/js/directorio.js"></script>
+    </t>
+  </template>
+</odoo>

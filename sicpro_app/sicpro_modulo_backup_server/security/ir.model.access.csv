@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sicpro_backup_local,sicpro.backup.local,model_sicpro_backup_local,base.group_user,1,1,1,1
+access_sicpro_backup_local_detalles,sicpro.backup.local.detalles,model_sicpro_backup_local_detalles,base.group_user,1,1,1,1
+access_sicpro_backup_eliminacion_wizard,sicpro.backup.eliminacion,model_sicpro_backup_eliminacion,base.group_user,1,1,1,1
+access_sicpro_backup_remote_server,access.sicpro.backup.remote.server,model_sicpro_backup_remote_server,base.group_user,1,1,1,1
+access_sicpro_backup_mensaje_wizard,access.sicpro.backup.mensaje.wizard,model_sicpro_backup_mensaje_wizard,base.group_user,1,1,1,1

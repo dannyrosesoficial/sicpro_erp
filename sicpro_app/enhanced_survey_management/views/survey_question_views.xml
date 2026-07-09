@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="survey_question_form" model="ir.ui.view">
+        <field name="name">survey.question.view.form.inherit.enhanced.survey.management</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_preview_questions')]" position="inside">
+                <div invisible="question_type != 'time'">
+                    <span>Work Start Time</span><br/>
+                    <i class="fa fa-clock-o"> &#160; --:--</i>
+                </div>
+                <div invisible="question_type != 'email'">
+                    <span>Email Address</span><br/>
+                    <i class="fa fa-envelope"> &#160; ________@____.com</i>
+                </div>
+                <div invisible="question_type != 'month'">
+                    <span>Month Selection</span><br/>
+                    <i class="fa fa-calendar"> &#160; MM / YYYY</i>
+                </div>
+                <div invisible="question_type != 'password'">
+                    <span>Password</span><br/>
+                    <i class="fa fa-lock"> &#160; *********</i>
+                </div>
+                <div invisible="question_type != 'range'">
+                    <span>Range / Volume</span><br/>
+                    <i class="fa fa-bullseye"> ---|--- </i>
+                </div>
+                <div invisible="question_type != 'signature'">
+                    <span>Signature</span><br/>
+                    <i class="fa fa-pencil-square-o"> &#160; _________</i>
+                </div>
+                <div invisible="question_type != 'address'">
+                    <span>Full Address</span><br/>
+                    <i class="fa fa-map-marker"> &#160; Street, City, ZIP</i>
+                </div>
+                <div invisible="question_type != 'name'">
+                    <span>Full Name</span><br/>
+                    <i class="fa fa-user"> &#160; First Middle Last</i>
+                </div>
+                <div invisible="question_type != 'url'">
+                    <span>Website URL</span><br/>
+                    <i class="fa fa-link"> &#160; https://...</i>
+                </div>
+                <div invisible="question_type != 'week'">
+                    <span>Week Number</span><br/>
+                    <i class="fa fa-calendar-minus-o"> &#160; Week --, YYYY</i>
+                </div>
+                <div invisible="question_type != 'color'">
+                    <span>Color Picker</span><br/>
+                    <i class="fa fa-paint-brush"> &#160; [ #000000 ]</i>
+                </div>
+                <div invisible="question_type != 'qr'"><i class="fa fa-qrcode"> Scan QR</i></div>
+                <div invisible="question_type != 'barcode'"><i class="fa fa-barcode"> Scan Barcode</i></div>
+                <div invisible="question_type != 'file'"><i class="fa fa-cloud-upload"> Upload File</i></div>
+                <div invisible="question_type != 'selection'">
+    <span>Dropdown List</span><br/>
+    <i class="fa fa-chevron-down" title="Flecha hacia abajo"/>
+</div>
+                <div invisible="question_type != 'many2one'">
+    <span>Record Link</span><br/>
+    <i class="fa fa-database" title="Base de datos"/>
+</div>
+<div invisible="question_type != 'many2many'">
+    <span>Tags Selector</span><br/>
+    <span title="Tags">( ) ( ) ( )</span>
+</div>
+            </xpath>
+
+            <xpath expr="//page[@name='answers']/group" position="inside">
+                <group invisible="question_type not in ['many2one', 'many2many']" string="Configuración de Modelo">
+                    <field name="model_id" required="question_type in ['many2one', 'many2many']" options="{'no_create': True}"/>
+                </group>
+
+                <group invisible="question_type != 'selection'" string="Opciones de Selección">
+                    <field name="selection_ids" nolabel="1" colspan="2">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                        </list>
+                    </field>
+                </group>
+
+                <group invisible="question_type not in ['range', 'qr', 'barcode']" string="Ajustes Técnicos">
+                    <field name="range_min" invisible="question_type != 'range'"/>
+                    <field name="range_max" invisible="question_type != 'range'"/>
+                    <field name="qrcode" invisible="question_type != 'qr'"/>
+                    <field name="barcode" invisible="question_type != 'barcode'"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='suggested_answer_ids']/list/field[@name='value']" position="after">
+                <field name="answer_type"
+                       invisible="parent.matrix_subtype != 'custom'"/>
+                <field name="model_id"
+                       invisible="answer_type != 'many2one'"
+                       required="answer_type == 'many2one'"
+                       invisible="parent.matrix_subtype != 'custom'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

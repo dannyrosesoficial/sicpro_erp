@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="formato_papel_horizontal_vivienda_estadisticas" model="report.paperformat">
+    <field name="name">Papel Vertical Vivienda estadísticas</field>
+    <field name="format">A4</field>
+    <field name="orientation">Portrait</field>
+  </record>
+
+  <record id="informe_modelo_vivienda_estadisticas_action" model="ir.actions.report">
+    <field name="name">Estadísticas del Programa de la Vivienda</field>
+    <field name="model">sicpro.app.vivienda.reporte.estadistica</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="paperformat_id" ref="formato_papel_horizontal_vivienda_estadisticas"/>
+    <field name="report_name">sicpro_app_programa_viviendas.informe_modelo_vivienda_estadisticas</field>
+    <field name="report_file">sicpro_app_programa_viviendas.informe_modelo_vivienda_estadisticas</field>
+    <field name="print_report_name">'Estadísticas del Programa de la Vivienda'</field>
+    <field name="binding_model_id" ref="model_sicpro_app_vivienda_reporte_estadistica"/>
+    <field name="binding_type">report</field>
+  </record>
+
+  <template id="informe_modelo_vivienda_estadisticas">
+
+    <t t-call="web.html_container">
+
+      <!-- sección del header -->
+      <div t-attf-class="header" t-att-style="report_header_style">
+        <div class="row">
+          <div class="col-3 mb4">
+            <img src="sicpro_app_programa_viviendas/static/src/img/etecsaId_300_8.png" style="max-height: 55px;"
+                 alt="Logo"/>
+          </div>
+        </div>
+        <div class="row zero_min_height">
+          <div class="col-12">
+            <div style="border-bottom: 1px solid black;"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <small> División de Proyectos y Ejecución de Obras</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- sección de datos -->
+      <div t-attf-class="article">
+        <!-- sección del page -->
+        <t t-foreach="docs" t-as="inf">
+
+          <table border="0" cellspacing="0">
+            <colgroup width="84" span="4"></colgroup> <colgroup width="222"></colgroup>
+            <colgroup width="95"></colgroup> <colgroup width="72"></colgroup> <colgroup
+              width="85"></colgroup>
+            <tbody>
+              <t t-set="programa" t-value="inf.report_busca_programa()"/>
+              <t t-set="count_lista" t-value="1"/>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="8"
+                    align="center" height="18"><b><font face="Calibri">Estadística que
+                  se asocia al programa de la vivienda</font></b></td>
+              </tr>
+              <tr>
+                <td style="border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="8"
+                    align="center" height="18"><b><font face="Calibri">
+                </font></b></td>
+              </tr>
+              <t t-foreach='programa' t-as='beneficiados'>
+                <tr>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000"
+                      colspan="3"
+                      align="left" height="18"><font face="Calibri">Unidad Organizativa:</font></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="3"
+                      align="left"><b><font face="Calibri">DVPE</font></b></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="left"><font face="Calibri"> Período:</font></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="left"><font color="#FF0000" face="Calibri"><t
+                      t-out="beneficiados['etapa']"/></font></td>
+                </tr>
+                <tr>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="8"
+                      align="center" valign="middle" height="18"><font face="Calibri">
+                  </font></td>
+                </tr>
+                <tr>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="8" rowspan="2"
+                      align="center" valign="middle" height="34"><b><font face="Calibri">TRABAJADORES
+                    BENEFICIADOS</font></b></td>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="4"
+                      align="left" height="18"><font face="Calibri">TRABAJADORES
+                    BENEFICIADOS:</font></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="4" sdval="89" sdnum="9226;" align="left"><t
+                      t-out="beneficiados['beneficiados']"/></td>
+                </tr>
+                <tr>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="4"
+                      align="left" height="18"><font face="Calibri">DE ELLOS MUJERES:</font></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="4" sdval="54" sdnum="9226;" align="left"><t
+                      t-out="beneficiados['mujeres']"/></td>
+                </tr>
+                <tr>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="8"
+                      align="center" valign="middle" height="18"><font face="Calibri">
+                  </font></td>
+                </tr>
+                <tr>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="8" rowspan="2"
+                      align="center" valign="middle" height="34"><b><font face="Calibri">GESTIÓN
+                    DEL PRESUPUESTO:</font></b></td>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                  <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="2"
+                      align="right" valign="middle" height="18"><font face="Calibri">TOTAL
+                    ASIGNADO:</font></td>
+                  <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      sdval="787" sdnum="9226;" align="center" valign="middle"><b><font
+                      face="Calibri"><t t-out="beneficiados['asignado']"/></font></b></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="3"
+                      align="left" valign="middle">MONTO PAGADO PENDIENTE DE FACTURAR:</td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="2" sdval="56" sdnum="9226;" align="center" valign="middle"><t
+                      t-out="beneficiados['pendiente_facturar']"/></td>
+                </tr>
+                <tr>
+                  <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="2"
+                      align="right" valign="middle" height="18"><font face="Calibri">TOTAL
+                    EJECUTADO:</font></td>
+                  <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      align="center" valign="middle"><b><font face="Calibri"><t
+                      t-out="beneficiados['ejecutado']"/></font></b></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="3"
+                      align="left" valign="middle">% DE EJECUCIÓN:</td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="2"
+                      align="center" valign="middle"><t t-out="beneficiados['avance']"/>%</td>
+                </tr>
+                <tr>
+                  <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="8"
+                      align="center" valign="middle" height="18"><b><font face="Calibri">
+                  </font></b></td>
+                </tr>
+                <tr>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="8" rowspan="2"
+                      align="center" valign="middle" height="34"><b><font face="Calibri">LISTADO
+                    DE MATERIALES GESTIONADOS:</font></b></td>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                  <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      align="center" height="17"><b>No</b></td>
+                  <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="4"
+                      align="center" valign="middle"><b>DENOMINACIÓN</b></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      align="center"><b>U/M</b></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="2"
+                      align="center" valign="middle"><b>CANTIDAD</b></td>
+                </tr>
+                <t t-set="materiales" t-value="beneficiados['materiales']"/>
+                <t t-foreach="materiales" t-as="material">
+                  <tr>
+                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                        sdval="1" sdnum="9226;" align="center" height="18"><span
+                        t-out="count_lista"/></td>
+                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                        colspan="4"
+                        align="center" valign="middle"><t t-out="material['material']"/></td>
+                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                        align="center"><t t-out="material['um']"/></td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                        colspan="2" align="center" valign="middle"><t
+                        t-out="material['cantidad']"/></td>
+                  </tr>
+
+                  <t t-set="count_lista" t-value="count_lista + 1"/>
+                </t>
+              </t>
+            </tbody>
+          </table>
+
+        </t>
+        <t t-call="web.address_layout"/>
+      </div>
+      <t t-out="0"/>
+
+      <!-- sección del footer -->
+      <div t-attf-class="footer o_standard_footer">
+        <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+          Cuba.</span>
+        <div style="border-top: 1px solid black;">
+          <ul class="list-inline mb4">
+            <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+              <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+            <br/>
+            <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+              Justicia de la República de Cuba.
+              Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+          </ul>
+          <div t-if="report_type == 'pdf'" class="text-center text-muted">
+            Página: <span class="page"/> / <span class="topage"/>
+          </div>
+        </div>
+      </div>
+
+    </t>
+  </template>
+
+</odoo>

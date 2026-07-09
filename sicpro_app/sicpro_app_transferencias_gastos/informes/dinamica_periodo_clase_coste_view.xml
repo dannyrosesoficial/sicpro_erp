@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="transferencias_periodos_clase_coste_views_pivot" model="ir.ui.view">
+    <field name="name">sicpro.app.transferencias.gastos.view.pivot</field>
+    <field name="model">sicpro.app.transferencias.gastos</field>
+    <field name="priority" eval="10"/>
+    <field name="arch" type="xml">
+      <pivot string="Análisis de Clases de Coste por Periodos">
+        <field name="mes" type="row"/>
+        <field name="denom_cl_coste" type="col"/>
+        <field name="valor_var" string='Valor variable' type="measure" widget="monetary"/>
+      </pivot>
+    </field>
+  </record>
+
+  <record id="transferencias_periodos_clase_coste_views_action" model="ir.actions.act_window">
+    <field name="name">Análisis de Clases de Coste por Periodos</field>
+    <field name="res_model">sicpro.app.transferencias.gastos</field>
+    <field name="view_id" ref="transferencias_periodos_clase_coste_views_pivot"/>
+    <field name="context">{'search_default_anio': (context_today().strftime('%Y'))}</field>
+    <field name="view_mode">pivot,graph</field>
+  </record>
+</odoo>

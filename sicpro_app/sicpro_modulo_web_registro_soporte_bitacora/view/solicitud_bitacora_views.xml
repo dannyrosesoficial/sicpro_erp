@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_solicitudes_soporte_bitacora_form" model="ir.ui.view">
+    <field name="name">sicpro.app.solicitudes.soporte.bitacora.form</field>
+    <field name="model">sicpro.app.soporte.bitacora</field>
+    <field name="inherit_id" ref="sicpro_app_soporte.view_soporte_bitacora_form"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//header" position="inside">
+        <button name="cerrar_ticket_solicitud" string="Cerrar Ticket" type="object"
+                class="oe_highlight" invisible="ticket_cerrado"/>
+      </xpath>
+
+      <xpath expr="//group[@name='consecutivo']" position="inside">
+        <label for="numero_consecutivo" string="No. Solicitud"/>
+        <div class="o_row">
+          <field name="ticket_cerrado" invisible="1"/>
+          <field name="numero_consecutivo" readonly="1" class="fw-bold"/>
+          <button type="object" name="ver_solicitud" class="btn btn-link p-0 fa-solid fa-bullhorn"
+                  title="Ver Solicitud Original" aria-label="Ver Solicitud"/>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>

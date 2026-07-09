@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+    <t t-name="sicpro_app_transferencias_gastos.transferir" t-inherit="web.ListView" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o_list_button_add')]" position="before">
+            <t t-if="props.resModel === 'sicpro.app.transferencias.gastos.importar'">
+                <button type="button"
+                        class="btn btn-primary ms-1"
+                        t-on-click="_onTransferir_cj74">
+                    Transferir
+                </button>
+                <button type="button"
+                        class="btn btn-secondary ms-1"
+                        t-on-click="_onSubir_cj74">
+                    <i class="fa fa-upload me-1"/> Subir
+                </button>
+            </t>
+        </xpath>
+
+        <xpath expr="//button[hasclass('o_list_button_add')]" position="attributes">
+            <attribute name="t-if">props.resModel !== 'sicpro.app.transferencias.gastos.importar'</attribute>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="transferencias_gastos_importar_search" model="ir.ui.view">
+    <field name="name">sicpro.app.transferencias.gastos.importar.search</field>
+    <field name="model">sicpro.app.transferencias.gastos.importar</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="objeto" string="Consecutivo de la orden"/>
+        <field name="usuario"/>
+        <field name="mes"/>
+        <separator/>
+        <filter string="Gastos Pendientes" name="pendiente" domain="[('name', '=', 'pendiente')]"/>
+        <filter string="Gastos con Errores" name="error" domain="[('name', '=', 'error')]"/>
+        <separator/>
+        <filter string="Fe.contabilización" name="fecha_contable" date="fecha_contable"/>
+        <filter string="Fecha de documento" name="fecha_doc" date="fecha_doc"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+        <separator/>
+        <group>
+          <filter name="objeto" string="Consecutivo de la orden" context="{'group_by': 'objeto'}"/>
+          <filter name="mes" string="Mes" context="{'group_by': 'mes'}"/>
+          <filter name="cl_coste" string="Cuentas" context="{'group_by': 'cl_coste'}"/>
+          <filter name="usuario" string="Usuario SAP" context="{'group_by': 'usuario'}"/>
+          <filter name="material" string="Material" context="{'group_by': 'material'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="transferencias_gastos_importar_list" model="ir.ui.view">
+    <field name="name">sicpro.app.transferencias.gastos.importar.list</field>
+    <field name="model">sicpro.app.transferencias.gastos.importar</field>
+    <field name="priority">50</field>
+    <field name="arch" type="xml">
+      <list string="Importar Transferencias" decoration-bf="0" create="0" sample="1"
+            decoration-warning="name == 'error' or orden == False">
+        <header>
+        </header>
+        <field name="name" readonly="1" class="font-weight-bold" widget="badge"
+               decoration-info="name == 'pendiente'" decoration-warning="name == 'error'"/>
+        <field name="per" readonly="1" optional="hide"/>
+        <field name="anio" readonly="1"/>
+        <field name="mes" readonly="1" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="fecha_contable" readonly="1"/>
+        <field name="fecha_doc" readonly="1" optional="hide"/>
+        <field name="orden" column_invisible="1"/>
+        <field name="objeto" readonly="1"/>
+        <field name="denominacion_objeto" readonly="1"/>
+        <field name="valor_var" column_invisible="1"/>
+        <field name="company_id" column_invisible="1"/>
+        <field name="company_currency" column_invisible="1"/>
+        <field name="valor_var" readonly="1"/>
+        <field name="monO" readonly="1"/>
+        <field name="cl_coste" readonly="1"/>
+        <field name="denom_cl_coste" readonly="1"/>
+        <field name="cta_cp" readonly="1" optional="hide"/>
+        <field name="denomctacp" readonly="1" optional="hide"/>
+        <field name="n_doc" readonly="1" optional="hide"/>
+        <field name="n_doc_ref" readonly="1" optional="hide"/>
+        <field name="denominacion" readonly="1"/>
+        <field name="usuario" readonly="1"/>
+        <field name="texto_cabecera_documento" readonly="1" optional="hide"/>
+        <field name="material" readonly="1" optional="hide"/>
+        <field name="texto_breve_material" readonly="1" optional="hide"/>
+        <field name="ud_cantidad_contab" readonly="1" optional="hide"/>
+        <field name="cantidad_total_reg" readonly="1" optional="hide"/>
+      </list>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="transferencias_gastos_importar_action">
+    <field name="name">Plantilla CJ74 SAP</field>
+    <field name="res_model">sicpro.app.transferencias.gastos.importar</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="transferencias_gastos_importar_list"/>
+    <field name="search_view_id" ref="transferencias_gastos_importar_search"/>
+    <field name="context">{'search_default_pendiente': 1}</field>
+  </record>
+</odoo>

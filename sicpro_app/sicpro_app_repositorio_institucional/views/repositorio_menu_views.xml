@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <menuitem id="menu_repositorio_institucional_root" sequence="10" groups="group_repositorio_institucional_user"
+            name="Repositorio Institucional"
+            web_icon="sicpro_app_repositorio_institucional,static/description/icon.png"/>
+
+  <menuitem name="Repositorios" id="menu_repositorio_institucional_repositorios"
+            parent="menu_repositorio_institucional_root" sequence="1"
+            action="view_repositorio_institucional_inicio_view_action"
+            groups="group_repositorio_institucional_user"/>
+
+  <menuitem name="Configuración" id="menu_repositorio_institucional_configuracion"
+            parent="menu_repositorio_institucional_root" sequence="99"
+            groups="group_repositorio_institucional_responsable"/>
+
+  <menuitem id="menu_view_repositorio_institucional_etiquetas" name="Palabras Clave"
+            parent="menu_repositorio_institucional_configuracion"
+            action="action_view_repositorio_institucional_etiquetas" sequence="1"/>
+
+  <menuitem id="menu_view_repositorio_institucional_estado" name="Estados"
+            parent="menu_repositorio_institucional_configuracion"
+            action="action_view_repositorio_institucional_estado" sequence="2"/>
+
+  <menuitem id="menu_view_repositorio_institucional_facultad" name="Instituciones"
+            parent="menu_repositorio_institucional_configuracion"
+            action="action_view_repositorio_institucional_facultad" sequence="3"/>
+
+  <menuitem id="menu_view_repositorio_institucional_licencia" name="Licencias"
+            parent="menu_repositorio_institucional_configuracion"
+            action="action_view_repositorio_institucional_licencia" sequence="4"/>
+
+  <menuitem id="menu_view_repositorio_institucional_tipos" name="Tipos de repositorios"
+            parent="menu_repositorio_institucional_configuracion"
+            action="action_view_repositorio_institucional_tipo" sequence="5"/>
+</odoo>

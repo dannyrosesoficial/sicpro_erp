@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="nomenclador_departamentos_filter_view" model="ir.ui.view">
+    <field name="name">Buscar Departamento</field>
+    <field name="model">sicpro.nomenclador.departamentos</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Departamento">
+        <field name="name" string="Nombre"/>
+        <field name="company_id"/>
+        <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        <separator/>
+        <group>
+          <filter name="company_id" string="Proceso" context="{'group_by': 'company_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="nomenclador_departamentos_list_view" model="ir.ui.view">
+    <field name="name">nomenclador.departamentos.list.view</field>
+    <field name="model">sicpro.nomenclador.departamentos</field>
+    <field name="arch" type="xml">
+      <list string="Departamentos" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+        <field name="company_id"/>
+        <field name="active" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="action_nomenclador_departamentos" model="ir.actions.act_window">
+    <field name="name">Departamentos</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.nomenclador.departamentos</field>
+    <field name="view_mode">list</field>
+  </record>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record model="ir.ui.view" id="calendario_cargos_externos_search_view">
+    <field name="name">calendar.cargos.externos.search</field>
+    <field name="model">calendar.cargos.externos</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="name"/>
+      </search>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="calendario_cargos_externos_list_view">
+    <field name="name">calendar.cargos.externos.list</field>
+    <field name="model">calendar.cargos.externos</field>
+    <field name="arch" type="xml">
+      <list string="Cargos Externos" editable="bottom">
+        <field name="name"/>
+        <field name="active" column_invisible="1"/>
+        <field name="color" widget="color_picker"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="calendario_cargos_externos_action" model="ir.actions.act_window">
+    <field name="name">Cargos Externos</field>
+    <field name="res_model">calendar.cargos.externos</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear un nuevo cargo externo
+      </p>
+    </field>
+  </record>
+</odoo>

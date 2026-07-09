@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+    <t t-name="sicpro_modulo_widget_contador.NumericStep">
+        <div t-att-class="'d-flex widget_numeric_step ' + (props.additional_class || '')">
+            <div class="input-group-prepend">
+                <button class="fa fa-minus btn btn-secondary btn_numeric_step"
+                        type="button"
+                        title="Menos"
+                        t-att-disabled="props.readonly"
+                        t-on-click="_onStepClick"
+                        data-mode="minus"/>
+            </div>
+
+          <input type="number"
+                 class="form-control text-center o_input"
+                 t-att-readonly="props.readonly"
+                 t-att-value="props.record.data[props.name]"
+                 t-on-change="_onInputChange"/> <div class="input-group-append">
+
+                <button class="fa fa-plus btn btn-secondary btn_numeric_step"
+                        type="button"
+                        title="Más"
+                        t-att-disabled="props.readonly"
+                        t-on-click="_onStepClick"
+                        data-mode="plus"/>
+            </div>
+        </div>
+    </t>
+</templates>

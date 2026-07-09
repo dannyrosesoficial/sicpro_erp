@@ -1,0 +1,42 @@
+# 1. Ignorar el core de Odoo
+odoo/
+Odoo/
+
+# 2. Ignorar configuraciones sensibles
+config/
+*.conf
+.env
+
+# 3. Ignorar logs
+log/
+logs/
+*.log
+
+# 4. Ignorar datos pesados y dependencias
+data/
+Paketes Necesarios/
+Paketes\ Necesarios/
+.local/
+filestore/
+sessions/
+backups/
+
+# 5. Archivos compilados de Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.pytest_cache/
+
+# 6. Configuraciones de IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 7. Archivos basura del Sistema Operativo
+.DS_Store
+Thumbs.db
+
+# 8. Archivos temporales de sincronización
+.sync_*.db

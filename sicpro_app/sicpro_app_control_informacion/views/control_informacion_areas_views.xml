@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="control_informacion_areas_list" model="ir.ui.view">
+    <field name="name">sicpro.app.control.informacion.areas.list</field>
+    <field name="model">sicpro.app.control.informacion.areas</field>
+    <field name="arch" type="xml">
+      <list string="Áreas de Control" editable="bottom">
+        <field name="name" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="company_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="active" column_invisible="1"/>
+        <field name="color" widget="color_picker"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="control_informacion_areas_action" model="ir.actions.act_window">
+    <field name="name">Áreas de Control</field>
+    <field name="res_model">sicpro.app.control.informacion.areas</field>
+    <field name="view_id" ref="control_informacion_areas_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear nueva área
+      </p>
+    </field>
+  </record>
+</odoo>

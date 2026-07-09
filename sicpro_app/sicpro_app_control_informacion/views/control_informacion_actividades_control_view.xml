@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="control_informacion_actividades_control_search" model="ir.ui.view">
+    <field name="name">sicpro.app.control.informacion.control.actividades.search</field>
+    <field name="model">sicpro.app.control.informacion.control.actividades</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="name"/>
+        <field name="anio" string="Año"/>
+        <field name="mes" string="Mes"/>
+        <field name="mes_id" string="Número del Mes"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+        <separator/>
+        <filter string="Año Actual" name="filter_anio_actual"
+                domain="[('anio', '=', context_today().strftime('%Y'))]"/>
+        <filter string="Mes Actual" name="filter_mes_actual"
+                domain="[('mes_id', '=', context_today().strftime('%m'))]"/>
+        <separator/>
+        <filter string="Enviados" name="enviados" domain="[('estado', '=', 'enviado')]"/>
+        <filter string="Pendientes" name="pendiente" domain="[('estado', '=', 'pendiente')]"/>
+        <filter string="Atrasado" name="atrasado" domain="[('estado', '=', 'atrasado')]"/>
+        <filter string="Validado" name="validado" domain="[('estado', '=', 'validado')]"/>
+        <separator/>
+        <group>
+          <filter string="Área Informativa" name="area" context="{'group_by':'area'}"/>
+          <filter string="Estado" name="estado" context="{'group_by':'estado'}"/>
+          <filter string="Mes" name="mes_by" context="{'group_by':'mes'}"/>
+          <separator orientation="vertical"/>
+          <filter string="Fecha de Entrega" context="{'group_by':'fecha_entrega:month'}" name="entrega"/>
+          <filter string="Fecha de Requerida" context="{'group_by':'fecha_requerida:month'}" name="requerida"/>
+          <filter string="Año" context="{'group_by':'anio'}" name="anio_by"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="control_informacion_actividades_control_list" model="ir.ui.view">
+    <field name="name">sicpro.app.control.informacion.control.actividades.list</field>
+    <field name="model">sicpro.app.control.informacion.control.actividades</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+      <list string="Actividades de Control" create="false" delete="true" editable="bottom" sample="1">
+        <button name="ver_informacion" type="object" class="btn-info text-black" icon="fa-history"
+                string="Historial" context="{'default_actividad': name, 'default_area': area,
+                                                'default_mes': mes, 'default_anio': anio}"/>
+        <field name="name" readonly="1"/>
+        <field name="area" readonly="1"/>
+        <field name="fecha_entrega" readonly="1"/>
+        <field name="fecha_requerida" readonly="1"/>
+        <field name="estado" readonly="1" widget="badge" decoration-success="estado=='validado'"
+               decoration-warning="estado in ['pendiente', 'devuelto']"
+               decoration-danger="estado=='atrasado'" decoration-info="estado=='enviado'"/>
+        <field name="versiones_ids" widget="many2many_tags" options="{'color_field': 'color'}" invisible="1"/>
+        <field name="versiones_control" readonly="1"/>
+        <field name="versiones_fechas" class="font-weight-bold" readonly="1"/>
+        <field name="veracidad"/>
+        <field name="ajuste_formato"/>
+        <field name="completitud"/>
+        <field name="observaciones"/>
+        <field name="evaluacion_final" class="font-weight-bold"/>
+        <field name="mes" readonly="1"/>
+        <field name="mes_id" invisible="1"/>
+        <field name="anio" readonly="1"/>
+        <field name="color" widget="color_picker" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="control_informacion_actividades_control_action" model="ir.actions.act_window">
+    <field name="name">Actividades de Control</field>
+    <field name="res_model">sicpro.app.control.informacion.control.actividades</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="control_informacion_actividades_control_list"/>
+    <field name="search_view_id" ref="control_informacion_actividades_control_search"/>
+    <field name="domain">[('name', '=', active_id)]</field>
+    <field name="context">{'default_name': active_id, }</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear nueva actividad
+      </p>
+    </field>
+  </record>
+
+  <record id="control_informacion_actividades_control_general_action" model="ir.actions.act_window">
+    <field name="name">Actividades de Control</field>
+    <field name="res_model">sicpro.app.control.informacion.control.actividades</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="control_informacion_actividades_control_list"/>
+    <field name="search_view_id" ref="control_informacion_actividades_control_search"/>
+    <field name="context">{'search_default_anio': (context_today().strftime('%Y')),
+                           'search_default_mes_id': (context_today().strftime('%m')), }
+    </field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear nueva actividad
+      </p>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_multimedia_tag_user,sicpro.multimedia.tag.user,model_sicpro_multimedia_tag,group_multimedia_user,1,0,0,0
+access_multimedia_tag_admin,sicpro.multimedia.tag.admin,model_sicpro_multimedia_tag,group_multimedia_admin,1,1,1,1
+access_multimedia_asset_user,sicpro.multimedia.asset.user,model_sicpro_multimedia_asset,group_multimedia_user,1,1,1,0
+access_multimedia_asset_admin,sicpro.multimedia.asset.admin,model_sicpro_multimedia_asset,group_multimedia_admin,1,1,1,1

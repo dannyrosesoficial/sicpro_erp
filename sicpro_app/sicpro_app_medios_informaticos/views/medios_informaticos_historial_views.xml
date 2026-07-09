@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="medios_informaticos_historial_list" model="ir.ui.view">
+    <field name="name">sicpro.app.medios.informaticos.historial.list</field>
+    <field name="model">sicpro.app.medios.informaticos.historial</field>
+    <field name="priority">50</field>
+    <field name="arch" type="xml">
+      <list string="historial Medios Informáticos" create="false">
+        <field name="name"/>
+        <field name="fecha"/>
+        <field name="registros_creados"/>
+        <field name="list_registros_creados"/>
+        <field name="registros_actualizados"/>
+        <field name="list_registros_actualizados"/>
+        <field name="registros_archivados"/>
+        <field name="list_registros_archivados"/>
+        <field name="estado"/>
+        <field name="descripcion_estado"/>
+      </list>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="medios_informaticos_historial_action">
+    <field name="name">Historial de actualizaciones</field>
+    <field name="res_model">sicpro.app.medios.informaticos.historial</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="medios_informaticos_historial_list"/>
+    <field name="context">{'search_default_pendiente': 1}</field>
+  </record>
+</odoo>

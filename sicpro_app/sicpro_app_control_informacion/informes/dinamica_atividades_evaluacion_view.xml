@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="control_informaciones_actividades_evaluaciones_views_pivot" model="ir.ui.view">
+    <field name="name">sicpro.app.control.informacion.control.actividades.pivot</field>
+    <field name="model">sicpro.app.control.informacion.control.actividades</field>
+    <field name="priority" eval="10"/>
+    <field name="arch" type="xml">
+      <pivot string="Análisis de la Evaluación de la Información" display_quantity="1" sample="1">
+        <field name="area" type="row"/>
+        <field name="name" type="col"/>
+        <field name="evaluacion_final" type="measure"/>
+      </pivot>
+    </field>
+  </record>
+
+  <record id="control_informaciones_actividades_evaluaciones_views_graph" model="ir.ui.view">
+    <field name="name">sicpro.app.control.informacion.control.actividades.graph</field>
+    <field name="model">sicpro.app.control.informacion.control.actividades</field>
+    <field name="arch" type="xml">
+      <graph string="Análisis de la Evaluación de la Información" type="bar" stacked="0" sample="1">
+        <field name="area" type="row"/>
+        <field name="name" type="col"/>
+        <field name="evaluacion_final" type="measure" operator="+"/>
+      </graph>
+    </field>
+  </record>
+
+  <record id="control_informaciones_actividades_evaluaciones_action" model="ir.actions.act_window">
+    <field name="name">Análisis de la evaluación de la información</field>
+    <field name="res_model">sicpro.app.control.informacion.control.actividades</field>
+    <field name="view_mode">pivot,graph</field>
+    <field name="context">{'search_default_filter_anio_actual': 1, 'search_default_filter_mes_actual': 1}</field>
+  </record>
+</odoo>

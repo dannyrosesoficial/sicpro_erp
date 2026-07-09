@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+    <t t-inherit="mail.MessagingMenu" t-inherit-mode="extension">
+        <xpath expr="//span[contains(@class, 'o-mail-MessagingMenu-counter')]" position="attributes">
+            <attribute name="style">background-color: #DC3545 !important; color: white !important;</attribute>
+        </xpath>
+    </t>
+
+    <t t-inherit="mail.ActivityMenu" t-inherit-mode="extension">
+        <xpath expr="//span[contains(@class, 'o-mail-ActivityMenu-counter')]" position="attributes">
+            <attribute name="style">background-color: #DC3545 !important; color: white !important;</attribute>
+        </xpath>
+    </t>
+</templates>

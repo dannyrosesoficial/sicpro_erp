@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="transferencias_ordenes_morosidad_list" model="ir.ui.view">
+    <field name="name">sicpro.app.transferencias.gastos.ordenes.morosidad.list</field>
+    <field name="model">sicpro.app.transferencias.gastos.ordenes.morosidad</field>
+    <field name="arch" type="xml">
+      <list string="Morosidad" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+        <field name="active" column_invisible="1"/>
+        <field name="company_id"/>
+        <field name="company_abreviatura"/>
+        <field name="color" widget="color_picker"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="transferencias_ordenes_morosidad_action" model="ir.actions.act_window">
+    <field name="name">Tiempo de certificación de gastos del inversionista</field>
+    <field name="res_model">sicpro.app.transferencias.gastos.ordenes.morosidad</field>
+    <field name="view_id" ref="transferencias_ordenes_morosidad_list"/>
+  </record>
+</odoo>

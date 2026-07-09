@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="sicpro_modulo_ldap_registros_filter_view" model="ir.ui.view">
+    <field name="name">Buscar</field>
+    <field name="model">sicpro.app.modulo.ldap.registros</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="cn"/>
+        <field name="mail"/>
+        <field name="departmentNumber"/>
+        <field name="employeeNumber"/>
+        <field name="ou"/>
+        <field name="telephoneNumber"/>
+        <field name="mobile"/>
+        <field name="title"/>
+        <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+        <group>
+          <filter string="Unidad Organizativa" name="ou" domain="[]" context="{'group_by':'ou'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="sicpro_modulo_ldap_registros_list_view" model="ir.ui.view">
+    <field name="name">sicpro.app.modulo.ldap.registros.list.view</field>
+    <field name="model">sicpro.app.modulo.ldap.registros</field>
+    <field name="arch" type="xml">
+      <list create="false" edit="false">
+        <field name="active" column_invisible="1"/>
+        <field name="employeeNumber"/>
+        <field name="cn"/>
+        <field name="title"/>
+        <field name="departmentNumber"/>
+        <field name="mail"/>
+        <field name="telephoneNumber"/>
+        <field name="mobile"/>
+        <field name="ou"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="sicpro_modulo_ldap_registros_kanban_view" model="ir.ui.view">
+    <field name="name">sicpro.app.modulo.ldap.registros.kanban</field>
+    <field name="model">sicpro.app.modulo.ldap.registros</field>
+    <field name="arch" type="xml">
+      <kanban sample="1">
+        <field name="employeeNumber"/>
+        <field name="cn"/>
+        <field name="title"/>
+        <field name="departmentNumber"/>
+        <field name="mail"/>
+        <field name="telephoneNumber"/>
+        <field name="mobile"/>
+        <field name="ou"/>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+
+              <div class="o_kanban_image_fill_left d-none d-md-block"
+                   t-attf-style="background-image:url('/sicpro_app_clientes/static/src/img/etecsaCi_300_8.png')">
+              </div>
+
+              <div class="oe_kanban_details">
+                <strong class="o_kanban_record_title oe_partner_heading">
+                  <span class="fw-bold"><field name="cn"/></span> -
+                  <span class="text-primary"><field name="ou"/></span>
+                </strong>
+
+                <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+
+                <ul class="list-unstyled mb-1">
+                  <li t-if="record.title.raw_value and record.title.raw_value != '-'">
+                    <field name="title"/>
+                  </li>
+                  <li t-if="record.departmentNumber.raw_value and record.departmentNumber.raw_value != '-'">
+                    <field name="departmentNumber"/>
+                  </li>
+
+                  <div class="mt-1">
+                    <t t-if="record.telephoneNumber.raw_value and record.telephoneNumber.raw_value != '-'">
+                      <span class="fw-bold text-danger">F: </span>
+                      <span class="me-2"><field name="telephoneNumber"/></span>
+                    </t>
+                    <t t-if="record.mobile.raw_value and record.mobile.raw_value != '-'">
+                      <span class="fw-bold text-danger">M: </span>
+                      <field name="mobile"/>
+                    </t>
+                  </div>
+
+                  <li t-if="record.mail.raw_value" class="o_text_overflow mt-1">
+                    <i class="fa fa-envelope text-muted me-1" title="Correo electrónico"/>
+                    <field name="mail" widget="email"/>
+                  </li>
+                </ul>
+                <div class="oe_kanban_partner_links"/>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="action_sicpro_modulo_ldap_registros" model="ir.actions.act_window">
+    <field name="name">Contactos LDAP</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.app.modulo.ldap.registros</field>
+    <field name="view_mode">kanban,list</field>
+  </record>
+</odoo>

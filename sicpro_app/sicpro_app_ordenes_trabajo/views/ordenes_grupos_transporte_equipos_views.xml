@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="ordenes_grupos_transporte_equipos_search" model="ir.ui.view">
+    <field name="name">Buscar Grupo</field>
+    <field name="model">sicpro.app.ordenes.grupo.transporte.equipos</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Grupo">
+        <field name="name"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="ordenes_grupos_transporte_equipos_list" model="ir.ui.view">
+    <field name="name">sicpro.app.ordenes.grupo.transporte.equipos.list</field>
+    <field name="model">sicpro.app.ordenes.grupo.transporte.equipos</field>
+    <field name="arch" type="xml">
+      <list string="Grupos" editable="bottom">
+        <field name="sequence" widget="handle"/>
+        <field name="name"/>
+        <field name="grupo_vehiculos" widget="many2many_tags" placeholder="Grupos"
+               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="detalles"/>
+        <field name="active" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="ordenes_grupos_transporte_equipos_action" model="ir.actions.act_window">
+    <field name="name">Grupos de Transporte y Equipos</field>
+    <field name="res_model">sicpro.app.ordenes.grupo.transporte.equipos</field>
+    <field name="view_id" ref="ordenes_grupos_transporte_equipos_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Agregue un nuevo grupo
+      </p>
+    </field>
+  </record>
+</odoo>

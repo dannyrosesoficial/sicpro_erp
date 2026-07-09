@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+administacion_admin,Administración Admin,model_sicpro_app_administracion,grupo_app_administracion_admin,1,1,1,1
+administacion_menu_admin,Menus Admin,model_sicpro_app_administracion_menus,grupo_app_administracion_admin,1,1,1,1
+administacion_menu_accesos_admin,Menus Accesos Admin,model_sicpro_app_administracion_menus_accesos,grupo_app_administracion_admin,1,1,1,1
+administacion_notificaciones,notificaciones administrativas,model_sicpro_app_administracion,grupo_app_administracion_notificaciones,0,0,0,0
+administacion_obsoletos,Administración Obsoletos,model_sicpro_app_administracion,grupo_app_administracion_obsoletos,0,0,0,0
+
+canal_staff,Canal Staff,mail.model_discuss_channel,grupo_canal_staff,1,0,1,0
+canal_deoit,Canal DEOIT,mail.model_discuss_channel,grupo_canal_deoit,1,0,1,0
+canal_deoct,Canal DEOCT,mail.model_discuss_channel,grupo_canal_deoct,1,0,1,0
+canal_proyecto,Canal Proyectos,mail.model_discuss_channel,grupo_canal_proyectos,1,0,1,0
+canal_inversiones,Canal Inversiones,mail.model_discuss_channel,grupo_canal_inversiones,1,0,1,0

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+desactivar_usuario_admin,Desactivar usuario Admin,model_sicpro_app_modulo_usuario_desactivar,sicpro_app_administracion.grupo_app_administracion_admin,1,1,1,1
+desactivar_dias_usuario_admin,Días Desactivar usuario Admin,model_sicpro_app_modulo_usuario_desactivar_dias,sicpro_app_administracion.grupo_app_administracion_admin,1,1,1,1

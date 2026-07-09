@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="execute_script_list_view_bits" model="ir.ui.view">
+        <field name="name">execute.script.list.view.bits</field>
+        <field name="model">execute.script</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" string="Nota" optional="show" />
+                <field name="execution_script" string="Ejecutar Script" />
+            </list>
+        </field>
+    </record>
+
+    <record id="execute_script_form_view_bits" model="ir.ui.view">
+        <field name="name">execute.script.form.view.bits</field>
+        <field name="model">execute.script</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" placeholder="Agregue una nota aquí…" />
+                        </group>
+                        <group>
+                            <field name="execution_method" />
+                        </group>
+                    </group>
+                    <group string="Tipo de script de ejecución" >
+                        <label string="" for="execution_script" />
+                        <div class="o_row">
+                            <field name="execution_script" widget="ace" class="o_codemirror"
+                                   options="{'mode': 'python'}" placeholder="Tipo de script de ejecución"/>
+                            <button name="execute" type="object" string="Ejecutar" class="oe_highlight" accesskey="x"/>
+                        </div>
+                    </group>
+                    <div style="overflow: auto">
+                        <group string="Resultados">
+                            <div>
+                                <div class="o_row" invisible="execution_method != 'query'" >
+                                    <label string="Registros:" for="records_count" />
+                                    <field name="records_count" readonly="1" />
+                                </div>
+                                <div class="o_row" style="max-height: 400px;" >
+                                    <label string="" for="html" />
+                                    <field name="html" readonly="1" style="white-space: nowrap;"/>
+                                </div>
+                            </div>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="execute_script_search_view_bits" model="ir.ui.view">
+        <field name="name">execute.script.search.view.bits</field>
+        <field name="model">execute.script</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="execution_script" string="Scripts ejecutados" />
+                <group>
+                    <filter name="with_note" string="Notas" domain="[('name', '!=', False)]" />
+                </group>
+                <group>
+                    <filter name="name" string="Notas" context="{'group_by': 'name'}" />
+                    <filter name="execution_script" string="Consultas" context="{'group_by': 'execution_script'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model='ir.actions.act_window' id='execute_script_action'>
+        <field name="name">Crear nuevo script</field>
+        <field name="res_model">execute.script</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem name="Ejecutar Script Python/SQL" parent="base.menu_automation"
+        id="menu_postgresql_query_runner"
+        action="execute_script_action" sequence="50" />
+
+</odoo>

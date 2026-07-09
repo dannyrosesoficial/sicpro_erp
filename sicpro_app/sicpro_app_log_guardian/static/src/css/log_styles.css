@@ -1,0 +1,23 @@
+/* Estilos para el visor Kanban y el Live Stream */
+.o_log_live_viewer {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px;
+    border-radius: 5px;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.o_log_error_line {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.o_log_warning_line {
+    color: #ffeb3b;
+}
+
+.o_log_info_line {
+    color: #4caf50;
+}

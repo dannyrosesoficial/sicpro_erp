@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data>
+        <record id="view_event_search" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.search</field>
+            <field name="model">sicpro.app.reuniones</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Reuniones">
+                    <field name="name" string="Reunión"/>
+                    <field name="responsable"/>
+                    <filter string="Mis Reuniones" name="my_events" domain="[('responsable', '=', uid)]"/>
+                    <group>
+                        <filter string="Responsable" name="group_responsable" context="{'group_by': 'responsable'}"/>
+                        <filter string="Estado" name="group_stage" context="{'group_by': 'stage_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_event_kanban">
+            <field name="name">sicpro.app.reuniones.kanban</field>
+            <field name="model">sicpro.app.reuniones</field>
+            <field name="arch" type="xml">
+                <kanban class="o_event_kanban_view" quick_create="false" default_group_by="stage_id"
+                        group_create="false" group_delete="false" group_edit="false" sample="1">
+                    <field name="responsable"/>
+                    <field name="name"/>
+                    <field name="stage_id" options='{"group_by_tooltip": {"description": "Description"}}'/>
+                    <field name="lugar_proceso"/>
+                    <field name="lugar"/>
+                    <field name="lugar_descripcion"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="auto_confirm"/>
+                    <field name="seats_unconfirmed"/>
+                    <field name="seats_reserved"/>
+                    <field name="seats_used"/>
+                    <field name="seats_expected"/>
+                    <field name="activity_ids"/>
+                    <field name="activity_state"/>
+                    <field name="organizador_id"/>
+                    <templates>
+                        <t t-name="card">
+                            <div t-attf-class="d-flex flex-column p-0 oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_content p-0 m-0 position-relative row d-flex flex-fill">
+                                    <div class="col-3 bg-primary p-2 text-center d-flex flex-column justify-content-center text-white">
+                                        <div class="o_event_fontsize_20">
+                                            <t t-esc="record.fecha_inicio.value.split(' ')[0]"/>
+                                        </div>
+                                        <div>
+                                            <t t-esc="record.fecha_inicio.value.split(' ')[1]"/>
+                                            <t t-esc="record.fecha_inicio.value.split(' ')[2]"/>
+                                        </div>
+                                        <div>
+                                            <field name="fecha_inicio" widget="remaining_days" invisible="1"/>
+                                            <t t-esc="record.fecha_inicio.value.split(' ')[3] || ''"/>
+                                        </div>
+
+                                        <div t-if="record.fecha_fin.raw_value and record.fecha_inicio.value.split(' ')[0] !== record.fecha_fin.value.split(' ')[0]">
+                                            <i class="fa fa-arrow-right o_event_fontsize_09" title="End date"/>
+                                            <t t-esc="record.fecha_fin.value.split(' ')[0]"/>
+                                            <t t-esc="record.fecha_fin.value.split(' ')[1]"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 py-2 px-3 d-flex flex-column justify-content-between pt-3">
+                                        <div>
+                                            <div class="o_kanban_record_title o_text_overflow"
+                                                 t-att-title="record.name.value">
+                                                <field name="name"/>
+                                            </div>
+                                            <div t-if="record.lugar.value"><i class="fa fa-map-marker"
+                                                                              title="Location"/>
+                                                <span class="o_text_overflow o_event_kanban_location"
+                                                      t-esc="record.lugar.value"/>
+                                            </div>
+                                            <div t-if="record.lugar_proceso.value">
+                                                <span class="o_text_overflow o_event_kanban_location"
+                                                      t-esc="record.lugar_proceso.value"/>
+                                            </div>
+                                        </div>
+                                        <h5 class="o_event_fontsize_11 p-0">
+                                            <a name="%(act_event_registration_from_event)d" type="action"
+                                               context="{'search_default_expected': True}">
+                                                <t t-esc="record.seats_expected.raw_value"/> Asistentes estimados
+                                            </a>
+                                            <t t-set="total_seats"
+                                               t-value="record.seats_reserved.raw_value + record.seats_used.raw_value"/>
+                                            <div class="pt-2 pt-md-0"
+                                                 t-if="total_seats > 0 and !record.auto_confirm.raw_value"><br/>
+                                                <a class="pl-2" name="%(act_event_registration_from_event)d"
+                                                   type="action" context="{'search_default_confirmed': True}">
+                                                    <i class="fa fa-level-up fa-rotate-90" title="Confirmed"/><span
+                                                        class="pl-2"><t t-esc="total_seats"/> Confirmados</span>
+                                                </a>
+                                            </div>
+                                        </h5>
+                                        <div class="o_kanban_record_bottom">
+                                            <div class="oe_kanban_bottom_left">
+                                                <field name="activity_ids" widget="kanban_activity"/>
+                                            </div>
+                                            <div class="oe_kanban_bottom_right">
+                                                <field name="prioridad" widget="priority"/>
+                                                <field name="organizador_id" widget="many2one_avatar_user"/>
+                                                <field name="responsable" widget="many2one_avatar_user"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_reuniones_calendar" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.calendar</field>
+            <field name="model">sicpro.app.reuniones</field>
+            <field name="arch" type="xml">
+                <calendar string="Reuniones" date_start="fecha_inicio" color="responsable">
+                    <field name="name"/>
+                    <field name="responsable"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="event_event_view_pivot" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.pivot</field>
+            <field name="model">sicpro.app.reuniones</field>
+            <field name="arch" type="xml">
+                <pivot string="Análisis de Reuniones" sample="1">
+                    <field name="name" type="row"/>
+                    <field name="seats_reserved" type="measure" operator="sum"/>
+                    <field name="seats_expected" type="measure" operator="sum"/>
+                    <field name="seats_used" type="measure" operator="sum"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="event_event_view_graph" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.graph</field>
+            <field name="model">sicpro.app.reuniones</field>
+            <field name="arch" type="xml">
+                <graph string="Análisis Gráfico" type="bar" sample="1">
+                    <field name="name"/>
+                    <field name="seats_expected" type="measure" operator="sum"/>
+                </graph>
+            </field>
+        </record>
+
+
+        <record id="event_event_action_pivot" model="ir.actions.act_window">
+            <field name="name">Análisis de Reuniones</field>
+            <field name="res_model">sicpro.app.reuniones</field>
+            <field name="view_mode">pivot,graph</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_event_form">
+            <field name="name">sicpro.app.reuniones.form</field>
+            <field name="model">sicpro.app.reuniones</field>
+            <field name="arch" type="xml">
+                <form string="Reuniones" class="o_event_form_view">
+                    <header>
+                        <button name="usuarios_automaticos" string="Autogenerar Usuarios" type="object"
+                                class="oe_highlight" icon="fa-check"
+                                groups="sicpro_app_reuniones.group_reuniones_secretaria,sicpro_app_reuniones.group_reuniones_director"/>
+                        <field name="stage_id" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_empaty_reuniones" type="object" class="oe_stat_button"
+                                    icon="fa-soundcloud">
+                                <field name="count_audios" string="Audios" widget="statinfo"/>
+                            </button>
+                            <button name="%(act_event_registration_from_event)d"
+                                    type="action"
+                                    context="{'search_default_expected': True}"
+                                    class="oe_stat_button"
+                                    icon="fa-users">
+                                <field name="seats_expected" widget="statinfo" string="Participantes"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                                invisible="active"/>
+                        <field name="prioridad" widget="priority" class="ml-auto float-right"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" placeholder="Ej. Reunión de Producción"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="active" invisible="1"/>
+                                <label for="fecha_inicio" string="Fechas"/>
+                                <div class="o_row">
+                                    <field name="fecha_inicio" widget="daterange" nolabel="1" class="oe_inline"
+                                           options="{'related_end_date': 'fecha_fin'}"/>
+                                    <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                    <field name="fecha_fin" widget="daterange" nolabel="1" class="oe_inline"
+                                           options="{'related_start_date': 'fecha_inicio'}"/>
+                                    <button name="cambios_reunion" string="Notificar Modificación" type="object"
+                                            icon="fa-mail-reply-all"
+                                            groups="sicpro_app_reuniones.group_reuniones_secretaria,sicpro_app_reuniones.group_reuniones_director"/>
+                                </div>
+                                <field name="duracion_reunion"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="organizador_id"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="responsable"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            </group>
+                            <group>
+                                <field name="tipo_reunion"/>
+
+                                <label for="lugar" string="Lugar de Reunión"
+                                       invisible="tipo_reunion == 'distancia'"/>
+                                <div class="o_address_format"
+                                     invisible="tipo_reunion == 'distancia'"
+                                     required="tipo_reunion == 'presencial'">
+                                    <field name="lugar" class="o_address_street"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="lugar_descripcion" class="o_address_street"/>
+                                    <field name="lugar_proceso" class="o_address_street"/>
+                                </div>
+
+                                <field name="modo_distancia"
+                                       invisible="tipo_reunion == 'presencial'"
+                                       required="tipo_reunion == 'distancia'"/>
+
+                                <label for="limitar_participantes"
+                                       invisible="tipo_reunion == 'distancia'"/>
+                                <div invisible="tipo_reunion == 'distancia'">
+                                    <field name="limitar_participantes" class="oe_inline"/>
+                                    <span invisible="not limitar_participantes"> a
+                                        <field name="seats_max" class="oe_inline" required="limitar_participantes"/>
+                                        Participantes
+                                    </span>
+                                </div>
+
+                                <field name="auto_confirm"/>
+                                <field name="modelo_reunion" options="{'color_field': 'color','no_create': True,
+                                                                       'no_create_edit':True, 'no_open': True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+
+                        <notebook>
+                            <page string="Acuerdos" name="Acuerdos">
+                                <field name="acuerdos_ids" context="{'default_event_name': name}" mode="list,form">
+                                    <list string="Acuerdos de Reuniones">
+                                        <field name="estado"/>
+                                        <field name="name"/>
+                                        <field name="responsable_ids" widget="many2many_tags"
+                                               options="{'color_field': 'color'}"/>
+                                        <field name="fecha_inicio"/>
+                                        <field name="fecha_fin"/>
+                                        <field name="cumplimiento" widget="progressbar"/>
+                                    </list>
+                                    <form string="Acuerdos de Reuniones">
+                                        <sheet>
+                                            <div class="oe_title">
+                                                <label for="name" class="oe_edit_only"/>
+                                                <h1><field name="name"
+                                                           placeholder="Acuerdos de las reuniones...."/></h1>
+                                                <field name="description"/>
+                                            </div>
+                                            <group>
+                                                <group>
+                                                    <field name="reunion"
+                                                           invisible="not reunion"/>
+                                                    <field name="responsable_ids" widget="many2many_tags"
+                                                           options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                </group>
+                                                <group>
+                                                    <field name="participantes_ids" widget="many2many_tags" readonly="1"
+                                                           options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                    <field name="cumplimiento" widget="progressbar" readonly="1"/>
+                                                    <field name="fecha_inicio"/>
+                                                    <field name="fecha_fin"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Puntos del Día" name="punto_dia">
+                                <field name="orden_dia"/>
+                            </page>
+                            <page string="Notas" name="event_notes">
+                                <field name="notas" placeholder="Agregar notas..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_event_list">
+            <field name="name">sicpro.app.reuniones.list</field>
+            <field name="model">sicpro.app.reuniones</field>
+            <field name="arch" type="xml">
+                <list string="Reuniones"
+                      decoration-danger="(seats_max and seats_max &lt; seats_reserved)"
+                      multi_edit="1"
+                      sample="1">
+                    <field name="name"/>
+                    <field name="lugar_proceso" readonly="1"/>
+                    <field name="organizador_id" readonly="1" optional="hide"/>
+                    <field name="responsable" readonly="1" widget="many2one_avatar_user"/>
+                    <field name="company_id" readonly="1" optional="show"/>
+                    <field name="fecha_inicio" readonly="1" widget="date"/>
+                    <field name="fecha_fin" readonly="1" widget="date"/>
+                    <field name="stage_id" readonly="1"/>
+                    <field name="seats_expected" string="Asistentes estimados" sum="Total" readonly="1"/>
+                    <field name="seats_used" sum="Total" readonly="1"/>
+                    <field name="seats_max" string="Maximum Seats" sum="Total" readonly="1" optional="hide"/>
+                    <field name="seats_reserved" sum="Total" readonly="1" optional="hide"/>
+                    <field name="seats_unconfirmed" string="Unconfirmed Seats" sum="Total" readonly="1"
+                           optional="hide"/>
+                    <field name="message_needaction" invisible="1" readonly="1"/>
+                    <field name="activity_exception_decoration" widget="activity_exception" readonly="1"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_event_view">
+            <field name="name">Gestión de Reuniones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.reuniones</field>
+            <field name="view_mode">kanban,calendar,list,form,pivot,graph</field>
+            <field name="search_view_id" ref="view_event_search"/>
+            <field name="context">{'search_default_fecha_inicio_1': (context_today().strftime('%Y')), }</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Agregar nueva Reuniones
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

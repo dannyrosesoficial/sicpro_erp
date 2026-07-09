@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_internos_lineas_filtro" model="ir.ui.view">
+    <field name="name">sicpro.app.servicios.internos.lineas.filtro</field>
+    <field name="model">sicpro.app.servicios.internos.lineas</field>
+    <field name="arch" type="xml">
+      <search string="Lineas">
+        <field name="name"/>
+        <field name="trabajador"/>
+        <field name="custodia_trabajador"/>
+        <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        <separator/>
+        <group>
+          <filter string="Estado" name="estado" context="{'group_by':'estado'}"/>
+          <separator/>
+          <filter string="Proceso" name="company_id" context="{'group_by':'company_id'}"/>
+          <filter string="Departamentos" name="area_id" context="{'group_by':'area_id'}"/>
+          <filter string="Puestos de Trabajo" name="ocupacion_id" context="{'group_by':'ocupacion_id'}"/>
+        </group>
+        <searchpanel>
+          <field name="estado" enable_counters="1" expand="1" icon="fa-star"/>
+          <field name="company_id" enable_counters="1" expand="1" icon="fa-building"/>
+          <field name="area_id" enable_counters="1" icon="fa-map-marker"/>
+          <field name="ocupacion_id" enable_counters="1" icon="fa-users"/>
+        </searchpanel>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_internos_lineas_form" model="ir.ui.view">
+    <field name="name">sicpro.app.servicios.internos.lineas.form</field>
+    <field name="model">sicpro.app.servicios.internos.lineas</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <field name="estado" widget="statusbar" options="{'clickable': '1'}"/>
+        </header>
+        <field name="active" invisible="1"/>
+        <sheet>
+          <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                  invisible="active"/>
+          <div class="oe_title">
+            <h1 class="d-flex">
+              <field name="name" placeholder="Número de teléfono"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </h1>
+            <label for="estado" string="Estado de la línea: "/>
+            <field name="estado" widget="statusbar" options="{'clickable': '1'}"/>
+          </div>
+          <h2>
+            <group>
+              <group>
+                <field name="apns"/>
+              </group>
+              <group>
+                <field name="color" widget="color_picker"/>
+              </group>
+            </group>
+          </h2>
+          <group>
+            <group>
+              <label for="tope_voz"/>
+              <div>
+                <field name="tope_voz" class="oe_inline"/>
+                <span class="font-weight-bold" style="width:142px;"> min</span>
+              </div>
+              <label for="tope_sms"/>
+              <div>
+                <field name="tope_sms" class="oe_inline"/>
+                <span class="font-weight-bold" style="width:142px;"> min</span>
+              </div>
+              <label for="tope_datos"/>
+              <div>
+                <field name="tope_datos" class="oe_inline"/>
+                <span class="font-weight-bold" style="width:142px;"> mb</span>
+              </div>
+            </group>
+            <group>
+              <field name="apn_etecsa"/>
+              <field name="apn_nauta"/>
+              <field name="apn_mixta" invisible="1"/>
+              <label for="apn_nauta" string="Configuración"/>
+              <div class="oe_inline" invisible="not apn_mixta">
+                <p class="font-weight-bold text-danger">Servicio de APN Mixta habilitada.</p>
+              </div>
+            </group>
+          </group>
+          <group string="Fechas de control">
+            <group>
+              <field name="fecha_recibida"/>
+              <field name="fecha_entregada"/>
+            </group>
+            <group>
+              <field name="fecha_custodia"/>
+              <field name="fecha_cancelada"/>
+            </group>
+          </group>
+          <label for="observaciones" string="Observaciones"/>
+          <field name="observaciones"/>
+          <notebook>
+            <page name="trabajador" string="Información del trabajador"
+                  invisible="estado == 'custodia' or estado == 'cancelada'">
+              <group>
+                <group>
+                  <field name="trabajador"
+                         options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                         required="estado == 'entregada'"/>
+                </group>
+                <group>
+                  <field name="identification_id"/>
+                </group>
+              </group>
+              <group>
+                <group>
+                  <field name="plaza_id"/>
+                  <field name="correo_trabajo" widget="email"/>
+                  <field name="inicio_contrato"/>
+                  <field name="clase_contrato"/>
+                </group>
+                <group>
+                  <field name="company_id"
+                         options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                  <field name="area_id"
+                         options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                  <field name="ocupacion_id" domain="[('area_id', '=', area_id)]"
+                         options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                  <field name="parent_id" required="0"
+                         options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                </group>
+              </group>
+              <label for="trabajador_detalles" string="Detalles del trabajador"/>
+              <field name="trabajador_detalles"/>
+            </page>
+            <page name="custodia" string="Información de la custodia"
+                  invisible="estado == 'nueva' or estado == 'entregada' or estado == 'cancelada'">
+              <group>
+                <group>
+                  <field name="custodia_trabajador"
+                         options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                         required="estado == 'custodia'"/>
+                  <field name="custodia_identification_id" string="Carnet de identidad"/>
+                  <field name="custodia_plaza_id" string="# Plaza"/>
+                </group>
+                <group>
+                  <field name="custodia_company_id" string="Proceso"/>
+                  <field name="custodia_ocupacion_id" string="Puesto de trabajo"/>
+                  <field name="custodia_area_id" string="Departamento"/>
+                </group>
+              </group>
+              <label for="custodia_detalles" string="Detalles de la custodia"/>
+              <field name="custodia_detalles"/>
+            </page>
+          </notebook>
+
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_internos_lineas_list" model="ir.ui.view">
+    <field name="name">sicpro.app.servicios.internos.lineas.list</field>
+    <field name="model">sicpro.app.servicios.internos.lineas</field>
+    <field name="arch" type="xml">
+      <list string="Lineas">
+        <field name="estado"/>
+        <field name="name"/>
+        <field name="trabajador"/>
+        <field name="custodia_trabajador"/>
+        <field name="tope_voz"/>
+        <field name="tope_sms"/>
+        <field name="tope_datos"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="internos_lineas_views_actions" model="ir.actions.act_window">
+    <field name="name">Gestión de Líneas</field>
+    <field name="res_model">sicpro.app.servicios.internos.lineas</field>
+    <field name="view_mode">list,form</field>
+    <field name="search_view_id" ref="view_internos_lineas_filtro"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Agregar un nuevo registro de línea móvil
+      </p>
+    </field>
+  </record>
+</odoo>

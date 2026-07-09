@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="control_informacion_dias_list" model="ir.ui.view">
+        <field name="name">sicpro.app.control.informacion.dias.list</field>
+        <field name="model">sicpro.app.control.informacion.dias</field>
+        <field name="arch" type="xml">
+            <list string="Días" editable="bottom">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+                <field name="active" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="control_informacion_dias_action" model="ir.actions.act_window">
+        <field name="name">Días para notificar</field>
+        <field name="res_model">sicpro.app.control.informacion.dias</field>
+        <field name="view_id" ref="control_informacion_dias_list"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear días para notificar el control de información
+            </p>
+        </field>
+    </record>
+</odoo>

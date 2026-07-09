@@ -1,0 +1,26 @@
+.o_field_widget.o_field_image {
+    position: relative;
+
+    // Solo modificamos el botón de recorte para que se integre a los controles nativos de Odoo
+    .o_sicpro_crop_button {
+        // Aseguramos que sea clickable pase lo que pase
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        z-index: 100 !important;
+        color: #00A09D; // Turquesa Odoo
+        transition: transform 0.2s;
+
+        &:hover {
+            transform: scale(1.2);
+            color: #00ced1;
+        }
+    }
+
+    // Danny: Aseguramos que los controles de Odoo 19 no tapen nuestro botón
+    &:hover .o_field_image_controls {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+}

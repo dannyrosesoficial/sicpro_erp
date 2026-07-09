@@ -1,0 +1,126 @@
+<odoo>
+  <template id="error_page_style" name="Error page style">
+    <link rel="stylesheet" href="/sicpro_modulo_web_error/static/src/css/style.css"/>
+  </template>
+
+  <template id="404_extend" inherit_id="http_routing.404">
+    <xpath expr="." position="replace">
+      <t t-name="http_routing.404">
+        <html>
+          <head>
+            <title>404 | SICPRO</title>
+            <t t-call="sicpro_modulo_web_error.error_page_style"/>
+          </head>
+          <body class="sicpro-minimal-error">
+            <div class="brand-wrapper">
+              <img src="/sicpro_modulo_web_error/static/src/img/SICPRO_ERP.png" class="system-logo" alt="SICPRO Logo"/>
+              <div class="system-brand">SISTEMA SICPRO ERP</div>
+            </div>
+            <div class="main-container">
+              <div class="accent-line" style="background: var(--accent-purple);"></div>
+              <h1 class="big-number">404</h1>
+              <div class="error-info">
+                <h2 class="error-msg">Página Inexistente</h2>
+                <p class="error-detail">El enlace es incorrecto o el recurso ha sido removido del servidor central de
+                  SICPRO.</p>
+                <a href="/" class="btn-minimal">VOLVER AL INICIO</a>
+              </div>
+            </div>
+          </body>
+        </html>
+      </t>
+    </xpath>
+  </template>
+
+  <template id="403_extend" inherit_id="http_routing.403">
+    <xpath expr="." position="replace">
+      <t t-name="http_routing.403">
+        <html>
+          <head>
+            <title>403 | SICPRO</title>
+            <t t-call="sicpro_modulo_web_error.error_page_style"/>
+          </head>
+          <body class="sicpro-minimal-error">
+            <div class="brand-wrapper">
+              <img src="/sicpro_modulo_web_error/static/src/img/SICPRO_ERP.png" class="system-logo" alt="SICPRO Logo"/>
+              <div class="system-brand">SISTEMA SICPRO ERP</div>
+            </div>
+            <div class="main-container">
+              <div class="accent-line" style="background: var(--accent-red);"></div>
+              <h1 class="big-number">403</h1>
+              <div class="error-info">
+                <h2 class="error-msg" style="color: var(--accent-red);">Acceso Restringido</h2>
+                <p class="error-detail">Usted no cuenta con los privilegios de seguridad necesarios para visualizar este
+                  módulo.</p>
+                <a href="/" class="btn-minimal">SOLICITAR ACCESO</a>
+              </div>
+            </div>
+          </body>
+        </html>
+      </t>
+    </xpath>
+  </template>
+
+  <template id="500_extend" inherit_id="http_routing.500">
+    <xpath expr="." position="replace">
+      <html>
+        <head>
+          <title>500 | SICPRO</title>
+          <t t-call="sicpro_modulo_web_error.error_page_style"/>
+        </head>
+        <body class="sicpro-minimal-error" style="overflow-y: auto;">
+          <div class="brand-wrapper">
+            <img src="/sicpro_modulo_web_error/static/src/img/SICPRO_ERP.png" class="system-logo" alt="SICPRO Logo"/>
+            <div class="system-brand">SISTEMA SICPRO ERP</div>
+          </div>
+          <div class="main-container">
+            <div class="accent-line" style="background: var(--accent-orange);"></div>
+            <h1 class="big-number">500</h1>
+            <div class="error-info">
+              <h2 class="error-msg">Fallo Interno</h2>
+              <p class="error-detail">El sistema encontró una excepción inesperada durante la ejecución de la
+                solicitud.</p>
+              <a href="/" class="btn-minimal">REINTENTAR</a>
+            </div>
+          </div>
+
+          <t t-if="editable or debug">
+            <div
+                style="width: 90%; max-width: 1000px; margin: 2rem auto; text-align: left; background: #111; padding: 2rem; border-radius: 24px; border: 1px solid #222;">
+              <t t-call="http_routing.http_error_debug"/>
+            </div>
+          </t>
+        </body>
+      </html>
+    </xpath>
+  </template>
+
+  <template id="400_extend" inherit_id="http_routing.400">
+    <xpath expr="." position="replace">
+      <t t-name="http_routing.400">
+        <html>
+          <head>
+            <title>400 | SICPRO</title>
+            <t t-call="sicpro_modulo_web_error.error_page_style"/>
+          </head>
+          <body class="sicpro-minimal-error">
+            <div class="brand-wrapper">
+              <img src="/sicpro_modulo_web_error/static/src/img/SICPRO_ERP.png" class="system-logo" alt="SICPRO Logo"/>
+              <div class="system-brand">SISTEMA SICPRO ERP</div>
+            </div>
+            <div class="main-container">
+              <div class="accent-line" style="background: var(--accent-blue);"></div>
+              <h1 class="big-number">400</h1>
+              <div class="error-info">
+                <h2 class="error-msg">Solicitud Mal Formada</h2>
+                <p class="error-detail">Los parámetros enviados a SICPRO no cumplen con los requisitos de integridad del
+                  sistema.</p>
+                <a href="/" class="btn-minimal">CORREGIR</a>
+              </div>
+            </div>
+          </body>
+        </html>
+      </t>
+    </xpath>
+  </template>
+</odoo>

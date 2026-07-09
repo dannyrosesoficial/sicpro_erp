@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_sicpro_mantenimiento_list" model="ir.ui.view">
+    <field name="name">sicpro.mantenimiento.list</field>
+    <field name="model">sicpro.modulo.web.mantenimiento</field>
+    <field name="arch" type="xml">
+      <list string="Control de Mantenimiento" create="0" delete="0" duplicate="0">
+        <field name="name"/>
+        <field name="active_maintenance" widget="boolean_toggle"/>
+        <field name="estimated_time"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_sicpro_mantenimiento_form" model="ir.ui.view">
+    <field name="name">sicpro.mantenimiento.form</field>
+    <field name="model">sicpro.modulo.web.mantenimiento</field>
+    <field name="arch" type="xml">
+      <form string="Control de Mantenimiento" create="0" delete="0" duplicate="0">
+        <sheet>
+          <div class="oe_title">
+            <label for="name" class="oe_edit_only"/>
+            <h1><field name="name" readonly="1"/></h1>
+          </div>
+          <group>
+            <group string="Estado del Servidor">
+              <field name="active_maintenance" widget="boolean_toggle"/>
+              <field name="estimated_time" invisible="not active_maintenance"/>
+            </group>
+            <group string="Seguridad de Acceso" invisible="not active_maintenance">
+              <field name="maintenance_password" password="True" required="active_maintenance"/>
+              <field name="confirm_maintenance_password" password="True" required="active_maintenance"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_sicpro_mantenimiento" model="ir.actions.act_window">
+    <field name="name">Control de Mantenimiento</field>
+    <field name="res_model">sicpro.modulo.web.mantenimiento</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Cargue el registro inicial mediante datos XML o CSV.
+      </p>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <menuitem id="menu_db_explorer_root" name="DB Master" sequence="500" groups="group_db_admin"
+              web_icon="sicpro_app_db_explorer,static/description/icon.png"/>
+
+    <menuitem id="menu_db_tables" name="Explorador de Datos" parent="menu_db_explorer_root"
+              action="action_db_explorer" sequence="10"/>
+
+    <menuitem id="menu_db_audit" name="Auditoría de Cambios" parent="menu_db_explorer_root"
+              action="action_report_db_audit" sequence="20"/>
+</odoo>

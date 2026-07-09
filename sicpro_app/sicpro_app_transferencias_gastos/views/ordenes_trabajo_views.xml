@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="ordenes_trabajo_inherit_search" model="ir.ui.view">
+    <field name="name">sicpro.app.ordenes.trabajo.inherit.search</field>
+    <field name="model">sicpro.app.ordenes.trabajo</field>
+    <field name="inherit_id" ref="sicpro_app_ordenes_trabajo.ordenes_trabajo_search"/>
+    <field name="arch" type="xml">
+      <filter name='inactive' position="after">
+        <separator/>
+        <filter string="Ordenes con Saldo Negativo" name="saldo_negativo" domain="[('saldo_negativo','=', True)]"/>
+        <separator/>
+      </filter>
+    </field>
+  </record>
+
+  <record id="ordenes_trabajo_inherit_list" model="ir.ui.view">
+    <field name="name">sicpro.app.ordenes.trabajo.inherit.list</field>
+    <field name="model">sicpro.app.ordenes.trabajo</field>
+    <field name="inherit_id" ref="sicpro_app_ordenes_trabajo.ordenes_trabajo_list"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='company_abreviatura']" position="after">
+        <field name="saldo_restante" optional="hide"/>
+        <field name="saldo_contabilizado" optional="hide"/>
+        <field name="saldo_pendiente_contabilizar" optional="hide"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="ordenes_trabajo_inherit_form" model="ir.ui.view">
+    <field name="name">sicpro.app.ordenes.trabajo.inherit.form</field>
+    <field name="model">sicpro.app.ordenes.trabajo</field>
+    <field name="inherit_id" ref="sicpro_app_ordenes_trabajo.ordenes_trabajo_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+        <button name="ver_saldo_contabilizado" type="object" class="oe_stat_button text-info" icon="fa-dollar">
+          <div class="o_form_field o_stat_info">
+            <span class="o_stat_value">
+              <field name="saldo_contabilizado" widget="monetary"/>
+            </span>
+            <span class="o_stat_text">Saldo Contabilizado</span>
+          </div>
+        </button>
+        <button name="ver_saldo_pendiente_contabilizar" type="object" class="oe_stat_button text-warning"
+                icon="fa-dollar">
+          <div class="o_form_field o_stat_info">
+            <span class="o_stat_value">
+              <field name="saldo_pendiente_contabilizar" widget="monetary"/>
+            </span>
+            <span class="o_stat_text">Saldo Pendiente</span>
+          </div>
+        </button>
+        <button name="ver_saldo_restante" type="object" class="oe_stat_button text-danger" icon="fa-dollar">
+          <div class="o_form_field o_stat_info">
+            <span class="o_stat_value">
+              <field name="saldo_restante" widget="monetary"/>
+            </span>
+            <span class="o_stat_text font-weight-bold">Saldo Restante</span>
+          </div>
+        </button>
+      </xpath>
+
+      <xpath expr="//field[@name='active']" position="after">
+        <field name="saldo_negativo" invisible="1"/>
+      </xpath>
+
+      <xpath expr="//header" position="after">
+        <div class="alert alert-danger text-center" colspan="4" role="alert"
+             invisible="not saldo_negativo"
+             style="margin-bottom: 0px !important;">
+          <strong>CUIDADO: El saldo restante de la orden de trabajo tiene valores NEGATIVOS.</strong>
+        </div>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="ordenes_trabajo_control_gastos_list" model="ir.ui.view">
+    <field name="name">sicpro.app.ordenes.trabajo.list</field>
+    <field name="model">sicpro.app.ordenes.trabajo</field>
+    <field name="priority">100</field>
+    <field name="arch" type="xml">
+      <list string="Orden">
+        <field name="company_abreviatura"/>
+        <field name="name" string="Consecutivo"/>
+        <field name="titulo"/>
+        <field name="pep"/>
+        <field name="cliente_id"/>
+        <field name="as_numero"/>
+        <field name="as_valor" widget="monetary"/>
+        <field name="saldo_restante" widget="monetary"/>
+        <field name="saldo_pendiente_contabilizar" widget="monetary"/>
+        <field name="saldo_contabilizado" widget="monetary"/>
+        <field name="company_id" invisible="1"/>
+        <field name="company_currency" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="ordenes_trabajo_control_gastos_action">
+    <field name="name">Control de Gastos de Órdenes de Trabajo</field>
+    <field name="res_model">sicpro.app.ordenes.trabajo</field>
+    <field name="domain">[('creada_sap', '=', True)]</field>
+    <field name="view_mode">list</field>
+    <field name="view_id" ref="ordenes_trabajo_control_gastos_list"/>
+    <field name="context">{'search_default_anio': (context_today().strftime('%Y'))}
+    </field>
+  </record>
+
+  <menuitem id="menu_ordenes_control_gastos_ordenes" name="Control de Gastos de Órdenes de Trabajo"
+            parent="sicpro_app_ordenes_trabajo.ordenes_menu_report"
+            action="ordenes_trabajo_control_gastos_action" sequence="2"/>
+</odoo>

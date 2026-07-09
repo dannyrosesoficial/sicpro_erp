@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="sicpro_backup_remote_server_form_view" model="ir.ui.view">
+    <field name="name">sicpro.backup.remote.server.form</field>
+    <field name="model">sicpro.backup.remote.server</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button string="Restablecer al borrador" name="reset_to_draft" type="object"
+                  class="oe_highlight" invisible="(state == 'draft')"/>
+          <button string="Validar" name="set_validated" type="object" class="oe_highlight"
+                  invisible="(state != 'draft')"/>
+          <field name="state" widget="statusbar"/>
+        </header>
+        <sheet>
+          <div class="" style="width: 500px;">
+            <div class="oe_title" style="width: 500px;">
+              <label class="oe_edit_only" for="name" string="Name"/>
+              <h1><field name="name" class="oe_inline" required="True"/></h1>
+            </div>
+          </div>
+          <group name="sftp_details" string="Detalles SFTP">
+            <group class="mt-2">
+              <field name="sftp_host" required="True" readonly="(state == 'validated')"/>
+              <field name="sftp_port" required="True" readonly="(state == 'validated')"/>
+              <field name="sftp_user" password="1" required="True" readonly="(state == 'validated')"/>
+              <label for="sftp_password"/>
+              <div>
+                <field name="sftp_password" password="1" required="True"
+                       readonly="(state == 'validated')"/>
+                <br/>
+                <button string="Conexión de prueba" name="test_host_connection" type="object"
+                        class="oe_highlight"/>
+              </div>
+            </group>
+            <group class="mt-2">
+              <field name="def_backup_dir" required="True" readonly="(state == 'validated')"/>
+              <label for="temp_backup_dir"/>
+              <div>
+                <field name="temp_backup_dir" required="True" readonly="(state == 'validated')"/>
+              </div>
+            </group>
+          </group>
+          <div class="row mt-4">
+            <div class="col-md-12 text-muted" style="text-align:justify">
+              <p><strong>NOTA:</strong> Asegúrese de cumplir con los puntos mencionados a continuación
+                antes de configurar el servidor remoto de respaldo.:</p>
+              <ol>
+                <li>El usuario SFTP debe tener acceso ssh al servidor remoto.</li>
+                <li>El usuario SFTP debe tener los permisos y la propiedad del directorio de
+                  respaldo remoto predeterminado.</li>
+                <li>El directorio de respaldo temporal debe estar presente en el servidor principal
+                  junto con los permisos apropiados para el usuario de SICPRO ERP.</li>
+              </ol>
+            </div>
+          </div>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="sicpro_backup_remote_server_list_view" model="ir.ui.view">
+    <field name="name">sicpro.backup.remote.server.list</field>
+    <field name="model">sicpro.backup.remote.server</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="state" widget="badge" decoration-info="state == 'draft'"
+               decoration-success="state =='validated'"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="sicpro_backup_remote_server_search_view" model="ir.ui.view">
+    <field name="name">sicpro.backup.remote.server.search</field>
+    <field name="model">sicpro.backup.remote.server</field>
+    <field name="arch" type="xml">
+      <search string="Servidores remotos de respaldo activo">
+        <filter name="archived" string="Archivado" domain="[('active', '=', False)]"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="sicpro_backup_remote_server_action_view" model="ir.actions.act_window">
+    <field name="name">Servidores Remoto</field>
+    <field name="path">backup-remote-server</field>
+    <field name="res_model">sicpro.backup.remote.server</field>
+    <field name="view_mode">list,form</field>
+    <field name="view_id" ref="sicpro_backup_remote_server_list_view"/>
+  </record>
+</odoo>

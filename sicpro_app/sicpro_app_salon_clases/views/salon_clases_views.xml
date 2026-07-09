@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record model="ir.ui.view" id="sicpro_app_salon_clases_kanban">
+    <field name="name">sicpro.app.salon.clases.kanban</field>
+    <field name="model">sicpro.app.salon.clases</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_small_column o_kanban_project_tasks" archivable="false">
+        <field name="name"/>
+        <field name="priority"/>
+        <field name="user_id"/>
+        <field name="fecha_agregado"/>
+        <field name="message_needaction_counter"/>
+        <field name="active"/>
+        <field name="activity_ids"/>
+        <field name="activity_state"/>
+        <field name="displayed_image_id"/>
+        <templates>
+          <t t-name="menu" t-if="!selection_mode">
+            <div class="container">
+              <div class="o_kanban_card_manage_settings row">
+                <div class="col-6">
+                  <t t-if="widget.editable"><a role="menuitem" type="open" class="dropdown-item">Editar Clase</a></t>
+                  <t t-if="widget.editable"><a role="menuitem" type="set_cover" class="dropdown-item"
+                                               data-field="displayed_image_id">Portada</a></t>
+                </div>
+              </div>
+            </div>
+          </t>
+          <t t-name="card">
+            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+              <div class="oe_kanban_content">
+                <div class="o_kanban_record_top">
+                  <div class="o_kanban_record_headings">
+                    <div class="o_primary">
+                      <span>Clase: <strong><t t-esc="record.name.value"/></strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="o_kanban_record_body">
+                  <field name="etiquetas" widget="many2many_tags" options="{'color_field': 'color'}"
+                         invisible="context.get('fsm_mode', False)"/>
+                  <div t-if="record.displayed_image_id.value">
+                    <field name="displayed_image_id" widget="attachment_image"/>
+                  </div>
+                </div> <br/>
+                <div class="o_kanban_record_bottom">
+                  <div class="oe_kanban_bottom_left">
+                    <div>
+                      <span class="o_value"><strong><t t-esc="record.fecha_agregado.value"/>
+                      </strong></span>
+                    </div>
+                    <br/>
+                    <div>
+                      <field name="priority" widget="priority"/>
+                    </div>
+
+                  </div>
+                  <div class="oe_kanban_bottom_right">
+                    <field name="activity_ids" widget="kanban_activity"/>
+                    <field name="user_id" widget="many2one_avatar_user"/>
+                  </div>
+                </div>
+                <br/>
+                <div>
+                  <field name="description_corta"/>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="sicpro_app_salon_clases_form" model="ir.ui.view">
+    <field name="name">sicpro.app.salon.clases.form</field>
+    <field name="model">sicpro.app.salon.clases</field>
+    <field eval="2" name="priority"/>
+    <field name="arch" type="xml">
+      <form string="Preparaciones" class="o_form_project_tasks" create="false">
+        <sheet>
+          <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" invisible="active == True"/>
+          <div class="oe_title pr-0">
+            <h1 class="d-flex flex-row justify-content-between">
+              <field name="name" class="o_task_name text-truncate" placeholder="Titulo de la Clase..."/>
+            </h1>
+            <field name="temas_id" class="mr-3"
+                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+          </div>
+          <div class="oe_title pr-0">
+            <h1 class="d-flex flex-row justify-content-between">
+              <field name="priority" widget="priority" class="mr-3"/>
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="active" invisible="1"/>
+              <field name="user_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="contacto_telefono_fijo"/>
+              <field name="contacto_telefono_movil"/>
+              <field name="contacto_correo"/>
+            </group>
+            <group>
+              <field name="displayed_image_id"/>
+              <field name="fecha_agregado"/>
+              <field name="etiquetas" widget="many2many_tags"
+                     options="{'color_field': 'color', 'no_create_edit': True}"/>
+            </group>
+          </group>
+          <group>
+            <field name="description_corta"/>
+          </group>
+          <group string="Materiales Digitales">
+            <field name="documentacion" string="Adjuntar" widget="many2many_binary"
+                   class="o_Attachment_image o-attachment-viewable"></field>
+          </group>
+          <notebook>
+            <page name="description_page" string="Descripción">
+              <field name="description" type="html"/>
+              <div class="oe_clear"/>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="sicpro_app_salon_clases_list" model="ir.ui.view">
+    <field name="name">sicpro.app.salon.clases.list</field>
+    <field name="model">sicpro.app.salon.clases</field>
+    <field eval="2" name="priority"/>
+    <field name="arch" type="xml">
+      <list>
+        <field name="message_needaction" invisible="1"/>
+        <field name="name"/>
+        <field name="fecha_agregado"/>
+        <field name="user_id" optional="hide"/>
+
+        <field name="etiquetas" optional="hide" widget="many2many_tags"/>
+        <field name="company_id" groups="base.group_multi_company" optional="show"/>
+        <field name="activity_exception_decoration" widget="activity_exception"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="sicpro_app_salon_clases_search" model="ir.ui.view">
+    <field name="name">sicpro.app.salon.clases.search</field>
+    <field name="model">sicpro.app.salon.clases</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="name"/>
+        <field name="temas_id"/>
+        <field name="etiquetas"/>
+        <field name="fecha_agregado"/>
+        <field name="user_id"/>
+        <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+        <separator/>
+        <filter invisible="1" string="Late Activities" name="activities_overdue"
+                domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                help="Show all records which has next action date is before today"/>
+        <filter invisible="1" string="Today Activities" name="activities_today"
+                domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+        <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+        <separator/>
+        <group>
+          <filter string="Profesor" name="user" context="{'group_by': 'user_id'}"/>
+          <filter string="Fecha Agregado" name="group_fecha_inicio" context="{'group_by': 'fecha_agregado'}"/>
+          <filter string="Company" name="company" context="{'group_by': 'company_id'}"
+                  groups="base.group_multi_company"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="sicpro_app_salon_clases_action" model="ir.actions.act_window">
+    <field name="name">Clases</field>
+    <field name="res_model">sicpro.app.salon.clases</field>
+    <field name="view_mode">kanban,list,form</field>
+    <field name="search_view_id" ref="sicpro_app_salon_clases_search"/>
+    <field name="domain">[('temas_id', '=', active_id)]</field>
+    <field name="context">{'default_temas_id': active_id, }</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Aquí agregara las clase pertenecientes al tema seleccionado
+      </p>
+    </field>
+  </record>
+</odoo>

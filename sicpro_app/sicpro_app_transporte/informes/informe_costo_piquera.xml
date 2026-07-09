@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="informe_solicitud_piquera" model="ir.actions.report">
+    <field name="name">Informe de Costos</field>
+    <field name="model">sicpro.app.transporte.piquera</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">sicpro_app_transporte.informe_piquera_solicitud</field>
+    <field name="report_file">sicpro_app_transporte.informe_piquera_solicitud</field>
+    <field name="print_report_name">'Solicitud de Piquera'</field>
+    <field name="binding_model_id" ref="sicpro_app_transporte.model_sicpro_app_transporte_piquera"/>
+    <field name="binding_type">report</field>
+  </record>
+
+  <template id="informe_piquera_solicitud">
+    <t t-call="web.html_container">
+      <div t-attf-class="header">
+        <div class="page-header full-width pos-relative">
+          <img class="logo-etecsa" src="sicpro_app_transporte/static/img/etecsaId_300_8.png"
+               alt="Logo de ETECSA" width="200" height="65"/>
+        </div>
+        <span>División de Proyectos y Ejecución de Obras</span>
+      </div>
+      <div t-attf-class="article">
+        <div style="margin: auto;">
+          <t t-foreach="docs" t-as="inf">
+            <t t-call="sicpro_app_transporte.solicitud_piquera"/>
+          </t>
+        </div>
+      </div>
+      <div t-attf-class="footer">
+        <div class="page-footer">
+          <span>Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+        </div>
+        <div class="contacto-info">
+          <i class="small fa fa-phone"/>
+          <span>Teléfono: +5352183663, Código Postal 10300,</span>
+          <i class="small fa fa-globe"/>
+          <span>Correo Electrónico: sicproerp@etecsa.cu</span>
+        </div>
+        <div class="inscripcion-info">
+          <span>Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba. Tomo
+            II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+        </div>
+      </div>
+    </t>
+  </template>
+
+  <template id="solicitud_piquera">
+    <div class="solicitud_piquera">
+      <div class="title-piquera pos-relative">
+        <h1 class="title-piquera-h1 font-size-large">Solicitud de Piquera</h1>
+        <h3 class="subtitle-piquera-h3 margin-top font-size-medium" t-field="inf.sequence_consecutivo"/>
+      </div>
+      <div class="foto pos-absolute div-top div-right margin-top">
+        <span t-field="inf.image"
+              t-options='{"widget": "image", "style": "min-height: 73.23px; min-width: 90px; max-height: 73.23px; max-width: 90px"}'/>
+      </div>
+      <div t-if="inf.desfasado" class="pos-relative section-margin-top text-red warning">
+        <i class="small fa fa-warning"/><span> ATENCIÓN: SU SOLICITUD DE PIQUERA ESTÁ DESFASADA, ES POSIBLE QUE NO SEA
+        APROBADA.</span>
+      </div>
+      <div t-if="inf.hora_modificada" class="pos-relative section-margin-top text-yellow warning">
+        <i class="small fa fa-warning"/><span>ATENCIÓN: LA HORA DE SALIDA Y REGRESO FUE MODIFICADA.</span>
+      </div>
+      <div class="solicitud-datos pos-relative section-margin-top">
+        <div class="solicitud full-width line-under-thin">
+          <span class="text-purple">Solicitud</span>
+        </div>
+        <div class="section-left mid-width">
+          <table class="border-center">
+            <tr class="text-left">
+              <td class="t-label"><label for="solicitante">Solicitante</label></td>
+              <td class="t-value"><span id="solicitante" t-field="inf.solicitante"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="cargo">Cargo</label></td>
+              <td class="t-value"><span id="cargo" t-field="inf.cargo"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="fecha_servicio">Fecha de Servicio</label></td>
+              <td class="t-value"><span id="fecha_servicio" t-field="inf.fecha_servicio"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="salida_regreso">Salida y Regreso</label></td>
+              <td class="t-value"><span id="salida_regreso" t-field="inf.hora_salida"
+                                        t-options='{"widget": "float_time"}'/><i
+                  class="fa fa-long-arrow-right mx-2"/><span t-field="inf.hora_regreso"
+                                                             t-options='{"widget": "float_time"}'/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="cantidad_personas">No. de Personas</label></td>
+              <td class="t-value"><span id="cantidad_personas" t-field="inf.cantidad_personas"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="salida">Salida</label></td>
+              <td class="t-value"><span id="salida" t-field="inf.salida"/></td>
+            </tr>
+          </table>
+        </div>
+        <div class="section-right mid-width">
+          <table class="border-center">
+            <tr class="text-left">
+              <td class="t-label"><label for="telefono">Teléfono</label></td>
+              <td class="t-value"><span id="telefono" t-field="inf.movil"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="departamento">Departamento</label></td>
+              <td class="t-value"><span id="departamento" t-field="inf.departamento"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="proceso">Proceso</label></td>
+              <td class="t-value"><span id="proceso" t-field="inf.proceso"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="solicitado">Elaborado Por</label></td>
+              <td class="t-value"><span id="solicitado" t-field="inf.solicitado"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="destino">Destino</label></td>
+              <td class="t-value"><span id="destino" t-field="inf.destino"/></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="asignacion-servicios pos-relative section-margin-top">
+        <div class="asignacion full-width line-under-thin">
+          <span class="text-purple">Asignación de Servicio</span>
+        </div>
+        <div class="section-left mid-width">
+          <table class="border-center">
+            <tr class="text-left">
+              <td class="t-label"><label for="vehiculo">Vehículo</label></td>
+              <td class="t-value"></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="chapa">Chapa</label></td>
+              <td class="t-value"><span id="chapa" t-field="inf.chapa"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="chofer">Chofer</label></td>
+              <td class="t-value"><span id="chofer" t-field="inf.chofer"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="combustible">Combustible</label></td>
+              <td class="t-value"><span id="combustible" t-field="inf.combustible"/></td>
+            </tr>
+          </table>
+        </div>
+        <div class="section-right mid-width">
+          <table class="border-center">
+            <tr class="text-left">
+              <td class="t-label"><label for="marca">Marca</label></td>
+              <td class="t-value"><span id="marca" t-field="inf.marca"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="modelo">Modelo</label></td>
+              <td class="t-value"><span id="modelo" t-field="inf.modelo"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="color">Color</label></td>
+              <td class="t-value"><span id="color" t-field="inf.color"/></td>
+            </tr>
+            <tr class="text-left">
+              <td class="t-label"><label for="indice_consumo">Índice Consumo</label></td>
+              <td class="t-value"><span id="indice_consumo" t-field="inf.indice_consumo"/></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="observaciones pos-relative section-margin-top">
+        <div class="section-left mid-width margin-top">
+          <table class="border-center">
+            <tr class="text-left">
+              <td class="t-label"><label for="observaciones">Observaciones</label></td>
+              <td class="t-value"><span id="observaciones" t-field="inf.observaciones"/></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="notebook pos-relative section-margin-top">
+        <div class="full-width line-under-medium">
+          <div class="encabezado-notebook background-black color-white">
+            <span>Tabla de recorrido</span>
+          </div>
+        </div>
+        <div class="full-width">
+          <table class="table-recorrido">
+            <thead>
+              <tr class="encabezado">
+                <th class="text-centered th-short"><span>#</span></th>
+                <th class="text-left th-medium"><span>Salida</span></th>
+                <th class="text-left th-medium"><span>Destino</span></th>
+                <th class="text-left th-large"><span>Recorrido</span></th>
+                <th class="text-right th-medium"><span>Distancia(KM)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-set="l" t-value="1"/>
+              <t t-foreach="inf.recorridos_ids" t-as="r_id">
+                <tr class="text-left">
+                  <td class="t-value text-left"><span t-out="l"/></td>
+                  <td class="t-value text-left"><span t-field="r_id.salida"/></td>
+                  <td class="t-value text-left"><span t-field="r_id.destino"/></td>
+                  <td class="t-value text-left"><span t-field="r_id.recorrido"/></td>
+                  <td class="t-value text-right"><span t-field="r_id.km"/></td>
+                </tr>
+                <t t-set="l" t-value="l + 1"/>
+              </t>
+              <t t-set="l" t-value="1"/>
+            </tbody>
+          </table>
+          <div class="delimitador-tabla pos-relative full-width"/>
+        </div>
+      </div>
+      <div class="consumo pos-relative">
+        <div class="section-right mid-width margin-top">
+          <table class="border-none">
+            <tr class="text-right">
+              <td class="t-label"><label for="total_km">Total (Kilómetros):</label></td>
+              <td class="t-value"><span id="total_km" t-field="inf.total_km"/></td>
+            </tr>
+            <tr class="text-right">
+              <td class="t-label"><label for="valor_combustible">Valor del Combustible:</label></td>
+              <td class="t-value"><span id="valor_combustible" t-field="inf.valor_combustible"/></td>
+            </tr>
+            <tr class="text-right">
+              <td class="t-label"><label for="indice_consumo">Índice Consumo:</label></td>
+              <td class="t-value"><span id="indice_consumo" t-field="inf.indice_consumo"/></td>
+            </tr>
+            <tr class="text-right">
+              <td class="t-label"><label for="total_litros">Consumo Total (L):</label></td>
+              <td class="t-value"><span id="total_litros" t-field="inf.total_litros"/></td>
+            </tr>
+            <tr class="text-right">
+              <td class="t-label"><label for="total_costo">Total:</label></td>
+              <td class="t-value"><span id="total_costo" t-field="inf.total_costo"/></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="detalles-notas pos-relative section-margin-top">
+        <div class="section-left mid-width margin-top">
+          <table class="border-center">
+            <tr class="text-left">
+              <td class="t-label"><label for="detalles_notas">Detalles y Notas</label></td>
+              <td class="t-value"><span id="detalles_notas" t-field="inf.notas"/></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </template>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <template id="Salida_encuestas" name="sicpro_app_encuestas_salida" inherit_id="survey.survey_fill_form_done">
+    <xpath expr="//h1" position="replace">
+      <div class="text-center mt-5">
+        <h2 class="fw-bold text-primary">¡GRACIAS POR PARTICIPAR!</h2>
+        <p class="text-muted">Tu respuesta ha sido registrada en el sistema SICPRO.</p>
+        <div class="mt-4">
+          <a href="/web" class="btn btn-lg btn-outline-danger shadow-sm px-5 py-3">
+            <h4 class="fw-bold mb-0"><i class="fa fa-power-off me-2"/>TERMINAR</h4>
+          </a>
+        </div>
+      </div>
+    </xpath>
+  </template>
+</odoo>

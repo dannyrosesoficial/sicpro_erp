@@ -1,0 +1,14 @@
+<odoo>
+  <record id="app_view_groups_search" model="ir.ui.view">
+    <field name="name">app.res.groups.search</field>
+    <field name="model">res.groups</field>
+    <field name="inherit_id" ref="base.view_groups_search"/>
+    <field name="arch" type="xml">
+      <xpath expr="//search" position="inside">
+        <searchpanel class="" view_types="kanban,list">
+          <field name="privilege_id" groupby="" icon="fa-filter" enable_counters="1"/>
+        </searchpanel>
+      </xpath>
+    </field>
+  </record>
+</odoo>

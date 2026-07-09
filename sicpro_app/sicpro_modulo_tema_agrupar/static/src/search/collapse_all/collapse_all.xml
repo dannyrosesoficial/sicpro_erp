@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+  <t t-name="sicpro_modulo_tema_agrupar.CollapseAll">
+    <DropdownItem class="'mk_collapse_all_menu'" onSelected.bind="onCollapseButtonClicked">
+      <i class="fa fa-fw fa-compress me-1"/>Contraer todo
+    </DropdownItem>
+  </t>
+</templates>

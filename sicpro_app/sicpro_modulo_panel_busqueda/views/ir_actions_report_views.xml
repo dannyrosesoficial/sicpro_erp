@@ -1,0 +1,15 @@
+<odoo>
+  <record id="app_act_report_xml_search_view" model="ir.ui.view">
+    <field name="name">app.ir.actions.report.search</field>
+    <field name="model">ir.actions.report</field>
+    <field name="inherit_id" ref="base.act_report_xml_search_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//search" position="inside">
+        <searchpanel class="" view_types="kanban,list">
+          <field name="report_type" groupby="" icon="fa-filter" enable_counters="1"/>
+          <field name="binding_model_id" groupby="" icon="fa-filter" enable_counters="1"/>
+        </searchpanel>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,39 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#    PROYECTO: SICPRO ERP
+#    AUTOR: Daniel Barrero Reyes (Danny Rose's)
+#    CONTACTO: daniel.borrero@etecsa.cu
+#    Copyright (C) 2020-2026 SICPRO ERP.
+#    Todos los derechos reservados.
+##############################################################################
+
+{
+    'name': 'SICPRO: Widget Buscador One2many',
+    'version': '19.0.0.1',
+    'category': 'Técnico',
+    'description': "Función de búsqueda rápida para campos One2many en SICPRO ERP",
+    'summary': "Función de búsqueda rápida para campos One2many en SICPRO ERP",
+    'author': 'Daniel Barrero Reyes',
+    'maintainer': 'Daniel Barrero Reyes / Soporte Técnico SICPRO',
+    'support': 'daniel.borrero@etecsa.cu',
+    'price': 0,
+    'currency': 'CUP',
+    'website': 'https://www.facebook.com/dannyroses.oficial/',
+    'license': 'AGPL-3',
+    'sequence': 3,
+    'depends': [
+        'web',
+        'sicpro_app_administracion',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'sicpro_modulo_widget_buscador_one2many/static/src/css/header.css',
+            'sicpro_modulo_widget_buscador_one2many/static/src/xml/one2manysearch.xml',
+            'sicpro_modulo_widget_buscador_one2many/static/src/js/one2manySearch.js'
+        ],
+    },
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'pre_init_hook': 'pre_init_check',
+}

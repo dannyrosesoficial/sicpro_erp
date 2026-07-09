@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="motivos_devolucion_form" model="ir.ui.view">
+        <field name="name">sicpro.app.control.informacion.devueltas.form</field>
+        <field name="model">sicpro.app.control.informacion.devueltas</field>
+        <field name="arch" type="xml">
+            <form string="Motivo de devolución">
+                <sheet>
+                    <group>
+                        <field name="motivo_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="detalles" placeholder="Explique los motivos del rechazo..."/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_motivo_devolucion" string="Confirmar Devolución" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="motivos_devolucion_action" model="ir.actions.act_window">
+        <field name="name">Motivo de la devolución</field>
+        <field name="res_model">sicpro.app.control.informacion.devueltas</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="control_informaciones_search" model="ir.ui.view">
+        <field name="name">sicpro.app.control.informacion.search</field>
+        <field name="model">sicpro.app.control.informacion</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Información">
+                <field name="name"/>
+                <field name="anio" string="Año"/>
+                <field name="etiquetas_ids" string="Etiquetas" filter_domain="[('etiquetas_ids', 'ilike', self)]"/>
+
+                <separator/>
+                <filter string="Informaciones en proceso" name="pendiente_enviada" domain="[('estado', 'in', ['pendiente','enviado'])]"/>
+                <filter string="Devueltas" name="devueltas" domain="[('estado', '=', 'devuelto')]"/>
+                <filter string="Validadas" name="validado" domain="[('estado', '=', 'validado')]"/>
+
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+
+                <group>
+                    <filter string="Actividad" name="group_name" context="{'group_by':'name'}"/>
+                    <filter string="Área Informativa" name="group_area" context="{'group_by':'area'}"/>
+                    <filter string="Estado" name="group_estado" context="{'group_by':'estado'}"/>
+                    <filter string="Mes" name="group_mes" context="{'group_by':'mes'}"/>
+                    <filter string="Año" name="group_anio" context="{'group_by':'anio'}"/>
+                    <filter string="Usuario" name="group_user" context="{'group_by':'user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="control_informaciones_form" model="ir.ui.view">
+        <field name="name">sicpro.app.control.informacion.form</field>
+        <field name="model">sicpro.app.control.informacion</field>
+        <field name="arch" type="xml">
+            <form string="Control de Información">
+                <header>
+                    <button name="action_enviar_info" string="Enviar información" type="object" class="oe_highlight"
+                            groups="sicpro_app_control_informacion.grupo_control_informacion_ejecutor"
+                            invisible="not active or estado not in ['pendiente', 'devuelto']"/>
+
+                    <button name="%(motivos_devolucion_action)d" string="Devolver información" type="action"
+                            groups="sicpro_app_control_informacion.grupo_control_informacion_revision"
+                            invisible="not active or estado != 'enviado'"/>
+
+                    <button name="action_validar_info" string="Validar información" type="object" class="oe_highlight"
+                            groups="sicpro_app_control_informacion.grupo_control_informacion_revision"
+                            invisible="not active or estado != 'enviado'"/>
+
+                    <button name="%(motivos_devolucion_action)d" string="Solicitar nueva información" type="action"
+                            groups="sicpro_app_control_informacion.grupo_control_informacion_revision"
+                            invisible="not active or estado != 'validado'"/>
+
+                    <field name="estado" widget="statusbar" statusbar_visible="pendiente,enviado,validado"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_empaty_documentos" type="object" class="oe_stat_button" icon="fa-paperclip">
+                            <field string="Documentos" name="doc_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-history" name="action_empaty_version" type="object">
+                            <field name="version" widget="statinfo" string="Versión"/>
+                        </button>
+                    </div>
+
+                    <widget name="web_ribbon" title="Archivado" bg_color="text-bg-danger" invisible="active"/>
+                    <widget name="web_ribbon" title="Devuelto" bg_color="text-bg-warning" invisible="estado != 'devuelto'"/>
+                    <widget name="web_ribbon" title="Validado" bg_color="text-bg-success" invisible="estado != 'validado'"/>
+
+                    <div class="oe_title">
+                        <label for="name" string="Actividad / Órgano Colegiado"/>
+                        <h1>
+                            <field name="name" readonly="estado not in ['pendiente', 'devuelto']"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </h1>
+                        <field name="mes" class="badge rounded-pill text-bg-info fs-5" readonly="1"/>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="user_id" options="{'no_create': True, 'no_open': True}" readonly="estado == 'validado'"/>
+                            <field name="area" readonly="1" force_save="1"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="fecha_requerida" readonly="1"/>
+                            <field name="fecha_entrega" readonly="1"/>
+                            <field name="etiquetas_ids" widget="many2many_tags" options="{'color_field': 'color'}"
+                                   readonly="estado == 'validado'"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Contenido y Adjuntos">
+                            <group string="Documentación Digital" invisible="not id">
+                                <field name="documentos_ids" widget="many2many_binary"
+                                       readonly="estado not in ['pendiente', 'devuelto']"/>
+                            </group>
+                            <group string="Notas Adicionales">
+                                <field name="observaciones" nolabel="1" placeholder="Observaciones sobre la entrega..."
+                                       readonly="estado == 'validado'"/>
+                            </group>
+                        </page>
+                        <page string="Log de Devolución" invisible="estado != 'devuelto' and not devolucion_motivo">
+                            <group>
+                                <group>
+                                    <field name="devolucion_motivo" readonly="1"/>
+                                    <field name="devolucion_user_id" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="devolucion_fecha" readonly="1"/>
+                                </group>
+                            </group>
+                            <separator string="Motivos detallados"/>
+                            <field name="devolucion_detalles" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="control_informaciones_list" model="ir.ui.view">
+        <field name="name">sicpro.app.control.informacion.list</field>
+        <field name="model">sicpro.app.control.informacion</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="estado == 'devuelto'"
+                  decoration-info="estado == 'enviado'"
+                  decoration-success="estado == 'validado'">
+                <field name="area"/>
+                <field name="mes"/>
+                <field name="name"/>
+                <field name="fecha_requerida" widget="remaining_days"/>
+                <field name="fecha_entrega"/>
+                <field name="version"/>
+                <field name="estado" widget="badge"
+                       decoration-success="estado == 'validado'"
+                       decoration-warning="estado == 'devuelto'"
+                       decoration-info="estado == 'enviado'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="control_informaciones_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.control.informacion.kanban</field>
+        <field name="model">sicpro.app.control.informacion</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="estado" quick_create="false" records_draggable="true">
+                <field name="id"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                </div>
+                                <span class="badge rounded-pill text-bg-secondary"><field name="identificador_corto"/></span>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <field name="etiquetas_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                <div class="mt-2">
+                                    <i class="fa fa-clock-o" title="Límite"/> <field name="fecha_requerida"/>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="mes"/>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="user_id" widget="many2one_avatar_user"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="control_informaciones_activity" model="ir.ui.view">
+        <field name="name">sicpro.app.control.informacion.activity</field>
+        <field name="model">sicpro.app.control.informacion</field>
+        <field name="arch" type="xml">
+            <activity string="Información">
+                <templates>
+                    <div t-name="activity-box">
+                        <field name="user_id" widget="many2one_avatar_user"/>
+                        <div>
+                            <field name="name" display="full"/>
+                            <field name="estado" display="full" muted="1"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+    <record id="control_informaciones_action" model="ir.actions.act_window">
+        <field name="name">Control de la Información</field>
+        <field name="res_model">sicpro.app.control.informacion</field>
+        <field name="view_mode">kanban,list,form,activity</field>
+        <field name="search_view_id" ref="control_informaciones_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No hay registros de información pendientes.
+            </p>
+        </field>
+    </record>
+</odoo>

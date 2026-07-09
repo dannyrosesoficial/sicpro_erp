@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="cmi_perspectivas_anios_view_list" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.perspectivas.anios.list</field>
+    <field name="model">sicpro.app.cmi.perspectivas.anios</field>
+    <field name="arch" type="xml">
+      <list string="Tablero de Perspectivas" editable="bottom">
+        <field name="anio" class="font-weight-bold"/>
+        <field name="user_id" widget="many2one_avatar_user"
+               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="color" widget="color_picker"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="cmi_perspectivas_anios_view_filter" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.perspectivas.anios.filter</field>
+    <field name="model">sicpro.app.cmi.perspectivas.anios</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Perspectivas">
+        <field name="anio"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="cmi_perspectivas_anios_views_kanban" model="ir.ui.view">
+    <field name="name">sicpro.app.cmi.perspectivas.anios.kanban</field>
+    <field name="model">sicpro.app.cmi.perspectivas.anios</field>
+    <field name="arch" type="xml">
+      <kanban highlight_color="color" class="o_kanban_mobile" create="false" sample="1">
+        <field name="name"/>
+        <field name="color"/>
+        <field name="user_id"/>
+        <field name="anio"/>
+        <field name="id"/>
+        <field name="company_id"/>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+              <div class="o_kanban_image_fill_left d-none d-md-block"
+                   t-attf-style="background-image: url(#{'/web/image/sicpro.app.cmi.perspectivas.anios/' + record.id.raw_value + '/image_128'})"
+                   role="img"/>
+
+              <div class="o_kanban_image d-md-none"
+                   t-attf-style="background-image: url(#{'/web/image/sicpro.app.cmi.perspectivas.anios/' + record.id.raw_value + '/image_128'})"
+                   role="img"/>
+
+              <div class="oe_kanban_details d-flex flex-column">
+                <strong class="o_kanban_record_title fw-bold text-primary" style="font-size: 1.2rem;">
+                  <field name="name"/> - <field name="anio"/>
+                </strong>
+
+                <div class="text-muted small">
+                  <i class="fa fa-building me-1" title="Proceso"/>
+                  <field name="company_id"/>
+                </div>
+
+                <div class="o_kanban_record_bottom mt-auto pt-2">
+                  <div class="oe_kanban_bottom_left">
+                    <button class="btn btn-primary btn-sm"
+                            name="%(cmi_perspectivas_periodo_dashboard_action)d"
+                            type="action"
+                            t-attf-context="{'default_anual': '#{record.anio.raw_value}'}">
+                      Filtrar Períodos
+                    </button>
+                  </div>
+                  <div class="oe_kanban_bottom_right">
+                    <field name="user_id" widget="many2one_avatar_user"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="cmi_perspectivas_anios_dashboard_action" model="ir.actions.act_window">
+    <field name="name">Tablero de Años</field>
+    <field name="res_model">sicpro.app.cmi.perspectivas.anios</field>
+    <field name="view_mode">kanban</field>
+    <field name="search_view_id" ref="cmi_perspectivas_anios_view_filter"/>
+    <field name="view_id" ref="cmi_perspectivas_anios_views_kanban"/>
+  </record>
+
+  <record id="cmi_perspectivas_anios_list_action" model="ir.actions.act_window">
+    <field name="name">Años de Perspectivas</field>
+    <field name="res_model">sicpro.app.cmi.perspectivas.anios</field>
+    <field name="view_mode">list</field>
+    <field name="search_view_id" ref="cmi_perspectivas_anios_view_filter"/>
+    <field name="view_id" ref="cmi_perspectivas_anios_view_list"/>
+  </record>
+</odoo>

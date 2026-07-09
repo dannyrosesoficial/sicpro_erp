@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="base.menu_grant_menu_access" model="ir.ui.menu">
+    <field name="parent_id" ref="base.menu_administration"/>
+  </record>
+  <record id="app_edit_menu" model="ir.ui.view">
+    <field name="name">app.ir.ui.menu.list</field>
+    <field name="model">ir.ui.menu</field>
+    <field name="inherit_id" ref="base.edit_menu"/>
+    <field name="arch" type="xml">
+      <xpath expr="//list" position="attributes">
+        <attribute name="multi_edit">1</attribute>
+      </xpath>
+      <field name="complete_name" position="after">
+        <field name="name"/>
+        <field name="parent_id"/>
+        <field name="active" widget="boolean_toggle" optional="show"/>
+      </field>
+    </field>
+  </record>
+  <record id="app_edit_menu_access_search" model="ir.ui.view">
+    <field name="name">app.ir.ui.menu.search</field>
+    <field name="model">ir.ui.menu</field>
+    <field name="inherit_id" ref="base.edit_menu_access_search"/>
+    <field name="arch" type="xml">
+      <filter name="inactive" position="before">
+        <filter string="Top Menu" name="top_menu" domain="[('parent_id','=', False)]"/>
+      </filter>
+    </field>
+  </record>
+
+  <menuitem
+      id="menu_module_sicproerp" name="SICPRO ERP" parent="base.menu_apps" sequence="6" action="action_module_sicpro"/>
+
+  <menuitem
+      id="menu_module_gitlab" name="GitLab SICPRO" parent="base.menu_apps" sequence="7" action="action_gitlab_store"/>
+
+  <menuitem
+      id="menu_ir_module_addons_path" name="Directorios" parent="base.menu_apps" sequence="92" groups="base.group_system"
+      action="action_ir_module_addons_path"/>
+</odoo>

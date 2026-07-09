@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <menuitem id="conector_api_menu" name="Integración"
+              parent="sicpro_app_administracion.menu_configuracion_administrador" sequence="10"/>
+
+    <menuitem id="menu_conector_api" name="Configuración del las Conexiones" parent="conector_api_menu"
+              action="conector_rest_api_action" sequence="1"/>
+
+    <menuitem id="menu_conector_historial_api" name="Historial de Conexiones" parent="conector_api_menu"
+              action="conector_rest_api_historial_action" sequence="2"/>
+</odoo>

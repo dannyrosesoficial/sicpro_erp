@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+    <t t-name="sicpro_modulo_widget_buscador_one2many.One2ManySearch">
+        <div class="o_one2many_search_container mb-2">
+            <t t-if="props.type === 'one2many' or props.widget === 'one2many_search'">
+                <div class="d-flex align-items-center">
+                    <input type="text"
+                           class="oe_search_value searchInput ps-3"
+                           t-att-placeholder="props.placeholder or 'Buscar...'"
+                           t-on-input="_onSearchInput"
+                           t-ref="searchField"/>
+
+                  <i class="fa fa-search position-absolute ms-2 text-muted"
+                     style="pointer-events: none;"/>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,168 @@
+.o_form_sheet {
+    $o-hrs-timeline-entry-padding: .5rem;
+    $o-hrs-timeline-dot-size: .6rem;
+
+    // Estilo General de Grupos de Habilidades
+    .o_hr_skills_group {
+        .o_list_view {
+            .o_list_table {
+                cursor: auto;
+            }
+            // En Odoo 19 el sombreado de grupos cambió
+            tbody:first-of-type > .o_resume_group_header:first-child {
+                box-shadow: none;
+            }
+        }
+
+        .o_data_row {
+            cursor: pointer;
+        }
+
+        .o_group_header, .o_resume_group_header {
+            &, &:hover {
+                background: transparent !important;
+                cursor: initial;
+                pointer-events: none;
+            }
+            // Permitir clics solo en el botón de agregar
+            .o_field_x2many_list_row_add {
+                cursor: pointer;
+                pointer-events: initial;
+
+                .btn:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    // Diseño de la Línea de Tiempo (Resume)
+    .o_group_resume {
+        .o_data_row td {
+            padding: $o-hrs-timeline-entry-padding;
+
+            &.o_resume_timeline_cell {
+                div {
+                    width: $o-hrs-timeline-dot-size;
+                    height: $o-hrs-timeline-dot-size;
+                }
+
+                &:before {
+                    position: absolute;
+                    top: 0;
+                    left: ($o-hrs-timeline-dot-size * .5 + $o-hrs-timeline-entry-padding);
+                    width: 1px;
+                    height: 100%;
+                    margin-left: -.01rem;
+                    background-color: var(--border-color, #dee2e6);
+                    content: "";
+                }
+            }
+        }
+
+        .o_resume_line_title, .o_resume_line_desc {
+            white-space: normal;
+        }
+
+        .o_resume_line_title, .o_resume_line_dates {
+            line-height: 1;
+        }
+
+        // Ajuste de línea superior
+        .o_resume_group_header + .o_data_row .o_resume_timeline_cell:before {
+            top: $o-hrs-timeline-entry-padding;
+        }
+
+        // Ajuste para el último elemento
+        .o_data_row.o_data_row_last {
+            .o_resume_line_desc {
+                margin-bottom: 1rem; // Sustituye $headings-margin-bottom
+            }
+
+            .o_resume_timeline_cell:before {
+                height: $o-hrs-timeline-entry-padding;
+            }
+        }
+    }
+
+    // Diseño de Habilidades (Skills)
+    .o_group_skills {
+        .o_resume_empty_helper {
+            display: none;
+        }
+
+        .o_group_header {
+            > .o_group_name {
+                padding: .8rem .5rem 0 0;
+            }
+
+            &:first-child > .o_group_name {
+                padding-top: 0;
+            }
+        }
+
+        .o_skill_cell {
+            padding-left: 0;
+            white-space: normal !important;
+
+            .o_progressbar {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .o_progress {
+                border: 0;
+                background: var(--gray-300, #dee2e6);
+                height: 5px;
+            }
+
+            .o_progressbar_value {
+                width: auto;
+                font-size: 0.875rem; // $font-size-sm
+                font-weight: bold;
+            }
+        }
+    }
+
+    // Modo Edición
+    &.o_form_editable {
+        .o_group_name {
+            background-color: var(--200, #e9ecef); // Reemplaza gray('200')
+        }
+
+        .o_resume_group_header .btn {
+            margin-top: .25rem;
+            margin-right: .4rem;
+        }
+
+        .o_group_skills .o_group_name {
+            padding-top: .4rem;
+            padding-bottom: .4rem;
+            padding-left: .5rem;
+        }
+
+        .o_group_skills .o_group_name > b, .o_hr_skills_group .o_horizontal_separator {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .o_list_record_remove > button {
+            color: var(--text-muted);
+            &:hover {
+                color: var(--danger, #dc3545);
+            }
+        }
+    }
+}
+
+// Iconos de Resume
+.o_resume_line {
+    .o_resume_line_icon.icon_trophy {
+        color: #ffc107; // warning
+    }
+
+    .o_resume_line_icon.icon_certificar {
+        color: #198754; // success
+    }
+}

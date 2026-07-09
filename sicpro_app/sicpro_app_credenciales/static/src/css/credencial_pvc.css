@@ -1,0 +1,91 @@
+/* Limpieza inicial para asegurar que el PDF no añada márgenes extra */
+html.pase-body, body.pase-body {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Ajustado para que el contenedor mande */
+    -webkit-print-color-adjust: exact;
+}
+
+.pase-contenedor {
+    width: 948px;
+    margin: 0 auto;
+    font-family: Arial, 'Helvetica', sans-serif;
+}
+
+/* Base de la credencial */
+.pase-base {
+    height: 1492px; /* Mantenemos tus medidas de diseño */
+    width: 948px;
+    overflow: hidden;
+    border: solid 17px;
+    border-radius: 50px;
+    border-top-width: 246px;
+    box-sizing: border-box; /* Crucial para que el borde no sume al ancho */
+}
+
+/* Colores de bordes (Aseguramos que Wkhtmltopdf los pinte) */
+.pase-color-bordes-permanente { border-color: darkblue !important; }
+.pase-color-bordes-provisional { border-color: grey !important; }
+.pase-color-bordes-especial { border-color: darkgreen !important; }
+.pase-color-bordes-constructor { border-color: black !important; }
+
+/* Títulos de Credencial */
+.pase-tipo-credencial {
+    height: 193px;
+    width: 916px;
+    position: absolute;
+    top: 130px; /* Cambiado de margen negativo a posicionamiento absoluto más estable */
+    left: 16px;
+    text-align: center;
+    z-index: 10;
+}
+
+.pase-tipo-credencial-data {
+    font-size: 85px; /* Convertido de % a px para evitar variaciones entre navegadores */
+    color: white;
+    font-family: 'Calibri', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Imagen del Trabajador */
+.pase-imagen {
+    position: relative;
+    margin: 50px auto 0 auto;
+    height: 505px;
+    width: 525px;
+    text-align: center;
+}
+
+.pase-imagen img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Ajustes de tipografía para nombres */
+.pase-nombre-data {
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 1.1;
+    color: #333;
+}
+
+/* Número de credencial */
+.pase-numero-credencial-data {
+    font-size: 60px;
+    font-weight: 800;
+    color: #000;
+}
+
+/* Estilo para los accesos en la parte trasera */
+.accesos-contenedor-line2 {
+    position: relative;
+    margin: 50px auto;
+    height: 95px;
+    width: 90%;
+    text-align: center;
+    border-top: 5px solid black; /* Aumentado grosor para que se vea bien en impresión */
+}

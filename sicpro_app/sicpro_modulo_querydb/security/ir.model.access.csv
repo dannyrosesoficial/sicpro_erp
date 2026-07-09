@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_querydeluxe,querydeluxe access,sicpro_modulo_querydb.model_querydeluxe,sicpro_modulo_querydb.group_querydeluxe,1,1,1,1
+access_pdforientation,pdforientation access,sicpro_modulo_querydb.model_pdforientation,sicpro_modulo_querydb.group_querydeluxe,1,1,1,1

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="ordenes_anexo3_wizard_view" model="ir.ui.view">
+    <field name="name">sicpro.app.ordenes.trabajo.anexo3.form</field>
+    <field name="model">sicpro.app.ordenes.trabajo.anexo3</field>
+    <field name="arch" type="xml">
+      <form string="Anexo 3 Ordenes">
+        <div class="alert alert-info text-center font-weight-bold" role="alert">
+          MODELO AVISO DE COMIENZO O TERMINACIÓN DE ORDEN DE TRABAJO
+        </div>
+        <group string="Seleccione el tipo de informe que desea generar">
+          <!-- Campos invisibles para procesamiento de datos -->
+          <field name="orden_trabajo_id" invisible="1"/>
+          <field name="company_id" invisible="1"/>
+          <field name="company_abreviatura" invisible="1"/>
+          <field name="sap_titulo" invisible="1"/>
+          <field name="pep" invisible="1"/>
+          <field name="territorio" invisible="1"/>
+          <field name="uo" invisible="1"/>
+          <field name="especialidad_id" invisible="1"/>
+          <field name="fecha_inicio_cronograma" invisible="1"/>
+          <field name="fecha_fin_cronograma" invisible="1"/>
+          <field name="fecha_inicio_real" invisible="1"/>
+          <field name="fecha_fin_real" invisible="1"/>
+          <field name="dia" invisible="1"/>
+          <field name="mes" invisible="1"/>
+          <field name="anio" invisible="1"/>
+          <field name="cargo" invisible="1"/>
+
+          <field name="tipo" widget="radio" options="{'horizontal': true}"/>
+          <field name="certifica" widget="many2one_avatar_user"
+                 options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+        </group>
+        <group string="Comentarios">
+          <field name="comentario" nolabel="1" colspan="2" class="w-100"
+                 placeholder="Añada observaciones adicionales aquí..."/>
+        </group>
+        <footer>
+          <button name="generar_reporte_anexo3" string="Imprimir" type="object" class="btn-primary" icon="fa-print"/>
+          <button string="Cancelar" special="cancel" class="btn-secondary"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="ordenes_anexo3_wizard_action" model="ir.actions.act_window">
+    <field name="name">Modelo de Anexo 3</field>
+    <field name="res_model">sicpro.app.ordenes.trabajo.anexo3</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+    <field name="binding_model_id" ref="model_sicpro_app_ordenes_trabajo"/>
+  </record>
+</odoo>

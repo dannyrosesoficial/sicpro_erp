@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_desactivar_usuario_bitacora_form" model="ir.ui.view">
+  <field name="name">sicpro.app.desactivar.usuario.bitacora.form</field>
+  <field name="model">sicpro.app.soporte.bitacora</field>
+  <field name="inherit_id" ref="sicpro_app_soporte.view_soporte_bitacora_form"/>
+  <field name="arch" type="xml">
+    <xpath expr="//field[@name='name']" position="after">
+      <field name="tipo_desactivacion" string="Causa" invisible="name != 'desactivado'" required="name == 'desactivado'"
+             widget="badge"
+             decoration-info="tipo_desactivacion == 'ldap'"
+             decoration-danger="tipo_desactivacion == 'acceso'"
+             decoration-warning="tipo_desactivacion == 'registro'"
+             decoration-success="tipo_desactivacion == 'manual'"/>
+    </xpath>
+  </field>
+</record>
+
+  <record id="view_desactivar_usuario_bitacora_list" model="ir.ui.view">
+    <field name="name">sicpro.app.desactivar.usuario.bitacora.list</field>
+    <field name="model">sicpro.app.soporte.bitacora</field>
+    <field name="inherit_id" ref="sicpro_app_soporte.view_soporte_bitacora_list"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='roles']" position="after">
+         <field name="tipo_desactivacion" widget="badge"
+                   decoration-info="tipo_desactivacion == 'ldap'"
+                   decoration-warning="tipo_desactivacion == 'acceso'"
+                   decoration-danger="tipo_desactivacion == 'registro'"/>
+      </xpath>
+    </field>
+</record>
+</odoo>

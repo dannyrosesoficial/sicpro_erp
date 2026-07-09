@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="anios_filter_view" model="ir.ui.view">
+    <field name="name">Buscar Año</field>
+    <field name="model">sicpro.nomenclador.anios</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Año">
+        <field name="name" string="Trimestre"/>
+        <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="anios_list_view" model="ir.ui.view">
+    <field name="name">trimestre.list.view</field>
+    <field name="model">sicpro.nomenclador.anios</field>
+    <field name="arch" type="xml">
+      <list string="Años" editable="bottom">
+        <field name="name"/>
+        <field name="active" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="action_anios" model="ir.actions.act_window">
+    <field name="name">Años</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.nomenclador.anios</field>
+    <field name="view_mode">list</field>
+  </record>
+</odoo>

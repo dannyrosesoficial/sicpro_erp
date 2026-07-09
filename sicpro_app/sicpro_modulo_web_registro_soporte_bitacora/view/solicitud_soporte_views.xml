@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="ticket_solicitud_view_form" model="ir.ui.view">
+    <field name="name">sicpro.app.soporte.solicitud.view.form</field>
+    <field name="model">sicpro.app.soporte</field>
+    <field name="inherit_id" ref="sicpro_app_soporte.ticket_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='action_empaty_tareas']" position="before">
+        <field name="team_id_bitacora" invisible="1"/>
+
+        <button name="solicitudes_acceso_view" type="object" class="oe_stat_button text-danger" icon="fa-folder-open"
+                invisible="not team_id_bitacora">
+          <field name="solicitudes_count" widget="statinfo" string="Solicitudes"/>
+        </button>
+
+        <button name="action_registro_bitacora" type="object" class="oe_stat_button text-success fw-bold"
+                icon="fa-network-wired" invisible="not team_id_bitacora">
+          <field name="bitacora_count" string="Bitácora" widget="statinfo"/>
+        </button>
+      </xpath>
+
+      <xpath expr="//field[@name='channel_id']" position="after">
+        <field name="numero_consecutivo" string="No. Solicitud" readonly="1"
+               invisible="not team_id_bitacora" class="fw-bold text-primary"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="ticket_solicitud_view_kanban" model="ir.ui.view">
+    <field name="name">sicpro.app.soporte.solicitud.view.kanban</field>
+    <field name="model">sicpro.app.soporte</field>
+    <field name="inherit_id" ref="sicpro_app_soporte.view_helpdesk_ticket_kanban"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='user_id']" position="after">
+        <field name="numero_consecutivo"/>
+      </xpath>
+
+      <xpath expr="//field[@name='tag_ids']" position="replace">
+        <div t-if="record.numero_consecutivo.raw_value" class="mt-2">
+          <span class="text-muted small fw-bold">ID Solicitud: </span>
+          <span class="text-success fw-bold">
+            <field name="numero_consecutivo"/>
+          </span>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+
+  <record id="view_informes_trabajador_pivot" model="ir.ui.view">
+    <field name="name">view.informes.contratos.pivot</field>
+    <field name="model">sicpro.app.trabajadores</field>
+    <field name="arch" type="xml">
+      <pivot string="Análisis de los Trabajadores" display_quantity="true"
+             disable_linking="false" sample="1">
+        <field name="company_id" type="row"/>
+      </pivot>
+    </field>
+  </record>
+
+  <record id="view_informes_trabajador_graph" model="ir.ui.view">
+  <field name="name">view.informes.trabajadores.graph</field>
+  <field name="model">sicpro.app.trabajadores</field>
+  <field name="arch" type="xml">
+    <graph string="Análisis de los Trabajadores" type="bar" sample="1" stacked="True">
+      <field name="company_id" type="row"/>
+      <field name="area_id" type="col"/>
+      </graph>
+  </field>
+</record>
+
+  <record id="view_informes_trabajador_search" model="ir.ui.view">
+    <field name="name">view.informes.contratos.informes.search</field>
+    <field name="model">sicpro.app.trabajadores</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Contrato">
+        <field name="name"/>
+        <field name="company_id"/>
+        <field name="area_id"/>
+        <field name="ocupacion_id"/>
+        <field name="centro_costo"/>
+        <field name="local_cc"/>
+        <filter string="Archivados" name="active" domain="[('active', '=',False)]"/>
+        <filter string="Donantes" name="donante" domain="[('donante', '=','si')]"/>
+        <separator/>
+        <group>
+          <filter string="Proceso" name="company_id" context="{'group_by':'company_id'}"/>
+          <filter string="Área" name="area_id" context="{'group_by':'area_id'}"/>
+          <filter name="categoria_ocupacional" string="Categoría ocupacional"
+                  context="{'group_by': 'categoria_ocupacional'}"/>
+          <filter name="clase_contrato" string="Clase de Contrato" context="{'group_by': 'clase_contrato'}"/>
+          <filter string="Género" name="genero" context="{'group_by':'genero'}"/>
+          <filter string="Raza" name="raza" context="{'group_by':'raza'}"/>
+          <filter string="Estado Civil" name="estado_civil" context="{'group_by':'estado_civil'}"/>
+          <filter string="Grupo Sanguíneo" name="grupo_sanguineo" context="{'group_by':'grupo_sanguineo'}"/>
+          <filter string="Puesto de Trabajo" name="ocupacion_id" context="{'group_by':'ocupacion_id'}"/>
+          <filter string="Nivel Escolar" name="nivel_escolar" context="{'group_by':'nivel_escolar'}"/>
+          <filter string="Especialidad" name="estudio_especialidad" context="{'group_by':'estudio_especialidad'}"/>
+          <filter string="Año de Graduación" name="estudio_graduacion" context="{'group_by':'estudio_graduacion'}"/>
+          <filter name="centro_costo" string="Centro de Costo" context="{'group_by': 'centro_costo'}"/>
+          <filter string="Local" name="local_cc" context="{'group_by':'local_cc'}"/>
+          <separator orientation="vertical"/>
+          <filter string="Inicio de contrato" context="{'group_by':'inicio_contrato:month'}" name="month"/>
+          <filter string="Fecha de Incorporación" context="{'group_by':'fecha_incorporacion:month'}" name="month"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="action_informes_trabajador" model="ir.actions.act_window">
+    <field name="name">Análisis de los Trabajadores</field>
+    <field name="res_model">sicpro.app.trabajadores</field>
+    <field name="view_mode">graph,pivot</field>
+    <field name="search_view_id" ref="view_informes_trabajador_search"/>
+    <field name="context">{'group_by_no_leaf': 1, 'group_by': []}</field>
+    <field name="help">Análisis grafico de los datos de la aplicación.</field>
+  </record>
+
+</odoo>

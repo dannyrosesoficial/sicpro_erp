@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_soporte_equipos_search" model="ir.ui.view">
+    <field name="name">sicpro.app.soporte.equipos.search</field>
+    <field name="model">sicpro.app.soporte.equipos</field>
+    <field name="arch" type="xml">
+      <search string="Buscar Equipos">
+        <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+        <separator/>
+        <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+        <field name="user_ids" string="Usuario" filter_domain="[('user_ids', 'ilike', self)]"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_soporte_equipos_list" model="ir.ui.view">
+    <field name="name">view.soporte.equipos.list</field>
+    <field name="model">sicpro.app.soporte.equipos</field>
+    <field name="arch" type="xml">
+      <list string="Equipos" editable="bottom">
+        <field name="name"/>
+        <field name="user_ids" widget="many2many_tags"
+               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+        <field name="bitacora"/>
+        <field name="commits"/>
+        <field name="color" widget="color_picker"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="soporte_equipos_action" model="ir.actions.act_window">
+    <field name="name">Equipos de Soporte</field>
+    <field name="res_model">sicpro.app.soporte.equipos</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear un nuevo equipo de soporte
+      </p>
+    </field>
+  </record>
+
+  <record id="helpdesk_ticket_dashboard_action" model="ir.actions.act_window">
+    <field name="name">Tablero de Gestión</field>
+    <field name="res_model">sicpro.app.soporte.equipos</field>
+    <field name="view_mode">kanban,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_empty_folder">
+        Aquí aparecen los equipos de trabajo
+      </p>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<template>
+    <t t-name="sicpro_modulo_actualiza_list_kanban.Button">
+        <nav class="oe_refresher" aria-label="Refresher" aria-atomic="true">
+            <button class="fa fa-download btn btn-icon oe_pager_refresh" aria-label="Traer datos"
+                    t-on-click="onClickRefresh" title="Traer datos" tabindex="-1"/>
+        </nav>
+    </t>
+</template>

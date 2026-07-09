@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="ordenes_clase_proyecto_list" model="ir.ui.view">
+    <field name="name">sicpro.app.ordenes.clases.proyecto.list</field>
+    <field name="model">sicpro.app.ordenes.clases.proyecto</field>
+    <field name="arch" type="xml">
+      <list string="Clase" editable="bottom">
+        <field name="name"/>
+        <field name="nombre"/>
+        <field name="control_autor" widget="boolean_toggle"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="ordenes_clase_proyecto_action" model="ir.actions.act_window">
+    <field name="name">Clases de Proyectos</field>
+    <field name="res_model">sicpro.app.ordenes.clases.proyecto</field>
+    <field name="view_id" ref="ordenes_clase_proyecto_list"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear clase de proyectos
+      </p>
+    </field>
+  </record>
+</odoo>

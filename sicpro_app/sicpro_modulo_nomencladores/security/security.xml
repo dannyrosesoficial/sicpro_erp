@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <!-- Creo los privilegios de acceso a los Nomencladores -->
+  <record id="privilege_nomencladores" model="res.groups.privilege">
+    <field name="name">Nomencladores</field>
+    <field name="description">Módulo para otorgar el acceso a los canales de comunicación en el sistema.</field>
+    <field name="sequence">3</field>
+    <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_administracion_general"/>
+  </record>
+
+  <record id="grupo_sicpro_nomencladores_admin" model="res.groups">
+    <field name="name">Administrador</field>
+    <field name="comment">Permisos Completos</field>
+    <field name="privilege_id" ref="privilege_nomencladores"/>
+    <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+  </record>
+</odoo>

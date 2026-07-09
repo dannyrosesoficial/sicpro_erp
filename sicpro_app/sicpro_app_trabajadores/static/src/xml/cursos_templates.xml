@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="hr_skill_data_row">
+        <tr class="o_data_row" t-att-data-id="props.record.id">
+            <td class="o_data_cell o_skill_cell w-100">
+                <span t-esc="props.record.data.skill_id[1]"/>
+            </td>
+            <td class="o_data_cell o_skill_cell pe-3 text-nowrap">
+                <span t-esc="props.record.data.skill_level_id[1]"/>
+            </td>
+            <td class="o_data_cell o_skill_cell w-25">
+                <ProgressBarField record="props.record" name="'level_progress'"/>
+            </td>
+            <t t-if="!props.list.readonly">
+                <t t-call="hr_trash_button"/>
+            </t>
+        </tr>
+    </t>
+
+    <t t-name="hr_default_group_row">
+        <tr class="o_group_header o_group_has_content">
+            <td class="o_group_name border-0 pe-2" colspan="99">
+                <div class="d-flex justify-content-between align-items-center">
+                    <strong t-esc="props.group.value"/>
+                    <t t-if="!props.list.readonly">
+                        <t t-call="group_add_item">
+                            <t t-set="props" t-value="{
+                                context: {['default_' + props.groupByField]: props.group.id},
+                                onAdd: props.list.add
+                            }"/>
+                        </t>
+                    </t>
+                </div>
+            </td>
+        </tr>
+    </t>
+
+</templates>

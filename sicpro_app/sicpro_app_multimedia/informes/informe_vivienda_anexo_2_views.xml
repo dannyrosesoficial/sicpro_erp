@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <record id="formato_papel_horizontal_vivienda_anexo_2" model="report.paperformat">
+    <field name="name">Papel Vertical Vivienda anexo 2</field>
+    <field name="format">A4</field>
+    <field name="orientation">Portrait</field>
+  </record>
+
+  <record id="informe_modelo_vivienda_anexo_2_action" model="ir.actions.report">
+    <field name="name">Anexo 2 del Programa de la Vivienda</field>
+    <field name="model">sicpro.app.vivienda.trabajador</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="paperformat_id" ref="formato_papel_horizontal_vivienda_anexo_2"/>
+    <field name="report_name">sicpro_app_programa_viviendas.informe_modelo_vivienda_anexo_2</field>
+    <field name="report_file">sicpro_app_programa_viviendas.informe_modelo_vivienda_anexo_2</field>
+    <field name="print_report_name">'Anexo 2 del Programa de la Vivienda'</field>
+    <field name="binding_model_id" ref="model_sicpro_app_vivienda_trabajador"/>
+    <field name="binding_type">report</field>
+  </record>
+
+  <template id="informe_modelo_vivienda_anexo_2">
+
+    <t t-call="web.html_container">
+
+      <!-- sección del header -->
+      <div t-attf-class="header" t-att-style="report_header_style">
+        <div class="row">
+          <div class="col-3 mb4">
+            <img src="sicpro_app_programa_viviendas/static/src/img/etecsaId_300_8.png" style="max-height: 55px;"
+                 alt="Logo"/>
+          </div>
+        </div>
+        <div class="row zero_min_height">
+          <div class="col-12">
+            <div style="border-bottom: 1px solid black;"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <small> División de Proyectos y Ejecución de Obras</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- sección de datos -->
+      <div t-attf-class="article">
+        <!-- sección del page -->
+        <t t-foreach="docs" t-as="inf">
+
+          <table border="0" cellspacing="0">
+            <colgroup width="61"></colgroup> <colgroup width="167"></colgroup> <colgroup
+              width="145"></colgroup> <colgroup width="120"></colgroup> <colgroup width="155"></colgroup>
+            <colgroup width="104"></colgroup> <colgroup width="125"></colgroup>
+            <tbody>
+              <tr>
+                <td colspan="7"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;COMISIÓN DE DISTRIBUCIÓN DE LA UNIDAD ORGANIZATIVA&quot;}"
+                    align="center" height="18"><b><font face="Calibri">COMISIÓN DE
+                  DISTRIBUCIÓN DE LA UNIDAD ORGANIZATIVA</font></b></td>
+              </tr>
+              <tr>
+                <td colspan="7"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ANEXO No 2 REG 2-PE-SG-001\/23 VALE DE APROBACIÓN DE RECURSOS&quot;}"
+                    align="center" height="18"><b><font face="Calibri">ANEXO No 2 REG
+                  2-PE-SG-001/23 VALE DE APROBACIÓN DE RECURSOS</font></b></td>
+              </tr>
+              <tr>
+                <td colspan="7"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot; PARA EL PROGRAMA DE LA VIVIENDA POR ESFUERZO PROPIO DEL TRABAJADOR &quot;}"
+                    align="center" height="18"><b><font face="Calibri"> PARA EL PROGRAMA
+                  DE LA VIVIENDA POR ESFUERZO PROPIO DEL TRABAJADOR </font></b></td>
+              </tr>
+              <tr>
+                <td colspan="7" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="center" height="18"><b><font face="Calibri">
+                </font></b></td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000"
+                    colspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Unidad Organizativa:&quot;}"
+                    align="left" height="18"><font face="Calibri">Unidad Organizativa:</font></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DVPE&quot;}"
+                    align="left"><b><font face="Calibri">DVPE. <span
+                    t-field="inf.company_id_trabajador"/></font></b></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot; Período:&quot;}"
+                    align="left"><font face="Calibri"> Período:</font></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Etapa&quot;}"
+                    align="left"><font color="#FF0000" face="Calibri"><span
+                    t-field="inf.etapa"/></font></td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Nombre y apellidos del trabajador seleccionado:&quot;}"
+                    align="left" height="18"><font face="Calibri">Nombre y apellidos del
+                  trabajador seleccionado:</font></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Nombre del trabajador&quot;}"
+                    align="left"><span t-field="inf.trabajador_id"/></td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Dirección de la vivienda objeto de intervención:&quot;}"
+                    align="left" height="18"><font face="Calibri">Dirección de la
+                  vivienda objeto de intervención:</font></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Direccion de la vivienda&quot;}"
+                    align="left"><span t-field="inf.direccion_carnet"/></td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="7" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="center" height="18"><font face="Calibri">
+                </font></td>
+              </tr>
+              <tr>
+                <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    align="center" height="18"><b><font face="Calibri">
+                  <t t-if="inf.tipo_mtto_reparacion==True">X</t>
+                </font></b></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="6"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Vía Mantenimiento\/reparación vivienda por esfuerzo propio&quot;}"
+                    align="left"><font face="Calibri">Vía Mantenimiento/reparación
+                  vivienda por esfuerzo propio</font></td>
+              </tr>
+              <tr>
+                <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;X&quot;}"
+                    align="center" height="18"><b><font face="Calibri">
+                  <t t-if="inf.tipo_terminada==True">X</t>
+                </font></b></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="6"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Vía Terminación de la vivienda por esfuerzo propio&quot;}"
+                    align="left"><font face="Calibri">Vía Terminación de la vivienda por
+                  esfuerzo propio</font></td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000"
+                    colspan="7" rowspan="2"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;RELACIÓN DE MATERIALES APROBADOS&quot;}"
+                    align="center" valign="middle" height="34"><b><font face="Calibri">RELACIÓN
+                  DE MATERIALES APROBADOS</font></b></td>
+              </tr>
+              <tr>
+              </tr>
+              <tr>
+                <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;No&quot;}"
+                    align="center" height="18"><b><font face="Calibri">No</font></b></td>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DENOMINACIÓN&quot;}"
+                    align="center"><b><font face="Calibri">DENOMINACIÓN</font></b></td>
+                <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;U\/M&quot;}"
+                    align="center"><b><font face="Calibri">U/M</font></b></td>
+                <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;CANTIDAD&quot;}"
+                    align="center"><b><font face="Calibri">CANTIDAD</font></b></td>
+              </tr>
+              <t t-set="count_lista" t-value="1"/>
+              <t t-foreach="inf.materiales_ids" t-as="material">
+                <tr>
+                  <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      sdval="1" sdnum="9226;" align="center" height="18"><font face="Calibri">
+                    <span t-out="count_lista"/></font></td>
+                  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      colspan="4"
+                      data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Escritura de la denominacion&quot;}"
+                      align="left"><font face="Calibri">
+                    <span t-field="material.name"/>
+                  </font></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;um&quot;}"
+                      align="center"><font face="Calibri"><span
+                      t-field="material.um"/></font></td>
+                  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                      sdval="23" sdnum="9226;" align="center"><font face="Calibri">
+                    <span t-field="material.cantidad"/></font></td>
+                </tr>
+                <t t-set="count_lista" t-value="count_lista + 1"/>
+              </t>
+
+              <tr>
+                <td colspan="7" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left" height="18"><font face="Calibri">
+                </font></td>
+              </tr>
+              <tr>
+                <td colspan="7"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Aprobado por:&quot;}"
+                    align="left" height="18"><font face="Calibri">Aprobado por:</font></td>
+              </tr>
+              <tr>
+                <td colspan="7" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left" height="17"><font face="Times New Roman">
+                </font></td>
+              </tr>
+              <tr>
+                <td colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe del area&quot;}"
+                    align="center" height="23"><font size="4" face="Times New Roman">
+                  <span t-field="inf.jefe_comision"/></font></td>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="center"><font size="4" face="Times New Roman">
+                </font></td>
+                <td colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Secretario sindical&quot;}"
+                    align="center"><font size="4" face="Times New Roman">
+                  <span t-field="inf.secretario_sindical"/>
+                </font></td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000" colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe Comisión Distribuidora UO&quot;}"
+                    align="center" height="38"><b><font face="Calibri">Jefe Comisión
+                  Distribuidora UO</font></b></td>
+                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="center"><b><font face="Calibri">
+                </font></b></td>
+                <td style="border-top: 1px solid #000000" colspan="3"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;\u000aSecretario Sindical&quot;}"
+                    align="center"><b><font face="Calibri">
+                  Secretario Sindical</font></b></td>
+              </tr>
+              <tr>
+                <td colspan="7" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="center" height="18"><font face="Calibri">
+                </font></td>
+              </tr>
+              <tr>
+                <td colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;director&quot;}"
+                    align="center" height="23"><font size="4" face="Times New Roman">
+                  <span t-field="inf.director"/></font></td>
+                <td colspan="3" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="left"><font face="Times New Roman">
+                </font></td>
+              </tr>
+              <tr>
+                <td style="border-top: 1px solid #000000" colspan="4"
+                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Vicepresidente o Director UO&quot;}"
+                    align="center" height="18"><b><font face="Calibri">Vicepresidente o
+                  Director UO</font></b></td>
+                <td colspan="3" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                    align="center"><font face="Calibri">
+                </font></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </t>
+        <t t-call="web.address_layout"/>
+      </div>
+      <t t-out="0"/>
+
+      <!-- sección del footer -->
+      <div t-attf-class="footer o_standard_footer">
+        <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+          Cuba.</span>
+        <div style="border-top: 1px solid black;">
+          <ul class="list-inline mb4">
+            <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+              <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+            <br/>
+            <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+              Justicia de la República de Cuba.
+              Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+          </ul>
+          <div t-if="report_type == 'pdf'" class="text-center text-muted">
+            Página: <span class="page"/> / <span class="topage"/>
+          </div>
+        </div>
+      </div>
+
+    </t>
+  </template>
+
+</odoo>

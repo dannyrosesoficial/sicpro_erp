@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+
+    <record id='transporte_combustible_view_list' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.tipo.combustible.list</field>
+        <field name="model">sicpro.app.transporte.tipo.combustible</field>
+        <field name="arch" type="xml">
+            <list string="Tipos de Combustibles" editable="bottom">
+                <field name="name"/>
+                <field name="categoria"/>
+                <field name="costo"/>
+                <field name="company_id" invisible="1"/>
+                <field name="company_currency" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id='transporte_combustible_action' model='ir.actions.act_window'>
+        <field name="name">Tipos de Combustibles</field>
+        <field name="res_model">sicpro.app.transporte.tipo.combustible</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo tipo de combustible para los vehículos
+            </p>
+        </field>
+    </record>
+
+</odoo>

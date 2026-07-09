@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <!-- Heredo vista search de res.user y le agrego filtros de búsquedas -->
+  <record id="desactiva_user_email_search_views" model="ir.ui.view">
+    <field name="name">res.users.mod.search.inherit</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_search"/>
+    <field name="arch" type="xml">
+      <field name="company_ids" position="after">
+        <group>
+          <filter name="tipo" string="Tipo de Usuario" context="{'group_by': 'tipo_usuario'}"/>
+          <separator/>
+        </group>
+      </field>
+
+    </field>
+  </record>
+
+  <!-- Heredo vista form de res.user y le agrego campos -->
+  <record id="desactiva_user_email_form_views" model="ir.ui.view">
+    <field name="name">res.users.views.form</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[hasclass('oe_title')]/.." position="before">
+        <group>
+          <div class="mb-3">
+            <field name="tipo_usuario" class="fw-bold" widget="radio"
+                   options="{'horizontal': true}"/>
+            <div class="col-6 oe_edit_only" invisible="tipo_usuario == 'local'">
+              <div class="o_row no-gutters d-flex align-items-center">
+                <span class="fw-bold me-2">Buscar No. PEP</span>
+                <field name="buscar_pep"
+                       options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+              </div>
+            </div>
+          </div>
+        </group>
+      </xpath>
+
+      <xpath expr="//div[hasclass('oe_title')]/h1" position="after">
+        <div class="d-flex align-items-center mb-2">
+          <i class="fa fa-id-card-o me-2 text-primary" title="Plaza del Trabajador"/>
+          <field name="pep" placeholder="No. Plaza del Trabajador" class="fw-bold"/>
+        </div>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- Heredo vista tree de res.user y le agrego campos -->
+  <record id="desactiva_user_email_list_views" model="ir.ui.view">
+    <field name="name">res.users.views.list</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_tree"/>
+    <field name="arch" type="xml">
+      <field name="name" position="before">
+        <field name="tipo_usuario" optional="hide"/>
+      </field>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data>
+    <record id="formato_papel_horizontal_calendario_dvpe" model="report.paperformat">
+      <field name="name">Papel Horizontal Calendario DVPE</field>
+      <field name="format">A4</field>
+      <field name="orientation">Landscape</field>
+    </record>
+
+    <record id="calendar_plan_trabajo_dvpe_report_action" model="ir.actions.report">
+      <field name="name">Reporte de Plan de Trabajo DVPE</field>
+      <field name="model">calendar.plan.reporte</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="paperformat_id" ref="formato_papel_horizontal_calendario_dvpe"/>
+      <field name="report_name">sicpro_app_calendario.reporte_calendar_plan_trabajo_dvpe</field>
+      <field name="report_file">sicpro_app_calendario.reporte_calendar_plan_trabajo_dvpe</field>
+      <field name="print_report_name">'Reporte de Plan de Trabajo DVPE'</field>
+      <field name="binding_model_id" ref="model_calendar_plan_reporte"/>
+      <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="reporte_calendar_plan_trabajo_dvpe">
+
+      <t t-call="web.html_container">
+
+        <!-- sección de la presentación  -->
+        <div t-attf-class="article">
+          <!-- sección del page -->
+          <t t-foreach="docs" t-as="inf">
+            <t>
+              <table cellspacing="0" border="0">
+                <colgroup width="85" span="10"></colgroup>
+                <tbody>
+                  <t t-set="firma_aprueba" t-value="request.env['calendar.pie.firmas'].sudo().search(
+                                [('active', '=', True), ('tipo', '=', 'aprueba')])"/>
+                  <t t-set="firma_elabora" t-value="request.env['calendar.pie.firmas'].sudo().search(
+                                [('active', '=', True), ('tipo', '=', 'elabora')])"/>
+                  <tr>
+                    <td height="17" align="left">
+                      <b>Aprobado:</b>
+                    </td>
+                    <td colspan="6" align="left">
+                      <t t-if="firma_aprueba">
+                        <t t-out="firma_aprueba.name.name or ''"/>
+                      </t>
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td colspan="6" align="left">
+                      <t t-if="firma_aprueba">
+                        <t t-out="firma_aprueba.name.ocupacion_id.name.name or ''"/>
+                      </t>
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td colspan="4" rowspan="2" valign="middle" align="center">
+                      <div>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <img class=""
+                             src="sicpro_app_calendario/static/src/img/etecsaId_300_8.png"
+                             alt="Logo"
+                             style="padding:0px;margin: 0px; height: auto; width: 600px;"/>
+                      </div>
+                      <br></br>
+                      <br></br>
+                      <br></br>
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="10" valign="middle" height="23" align="center">
+                      <b>
+                        <h2>PLAN DE TRABAJO DEL MES DE <t t-esc="inf.mes.name.upper()"/>
+                          DE <t t-esc="inf.anio.upper()"/>
+                        </h2>
+                      </b>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="10" valign="middle" height="23" align="center">
+                      <b>
+                        <h2>DE LA DIVISIÓN DE PROYECTOS Y EJECUCIÓN DE OBRAS</h2>
+                      </b>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                      <font face="Arial"> Elaborado:</font>
+                    </td>
+                    <td colspan="6" align="left">
+                      <t t-if="firma_elabora">
+                        <t t-out="firma_elabora.name.name or ''"/>
+                      </t>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td colspan="6" align="left">
+                      <font face="Arial">
+                        <t t-if="firma_elabora">
+                          <t t-out="firma_elabora.name.ocupacion_id.name.name or ''"/>
+                        </t>
+                      </font>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="17" align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                    <td align="left">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </t>
+          </t>
+        </div>
+
+        <!-- sección de las tareas  -->
+        <div t-attf-class="article">
+          <!-- sección del page -->
+          <t t-foreach="docs" t-as="inf">
+            <table cellspacing="0" border="0">
+              <colgroup width="35"></colgroup>
+              <colgroup width="4"></colgroup>
+              <colgroup width="678"></colgroup>
+              <tbody>
+                <tr>
+                  <td colspan="3" valign="middle" height="17" align="left">
+                    <b>TAREAS PRINCIPALES:</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" valign="middle" height="11" align="center">
+                    <b>
+                      <br></br>
+                    </b>
+                  </td>
+                </tr>
+                <!--                            valor viejo: <t t-set="tipos_tareas" t-value="inf.buscar_datos_img()"/>-->
+                <t t-set="tipos_tareas" t-value="inf.report_busca_calendario()"/>
+                <t t-set="count_principales" t-value="1"/>
+                <t t-set="count_generales" t-value="1"/>
+
+                <t t-foreach='tipos_tareas' t-as='principales'>
+                  <t t-if="principales['tipo_tarea'] == 'principales'">
+                    <tr>
+                      <td height="17" align="right">
+                        <span t-out="count_principales"/>.
+                      </td>
+                      <td align="right">
+                        <br></br>
+                      </td>
+                      <td valign="middle" align="left">
+                        <span t-out="principales['evento']"/>
+                      </td>
+                    </tr>
+                    <t t-set="count_principales" t-value="count_principales + 1"/>
+                  </t>
+                </t>
+                <tr>
+                  <td colspan="3" valign="middle" height="17" align="center">
+                    <br></br>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" valign="middle" height="17" align="center">
+                    <br></br>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" valign="middle" height="17" align="left">
+                    <b>TAREAS GENERALES:</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" valign="middle" height="11" align="center">
+                    <br></br>
+                  </td>
+                </tr>
+                <t t-foreach='tipos_tareas' t-as='principales'>
+                  <t t-if="principales['tipo_tarea'] == 'generales'">
+                    <tr>
+                      <td height="17" align="right">
+                        <span t-out="count_generales"/>.
+                      </td>
+                      <td align="right">
+                        <br></br>
+                      </td>
+                      <td valign="middle" align="left">
+                        <span t-out="principales['evento']"/>
+                      </td>
+                    </tr>
+                    <t t-set="count_generales" t-value="count_generales + 1"/>
+                  </t>
+                </t>
+
+              </tbody>
+            </table>
+          </t>
+        </div>
+
+        <!-- sección de los datos  -->
+        <div t-attf-class="article">
+          <!-- sección del page -->
+          <t t-foreach="docs" t-as="inf">
+            <table cellspacing="0" border="0">
+              <colgroup width="35"></colgroup>
+              <colgroup width="500"></colgroup>
+              <colgroup width="200"></colgroup>
+              <colgroup width="250"></colgroup>
+              <colgroup width="300"></colgroup>
+              <tbody>
+                <t t-set="calendario" t-value="inf.report_busca_dias()"/>
+                <t t-set="eventos" t-value="inf.report_busca_calendario()"/>
+                <tr>
+                  <td colspan="5" valign="middle" height="23" align="center">
+                    <b>
+                      <font size="4">PLAN DE TRABAJO DVPE PARA EL MES DE
+                        <t t-esc="inf.mes.name.upper()"/>
+                      </font>
+                    </b>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="background-color: #FFCC99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000"
+                      height="19" align="center">
+                    <b>
+                      <font face="Arial">No.</font>
+                    </b>
+                  </td>
+                  <td style="background-color: #FFCC99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000"
+                      align="center">
+                    <b>
+                      <font face="Arial">Actividad</font>
+                    </b>
+                  </td>
+                  <td style="background-color: #FFCC99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000"
+                      align="center">
+                    <b>
+                      <font face="Arial">Hora y Lugar</font>
+                    </b>
+                  </td>
+                  <td style="background-color: #FFCC99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000"
+                      align="center">
+                    <b>
+                      <font face="Arial">Dirige</font>
+                    </b>
+                  </td>
+                  <td style="background-color: #FFCC99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                      align="center">
+                    <b>
+                      <font face="Arial">Participan</font>
+                    </b>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="5" valign="middle" height="17" align="center">
+                    <br></br>
+                  </td>
+                </tr>
+                <t t-foreach='calendario' t-as='dia_nombre'>
+                  <tr>
+                    <td style="background-color: #CCFFFF; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                        colspan="5" valign="middle" height="17" align="left">
+                      <font face="Arial">DÍA
+                        <span t-out="dia_nombre['dia']"/>
+                        <t t-if="dia_nombre['nombre'] == 'Sábado' or dia_nombre['nombre'] == 'Domingo'">
+                          (<span class="text-danger font-weight-bold"
+                                 t-out="dia_nombre['nombre']"/>)
+                        </t>
+                        <t t-else="">
+                          (<span class="font-weight-bold" t-out="dia_nombre['nombre']"/>)
+                        </t>
+                      </font>
+                    </td>
+                  </tr>
+                  <t t-set="count_eventos" t-value="1"/>
+                  <t t-foreach='eventos' t-as='evento'>
+                    <t t-if="evento['dia'] == dia_nombre['dia']">
+                      <tr>
+                        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                            sdval="1" sdnum="9226;" height="18" align="center">
+                          <font face="Arial">
+                            <span t-out="count_eventos"/>
+                          </font>
+                        </td>
+                        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                            align="justify">
+                          <font face="Arial">
+                            <t t-out="evento['evento']"/>
+                          </font>
+                        </td>
+                        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                            align="center">
+                          <font face="Arial">
+                            <span class="font-weight-bold" t-out="evento['hora']"/>-
+                            <t t-if="evento['tipo_ubicacion'] == 'otro'">
+                              <span t-out="evento['ubicacion']"/>
+                            </t>
+                            <t t-else="">
+                              <span t-out="evento['ubicacion_dvpe']"/>
+                            </t>
+                          </font>
+                        </td>
+                        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                            align="center">
+                          <font face="Arial">
+                            <t t-if="evento['tipo_ubicacion'] == 'externo'">
+                              <t t-foreach="evento['dirige_externos']" t-as="dirige">
+                                <span t-field="dirige.name"/>
+                                <br></br>
+                              </t>
+                            </t>
+                            <t t-else="">
+                              <t t-foreach="evento['dirige']" t-as="dirige">
+                                <span t-field="dirige.ocupacion_id"/>
+                                -
+                                <span t-field="dirige.company_id.identificador_corto"/>
+                                <br></br>
+                              </t>
+                            </t>
+                          </font>
+                        </td>
+                        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                            align="justify">
+                          <font face="Arial">
+                            <t t-foreach="evento['participantes']" t-as="participantes">
+                              <span t-field="participantes.name"/>
+                              <br></br>
+                            </t>
+                          </font>
+                        </td>
+                      </tr>
+                      <t t-set="count_eventos" t-value="count_eventos + 1"/>
+                    </t>
+                  </t>
+                </t>
+              </tbody>
+            </table>
+          </t>
+        </div>
+
+        <t t-out="0"/>
+
+      </t>
+    </template>
+  </data>
+</odoo>

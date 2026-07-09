@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <!--Menus principales Nomencladores-->
+  <menuitem id="menu_nomencladores_root" name="Nomencladores"
+            parent="sicpro_app_administracion.menu_configuracion_administrador"
+            sequence="10" groups="grupo_sicpro_nomencladores_admin"/>
+
+  <menuitem id="menu_trimestre" name="Trimestres"
+            parent="menu_nomencladores_root" action="action_trimestre" sequence="1"/>
+
+  <menuitem id="menu_nomenclador_meses" name="Meses"
+            parent="menu_nomencladores_root" action="action_nomenclador_meses" sequence="2"/>
+
+  <menuitem id="menu_anios" name="Años"
+            parent="menu_nomencladores_root" action="action_anios" sequence="3"/>
+
+  <menuitem id="menu_nomenclador_territorio" name="Unidad Organizativa"
+            parent="menu_nomencladores_root" action="action_nomenclador_territorio" sequence="5"/>
+
+  <menuitem id="menu_localizacion_paises" name="Países"
+            action="base.action_country" parent="menu_nomencladores_root" sequence="8"/>
+
+  <menuitem id="menu_localizacion_estados" name="Provincias"
+            action="action_country_state_sicpro" parent="menu_nomencladores_root" sequence="9"/>
+
+  <menuitem id="menu_localizacion_municipios" name="Municipios"
+            action="action_list_municipios" parent="menu_nomencladores_root" sequence="10"/>
+
+  <menuitem id="menu_localizacion_grupo_paises" name="Grupo de países"
+            action="base.action_country_group" parent="menu_nomencladores_root" sequence="11"/>
+
+  <menuitem id="menu_nomenclador_especialida" name="Especialidades"
+            parent="menu_nomencladores_root" action="action_nomenclador_especialida" sequence="13"/>
+
+  <menuitem id="menu_nomenclador_centro_costo" name="Centros de Costos"
+            parent="menu_nomencladores_root" action="action_nomenclador_centro_costo" sequence="14"/>
+
+  <menuitem id="menu_cuentas_contables" name="Cuentas Contables"
+            parent="menu_nomencladores_root" action="action_cuentas_contables" sequence="15"/>
+
+  <menuitem id="menu_nomenclador_locales" name="Locales de CC"
+            parent="menu_nomencladores_root" action="action_nomenclador_locales" sequence="16"/>
+
+  <menuitem id="menu_nomenclador_departamentos" name="Departamentos"
+            parent="menu_nomencladores_root" action="action_nomenclador_departamentos" sequence="17"/>
+
+  <menuitem id="menu_nomenclador_centro_planificacion" name="Centros de Planificación"
+            parent="menu_nomencladores_root" action="action_nomenclador_cepl" sequence="18"/>
+
+  <menuitem id="menu_nomenclador_emplazamientos" name="Emplazamientos"
+            parent="menu_nomencladores_root" action="action_nomenclador_emplazamiento" sequence="19"/>
+
+  <menuitem id="menu_nomenclador_are" name="Áreas de Empresa"
+            parent="menu_nomencladores_root" action="action_nomenclador_areas" sequence="20"/>
+</odoo>

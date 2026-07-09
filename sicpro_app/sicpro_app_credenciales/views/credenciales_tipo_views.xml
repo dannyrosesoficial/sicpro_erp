@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_credenciales_tipo_list" model="ir.ui.view">
+    <field name="name">sicpro.app.credenciales.tipo.list</field>
+    <field name="model">sicpro.app.credenciales.tipo</field>
+    <field name="arch" type="xml">
+      <list editable="bottom">
+        <field name="name"/>
+        <field name="personal_externo"/>
+        <field name="color" widget="color_picker"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="credenciales_tipo_action" model="ir.actions.act_window">
+    <field name="name">Tipo de Credencial</field>
+    <field name="res_model">sicpro.app.credenciales.tipo</field>
+    <field name="view_mode">list,form</field>
+  </record>
+</odoo>

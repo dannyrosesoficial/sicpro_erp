@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="vivienda_trabajo_productos_search" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.trabajador.productos.search</field>
+    <field name="model">sicpro.app.vivienda.trabajador.productos</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="name"/>
+        <field name="solicitud_id"/>
+        <field name="company_id_trabajador"/>
+        <group>
+          <filter string="Etapas" name="etapas" context="{'group_by':'etapa'}"/>
+          <filter string="Material" name="group_material" context="{'group_by':'name'}"/>
+          <filter string="Solicitud" name="group_solicitud" context="{'group_by':'solicitud_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="vivienda_trabajo_productos_pivot" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.trabajador.productos.pivot</field>
+    <field name="model">sicpro.app.vivienda.trabajador.productos</field>
+    <field name="priority" eval="20"/>
+    <field name="arch" type="xml">
+      <pivot string="Consolidado para compra de materiales" display_quantity="false" disable_linking="True" sample="1">
+        <field name="company_id_trabajador" type="row"/>
+        <field name="solicitud_id" type="row"/>
+        <field name="name" type="col"/>
+        <field name="cantidad" type="measure"/>
+      </pivot>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="vivienda_trabajo_productos_action">
+    <field name="name">Consolidado para compra de materiales</field>
+    <field name="res_model">sicpro.app.vivienda.trabajador.productos</field>
+    <field name="view_mode">pivot,list</field>
+    <field name="domain">[('estado', 'in', ['aprobado', 'entregado'])]</field>
+    <field name="context">{'search_default_etapas': 1}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        No hay materiales aprobados para consolidar.
+      </p>
+      <p>
+        Asegúrese de que las solicitudes de vivienda estén en estado 'Aprobado' o 'Entregado'.
+      </p>
+    </field>
+  </record>
+</odoo>

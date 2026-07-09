@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <!-- Inicio de las vistas wizard para la cancelación de la solicitud -->
+  <record id="vivienda_canceladas_form" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.trabajador.canceladas.form</field>
+    <field name="model">sicpro.app.vivienda.trabajador.canceladas</field>
+    <field name="priority">80</field>
+    <field name="arch" type="xml">
+      <form string="Motivo de Cancelación">
+        <group class="oe_title">
+          <field name="motivo_id"/>
+        </group>
+        <footer>
+          <button name="action_motivo_cancelacion" string="Enviar" type="object" class="btn-primary"/>
+          <button string="Cancelar" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="vivienda_canceladas_action" model="ir.actions.act_window">
+    <field name="name">Motivo de la Cancelación</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.app.vivienda.trabajador.canceladas</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="vivienda_canceladas_form"/>
+    <field name="target">new</field>
+  </record>
+  <!-- Fin de la vistas wizard para la cancelación de la solicitud -->
+
+  <!-- Inicio de las vistas wizard para el rechazo de la solicitud -->
+  <record id="vivienda_rechazo_form" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.trabajador.rechazadas.form</field>
+    <field name="model">sicpro.app.vivienda.trabajador.rechazadas</field>
+    <field name="priority">80</field>
+    <field name="arch" type="xml">
+      <form string="Aviso de Intensión">
+        <group class="oe_title">
+          <field name="motivo_id"/>
+        </group>
+        <footer>
+          <button name="action_motivo_rechazo" string="Enviar" type="object" class="btn-primary"/>
+          <button string="Cancelar" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="vivienda_rechazo_action" model="ir.actions.act_window">
+    <field name="name">Motivo de la Rechazo</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.app.vivienda.trabajador.rechazadas</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="vivienda_rechazo_form"/>
+    <field name="target">new</field>
+  </record>
+  <!-- Fin de la vistas wizard para el rechazo de la solicitud -->
+
+  <record id="vivienda_consecutivo_incrementar" model="ir.sequence">
+    <field name="name">Viviendas: Consecutivo de las solicitudes</field>
+    <field name="code">vivienda_consecutivo_incrementar</field>
+    <field name="padding">4</field>
+    <field name="prefix">Solicitud: %(range_year)s/</field>
+    <field name="number_increment">1</field>
+    <field name="use_date_range">True</field>
+    <field name="company_id" eval="False"/>
+  </record>
+
+
+  <record id="vivienda_trabajo_search" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.trabajador.search</field>
+    <field name="model">sicpro.app.vivienda.trabajador</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="trabajador_id"/>
+        <field name="sequence_consecutivo"/>
+        <field name="etapa"/>
+        <field name="prioridad"/>
+        <field name="escalafon"/>
+        <separator/>
+        <filter string="Fecha de Solicitud" name="fecha_solicitado_trabajador"
+                date="fecha_solicitado_trabajador"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+        <separator/>
+        <filter string="Prioridad Muy Alta" name="prioridad_muy_alta" domain="[('prioridad', '=', '3')]"/>
+        <filter string="Prioridad Alta" name="prioridad_alta" domain="[('prioridad', '=', '2')]"/>
+        <filter string="Prioridad Media" name="prioridad_media" domain="[('prioridad', '=', '1')]"/>
+        <filter string="Prioridad Baja" name="prioridad_baja" domain="[('prioridad', '=', '0')]"/>
+        <separator/>
+        <filter string="No Aprobados" name="no_aprobado"
+                domain="[('estado', 'in', ['rechazado', 'cancelado'])]"/>
+        <filter string="Aprobados" name="aprobado" domain="[('estado', '=', 'logistica')]"/>
+        <filter string="Terminado" name="terminadas" domain="[('estado', '=', 'terminado')]"/>
+        <group>
+          <filter string="Etapas" name="etapas" context="{'group_by':'etapa'}"/>
+          <filter string="Sección sindical" name="seccion_sindical"
+                  context="{'group_by':'seccion_sindical'}"/>
+          <filter string="Prioridad" name="prioridad" context="{'group_by':'prioridad'}"/>
+          <filter string="Proceso Ejecutor" name="company_id" context="{'group_by':'company_id'}"/>
+          <separator orientation="vertical"/>
+          <filter string="Fecha de solicitud" context="{'group_by':'fecha_solicitado_trabajador:month'}"
+                  name="month"/>
+          <filter string="Año" context="{'group_by':'anio'}" name="month"/>
+        </group>
+        <searchpanel>
+          <field name="etapa" enable_counters="1" expand="1" icon="fa-building"/>
+          <field name="seccion_sindical" enable_counters="1" expand="1" icon="fa-users"/>
+        </searchpanel>
+      </search>
+    </field>
+  </record>
+
+  <record id="vivienda_trabajo_form" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.trabajador.form</field>
+    <field name="model">sicpro.app.vivienda.trabajador</field>
+    <field name="priority">50</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_vivienda_solicitar" string="Liberar Solicitud" type="object"
+                  class="oe_highlight"
+                  groups="sicpro_app_programa_viviendas.grupo_app_vivienda_secretario"
+                  invisible="not active or estado != 'pendiente'"/>
+
+          <button name="action_vivienda_validar" string="Validar Solicitud" type="object" class="oe_highlight"
+                  groups="sicpro_app_programa_viviendas.grupo_app_vivienda_validar"
+                  invisible="not active or estado != 'validar'"/>
+
+          <button name="%(vivienda_rechazo_action)d" string="Rechazar Solicitud" type="action"
+                  groups="sicpro_app_programa_viviendas.grupo_app_vivienda_validar"
+                  invisible="not active or estado != 'validar'"/>
+
+          <button name="action_vivienda_reiniciar" string="Reiniciar Solicitud" type="object"
+                  groups="sicpro_app_programa_viviendas.grupo_app_vivienda_secretario"
+                  invisible="not active or estado != 'rechazado'"/>
+
+          <button name="%(vivienda_canceladas_action)d" string="Cancelar Solicitud" type="action"
+                  class="oe_highlight"
+                  groups="sicpro_app_programa_viviendas.grupo_app_vivienda_secretario"
+                  invisible="not active or estado not in ['pendiente', 'rechazado']"/>
+
+          <button name="action_vivienda_terminar" string="Terminar Solicitud" type="object"
+                  groups="sicpro_app_programa_viviendas.grupo_app_vivienda_logistica"
+                  invisible="not active or estado != 'logistica'"/>
+
+          <field name="estado" widget="statusbar" options="{'clickable': '0', 'fold_field': 'fold'}"
+                 readonly="1"/>
+        </header>
+        <div class="alert alert-warning text-center" colspan="4" role="alert"
+             invisible="estado != 'pendiente'"
+             style="margin-bottom: 0px !important;">
+          <strong>La solicitud de materiales del trabajador está en estado de PENDIENTE
+            esperando a ser liberada.</strong>
+        </div>
+        <div class="alert alert-warning text-center" colspan="4" role="alert"
+             invisible="estado != 'validar'"
+             style="margin-bottom: 0px !important;">
+          <strong>La solicitud de materiales del trabajador está en estado de PENDIENTE
+            esperando a ser validada.</strong>
+        </div>
+        <div class="alert alert-info text-center" colspan="4" role="alert"
+             invisible="estado != 'logistica'"
+             style="margin-bottom: 0px !important;">
+          <strong>La solicitud de materiales del trabajador está en el proceso logístico.</strong>
+        </div>
+        <div class="alert alert-danger text-center" colspan="4" role="alert"
+             invisible="estado != 'rechazado'"
+             style="margin-bottom: 0px !important;">
+          <strong>La solicitud de materiales del trabajador ha sido rechazada.</strong>
+        </div>
+        <div class="alert alert-danger text-center" colspan="4" role="alert"
+             invisible="estado != 'cancelado'"
+             style="margin-bottom: 0px !important;">
+          <strong>La solicitud de materiales del trabajador ha sido Cancelada.</strong>
+        </div>
+        <div class="alert alert-success text-center" colspan="4" role="alert"
+             invisible="estado != 'terminado'"
+             style="margin-bottom: 0px !important;">
+          <strong>La solicitud de materiales del trabajador a concluido correctamente.</strong>
+        </div>
+        <sheet>
+          <div class="oe_button_box" name="button_box"/>
+
+          <field name="active" invisible="1"/>
+          <field name="company_id" invisible="1"/>
+          <field name="anio" invisible="1"/>
+          <field name="currency_id" invisible="1"/>
+          <field name="bloquear_campos" invisible="1"/>
+          <field name="name" invisible="1"/>
+          <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                  invisible="active"/>
+          <widget name="web_ribbon" title="Cancelada" bg_color="bg-danger"
+                  invisible="estado != 'cancelado'"/>
+          <widget name="web_ribbon" title="Rechazada" bg_color="bg-warning"
+                  invisible="estado != 'rechazado'"/>
+          <field name="image_1920" widget="image" class="oe_avatar"
+                 options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+
+          <div class="oe_title">
+            <label for="trabajador_id" string="Nombre del trabajador"/>
+            <h1>
+              <field name="trabajador_id"
+                     readonly="bloquear_campos"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </h1>
+            <h2>
+              <field name="sequence_consecutivo"/>
+            </h2>
+            <field class="font-weight-bold" decoration-danger="clase_contrato" name="clase_contrato"/>
+            -
+            <field class="text-black-50 font-weight-bold" name="categoria_ocupacional"/>
+          </div>
+
+          <group>
+            <group>
+              <field name="plaza_id"/>
+              <field name="area_id" string="Titulo de la Solicitud"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="ocupacion_id"/>
+              <field name="parent_id"/>
+              <field name="company_id_trabajador"/>
+            </group>
+            <group>
+              <field name="identification_id"/>
+              <field name="direccion_carnet"/>
+              <field name="inicio_contrato"/>
+              <field name="movil_trabajo" widget="phone"/>
+              <field name="telefono_trabajo" widget="phone"/>
+              <field name="correo_trabajo"/>
+            </group>
+          </group>
+
+          <group string="Detalles de la solicitud">
+            <group>
+              <field name="user_id" readonly="1"/>
+              <field name="user_id_seccion_sindical" invisible="1"/>
+              <field name="fecha_solicitado_trabajador"
+                     readonly="estado != 'pendiente'"/>
+              <field name="seccion_sindical"/>
+            </group>
+            <group>
+              <field name="etapa" invisible="not trabajador_id" readonly="bloquear_campos"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="dominio_escalafon" invisible="1"/>
+              <field name="escalafon" domain="dominio_escalafon" class="font-weight-bold text-danger"
+                     invisible="not trabajador_id" readonly="estado in ['cancelado', 'terminado']"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="prioridad" widget="priority"/>
+            </group>
+          </group>
+
+          <group string="Vía de trabajo asociado">
+            <group>
+              <field name="tipo_mtto_reparacion" widget="boolean_toggle"/>
+            </group>
+            <group>
+              <field name="tipo_terminada" widget="boolean_toggle"/>
+            </group>
+          </group>
+
+          <group>
+            <field name="descripcion" placeholder="Descripción detallada de la solicitud del trabajador"
+                   readonly="estado in ['cancelado', 'terminado']"/>
+          </group>
+
+          <group string="Rechazo de la Solicitud" invisible="estado != 'rechazado'">
+            <group>
+              <field name="motivo_rechazo" readonly="1"/>
+            </group>
+            <group>
+              <field name="fecha_rechazado" readonly="1"/>
+            </group>
+          </group>
+
+          <group string="Cancelación de la Solicitud" invisible="estado != 'cancelado'">
+            <group>
+              <field name="motivo_cancelacion" readonly="1"/>
+            </group>
+            <group>
+              <field name="fecha_cancelado" readonly="1"/>
+            </group>
+          </group>
+
+          <notebook>
+            <page name="materiales" string="Solicitud de Materiales">
+              <group string="Listado de ofertas"
+                     groups="sicpro_app_programa_viviendas.grupo_app_vivienda_logistica">
+                <button name="%(vivienda_ofertas_wizard_action)d" string="Crear Oferta" type="action"
+                        class="btn-warning font-weight-bold text-dark"
+                        context="{'default_etapa_id': etapa}"
+                        readonly="estado in ['cancelado', 'terminado']"/>
+              </group>
+              <group>
+                <group>
+                  <div class="oe_title">
+                    <span class="text-danger font-weight-bold">*</span>
+                    <span class="text-primary text-small">
+                      Resumen del estado actual de las prioridades:
+                      <span class="text-danger text-small">MUY ALTA:
+                        <field name="total_prioridad_muy_alto"/>
+                      </span>,
+                      <span class="text-warning text-small">ALTA:
+                        <field name="total_prioridad_alto"/>
+                      </span>,
+                      <span class="text-success text-small">MEDIA:
+                        <field name="total_prioridad_medio"/>
+                      </span>,
+                      <span class="text-black text-small">BAJA:
+                        <field name="total_prioridad_baja"/>
+                      </span>.
+                    </span>
+                  </div>
+                </group>
+
+                <group>
+                  <field name="progress_percentage" string="Progreso de Avance" widget="progressbar"/>
+                </group>
+              </group>
+              <group>
+                <field name="materiales_ids" mode="list" nolabel="1"
+                       readonly="estado in ['cancelado', 'terminado']"
+                       context="{'default_solicitud_id': id,'default_etapa': etapa}">
+                  <list editable="bottom" sample="1">
+                    <field name="solicitud_id" invisible="1"/>
+                    <field name="etapa" invisible="1"/>
+                    <field name="user_id" optional="hide" readonly="1"/>
+                    <field name="fecha_inicio" readonly="1" string="Inicio"/>
+                    <field name="name" readonly="estado != 'pendiente'"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="um"/>
+                    <field name="cantidad"
+                           readonly="estado in ['aprobado', 'terminado']"/>
+                    <field name="ofertas_id" class="font-weight-bold text-info"
+                           required="estado in ['aprobado', 'terminado']"
+                           readonly="not grupo_logistica"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="proveedor_id"/>
+                    <field name="monto"
+                           required="estado in ['aprobado', 'terminado']"
+                           readonly="not grupo_logistica"/>
+                    <field name="fecha_entregado" string="Entrega"
+                           required="estado == 'terminado'"
+                           readonly="not grupo_logistica"/>
+                    <button name="aprobar_material" type="object" string="Aprobar"
+                            class="btn btn-warning"
+                            icon="fa-bullseye"
+                            groups="sicpro_app_programa_viviendas.grupo_app_vivienda_validar"
+                            invisible="estado != 'pendiente'"/>
+
+                    <button name="no_aprobar_material" type="object" string="No Aprobar"
+                            class="btn btn-danger"
+                            groups="sicpro_app_programa_viviendas.grupo_app_vivienda_validar"
+                            icon="fa-times" invisible="estado != 'pendiente'"/>
+
+                    <button name="entregar_material" type="object" string="Entregado"
+                            class="btn btn-success"
+                            groups="sicpro_app_programa_viviendas.grupo_app_vivienda_logistica"
+                            icon="fa-check" invisible="estado != 'aprobado'"/>
+
+                    <field name="prioridad" widget="priority"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="active" invisible="1"/>
+                    <field name="grupo_logistica" invisible="1"/>
+                    <field name="total_individual"/>
+                    <field name="estado" class="font-weight-bold" readonly="1"
+                           decoration-warning="estado=='pendiente'"
+                           decoration-info="estado=='aprobado'"
+                           decoration-success="estado=='entregado'"
+                           decoration-danger="estado=='no_aprobado'" widget="badge"/>
+                  </list>
+                </field>
+              </group>
+              <group>
+                <field name="observaciones" placeholder="Observaciones sobre los materiales"
+                       readonly="estado in ['cancelado', 'terminado']"/>
+              </group>
+              <group>
+                <group class=" text-left">
+
+                </group>
+                <group class="oe_subtotal_footer oe_right">
+                  <field name="total_materiales" class="font-weight-bold"/>
+                  <field name="total_general"
+                         class="oe_subtotal_footer_separator font-weight-bold text-danger"/>
+                </group>
+              </group>
+
+            </page>
+            <page name="firmas" string="Pie de firmas">
+              <group>
+                <group string="Anexo 2">
+                  <field name="jefe_comision"
+                         options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                  <field name="secretario_sindical"
+                         options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                  <field name="director"
+                         options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                </group>
+              </group>
+            </page>
+            <page name="fechas" string="información extra">
+              <group string="Análisis">
+                <group>
+                  <field name="fecha_inicio" readonly="1"/>
+                  <field name="fecha_validado" readonly="1"/>
+                  <field name="fecha_rechazado" readonly="1"/>
+                  <field name="fecha_reinicio" readonly="1"/>
+                </group>
+                <group>
+                  <field name="fecha_liberado" readonly="1"/>
+                  <field name="fecha_terminado" readonly="1"/>
+                  <field name="fecha_cancelado" readonly="1"/>
+                </group>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="vivienda_trabajo_list" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.trabajador.list</field>
+    <field name="model">sicpro.app.vivienda.trabajador</field>
+    <field name="priority">50</field>
+    <field name="arch" type="xml">
+      <list string="Vivienda" default_order="etapa asc, escalafon asc, prioridad desc"
+            decoration-bf="1" decoration-danger="estado == 'cancelado'"
+            decoration-warning="estado == 'rechazado'" decoration-success="estado == 'terminado'">
+        <field name="etapa"/>
+        <field name="escalafon"/>
+        <field name="prioridad" widget="priority"/>
+        <field name="sequence_consecutivo"/>
+        <field name="trabajador_id"/>
+        <field name="area_id"/>
+        <field name="seccion_sindical"/>
+        <field name="fecha_solicitado_trabajador"/>
+        <field name="company_id_trabajador"/>
+        <field name="estado"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="vivienda_trabajo_kanban" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.trabajador.kanban</field>
+    <field name="model">sicpro.app.vivienda.trabajador</field>
+    <field name="priority" eval="50"/>
+    <field name="arch" type="xml">
+      <kanban default_group_by="estado" group_create="false" group_delete="false" group_edit="false"
+              default_order="etapa asc, escalafon asc, prioridad desc" sample="1">
+        <field name="id"/>
+        <field name="user_id"/>
+        <field name="trabajador_id"/>
+        <field name="ocupacion_titulo"/>
+        <field name="seccion_sindical"/>
+        <field name="estado" readonly="1"/>
+        <field name="prioridad"/>
+
+        <progressbar field="prioridad"
+                     colors='{"0": "success", "1": "info", "2": "warning", "3": "danger"}'/>
+
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+              <t t-if="record.trabajador_id.raw_value">
+                <div class="o_kanban_image_fill_left d-none d-md-block"
+                     t-attf-style="background-image:url('/web/image/sicpro.app.trabajadores/#{record.trabajador_id.raw_value}/image_128')">
+                </div>
+              </t>
+              <t t-else="">
+                <div class="o_kanban_image_fill_left d-none d-md-block"
+                     style="background-image:url('/web/static/img/placeholder.png')">
+                </div>
+              </t>
+
+              <div class="oe_kanban_details">
+                <div class="o_kanban_record_top">
+                  <div class="o_kanban_record_headings">
+                    <strong class="o_kanban_record_title">
+                      <span class="fw-bold">
+                        <field name="trabajador_id"/>
+                      </span>
+                    </strong>
+                    <span t-if="record.ocupacion_titulo.raw_value" class="o_kanban_record_subtitle">
+                      <field name="ocupacion_titulo"/>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mt-1">
+                  <span class="fw-bold text-primary"><field name="etapa"/></span> -
+                  <span class="fw-bold">Escalafón: </span>
+                  <span class="fw-bold text-danger"><field name="escalafon"/></span>
+                </div>
+
+                <div t-if="record.seccion_sindical.raw_value" class="o_text_overflow small text-muted">
+                  <span class="fw-bold">SS: </span>
+                  <field name="seccion_sindical"/>
+                </div>
+
+                <div class="o_kanban_record_bottom mt-2">
+                  <div class="oe_kanban_bottom_left">
+                    <field name="prioridad" widget="priority"/>
+                  </div>
+                  <div class="oe_kanban_bottom_right">
+                    <field name="activity_ids" widget="kanban_activity"/>
+                    <field name="user_id" widget="many2one_avatar_user"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="vivienda_trabajo_activity" model="ir.ui.view">
+    <field name="name">sicpro.app.vivienda.trabajador.activity</field>
+    <field name="model">sicpro.app.vivienda.trabajador</field>
+    <field name="arch" type="xml">
+      <activity string="Solicitud de Materiales">
+        <field name="trabajador_id"/>
+        <!--  <field name="company_currency"/> -->
+        <templates>
+          <div t-name="activity-box">
+            <img t-att-src="activity_image('sicpro.app.vivienda.trabajador', 'image_128', record.name.raw_value)"
+                 t-att-title="record.name.value"
+                 t-att-alt="record.name.value"/>
+            <div>
+              <field name="trabajador_id" display="full"/>
+              <!-- <field name="planned_revenue" widget="monetary" display="full" muted="1"/> -->
+            </div>
+          </div>
+        </templates>
+      </activity>
+    </field>
+  </record>
+
+  <record id="vivienda_trabajo_action" model="ir.actions.act_window">
+    <field name="name">Programa de la vivienda</field>
+    <field name="res_model">sicpro.app.vivienda.trabajador</field>
+    <field name="view_mode">kanban,list,form,activity</field>
+    <field name="view_id" ref="vivienda_trabajo_kanban"/>
+    <field name="search_view_id" ref="vivienda_trabajo_search"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        No hay solicitudes de vivienda registradas.
+      </p>
+    </field>
+  </record>
+</odoo>

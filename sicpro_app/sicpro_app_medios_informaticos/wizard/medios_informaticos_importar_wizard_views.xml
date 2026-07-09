@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="medios_informaticos_importar_wizard_view" model="ir.ui.view">
+      <field name="name">sicpro.app.medios.informaticos.importar.wizard.form</field>
+      <field name="model">sicpro.app.medios.informaticos.importar.wizard</field>
+      <field name="arch" type="xml">
+        <form string="Actualizar inventario">
+          <div class="col-lg-12 font-weight-bold">
+            Actualizar Inventario
+          </div>
+          <group string="">
+            <field name="tipos_equipos" widget="many2many_tags"
+                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+          </group>
+          <footer>
+            <button name="actualizar_datos" string="Actualizar" type="object" class="btn-primary"/>
+            <button string="Cancelar" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <record id="medios_informaticos_importar_wizard_action" model="ir.actions.act_window">
+      <field name="name">Actualización Inventario</field>
+      <field name="res_model">sicpro.app.medios.informaticos.importar.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+</odoo>

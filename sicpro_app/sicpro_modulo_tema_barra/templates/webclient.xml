@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <template id="webclient_bootstrap" name="Web Client" inherit_id="web.webclient_bootstrap">
+    <xpath expr="//t[@t-set='body_classname']" position="after">
+      <t t-set="body_sidebar_classname" t-value="'mk_sidebar_type_' + request.env.user.sidebar_type or 'large'"/>
+      <t t-set="body_classname" t-value="'%s %s' % (body_classname, body_sidebar_classname)"/>
+    </xpath>
+  </template>
+</odoo>

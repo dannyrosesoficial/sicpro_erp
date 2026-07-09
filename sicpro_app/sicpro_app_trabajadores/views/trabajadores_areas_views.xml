@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="view_department_filter" model="ir.ui.view">
+    <field name="name">sicpro.app.trabajadores.areas.search</field>
+    <field name="model">sicpro.app.trabajadores.areas</field>
+    <field name="arch" type="xml">
+      <search string="Departamentos">
+        <field name="name" string="Área"/>
+        <field name="manager_id"/>
+        <separator/>
+        <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+        <separator/>
+        <group>
+          <filter name="name" string="Área" context="{'group_by': 'name'}"/>
+          <filter name="company_id" string="Proceso" context="{'group_by': 'company_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_department_form" model="ir.ui.view">
+    <field name="name">sicpro.app.trabajadores.areas.form</field>
+    <field name="model">sicpro.app.trabajadores.areas</field>
+    <field name="arch" type="xml">
+      <form string="Departamento">
+        <sheet>
+          <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                  invisible="active"/>
+          <div class="oe_title">
+            <field name="active" invisible="1"/>
+            <field name="tipo_registro" widget="radio" class="oe_edit_only"
+                   options="{'horizontal': true}"/>
+          </div>
+          <group>
+            <group>
+              <field name="company_id"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="departamento_ids"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="parent_id"/>
+              <field name="equipo_tecnico_id"/>
+            </group>
+            <group>
+              <field name="manager_id"/>
+              <field name="manager_id_hide" invisible="1"/>
+              <field name="centro_costo"
+                     options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+              <field name="local" mode="list">
+                <list editable="bottom">
+                  <field name="name"/>
+                </list>
+              </field>
+              <field name="name" invisible="1"/>
+            </group>
+          </group>
+        </sheet>
+        <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_department_list" model="ir.ui.view">
+    <field name="name">sicpro.app.trabajadores.areas.list</field>
+    <field name="model">sicpro.app.trabajadores.areas</field>
+    <field name="arch" type="xml">
+      <list string="Departamentos">
+        <field name="departamento_ids"/>
+        <field name="manager_id"/>
+        <field name="parent_id"/>
+        <field name="centro_costo"/>
+        <field name="company_id"/>
+        <field name="departamento_sequence" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="trabajadores_departamentos_view_kanban" model="ir.ui.view">
+    <field name="name">sicpro.app.trabajadores.areas.kanban</field>
+    <field name="model">sicpro.app.trabajadores.areas</field>
+    <field name="arch" type="xml">
+      <kanban highlight_color="color" class="o_kanban_dashboard o_hr_kanban" can_open="0" sample="1">
+        <field name="name"/>
+        <field name="company_id"/>
+        <field name="manager_id"/>
+        <field name="color"/>
+        <field name="centro_costo"/>
+        <templates>
+          <t t-name="menu" t-if="!selection_mode">
+            <div class="container">
+              <div class="o_kanban_card_manage_settings row">
+                <div t-if="widget.editable" role="menuitem" aria-haspopup="true" class="col-6">
+                  <field name="color" widget="kanban_color_picker"/>
+                </div>
+                <div class="col-6">
+                  <a t-if="widget.editable" role="menuitem" class="dropdown-item" type="open">
+                    Configurar Área
+                  </a>
+                </div>
+              </div>
+            </div>
+          </t>
+          <t t-name="card">
+            <a type="open">
+              <field name="name" class="fw-bold fs-4 d-bolck ms-2"/>
+            </a>
+            <field name="manager_id" widget="many2one_avatar_employee"
+                   options="{'display_avatar_name': True}" readonly="1" class="text-muted ms-2"/>
+            <div class="small mt-1 ms-2">
+              <i class="fa fa-building-o" role="img" aria-label="Proceso" title="Proceso"/>
+              <field name="company_id"/>
+            </div>
+            <div class="row g-0 mt-3 mb-2 ms-2" t-if="!selection_mode">
+              <div class="col-6">
+                <button class="btn btn-primary btn-sm" name="%(act_trabajadores_en_areas)d"
+                        type="action">
+                  Trabajadores
+                </button>
+              </div>
+              <div name="kanban_primary_right" class="col-6">
+                <span class="badge rounded-pill text-bg-light">
+                  <field name="centro_costo"/>
+                </span>
+              </div>
+            </div>
+            <div name="kanban_card_lower_content" class="mt-auto" t-if="!selection_mode">
+              <span class="rounded-pill">
+                <field name="manager_id"/>
+              </span>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="open_module_list_department" model="ir.actions.act_window">
+    <field name="name">Áreas</field>
+    <field name="res_model">sicpro.app.trabajadores.areas</field>
+    <field name="view_mode">kanban,list,form</field>
+    <field name="search_view_id" ref="view_department_filter"/>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear una nueva Área de trabajo
+      </p>
+      <p>
+        Aquí podría crear y controlar las áreas de sus procesos.
+      </p>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="transferencias_ordenes_rechazo_form" model="ir.ui.view">
+    <field name="name">sicpro.app.transferencias.ordenes.rechazadas.wizard.form</field>
+    <field name="model">sicpro.app.transferencias.ordenes.rechazadas.wizard</field>
+    <field name="priority">80</field>
+    <field name="arch" type="xml">
+      <form string="Rechazar Gastos">
+        <group class="oe_title">
+          <field name="motivo_id"/>
+        </group>
+        <footer>
+          <button name="action_motivo_rechazo" string="Enviar" type="object" class="btn-primary"/>
+          <button string="Cancelar" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="transferencias_ordenes_rechazo_action" model="ir.actions.act_window">
+    <field name="name">Rechazar Gastos de la Orden de Trabajo</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">sicpro.app.transferencias.ordenes.rechazadas.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="transferencias_ordenes_rechazo_form"/>
+    <field name="target">new</field>
+  </record>
+</odoo>

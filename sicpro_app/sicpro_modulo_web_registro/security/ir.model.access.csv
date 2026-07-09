@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+modulo_web_registro_roles_system,Registro Roles,model_sicpro_modulo_web_registro_roles,base.group_system,1,1,1,1
+solicitud_accesos_acceso_admin,Solicitud de Accesos admin,model_sicpro_modulo_solicitud_acceso,base.group_system,1,1,1,1
+solicitud_roles_acceso_rechazar_admin,Solicitud de Rechazar admin,model_sicpro_modulo_solicitud_acceso_rechazar,base.group_system,1,1,1,1
+solicitud_roles_acceso_admin,Solicitud de Roles admin,model_sicpro_modulo_solicitud_acceso_roles,base.group_system,1,1,1,1
+
+modulo_web_registro_solicitud_acceso_public,Registro de Accesos Public,model_sicpro_modulo_solicitud_acceso,base.group_user,1,0,0,0
+modulo_web_registro_solicitud_role_public,Registro de Roles Public,model_sicpro_modulo_solicitud_acceso_roles,base.group_user,1,0,0,0
+modulo_web_registro_mail_template_public,Registro mail.template Public,mail.model_mail_template,base.group_user,1,0,1,0
+modulo_web_registro_ir_actions_report_public,Registro ir.actions.report Public,base.model_ir_actions_report,base.group_user,1,0,1,0
+modulo_web_registro_ir_attachment_public,Registro ir_attachment Public,base.model_ir_attachment,base.group_user,1,0,1,0

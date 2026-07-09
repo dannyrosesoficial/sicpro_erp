@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates>
+  <t t-name="UserSwitchSystray" owl="1">
+    <div class="new_icon" style="display: flex; align-items: center; justify-content: center;">
+      <label class="user" title="Simular usuario">
+        <div class="icon_div">
+          <div class="toggle-icon" role="button">
+            <i id="switch_user"
+               class="fa fa-users fa-lg btn-switch-user"
+               style="color: white !important; cursor: pointer;"
+               role="img"
+               aria-label="Switch User"
+               t-on-click="() => this._onClick()"/>
+          </div>
+        </div>
+      </label>
+    </div>
+  </t>
+</templates>
+

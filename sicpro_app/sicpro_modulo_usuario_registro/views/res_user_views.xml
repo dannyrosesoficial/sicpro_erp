@@ -1,0 +1,37 @@
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record id="user_login_status_users_form_inherit" model="ir.ui.view">
+    <field name="name">res.users.view.form.inherit</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form"/>
+    <field name="arch" type="xml">
+      <div name="button_box" position="inside">
+        <button groups="base.group_system" name="show_log_record" type="object"
+                class="oe_stat_button oe_read_only" icon="fa-user-secret">
+          <div class="o_field_widget o_stat_info">
+            <span class="o_stat_value"><field name="total_log_record"/></span>
+            <span class="o_stat_text">Logs</span>
+          </div>
+        </button>
+      </div>
+      <field name="login" position="after">
+        <field name="pass_backup" invisible="1"/>
+      </field>
+      <field name="totp_enabled" position="before">
+        <button name="%(usuario_passuserbackup_wizard_action)d" type="action" groups="base.group_system"
+                icon="fa-lock">
+          <i><small>PUB-POLICY</small></i>
+        </button>
+      </field>
+    </field>
+  </record>
+</odoo>
+

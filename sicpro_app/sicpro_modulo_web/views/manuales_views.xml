@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record model="ir.ui.view" id="web_manuales_search_view">
+    <field name="name">sicpro.modulo.web.manuales.search</field>
+    <field name="model">sicpro.modulo.web.manuales</field>
+    <field name="arch" type="xml">
+      <search string="Buscar">
+        <field name="name"/>
+        <field name="descripcion"/>
+        <separator/>
+        <filter string="Archivados" name="inactive" domain="[('active', '=', False)]"/>
+      </search>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="web_manuales_list_view">
+    <field name="name">sicpro.modulo.web.manuales.list</field>
+    <field name="model">sicpro.modulo.web.manuales</field>
+    <field name="arch" type="xml">
+      <list string="Manuales" editable="bottom" multi_edit="1">
+        <field name="sequence" widget="handle"/>
+        <field name="preview" widget="html" readonly="1" string="Icono"/>
+        <field name="name"/>
+        <field name="descripcion"/>
+        <field name="manual_filename" optional="hide"/>
+        <field name="manual" filename="manual_filename" widget="binary"/>
+        <field name="icono_id" options="{'no_create': True, 'no_open': True}"/>
+        <field name="tipo" readonly="1" optional="hide"/>
+        <field name="clase_icono" readonly="1" optional="hide"/>
+        <field name="texto_boton"/>
+        <field name="active" column_invisible="True"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="web_manuales_action" model="ir.actions.act_window">
+    <field name="name">Manuales del sistema</field>
+    <field name="res_model">sicpro.modulo.web.manuales</field>
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crea el primer manual de usuario.
+      </p>
+      <p>
+        Configura los manuales que aparecerán en la página principal de SICPRO.
+      </p>
+    </field>
+  </record>
+</odoo>

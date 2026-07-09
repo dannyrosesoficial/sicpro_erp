@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data>
+
+        <!-- Inicio de las vistas wizard para el rechazo de la piquera-->
+        <record id="transporte_piquera_rechazada_form" model="ir.ui.view">
+            <field name="name">ssicpro.app.transporte.piquera.rechazadas.form</field>
+            <field name="model">sicpro.app.transporte.piquera.rechazadas</field>
+            <field name="priority">110</field>
+            <field name="arch" type="xml">
+                <form string="Motivo de Rechazo de la Solicitud">
+                    <group class="oe_title">
+                        <field name="motivo_rechazo"/>
+                    </group>
+                    <footer>
+                        <button name="piquera_motivo_rechazo" string="Enviar" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="transporte_piquera_rechazada_action" model="ir.actions.act_window">
+            <field name="name">Motivo de Rechazo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.transporte.piquera.rechazadas</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="transporte_piquera_rechazada_form"/>
+            <field name="target">new</field>
+        </record>
+        <!-- Fin de la vistas wizard para el rechazo de la piquera-->
+
+        <!-- Inicio de las vistas wizard para la cancelación de la piquera-->
+        <record id="transporte_piquera_cancelada_form" model="ir.ui.view">
+            <field name="name">sicpro.app.transporte.piquera.canceladas.form</field>
+            <field name="model">sicpro.app.transporte.piquera.canceladas</field>
+            <field name="priority">120</field>
+            <field name="arch" type="xml">
+                <form string="Motivo de Cancelación de la Solicitud">
+                    <group class="oe_title">
+                        <field name="motivo_cancelacion"/>
+                    </group>
+                    <footer>
+                        <button name="piquera_motivo_cancelacion" string="Enviar" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="transporte_piquera_cancelada_action" model="ir.actions.act_window">
+            <field name="name">Motivo de Cancelación</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.transporte.piquera.canceladas</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="transporte_piquera_cancelada_form"/>
+            <field name="target">new</field>
+        </record>
+        <!-- Fin de la vistas wizard para la cancelación de la piquera-->
+
+        <record id="piquera_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Transporte: Consecutivo de Solicitud de Piquera</field>
+            <field name="code">piquera_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">SOL/</field>
+            <field name="number_increment">1</field>
+            <field name="use_date_range">False</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="transporte_piquera_form_view" model="ir.ui.view">
+    <field name="name">sicpro.app.transporte.piquera.form</field>
+    <field name="model">sicpro.app.transporte.piquera</field>
+    <field name="arch" type="xml">
+        <form string="car_result">
+            <header>
+                <button name="solicitar_piquera" string="Enviar solicitud" type="object"
+                        invisible="estado != 'borrador'" class="oe_highlight"/>
+
+                <button name="aprobar_solicitud" string="Aprobar" type="object"
+                        invisible="estado != 'pendiente' or grupo_ejecutor == False"
+                        class="oe_highlight"/>
+
+                <button name="%(transporte_piquera_rechazada_action)d" string="Rechazar" type="action"
+                        invisible="estado != 'pendiente' or grupo_ejecutor == False"/>
+
+                <button name="cancelar_solicitud" string="Cancelar" type="object"
+                        invisible="estado != 'borrador'"/>
+
+                <button name="%(transporte_piquera_cancelada_action)d" string="Cancelar" type="action"
+                        invisible="estado != 'pendiente' or grupo_ejecutor == False"/>
+
+                <button name="reiniciar_solicitud" string="Reiniciar Solicitud" type="object"
+                        invisible="estado != 'rechazado'"
+                        class="oe_highlight"/>
+
+                <field name="estado" widget="statusbar"/>
+            </header>
+            <sheet>
+                <div class="oe_button_box" name="buttons">
+                </div>
+                <field name="grupo_ejecutor" invisible="1"/>
+                <field name="rechazado" invisible="1"/>
+                <field name="cancelado" invisible="1"/>
+                <field name="desfasado" invisible="1"/>
+                <field name="hora_modificada" invisible="1"/>
+                <field name="company_currency" invisible="1"/>
+
+                <field name="image" widget='image' class="oe_avatar"/>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <div class="oe_title pr-0">
+                        <h3 class="d-flex flex-row justify-content-between">
+                            <field name="sequence_consecutivo" class="o_task_name text-truncate"/>
+                        </h3>
+                    </div>
+                    <h5>
+                        <div class="text-danger" invisible="desfasado != True">
+                            <i class="small fa fa-warning"/>
+                            ATENCIÓN: SU SOLICITUD DE PIQUERA ESTÁ DESFASADA,
+                            ES POSIBLE QUÉ NO SEA APROBADA.
+                        </div>
+                        <div class="text-warning" invisible="hora_modificada != True">
+                            <i class="small fa fa-warning"/>
+                            ATENCIÓN: LA HORA DE SALIDA Y REGRESO FUE MODIFICADA.
+                        </div>
+                    </h5>
+                </div>
+                <group>
+                    <separator string="Solicitud " colspan="4"/>
+                    <group>
+                        <field name="solicitante" readonly="estado != 'borrador'"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="cargo"/>
+                        <field name="fecha_servicio" readonly="estado != 'borrador'"/>
+                        <label for="hora_salida" string="Salida y Regreso"/>
+                        <div class="o_row">
+                            <field name="hora_salida" widget="float_time" nolabel="1" class="oe_inline"/>
+                            <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                            <field name="hora_regreso" widget="float_time" nolabel="1" class="oe_inline"/>
+                            <button name="cambio_hora" string="Notificar Modificación" type="object"
+                                    icon="fa-mail-reply-all"
+                                    groups="sicpro_app_transporte.grupo_app_transporte_responsable"/>
+                        </div>
+
+                        <field name="cantidad_personas" widget="numeric_step"
+                               options="{'step': 1, 'min': 1, 'max': 20}"
+                               readonly="estado != 'borrador'"/>
+                        <field name="salida" readonly="estado != 'borrador'"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    </group>
+                    <group>
+                        <field name="movil"/>
+                        <field name="departamento"/>
+                        <field name="proceso"/>
+                        <field name="solicitado" readonly="True"/>
+                        <field name="destino" readonly="estado != 'borrador'"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="observaciones" readonly="estado != 'borrador'"/>
+                </group>
+
+                <group>
+                    <separator string="Asignación de servicio " colspan="4"/>
+                    <group>
+                        <field name="transporte_id"
+                               readonly="estado != 'pendiente' or grupo_ejecutor == False"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="chapa"/>
+                        <label for="chofer"/>
+                        <div>
+                            <field name="chofer" class="oe_inline"/> -
+                            <field name="contacto" style="width:142px;" class="font-weight-bold"
+                                   readonly="estado != 'pendiente' or grupo_ejecutor == False"/>
+                        </div>
+                        <field name="combustible"
+                               readonly="estado != 'pendiente' or grupo_ejecutor == False"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    </group>
+                    <group>
+                        <field name="marca"/>
+                        <field name="modelo"/>
+                        <field name="color"/>
+                        <field name="indice_consumo"/>
+                    </group>
+                </group>
+
+                <group>
+                    <field name="motivo_rechazo" readonly="True"
+                           invisible="rechazado != True"/>
+                </group>
+                <group>
+                    <field name="motivo_cancelacion" readonly="True"
+                           invisible="cancelado != True"/>
+                </group>
+
+                <group>
+                    <group>
+                        <field name="rechaza" readonly="True"
+                               invisible="rechazado != True and cancelado != True"/>
+                    </group>
+                    <group>
+                        <field name="cargo_rechaza" readonly="True"
+                               invisible="rechazado != True and cancelado != True"/>
+                        <field name="movil_rechaza" readonly="True"
+                               invisible="rechazado != True and cancelado != True"/>
+                    </group>
+                </group>
+
+                <notebook>
+                    <page string="Tabla de Recorrido">
+                        <field name="recorridos_ids"
+                               readonly="estado != 'pendiente' or grupo_ejecutor == False">
+                            <list string="Recorridos" editable="bottom">
+                                <field name="name" invisible="1"/>
+                                <field name="salida"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="destino"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="recorrido"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="km"/>
+                            </list>
+                        </field>
+                        <div>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="total_km"/>
+                                <field name="valor_combustible" widget='monetary'
+                                       options="{'currency_field': 'company_currency'}"/>
+                                <field name="indice_consumo"/>
+                                <field name="total_litros"/>
+                                <field name="total_costo" class="oe_subtotal_footer_separator"
+                                       widget='monetary' options="{'currency_field': 'company_currency'}"/>
+                            </group>
+                        </div>
+                        <div style="float: right;margin-left: 78%;margin-bottom: 36px;">
+                            <button name="imprimir_costos" string="Imprimir" type="object"
+                                    style="width: 100px !important;height: 40px;"
+                                    class="oe_subtotal_footer oe_right oe_highlight"/>
+                        </div>
+                    </page>
+                </notebook>
+                <group>
+                    <field name="notas"
+                           readonly="estado != 'pendiente' or grupo_ejecutor == False"/>
+                </group>
+            </sheet>
+            <chatter reload_on_post="True" reload_on_attachment_updated="True"/>
+        </form>
+    </field>
+</record>
+
+        <record model="ir.ui.view" id="transporte_piquera_list_view">
+            <field name="name">sicpro.app.transporte.piquera.list</field>
+            <field name="model">sicpro.app.transporte.piquera</field>
+            <field name="arch" type="xml">
+                <list string="car_contract_result" decoration-info="estado == 'borrador'"
+                      decoration-danger="estado=='rechazado'" decoration-warning="estado=='pendiente'"
+                      decoration-success="estado=='aprobado'">
+                    <field name="estado"/>
+                    <field name="name"/>
+                    <field name="solicitante" string="Solicitante"/>
+                    <field name="transporte_id"/>
+                    <field name="marca"/>
+                    <field name="modelo"/>
+                    <field name="color"/>
+                    <field name="fecha_servicio"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="transporte_piquera_search_view">
+            <field name="name">sicpro.app.transporte.piquera.search</field>
+            <field name="model">sicpro.app.transporte.piquera</field>
+            <field name="arch" type="xml">
+                <search string="Piquera">
+                    <field name="solicitante"/>
+                    <field name="chapa"/>
+                    <field name="fecha_servicio"/>
+                    <filter string="Solicitudes Activas" name="estado" domain="[('estado', '!=', 'cancelado')]"/>
+                    <separator/>
+                    <filter string="Solicitudes Pendientes" name="estado_pendiente"
+                            domain="[('estado', '=', 'pendiente')]"/>
+                    <filter string="Solicitudes Canceladas" name="estado_cancelado"
+                            domain="[('estado', '=', 'cancelado')]"/>
+                    <separator/>
+                    <filter string="Fecha de Servicio" name="fecha_servicio" date="fecha_servicio"/>
+                    <separator/>
+                    <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                    <separator/>
+                    <group>
+                        <filter string="Solicitante" name="solicitante_group_by" context="{'group_by': 'solicitante'}"/>
+                        <filter string="Estado" name="estado_group_by" context="{'group_by': 'estado'}"/>
+                        <filter string="Vehículo" name="chapa_group_by" context="{'group_by': 'chapa'}"/>
+                        <filter string="Fecha de Servicio" name="fecha_servicio_group_by" domain="[]"
+                                context="{'group_by': 'fecha_servicio'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="transporte_piquera_action" model="ir.actions.act_window">
+            <field name="name">Registros de la Piquera</field>
+            <field name="res_model">sicpro.app.transporte.piquera</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="transporte_piquera_search_view"/>
+            <field name="context">{'search_default_estado': 1, }</field>
+        </record>
+
+    </data>
+</odoo>

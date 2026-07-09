@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <!-- Modifico el logo promocional de odoo -->
+    <template id="administracion_promotion_message" name="sicpro_app_encuestas_promotion" inherit_id="web.brand_promotion_message">
+        <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="sicpro_logo">
+                <a target="_blank" t-attf-href="https://www.sicproerp.dvpe.etecsa.cu" class="badge badge-light">
+                    <b class="font-weight-bold text-danger">SICPRO ERP </b>
+                </a>
+            </t>
+            <t t-set="mensaje_final">Con tecnología de %s%s</t>
+        </xpath>
+
+        <xpath expr="//t[@t-out[1]]" position="replace">
+            <t t-out="mensaje_final % (sicpro_logo, _message and ('- ' + _message) or '')"/>
+        </xpath>
+    </template>
+</odoo>

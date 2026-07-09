@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <record id="sicpro_app_administracion_action" model="ir.actions.act_window">
+        <field name="name">Administración</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.administracion</field>
+        <field name="view_mode">kanban</field>
+    </record>
+</odoo>

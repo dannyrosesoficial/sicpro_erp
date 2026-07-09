@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <record id="view_db_explorer_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.db.explorer.table.kanban</field>
+        <field name="model">sicpro.app.db.explorer.table</field>
+        <field name="arch" type="xml">
+            <kanban create="0">
+                <field name="name"/>
+                <field name="model"/>
+                <field name="state"/>
+                <field name="is_protected"/>
+                <templates>
+                    <t t-name="card">
+                        <div t-attf-class="oe_kanban_global_click p-3 o_db_explorer_kanban_card {{ record.state.raw_value == 'locked' ? 'o_db_explorer_locked' : 'o_db_explorer_unlocked' }}">
+                            <div class="d-flex justify-content-between">
+                                <strong><field name="name"/></strong>
+                                <span t-if="record.is_protected.raw_value" class="fa fa-shield text-danger o_db_explorer_protected_icon" title="Tabla Protegida contra escritura"/>
+                            </div>
+                            <div class="text-muted small mb-2">
+                                <field name="model"/>
+                            </div>
+                            <div class="row mt-3 align-items-center">
+                                <div class="col-4">
+                                    <span class="badge rounded-pill text-bg-secondary">
+                                        <field name="count_records"/> regs
+                                    </span>
+                                </div>
+                                <div class="col-8 text-end">
+                                    <button name="action_view_audit_logs" type="object"
+                                            class="btn btn-sm btn-outline-info me-1" title="Ver Auditoría">
+                                        <i class="fa fa-history"/>
+                                    </button>
+                                    <button name="action_unlock_request" type="object"
+                                            class="btn btn-sm btn-outline-warning"
+                                            invisible="state == 'unlocked'">
+                                        <i class="fa fa-lock"/> Desbloquear
+                                    </button>
+                                    <button name="action_open_table_data" type="object"
+                                            class="btn btn-sm btn-danger"
+                                            invisible="state == 'locked'">
+                                        <i class="fa fa-database"/> Explorar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_db_explorer" model="ir.actions.act_window">
+        <field name="name">Explorador de Tablas Maestro</field>
+        <field name="res_model">sicpro.app.db.explorer.table</field>
+        <field name="view_mode">kanban,list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Cargue los modelos para empezar.</p>
+        </field>
+    </record>
+</odoo>

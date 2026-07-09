@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<templates xml:space="preserve">
+<!--          Este es el botón que aparece en la imagen que permite abrir el wizard-->
+    <t t-name="sicpro_app_credenciales.ImagenConBotonDeRecortarTemplate" t-inherit="web.ImageField" t-inherit-mode="primary">
+        <xpath expr="//button[hasclass('o_clear_file_button')]" position="before">
+            <t t-if="props.record.data[props.name]">
+                    <button class="o_sicpro_crop_button btn btn-light border-0 rounded-circle m-1 p-1" data-tooltip="Recortar"
+                t-on-click="onCropButtonClicked" aria-label="Recortar" title="Recortar">
+            <i class="fa fa-crop fa-fw"></i>
+        </button>
+            </t>
+        </xpath>
+
+        <!--  modifica la imagen para que funcione el botón anterior -->
+        <xpath expr="//img" position="attributes">
+            <attribute name="t-att-border">props.readonly ? 0 : 1</attribute>
+            <attribute name="t-att-name">props.name</attribute>
+            <attribute name="t-ref">image</attribute>
+        </xpath>
+    </t>
+
+
+    <t t-name="sicpro_app_credenciales.ImagenSinBarraTemplate" t-inherit="web.ImageField" t-inherit-mode="primary">
+    <xpath expr="//div[hasclass('d-inline-block', 'position-relative')]" position="replace">
+        <div class="o_sicpro_cropper_wrapper w-100 p-3" style="background: #1a1a1a;">
+
+            <div class="o_sicpro_container_image" style="height: 450px; position: relative; background: #000;">
+                <img t-ref="image" t-att-src="getUrl(props.name)" class="img-fluid" style="max-height: 100%;" />
+            </div>
+
+            <div class="o_sicpro_controls mt-3 d-flex flex-column align-items-center">
+    <div t-ref="processing_msg" class="alert alert-info w-100 text-center d-none">
+        <i class="fa fa-refresh fa-spin me-2"/>
+        <strong>Procesando imagen... espere un momento. 🌹</strong>
+    </div>
+
+    <div class="btn-group shadow-lg">
+
+        <button type="button" class="btn btn-secondary" t-on-click="() => this.onAction('ratio', '1/1')">1:1</button>
+        <button type="button" class="btn btn-secondary" t-on-click="() => this.onAction('ratio', '0/0')">Libre</button>
+
+        <button type="button" class="btn btn-primary"
+                t-ref="save_btn"
+                t-on-click="saveCroppedImage">
+            <i class="fa fa-save me-1"/> Recortar y Guardar 🌹
+        </button>
+
+        <button type="button" class="btn btn-danger btn-lg" t-on-click="() => this.action.doAction({type: 'ir.actions.act_window_close'})">
+            <i class="fa fa-times"/>
+        </button>
+    </div>
+</div>
+        </div>
+    </xpath>
+</t>
+
+</templates>

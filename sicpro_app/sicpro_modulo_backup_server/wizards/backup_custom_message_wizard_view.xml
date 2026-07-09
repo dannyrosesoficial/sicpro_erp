@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="sicpro_backup_mensaje_wizard_view" model="ir.ui.view">
+            <field name="name">sicpro.backup.mensaje.wizard.form</field>
+            <field name="model">sicpro.backup.mensaje.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Backup Custom Message">
+                    <sheet>
+                        <field name="message" />
+                    </sheet>
+                    <footer class="d-flex justify-content-end">
+                        <button string="OK" class="btn btn-primary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sicpro_backup_mensaje_wizard" model="ir.actions.act_window">
+            <field name="name">Message</field>
+            <field name="res_model">sicpro.backup.mensaje.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sicpro_backup_mensaje_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

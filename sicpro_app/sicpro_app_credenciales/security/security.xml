@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<odoo>
+<!-- Creo los privilegios de permisos para las Credenciales-->
+    <record id="privilege_credenciales" model="res.groups.privilege">
+            <field name="name">Credenciales</field>
+            <field name="sequence">10</field>
+            <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_capital_humano"/>
+        </record>
+
+    <record id="grupo_app_credenciales_ejecutor" model="res.groups">
+            <field name="name">Técnicos</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="privilege_id" ref="privilege_credenciales"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    <record id="grupo_app_credenciales_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="privilege_id" ref="privilege_credenciales"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_credenciales_ejecutor'))]"/>
+        </record>
+    <record id="grupo_app_credenciales_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="privilege_id" ref="privilege_credenciales"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_credenciales_responsable'))]"/>
+        </record>
+</odoo>
