@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="transferencias_cuentas_gastos_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.transferencias.cuentas.gastos.tree</field>
+        <field name="model">sicpro.app.transferencias.cuentas.gastos</field>
+        <field name="arch" type="xml">
+            <tree string="Cuentas" editable="bottom">
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="active" invisible="1"/>
+                <field name="traspasos"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="transferencias_cuentas_gastos_action" model="ir.actions.act_window">
+        <field name="name">Cuentas de Gastos</field>
+        <field name="res_model">sicpro.app.transferencias.cuentas.gastos</field>
+        <field name="view_id" ref="transferencias_cuentas_gastos_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear cuentas de gastos para las transferencias
+            </p>
+        </field>
+    </record>
+
+</odoo>

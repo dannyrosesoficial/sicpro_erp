@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_soporte_commits_search" model="ir.ui.view">
+        <field name="name">sicpro.modulo.api.conector.gitlab.commits.search</field>
+        <field name="model">sicpro.modulo.api.conector.gitlab.commits</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Commit">
+                <field name="name" filter_domain="['|', ('name', 'ilike', self), ('commit_mensaje', 'ilike', self)]"/>
+                <field name="branch_nombre"/>
+                <field name="commit_id_corto"/>
+                <field name="commit_creado"/>
+                <field name="commit_autor"/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Branch" name="branch_nombre" context="{'group_by':'branch_nombre'}"/>
+                    <filter string="Autor" name="commit_autor" context="{'group_by':'commit_autor'}"/>
+                    <separator orientation="vertical"/>
+                    <filter string="Fecha de creación" context="{'group_by':'commit_creado:month'}"
+                            name="commit_creado"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_soporte_commits_tree" model="ir.ui.view">
+        <field name="name">sicpro.modulo.api.conector.gitlab.commits.tree</field>
+        <field name="model">sicpro.modulo.api.conector.gitlab.commits</field>
+        <field name="arch" type="xml">
+            <tree string="Registro de Commits" create="false" edit="false" delete="false">
+                <field name="name"/>
+                <field name="branch_nombre"/>
+                <field name="branch_web_url" widget="url" optional="hide"/>
+                <field name="commit_id_largo" optional="hide"/>
+                <field name="commit_id_corto" optional="hide"/>
+                <field name="commit_creado"/>
+                <field name="commit_mensaje"/>
+                <field name="commit_autor"/>
+                <field name="commit_web_url" widget="url" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="soporte_commits_action" model="ir.actions.act_window">
+        <field name="name">Registro de Commits</field>
+        <field name="res_model">sicpro.modulo.api.conector.gitlab.commits</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="soporte_commits_menu" name="Registro de Commits" parent="sicpro_app_soporte.soporte_operaciones_menu"
+              sequence="10" action="soporte_commits_action" groups="sicpro_app_soporte.group_soporte_ejecutor"/>
+
+
+</odoo>

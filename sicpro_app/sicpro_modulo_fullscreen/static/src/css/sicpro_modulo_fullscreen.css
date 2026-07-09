@@ -1,0 +1,4 @@
+/* Custom hide rule that avoid Bootstrap version compatibility */
+.o_hide_fullscreen_action {
+    display: none !important;
+}

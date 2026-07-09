@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-inherit="calendar.CalendarView" t-inherit-mode="extension">
+        <xpath expr="//div[@id='calendar_sync']" position="inside">
+
+            <button type="button" id="caldav_sync_nube" class="caldav_sync_nube mr-1 o_caldav_sync_button btn badge-primary">
+              <b><i class='fa fa-refresh'/>&amp;nbsp;Sincronizar Calendario</b>
+            </button>
+
+            <p id="caldav_txt_nube" class="text-warning">
+              <b><i class='fa fa-warning'/>&amp;nbsp;No puede realizar la sincronización, su usuario no está configurado.</b>
+            </p>
+
+        </xpath>
+    </t>
+</templates>

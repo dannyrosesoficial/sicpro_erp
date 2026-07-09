@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="group_import_csv" model="res.groups">
+            <field name="name">	Acceso a la función de Importar datos</field>
+            <field name="comment">Permisos de Importar</field>
+            <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_accesos_variados"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+</odoo>

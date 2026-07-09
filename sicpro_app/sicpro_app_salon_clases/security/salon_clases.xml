@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Creo la categoría de permisos Salón de clases -->
+         <record id="module_category_salon_clases" model="ir.module.category">
+            <field name="name">Salón de Clases</field>
+             <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_gestión_documentos"/>
+             <field name="description">Módulo para la gestión del salón de clases.</field>
+            <field name="sequence" >2</field>
+        </record>
+
+    <record id="grupo_app_salon_clases_usuario" model="res.groups">
+            <field name="name">Usuario</field>
+            <field name="comment">Permisos de Lectura</field>
+            <field name="category_id" ref="module_category_salon_clases"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_app_salon_clases_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="module_category_salon_clases"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_salon_clases_usuario'))]"/>
+        </record>
+
+         <record id="grupo_app_salon_clases_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="module_category_salon_clases"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_salon_clases_responsable'))]"/>
+        </record>
+
+
+<data noupdate="0">
+
+</data>
+</odoo>

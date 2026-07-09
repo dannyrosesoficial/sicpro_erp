@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+            id="ordenes_menu_root" name="Ordenes"
+            web_icon="sicpro_app_ordenes_trabajo,static/description/icon.png" sequence="6"
+            groups="grupo_ordenes_visualizar_proceso,grupo_ordenes_visualizar_inversionista,grupo_ordenes_solicitante"/>
+
+    <!--Inicio: Menu Dashboard-->
+    <record id="menu_Ordenes_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">sicpro_dashboard_view</field>
+        <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.ordenes'}</field>
+    </record>
+    <menuitem id="menu_ordenes_dashboard" name="Dashboard" action="menu_Ordenes_dashboard_action" sequence="1"
+              parent="ordenes_menu_root"/>
+    <!--Fin: Menu Dashboard-->
+
+
+    <menuitem id="ordenes_menu_operaciones" name="Operaciones" parent="ordenes_menu_root" sequence="2"/>
+
+    <menuitem id="menu_ordenes_ordenes" name="Órdenes de Trabajo" parent="ordenes_menu_operaciones"
+               action="ordenes_trabajo_action" sequence="1"/>
+
+
+    <menuitem id="ordenes_menu_report" name="Informes" parent="ordenes_menu_root" sequence="6"/>
+
+        <menuitem id="menu_ordenes_estados_ordenes" name="Estados de las Órdenes" parent="ordenes_menu_report"
+                  action="ordenes_estado_ordenes_action" sequence="1"/>
+
+    <menuitem id="ordenes_menu_config" name="Configuración"
+              parent="ordenes_menu_root" sequence="25" groups="grupo_ordenes_responsable"/>
+
+    <menuitem id="menu_ordenes_estados" name="Estados" sequence="0"
+              action="ordenes_estados_action" parent="ordenes_menu_config" groups="grupo_ordenes_admin"/>
+
+    <menuitem id="menu_ordenes_estados_trabajador" name="Estado del Trabajador" sequence="1"
+              action="ordenes_estados_trabajador_action" parent="ordenes_menu_config"/>
+
+    <menuitem id="menu_ordenes_estados_transporte_equipos" name="Estado de Vehículos y Equipos" sequence="2"
+              action="ordenes_estados_transporte_equipos_action" parent="ordenes_menu_config"/>
+
+    <menuitem id="menu_ordenes_grupos_transporte_equipos" name="Grupos de Vehículos y Equipos" sequence="3"
+              action="ordenes_grupos_transporte_equipos_action" parent="ordenes_menu_config"/>
+
+    <menuitem id="menu_ordenes_consecutivos" name="Nomenclador del Consecutivo" sequence="4"
+              action="ordenes_consecutivos_action" parent="ordenes_menu_config" groups="grupo_ordenes_admin"/>
+
+    <menuitem id="menu_ordenes_etiquetas" name="Etiquetas"
+              action="ordenes_etiquetas_action" parent="ordenes_menu_config" sequence="5"/>
+
+    <menuitem id="menu_ordenes_clase" name="Clases de Proyectos" sequence="6"
+              action="ordenes_clase_proyecto_action" parent="ordenes_menu_config"/>
+
+    <menuitem id="menu_ordenes_paralizacion" name="Motivos de Paralización" sequence="7"
+              action="ordenes_paralizacion_action" parent="ordenes_menu_config"/>
+
+    <menuitem id="menu_ordenes_problemas" name="Problemas en la Ejecución" sequence="8"
+              action="ordenes_problemas_action" parent="ordenes_menu_config"/>
+
+    <menuitem id="menu_programa_inversiones_problemas" name="Programa de Inversiones" sequence="9"
+              action="ordenes_programa_inversiones_action" parent="ordenes_menu_config"/>
+
+
+</odoo>

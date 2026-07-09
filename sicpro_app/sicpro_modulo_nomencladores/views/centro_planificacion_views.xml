@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+    <record id="nomenclador_centro_planificacion_tree_view" model="ir.ui.view">
+        <field name="name">nomenclador.centro.planificacion.tree.view</field>
+        <field name="model">sicpro.nomenclador.centro.planificacion</field>
+        <field name="arch" type="xml">
+            <tree string="Centros de Planificación (CePl)" editable="bottom">
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="nomenclador_centro_planificacion_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Centro de Planificación</field>
+       <field name="model">sicpro.nomenclador.centro.planificacion</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Centro de Planificación">
+            <field name="name" string="Centro de Planificación"/>
+            <field string="Descripción" name="descripcion"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_nomenclador_cepl" model="ir.actions.act_window">
+        <field name="name">Centros de Planificación</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.centro.planificacion</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    </data>
+</odoo>
+
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_users_registro_ip">
+            <field name="name">res.users</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                    <field name="validacion_ip_mac" invisible="1"/>
+                    <button name="activar_validacion" type="object" icon="fa-lock"
+                            class="oe_stat_button" attrs="{'invisible': [('validacion_ip_mac', '=', True)]}">
+                        <span>Activar Validación</span>
+                    </button>
+                    <button name="desactivar_validacion" type="object" icon="fa-unlock"
+                            attrs="{'invisible': [('validacion_ip_mac', '=', False)]}"
+                            class="oe_stat_button">
+                        <span>Desactivar Validación</span>
+                    </button>
+                </xpath>
+
+                <xpath expr="//page[1]" position='after'>
+                    <page name="registro_ip_mac" string="ACCESO IP/MAC - VPN"
+                          attrs="{'invisible': [('validacion_ip_mac', '=', False)]}">
+                        <group>
+                        <field name="direccion_mac" string="MAC Actual"/>
+                        </group>
+                        <group>
+                            <group string="Control de Registros MAC">
+                                <field name="registro_macs" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="mac_address"/>
+                                    </tree>
+                                </field>
+                            </group>
+
+                            <group string="Control de Registros IP">
+                                <field name="registro_ips" nolabel="1">
+                                    <tree editable="bottom" delete="1">
+                                        <field name="ip_address"/>
+                                        <field name="nota"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

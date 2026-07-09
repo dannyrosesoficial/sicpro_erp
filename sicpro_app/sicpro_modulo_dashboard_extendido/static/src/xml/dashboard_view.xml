@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="templateDashboard" xml:space="preserve">
+    <t t-name="DashboardView">
+         <div class="oh_dashboards">
+            <div class="container-fluid my-5 o_hr_dashboard"/>
+        </div>
+    </t>
+
+    <t t-name="EncabezadoDashboard">
+        <section class="dashboard_main_section">
+            <div class="row" t-attf-style="background-color: {{widget.board_color}}">
+                <div class="col-sm-12 mb-4" t-attf-style="background-color: {{widget.board_header_color}}">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-8">
+                            <!--  t-attf-style="color: {{ widget.title_color }};" -->
+                            <h2 class="section-header" t-attf-style="color: {{ widget.title_color }};">
+                                <i class="fa fa-dashboard"></i>
+                                <t t-esc="widget.title"></t>
+                            </h2>
+                            <div class="stat-text text-small" t-attf-style="color: {{ widget.subtitle_color }};">
+                                <strong t-esc="widget.subtitle"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4">
+                            <t t-if="widget.subtitle">
+                                <div class="stat-text text-small" t-attf-style="margin-top: 0px; margin-right: 30px; text-align: right; color: {{ widget.warning_color }};" data-html2canvas-ignore="true">
+                                    <button type="button" name="imprimir_dashboard" t-attf-style="width: 100px !important;height: 40px; background-color: {{ widget.color_background_imprimir }} !important; color: {{ widget.color_imprimir }} !important;" class="btn oe_subtotal_footer oe_right btn-primary imprimir_button">
+                                        <span>Imprimir</span>
+                                    </button>
+                                    <div style="margin-top: 30px;">
+                                        <strong>**Solo se tendrá acceso a los datos según el rol del usuario.</strong>    
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-if="!widget.subtitle">
+                                <div class="stat-text text-small" t-attf-style="margin-top: 0px; margin-right: 30px; text-align: right; color: {{ widget.warning_color }};" data-html2canvas-ignore="true">
+                                    <button type="button" name="imprimir_dashboard" t-attf-style="width: 100px !important;height: 40px; background-color: {{ widget.color_background_imprimir }} !important; color: {{ widget.color_imprimir }} !important;" class="btn oe_subtotal_footer oe_right btn-primary imprimir_button" data-html2canvas-ignore="true">
+                                        <span>Imprimir</span>
+                                    </button>
+                                    <div style="margin-top: 10px;">
+                                        <strong>**Solo se tendrá acceso a los datos según el rol del usuario.</strong>    
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                    <hr t-attf-style="background-color: {{widget.board_color}}"/>
+                </div>
+            </div>
+        </section>
+    </t>
+
+    <t t-name="PiePaginaDashboard">
+        <section class="dashboard_main_section">
+            <div class="row" t-attf-style="background-color: {{widget.board_color}}">
+                <div style="float: right;margin-left: 90%;margin-top: 36px;" data-html2canvas-ignore="true">
+                    <button type="button" name="imprimir_dashboard" t-attf-style="width: 100px !important;height: 40px; background-color: {{ widget.color_background_imprimir }} !important; color: {{ widget.color_imprimir }} !important;" class="btn oe_subtotal_footer oe_right btn-primary imprimir_button">
+                        <span>Imprimir</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </t>
+
+    <t t-name="TableroDashboard">
+        <section class="dashboard_main_section">
+            <t t-set="contador_seccion" t-value="0"/>
+            <t t-set="contador_grafico_actual" t-value="0"/>
+            <t t-foreach="widget.secciones_nuevos" t-as="seccion">   
+                <t t-call="SeccionDashboard"/>
+                <t t-set="contador_grafico_actual" t-value="contador_grafico_actual + widget.cantidad_graficos_seccion[contador_seccion]"/>
+                <t t-set="contador_seccion" t-value="contador_seccion + 1"/>
+            </t>
+        </section>
+    </t>
+
+    <t t-name="SeccionDashboard">
+        <t t-set="clase_row" t-value="'row'"/>
+        <t t-if="contador_seccion != 0">
+            <t t-set="clase_row" t-value="'row mt-5'"/>
+        </t>
+        <div t-attf-class="{{ clase_row }}" t-attf-style="background-color: {{widget.board_color}}">
+            <t t-set="cantidad_grupos" t-value="seccion.length"/>
+            <t t-set="contador" t-value="contador_grafico_actual"></t>
+            <t t-foreach="seccion" t-as="grupo">
+                <t t-call="GrupoDashboard"/>
+                <t t-set="contador" t-value="contador + grupo.length"></t>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="GrupoDashboard">
+        <div t-attf-class="col-sm-12 col-md-{{ 12/cantidad_grupos }}">
+            <t t-set="cantidad_graficos" t-value="grupo.length"/>
+            <t t-set="mitad_grafico" t-value="''"/>
+            <t t-if="cantidad_graficos > 1">
+                <t t-set="mitad_grafico" t-value="' half_chart'"/>
+            </t>
+            <t t-foreach="grupo" t-as="grafico">
+                <t t-set="operation" t-value="'d-groupBy'"/>
+                <t t-if="grafico.es_agrupar == false">
+                    <t t-set="operation" t-value="'d-value'"/>
+                </t>
+                <t t-call="GraficoDashboard"/>
+                <t t-set="contador" t-value="contador + 1"></t>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="GraficoDashboard">
+        <t t-if="'tarjeta' == grafico.tipo">
+            <div t-attf-class="grafico-{{ contador }} dashboard-card card-shadow" t-attf-style="background-color: {{ grafico.color_background }};">
+                <t t-call="CardItem"/>
+            </div>
+        </t>
+        <t t-if="'tarjeta' != grafico.tipo">
+            <div t-attf-class="chart-container card-shadow{{ mitad_grafico }}" t-attf-style="background-color: {{ grafico.color_background }};">
+                <t t-if="'doughnut' == grafico.tipo">
+                    <t t-call="DoughnutGraph"/>
+                </t>
+                <t t-if="'pie' == grafico.tipo">
+                    <t t-call="PieGraph"/>
+                </t>
+                <t t-if="'funnel' == grafico.tipo">
+                    <t t-call="FunnelGraph"/>
+                </t>
+                <t t-if="'bar' == grafico.tipo">
+                    <t t-call="BarGraph"/>
+                </t>
+                <t t-if="'line' == grafico.tipo">
+                    <t t-call="LineGraph"/>
+                </t>
+                <t t-if="'columnHeatmap' == grafico.tipo">
+                    <t t-call="HeatMap"/>
+                </t>
+                <t t-if="'table' == grafico.tipo">
+                    <t t-call="Table"/>
+                </t>
+                <t t-if="'top' == grafico.tipo">
+                    <t t-call="TopTable"/>
+                </t>
+
+                <!-- No funciona para más de un gauge. Al ponerlo en un for o un if da error (en javascript)
+                <t t-if="'gauge' == grafico.tipo">
+                    <t t-call="GaugeBar"/>
+                </t> -->
+            </div>
+        </t>
+        
+    </t>    
+
+    <t t-name="CardItem">
+        <div t-if="'izquierda' == grafico.tarjeta_icono_posicion" class="dashboard-card__icon-container bg-mauve-light d-flex justify-content-center align-items-center" t-attf-style="background-color: {{ grafico.color_background_icono }};">
+            <i t-attf-class="fa {{ grafico.icono_tarjeta }} text-mauve" t-attf-style="color: {{ grafico.color_icono }};"/>
+        </div>
+        <div class="dashboard-card__details">
+            <t t-if="'v-primero' == grafico.tarjeta_valor_titulo_posicion">
+                <h3 t-attf-style="color: {{ grafico.color_valor }};">
+                    <span>
+                        <div t-attf-class="grafico-{{ contador }} tablero-card"/> 
+                    </span>
+                </h3>
+                <h4 t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/> 
+            </t>
+            <t t-if="'t-primero' == grafico.tarjeta_valor_titulo_posicion">
+                <h3 t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/> 
+                <h4 t-attf-style="color: {{ grafico.color_valor }};">
+                    <span>
+                        <div t-attf-class="grafico-{{ contador }} tablero-card" /> 
+                    </span>
+                </h4>
+            </t>
+            
+        </div>
+        <div t-if="'derecha' == grafico.tarjeta_icono_posicion" class="dashboard-card__icon-container bg-mauve-light d-flex justify-content-center align-items-center" t-attf-style="background-color: {{ grafico.color_background_icono }};">
+            <i t-attf-class="fa {{ grafico.icono_tarjeta }} text-mauve" t-attf-style="color: {{ grafico.color_icono }};"/>
+        </div>
+    </t>
+
+    <t t-name="DoughnutGraph">
+        <h2 t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/>
+        <hr/>
+        <div class="graph_canvas" style="width: 160; height: 80">
+            <!-- width="160" height="80" -->
+            <canvas t-attf-class="grafico-{{ contador }} container-doughnut"/>
+        </div>
+    </t>
+
+    <t t-name="PieGraph">
+        <h2 t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/>
+        <hr/>
+        <div class="graph_canvas">
+            <canvas t-attf-class="grafico-{{ contador }} container-pie" width="160" height="80"/>
+        </div>
+    </t>
+
+    <t t-name="FunnelGraph">
+        <h2 t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/>
+        <hr/>
+        <div class="funnel">
+            <div t-attf-class="grafico-{{ contador }} container-funnel mt-4" width="100%" height="auto"/>
+        </div>                
+    </t>
+
+    <t t-name="BarGraph">
+        <h3 class="h5" t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/>
+        <hr/>
+        <div class="chart">
+            <canvas t-attf-class="grafico-{{ contador }} container-bar {{ operation }}" width="400" height="400"/>
+        </div>
+    </t>
+
+    <t t-name="LineGraph">
+        <h3 class="h5" t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/>
+        <hr/>
+        <div class="chart">
+            <canvas t-attf-class="grafico-{{ contador }} container-line {{ operation }}" width="400" height="400"/>
+        </div>
+    </t>
+
+    <t t-name="GaugeBar">
+        <h3 class="h5">Objetivo Mensual</h3>
+        <hr/>
+        <input type="hidden" t-attf-class="gauge_percentage-{{ contador }} gauge_percentage" t-attf-value="{{ widget.graficos[contador].gauge_value }}"/>
+        <div t-attf-class="grafico-{{ contador }} gauge-container gauge--liveupdate" style="padding-top: 0px; margin-top: -5px">
+            <div class="gauge__container">
+                <div class="gauge__background"/>
+                <div class="gauge__center"/>
+                <div class="gauge__data"/>
+                <div class="gauge__needle"/>
+            </div>
+            <div class="gauge__labels mdl-typography__headline">
+                <span class="gauge__label--low">
+                    <!-- <b><t t-esc="$"/><t t-esc="54"/></b> -->
+                </span>
+                <span class="gauge__label--spacer"/>
+                <span class="gauge__label--high">
+                    <!-- <b><t t-esc="$"/><t t-esc="100"/></b> -->
+                </span>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="HeatMap">
+        <h3 class="h5" t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/>
+        <hr/>
+        <table t-attf-class="grafico-{{ contador }} table table-hover heatmap-table">
+            <thead class="table-encabezados">
+                <tr>
+                </tr>
+            </thead>
+            <tbody class="heatmap-table-body">
+            </tbody>
+        </table>
+    </t>
+
+    <t t-name="Table">
+        <h3 class="h5" t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/>
+        <hr/>
+        <div class="o_pivot table-responsive">
+            <table t-attf-class="grafico-{{ contador }} table table-hover normal-table table-bordered">
+                <thead class="table-encabezados">
+                    <tr>
+                    </tr>
+                </thead>
+                <tbody class="normal-table-body">
+                </tbody>
+            </table>
+        </div>
+    </t>
+
+    <t t-name="TopTable">
+        <h2 t-esc="grafico.name" t-attf-style="color: {{ grafico.color_name }};"/>
+        <hr/>
+        <div class="items-table">
+            <div t-attf-class="grafico-{{ contador }} item-container" t-attf-style="background-color: {{ grafico.color_background }};">
+            </div>
+        </div>
+    </t>
+    
+</templates>

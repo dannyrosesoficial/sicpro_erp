@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="middle_login_template_password" inherit_id="sicpro_modulo_web_login.middle_login_template">
+        <xpath expr="//div[hasclass('field-password')]//input" position="replace">
+            <div class="input-group">
+                    <input type="password" placeholder="Contraseña..." name="password" id="password"
+                           t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required"
+                           oncopy="return false" onpaste="return false" autocomplete="current-password"
+                           t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+                <div class="input-group-append">
+                    <button id="ver_pass" class="btn btn-secondary" type="button">
+                        <i class="fa fa-eye"></i>
+                    </button>
+                </div>
+                </div>
+
+        </xpath>
+    </template>
+
+
+</odoo>

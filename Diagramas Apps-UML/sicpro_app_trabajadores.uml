@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_trabajadores</OriginalElement>
+  <nodes>
+    <node x="21146.0" y="7503.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_ocupacion.Trabajos</node>
+    <node x="10726.0" y="7580.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_educacion_tipos.TrabajadoresEducacionTipos</node>
+    <node x="12154.0625" y="348.5">typing.Sized</node>
+    <node x="12305.0625" y="304.0">odoo.models.MetaModel</node>
+    <node x="13350.0" y="7635.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_tallas.TrabajadoresTallas</node>
+    <node x="14895.0" y="7591.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_educacion_certificacion.TrabajadoresEducacionCertificacion</node>
+    <node x="12577.0625" y="337.5">typing.Iterator</node>
+    <node x="14660.375" y="6032.0">sicpro_app_trabajadores.controller.organigrama.HrOrgChartController</node>
+    <node x="19920.0" y="7371.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_educacion.TrabajadoresEducacion</node>
+    <node x="12749.0625" y="348.5">typing.Iterable</node>
+    <node x="12548.0" y="7580.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_vacunación.TrabajadoresVacunacion</node>
+    <node x="12843.0" y="6054.5">odoo.models.Model</node>
+    <node x="18959.0" y="7536.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_seguridad_proteccion.TrabajadoresSeguridadProteccion</node>
+    <node x="5055.0" y="7624.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_cursos_niveles.TrabajadoresCursosNiveles</node>
+    <node x="1561.0" y="7613.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_disciplinarias_categoria.TrabajadoresCategoriasDisiplinarias</node>
+    <node x="15883.0" y="7635.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_claves_horas.TrabajadoresClavesHorasLabor</node>
+    <node x="24278.0" y="7536.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_intrucciones.TrabajadoresIntrucciones</node>
+    <node x="18278.0" y="7327.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_areas.Departmentos</node>
+    <node x="16754.0" y="7624.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_categorias.TrabajadoresCategorias</node>
+    <node x="9222.0" y="6249.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores.TrabajadoresGeneral</node>
+    <node x="5910.0" y="7558.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_cargos.TrabajadoresCargos</node>
+    <node x="13233.375" y="6076.5">sicpro_app_trabajadores.controller.webservice_Trabajadores.SicproWebServiceTrabajadores</node>
+    <node x="9902.0" y="7547.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_documentos.TrabajadoresDocumentos</node>
+    <node x="23411.0" y="7668.5">sicpro_app_trabajadores.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador</node>
+    <node x="13945.96875" y="0.0">typing.Hashable</node>
+    <node x="14065.0" y="7613.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_organigrama.TrabajadoresOrganigrama</node>
+    <node x="12367.5" y="709.0">odoo.models.BaseModel</node>
+    <node x="17547.0" y="7558.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_cursos.TrabajadoresCursos</node>
+    <node x="12922.0625" y="282.5">typing.Sequence</node>
+    <node x="2549.0" y="7646.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_cursos_habilidades.TrabajadoresCursosHabilidades</node>
+    <node x="740.0" y="7635.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_cursos_tipos.TrabajadoresCursosTipos</node>
+    <node x="8308.0" y="7657.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_documentos_tipos.TrabajadoresDocumentosTipos</node>
+    <node x="4217.0" y="7613.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_nexo_familiar.TrabajadoresNexoFamiliar</node>
+    <node x="14236.625" y="3329.0">Controller</node>
+    <node x="21815.0" y="7657.5">sicpro_app_trabajadores.models.ir_attachment.HrEmployeeAttachment</node>
+    <node x="20704.0" y="7415.0">sicpro_app_trabajadores.models.res_users.Users</node>
+    <node x="14020.375" y="6032.5">sicpro_app_trabajadores.controller.grafica_organizacional.EmployeeChart</node>
+    <node x="6643.0" y="7635.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_documentos_plantillas.TrabajadoresDocumentosPlantillas</node>
+    <node x="3469.0" y="7635.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_familiar.TrabajadoresFamiliar</node>
+    <node x="22440.0" y="7448.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_proteccion_trabajador.TrabajadoresProteccionTrabajador</node>
+    <node x="13280.0625" y="348.5">typing.Container</node>
+    <node x="11600.0" y="7151.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_disciplinarias_accion.TrabajadoresAccionesDisiplinarias</node>
+    <node x="7621.0" y="7437.0">sicpro_app_trabajadores.models.sicpro_app_trabajadores_equipo_tecnico.Team</node>
+    <node x="0.0" y="7646.5">sicpro_app_trabajadores.models.sicpro_app_trabajadores_locales.TrabajadoresLocales</node>
+    <node x="14158.125" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_seguridad_proteccion.TrabajadoresSeguridadProteccion" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-171.5" />
+      <point x="19429.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_cursos.TrabajadoresCursos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-149.5" />
+      <point x="17902.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_cargos.TrabajadoresCargos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-149.5" />
+      <point x="6266.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_areas.Departmentos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-380.5" />
+      <point x="18608.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_cursos_niveles.TrabajadoresCursosNiveles" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="5472.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_categorias.TrabajadoresCategorias" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="17140.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_documentos.TrabajadoresDocumentos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-160.5" />
+      <point x="10304.0" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_intrucciones.TrabajadoresIntrucciones" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-171.5" />
+      <point x="24677.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-285.9375" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-507.9375" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_educacion_certificacion.TrabajadoresEducacionCertificacion" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-116.5" />
+      <point x="15379.0" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.controller.grafica_organizacional.EmployeeChart" target="object" relationship="REALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="14330.375" y="6006.0" />
+      <point x="14075.0" y="6006.0" />
+      <point x="14075.0" y="376.5" />
+      <point x="-137.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_educacion_tipos.TrabajadoresEducacionTipos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-127.0" />
+      <point x="11153.0" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="-113.4375" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_disciplinarias_accion.TrabajadoresAccionesDisiplinarias" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-556.5" />
+      <point x="12064.0" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_equipo_tecnico.Team" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-270.5" />
+      <point x="7954.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.res_users.Users" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-292.5" />
+      <point x="20915.0" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.controller.webservice_Trabajadores.SicproWebServiceTrabajadores" target="Controller" relationship="REALIZATION">
+      <point x="0.0" y="39.0" />
+      <point x="13616.875" y="6222.0" />
+      <point x="15274.875" y="6222.0" />
+      <point x="15274.875" y="3344.5" />
+      <point x="59.0" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_documentos_plantillas.TrabajadoresDocumentosPlantillas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="7122.0" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="12219.5625" y="3344.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.ir_attachment.HrEmployeeAttachment" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-50.0" />
+      <point x="22117.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="453.5625" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_organigrama.TrabajadoresOrganigrama" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="14470.0" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_claves_horas.TrabajadoresClavesHorasLabor" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="16308.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.controller.organigrama.HrOrgChartController" target="Controller" relationship="REALIZATION">
+      <point x="0.0" y="83.5" />
+      <point x="14958.875" y="6222.0" />
+      <point x="15274.875" y="6222.0" />
+      <point x="15274.875" y="3344.5" />
+      <point x="59.0" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_nexo_familiar.TrabajadoresNexoFamiliar" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.0" />
+      <point x="4626.0" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="152.0625" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="-137.5" y="-111.5" />
+      <point x="13631.875" y="265.0" />
+      <point x="13631.875" y="180.0" />
+      <point x="14027.469" y="180.0" />
+      <point x="2.49999999141437E-4" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_disciplinarias_categoria.TrabajadoresCategoriasDisiplinarias" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.0" />
+      <point x="2045.0" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="23834.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.controller.webservice_Trabajadores.SicproWebServiceTrabajadores" target="object" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="13616.875" y="6006.0" />
+      <point x="14075.0" y="6006.0" />
+      <point x="14075.0" y="376.5" />
+      <point x="-137.5" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="13631.875" y="3344.5" />
+      <point x="13631.875" y="180.0" />
+      <point x="14027.469" y="180.0" />
+      <point x="2.49999999141437E-4" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_familiar.TrabajadoresFamiliar" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="3833.0" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_cursos_habilidades.TrabajadoresCursosHabilidades" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="2999.0" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_proteccion_trabajador.TrabajadoresProteccionTrabajador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-259.5" />
+      <point x="22915.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_locales.TrabajadoresLocales" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="360.0" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="Controller" target="object" relationship="REALIZATION">
+      <point x="-59.0" y="0.0" />
+      <point x="14075.0" y="3344.5" />
+      <point x="14075.0" y="376.5" />
+      <point x="-137.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores.TrabajadoresGeneral" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-1458.5" />
+      <point x="9552.0" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.controller.organigrama.HrOrgChartController" target="object" relationship="REALIZATION">
+      <point x="0.0" y="-83.5" />
+      <point x="14958.875" y="6006.0" />
+      <point x="14075.0" y="6006.0" />
+      <point x="14075.0" y="376.5" />
+      <point x="-137.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_cursos_tipos.TrabajadoresCursosTipos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="1140.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="-15.0" y="-61.0" />
+      <point x="-15.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_ocupacion.Trabajos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-204.5" />
+      <point x="21470.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="0.0" y="2635.5" />
+      <point x="12939.0" y="6006.0" />
+      <point x="14075.0" y="6006.0" />
+      <point x="14075.0" y="376.5" />
+      <point x="-137.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.controller.grafica_organizacional.EmployeeChart" target="Controller" relationship="REALIZATION">
+      <point x="0.0" y="83.0" />
+      <point x="14330.375" y="6222.0" />
+      <point x="15274.875" y="6222.0" />
+      <point x="15274.875" y="3344.5" />
+      <point x="59.0" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_educacion.TrabajadoresEducacion" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-336.5" />
+      <point x="20302.0" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_vacunación.TrabajadoresVacunacion" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-127.5" />
+      <point x="12939.0" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_tallas.TrabajadoresTallas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="13697.5" y="6685.0" />
+      <point x="12538.5" y="6685.0" />
+      <point x="12538.5" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_trabajadores.models.sicpro_app_trabajadores_documentos_tipos.TrabajadoresDocumentosTipos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-50.0" />
+      <point x="8755.0" y="6224.0" />
+      <point x="12939.0" y="6224.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.054946806391202134" showDependencies="false" x="12538.5" y="4583.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

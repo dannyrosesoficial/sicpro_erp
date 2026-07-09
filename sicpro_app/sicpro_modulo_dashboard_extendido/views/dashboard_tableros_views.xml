@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sicpro_dashboard_tableros_new_tree_view">
+            <field name="model">sicpro.modulo.dashboard.tableros</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <tree string="Tableros">
+                    <field name="active" invisible="1"/>
+                    <field name="app" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="identificador_tablero"/>
+                    <field name="nombre_tablero"/>
+                    <field name="subtitulo_tablero"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sicpro_dashboard_tableros_new_form_view">
+            <field name="model">sicpro.modulo.dashboard.tableros</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <form string="Tablero">
+                    <header>
+                    </header>
+                    <field name="active" invisible="1"/>
+                    <group>
+                        <group string="Aplicación del tablero">
+                            <field name="app" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="app_name" invisible="1"/>
+                            <field name="identificador_tablero"/>
+                        </group>
+                        <group string="Datos del Tablero">
+                            <field name="nombre_tablero"/>
+                            <field name="subtitulo_tablero"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Secciones">
+                            <field name="secciones" domain="[('app', '=', app)]" context="{'default_app': app}">
+                                <tree string="Secciones" editable="bottom">
+                                    <field name="app" invisible="1"/>
+                                    <field name="sequencia" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="graficos_izq" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                                    <field name="graficos_centro_1" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                                    <field name="graficos_centro_2" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                                    <field name="graficos_der" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                                    <field name="tableros_contenido" invisible = "1"/>
+                                    <field name="active" widget="boolean_toggle"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Grupos" invisible="1">
+                            <field name="grupos" domain="[('app', '=', app)]" context="{'default_app': app}">
+                                <tree string="Grupos" editable="bottom">
+                                    <field name="app" invisible="1"/>
+                                    <field name="sequencia"/>
+                                    <field name="name"/>
+                                    <field name="graficos" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                                    <field name="secciones_contenido" invisible = "1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Gráficos">
+                            <field name="graficos" domain="[('app', '=', app)]" context="{'default_app': app}">
+                                <tree string="Gráficos">
+                                    <field name="name"/>
+                                    <field name="tipo"/>
+                                    <field name="modelo" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="modelo_nombre" invisible="1"/>
+                                    <field name="modelo_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group string="Colores">
+                        <group>
+                            <div class="o_row">
+                                <b class="text-primary">Reiniciar colores</b>
+                                <button type="object" name="button_colores_default" class="btn-sm btn-link mb4 fa fa-cog"
+                                        aria-label="Reiniciar colores del tablero" title="Reiniciar colores del tablero"/>
+                            </div>
+                        </group>
+                        <group>
+                        </group>
+                        <group>
+                            <field name="color_background" widget="color"/>
+                            <field name="color_background_header" widget="color"/>
+                            <field name="color" widget="color"/>
+                            <field name="color_subtitulo" widget="color"/>    
+                        </group>
+                        <group>
+                            <field name="color_warning" widget="color"/>
+                            <field name="color_background_imprimir" widget="color"/>
+                            <field name="color_imprimir" widget="color"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="sicpro_dashboard_tableros_new_search_view" model="ir.ui.view">
+            <field name="name">sicpro.modulo.dashboard.tableros.search</field>
+            <field name="model">sicpro.modulo.dashboard.tableros</field>
+            <field name="arch" type="xml">
+                <search string="Gráficos">
+                    <field name="app" string="Aplicación"/>
+                    <separator/>
+                    <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter name="app_group" string="Aplicación" context="{'group_by': 'app'}"/>
+                    </group>
+                </search>
+             </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="dashboard_tableros_config_action">
+            <field name="name">Tableros</field>
+            <field name="res_model">sicpro.modulo.dashboard.tableros</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.server" id="ir_actions_server_error_acceso">
+            <field name="name">Dashboard Error de Acceso a datos</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_sicpro_modulo_dashboard_tableros"/>
+            <field name="state">code</field>
+            <field name="code">model.error_acceso()</field>
+        </record>
+        
+    </data>
+</odoo>

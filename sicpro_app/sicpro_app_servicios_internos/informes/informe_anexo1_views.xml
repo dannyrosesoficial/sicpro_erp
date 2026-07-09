@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="informe_servicios_internos_anexo1_action" model="ir.actions.report">
+        <!--        le retiro el nombre al action para que no salga en el botón de imprimir-->
+        <!--        <field name="name">Anexo 1</field>-->
+        <field name="name"></field>
+        <field name="model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_servicios_internos.informe_servicios_internos_anexo1</field>
+        <field name="report_file">sicpro_app_servicios_internos.informe_servicios_internos_anexo1</field>
+        <field name="print_report_name">'Anexo 1'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_servicios_internos_solicitudes"/>
+        <field name="groups_id"
+               eval="[(4, ref('sicpro_app_servicios_internos.grupo_app_internos_solicitudes_ejecutor'))]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="informe_servicios_internos_anexo1">
+        <!-- Página evaluación del proveedor -->
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_servicios_internos/static/src/img/etecsaId_300_8.png"
+                             style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección de los datos -->
+            <div t-attf-class="article">
+                <!-- sección del page -->
+                <t t-foreach="docs" t-as="inf">
+
+                    <table cellspacing="0" border="0">
+                        <colgroup width="245"></colgroup> <colgroup width="164"></colgroup> <colgroup
+                            width="172"></colgroup> <colgroup width="178"></colgroup>
+                        <tbody>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="4" height="20" align="center"><b><font size="3" face="Arial">ANEXO No.
+                                    1 - Solicitud de Servicio Celular Interno de ETECSA</font></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" height="20" align="left"><font size="3" face="Times New Roman"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" height="18" align="left"><b><font face="Arial">Por el área que
+                                    solícita el servicio.</font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="4" height="17" align="left"><b><font face="Arial">Directivo que
+                                    solícita el servicio</font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Nombres y Apellidos:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><b><font size="3" face="Times New Roman">
+                                    <span t-field="inf.solicitante_trabajador.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Cargo:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><b><font size="3" face="Times New Roman">
+                                    <span t-field="inf.solicitante_ocupacion_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Unidad Organizativa:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><b><font size="3" face="Times New Roman">
+                                    <span t-field="inf.solicitante_area_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="17" align="left"><font face="Arial">Firma</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><font face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" height="17" align="left"><font face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="4" height="17" align="left"><b><font face="Arial">Otorgar o modificar
+                                    servicio a favor de: </font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><b><font face="Arial">Nombres y Apellidos:</font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><b><font size="3" face="Times New Roman">
+                                    <span t-field="inf.beneficiario_trabajador.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><b><font face="Arial">Cargo:</font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><b><font size="3" face="Times New Roman">
+                                    <span t-field="inf.beneficiario_ocupacion_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><b><font face="Arial">Unidad Organizativa:</font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><b><font size="3" face="Times New Roman">
+                                    <span t-field="inf.beneficiario_area_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" height="17" align="left"><font face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" height="17" align="left"><b><font face="Arial">Fundamentar la
+                                    solicitud:</font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><b><font face="Arial">Fecha: <span
+                                        t-field="inf.fecha_solicitud"/></font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><b><font face="Arial">Teléfono: <span
+                                        t-field="inf.telefono"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="4" valign="middle" height="30" align="left"><font face="Arial">
+                                    <span t-field="inf.observaciones"/></font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" height="20" align="left"><font size="3" face="Times New Roman"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1px solid #000000" colspan="4" height="18" align="left"><b>
+                                    <font face="Arial">Por el área aprueba el servicio.</font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" height="17" align="left"><b><font face="Arial">Directivo que aprueba el
+                                    servicio</font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><b><font face="Arial">Fecha: <span
+                                        t-field="inf.aprueba_fecha"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Nombres y Apellidos:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><b><font size="3" face="Times New Roman">
+                                    <span t-field="inf.aprueba_trabajador.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Cargo:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><b><font size="3" face="Times New Roman">
+                                    <span t-field="inf.aprueba_ocupacion_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Unidad Organizativa:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><b><font size="3" face="Times New Roman">
+                                    <span t-field="inf.aprueba_area_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="17" align="left"><font face="Arial">Firma:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="left"><font face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" height="17" align="left"><font face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="4" height="17" align="left"><b><font face="Arial">Servicios a otorgar:
+                                </font></b></td>
+                            </tr>
+
+
+                            <tr>
+                                <t t-set="servicio_mensaje" t-value="inf.servicio_mensaje"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" height="17" align="left">Plan mensaje:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="servicio_mensaje == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                                <t t-set="servicio_mensaje_voz" t-value="inf.servicio_mensaje_voz"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="left">Plan mensaje más voz:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="servicio_mensaje_voz == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                            </tr>
+                            <tr>
+                                <t t-set="servicio_voz" t-value="inf.servicio_voz"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="17" align="left">Servicio de voz:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="servicio_voz == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><font face="Arial">Plan Tope:
+                                    <span t-field="inf.servicio_plan_tope"/></font></td>
+                                <t t-set="servicio_ldi" t-value="inf.servicio_ldi"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left">LDI:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="servicio_ldi == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                                <t t-set="servicio_roaming" t-value="inf.servicio_roaming"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left">Roaming:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="servicio_roaming == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                            </tr>
+                            <tr>
+                                <t t-set="servicio_gprs" t-value="inf.servicio_gprs"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="17" align="left"><font face="Arial">Servicios GPRS:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="servicio_gprs == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></font></td>
+                                <t t-set="servicio_intranet" t-value="inf.servicio_intranet"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left">Intranet UO:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="servicio_intranet == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                                <t t-set="servicio_wap" t-value="inf.servicio_wap"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left">WAP:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="servicio_wap == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                                <t t-set="servicio_mms" t-value="inf.servicio_mms"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left">MMS:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="servicio_mms == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" height="20" align="left"><font size="3" face="Times New Roman"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" height="17" align="left"><b><font face="Arial">Modificaciones a
+                                    realizar:</font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="left"><b><font face="Arial">Teléfono:</font></b></td>
+                            </tr>
+                            <tr>
+                                <t t-set="cambio_servicio" t-value="inf.cambio_servicio"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" valign="middle" height="19" align="left">
+                                    Cambio del servicio otorgado:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="cambio_servicio == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                                <t t-set="cambio_equipo" t-value="inf.cambio_equipo"/>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" valign="middle" align="left">Cambio de Equipo:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="cambio_equipo == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                            </tr>
+                            <tr>
+                                <t t-set="servicio_voz" t-value="inf.servicio_voz"/>
+                                <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" height="17" align="left">Gama de Equipo a entregar: </td>
+                                <t t-set="fecha_roaming" t-value="inf.fecha_roaming"/>
+                                <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" valign="middle" align="left">Roaming:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="fecha_roaming == True">
+                                            <input class="radial-square" type="checkbox" checked="1"/>
+                                        </t>
+                                        <t t-else=''>
+                                            <input class="radial-square" type="checkbox"/>
+                                        </t>
+                                    </font></td>
+                            </tr>
+                            <tr>
+                                <t t-set="gama" t-value="inf.gama"/>
+                                <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" valign="middle" height="32" align="left">
+                                    <t t-if="gama == 'alta'">
+                                        <input class="radial-square" type="radio" checked="1"/>
+                                    </t>
+                                    <t t-else=''>
+                                        <input class="radial-square" type="radio"/>
+                                    </t> Alta
+                                    <t t-if="gama == 'media'">
+                                        <input class="radial-square" type="radio" checked="1"/>
+                                    </t>
+                                    <t t-else=''>
+                                        <input class="radial-square" type="radio"/>
+                                    </t> Media
+                                    <t t-if="gama == 'baja'">
+                                        <input class="radial-square" type="radio" checked="1"/>
+                                    </t>
+                                    <t t-else=''>
+                                        <input class="radial-square" type="radio"/>
+                                    </t> Baja
+                                </td>
+                                <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" valign="middle" align="left">
+                                    Del:
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="fecha_roaming == True">
+                                            <span t-field="inf.fecha_roaming_inicio"/>
+                                        </t>
+                                        <t t-else=''>
+                                            ______
+                                        </t>
+                                    </font>
+                                    al
+                                    <font size="3" face="Liberation Serif">
+                                        <t t-if="fecha_roaming == True">
+                                            <span t-field="inf.fecha_roaming_fin"/>
+                                        </t>
+                                        <t t-else=''>
+                                            ______
+                                        </t>
+                                    </font>
+                                    <br></br>
+                                    DD/MM/AA DD/MM/AA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </t>
+
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+                <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+                    Cuba.</span>
+                <div style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+                            <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+                        <br/>
+                        <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+                            Justicia de la República de Cuba.
+                            Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+                    <div t-if="report_type == 'pdf'" class="text-center text-muted">
+                        Página: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

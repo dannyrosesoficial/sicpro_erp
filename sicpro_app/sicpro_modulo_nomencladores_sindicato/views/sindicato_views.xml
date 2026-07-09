@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="nomenclador_sindicato_tree" model="ir.ui.view">
+        <field name="name">sicpro.nomenclador.sindicato.tree</field>
+        <field name="model">sicpro.nomenclador.sindicato</field>
+        <field name="arch" type="xml">
+            <tree string="Sección Sindical" editable="bottom">
+                <field name="name"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="trabajador_id"
+                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                <field name="color" widget="color_picker" invisible="1"/>
+                <field name="areas_ids" widget="many2many_tags" placeholder="Áreas"
+                       options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="nomenclador_sindicato_action" model="ir.actions.act_window">
+        <field name="name">Secciones Sindicales</field>
+        <field name="res_model">sicpro.nomenclador.sindicato</field>
+        <field name="view_id" ref="nomenclador_sindicato_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear sección sindical
+            </p>
+        </field>
+    </record>
+
+</odoo>

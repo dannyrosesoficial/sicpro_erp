@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="conector_rest_api_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.modulo.api.conector.tree</field>
+        <field name="model">sicpro.modulo.api.conector</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="app_id"/>
+                <field name="web"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="conector_rest_api_view_form" model="ir.ui.view">
+        <field name="name">sicpro.modulo.api.conector.view.form</field>
+        <field name="model">sicpro.modulo.api.conector</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="conector_api_cron" string="Ejecutar Cron" type="object" invisible="1"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="active" invisible="1"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="app_id"/>
+                            <field name="tipo_autenticacion" widget="radio" options="{'horizontal': true}"/>
+                            <field name="usuario" attrs="{'invisible': [('tipo_autenticacion', '!=', 'usuario_contraseña')]}"/>
+                            <field name="password" password="True" attrs="{'invisible': [('tipo_autenticacion', '!=', 'usuario_contraseña')]}"/>
+                            <field name="token" attrs="{'invisible': [('tipo_autenticacion', '!=', 'token')]}"/>
+                        </group>
+                        <group>
+                            <field name="web"/>
+                            <field name="url_login"/>
+                            <field name="url_data"/>
+                            <field name="url_config_data"/>
+                            <field name="url_cierre"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="descripcion"/>
+                    </group>
+                    <button name="conector_api_test" string="Ejecutar Test" type="object" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="conector_rest_api_view_filter" model="ir.ui.view">
+        <field name="name">sicpro.modulo.api.conector.view.filter</field>
+        <field name="model">sicpro.modulo.api.conector</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name" string="Aplicación"/>
+                <separator/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+    <record id="conector_rest_api_action" model="ir.actions.act_window">
+        <field name="name">Configuración Conector RestApi</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.modulo.api.conector</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

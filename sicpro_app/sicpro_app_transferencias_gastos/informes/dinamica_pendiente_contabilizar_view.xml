@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="transferencias_pendiente_contabilizar_views_pivot" model="ir.ui.view">
+        <field name="name">sicpro.app.transferencias.gastos.view.pivot</field>
+        <field name="model">sicpro.app.transferencias.gastos</field>
+        <field name="priority" eval="15"/>
+        <field name="arch" type="xml">
+            <pivot string="Análisis de Gastos Pendientes por Contabilizar" sample="1">
+                <field name="company_abreviatura" type="row"/>
+                <field name="objeto" type="row"/>
+                <field name="denominacion_objeto" type="row"/>
+                <field name="valor_var" string='Valor variable' type="measure" widget="monetary"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="transferencias_pendiente_contabilizar_views_action" model="ir.actions.act_window">
+        <field name="name">Análisis de Gastos Pendientes por Contabilizar</field>
+        <field name="res_model">sicpro.app.transferencias.gastos</field>
+        <field name="domain">[('estado', '=', 'pendiente_contabilizar')]</field>
+        <field name="view_id" ref="transferencias_pendiente_contabilizar_views_pivot"/>
+        <field name="context">{'search_default_anio': (context_today().strftime('%Y'))}</field>
+        <field name="view_mode">pivot,graph</field>
+    </record>
+
+</odoo>

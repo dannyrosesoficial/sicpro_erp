@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+
+<t t-name="FieldPdfCropperViewer">
+    <div class="o_field_pdfviewer" aria-atomic="true">
+        <div t-if="widget.mode !== 'readonly'" class="o_form_pdf_controls mt8" role="toolbar" aria-label="PDF controls">
+<!--            <span class="o_form_binary_progress">Subir...</span>-->
+<!--            <button type="button" class="btn btn-primary o_select_file_button" title="Select">Sube tu archivo</button>-->
+<!--            <button class="btn btn-secondary fa fa-pencil o_select_file_button" title="Seleccionar" aria-label="Seleccionar" type="button"></button>-->
+<!--            <button class="btn btn-secondary fa fa-trash-o o_clear_file_button" title="Limpiar" aria-label="Limpiar" type="button"></button>-->
+        </div>
+        <iframe class="o_pdf_cropper_view_iframe o_field_pdf_cropper_viewer"/>
+        <t t-call="HiddenInputFile">
+            <t t-set="fileupload_id" t-value="widget.fileupload_id"/>
+            <t t-set="fileupload_style" t-translation="off">overflow-x: hidden</t>
+        </t>
+    </div>
+</t>
+
+</templates>

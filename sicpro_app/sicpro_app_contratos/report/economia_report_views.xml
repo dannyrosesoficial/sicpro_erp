@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="view_informes_economia_pivot" model="ir.ui.view">
+            <field name="name">view.informes.economia.pivot</field>
+            <field name="model">sicpro.app.contratos.economia</field>
+            <field name="arch" type="xml">
+                <pivot string="Análisis Económico" display_quantity="true"
+                       disable_linking="false" sample="1">
+                    <field name="name" type="row"/>
+                    <field name="estado_id" type="row"/>
+                    <field name="tipo_contrato" type="row"/>
+                    <field name="proveedor" type="row"/>
+                    <field name="area_contrato" type="rows"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="view_informes_economia_graph" model="ir.ui.view">
+            <field name="name">view.informes.economia.graph</field>
+            <field name="model">sicpro.app.contratos.economia</field>
+            <field name="arch" type="xml">
+                <graph string="Análisis Económico" type="bar" sample="1" disable_linking="false">
+                    <field name="name" type="col"/>
+                    <field name="estado_id" type="row"/>
+                 </graph>
+             </field>
+        </record>
+
+        <record id="view_informes_economia_informes_search" model="ir.ui.view">
+            <field name="name">view.informes.economia.informes.search</field>
+            <field name="model">sicpro.app.contratos.economia</field>
+            <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name"/>
+                <field name="sol_pago_cuenta_gasto"/>
+                <field name="proveedor"/>
+                <field name="vigencia_contrato_anios"/>
+                <field name="pep"/>
+                <field name="etiquetas"/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                        <filter string="Proveedor" name="proveedor" context="{'group_by':'proveedor'}"/>
+                        <filter string="Tipo Contrato" name="tipo_contrato" context="{'group_by':'tipo_contrato'}"/>
+                        <filter string="Estado" name="estado_id" context="{'group_by':'estado_id'}"/>
+                        <filter name="user_id" string="Gestor del Contrato" context="{'group_by': 'user_id'}"/>
+                        <filter string="Área del Contrato" name="area_contrato" context="{'group_by':'area_contrato'}" />
+                        <filter string="Vigencia (Años)" name="vigencia_contrato_anios"
+                                context="{'group_by':'vigencia_contrato_anios'}"/>
+                    <separator orientation="vertical" />
+                        <filter string="Inicio de contrato" context="{'group_by':'fecha_inicio_contrato:month'}"
+                                name="month"/>
+                        <filter string="Fin de contrato" context="{'group_by':'fecha_fin_contrato:month'}" name="month"/>
+                        <filter string="Año" context="{'group_by':'anio'}" name="month"/>
+                        </group>
+            </search>
+       </field>
+        </record>
+
+       <record id="action_informes_economia_informes" model="ir.actions.act_window">
+            <field name="name">Análisis Económico</field>
+            <field name="res_model">sicpro.app.contratos.economia</field>
+            <field name="view_mode">graph,pivot</field>
+            <field name="search_view_id" ref="view_informes_economia_informes_search"/>
+            <field name="context">{'group_by_no_leaf':1,'group_by':[]}</field>
+            <field name="help">Análisis grafico de los datos de la aplicación.</field>
+        </record>
+
+</odoo>

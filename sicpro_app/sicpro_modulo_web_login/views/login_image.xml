@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_login_tree">
+        <field name="name">sicpro.modulo.web.login.imagen</field>
+        <field name="model">sicpro.modulo.web.login.imagen</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree string="faculty list">
+                <field name="name"/>
+                <field name="mantenimiento" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_login_form">
+        <field name="name">sicpro.modulo.web.login.imagen</field>
+        <field name="model">sicpro.modulo.web.login.imagen</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Image">
+                <group>
+                    <group>
+                        <field name="name" invisible="0" readonly="1" force_save="1"/>
+                        <field widget="binary" height="64" name="image" filename="name"/>
+                    </group>
+                    <group>
+                        <field name="mantenimiento" widget="boolean_toggle"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_image_data">
+        <field name="name">Imagen del Login</field>
+        <field name="res_model">sicpro.modulo.web.login.imagen</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+      <menuitem id="menu_image_login" name="Imagen del Login"
+                parent="sicpro_app_administracion.menu_administracion_1"
+                sequence="181" action="sicpro_modulo_web_login.action_image_data"/>
+  </data>
+</odoo>

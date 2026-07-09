@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+
+    <record id="soporte_correos_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.correos.form</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="inherit_id" ref="sicpro_app_soporte.ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="solicitar_correos_soporte" class="btn btn-success btn-outline-dark"
+                        string="Buscar correos" attrs="{'invisible': [('closed', '=', True)]}"
+                        type="object" icon="fa-mail-forward" groups="sicpro_app_soporte.group_soporte_ejecutor"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

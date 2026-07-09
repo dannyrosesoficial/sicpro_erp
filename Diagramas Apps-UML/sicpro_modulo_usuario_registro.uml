@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_usuario_registro</OriginalElement>
+  <nodes>
+    <node x="954.2499999999999" y="282.5">typing.Sequence</node>
+    <node x="1312.25" y="348.5">typing.Sized</node>
+    <node x="1463.25" y="304.0">odoo.models.MetaModel</node>
+    <node x="1490.0" y="6236.0">sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_reporte.LoginUserReport</node>
+    <node x="1735.25" y="337.5">typing.Iterator</node>
+    <node x="3078.0" y="6247.0">sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_ips.RegistroIP</node>
+    <node x="1907.25" y="348.5">typing.Iterable</node>
+    <node x="2264.0" y="6192.0">sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_usuarios.LoginRegistroUsuario</node>
+    <node x="1771.0" y="6020.0">odoo.models.Model</node>
+    <node x="755.0" y="6302.5">sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_ips.RegistroUsuarios</node>
+    <node x="0.0" y="6302.0">sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_usuarios.LoginUsuarios</node>
+    <node x="2080.25" y="348.5">typing.Container</node>
+    <node x="2455.25" y="0.0">typing.Hashable</node>
+    <node x="1295.5" y="699.0">odoo.models.BaseModel</node>
+    <node x="2325.25" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_usuarios.LoginRegistroUsuario" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-149.5" />
+      <point x="2661.0" y="6167.0" />
+      <point x="1867.0" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_usuarios.LoginUsuarios" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.5" />
+      <point x="367.5" y="6167.0" />
+      <point x="1867.0" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="325.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="2625.0" y="376.5" />
+      <point x="2625.0" y="88.5" />
+      <point x="2536.75" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="1127.5" y="3334.5" />
+      <point x="4.25" y="94.0" />
+    </edge>
+    <edge source="sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_ips.RegistroUsuarios" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="1112.5" y="6167.0" />
+      <point x="1867.0" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="2625.0" y="3334.5" />
+      <point x="2625.0" y="88.5" />
+      <point x="2536.75" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_reporte.LoginUserReport" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-105.5" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-55.75" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-277.75" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="116.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_modulo_usuario_registro.models.sicpro_modulo_registro_ips.RegistroIP" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="3409.5" y="6167.0" />
+      <point x="1867.0" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-489.25" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-31.75" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.12978037167869758" showDependencies="false" x="1870.5" y="3245.5000000000005" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

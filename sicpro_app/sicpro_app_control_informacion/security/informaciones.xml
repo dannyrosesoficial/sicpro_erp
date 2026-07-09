@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- Creo la categoría Principal para el control de las informaciones -->
+        <record id="modulo_categoria_control_informaciones" model="ir.module.category">
+            <field name="name">Control de la información</field>
+            <field name="description">Módulo para la gestión y control de las informaciones procesadas en la DVPE.
+            </field>
+            <field name="sequence">21</field>
+        </record>
+
+
+        <record id="module_category_control_informaciones_ejecutor" model="ir.module.category">
+            <field name="name">Info Ejecutor</field>
+            <field name="description">Acceso al control de informaciones de la DVPE.</field>
+            <field name="parent_id" ref="modulo_categoria_control_informaciones"/>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="grupo_control_informacion_visualizar_proceso" model="res.groups">
+            <field name="name">Visualizar Proceso</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_control_informaciones_ejecutor"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_control_informacion_ejecutor" model="res.groups">
+            <field name="name">Ejecutor</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="category_id" ref="module_category_control_informaciones_ejecutor"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_control_informacion_visualizar_proceso'))]"/>
+        </record>
+
+
+        <record id="module_category_control_informaciones_revision" model="ir.module.category">
+            <field name="name">Info Revisión</field>
+            <field name="description">Acceso al control de informaciones de la DVPE.</field>
+            <field name="parent_id" ref="modulo_categoria_control_informaciones"/>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="grupo_control_informacion_revision" model="res.groups">
+            <field name="name">Revisión</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="category_id" ref="module_category_control_informaciones_revision"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+
+        <record id="module_category_control_informaciones_control" model="ir.module.category">
+            <field name="name">Info Control</field>
+            <field name="description">Acceso al control de informaciones de la DVPE.</field>
+            <field name="parent_id" ref="modulo_categoria_control_informaciones"/>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="grupo_control_informacion_visualizar_todo" model="res.groups">
+            <field name="name">Visualizar Todo</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_control_informaciones_control"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_control_informacion_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="category_id" ref="module_category_control_informaciones_control"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_control_informacion_visualizar_todo'))]"/>
+        </record>
+
+        <record id="grupo_control_informacion_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos de lectura/Escritura/Eliminación</field>
+            <field name="category_id" ref="module_category_control_informaciones_control"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_control_informacion_responsable'))]"/>
+        </record>
+    </data>
+    <data noupdate="0">
+        <record id="control_informaciones_rule_visualizar_proceso" model="ir.rule">
+            <field name="name">Ver informaciones del proceso</field>
+            <field ref="model_sicpro_app_control_informacion" name="model_id"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('grupo_control_informacion_visualizar_proceso'))]"/>
+        </record>
+
+        <record id="control_informaciones_rule_visualizar_todo" model="ir.rule">
+            <field name="name">Ver todas las informaciones</field>
+            <field ref="model_sicpro_app_control_informacion" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_control_informacion_visualizar_todo'))]"/>
+        </record>
+
+        <record id="control_informaciones_rule_ejecutor" model="ir.rule">
+            <field name="name">Ejecutar informaciones del proceso</field>
+            <field ref="model_sicpro_app_control_informacion" name="model_id"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('grupo_control_informacion_ejecutor'))]"/>
+        </record>
+
+        <record id="control_informaciones_rule_revision" model="ir.rule">
+            <field name="name">Informaciones para revisión</field>
+            <field ref="model_sicpro_app_control_informacion" name="model_id"/>
+            <field name="domain_force">[('name.gestores', 'in', user.id)]</field>
+            <field name="groups" eval="[(4, ref('grupo_control_informacion_revision'))]"/>
+        </record>
+
+        <record id="control_informaciones_actividad_rule_revision" model="ir.rule">
+            <field name="name">Informaciones para revisión Actividades</field>
+            <field ref="model_sicpro_app_control_informacion_actividad" name="model_id"/>
+            <field name="domain_force">[('gestores', 'in', user.id)]</field>
+            <field name="groups" eval="[(4, ref('grupo_control_informacion_revision'))]"/>
+        </record>
+
+        <record id="control_informaciones_rule_responsable" model="ir.rule">
+            <field name="name">Informaciones para responsable</field>
+            <field ref="model_sicpro_app_control_informacion" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_control_informacion_responsable'))]"/>
+        </record>
+
+        <record id="control_informaciones_actividad_rule_responsable" model="ir.rule">
+            <field name="name">Informaciones para responsable Actividad</field>
+            <field ref="model_sicpro_app_control_informacion_actividad" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_control_informacion_responsable'))]"/>
+        </record>
+    </data>
+
+</odoo>

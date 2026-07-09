@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_contactos</OriginalElement>
+  <nodes>
+    <node x="110.5" y="282.5">typing.Sequence</node>
+    <node x="468.5" y="348.5">typing.Sized</node>
+    <node x="619.5" y="304.0">odoo.models.MetaModel</node>
+    <node x="891.5" y="337.5">typing.Iterator</node>
+    <node x="844.0" y="6192.0">sicpro_app_contactos.models.res_users.Users</node>
+    <node x="1263.0" y="6203.5">sicpro_app_contactos.models.res_partner.Partner</node>
+    <node x="1063.5" y="348.5">typing.Iterable</node>
+    <node x="0.0" y="6203.5">sicpro_app_contactos.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador</node>
+    <node x="957.6999999999999" y="6020.0">odoo.models.Model</node>
+    <node x="1236.5" y="348.5">typing.Container</node>
+    <node x="1631.75" y="0.0">typing.Hashable</node>
+    <node x="482.19999999999993" y="699.0">odoo.models.BaseModel</node>
+    <node x="1481.5" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="295.3000000000002" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-571.4999999999999" y="0.0" />
+      <point x="279.5" y="3334.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="0.0" y="-270.5" />
+      <point x="1619.0" y="81.0" />
+      <point x="1713.25" y="81.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5000000000002" y="0.0" />
+      <point x="1774.0" y="3334.5" />
+      <point x="1774.0" y="81.0" />
+      <point x="1713.25" y="81.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-86.19999999999982" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-308.1999999999998" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="86.30000000000018" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_contactos.models.res_partner.Partner" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="1479.0" y="6167.0" />
+      <point x="1053.7" y="6167.0" />
+      <point x="2.2737367544323206E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contactos.models.res_users.Users" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-50.5" />
+      <point x="1043.5" y="6167.0" />
+      <point x="1053.7" y="6167.0" />
+      <point x="2.2737367544323206E-13" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-519.6999999999998" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-1.300000000000182" y="270.5" />
+    </edge>
+    <edge source="sicpro_app_contactos.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="412.0" y="6167.0" />
+      <point x="1053.7" y="6167.0" />
+      <point x="2.2737367544323206E-13" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.10359575479169966" showDependencies="false" x="897.5" y="3146.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

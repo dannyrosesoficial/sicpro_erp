@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista de Árbol (Tree) para Facultades/Instituciones -->
+        <record id="view_repositorio_institucional_facultad_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.repo.facultad.tree</field>
+            <field name="model">sicpro.app.repo.facultad</field>
+            <field name="arch" type="xml">
+                <tree string="Institución" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                    <field name="repositorio_ids" invisible="1"/>
+                    <field name="descripcion"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción de Ventana (Action Window) para Facultades/Instituciones -->
+        <record id="action_view_repositorio_institucional_facultad" model="ir.actions.act_window">
+            <field name="name">Instituciones</field>
+            <field name="res_model">sicpro.app.repo.facultad</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

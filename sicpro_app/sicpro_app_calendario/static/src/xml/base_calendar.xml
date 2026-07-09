@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+
+    <t t-name="Calendar.calendar-box">
+        <div t-attf-class="#{record.is_highlighted ? 'o_event_hightlight' : ''} #{typeof color === 'number' ? _.str.sprintf('o_calendar_color_%s', color) : 'o_calendar_color_1'} fc-event o_event o_attendee_status_#{record.is_alone ? 'alone' : record.attendee_status} py-0" >
+           <span class="fc-time"/>
+            <div class="o_event_title mr-2">
+                <t t-set="valor_priorida" t-value="record.prioridad"/>
+                <span t-if="record.is_alone" class="fa fa-exclamation-circle"/>
+                <t t-esc="record.display_name"/> -
+                <t t-if="valor_priorida === '0'">
+                    <span class="text-white fa fa-star"/>
+                    <span class="text-white fa fa-star"/>
+                    <span class="text-white fa fa-star"/>
+                </t>
+                <t t-if="valor_priorida === '1'">
+                    <span class="text-danger fa fa-star"/>
+                    <span class="text-white fa fa-star"/>
+                    <span class="text-white fa fa-star"/>
+                </t>
+                <t t-if="valor_priorida === '2'">
+                    <span class="text-danger fa fa-star"/>
+                    <span class="text-danger fa fa-star"/>
+                    <span class="text-white fa fa-star"/>
+                </t>
+                <t t-if="valor_priorida === '3'">
+                    <span class="text-danger fa fa-star"/>
+                    <span class="text-danger fa fa-star"/>
+                    <span class="text-danger fa fa-star"/>
+                </t>
+            </div>
+        </div>
+    </t>
+
+</template>

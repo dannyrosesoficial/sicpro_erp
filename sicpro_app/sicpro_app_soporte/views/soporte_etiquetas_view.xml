@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_soporte_etiqueta_search" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.etiquetas.search</field>
+        <field name="model">sicpro.app.soporte.etiquetas</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Etiqueta">
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_soporte_etiqueta_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.etiquetas.tree</field>
+        <field name="model">sicpro.app.soporte.etiquetas</field>
+        <field name="arch" type="xml">
+            <tree string="Etiqueta" editable="bottom">
+                <field name="sequence" widget="handle" />
+                <field name="name"/>
+                <field name="solicitudes_acceso"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="soporte_etiqueta_action" model="ir.actions.act_window">
+        <field name="name">Etiquetas de Ejecución</field>
+        <field name="res_model">sicpro.app.soporte.etiquetas</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear una nueva Etiqueta
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

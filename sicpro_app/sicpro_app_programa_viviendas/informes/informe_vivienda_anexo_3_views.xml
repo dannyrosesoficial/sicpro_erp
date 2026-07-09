@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="formato_papel_horizontal_vivienda_anexo_3" model="report.paperformat">
+        <field name="name">Papel Vertical Vivienda anexo 3</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+    </record>
+
+    <record id="informe_modelo_vivienda_anexo_3_action" model="ir.actions.report">
+        <field name="name">Demanda de materiales para el Programa de la Vivienda</field>
+        <field name="model">sicpro.app.vivienda.reporte.anexo3</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="paperformat_id" ref="formato_papel_horizontal_vivienda_anexo_3"/>
+        <field name="report_name">sicpro_app_programa_viviendas.informe_modelo_vivienda_anexo_3</field>
+        <field name="report_file">sicpro_app_programa_viviendas.informe_modelo_vivienda_anexo_3</field>
+        <field name="print_report_name">'Demanda de materiales para el Programa de la Vivienda'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_vivienda_reporte_anexo3"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="informe_modelo_vivienda_anexo_3">
+
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;"
+                             alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección de datos -->
+            <div t-attf-class="article">
+                <!-- sección del page -->
+                <t t-foreach="docs" t-as="inf">
+
+                    <table border="0" cellspacing="0">
+                        <colgroup width="61"></colgroup> <colgroup width="167"></colgroup> <colgroup
+                            width="145"></colgroup> <colgroup width="120"></colgroup> <colgroup width="155"></colgroup>
+                        <colgroup width="104"></colgroup> <colgroup width="125"></colgroup>
+                        <tbody>
+                            <tr>
+                                <td colspan="7"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DIVISIÓN DE LOGÍSTICA Y SERVICIOS&quot;}"
+                                    align="center" height="18"><b><font color="#000000" face="Calibri">DIVISIÓN
+                                    DE LOGÍSTICA Y SERVICIOS</font></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="7"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;ANEXO No 3 REG 3-PE-SG-001\/23 DEMANDA DE MATERIALES PROGRAMA DE LA VIVIENDA&quot;}"
+                                    align="center" height="18"><b><font color="#000000" face="Calibri">ANEXO
+                                    No 3 REG 3-PE-SG-001/23 DEMANDA DE MATERIALES PROGRAMA DE LA
+                                    VIVIENDA</font></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="7"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;MTTO\/REPARACIÓN O TERMINACIÓN DE VIVIENDAS POR ESFUERZO PROPIO DEL TRABAJADOR&quot;}"
+                                    align="center" height="18"><b><font color="#000000" face="Calibri">MTTO/REPARACIÓN
+                                    O TERMINACIÓN DE VIVIENDAS POR ESFUERZO PROPIO DEL TRABAJADOR</font></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                                    align="center" valign="middle" height="18"><b><font color="#000000"
+                                                                                        face="Calibri">
+                                </font></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UNIDAD ORGANIZATIVA: &quot;}"
+                                    align="center" valign="middle" height="18"><font color="#000000" face="Calibri">
+                                    UNIDAD ORGANIZATIVA: </font></td>
+                                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DVPE&quot;}"
+                                    align="left"><b>DVPE</b></td>
+                                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                                    align="left">
+                                </td>
+                                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                                    align="left">
+                                </td>
+                                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot; Período:&quot;}"
+                                    align="left"> Período:</td>
+                                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;1etapa&quot;}"
+                                    align="left">
+                                    <t t-if="inf.reporte_general==True">TODOS</t>
+                                    <t t-else=""><span t-field="inf.etapa"/></t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                                    align="center" valign="middle" height="18"><font color="#000000" face="Calibri">
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    rowspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;No&quot;}"
+                                    align="center" valign="middle" height="36"><font color="#000000" face="Calibri">
+                                    No</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" rowspan="2"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;DENOMINACIÓN DEL MATERIAL&quot;}"
+                                    align="center" valign="middle"><font color="#000000" face="Calibri">DENOMINACIÓN
+                                    DEL MATERIAL</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    rowspan="2" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;U\/M&quot;}"
+                                    align="center" valign="middle"><font color="#000000" face="Calibri">U/M</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    rowspan="2"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;CANTIDAD&quot;}"
+                                    align="center" valign="middle"><font color="#000000" face="Calibri">
+                                    CANTIDAD</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;VALOR ESTIMADO (CUP)&quot;}"
+                                    align="center" valign="middle">VALOR ESTIMADO (CUP)</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;UNITARIO &quot;}"
+                                    align="center"><font color="#000000" face="Calibri">UNITARIO </font></td>
+                                <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;TOTAL&quot;}"
+                                    align="center"><font color="#000000" face="Calibri">TOTAL</font></td>
+                            </tr>
+                            <t t-set="demanda" t-value="inf.report_busca_programa()"/>
+                            <t t-set="count_lista" t-value="1"/>
+                            <t t-foreach='demanda' t-as='programa'>
+                                <tr>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        sdval="1" sdnum="9226;" align="center" height="18">
+                                        <font color="#000000" face="Calibri"><span t-out="count_lista"/></font></td>
+                                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" align="left" valign="middle"><font color="#000000" face="Calibri">
+                                        <t t-out="programa['material']"/></font></td>
+                                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center"><font color="#000000" face="Calibri"><t t-out="programa['um']"/>
+                                    </font></td>
+                                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center"><font color="#000000" face="Calibri">
+                                        <t t-out="programa['cantidad']"/></font></td>
+                                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center"><font color="#000000" face="Calibri">
+                                        <t t-out="programa['unitario']"/></font></td>
+                                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center"><font color="#000000" face="Calibri">
+                                        <t t-out="programa['total']"/></font></td>
+                                </tr>
+                                <t t-set="count_lista" t-value="count_lista + 1"/>
+                            </t>
+                            <tr>
+                                <td colspan="7" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                                    align="center" valign="middle" height="18"><font color="#000000" face="Calibri">
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Elaborado por: &quot;}"
+                                    align="left" valign="middle" height="18"><font color="#000000" face="Calibri">
+                                    Elaborado
+                                    por: </font></td>
+                                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                                    align="left">
+                                </td>
+                                <td colspan="3"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Aprobado por: &quot;}"
+                                    align="left" valign="middle"><font color="#000000" face="Calibri">Aprobado
+                                    por: </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                                    align="center" valign="middle" height="17"><font face="Times New Roman">
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;especialista&quot;}"
+                                    align="center" valign="middle" height="23"><font size="4" face="Times New Roman">
+                                    <span t-field="inf.especialista_obras"/></font></td>
+                                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                                    align="left"><font face="Times New Roman">
+                                </font></td>
+                                <td colspan="3"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;logistica&quot;}"
+                                    align="center" valign="middle"><font size="4" face="Times New Roman">
+                                    <span t-field="inf.jefe_logistica"/></font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000" colspan="3"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Especialista en Obras de Ingeniería&quot;}"
+                                    align="center" valign="middle" height="18"><b><font face="Calibri">Especialista
+                                    en Obras de Ingeniería</font></b></td>
+                                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;&quot;}"
+                                    align="left">
+                                </td>
+                                <td style="border-top: 1px solid #000000" colspan="3"
+                                    data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Jefe Dpto. Logística y Servicios&quot;}"
+                                    align="center" valign="middle"><b><font face="Calibri">Jefe Dpto.
+                                    Logística y Servicios</font></b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </t>
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+                <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+                    Cuba.</span>
+                <div style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+                            <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+                        <br/>
+                        <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+                            Justicia de la República de Cuba.
+                            Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+                    <div t-if="report_type == 'pdf'" class="text-center text-muted">
+                        Página: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

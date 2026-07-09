@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="administrar_certificados_digitales_form" model="ir.ui.view">
+            <field name="name">sicpro.modulo.certificados.digitales.form</field>
+            <field name="model">sicpro.modulo.certificados.digitales</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="content"/>
+                            <field name="password" password="True"/>
+                            <label for="date_start" string="Validez"/>
+                            <div>
+                                <field name="date_start"/> -
+                                <field name="date_end"/>
+                            </div>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="clave_privada" widget="many2many_binary" class="oe_read_only"/>
+                            <field name="clave_publica" widget="many2many_binary" class="oe_read_only"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="administrar_certificados_digitales_tree" model="ir.ui.view">
+            <field name="name">sicpro.modulo.certificados.digitales.tree</field>
+            <field name="model">sicpro.modulo.certificados.digitales</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="administrar_certificados_digitales_action" model="ir.actions.act_window">
+            <field name="name">Gestión de Certificados Digitales</field>
+            <field name="res_model">sicpro.modulo.certificados.digitales</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Crear el primer certificado
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_administrar_certificados_digitales" name="Administrar Certificados Digitales"
+                  parent="sicpro_app_administracion.menu_administracion_1"
+                  action="administrar_certificados_digitales_action" sequence="100" />
+
+    </data>
+</odoo>

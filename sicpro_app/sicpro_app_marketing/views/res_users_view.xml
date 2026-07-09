@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="user_marketing_form" model="ir.ui.view">
+        <field name="name">res.users.marketing.views.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='action_id']" position="after">
+                <field name="marketing_contacto" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

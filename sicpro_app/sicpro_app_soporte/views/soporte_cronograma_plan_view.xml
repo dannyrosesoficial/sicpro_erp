@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_soporte_cronograma_plan_search" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.cronograma.plan.search</field>
+        <field name="model">sicpro.app.soporte.cronograma.plan</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Años">
+                <field name="name"/>
+                <field name="anio_id"/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_soporte_cronograma_plan_tree" model="ir.ui.view">
+        <field name="name">view.sicpro.app.soporte.cronograma.plan.tree</field>
+        <field name="model">sicpro.app.soporte.cronograma.plan</field>
+        <field name="arch" type="xml">
+            <tree string="Tareas">
+                <field name="name"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_inicio"/>
+                <field name="duracion_tarea"/>
+                <field name="progress_percentage" string="Progress" widget="percentage" optional="show"/>
+                <field name="asignados_proyectos" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="jefe_proyecto"/>
+                <field name="anio_id" invisible="0"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_soporte_cronograma_plan_form" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.cronograma.plan.form</field>
+        <field name="model">sicpro.app.soporte.cronograma.plan</field>
+        <field name="arch" type="xml">
+            <form string="Tareas del Cronograma">
+                <header>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <h1 class="oe_title">
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="anio_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="jefe_proyecto"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="asignados_proyectos" widget="many2many_tags"
+                                   options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_fin"/>
+                            <field name="duracion_tarea"/>
+                            <field name="progress" widget="progressbar"
+                                   options="{'current_value': 'progress', 'max_value': '100', 'editable': true}"/>
+                        </group>
+                    </group>
+                    <separator string="Tareas Predecesoras"/>
+                    <field name="tareas_predecesoras_ids">
+                        <tree editable="buttom">
+                            <field name="anio_id" invisible="1"/>
+                            <field name="tarea_id" domain="[('anio_id', '=', anio_id), ('id', '!=', parent.id)]"/>
+                            <field name="tipo_relacion"/>
+                        </tree>
+                    </field>
+                    <separator string="Tareas Sucesoras"/>
+                    <field name="tareas_sucesoras_ids">
+                        <tree editable="buttom">
+                            <field name="anio_id" invisible="1"/>
+                            <field name="dependencias_id"
+                                   domain="[('anio_id', '=', anio_id), ('id', '!=', parent.id)]"/>
+                            <field name="tipo_relacion"/>
+                        </tree>
+                    </field>
+
+                    <group>
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <record id="view_soporte_cronograma_plan_gantt" model="ir.ui.view">
+            <field name="name">Tasks Gantt</field>
+            <field name="model">sicpro.app.soporte.cronograma.plan</field>
+            <field name="priority">10</field>
+            <field name="type">soporte_gantt</field>
+            <field name="arch" type="xml">
+                <soporte_gantt
+                    id_field="id"
+                    text="name"
+                    date_start="fecha_inicio"
+                    duration="duracion_tarea"
+                    links_serialized_json="links_serialized_json"
+                    link_model="sicpro.app.soporte.cronograma.plan.dependencias"
+                />
+            </field>
+        </record>
+
+    <record id="soporte_cronograma_plan_action" model="ir.actions.act_window">
+        <field name="name">Tareas del Cronograma</field>
+        <field name="res_model">sicpro.app.soporte.cronograma.plan</field>
+        <field name="view_mode">tree,form,soporte_gantt</field>
+        <field name="search_view_id" ref="view_soporte_cronograma_plan_search"/>
+        <field name="view_id" ref="view_soporte_cronograma_plan_tree"/>
+        <field name="context">{'default_anio_id': active_id,}</field>
+    </record>
+
+
+</odoo>

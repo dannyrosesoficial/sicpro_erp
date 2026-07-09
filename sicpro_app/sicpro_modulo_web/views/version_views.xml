@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="web_version_tree_view">
+            <field name="name">sicpro.modulo.web.version.tree</field>
+            <field name="model">sicpro.modulo.web.version</field>
+            <field name="arch" type="xml">
+                <tree string="Versión" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="web_version_action" model="ir.actions.act_window">
+            <field name="name">Versión de SICPRO ERP</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.modulo.web.version</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+    </data>
+</odoo>

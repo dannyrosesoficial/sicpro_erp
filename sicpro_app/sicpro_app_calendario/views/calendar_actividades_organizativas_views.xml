@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="calendario_actividades_organizativas_search_view">
+            <field name="name">calendar.actividades.organizativas.search</field>
+            <field name="model">calendar.actividades.organizativas</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name"/>
+                    <field name="usuarios_ids" widget="many2many_tags"
+                           options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="calendario_actividades_organizativas_tree_view">
+            <field name="name">calendar.actividades.organizativas.tree</field>
+            <field name="model">calendar.actividades.organizativas</field>
+            <field name="arch" type="xml">
+                <tree string="Actividades" editable="bottom">
+                    <field name="name"/><field name="active" invisible="1"/>
+                    <field name="usuarios_ids" widget="many2many_tags"
+                           options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="calendario_actividades_organizativas_action" model="ir.actions.act_window">
+            <field name="name">Actividades Organizativas</field>
+            <field name="res_model">calendar.actividades.organizativas</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear una nueva actividad organizativa
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

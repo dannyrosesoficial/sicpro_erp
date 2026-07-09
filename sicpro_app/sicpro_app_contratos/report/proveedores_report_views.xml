@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="view_informes_proveedores_pivot" model="ir.ui.view">
+            <field name="name">view.informes.proveedores.pivot</field>
+            <field name="model">sicpro.app.contratos.proveedores</field>
+            <field name="arch" type="xml">
+                <pivot string="Análisis de los Proveedores" display_quantity="true"
+                       disable_linking="false" sample="1">
+                    <field name="name" type="row"/>
+                    <field name="stage_id" type="row"/>
+                    <field name="tipo" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="view_informes_proveedores_graph" model="ir.ui.view">
+            <field name="name">view.informes.proveedores.graph</field>
+            <field name="model">sicpro.app.contratos.proveedores</field>
+            <field name="arch" type="xml">
+                <graph string="Análisis de los Proveedores" type="bar" sample="1" disable_linking="false">
+                    <field name="name" type="col"/>
+                    <field name="stage_id" type="row"/>
+                 </graph>
+             </field>
+        </record>
+
+        <record id="view_informes_proveedores_informes_search" model="ir.ui.view">
+            <field name="name">view.informes.proveedores.informes.search</field>
+            <field name="model">sicpro.app.contratos.proveedores</field>
+            <field name="arch" type="xml">
+            <search string="Buscar Proveedor">
+                <field name="name"/>
+                <field name="nombre_directivo"/>
+                <field name="cargo_directivo"/>
+                <field name="telefono_movil"/>
+                <field name="correo"/>
+                <field name="pep"/>
+                <field name="etiquetas"/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                    <filter string="Proveedor" name="name" context="{'group_by':'name'}"/>
+                    <filter string="Tipo de Proveedor" name="tipo" context="{'group_by':'tipo'}"/>
+                    <filter string="Estado" name="stage_id" context="{'group_by':'stage_id'}"/>
+                </group>
+        </search>
+       </field>
+        </record>
+
+       <record id="action_informes_proveedores_informes" model="ir.actions.act_window">
+            <field name="name">Análisis de los Proveedores</field>
+            <field name="res_model">sicpro.app.contratos.proveedores</field>
+            <field name="view_mode">graph,pivot</field>
+            <field name="search_view_id" ref="view_informes_proveedores_informes_search"/>
+            <field name="context">{'group_by_no_leaf':1,'group_by':[]}</field>
+            <field name="help">Análisis grafico de los datos de la aplicación.</field>
+        </record>
+
+</odoo>

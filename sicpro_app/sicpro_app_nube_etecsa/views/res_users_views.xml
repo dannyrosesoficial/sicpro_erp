@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_users_form" model="ir.ui.view">
+        <field name="name">nube.res.users.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <group name="grupo_estatico_1" position="inside">
+                <group name="token_nube" string="Token Nube Etecsa" class="text-break">
+                    <label for="nube_token_activo"/>
+                    <div class="o_row">
+                        <field name="nube_token_activo" widget="boolean_toggle"/>
+                        <button name="%(sicpro_app_nube_etecsa.crear_token_wizard_action)d"
+                                aria-label="Generar" title="Generar" type="action"
+                                class="btn-sm btn-link mb4 fa fa-magic" invisible="1"/>
+                    </div>
+                    <field name="nube_token" class="text-small" readonly="1"
+                           attrs="{'invisible': [('nube_token_activo', '!=', True)]}"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="view_users_form_calendario" model="ir.ui.view">
+        <field name="name">nube.preferences.res.users.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <group name="preferences" position="inside">
+                <group name="token_nube" string="Token Nube Etecsa" class="text-break">
+                    <label for="nube_token_activo"/>
+                    <div class="o_row">
+                        <field name="nube_token_activo" widget="boolean_toggle"/>
+                        <button name="%(sicpro_app_nube_etecsa.crear_token_wizard_action)d"
+                                aria-label="Generar" title="Generar" type="action"
+                                class="btn-sm btn-link mb4 fa fa-magic"
+                                attrs="{'invisible': [('nube_token_activo', '!=', True)]}"/>
+                    </div>
+                    <field name="nube_token" class="text-small" readonly="1"
+                           attrs="{'invisible': [('nube_token_activo', '!=', True)]}"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

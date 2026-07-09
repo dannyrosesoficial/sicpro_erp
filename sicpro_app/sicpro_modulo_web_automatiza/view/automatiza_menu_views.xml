@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <data>
+        <menuitem id="modulo_web_automatiza_menu" name="Automatización de Correos"
+                  action="action_web_automatiza_correos"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="8"/>
+    </data>
+
+</odoo>

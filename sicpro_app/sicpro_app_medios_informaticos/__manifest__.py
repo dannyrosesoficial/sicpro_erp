@@ -1,0 +1,55 @@
+# -*- coding: utf-8 -*-
+
+{
+    'name': 'SICPRO: Medios Informáticos',
+    'version': '1.0',
+    'sequence': 2,
+    'category': 'Informática',
+    'summary': "Esta aplicación se encarga del control, gestión de mantenimiento y destinos finales "
+               "de los medios informáticos.",
+    'website': 'https://www.facebook.com/dannyroses.oficial/',
+    'author': 'Daniel Barrero Reyes',
+    'support': 'daniel.borrero@etecsa.cu',
+    'price': 0,
+    'currency': 'CUP',
+    'company': 'División de Proyectos y Ejecución de Obras',
+    'license': 'AGPL-3',
+    'depends': [
+        'nucleo_sicpro_erp',
+        'base',
+        'sicpro_app_administracion',
+        'sicpro_modulo_nomencladores',
+        'sicpro_app_trabajadores',
+        'sicpro_modulo_dashboard_extendido',
+    ],
+    'data': [
+        'security/informatica.xml',
+        'security/ir.model.access.csv',
+        'data/plantillas_correo_data.xml',
+        'data/tramites_data.xml',
+        'data/tipo_equipo_data.xml',
+        'wizard/medios_informaticos_importar_wizard_views.xml',
+        'views/medios_informaticos_views.xml',
+        'views/medios_informaticos_taller_views.xml',
+        'views/medios_informaticos_baja_views.xml',
+        'views/medios_informaticos_pendientes_piezas_views.xml',
+        'views/medios_informaticos_importar_views.xml',
+        'views/medios_informaticos_tipo_equipo_views.xml',
+        'views/medios_informaticos_tramites_views.xml',
+        'views/medios_informaticos_historial_views.xml',
+        'views/medios_informaticos_trabajador_views.xml',
+        'views/medios_informaticos_menu_views.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            '/sicpro_app_medios_informaticos/static/src/js/importar_medios_informaticos.js',
+        ],
+        'web.assets_qweb': [
+            'sicpro_app_medios_informaticos/static/src/xml/importar_medios_informaticos.xml',
+        ],
+    },
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    "pre_init_hook": "pre_init_check",
+}

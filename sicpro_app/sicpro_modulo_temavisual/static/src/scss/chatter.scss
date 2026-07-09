@@ -1,0 +1,166 @@
+$chatter_zone_width: 35%;
+
+// Normal views
+.o_content,
+.modal-content {
+    max-width: 100%;
+
+    // Form views
+    .o_form_view {
+
+
+        .o_FormRenderer_chatterContainer {
+            padding-top: 0;
+        }
+
+        .o_chatter_topbar {
+            height: auto;
+            flex-wrap: wrap-reverse;
+        }
+
+        @include media-breakpoint-down(sm) {
+            min-width: auto;
+
+            .o_FormRenderer_chatterContainer {
+                padding-top: initial;
+
+                // Display send button on small screens
+                .o_thread_composer {
+                    padding-left: $o-mail-thread-avatar-size * 0.5;
+
+                    .o_composer_button_send {
+                        display: initial !important; // Forced in core
+                    }
+                    .o_chatter_avatar {
+                        display: none;
+                    }
+                }
+
+                .o_chatter_topbar {
+                    > .o_topbar_right_area {
+                        flex: 1 0 auto;
+                        flex-wrap: wrap;
+                        max-width: 100%;
+
+                        // Display followers on small screens
+                        .o_followers {
+                            display: initial !important; // Forced in core
+
+                            @include media-breakpoint-down(xs) {
+                                padding-bottom: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Sided chatter, if user wants
+    .o_chatter_position_sided & {
+        @include media-breakpoint-up(lg) {
+            .o_form_view:not(.o_form_nosheet) {
+                display: flex;
+                flex-flow: row nowrap;
+                height: 100%;
+
+                .o_form_sheet_bg {
+                    flex: 1 1 auto;
+                    overflow: auto;
+
+                    > .o_form_sheet {
+                        min-width: unset;
+                    }
+                }
+
+                .o_FormRenderer_chatterContainer {
+                    border-left: 1px solid gray("400");
+                    flex: 0 0 $chatter_zone_width;
+                    max-width: initial;
+                    min-width: initial;
+                    overflow: auto;
+
+                    .o_chatter_header_container {
+                        padding-top: $grid-gutter-width * 0.5;
+                        top: 0;
+                        position: sticky;
+                        background-color: $o-view-background-color;
+                        z-index: 1;
+
+                        // Scrollable input text to avoid hide conversation & buttons
+                        .o_composer_text_field {
+                            max-height: 120px;
+                            overflow-y: auto !important; /* Forced because Odoo uses inline style */
+                        }
+                        .o_attachments_list {
+                            overflow: auto;
+                            max-height: $o-mail-attachment-image-size * 3;
+                            margin-top: 0.4em;
+                        }
+                        .o_attachments_previews {
+                            overflow: auto;
+                            max-height: $o-mail-attachment-image-size * 6;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Document Viewer
+.o_web_client.o_chatter_position_sided {
+    .o_modal_fullscreen.o_document_viewer {
+        // On-top of navbar
+        z-index: 10;
+
+        &.o_responsive_document_viewer {
+            /* Show sided viewer on large screens */
+            @include media-breakpoint-up(lg) {
+                width: $chatter_zone_width;
+                margin-left: auto;
+                right: 0;
+
+                /* Show/Hide control buttons (next, prev, etc..) */
+                &:hover .arrow,
+                &:hover .o_viewer_toolbar {
+                    display: flex;
+                }
+                .arrow,
+                .o_viewer_toolbar {
+                    display: none;
+                }
+
+                .o_viewer_img_wrapper {
+                    position: relative;
+
+                    .o_viewer_pdf {
+                        width: 95%;
+                    }
+                }
+            }
+
+            .o_minimize_btn {
+                display: none;
+            }
+        }
+        &:not(.o_responsive_document_viewer) {
+            .o_maximize_btn {
+                display: none;
+            }
+        }
+        @include media-breakpoint-down(lg) {
+            .o_minimize_btn,
+            .o_maximize_btn {
+                display: none;
+            }
+        }
+    }
+}
+/* Max/Min buttons only are usefull in sided mode */
+.o_web_client:not(.o_chatter_position_sided) {
+    .o_minimize_btn,
+    .o_maximize_btn {
+        display: none;
+    }
+}

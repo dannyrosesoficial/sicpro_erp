@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <template id="web_plantilla_versiones">
+    <t t-call-assets="web.web_versiones"/>
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>SICPRO ERP - Versiones</title>
+      <meta http-equiv="cache-control" content="no-cache"/>
+      <meta http-equiv="pragma" content="no-cache"/>
+
+      <!-- Favicons -->
+      <link href="/sicpro_modulo_web_versiones/static/src/img/SICPRO_ERP.png" rel="icon"/>
+      <link href="/sicpro_modulo_web_versiones/static/src/img/SICPRO_ERP.png" rel="apple-touch-icon"/>
+    </head>
+
+    <body>
+      <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+      <!-- ======= Header ======= -->
+      <header id="header" class="d-flex flex-column justify-content-center">
+        <nav id="navbar" class="navbar nav-menu">
+          <ul>
+            <li><a href="#hero" class="nav-link scrollto active" title="Inicio"><i class="bx bx-home"></i>
+              <span>Inicio</span></a></li>
+            <li><a href="#historial" class="nav-link scrollto" title="Historial"><i class="bx bx-file-blank"></i>
+              <span>Historial</span></a></li>
+            <li><a href="/web/inicio" class="nav-link scrollto" title="Página Principal"><i class="bx bx-log-out"></i>
+              <span>Página Principal</span></a></li>
+            <li><a href="/web/login" class="nav-link scrollto" title="Login"><i class="bx bx-log-in"></i>
+              <span>Login</span></a></li>
+          </ul>
+        </nav>
+        <!-- .nav-menu -->
+      </header>
+      <!-- End Header -->
+
+      <!-- ======= Hero Section ======= -->
+      <section id="hero" class="d-flex flex-column justify-content-center">
+        <div class="container" data-aos="zoom-in" data-aos-delay="100">
+          <h1>Historial de SICPRO ERP</h1>
+          <p>¿Qué Cambió? - <span class="typed" data-typed-items="Diseño, Modelos, Vistas, Informes, Gráficas"></span></p>
+
+          <t t-set="social_links" t-value="request.env['res.company'].sudo().search(
+                    [('login_redes_sociales', '=', True)])"/>
+          <div class="social-links">
+            <a t-if="social_links.social_twitter" t-att-href="social_links.social_twitter"
+               class="twitter" aria-label="Twitter" title="Twitter">
+              <i class="bx bxl-twitter"/>
+            </a>
+            <a t-if="social_links.social_facebook" t-att-href="social_links.social_facebook"
+               class="facebook" aria-label="Facebook" title="Facebook">
+              <i class="bx bxl-facebook"/>
+            </a>
+            <a t-if="social_links.social_instagram" t-att-href="social_links.social_instagram"
+               class="instagram" aria-label="Instagram" title="Instagram">
+              <i class="bx bxl-instagram"/>
+            </a>
+            <a href="https://www.dvpe.etecsa.cu/" class="instagram" title="DVPE">
+              <i><img src="/sicpro_modulo_web_versiones/static/src/img/etecsaIs_300_4.png" width="18" height="18"/></i>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- End Hero -->
+
+      <main id="main">
+        <!-- ======= Inicio historial ======= -->
+        <section id="historial" class="historial">
+          <div class="container" data-aos="fade-up">
+            <div class="section-title">
+              <h2>Historial</h2>
+              <p>Registro unificado del historial de cambios del sistema. Aquí se puede visualizar todas las
+                modificaciones de las actualizaciones</p>
+            </div>
+            <div class="row">
+              <t t-set="ids_izq" t-value="request.env['sicpro.modulo.web.registro.version'].sudo().versiones_izq()"/>
+              <t t-set="ids_der" t-value="request.env['sicpro.modulo.web.registro.version'].sudo().versiones_der()"/>
+              <div name="sector_izq" class="col-lg-6">
+                <t t-set="version_izq" t-value="request.env['sicpro.modulo.web.registro.version'].sudo().search(
+                [('active', '=', True), ('id', 'in', ids_izq)])"/>
+
+                <t t-foreach='version_izq' t-as='data_izq'>
+                  <h3 class="resume-title"><t t-out="data_izq['name'].name"/></h3>
+                  <p><em>Fecha de Liberación: <t t-out="data_izq['fecha_liberacion']" t-options='{"widget": "date"}'/></em></p>
+
+                  <t t-set="versiones_izq" t-value="request.env['sicpro.modulo.web.registro.versiones'].sudo().search(
+                                  [('active', '=', True),('name', '=', data_izq['id'])])"/>
+
+                  <t t-foreach='versiones_izq' t-as='values_izq'>
+                    <div class="resume-item">
+                      <h4><t t-out="values_izq['modulo_nombre'].name"/></h4>
+                      <h5>Tipo: <t t-out="values_izq['modulo_app']"/></h5>
+                      <p><em>Principales Cambios: </em></p>
+                      <t t-out="values_izq['descripcion']"/>
+                    </div>
+                  </t>
+                </t>
+              </div>
+              <div name="sector_der" class="col-lg-6">
+                <t t-set="version_izq" t-value="request.env['sicpro.modulo.web.registro.version'].sudo().search(
+                [('active', '=', True), ('id', 'in', ids_der)])"/>
+
+                <t t-foreach='version_izq' t-as='data_izq'>
+                  <h3 class="resume-title"><t t-out="data_izq['name'].name"/></h3>
+                  <p><em>Fecha de Liberación: <t t-out="data_izq['fecha_liberacion']" t-options='{"widget": "date"}'/></em></p>
+
+                  <t t-set="versiones_izq" t-value="request.env['sicpro.modulo.web.registro.versiones'].sudo().search(
+                                  [('active', '=', True),('name', '=', data_izq['id'])])"/>
+
+                  <t t-foreach='versiones_izq' t-as='values_izq'>
+                    <div class="resume-item">
+                      <h4><t t-out="values_izq['modulo_nombre'].name"/></h4>
+                      <h5>Tipo: <t t-out="values_izq['modulo_app']"/></h5>
+                      <p><em>Principales Cambios: </em></p>
+                      <t t-out="values_izq['descripcion']"/>
+                    </div>
+                  </t>
+                </t>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Fin historial -->
+      </main>
+      <!-- Fin #main -->
+
+      <!-- ======= Inicio Footer ======= -->
+      <footer id="footer">
+        <div class="container">
+          <div class="copyright">
+            <img src="/sicpro_modulo_web_versiones/static/src/img/etecsaIs_300_4.png" alt="ETECSA" width="32"
+                 height="32"/>
+            <strong>©2023 DIVISIÓN DE PROYECTOS Y EJECUCIÓN DE OBRAS </strong>
+          </div>
+          <div class="credits">
+            <strong>Todos los derechos reservados </strong>
+          </div>
+        </div>
+      </footer>
+      <!-- Fin Footer -->
+
+      <div id="preloader"></div>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+              class="bi bi-arrow-up-short"></i></a>
+
+      <t t-call-assets="web.web_versiones_js"/>
+    </body>
+  </template>
+
+</odoo>

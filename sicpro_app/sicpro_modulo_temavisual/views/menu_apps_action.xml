@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="temavisual_menu_apps_action" model="ir.actions.client">
+            <field name="name">Tema Visual - Menu Apps</field>
+            <field name="tag">sicpro_temavisual_menu_apps</field>
+        </record>
+    </data>
+</odoo>

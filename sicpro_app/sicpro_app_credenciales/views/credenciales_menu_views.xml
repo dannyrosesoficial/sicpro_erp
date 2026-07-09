@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- MENU DE USUARIO -->
+        <menuitem
+            id="menu_credenciales_root" name="Credenciales"
+            web_icon="sicpro_app_credenciales,static/description/icon.png"
+            groups="grupo_app_credenciales_ejecutor" sequence="75" />
+
+        <!--Inicio: Menu Dashboard-->
+        <record id="menu_credenciales_dashboard_action" model="ir.actions.client">
+            <field name="name">Dashboard</field>
+            <field name="tag">sicpro_dashboard_view</field>
+            <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.credenciales'}</field>
+        </record>
+        <menuitem id="menu_credenciales_dashboard" name="Dashboard"
+              parent="menu_credenciales_root" action="menu_credenciales_dashboard_action" sequence="1"
+              groups="grupo_app_credenciales_ejecutor"/>
+        <!--Fin: Menu Dashboard-->
+
+
+
+        <menuitem
+                id="menu_credenciales" name="Credenciales"
+                action="credenciales_views_actions"
+                parent="menu_credenciales_root"
+                sequence="2"/>
+
+        <menuitem
+            id="menu_credenciales_configuration" name="Configuración"
+            parent="menu_credenciales_root"
+            groups="grupo_app_credenciales_responsable" sequence="20"/>
+
+            <menuitem
+                id="menu_credenciales_tipo" name="Tipo de Credencial"
+                action="credenciales_tipo_action"
+                parent="menu_credenciales_configuration"
+                sequence="1"/>
+            <menuitem
+                id="menu_credenciales_accesos" name="Tipos de Accesos"
+                action="credenciales_tipo_accesos_action"
+                parent="menu_credenciales_configuration"
+                sequence="2"/>
+            <menuitem
+                id="menu_credenciales_siglas" name="Siglas"
+                action="credenciales_siglas_action"
+                parent="menu_credenciales_configuration"
+                sequence="3"/>
+        <menuitem
+                id="menu_credenciales_alcance" name="Alcance"
+                action="credenciales_tipo_alcance_action"
+                parent="menu_credenciales_configuration"
+                sequence="4"/>
+
+        <menuitem
+                id="menu_credenciales_cancelacion" name="Motivos de Cancelación"
+                action="credenciales_cancelacion_action"
+                parent="menu_credenciales_configuration"
+                sequence="5"/>
+
+
+         </data>
+</odoo>

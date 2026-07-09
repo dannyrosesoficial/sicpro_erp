@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="instrucciones_instruccion_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.instruccion.form</field>
+        <field name="model">sicpro.app.instrucciones.instruccion</field>
+        <field name="arch" type="xml">
+            <form string="Job">
+                <header>
+                    <button name="action_nueva_encuesta" string="Crear Encuesta" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('encuesta_id', '!=', False)]}"/>
+                    <button name="enviar_aviso_instruccion" string="Enviar Aviso" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <field name="readonly_admin" invisible="1"/>
+                    <div class="oe_button_box" name="button_box"/>
+                    <widget name="web_ribbon" title="Activo" bg_color="bg-success"
+                            attrs="{'invisible': [('active', '=', False)]}"/>
+                    <widget name="web_ribbon" title="Desactivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+
+
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Instrucción Periódica 05/2021"/></h1>
+                        <label for="tipo" string="Tipo" class="oe_edit_only"/>
+                        <field name="tipo" class="text-danger"/>
+                    </div>
+                    <notebook>
+                        <page string="Descripción de la Instrucción">
+                            <div>
+                                <label for="descripcion"/>
+                                <field name="descripcion"/>
+                            </div>
+                        </page>
+                        <page string="Configuración">
+                            <group>
+                                <group>
+                                    <field name="user_id"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="correo"/>
+                                    <field name="company_id"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="area_id" widget="many2many_tags" placeholder="Seleccione las Áreas"
+                                           options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="ocupacion_id" widget="many2many_tags"
+                                           placeholder="Seleccione las Ocupaciones"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="fecha_creacion"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_inicio"/>
+                                    <field name="fecha_fin"/>
+                                    <field name="etiquetas" widget="many2many_tags" placeholder="Etiquetas"
+                                           options="{'color_field': 'color', 'no_create_edit': True}"/>
+                                    <label for="encuesta_id"/>
+                                    <div class="o_row">
+                                        <field name="encuesta_id" context="{'default_access_mode': 'token'}"/>
+                                        <button string="Mostrar Formulario de entrevista" name="action_mostrar_encuesta"
+                                                type="object" attrs="{'invisible':[('encuesta_id','=',False)]}"
+                                                class="oe_link"/>
+                                    </div>
+                                    <field name="active" widget="boolean_toggle"/>
+                                </group>
+                            </group>
+                            <group string="Documentación Digital">
+                                <field name="attachment_ids" widget="many2many_binary"
+                                       class="o_Attachment_image"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'open_attachments': True}"/>
+                </div>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="instrucciones_instruccion_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.instruccion.tree</field>
+        <field name="model">sicpro.app.instrucciones.instruccion</field>
+        <field name="arch" type="xml">
+            <tree string="Registro de Instrucciones">
+                <field name="name"/>
+                <field name="fecha_creacion"/>
+                <field name="user_id"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+                <field name="active" invisible="1"/>
+                <field name="company_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="instrucciones_instruccion_view_search" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.instruccion.search</field>
+        <field name="model">sicpro.app.instrucciones.instruccion</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field string="Instrucciones" name="name"/>
+                <filter string="Desactivados" domain="[('active', '=', False)]" name="inactive"
+                        groups="sicpro_app_instrucciones.grupo_app_instruciones_responsable"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="instrucciones_instruccion_action" model="ir.actions.act_window">
+        <field name="name">Registro de Instrucciones</field>
+        <field name="res_model">sicpro.app.instrucciones.instruccion</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="instrucciones_instruccion_view_search"/>
+        <field name="view_id" ref="instrucciones_instruccion_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar una instrucción nueva
+            </p>
+        </field>
+    </record>
+</odoo>

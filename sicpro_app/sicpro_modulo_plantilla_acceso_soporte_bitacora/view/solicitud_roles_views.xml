@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_solicitud_roles_bitacora_form" model="ir.ui.view">
+        <field name="name">sicpro.modulo.plantilla.acceso.form</field>
+        <field name="model">sicpro.modulo.plantilla.acceso</field>
+        <field name="inherit_id" ref="sicpro_modulo_plantilla_acceso.view_solicitud_roles_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='correo_actualiza_roles']" position="after">
+                <field name="bitacora_actualizada" invisible="1"/>
+                <button name="actualizar_bitacora" string="Actualizar Bitácora del Usuario" class="oe_highlight"
+                        type="object"
+                        attrs="{'invisible': ['|', ('estado', '!=', 'ejecutado'), ('bitacora_actualizada', '=', True)]}" />
+                <button name="ver_bitacora" string="Ver la Bitácora del Usuario" type="object"
+                        attrs="{'invisible': ['|', ('estado', '!=', 'ejecutado'), ('bitacora_actualizada', '!=', True)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

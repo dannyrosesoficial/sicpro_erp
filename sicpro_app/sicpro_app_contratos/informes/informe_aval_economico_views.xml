@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<record id="informe_aval_economico_action" model="ir.actions.report">
+        <field name="name">Aval Económico</field>
+        <field name="model">sicpro.app.contratos</field>
+		<field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_contratos.informe_aval_economico</field>
+        <field name="report_file">sicpro_app_contratos.informe_aval_economico</field>
+        <field name="print_report_name">'Aval Económico'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_contratos"/>
+		<field name="groups_id" eval="[(4, ref('sicpro_app_contratos.grupo_app_contratos_validar_economica'))]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="informe_aval_economico">
+		<!-- Página Aval Económico -->
+        <t t-call="web.html_container">
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0" style="font-size: medium">
+							<colgroup width="16"></colgroup>
+							<colgroup width="174"></colgroup>
+							<colgroup width="145"></colgroup>
+							<colgroup width="122"></colgroup>
+							<colgroup width="175"></colgroup>
+							<colgroup width="216"></colgroup>
+							<colgroup width="12"></colgroup>
+							<tr style="font-size: medium">
+								<td height="10" align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="14" align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="18" align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium">La Habana, </td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="17" align="left" style="font-size: medium"></td>
+								<td colspan="3" align="left" valign="middle" style="font-size: medium">
+									<span t-esc="datetime.datetime.now().strftime('%A, %d de %B del %Y')"/></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="17" align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="36" align="left" style="font-size: medium"></td>
+								<td colspan="5" align="left" valign="middle" style="font-size: medium">
+									<b>ANEXO1: PROFORMA PARA LA APROBACIÓN O RECHAZO FINANCIERO/PRESUPUESTARIO DE LOS PROYECTOS DE CONTRATOS. </b>
+								</td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="20" align="left" style="font-size: medium"></td>
+								<td colspan="5" align="center" valign="middle" style="font-size: medium">
+									<b><u>AVAL ECONÓMICO- FINANCIERO</u></b></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="17" align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="32" align="left" style="font-size: medium"></td>
+								<td colspan="5" align="left" valign="middle" style="font-size: medium">
+									Por medio de la presente se hace constar que _____________________________________________________________ ha
+									revisado desde el punto de vista económico-financiero el siguiente Proyecto de Suplemento al Contrato de
+									<span t-field="inf.tipo_contrato"/>.</td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="17" align="left" style="font-size: medium"></td>
+								<td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="36" align="left" style="font-size: medium"></td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid
+								#000000; border-bottom: 1px solid #000000" align="center" valign="middle">
+									No. Contrato y Anexos/ No. Suplemento</td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid
+								#000000; border-bottom: 1px solid #000000" align="center" valign="middle">Proveedor</td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">Valor CUP</td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid
+								#000000; border-bottom: 1px solid #000000" align="center" valign="middle">Objeto</td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+									Área Responsable</td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="36" align="left" style="font-size: medium"></td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid
+								#000000; border-bottom: 1px solid #000000" align="center" valign="top">
+									<span t-field="inf.name"/>. <span t-field="inf.sequence_consecutivo"/></td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid
+								#000000; border-bottom: 1px solid #000000" align="center" valign="top">
+									<span t-field="inf.proveedor"/></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center" valign="top">
+									<span t-field="inf.presupuesto_cup"/></td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid
+								#000000; border-bottom: 1px solid #000000" align="center" valign="top">
+									<span t-field="inf.observaciones"/></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center" valign="top">
+									<span t-field="inf.uodc"/> <span t-field="inf.area_contrato"/></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="17" align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="18" align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"><u>Valoración: </u></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="87" align="left" style="font-size: medium"></td>
+								<td colspan="5" align="left" valign="middle" style="font-size: medium">
+									Sobre el proyecto de Suplemento al Contrato de <span t-field="inf.tipo_contrato"/>
+									presentado por <span t-field="inf.proveedor"/>, con domicilio legal en
+									<span t-field="inf.proveedor.domicilio_social"/>, con el propósito de
+									<span t-field="inf.observaciones"/>, concierne decir que: </td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="36" align="left" style="font-size: medium"></td>
+								<td colspan="5" align="left" valign="middle" style="font-size: medium">
+									<span t-field="inf.economia_aval_disponibilidad"/></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="17" align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="20" align="left" style="font-size: medium"></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="5" align="center"
+									valign="middle"><b>Disponibilidad presupuestaria 2021</b></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="20" align="left" style="font-size: medium"></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="4" align="center"
+									valign="middle"><b>Conceptos</b></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center"><b>CUP</b></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<t t-foreach="inf.cuentas_ids" t-as="cuentas">
+								<tr style="font-size: medium">
+									<td height="18" align="left" style="font-size: medium"></td>
+									<td style="font-size: medium; border: 1px solid #000000" colspan="4" align="left"
+										valign="middle">
+										<span t-field="cuentas.cuenta_gasto"/> <span t-field="cuentas.cuenta_gasto_name"/></td>
+									<td style="font-size: medium; border: 1px solid #000000" align="center">
+										<span t-field="cuentas.monto_disponible"/></td>
+									<td align="left" style="font-size: medium"></td>
+								</tr>
+							</t>
+							<tr style="font-size: medium">
+								<td height="17" align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="106" align="left" style="font-size: medium"></td>
+								<td colspan="5" align="left" valign="middle" style="font-size: medium">
+									<span t-field="inf.economia_aval_recomendaciones"/></td>
+								<td align="left" style="font-size: medium"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td height="17" align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="17" align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="32" align="left" style="font-size: medium">
+
+</td>
+			<td colspan="5" align="left" valign="middle" style="font-size: medium">
+			Por los elementos anteriormente aportados y atendiendo que se tomen
+			en cuenta las recomendaciones realizadas, <span t-field="inf.economia_aval_aprobacion"/> desde el punto
+			de vista económico-financiero el proyecto de suplemento del contrato
+			presentado para su revisión.</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="17" align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="17" align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="19" align="left" style="font-size: medium">
+
+</td>
+			<td align="justify" style="font-size: medium">
+			Fraternalmente:</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="17" align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="17" align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="17" align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium"></td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="17" align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td height="10" align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+
+</td>
+		</tr>
+</table>
+					</t>
+
+                    <t t-call="web.address_layout"/>
+                </div>
+                <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+				<span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+                <div style="border-top: 1px solid black;">
+					<ul class="list-inline mb4">
+					<span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+						<i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+						<br/>
+					<span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba.
+						Tomo  II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+					<div t-if="report_type == 'pdf'" class="text-center text-muted">
+						Página: <span class="page"/> / <span class="topage"/>
+					</div>
+				</div>
+			</div>
+		</t>
+    </template>
+
+</odoo>

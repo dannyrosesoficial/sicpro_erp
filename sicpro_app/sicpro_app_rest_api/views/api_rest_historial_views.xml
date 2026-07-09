@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="api_rest_log_historial_tree_view">
+            <field name="name">api.rest.log.tree</field>
+            <field name="model">api.rest.log</field>
+            <field name="priority">110</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name="create_date" string="Creado"/>
+                    <field name="create_uid" string="Usuario"/>
+                    <field name="request_url"/>
+                    <field name="file_response_data"
+                               nolabel="1"
+                               filename="filename_response_data"
+                               class="mt-4 offset-5" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="api_rest_log_historial_filter" model="ir.ui.view">
+       <field name="name">api.rest.log.search</field>
+       <field name="model">api.rest.log</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                    <field name="version_id"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                    <filter string="Versión" name="version_id" context="{'group_by':'version_id'}"/>
+                </group>
+            </search>
+       </field>
+    </record>
+
+        <record model="ir.actions.act_window" id="api_rest_log_historial_action_window">
+            <field name="name">Historial de Accesos</field>
+            <field name="res_model">api.rest.log</field>
+            <field name="view_id" ref="api_rest_log_historial_tree_view"/>
+            <field name="view_mode">tree</field>
+        </record>
+
+  </data>
+</odoo>

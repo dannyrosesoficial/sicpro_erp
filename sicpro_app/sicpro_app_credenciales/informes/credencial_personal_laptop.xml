@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<record id="formato_papel_horizontal_credencial_personal_laptop_action" model="report.paperformat">
+        <field name="name">Papel Horizontal Credencial Personal y Laptop</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+		<field name="margin_top">8</field>
+        <field name="margin_bottom">1</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">5</field>
+    </record>
+
+	<record id="informe_credencial_personal_y_laptop_action" model="ir.actions.report">
+        <field name="name">Credencial Personal y Laptop</field>
+        <field name="model">sicpro.app.credenciales</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="paperformat_id" ref="formato_papel_horizontal_credencial_personal_laptop_action"/>
+        <field name="report_name">sicpro_app_credenciales.informe_credencial_personal_y_laptop</field>
+        <field name="report_file">sicpro_app_credenciales.informe_credencial_personal_y_laptop</field>
+        <field name="print_report_name">'Credencial Personal y Laptop'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_credenciales"/>
+		<field name="binding_type">report</field>
+    </record>
+
+
+    <template id="informe_credencial_personal_y_laptop">
+		<!-- Página credencial laptop -->
+        <t t-call="web.html_container">
+        	<div t-attf-class="article">
+        		<div style="margin: auto; width: 990px;">
+        			<t t-set="i" t-value="0"/>
+		        	<t t-foreach="docs" t-as="inf">
+		        		<t t-set="i" t-value="i+1"/>
+						<t t-call="sicpro_app_credenciales.credencial_personal"/>
+						<t t-if="i == 3">
+							<t t-set="i" t-value="0"/>
+							<div style="page-break-after: always;"/>
+						</t>
+		        		<t t-if="inf.tiene_laptop">
+							<t t-set="i" t-value="i+1"/>
+							<t t-call="sicpro_app_credenciales.credencial_laptop"/>
+							<t t-if="i == 3">
+								<t t-set="i" t-value="0"/>
+								<div style="page-break-after: always;"/>
+							</t>
+						</t>
+	        		</t> 
+	        	</div>
+        	</div>
+			
+		</t>
+    </template>
+
+</odoo>

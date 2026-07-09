@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <menuitem id="menu_api_rest" name="API REST" sequence="150"
+              groups="sicpro_app_rest_api.grupo_app_api_rest_admin"
+              web_icon="sicpro_app_rest_api,static/description/icon.png"/>
+
+    <menuitem id="menu_action_api_rest_version" name="Versiones" parent="menu_api_rest"
+              action="action_api_rest_version" sequence="10"/>
+
+    <menuitem id="menu_action_api_rest_path" name="Directorios" parent="menu_api_rest"
+              action="action_api_rest_path" sequence="20" />
+
+
+    <menuitem id="menu_api_rest_configuration" name="Configuración"
+              parent="menu_api_rest" sequence="100"/>
+
+    <menuitem id="menu_action_api_rest_tag" name="Categorías" action="action_api_rest_tag"
+              parent="menu_api_rest_configuration" sequence="10"/>
+
+
+            <menuitem id="configuracion_rest_api_menu" name="Servicio de Webservice"
+                  parent="sicpro_app_administracion.menu_configuracion_administrador" sequence="2"/>
+             <menuitem action="api_rest_log_historial_action_window" parent="configuracion_rest_api_menu"
+                  id="menu_rest_api_historial" sequence="3" name="Historial de Accesos"/>
+
+
+</odoo>

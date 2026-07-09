@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="web.ActionMenus" t-inherit-mode="extension" owl="1">
+         <xpath expr="//div[hasclass('o_cp_action_menus')]" position="replace">
+             <div class="o_cp_action_menus" t-on-item-selected.stop="_onItemSelected">
+                 <DropdownMenu t-if="printItems.length" title="env._t('Imprimir')"
+                               items="printItems" icon="'fa fa-print'" hotkey="'shift+u'"
+                               hotkeyTitle="'Opciones de Impresión'"/>
+                 <DropdownMenu t-if="actionItems.length" title="env._t('Acciones')"
+                               items="actionItems" icon="'fa fa-cog'" closeOnSelected="true" hotkey="'u'"
+                               hotkeyTitle="'Acciones Adicionales'"/>
+             </div>
+        </xpath>
+    </t>
+
+</templates>

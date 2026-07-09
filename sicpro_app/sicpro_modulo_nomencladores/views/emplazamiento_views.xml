@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <record id="nomenclador_emplazamientos_tree_view" model="ir.ui.view">
+            <field name="name">nomenclador.emplazamientos.tree.view</field>
+            <field name="model">sicpro.nomenclador.emplazamientos</field>
+            <field name="arch" type="xml">
+                <tree string="Emplazamientos" editable="bottom">
+                    <field name="name"/>
+                    <field name="centro_planificacion" />
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="nomenclador_emplazamientos_filter_view" model="ir.ui.view">
+        <field name="name">Buscar emplazamientos</field>
+        <field name="model">sicpro.nomenclador.emplazamientos</field>
+            <field name="arch" type="xml">
+                <search string="Buscar emplazamientos">
+                <field name="name" string="Nombre"/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+            </search>
+        </field>
+        </record>
+        
+        <record id="action_nomenclador_emplazamiento" model="ir.actions.act_window">
+            <field name="name">Emplazamientos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.nomenclador.emplazamientos</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+    </data>
+</odoo>
+
+

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="viveres_areas_efectivo_form" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.areas.efectivo.form</field>
+        <field name="model">sicpro.app.viveres.areas.efectivo</field>
+        <field name="arch" type="xml">
+            <form string="Entrega de efectivo">
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"
+                                    options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="direccion"
+                                    options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="fecha"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Trabajadores">
+                            <field name="total_trabajadores"/>
+                            <field name="total_entregado"/>
+                        </group>
+                        <group string="Presupuesto">
+                            <field name="monto_individual_entregado"/>
+                            <field name="monto_total_entregado"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="viveres_areas_efectivo_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.areas.efectivo.tree</field>
+        <field name="model">sicpro.app.viveres.areas.efectivo</field>
+        <field name="arch" type="xml">
+            <tree string="Entrega de efectivo" sample="1">
+                <field name="name"/>
+                <field name="direccion"/>
+                <field name="fecha"/>
+                <field name="mes"/>
+                <field name="anio"/>
+                <field name="total_trabajadores" string="Total Trabajadores"/>
+                <field name="total_entregado" string="Trabajadores Entregados"/>
+                <field name="monto_individual_entregado"/>
+                <field name="monto_total_entregado"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="viveres_areas_efectivo_action" model="ir.actions.act_window">
+        <field name="name">Entrega de efectivo</field>
+        <field name="res_model">sicpro.app.viveres.areas.efectivo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

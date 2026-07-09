@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="firma_subir_pdf_wizard_view" model="ir.ui.view">
+            <field name="name">sicpro.app.firma.subir.pdf.wizard.form</field>
+            <field name="model">sicpro.app.firma.subir.pdf.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Transferir Gastos">
+                    <div class="col-lg-12 font-weight-bold">
+                        Subir Documento PDF para Firmar
+                    </div>
+
+                        <group>
+                        <field name="pdf_original" widget="many2many_binary" nolabel="1"/>
+                    </group>
+
+<hr />
+                    <group>
+                        <field name="tipo_peticion" widget="radio" options="{'horizontal': true}"/>
+                        <field name="peticiones_usuarios_ids" widget="many2many_tags"
+                               options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                   attrs="{'invisible': [('tipo_peticion','=', 'simple')]}"/>
+                        <field name="usuario_responsable_firma" widget="boolean_toggle"/>
+                    </group>
+                    <div class="col-lg-12 font-weight-bold small-caps-m text-info"
+                         attrs="{'invisible': [('tipo_peticion','=', 'simple')]}">
+                        <medium>
+                        NOTA: El sistema realizará las peticiones de firmas en el mismo orden en
+                        que seleccione los usuarios del campo anterior.
+                        </medium>
+                    </div>
+                    <footer>
+                        <button name="subir_pdf" string="Subir" type="object" class="btn-primary"/>
+                        <button string="Cancelar" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="firma_subir_pdf_wizard_action" model="ir.actions.act_window">
+            <field name="name">Subir nuevo documento</field>
+            <field name="res_model">sicpro.app.firma.subir.pdf.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</odoo>

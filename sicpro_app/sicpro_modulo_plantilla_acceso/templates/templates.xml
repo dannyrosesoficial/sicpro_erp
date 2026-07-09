@@ -1,0 +1,1491 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <template id="planilla_acceso" name="Planilla Acceso">
+    <t t-call="library_app.planilla_con_fondo">Hey</t>
+  </template>
+
+  <template id="link_plantilla_acceso" inherit_id="sicpro_modulo_web_login.middle_login_layout">
+    <xpath expr="//div[@name='link_accesos']" position="before">
+      <small><i class="fa fa-sign-in fa-fw mr-1"/></small>
+      <a href="/planilla_acceso/seleccion/" class="color_liks_login" target="_blank">
+        <span class="text-info font-weight-bold">SOLICITUD DE ACCESO</span>
+      </a>
+    </xpath>
+  </template>
+
+  <template id="plantilla_solicitud_rol_seleccion">
+    <t t-call-assets="web.assets_common"/>
+    <t t-call-assets="web.assets_backend" t-js="false"/>
+    <t t-call-assets="web.plantilla"/>
+    <div class="plantilla-solicitud-rol plantilla-seleccion">
+      <div class='plantilla-container plantilla-seleccion'>
+        <div class='plantilla-interior-container'>
+          <div>
+            <h1><img src="/sicpro_modulo_plantilla_acceso/static/src/img/logo_sicpro%204.png" alt="SICPRO"/></h1>
+          </div>
+
+          <div class="col-lg-12" style="margin-left: 30px; margin-top: 30px">
+            <span>
+              <span class="text-danger"><i class="fa fa-exclamation-triangle"/></span><b> Responsabilidades de los
+              Usuarios (Favor leer cuidadosamente)</b><br/>
+              <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b> Tipo de
+              usuario:</b><em><small> Define si el usuario tiene permisos normales o de
+              administración.</small></em><br/>
+              <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b> Canales:</b><em><small> Aquí
+              seleccioné, el o los canales asociados al proceso del usuario para la
+              comunicación interna.</small></em><br/>
+              <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b> Rol Usuario:</b><em><small>
+              Define solamente permisos de visualización a las
+              aplicaciones.</small></em><br/>
+              <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b> Rol Visualiza
+              Todo:</b><em><small> Visualización avanzada de los subprocesos de una aplicación
+              independiente</small></em><br/>
+              <span class="text-warning"><i class="fa fa-chevron-circle-right"/></span><b> Rol
+              Responsable:</b><em><small> Permisos a los usuarios encargados de cambiar la configuración de
+              nomencladores de una aplicación.</small></em><br/>
+              <span class="text-warning"><i class="fa fa-chevron-circle-right"/></span><b> Rol
+              Administrador:</b><em><small> Permisos elevados a las aplicaciones (la diferencia con el rol
+              responsable es que Permite eliminar)</small></em><br/>
+              <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b> Rol Ejecutor:</b><em><small>
+              Permisos para visualizar, crear y modificar la información de las
+              aplicaciones, permite archivar el registro.</small></em><br/>
+              <br/>
+              <i class="fa fa-angle-double-right"/><small><span class="text-danger"> Todos los demás roles heredan el
+              permiso del Rol Ejecutor, lo que cambia es la funcionalidad directa de
+              la persona, el área, departamento o dirección de trabajo.</span></small><br/>
+              <i class="fa fa-angle-double-right"/><small><span class="text-danger"> El periodo de validez de los roles
+              es por 1 Año, posterior a este tiempo debera volverlos a solicitar.</span></small><br/>
+            </span>
+            <br/>
+            <span class="text-danger"><i class="fa fa-exclamation-triangle"/></span>
+            <b> Roles que deben seleccionar los Inversionistas (IMPORTANTE)</b><br/>
+            <span class="text-success"><i class="fa fa-chevron-circle-right"/></span>
+            <b> Tipo de usuario:</b><em class="text-danger font-weight-bold"> Rol Usuario. </em> -
+            <span class="text-success"><i class="fa fa-chevron-circle-right"/></span>
+            <b> Canales:</b><em class="text-danger font-weight-bold"> Inversionista. </em> -
+            <span class="text-success"><i class="fa fa-chevron-circle-right"/></span>
+            <b> Clientes:</b><em class="text-danger font-weight-bold"> Rol Usuario </em> -
+            <span class="text-success"><i class="fa fa-chevron-circle-right"/></span>
+            <b> Solicitudes:</b><em class="text-danger font-weight-bold"> Rol Inversionista o Rol Territorio </em><br/>
+          </div>
+
+          <header>
+            <h1 class="plantilla-acceso-seleccion-encabezado o_show">SELECCIONAR ACCIÓN</h1>
+            <h1 class="plantilla-acceso-seleccion-sap o_hidden">INTRODUCIR EL NÚMERO DE PLAZA (SAP)</h1>
+            <div class="plantilla-acceso-seleccion-acciones row o_show">
+              <div class="col-sm-3 text-center">
+                <button class="btn btn-primary btn-crear-usuario">
+                  <div class="mb16 mt16 mr16 ml16"><i class="fa fa-user-plus"/> <span class="font-weight-bold"> Crear
+                    Usuario</span></div>
+                </button>
+              </div>
+              <div class="col-sm-3 text-center">
+                <button class="btn btn-primary btn-modificar-usuario">
+                  <div class="mb16 mt16 mr16 ml16"><i class="fa fa-user-circle"/> <span class="font-weight-bold">
+                    Modificar Usuario</span></div>
+                </button>
+              </div>
+              <div class="col-sm-3 text-center">
+                <button class="btn btn-warning btn-reiniciar-usuario">
+                  <div class="mb16 mt16 mr16 ml16"><i class="fa fa-user-secret"/> <span class="font-weight-bold">
+                    Reiniciar Usuario</span></div>
+                </button>
+              </div>
+              <div class="col-sm-3 text-center">
+                <button class="btn btn-danger btn-eliminar-usuario">
+                  <div class="mb16 mt16 mr16 ml16"><i class="fa fa-user-times"/> <span class="font-weight-bold">
+                    Eliminar Usuario</span></div>
+                </button>
+              </div>
+            </div>
+            <form action="/planilla_acceso/" class="plantilla-acceso-seleccion-form o_hidden">
+              <div class="plantilla-acceso-seleccion-sap-introducir row">
+                <div class="col-sm-12 text-center">
+                  <input class="plantilla-acceso-seleccion-sap-input mb16 mt16 mr16 ml16"
+                         placeholder="Introduzca su código SAP" required=""/>
+                  <br/>
+                  <button class="btn btn-volver mr64" type="button">
+                    <div class="mb4 mt4 mr4 ml4 text-white"><i class="fa fa-reply"/> <span class="font-weight-bold">
+                      Volver</span></div>
+                  </button>
+                  <button class="btn btn-primary btn-confirmar-sap" type="submit">
+                    <div class="mb4 mt4 mr4 ml4"><i class="fa fa-check"/> <span class="font-weight-bold">
+                      Confirmar</span></div>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </header>
+        </div>
+      </div>
+    </div>
+  </template>
+
+
+  <template id="plantilla_solicitud_rol">
+    <t t-call-assets="web.assets_common"/>
+    <t t-call-assets="web.assets_backend" t-js="false"/>
+    <t t-call-assets="web.plantilla"/>
+    <div class="plantilla-solicitud-rol">
+      <div class='plantilla-container'>
+        <div class="abs abs-top-button abs-left-button" data-html2canvas-ignore="true">
+          <button class="btn btn-volver">
+            <div class="mb8 mt8 mr8 ml8 text-white"><i class="fa fa-reply"/> <span class="font-weight-bold">
+              Volver</span></div>
+          </button>
+        </div>
+        <div class="abs abs-top-button abs-right-button" data-html2canvas-ignore="true">
+          <button class="btn btn-primary btn-enviar" type="submit" form="formulario-rol-acceso" value="Submit">
+            <div class="mb8 mt8 mr8 ml8"><i class="fa fa-print"/> <span class="font-weight-bold"> Exportar e
+              Imprimir</span></div>
+          </button>
+        </div>
+        <div class='plantilla-interior-container'>
+          <form id="formulario-rol-acceso" action="/planilla_acceso/crear_registro/" method="get">
+            <div>
+              <h1><img class="imagen-sicpro" src="/sicpro_modulo_plantilla_acceso/static/src/img/SICPRO%20ERP.png"
+                       alt="SICPRO"/>
+                <!-- ################################  VERSIÓN DE LA PLANILLA  #############CAMBIAR############### -->
+                <br/>Formulario de Solicitud de Accesos a SICPRO ERP - <small>V2.5</small>
+                <!-- ################################  VERSIÓN DE LA PLANILLA  #############CAMBIAR############## -->
+              </h1>
+            </div>
+            <div class="datos-usuario">
+              <h1 class="encabezado">DATOS DEL USUARIO</h1>
+            </div>
+
+            <table class="table table-sm">
+              <tbody>
+                <tr>
+                  <td class="plantilla-label nombre">
+                    <span>Nombre y Apellidos:</span>
+                  </td>
+                  <td colspan="5">
+                    <input class="borderless" name="nombre-apellidos" placeholder="Nombre y Apellidos" type="text"
+                           required=""/>
+                  </td>
+                  <td rowspan="2" colspan="2" class="plantilla-label firma">
+                    <span>Firma:</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="plantilla-label carne-identidad">
+                    <span>Carne de identidad:</span>
+                  </td>
+                  <td colspan="5">
+                    <input class="borderless" name="carne-identidad" placeholder="Carne de identidad:" type="text"
+                           required=""/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="plantilla-label usuario-incorporacion" colspan="2">
+                    <span>Usuario de nueva incorporación a la Empresa:</span>
+                  </td>
+                  <td class="plantilla-label plantilla-centered plantilla-radial-label">
+                    <span>
+                      Si
+                    </span>
+                  </td>
+                  <td class="plantilla-centered radial-square-check">
+                    <label for="usuario-incorporacion-si" class="radial-square-label">
+                      <t t-if="accion == 'modificar'">
+                        <input id="usuario-incorporacion-si" class="readonly radial-square"
+                               name="usuario-incoporacion-si"
+                               type="checkbox" disabled="1"/>
+                      </t>
+                      <t t-elif="accion == 'reiniciar'">
+                        <input id="usuario-incorporacion-si" class="readonly radial-square"
+                               name="usuario-incoporacion-si"
+                               type="checkbox" disabled="1"/>
+                      </t>
+                      <t t-elif="accion == 'eliminar'">
+                        <input id="usuario-incorporacion-si" class="readonly radial-square"
+                               name="usuario-incoporacion-si"
+                               type="checkbox" disabled="1"/>
+                      </t>
+                      <t t-else=''>
+                        <input id="usuario-incorporacion-si" class="radial-square" name="usuario-incoporacion-si"
+                               type="checkbox"/>
+                      </t>
+                      <span/>
+                    </label>
+                  </td>
+                  <td class="plantilla-label plantilla-centered plantilla-radial-label">
+                    <span>
+                      No
+                    </span>
+                  </td>
+                  <td class="plantilla-centered radial-square-check">
+                    <label for="usuario-incorporacion-no" class="radial-square-label">
+                      <t t-if="accion == 'modificar'">
+                        <input id="usuario-incorporacion-no" class="radial-square" name="usuario-incoporacion-no"
+                               type="radio" checked="1"/>
+                      </t>
+                      <t t-elif="accion == 'reiniciar'">
+                        <input id="usuario-incorporacion-no" class="radial-square" name="usuario-incoporacion-no"
+                               type="radio" checked="1"/>
+                      </t>
+                      <t t-elif="accion == 'eliminar'">
+                        <input id="usuario-incorporacion-no" class="radial-square" name="usuario-incoporacion-no"
+                               type="radio" checked="1"/>
+                      </t>
+                      <t t-else=''>
+                        <input id="usuario-incorporacion-no" class="radial-square" name="usuario-incoporacion-no"
+                               type="checkbox" checked="1"/>
+                      </t>
+                      <span/>
+                    </label>
+                  </td>
+                  <td class="plantilla-label codigo-sap">
+                    <span>
+                      Código SAP RH:
+                    </span>
+                  </td>
+                  <td>
+                    <input class="borderless" name="codigo-sap" placeholder="Código SAP RH" type="text" required=""/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="plantilla-label usuario-impuesto" colspan="5">
+                    <span>El usuario está impuesto del reglamento para el uso de las redes:</span>
+                  </td>
+                  <td class="plantilla-label usuario-impuesto-check" colspan="3">
+                    <span>X</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="plantilla-label nivel-escolar" colspan="1">
+                    <span>Nivel Escolar:</span>
+                  </td>
+                  <td class="nivel-escolar-input" colspan="7">
+                    <input class="borderless" name="nivel-escolar" placeholder="Nivel Escolar" type="text" required=""/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="plantilla-label unidad-organizativa" colspan="1">
+                    <span>Unidad Organizativa:</span>
+                  </td>
+                  <td class="plantilla-label plantilla-centered" colspan="1">
+                    <input class="borderless" name="uo" placeholder="Unidad Organizativa" type="text" required=""/>
+                  </td>
+                  <td class="plantilla-label platilla-area-label" colspan="2">
+                    <span>Área:</span>
+                  </td>
+                  <td class="platilla-area-input" colspan="4">
+                    <input class="borderless" name="area" placeholder="Área" type="text" required=""/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="plantilla-label plantilla-cargo" colspan="1">
+                    <span>Cargo:</span>
+                  </td>
+                  <td class="plantilla-cargo-input" colspan="1">
+                    <input class="borderless" name="cargo" placeholder="Cargo" type="text" required=""/>
+                  </td>
+                  <td class="plantilla-label platilla-telefonos-label" colspan="2">
+                    <span>Teléfono(s):</span>
+                  </td>
+                  <td class="platilla-telefonos-input" colspan="4">
+                    <input class="borderless" name="telefonos" placeholder="Teléfono(s)" type="text" required=""/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="plantilla-label plantilla-correo-electronico-label" colspan="1">
+                    <span>Correo Electrónico:</span>
+                  </td>
+                  <td class="plantilla-correo-electronico-input" colspan="7">
+                    <input class="borderless" name="email" placeholder="Correo Electrónico" type="email" required=""/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <t t-set="buscar_roles"
+               t-value="request.env['sicpro.modulo.plantilla.acceso'].sudo().planilla_busca_roles()"/>
+
+            <div class="permisos-solicitar">
+              <h1 class="encabezado">PERMISOS A SOLICITAR</h1>
+            </div>
+
+<!--            Se determina si la acción es un reinicio para evitar modificaciones en los roles-->
+<!--            se utiliza la misma tabla para las dos condicionales con la diferencia que a la opción de reinicio-->
+<!--            se le debe agregar a la tabla la clase: desahabilitar-acciones-reinicio-->
+            <t t-if="accion == 'reiniciar'">
+<!--              Tabla con la clase de deshabilitar roles por ser un reinicio de usuario-->
+              <table class="table table-sm table-margin-bottom desahabilitar-acciones-reinicio">
+                <tbody>
+                  <!--                01. Tipo de Usuario / 02. Canales-->
+                  <tr>
+                    <td class="plantilla-label plantilla-margin-left" colspan="3">
+                      <span>01. Tipo de Usuario</span>
+                    </td>
+                    <td class="plantilla-input" colspan="2">
+                      <select name="code_tipo_usuario" id="tipo-usuario-select">
+                        <option value="vacio">Elija un rol</option>
+                        <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_tipo_usuario'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>02. Canales</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_canales" id="canales-select">
+                      <option value="vacio">Elija un canal</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_canales'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                03. Contratos / 04. Trabajadores-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>03. Contratos</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_contratos" id="contratos-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_contratos'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>04. Trabajadores</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_trabajadores" id="trabajadores-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_trabajadores'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                05. Clientes / 06. Transporte-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>05. Clientes</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_clientes" id="clientes-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_clientes'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>06. Transporte</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_transporte" id="transporte-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_transporte'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                07. Gestor de Reunión / 08. Gestión Documental-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>07. Gestor de Reunión</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_reuniones" id="gestor-reunion-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_reuniones'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>08. Gestión Documental</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_documental" id="gestion-documental-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_documental'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                09. Metrología / 10. Credenciales-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>09. Metrología</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_metrologia" id="metrologia-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_metrologia'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>10. Credenciales</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_credenciales" id="credenciales-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_credenciales'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                11. Encuestas / 12. Soporte-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>11. Encuestas</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_encuestas" id="encuestas-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_encuestas'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>12. Soporte</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_soporte" id="soporte-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_soporte'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                13. Materiales/Insumos / 14. Instrucciones-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>13. Materiales/Insumos</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_materiales_insumos" id="materiales-insumos-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_materiales_insumos'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>14. Instrucciones</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_instrucciones" id="instrucciones-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_instrucciones'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                15. Solicitudes / 16. CMI-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>15. Solicitudes</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_solicitudes" id="solicitudes-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_solicitudes'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>16. CMI</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_cmi" id="cmi-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_cmi'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                17. Salón de Clase / 18. Marketing Correo-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>17. Salón de Clase</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_salon_clases" id="salon-clase-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_salon_clases'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>18. Marketing Correo</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_marketing_correo" id="marketing-correo-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_marketing_correo'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                19. Servicios Internos / 20.-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>19. Servicios Internos</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_servicios_internos" id="servicios-internos-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_servicios_internos'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span></span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                  </td>
+                </tr>
+                <!--                Tipo de Movimiento-->
+                <tr>
+                  <td class="tipo-movimiento-main plantilla-margin-left" colspan="3">
+                    <span>Tipo de Movimiento:</span>
+                  </td>
+                  <td class="tipo-movimiento-alta-input plantilla-centered radial-square-check">
+                    <label for="tipo-movimiento-alta" class="radial-square-label">
+                      <t t-if="accion == 'crear'">
+                        <input id="tipo-movimiento-alta" class="radial-square" name="tipo-movimiento-alta" type="radio"
+                               checked="1"/>
+                      </t>
+                      <t t-else=''>
+                        <input id="tipo-movimiento-alta" class="radial-square" name="tipo-movimiento-alta"
+                               type="radio" disabled="1"/>
+                      </t>
+                      <span/>
+                    </label>
+                  </td>
+                  <td class="tipo-movimiento-alta-label plantilla-centered plantilla-radial-label">
+                    <span>
+                      Alta
+                    </span>
+                  </td>
+
+                  <td class="tipo-movimiento-modificacion-input plantilla-centered radial-square-check">
+                    <label for="tipo-movimiento-modificacion" class="radial-square-label">
+                      <t t-if="accion == 'modificar'">
+                        <input id="tipo-movimiento-modificacion" class="radial-square" name="tipo-movimiento-modificar"
+                               type="radio" checked="1"/>
+                      </t>
+                      <t t-else=''>
+                        <input id="tipo-movimiento-modificacion" class="radial-square" name="tipo-movimiento-modificar"
+                               type="radio" disabled="1"/>
+                      </t>
+                      <span/>
+                    </label>
+                  </td>
+                  <td class="tipo-movimiento-modificacion-label plantilla-centered plantilla-radial-label">
+                    <span>
+                      Modificación
+                    </span>
+                  </td>
+
+                  <td class="tipo-movimiento-baja-input plantilla-centered radial-square-check">
+                    <label for="tipo-movimiento-baja" class="radial-square-label">
+                      <t t-if="accion == 'eliminar'">
+                        <input id="tipo-movimiento-baja" class="radial-square" name="tipo-movimiento-baja" type="radio"
+                               checked="1"/>
+                      </t>
+                      <t t-else=''>
+                        <input id="tipo-movimiento-baja" class="radial-square" name="tipo-movimiento-baja"
+                               type="radio" disabled="1"/>
+                      </t>
+                      <span/>
+                    </label>
+                  </td>
+                  <td class="tipo-movimiento-baja-label plantilla-centered plantilla-radial-label">
+                    <span>
+                      Baja
+                    </span>
+                  </td>
+                </tr>
+                  <!--                Tipo de acción sobre la cuenta-->
+                  <tr>
+                    <td class="tipo-accion-main plantilla-margin-left" colspan="3">
+                      <span>Tipo de Acción:</span>
+                    </td>
+                    <td class="tipo-accion-reinicio-input plantilla-centered radial-square-check">
+                      <label for="tipo-accion-reinicio" class="radial-square-label">
+                        <t t-if="accion == 'reiniciar'">
+                          <input id="tipo-accion-reinicio" class="radial-square" name="tipo-accion-reinicio"
+                                 type="radio"
+                                 checked="1"/>
+                        </t>
+                        <t t-else=''>
+                          <input id="tipo-accion-reinicio" class="radial-square" name="tipo-accion-reinicio"
+                                 type="radio" disabled="1"/>
+                        </t>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="plantilla-centered plantilla-radial-label" colspan="3">
+                      <span>
+                        Reinicialización de la cuenta de Usuario
+                      </span>
+                    </td>
+
+                    <td class="tipo-accion-desactivacion-input plantilla-centered radial-square-check">
+                      <label for="tipo-accion-archivar" class="radial-square-label">
+                        <t t-if="accion == 'archivar'">
+                          <input id="tipo-accion-archivar" class="radial-square" name="tipo-accion-archivar"
+                                 type="radio" checked="1"/>
+                        </t>
+                        <t t-else=''>
+                          <input id="tipo-accion-archivar" class="radial-square" name="tipo-accion-archivar"
+                                 type="radio" disabled="1"/>
+                        </t>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="plantilla-centered plantilla-radial-label" colspan="2">
+                      <span>
+                        Desactivar Usuario
+                      </span>
+                    </td>
+                  </tr>
+                  <!--                Permisos Especiales-->
+                  <tr>
+                    <td class="movimiento plantilla-margin-left" colspan="3">
+                      <span>Permisos Especiales:</span>
+                    </td>
+                    <td class="permisos-especiales-importar-input plantilla-centered radial-square-check">
+                      <label for="permisos-especiales-importar" class="radial-square-label">
+                        <input id="permisos-especiales-importar" class="radial-square"
+                               name="permisos-especiales-importar"
+                               type="checkbox"/>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="permisos-especiales-importar-label plantilla-centered plantilla-radial-label">
+                      <!--                    code_especial_importar-->
+                      <span>
+                        Importar
+                      </span>
+                    </td>
+                    <td class="permisos-especiales-exportar-avanzado-input plantilla-centered radial-square-check">
+                      <label for="permisos-especiales-exportar-avanzado" class="radial-square-label">
+                        <input id="permisos-especiales-exportar-avanzado" class="radial-square"
+                               name="permisos-especiales-exportar-avanzado" type="checkbox"/>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="permisos-especiales-exportar-avanzado-label plantilla-centered plantilla-radial-label">
+                      <!--                    code_especial_exportar-->
+                      <span>
+                        Exportar A.
+                      </span>
+                    </td>
+                    <td class="permisos-especiales-multiprocesos-input plantilla-centered radial-square-check">
+                      <label for="permisos-especiales-multiprocesos" class="radial-square-label">
+                        <input id="permisos-especiales-multiprocesos" class="radial-square"
+                               name="permisos-especiales-multiprocesos" type="checkbox"/>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="permisos-especiales-multiprocesos-label plantilla-centered plantilla-radial-label">
+                      <!--                    code_especial_multiprocesos-->
+                      <span>
+                        MultiProcesos
+                      </span>
+                    </td>
+                  </tr>
+                  <!--                Fundamentación y especificaciones-->
+                  <tr>
+                    <td colspan="9">
+                      <span>
+                        <b>Fundamentación y especificaciones:</b>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="9" class="plantilla-input">
+                      <t t-if="accion == 'reiniciar'">
+<!--                          <input id="fundamentacion-especificaciones" class="borderless"-->
+<!--                             name="fundamentacion-especificaciones" type="text" maxlength="140"/>-->
+                        Solicitud de reinicialización del usuario en el sistema.
+                        </t>
+                        <t t-else=''>
+                          <input id="fundamentacion-especificaciones" class="borderless"
+                             name="fundamentacion-especificaciones"
+                             placeholder="Especificar brevemente las funciones que realizara el usuario en el sistema."
+                             type="text" required="" maxlength="140"/>
+                        </t>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </t>
+            <t t-else=''>
+<!--              Tabla para crear y modificar los roles de usuario-->
+              <table class="table table-sm table-margin-bottom">
+                <tbody>
+                  <!--                01. Tipo de Usuario / 02. Canales-->
+                  <tr>
+                    <td class="plantilla-label plantilla-margin-left" colspan="3">
+                      <span>01. Tipo de Usuario</span>
+                    </td>
+                    <td class="plantilla-input" colspan="2">
+                      <select name="code_tipo_usuario" id="tipo-usuario-select">
+                        <option value="vacio">Elija un rol</option>
+                        <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_tipo_usuario'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>02. Canales</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_canales" id="canales-select">
+                      <option value="vacio">Elija un canal</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_canales'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                03. Contratos / 04. Trabajadores-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>03. Contratos</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_contratos" id="contratos-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_contratos'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>04. Trabajadores</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_trabajadores" id="trabajadores-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_trabajadores'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                05. Clientes / 06. Transporte-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>05. Clientes</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_clientes" id="clientes-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_clientes'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>06. Transporte</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_transporte" id="transporte-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_transporte'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                07. Gestor de Reunión / 08. Gestión Documental-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>07. Gestor de Reunión</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_reuniones" id="gestor-reunion-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_reuniones'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>08. Gestión Documental</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_documental" id="gestion-documental-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_documental'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                09. Metrología / 10. Credenciales-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>09. Metrología</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_metrologia" id="metrologia-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_metrologia'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>10. Credenciales</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_credenciales" id="credenciales-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_credenciales'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                11. Encuestas / 12. Soporte-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>11. Encuestas</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_encuestas" id="encuestas-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_encuestas'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>12. Soporte</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_soporte" id="soporte-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_soporte'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                13. Materiales/Insumos / 14. Instrucciones-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>13. Materiales/Insumos</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_materiales_insumos" id="materiales-insumos-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_materiales_insumos'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>14. Instrucciones</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_instrucciones" id="instrucciones-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_instrucciones'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                15. Solicitudes / 16. CMI-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>15. Solicitudes</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_solicitudes" id="solicitudes-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_solicitudes'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>16. CMI</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_cmi" id="cmi-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_cmi'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                17. Salón de Clase / 18. Marketing Correo-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>17. Salón de Clase</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_salon_clases" id="salon-clase-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_salon_clases'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span>18. Marketing Correo</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_marketing_correo" id="marketing-correo-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_marketing_correo'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                </tr>
+                <!--                19. Servicios Internos / 20.-->
+                <tr>
+                  <td class="plantilla-label plantilla-margin-left" colspan="3">
+                    <span>19. Servicios Internos</span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                    <select name="code_servicios_internos" id="servicios-internos-select">
+                      <option value="vacio">Elija un rol</option>
+                      <t t-foreach='buscar_roles' t-as='data_rol'>
+                        <t t-if="data_rol['clave_solicitud'] == 'code_servicios_internos'">
+                          <option t-att-value="data_rol['name']" t-att-title="data_rol['descripcion']"><t
+                                  t-out="data_rol['name']"/></option>
+                        </t>
+                      </t>
+                    </select>
+                  </td>
+                  <td class="plantilla-label plantilla-margin-left" colspan="2">
+                    <span></span>
+                  </td>
+                  <td class="plantilla-input" colspan="2">
+                  </td>
+                </tr>
+                <!--                Tipo de Movimiento-->
+                <tr>
+                  <td class="tipo-movimiento-main plantilla-margin-left" colspan="3">
+                    <span>Tipo de Movimiento:</span>
+                  </td>
+                  <td class="tipo-movimiento-alta-input plantilla-centered radial-square-check">
+                    <label for="tipo-movimiento-alta" class="radial-square-label">
+                      <t t-if="accion == 'crear'">
+                        <input id="tipo-movimiento-alta" class="radial-square" name="tipo-movimiento-alta" type="radio"
+                               checked="1"/>
+                      </t>
+                      <t t-else=''>
+                        <input id="tipo-movimiento-alta" class="radial-square" name="tipo-movimiento-alta"
+                               type="radio" disabled="1"/>
+                      </t>
+                      <span/>
+                    </label>
+                  </td>
+                  <td class="tipo-movimiento-alta-label plantilla-centered plantilla-radial-label">
+                    <span>
+                      Alta
+                    </span>
+                  </td>
+
+                  <td class="tipo-movimiento-modificacion-input plantilla-centered radial-square-check">
+                    <label for="tipo-movimiento-modificacion" class="radial-square-label">
+                      <t t-if="accion == 'modificar'">
+                        <input id="tipo-movimiento-modificacion" class="radial-square" name="tipo-movimiento-modificar"
+                               type="radio" checked="1"/>
+                      </t>
+                      <t t-else=''>
+                        <input id="tipo-movimiento-modificacion" class="radial-square" name="tipo-movimiento-modificar"
+                               type="radio" disabled="1"/>
+                      </t>
+                      <span/>
+                    </label>
+                  </td>
+                  <td class="tipo-movimiento-modificacion-label plantilla-centered plantilla-radial-label">
+                    <span>
+                      Modificación
+                    </span>
+                  </td>
+
+                  <td class="tipo-movimiento-baja-input plantilla-centered radial-square-check">
+                    <label for="tipo-movimiento-baja" class="radial-square-label">
+                      <t t-if="accion == 'eliminar'">
+                        <input id="tipo-movimiento-baja" class="radial-square" name="tipo-movimiento-baja" type="radio"
+                               checked="1"/>
+                      </t>
+                      <t t-else=''>
+                        <input id="tipo-movimiento-baja" class="radial-square" name="tipo-movimiento-baja"
+                               type="radio" disabled="1"/>
+                      </t>
+                      <span/>
+                    </label>
+                  </td>
+                  <td class="tipo-movimiento-baja-label plantilla-centered plantilla-radial-label">
+                    <span>
+                      Baja
+                    </span>
+                  </td>
+                </tr>
+                  <!--                Tipo de acción sobre la cuenta-->
+                  <tr>
+                    <td class="tipo-accion-main plantilla-margin-left" colspan="3">
+                      <span>Tipo de Acción:</span>
+                    </td>
+                    <td class="tipo-accion-reinicio-input plantilla-centered radial-square-check">
+                      <label for="tipo-accion-reinicio" class="radial-square-label">
+                        <t t-if="accion == 'reiniciar'">
+                          <input id="tipo-accion-reinicio" class="radial-square" name="tipo-accion-reinicio"
+                                 type="radio"
+                                 checked="1"/>
+                        </t>
+                        <t t-else=''>
+                          <input id="tipo-accion-reinicio" class="radial-square" name="tipo-accion-reinicio"
+                                 type="radio" disabled="1"/>
+                        </t>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="plantilla-centered plantilla-radial-label" colspan="3">
+                      <span>
+                        Reinicialización de la cuenta de Usuario
+                      </span>
+                    </td>
+
+                    <td class="tipo-accion-desactivacion-input plantilla-centered radial-square-check">
+                      <label for="tipo-accion-archivar" class="radial-square-label">
+                        <t t-if="accion == 'archivar'">
+                          <input id="tipo-accion-archivar" class="radial-square" name="tipo-accion-archivar"
+                                 type="radio" checked="1"/>
+                        </t>
+                        <t t-else=''>
+                          <input id="tipo-accion-archivar" class="radial-square" name="tipo-accion-archivar"
+                                 type="radio" disabled="1"/>
+                        </t>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="plantilla-centered plantilla-radial-label" colspan="2">
+                      <span>
+                        Desactivar Usuario
+                      </span>
+                    </td>
+                  </tr>
+                  <!--                Permisos Especiales-->
+                  <tr>
+                    <td class="movimiento plantilla-margin-left" colspan="3">
+                      <span>Permisos Especiales:</span>
+                    </td>
+                    <td class="permisos-especiales-importar-input plantilla-centered radial-square-check">
+                      <label for="permisos-especiales-importar" class="radial-square-label">
+                        <input id="permisos-especiales-importar" class="radial-square"
+                               name="permisos-especiales-importar"
+                               type="checkbox"/>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="permisos-especiales-importar-label plantilla-centered plantilla-radial-label">
+                      <!--                    code_especial_importar-->
+                      <span>
+                        Importar
+                      </span>
+                    </td>
+                    <td class="permisos-especiales-exportar-avanzado-input plantilla-centered radial-square-check">
+                      <label for="permisos-especiales-exportar-avanzado" class="radial-square-label">
+                        <input id="permisos-especiales-exportar-avanzado" class="radial-square"
+                               name="permisos-especiales-exportar-avanzado" type="checkbox"/>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="permisos-especiales-exportar-avanzado-label plantilla-centered plantilla-radial-label">
+                      <!--                    code_especial_exportar-->
+                      <span>
+                        Exportar A.
+                      </span>
+                    </td>
+                    <td class="permisos-especiales-multiprocesos-input plantilla-centered radial-square-check">
+                      <label for="permisos-especiales-multiprocesos" class="radial-square-label">
+                        <input id="permisos-especiales-multiprocesos" class="radial-square"
+                               name="permisos-especiales-multiprocesos" type="checkbox"/>
+                        <span/>
+                      </label>
+                    </td>
+                    <td class="permisos-especiales-multiprocesos-label plantilla-centered plantilla-radial-label">
+                      <!--                    code_especial_multiprocesos-->
+                      <span>
+                        MultiProcesos
+                      </span>
+                    </td>
+                  </tr>
+                  <!--                Fundamentación y especificaciones-->
+                  <tr>
+                    <td colspan="9">
+                      <span>
+                        <b>Fundamentación y especificaciones:</b>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="9" class="plantilla-input">
+                      <t t-if="accion == 'reiniciar'">
+<!--                          <input id="fundamentacion-especificaciones" class="borderless"-->
+<!--                             name="fundamentacion-especificaciones" type="text" maxlength="140"/>-->
+                        Solicitud de reinicialización del usuario en el sistema.
+                        </t>
+                        <t t-else=''>
+                          <input id="fundamentacion-especificaciones" class="borderless"
+                             name="fundamentacion-especificaciones"
+                             placeholder="Especificar brevemente las funciones que realizara el usuario en el sistema."
+                             type="text" required="" maxlength="140"/>
+                        </t>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </t>
+
+            <span class="responsabilidades-usuarios">
+              <b>Responsabilidades de los Jefes (Favor leer cuidadosamente)</b><br/>
+              <b>Solicitado por:</b><em> Es el responsable de evaluar los roles solicitados por el trabajador.</em><br/>
+              <b>Autorizado por:</b><em> Es el máximo responsable para autorizar el uso de los roles solicitados por el
+              trabajador.</em><br/>
+            </span>
+            <table class="table">
+              <thead>
+                <tr>
+                  <td class="solicitado-por" colspan="6">
+                    <span>
+                      Solicitado por
+                    </span>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="solicitado-por-nombre">
+                    <span>
+                      Nombre y Apellidos:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <t t-if="accion == 'reiniciar'">
+                      <input class="borderless" name="solicitado-por-nombre-apellidos" placeholder="Nombre y Apellidos"
+                             type="text"/>
+                    </t>
+                    <t t-else=''>
+                      <input class="borderless" name="solicitado-por-nombre-apellidos" placeholder="Nombre y Apellidos"
+                             type="text" required=""/>
+                    </t>
+
+                  </td>
+                  <td class="solicitado-por-cargo">
+                    <span>
+                      Cargo:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <t t-if="accion == 'reiniciar'">
+                      <input class="borderless" name="solicitado-por-cargo" placeholder="Cargo" type="text"/>
+                    </t>
+                    <t t-else=''>
+                      <input class="borderless" name="solicitado-por-cargo" placeholder="Cargo" type="text"
+                             required=""/>
+                    </t>
+
+                  </td>
+                  <td class="solicitado-por-unidad-organizativa">
+                    <span>
+                      Unidad Organizativa:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <t t-if="accion == 'reiniciar'">
+                      <input class="borderless" name="solicitado-por-unidad-organizativa"
+                             placeholder="Unidad Organizativa" type="text"/>
+                    </t>
+                    <t t-else=''>
+                      <input class="borderless" name="solicitado-por-unidad-organizativa"
+                             placeholder="Unidad Organizativa" type="text" required=""/>
+                    </t>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="solicitado-por-firma">
+                    <span>
+                      Firma:
+                    </span>
+                  </td>
+                  <td class="plantilla-input solicitado-por-firma-input">
+
+                  </td>
+                  <td class="solicitado-por-fecha">
+                    <span>
+                      Fecha:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <input class="borderless" name="solicitado-por-fecha" type="date" required=""/>
+                  </td>
+                  <td class="solicitado-por-telefono">
+                    <span>
+                      Teléfono:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <input class="borderless" name="solicitado-por-telefono" placeholder="Teléfono" type="text"/>
+                  </td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <td class="autorizado-por" colspan="6">
+                    <span>
+                      Autorizado por
+                    </span>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="autorizado-por-nombre">
+                    <span>
+                      Nombre y Apellidos:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <t t-if="accion == 'reiniciar'">
+                      <input class="borderless" name="autorizado-por-nombre-apellidos" placeholder="Nombre y Apellidos"
+                             type="text"/>
+                    </t>
+                    <t t-else=''>
+                      <input class="borderless" name="autorizado-por-nombre-apellidos" placeholder="Nombre y Apellidos"
+                             type="text" required=""/>
+                    </t>
+
+                  </td>
+                  <td class="autorizado-por-cargo">
+                    <span>
+                      Cargo:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <t t-if="accion == 'reiniciar'">
+                      <input class="borderless" name="autorizado-por-cargo" placeholder="Cargo" type="text"/>
+                    </t>
+                    <t t-else=''>
+                      <input class="borderless" name="autorizado-por-cargo" placeholder="Cargo" type="text"
+                             required=""/>
+                    </t>
+
+                  </td>
+                  <td class="autorizado-por-unidad-organizativa">
+                    <span>
+                      Unidad Organizativa:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <t t-if="accion == 'reiniciar'">
+                      <input class="borderless" name="autorizado-por-unidad-organizativa"
+                             placeholder="Unidad Organizativa" type="text"/>
+                    </t>
+                    <t t-else=''>
+                      <input class="borderless" name="autorizado-por-unidad-organizativa"
+                             placeholder="Unidad Organizativa" type="text" required=""/>
+                    </t>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="autorizado-por-firma">
+                    <span>
+                      Firma:
+                    </span>
+                  </td>
+                  <td class="plantilla-input autorizado-por-firma-input">
+                  </td>
+                  <td class="autorizado-por-fecha">
+                    <span>
+                      Fecha:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <input class="borderless" name="autorizado-por-fecha" type="date" required=""/>
+                  </td>
+                  <td class="autorizado-por-telefono">
+                    <span>
+                      Teléfono:
+                    </span>
+                  </td>
+                  <td class="plantilla-input">
+                    <input class="borderless" name="autorizado-por-telefono" placeholder="Teléfono" type="text"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="borderless" colspan="4"></td>
+                  <td colspan="2"><span><b>No Consecutivo:</b></span>
+                    <div class="border-bottom numero-consecutivo">
+                      <input class="borderless" type="text" name="numero-consecutivo"/>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      var plantilla_acceso = {
+      'accion': "<t t-esc="accion"/>",
+      'numero_consecutivo': "<t t-esc="numero_consecutivo"/>",
+      'nombre_apellidos': "<t t-esc="nombre_apellidos"/>",
+      'carne_identidad': "<t t-esc="carne_identidad"/>",
+      'codigo_sap': "<t t-esc="codigo_sap"/>",
+      'nivel_escolar': "<t t-esc="nivel_escolar"/>",
+      'cargo': "<t t-out="cargo"/>",
+      'area': "<t t-esc="area"/>",
+      'uo': "<t t-esc="uo"/>",
+      'telefonos': "<t t-esc="telefonos"/>",
+      'email': "<t t-esc="email"/>",
+      'roles': "<t t-esc="roles"/>",
+      'fundamentacion_especificaciones': "<t t-esc="fundamentacion_especificaciones"/>",
+      }
+    </script>
+  </template>
+
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="grupo_test_desarrollo" model="res.groups">
+            <field name="name">Aplicación Tests para Desarrolladores</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_accesos_variados"/>
+        </record>
+    </data>
+</odoo>

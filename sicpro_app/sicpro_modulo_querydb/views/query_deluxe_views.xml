@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+
+<odoo>
+	<record id="sicpro_querydb_view_tree" model="ir.ui.view">
+		<field name="name">Type a query tree</field>
+		<field name="model">sicpro.querydb</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" string="Consulta"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="sicpro_querydb_view_form" model="ir.ui.view">
+		<field name="name">Type a query form</field>
+		<field name="model">sicpro.querydb</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<button name="print_result" string="Imprimir PDF" type="object"
+							attrs="{'invisible':[('raw_output','in',['',[],False])]}" style="color: blue !important"/>
+				</header>
+
+				<sheet>
+					<group string="Consulta Programada">
+						<group colspan="4">
+							<field name="tips" widget="selection" nolabel="1"/>
+							<button name="copy_query" type="object" style="color:green" string="Transferir"
+									attrs="{'invisible':[('tips','=',False)]}"/>
+						</group>
+
+						<group colspan="4">
+							<field name="tips_description" attrs="{'invisible':[('tips','=',False)]}"/>
+						</group>
+					</group>
+
+					<group string="Insertar consulta" colspan="4">
+						<field name="name" nolabel="1" placeholder="SELECT * FROM res_partner"/>
+					</group>
+					<button name="execute" type="object" string="Ejecutar" class="oe_highlight"/>
+
+					<div style="overflow:visible !important;">
+						<group>
+							<group colspan="4">
+								<field name="rowcount" readonly="1" nolabel="1"/>
+							</group>
+
+							<group colspan="4">
+								<field name="html" readonly="1" nolabel="1"/>
+							</group>
+						</group>
+					</div>
+
+					<group>
+						<field name="show_raw_output"/>
+						<field name="raw_output" attrs="{'invisible':[('show_raw_output','=',False)]}"/>
+					</group>
+					<div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model='ir.actions.act_window' id='sicpro_querydb_submenu_action'>
+        <field name="name">Base Datos Query </field>
+        <field name="res_model">sicpro.querydb</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+	<record id="tips_queries_view_tree" model="ir.ui.view">
+		<field name="name">Memorize a query tree</field>
+		<field name="model">tipsqueries</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="name" string="Consulta"/>
+				<field name="description" string="Descripción"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="tips_queries_view_search" model="ir.ui.view">
+        <field name="name">Buscar consulta</field>
+        <field name="model">tipsqueries</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="name"/>
+				<field name="description"/>
+			</search>
+		</field>
+	</record>
+
+	<record model='ir.actions.act_window' id='sicpro_querydb_submenu_tipsqueries_action'>
+        <field name="name">Programar Sentencia</field>
+        <field name="res_model">tipsqueries</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+	<menuitem id="sicpro_querydb_menu" name="Base Datos Query"
+			  parent="sicpro_app_administracion.menu_configuracion_administrador"
+			  sequence="200" groups="base.group_system"/>
+
+	<menuitem id="query_deluxe_submenu_querydeluxe" parent="sicpro_querydb_menu"
+			  action="sicpro_querydb_submenu_action" sequence="-1"/>
+
+	<menuitem id="query_deluxe_submenu_tipsqueries" parent="sicpro_querydb_menu"
+			  action="sicpro_querydb_submenu_tipsqueries_action" sequence="10"/>
+</odoo>

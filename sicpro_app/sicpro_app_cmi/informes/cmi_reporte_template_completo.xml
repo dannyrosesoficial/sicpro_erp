@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="reporte_cmi_report_action_completo" model="ir.actions.report">
+        <field name="name">Reporte del Cuadro de Mando Integral</field>
+        <field name="model">sicpro.app.cmi.reporte</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_cmi.reporte_cmi_report_completo</field>
+        <field name="report_file">sicpro_app_cmi.reporte_cmi_report_completo</field>
+        <field name="print_report_name">'Reporte del Cuadro de Mando Integral'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="reporte_cmi_report_completo">
+        <t t-set="company" t-value="env.company"/>
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0" style="font-size: medium" width="1090">
+                            <colgroup width="16"></colgroup>
+                            <colgroup width="174"></colgroup>
+                            <colgroup width="145"></colgroup>
+                            <colgroup width="122"></colgroup>
+                            <colgroup width="175"></colgroup>
+                            <colgroup width="216"></colgroup>
+                            <colgroup width="12"></colgroup>
+                            <tr style="font-size: medium">
+                                <td height="10" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td height="26" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="center" valign="middle" style="font-size: medium">
+                                    <b><h2>Informe de los Objetivos de Trabajo</h2></b></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td height="18" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="center" valign="middle" style="font-size: medium">
+                                    <b>Periodo: <t t-esc="inf.periodo"/> <t t-esc="inf.anio"/></b></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td height="13" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+
+                            <!-- Bucle de las perspectivas-->
+                            <t t-foreach='inf.reporte_cmi_anios_perspectivas()' t-as='perspectiva'>
+
+                            <tr style="font-size: medium">
+                                <td height="20" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="left" valign="middle" style="font-size: medium">
+                                    <b>
+                                        <h4>
+                                            <span t-esc="perspectiva['name']"/> -
+                                            <span t-esc="perspectiva['porciento_avance_barra']"/>%
+                                        </h4>
+                                    </b>
+                                </td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td height="1" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+
+                            <!-- Bucle de los objetivos estratégicos-->
+                            <t t-foreach='inf.reporte_cmi_anios_estrategicos()' t-as='estrategico'>
+                            <t t-if="estrategico['perspectivas_id'] == perspectiva['id']">
+
+                            <tr style="font-size: medium">
+                                <td height="20" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="left" valign="middle"
+                                    style="background: #6EC89B; padding: 2px 15px; font-size: medium">
+                                    <b>
+                                        <strong>E: <span t-esc="estrategico['name']"/></strong> -
+                                        <span t-esc="estrategico['porciento_avance_barra']"/>%
+                                    </b>
+                                </td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td height="1" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+
+                            <!-- Bucle de los objetivos anuales-->
+                            <t t-foreach='inf.reporte_cmi_anios_anuales()' t-as='anual'>
+                            <t t-if="anual['obj_estrategico_id'] == estrategico['id']">
+                            <tr style="font-size: medium">
+                                <td height="20" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="left" valign="middle"
+                                    style="background: #80bdff; padding: 5px 30px; font-size: medium">
+                                    <b>
+                                        <strong>A: <span t-esc="anual['name']"/></strong> -
+                                        <span t-esc="anual['porciento_avance_barra']"/>%
+                                    </b>
+                                </td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td height="5" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+
+                            <!-- Bucle de los indicadores-->
+                            <t t-foreach='inf.reporte_cmi_anios_indicadores()' t-as='indicador'>
+                            <t t-if="indicador['obj_anuales_id'] == anual['id']">
+                            <tr style="font-size: medium">
+                                <td height="19" align="left" style="font-size: medium" width="16"></td>
+                                <td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000" colspan="2" align="center" valign="middle">
+                                    <b>Indicador</b></td>
+                                <td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle" width="285">
+                                    <b>Real</b></td>
+                                <td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="center" valign="middle" width="203">
+                                    <b>Meta</b></td>
+                                <td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle" width="128">
+                                    <b>%</b></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td height="19" align="left" style="font-size: medium" width="16"></td>
+                                <td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px
+                                solid #000000; border-bottom: 1px solid #000000" colspan="2" align="left" valign="middle" width="300">
+                                    <span t-esc="indicador['name']"/>
+                                </td>
+                                <td style="font-size: medium; border: 1px solid #000000" align="center" valign="top" width="100">
+                                    <t t-esc="indicador['real_acumulado']"/>
+                                </td>
+                                <td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px
+                                solid #000000; border-bottom: 1px solid #000000" align="center" valign="top" width="100">
+                                    <t t-esc="indicador['meta_acumulado']"/>
+                                </td>
+                                <td style="font-size: medium; border: 1px solid #000000" align="center" valign="top" width="100">
+                                    <t t-esc="indicador['porciento_avance_barra']"/>%</td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td height="5" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="left" valign="middle" style="font-size: medium">
+                                    <strong>Comentario: </strong></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="left" valign="middle" style="font-size: medium">
+                                    <span t-esc="indicador['comentario']"/>
+                                </td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            <tr style="font-size: medium">
+                                <td height="10" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="left" valign="middle" style="font-size: medium"></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                            </t>
+                            </t>
+                            </t>
+                            </t>
+                            </t>
+                            </t>
+                            </t>
+                            <tr style="font-size: medium">
+                                <td height="10" align="left" style="font-size: medium" width="16"></td>
+                                <td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+                                <td align="left" style="font-size: medium" width="12"></td>
+                            </tr>
+                        </table>
+                        </t>
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+				<span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+                <div style="border-top: 1px solid black;">
+					<ul class="list-inline mb4">
+					<span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+						<i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+						<br/>
+					<span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba.
+						Tomo  II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+					<div t-if="report_type == 'pdf'" class="text-center text-muted">
+						Página: <span class="page"/> / <span class="topage"/>
+					</div>
+				</div>
+			</div>
+
+        </t>
+    </template>
+    </data>
+</openerp>

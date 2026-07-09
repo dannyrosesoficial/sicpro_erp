@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_login_template_registro_href" inherit_id="sicpro_modulo_web_login.login_template">
+        <xpath expr="//div[@name='otros_acceso']" position="inside">
+            <div name="web_registro" style="margin-top:20px;">
+                <a name="redirect_registro" href="/web/registro/" class="suprimir-barra-link text text-warning"
+                   style="text-decoration: none;">
+                    No tengo acceso al sistema
+                </a>
+            </div>
+        </xpath>
+    </template>
+</odoo>

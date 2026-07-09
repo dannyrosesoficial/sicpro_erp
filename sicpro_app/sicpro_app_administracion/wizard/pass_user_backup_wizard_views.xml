@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="usuario_passuserbackup_wizard_view" model="ir.ui.view">
+            <field name="name">pass.user.backup.form</field>
+            <field name="model">pass.user.backup</field>
+            <field name="arch" type="xml">
+                <form string="PASS-USER-BACKUP">
+                    <field name="pass_user_backup" readonly="1"/>
+                    <footer>
+                        <button string="Ok" special="cancel" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="usuario_passuserbackup_wizard_action" model="ir.actions.act_window">
+            <field name="name">PASS-USER-BACKUP</field>
+            <field name="res_model">pass.user.backup</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="base.model_res_users"/>
+        </record>
+
+    </data>
+</odoo>

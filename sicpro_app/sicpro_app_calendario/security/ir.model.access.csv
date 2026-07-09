@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+calendar_evento_plan_usuario,Plan usuario,model_calendar_plan_reporte,base.group_user,1,1,1,1
+calendar_evento_cumplimiento_usuario,Cumplimiento usuario,model_calendar_cumplimiento_reporte,base.group_user,1,1,1,1
+calendar_evento_tipo_usuario,Tipo usuario,model_calendar_tipo_calendario,base.group_user,1,1,1,1
+calendar_actividades_dvpe_usuario,Actividades DVPE usuario,model_calendar_actividades_organizativas,base.group_user,1,1,1,1
+calendar_cargo_externo_usuario,Cargo Externo usuario,model_calendar_cargos_externos,base.group_user,1,1,1,1
+calendar_pie_firma_usuario,Pie Firma usuario,model_calendar_pie_firmas,base.group_user,1,1,1,1
+calendar_tipos_tareas_usuario,Tipos de tareas usuario,model_calendar_tareas_principales_generales,base.group_user,1,0,0,0
+
+calendar_tipos_tareas_ejecutor,Tipos de tareas ejecutor,model_calendar_tareas_principales_generales,sicpro_app_reuniones.group_reuniones_secretaria,1,1,1,0
+calendar_tipos_tareas_type_manager,Tipos de tareas type manager,model_calendar_tareas_principales_generales,base.group_system,1,1,1,1
+
+calendar_actividades_dvpe_ejecutor,Actividades DVPE ejecutor,model_calendar_actividades_organizativas,sicpro_app_reuniones.group_reuniones_secretaria,1,1,1,0

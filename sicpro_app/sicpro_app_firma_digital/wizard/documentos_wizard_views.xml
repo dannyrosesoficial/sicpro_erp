@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="sicpro_app_firma_doc_wizard_wizard_view" model="ir.ui.view">
+            <field name="name">sicpro.app.firma.documentos.wizard.form</field>
+            <field name="model">sicpro.app.firma.documentos.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Seleccionar área de firma">
+                    <sheet>
+                        <field name="doc_id" invisible="1"/>
+                        <field name="doc_imagenes_ids" mode="kanban" nolabel="1" string="Seleccionar Área de Firma">
+                            <kanban class="o_kanban_dashboard " archivable="false"
+                                    group_create="false" group_delete="false" group_edit="false">
+                                <field name="id"/>
+                                <field name="doc_num_page"/>
+                                <field name="doc_imagen"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+                                            <img alt="Avatar"
+                                                 t-att-src="kanban_image('sicpro.app.firma.documentos.imagenes', 'doc_imagen', record.id.raw_value)"/>
+                                            <div class="oe_kanban_details">
+                                                <div class="o_kanban_record_top">
+                                                    <div class="o_kanban_record_headings">
+                                                        <strong class="o_kanban_record_subtitle"
+                                                                style="margin-bottom: 2px;">
+                                                            Página del documento No: <field name="doc_num_page"/>
+                                                        </strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                            <form string="Seleccionar área">
+                                <sheet>
+                                    <group>
+                                        <field name="doc_imagen" widget="firma_pdf_crop" nolabel="1"
+                                               style="height: 95%; width: 100%"/>
+                                    </group>
+                                    <group invisible="1">
+                                        <group>
+                                            <field name="name"/>
+                                        </group>
+                                        <group>
+                                            <field name="id"/>
+                                            <input type="text" id="pdf_cropper_value" name="pdf_cropper_value"/>
+                                        </group>
+                                    </group>
+                                </sheet>
+                                <footer>
+                                    <button special="cancel" string="Cancel" class="pull-left"/>
+                                    <button name="action_salvar" type="object" string="Seleccionar"
+                                            id="enviar_cropper_pdf" class="oe_highlight pull-right"/>
+                                </footer>
+                            </form>
+                        </field>
+                        <footer>
+                            <button string="Cancelar" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sicpro_app_firma_doc_wizard_action" model="ir.actions.act_window">
+            <field name="name">Seleccionar Página y Área de Firma del Documento</field>
+            <field name="res_model">sicpro.app.firma.documentos.wizard</field>
+            <field name="view_id" ref="sicpro_app_firma_doc_wizard_wizard_view"/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

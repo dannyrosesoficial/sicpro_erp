@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ticket_solicitud_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.solicitud.view.form</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="inherit_id" ref="sicpro_app_soporte.ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_empaty_tareas']" position="before">
+                <button name="solicitudes_acceso_view" type="object" class="text-danger oe_stat_button"
+                        icon="fa-folder-open" attrs="{'invisible': [('team_id_bitacora', '!=', True)]}">
+                    <field name="solicitudes_count" widget="statinfo"/>
+                </button>
+                <button class="text-success font-weight-bold oe_stat_button" icon="fa-connectdevelop"
+                        name="action_registro_bitacora"
+                        type="object" attrs="{'invisible': [('team_id_bitacora', '!=', True)]}">
+                    <field name="bitacora_count" string='Bitácora' widget="statinfo"/>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='channel_id']" position="after">
+                <field name="numero_consecutivo" string="No. Solicitud" class="oe_inline" readonly="1"
+                       attrs="{'invisible': [('team_id_bitacora', '!=', True)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ticket_solicitud_view_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.solicitud.view.kanban</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="inherit_id" ref="sicpro_app_soporte.view_helpdesk_ticket_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="numero_consecutivo"/>
+                </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="replace">
+                <div t-if="record.numero_consecutivo.raw_value" class="col-md-10">
+                    <span class="text-dark" style="font-weight: bold">
+                        ID Solicitud:
+                    </span>
+                    <span class="text-success" style="font-weight: bold">
+                        <field name="numero_consecutivo"/>
+                    </span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

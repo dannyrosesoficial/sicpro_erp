@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_contratos</OriginalElement>
+  <nodes>
+    <node x="13235.0" y="8237.5">sicpro_app_contratos.models.sicpro_app_contratos_economia_etiquetas.ContratosEconomiaEtiquetas</node>
+    <node x="8673.75" y="348.5">typing.Sized</node>
+    <node x="8824.75" y="304.0">odoo.models.MetaModel</node>
+    <node x="9096.75" y="337.5">typing.Iterator</node>
+    <node x="12690.0" y="7027.0">sicpro_app_contratos.models.sicpro_app_contratos.Contratos</node>
+    <node x="9268.75" y="348.5">typing.Iterable</node>
+    <node x="9438.75" y="6030.0">odoo.models.Model</node>
+    <node x="6579.0" y="8182.0">sicpro_app_contratos.models.sicpro_app_contratos_beneficiario.ContratosBeneficiarios</node>
+    <node x="812.0" y="8215.0">odoo.models.TransientModel</node>
+    <node x="8034.0" y="8127.0">sicpro_app_contratos.models.sicpro_app_contratos_economia.ContratosEconomiaFacturas</node>
+    <node x="622.0" y="10467.0">sicpro_app_contratos.models.sicpro_app_contratos_proveedores.ProveedorRechazado</node>
+    <node x="5785.0" y="8215.5">sicpro_app_contratos.models.sicpro_app_contratos_economia_pago.ContratosEconomiaPago</node>
+    <node x="17790.0" y="7313.0">sicpro_app_contratos.models.sicpro_app_contratos_proveedores.ContratosProveedores</node>
+    <node x="12072.0" y="8215.5">sicpro_app_contratos.models.sicpro_app_contratos_dias.ContratosDias</node>
+    <node x="2020.0" y="8237.5">sicpro_app_contratos.models.sicpro_app_contratos_tipo.ContratosTipo</node>
+    <node x="10174.75" y="0.0">typing.Hashable</node>
+    <node x="4175.0" y="8237.5">sicpro_app_contratos.models.sicpro_app_contratos_economia_indicador.ContratosEconomiaIndicador</node>
+    <node x="8963.25" y="709.0">odoo.models.BaseModel</node>
+    <node x="9441.75" y="282.5">typing.Sequence</node>
+    <node x="8807.0" y="8237.5">sicpro_app_contratos.models.sicpro_app_contratos_etiquetas.ContratosEtiquetas</node>
+    <node x="14735.0" y="8237.5">sicpro_app_contratos.models.sicpro_app_contratos_unidades.ContratosUnidades</node>
+    <node x="1367.0" y="10467.0">sicpro_app_contratos.models.sicpro_app_contratos.ContratoCancelado</node>
+    <node x="11182.0" y="8149.5">sicpro_app_contratos.models.sicpro_app_contratos_proveedores_estados.ContratosProveedoresEstados</node>
+    <node x="1177.0" y="8270.5">sicpro_app_contratos.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador</node>
+    <node x="9511.0" y="8149.5">sicpro_app_contratos.models.sicpro_app_contratos_economia_estados.ContratosEconomiaEstados</node>
+    <node x="0.0" y="10467.0">sicpro_app_contratos.models.sicpro_app_contratos.ContratoRechazado</node>
+    <node x="14100.0" y="8226.5">sicpro_app_contratos.models.sicpro_app_contratos_area.ContratosAreas</node>
+    <node x="3497.0" y="8061.5">sicpro_app_contratos.models.sicpro_app_contratos_estados.ContratosEstados</node>
+    <node x="7328.0" y="6202.0">sicpro_app_contratos.models.sicpro_app_contratos_economia.ContratosEconomia</node>
+    <node x="5035.0" y="8072.0">sicpro_app_contratos.models.sicpro_app_contratos_economia_bancos.ContratosBancos</node>
+    <node x="16874.0" y="8237.5">sicpro_app_contratos.models.sicpro_app_contratos_proveedores_etiquetas.ContratosProveedoresEtiquetas</node>
+    <node x="15433.0" y="8182.0">sicpro_app_contratos.models.sicpro_app_contratos.ContratosCuentas</node>
+    <node x="9799.75" y="348.5">typing.Container</node>
+    <node x="10350.0" y="8237.5">sicpro_app_contratos.models.sicpro_app_contratos_economia_acapite.ContratosEconomiaAcapite</node>
+    <node x="2639.0" y="8171.0">sicpro_app_contratos.models.sicpro_app_contratos_economia_cuentas_dvpe.ContratosCuentasDVPE</node>
+    <node x="16043.0" y="8237.5">sicpro_app_contratos.models.sicpro_app_contratos_proveedores_tipo.ContratosProveedoresTipo</node>
+    <node x="10044.75" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-362.0" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-564.0" y="-2635.5" />
+      <point x="20.0" y="72.5" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_economia_indicador.ContratosEconomiaIndicador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="4595.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_economia.ContratosEconomia" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-2107.5" />
+      <point x="7671.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="-189.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos.ContratoCancelado" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="72.5" />
+      <point x="1666.5" y="10635.0" />
+      <point x="-17.5" y="10635.0" />
+      <point x="-17.5" y="8309.5" />
+      <point x="-172.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_beneficiario.ContratosBeneficiarios" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-127.5" />
+      <point x="6943.5" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos.ContratoRechazado" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="72.5" />
+      <point x="301.0" y="10635.0" />
+      <point x="-17.5" y="10635.0" />
+      <point x="-17.5" y="8309.5" />
+      <point x="-172.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_area.ContratosAreas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="14407.5" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_economia_estados.ContratosEconomiaEstados" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-409.5" y="-95.0" />
+      <point x="9113.0" y="8214.5" />
+      <point x="9113.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_estados.ContratosEstados" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-248.0" />
+      <point x="3826.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="8739.25" y="3344.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_proveedores_estados.ContratosProveedoresEstados" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-435.0" y="-95.0" />
+      <point x="10756.0" y="8214.5" />
+      <point x="10756.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="984.5" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_economia_bancos.ContratosBancos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-237.5" />
+      <point x="5400.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="377.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_proveedores_etiquetas.ContratosProveedoresEtiquetas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="17322.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos.ContratosCuentas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-127.5" />
+      <point x="15728.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_tipo.ContratosTipo" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="2319.5" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_economia_pago.ContratosEconomiaPago" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.0" />
+      <point x="6172.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="76.0" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="10344.0" y="376.5" />
+      <point x="10344.0" y="88.5" />
+      <point x="10256.25" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="10344.0" y="3344.5" />
+      <point x="10344.0" y="88.5" />
+      <point x="10256.25" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_economia_cuentas_dvpe.ContratosCuentasDVPE" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-138.5" />
+      <point x="3058.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_proveedores_tipo.ContratosProveedoresTipo" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="16448.5" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_proveedores.ProveedorRechazado" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="72.5" />
+      <point x="984.5" y="10635.0" />
+      <point x="-17.5" y="10635.0" />
+      <point x="-17.5" y="8309.5" />
+      <point x="-172.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_etiquetas.ContratosEtiquetas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="9149.0" y="8214.5" />
+      <point x="9113.0" y="8214.5" />
+      <point x="9113.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_economia_acapite.ContratosEconomiaAcapite" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-19.5" y="-72.0" />
+      <point x="10736.5" y="8147.0" />
+      <point x="10756.0" y="8147.0" />
+      <point x="10756.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_unidades.ContratosUnidades" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="15074.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="1588.5" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_proveedores.ContratosProveedores" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-996.5" />
+      <point x="18158.5" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_dias.ContratosDias" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.0" />
+      <point x="12371.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_economia_etiquetas.ContratosEconomiaEtiquetas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="13657.5" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos_economia.ContratosEconomiaFacturas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="376.5" y="-95.0" />
+      <point x="9113.0" y="8214.5" />
+      <point x="9113.0" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-83.5" y="270.5" />
+    </edge>
+    <edge source="sicpro_app_contratos.models.sicpro_app_contratos.Contratos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-1282.5" />
+      <point x="12952.5" y="6177.0" />
+      <point x="9534.75" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.061512415349887134" showDependencies="false" x="9263.5" y="5306.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

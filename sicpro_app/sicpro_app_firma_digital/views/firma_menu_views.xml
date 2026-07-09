@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <menuitem name="Firma"  id="menu_firma_root" sequence="15"
+              web_icon="sicpro_app_firma_digital,static/description/icon.png"
+              groups="grupo_app_firma_usuario"/>
+
+    <menuitem id="menu_firma_documentos" name="Documentos" parent="menu_firma_root"
+              groups="grupo_app_firma_usuario" sequence="3"/>
+
+        <menuitem id="menu_firma_documentos_plantillas" name="Plantillas de Documentos" parent="menu_firma_documentos"
+              action="firma_documentos_action" groups="grupo_app_firma_usuario" sequence="3"/>
+        <menuitem id="menu_firma_documentos_firmados" name="Documentos Firmados" parent="menu_firma_documentos"
+              action="firma_documentos_firmado_action" groups="grupo_app_firma_usuario" sequence="3"/>
+    
+    
+    <menuitem id="menu_firma_configuracion" name="Configuración" parent="menu_firma_root" sequence="5"/>
+
+    <menuitem id="menu_firma_etiquetas" name="Etiquetas" parent="menu_firma_configuracion"
+              action="firma_digital_etiquetas_action" sequence="2" groups="grupo_app_firma_admin" />
+
+</odoo>

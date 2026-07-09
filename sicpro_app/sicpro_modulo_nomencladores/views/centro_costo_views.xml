@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record id="nomenclador_centro_costo_tree_view" model="ir.ui.view">
+        <field name="name">nomenclador.centro.costo.tree.view</field>
+        <field name="model">sicpro.nomenclador.centro.costo</field>
+        <field name="arch" type="xml">
+            <tree string="Centros de costos" editable="bottom">
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="area_empresa_id"/>
+                <field name="company_id" />
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="nomenclador_centro_costo_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Centro de costo</field>
+       <field name="model">sicpro.nomenclador.centro.costo</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Centro de Costo">
+            <field name="name" string="Centro de Coste"/>
+                <field name="area_empresa_id"/>
+            <field string="Proceso" name="company_id" />
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+            <group expand="0" string="Agrupar por">
+                <filter string="Proceso" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_nomenclador_centro_costo" model="ir.actions.act_window">
+        <field name="name">Centros de Costos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.centro.costo</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+
+    </data>
+</odoo>

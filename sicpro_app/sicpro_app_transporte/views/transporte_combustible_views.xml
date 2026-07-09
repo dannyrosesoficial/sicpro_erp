@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id='transporte_combustible_view_tree' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.tipo.combustible.tree</field>
+        <field name="model">sicpro.app.transporte.tipo.combustible</field>
+        <field name="arch" type="xml">
+            <tree string="Tipos de Combustibles" editable="bottom">
+                <field name="name"/>
+                <field name="categoria"/>
+                <field name="costo"/>
+                <field name="company_id" invisible="1"/>
+                <field name="company_currency" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='transporte_combustible_action' model='ir.actions.act_window'>
+        <field name="name">Tipos de Combustibles</field>
+        <field name="res_model">sicpro.app.transporte.tipo.combustible</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo tipo de combustible para los vehículos
+            </p>
+        </field>
+    </record>
+
+</odoo>

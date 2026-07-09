@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="user_solicitudes_form" model="ir.ui.view">
+    <field name="name">res.solicitudes.users.views.form</field>
+    <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="solicitudes_acceso_view" type="object" class="o_stat_button" icon="fa-folder-open" >
+                    <field name="solicitudes_acceso_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+
+</odoo>

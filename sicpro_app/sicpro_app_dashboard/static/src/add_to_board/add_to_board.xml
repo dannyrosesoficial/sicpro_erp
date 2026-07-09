@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="sicpro_app_dashboard.AddToBoard" owl="1">
+        <Dropdown class="o_add_to_board">
+            <t t-set-slot="toggler">Agregar a Mi Dashboard</t>
+            <div class="px-3 py-2">
+                <input type="text" class="o_input" autofocus="" t-model.trim="state.name" t-on-keydown="onInputKeydown" />
+            </div>
+            <div class="px-3 py-2">
+                <button type="button" class="btn btn-primary" t-on-click="addToBoard">Agregar</button>
+            </div>
+        </Dropdown>
+    </t>
+
+</templates>

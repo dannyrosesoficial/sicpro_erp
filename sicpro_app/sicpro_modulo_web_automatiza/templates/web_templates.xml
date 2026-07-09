@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <template id="web_plantilla_inicio_herencia_automatiza" inherit_id="sicpro_modulo_web.web_plantilla_inicio">
+    <xpath expr="//a[@name='header_about']" position="after">
+      <li><a name='header_automatizacion' class="nav-link scrollto" href="#automatizacion">Automatización</a></li>
+    </xpath>
+
+    <xpath expr="//section[@name='logros']" position="after">
+      <!-- ======= Inicio Automatización ======= -->
+      <section id="automatizacion" name="automatizacion" class="automatizacion">
+        <div class="container" data-aos="zoom-in">
+          <div class="row">
+            <div class="col-lg-9 text-center text-lg-start">
+              <h3>Automatización de Envío de Correos</h3>
+              <p> El sistema incorpora la función de recepción y procesamiento de correos electrónicos junto con su
+                documentación adjunta, para que esta funcionalidad sea ejecutada correctamente es necesario seguir las regla de envío.</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="/web/automatiza">Ver Reglas</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Fin Automatización -->
+    </xpath>
+
+
+  </template>
+
+
+</odoo>

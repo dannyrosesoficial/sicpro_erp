@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Creo la categoría de Nomencladores -->
+        <record id="module_category_nomencladores" model="ir.module.category">
+            <field name="name">Nomencladores</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_administracion_general"/>
+            <field name="sequence" >3</field>
+        </record>
+
+        <!--Permisos anteriores-->
+        <!--<record id="grupo_sicpro_nomencladores_usuario" models="res.groups">
+             <field name="name">Usuarios</field>
+             <field name="comment">Permisos de lectura</field>
+             <field name="category_id" ref="module_category_nomencladores"/>
+             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="grupo_sicpro_nomencladores_responsable" models="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de lectura/Escritura/Config</field>
+            <field name="category_id" ref="module_category_nomencladores"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_sicpro_nomencladores_usuario'))]"/>
+        </record> -->
+
+        <record id="grupo_sicpro_nomencladores_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="module_category_nomencladores"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+    </data>
+
+<data noupdate="0">
+
+</data>
+
+</odoo>

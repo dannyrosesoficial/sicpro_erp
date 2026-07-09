@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <menuitem id="menu_administracion_solicitudes_roles" name="Solicitudes de Acceso"
+              parent="sicpro_app_administracion.menu_administracion_4" groups="base.group_system"
+              action="action_solicitud_roles" sequence="3"/>
+
+
+</odoo>

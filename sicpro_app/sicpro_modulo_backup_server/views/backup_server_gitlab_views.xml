@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="backup_server_url_gitlab_tree_view">
+            <field name="name">sicpro.modulo.backup.server.gitlab.tree</field>
+            <field name="model">sicpro.modulo.backup.server.gitlab</field>
+            <field name="arch" type="xml">
+                <tree string="URL GitLab" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="backup_server_url_gitlab_action" model="ir.actions.act_window">
+            <field name="name">Configuración URL GitLab</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.modulo.backup.server.gitlab</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+
+        <record id="backup_server_url_gitlab_administracion_action" model="ir.actions.act_url">
+        <field name="name">Gitlab Backup Server</field>
+        <field name="type">ir.actions.act_url</field>
+        <field name="target">new</field>
+        <field name="url">https://gitlab.etecsa.cu/daniel.borrero/sicpro-erp-backup</field>
+    </record>
+
+
+    </data>
+</odoo>

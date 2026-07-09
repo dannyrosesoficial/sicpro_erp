@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+     <record id="nomenclador_territorio_tree_view" model="ir.ui.view">
+        <field name="name">nomenclador.territorio.tree.view</field>
+        <field name="model">sicpro.nomenclador.territorios</field>
+        <field name="arch" type="xml">
+            <tree string="Unidad Organizativa" editable="bottom">
+                <field name="codigo" width="5"/>
+                <field name="abreviatura" />
+                <field name="name"/>
+                <field name="provincias_id"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="nomenclador_territorio_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Unidades Organizativa</field>
+       <field name="model">sicpro.nomenclador.territorios</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Unidades Organizativa">
+            <field name="name" string="Unidad Organizativa"/>
+            <field name="provincias_id" string="Provincia"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_nomenclador_territorio" model="ir.actions.act_window">
+        <field name="name">Unidad Organizativa</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.territorios</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    </data>
+</odoo>

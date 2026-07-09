@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+  <t t-extend="FormView.buttons" t-name="template_firma_botones_control">
+       <t t-jquery="button.o_form_button_create" t-operation="replace">
+
+           <button type="button" class="btn btn-primary o_firma_seleccion">Seleccionar área de firma</button>
+
+           <button type="button" class="btn btn-primary o_firma_firmar">Firmar</button>
+
+           <button type="button" class="btn btn-secondary o_firma_cancelar">Cancelar área de firma</button>
+
+           <button type="button" class="btn btn-primary o_firma_descargar_doc">Descargar Documento</button>
+
+       </t>
+   </t>
+
+</templates>
+
+
+

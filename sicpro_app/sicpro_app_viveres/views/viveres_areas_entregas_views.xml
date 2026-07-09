@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="viveres_areas_entregas_form" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.areas.entregas.form</field>
+        <field name="model">sicpro.app.viveres.areas.entregas</field>
+        <field name="arch" type="xml">
+            <form string="Entregas al área">
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="direccion"/>
+                            <field name="producto_comprado" widget="many2many_tags"
+                                   options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="fecha"/>
+                            <field name="trabajador"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="total_trabajadores"/>
+                            <field name="total_entregado"/>
+                        </group>
+                    </group>
+                    <group string="Detalles generales de la entrega">
+                    <field name="observaciones"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="viveres_areas_entregas_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.areas.entregas.tree</field>
+        <field name="model">sicpro.app.viveres.areas.entregas</field>
+        <field name="arch" type="xml">
+            <tree string="Entregas al área" sample="1">
+                <field name="name"/>
+                <field name="direccion"/>
+                <field name="producto_comprado" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="fecha"/>
+                <field name="trabajador"/>
+                <field name="total_trabajadores"/>
+                <field name="total_entregado"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="viveres_areas_entregas_action" model="ir.actions.act_window">
+        <field name="name">Entregas al área</field>
+        <field name="res_model">sicpro.app.viveres.areas.entregas</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

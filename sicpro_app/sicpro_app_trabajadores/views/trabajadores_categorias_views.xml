@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_employee_category_form" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.categorias.form</field>
+            <field name="model">sicpro.app.trabajadores.categorias</field>
+            <field name="arch" type="xml">
+                <form string="Categorías del trabajador">
+                    <sheet>
+                        <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name"/>
+                            </div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="tipo"/>
+                                <field name="color" widget="color_picker"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_employee_category_list" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.categorias.list</field>
+            <field name="model">sicpro.app.trabajadores.categorias</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Categorías del trabajador" editable="bottom">
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="open_view_categ_form" model="ir.actions.act_window">
+            <field name="name">Clase y Categorías del trabajador</field>
+            <field name="res_model">sicpro.app.trabajadores.categorias</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

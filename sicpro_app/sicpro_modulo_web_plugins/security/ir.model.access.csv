@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+web_plugins_system,Plugins system,model_sicpro_modulo_web_plugins,base.group_system,1,1,1,1
+web_plugins_web,Plugins web,model_sicpro_modulo_web_plugins,,1,0,0,0

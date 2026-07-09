@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="disciplinaria_categorias_search_view" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.disiplinaria.categorias.search</field>
+            <field name="model">sicpro.app.trabajadores.disiplinaria.categorias</field>
+            <field name="arch" type="xml">
+                <search string="Buscar información">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="category_type"/>
+                    <field name="description"/>
+                    <group expand="1" string="Agrupar por">
+                        <filter string="Tipo" name="tipo" context="{'group_by':'category_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="disciplinaria_categorias_view_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.disiplinaria.categorias.tree</field>
+            <field name="model">sicpro.app.trabajadores.disiplinaria.categorias</field>
+            <field name="arch" type="xml">
+                <tree string="Categorías Disciplinarias">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="category_type"/>
+                    <field name="vigencia"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="disciplinaria_categorias_view_form" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.disiplinaria.categorias.form</field>
+            <field name="model">sicpro.app.trabajadores.disiplinaria.categorias</field>
+            <field name="arch" type="xml">
+                <form string="Categorías Disciplinarias">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="category_type"/>
+                                <field name="vigencia"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="disciplinaria_categorias_action" model="ir.actions.act_window">
+            <field name="name">Categorías Disciplinarias</field>
+            <field name="res_model">sicpro.app.trabajadores.disiplinaria.categorias</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

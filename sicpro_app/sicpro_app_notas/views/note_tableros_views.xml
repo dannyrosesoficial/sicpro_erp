@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+    <record id="view_note_tableros_tree" model="ir.ui.view">
+        <field name="name">note.tableros.tree</field>
+        <field name="model">note.tableros</field>
+        <field name="field_parent"></field>
+        <field name="arch" type="xml">
+            <tree string="Tableros de Notas">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="user_id" groups="base.group_system"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_note_tableros_form" model="ir.ui.view">
+        <field name="name">note.tableros.form</field>
+        <field name="model">note.tableros</field>
+        <field name="arch" type="xml">
+            <form string="Tableros de Notas">
+                <group>
+                    <field name="name"/>
+                    <field name="user_id" groups="base.group_system"/>
+                    <field name="color" widget="color_picker"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_note_tableros_filter" model="ir.ui.view">
+        <field name="name">note.tableros.search</field>
+        <field name="model">note.tableros</field>
+        <field name="arch" type="xml">
+            <search string="Notes">
+                <field name="name"/>
+                <filter name="archivado" string="Archivado" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_note_tableros_kanban" model="ir.ui.view">
+        <field name="name">note.tableros.kanban</field>
+        <field name="model">note.tableros</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="color"/>
+                <field name="name"/>
+                <field name="active"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''} oe_kanban_card o_kanban_record_has_image_fill">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title oe_partner_heading font-weight-bold"
+                                        style="font-size: 20px;">
+                                    <field name="name"/>
+                                </strong>
+                                <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                <ul>
+                                    <li class="font-weight-bold">Tablero de Notas Avanzado</li>
+                                </ul>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <button class="btn btn-primary" name="action_tablero" type="object"
+                                                t-attf-data-context="{'default_id': #{record.id.raw_value}}">
+                                            VER TABLERO</button>
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_partner_links"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_note_tableros" model="ir.actions.act_window">
+        <field name="name">Tableros de Notas</field>
+        <field name="res_model">note.tableros</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="search_view_id" ref="view_note_tableros_filter"/>
+        <field name="view_id" ref="view_note_tableros_kanban"/>
+        <field name="domain">[('user_id', '=', uid)]</field>
+    </record>
+
+
+    <menuitem id="note.menu_note_notes" name="Tableros" web_icon="sicpro_app_notas,static/description/icon.png"
+              action="action_note_tableros" sequence="15"/>
+
+
+</odoo>

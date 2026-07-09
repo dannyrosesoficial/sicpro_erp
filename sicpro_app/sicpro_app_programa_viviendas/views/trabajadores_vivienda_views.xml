@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sicpro_app_trabajadores_vivienda" model="ir.ui.view">
+        <field name="name">sicpro.app.trabajadores.vivienda.form</field>
+        <field name="model">sicpro.app.trabajadores</field>
+        <field name="inherit_id" ref="sicpro_app_trabajadores.view_trabajadores_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="vivienda_materiales_trabajador_view" type="object" class="o_stat_button" icon="fa-cubes">
+                    <field name="vivienda_materiales_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+solicitud_accesos_acceso_admin,Solicitud de Accesos admin,model_sicpro_modulo_plantilla_acceso,base.group_system,1,1,1,1
+solicitud_roles_acceso_rechazar_admin,Solicitud de Rechazar admin,model_sicpro_modulo_plantilla_acceso_rechazar,base.group_system,1,1,1,1
+solicitud_roles_acceso_admin,Solicitud de Roles admin,model_sicpro_modulo_plantilla_acceso_roles,base.group_system,1,1,1,1

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="modulo_web_mantenimiento_menu" name="Modo de Mantenimiento" action="web_mantenimiento_action"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="10"/>
+    </data>
+</odoo>

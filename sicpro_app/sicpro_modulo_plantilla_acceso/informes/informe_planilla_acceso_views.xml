@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<record id="informe_planilla_acceso_action" model="ir.actions.report">
+		<field name="name">Planilla de Acceso</field>
+		<field name="model">sicpro.modulo.plantilla.acceso</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">sicpro_modulo_plantilla_acceso.informe_planilla_acceso</field>
+		<field name="report_file">sicpro_modulo_plantilla_acceso.informe_planilla_acceso</field>
+		<field name="print_report_name">'Planilla de Acceso'</field>
+		<field name="binding_model_id" ref="model_sicpro_modulo_plantilla_acceso"/>
+		<field name="binding_type">report</field>
+	</record>
+
+
+	<template id="informe_planilla_acceso">
+		<t t-call="web.html_container">
+			<!-- sección del header -->
+			<div t-attf-class="header" t-att-style="report_header_style">
+				<div class="row">
+					<div class="col-3 mb4">
+						<img src="sicpro_modulo_plantilla_acceso/static/src/img/etecsaId_300_8.png"
+							 style="max-height: 55px;"
+							 alt="Logo"/>
+					</div>
+				</div>
+				<div class="row zero_min_height">
+					<div class="col-12">
+						<div style="border-bottom: 1px solid black;"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<small> División de Proyectos y Ejecución de Obras</small>
+					</div>
+				</div>
+			</div>
+
+			<!-- sección de los datos -->
+			<div t-attf-class="article">
+				<!-- sección del page -->
+				<t t-foreach="docs" t-as="inf">
+					<table border="0" cellspacing="0">
+						<colgroup width="85"></colgroup> <colgroup width="138"></colgroup> <colgroup
+							width="71"></colgroup> <colgroup width="78"></colgroup> <colgroup width="76"></colgroup>
+						<colgroup width="68"></colgroup> <colgroup width="55"></colgroup> <colgroup
+							width="88"></colgroup> <colgroup width="114"></colgroup> <colgroup width="80"></colgroup>
+						<colgroup width="98"></colgroup>
+						<tbody>
+							<tr>
+								<td colspan="11" align="center" valign="middle" height="33"><b>
+									<h3>Formulario de Solicitud de Accesos a SICPRO ERP</h3></b></td>
+							</tr>
+							<tr>
+								<td colspan="11" align="left" valign="middle" height="23"><b>
+									<font size="7" face="Liberation Serif"> DATOS DEL USUARIO</font></b></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" height="20"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Nombre y Apellidos: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="6" align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.name"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" rowspan="2" align="left" valign="middle">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif"> Firma:</font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" height="20"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Carnet de identidad: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="6" sdval="8806024013" sdnum="9226;" align="left" valign="middle"><font
+										size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.carne_identidad"/></font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="4" align="left" valign="middle" height="20">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">
+										Usuario de nueva incorporación a la Empresa: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center"><font size="3" face="Liberation Serif">Si</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center" valign="middle"><font size="3" face="Liberation Serif">
+									<input class="radial-square" type="checkbox"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center"><font size="3" face="Liberation Serif">No</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center" valign="middle"><font size="3" face="Liberation Serif">
+									<input class="radial-square" type="checkbox" checked="1"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="center" valign="middle"><font size="3" face="Liberation Serif">
+									Código SAP RH: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									sdval="11009" sdnum="9226;" align="center"><b>
+									<font size="3" face="Liberation Serif">
+										<span style="margin-left:5px;" t-field="inf.codigo_sap"/></font></b></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="7" align="left" valign="middle" height="20">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">
+										El usuario está impuesto del reglamento para el uso de las redes: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="4" align="left" valign="middle"><b><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;">X</span></font></b></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" height="20">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">Nivel Escolar: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="9" align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.nivel_escolar"/></font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" height="20"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Unidad Organizativa: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="left" valign="middle">
+									<font size="3" face="Liberation Serif"><span
+											style="margin-left:5px;" t-field="inf.uo"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left"><font size="3" style="margin-left:5px;" face="Liberation Serif">Área: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="5" align="left" valign="middle">
+									<font size="3" face="Liberation Serif">
+										<span style="margin-left:5px;" t-field="inf.area"/></font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" height="20"><font size="3" style="margin-left:5px;" face="Liberation Serif">Cargo:
+								</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="5" align="left"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.cargo"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left"><font size="3" face="Liberation Serif">Teléfono(s): </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.telefonos"/></font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" valign="middle" height="25">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">Correo Electrónico: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="9" align="left" valign="middle"><b>
+									<font size="3" face="Liberation Serif">
+										<a href="#"><span style="margin-left:5px;" t-field="inf.email"/></a>
+									</font></b></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="11" align="left" valign="middle" height="23"><b>
+									<font size="4" style="margin-left:5px;" face="Liberation Serif"> PERMISOS A SOLICITAR</font></b></td>
+							</tr>
+							<t t-set="roles" t-value="inf.role_line_ids.role_id"/>
+
+							<t t-set="registro_id" t-value="inf.id"/>
+							<t t-set="registros" t-value="inf.buscar_registro_roles(registro_id)"/>
+							<t t-raw="registros" />
+
+							<t t-set="movimiento" t-value="inf.tipo_movimiento"/>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="center" valign="middle" height="20">
+									<font size="3" face="Liberation Serif"> Tipo de Movimiento: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center" valign="middle">
+									<font size="3" face="Liberation Serif">
+										<t t-if="movimiento == 'alta'">
+											<input class="radial-square" type="radio" checked="1"/>
+										</t>
+										<t t-else=''>
+											<input class="radial-square" type="radio"/>
+										</t>
+									</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Alta </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center" valign="middle">
+									<font size="3" face="Liberation Serif">
+										<t t-if="movimiento == 'modificacion'">
+											<input class="radial-square" type="radio" checked="1"/>
+										</t>
+										<t t-else=''>
+											<input class="radial-square" type="radio"/>
+										</t>
+									</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" valign="middle">
+									<font style="margin-left:5px;" size="3" face="Liberation Serif">Modificación
+									</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center" valign="middle"><font size="3" face="Liberation Serif">
+									<t t-if="movimiento == 'reinicio'">
+										<input class="radial-square" type="radio" checked="1"/>
+									</t>
+									<t t-else=''>
+										<input class="radial-square" type="radio"/>
+									</t></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Reinicio </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center" valign="middle"><font size="3" face="Liberation Serif">
+									<t t-if="movimiento == 'baja'">
+										<input class="radial-square" type="radio" checked="1"/>
+									</t>
+									<t t-else=''>
+										<input class="radial-square" type="radio"/>
+									</t></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Baja</font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="center" valign="middle" height="20">
+									<font size="3" face="Liberation Serif">Permisos Especiales: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center" valign="middle">
+									<font size="3" face="Liberation Serif">
+										<t t-set="permiso_importar" t-value="0"/>
+										<t t-foreach='roles' t-as='data_especiales'>
+											<t t-if="data_especiales['nombre_registro'] == 'Importar Datos'">
+												<t t-set="permiso_importar" t-value="1"/>
+											</t>
+										</t>
+										<t t-if="permiso_importar == 1">
+											<input class="radial-square" type="checkbox" checked="1"/>
+										</t>
+										<t t-else="">
+											<input class="radial-square" type="checkbox"/>
+										</t>
+									</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Importar </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center" valign="middle"><font size="3" face="Liberation Serif">
+									<t t-set="permiso_exportar_avanzado" t-value="0"/>
+									<t t-foreach='roles' t-as='data_especiales'>
+										<t t-if="data_especiales['nombre_registro'] == 'Exportar Datos'">
+											<t t-set="permiso_exportar_avanzado" t-value="1"/>
+										</t>
+									</t>
+									<t t-if="permiso_exportar_avanzado == 1">
+										<input class="radial-square" type="checkbox" checked="1"/>
+									</t>
+									<t t-else="">
+										<input class="radial-square" type="checkbox"/>
+									</t>
+								</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" valign="middle">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">
+										Exportar A. </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="center" valign="middle"><font size="3" face="Liberation Serif">
+									<t t-set="permiso_multiproceso" t-value="0"/>
+									<t t-foreach='roles' t-as='data_especiales'>
+										<t t-if="data_especiales['nombre_registro'] == 'MultiProcesos'">
+											<t t-set="permiso_multiproceso" t-value="1"/>
+										</t>
+									</t>
+									<t t-if="permiso_multiproceso == 1">
+										<input class="radial-square" type="checkbox" checked="1"/>
+									</t>
+									<t t-else="">
+										<input class="radial-square" type="checkbox"/>
+									</t>
+								</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									MultiProcesos </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left"><font size="3" face="Liberation Serif"><br/>
+								</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left"><font size="3" face="Liberation Serif"><br/>
+								</font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="11" align="left" valign="middle" height="20">
+									<b><font size="3" style="margin-left:5px;" face="Liberation Serif">Fundamentación y especificaciones: </font>
+									</b></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="11" align="left" valign="middle" height="20">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">
+										<strong>Fundamentación de uso:</strong><span style="margin-left:5px;"
+																					 t-field="inf.fundamentacion_especificaciones"/>
+										/
+										<strong>Permisos especiales:</strong><span style="margin-left:5px;"
+																				   t-field="inf.fundamentacion_especiales"/>
+									</font></td>
+							</tr>
+							<tr>
+								<td colspan="11" align="left" valign="middle" height="20"><b>
+									<font size="3" face="Liberation Serif">
+										Responsabilidades de los Jefes (Favor leer cuidadosamente)</font></b></td>
+							</tr>
+							<tr>
+								<td colspan="11" align="left" valign="middle"><b>
+									<small><font size="3" face="Liberation Serif">
+										Solicitado por: Es el jefe inmediato o responsable de evaluar los roles
+										solicitados
+										por el trabajador.</font></small></b></td>
+							</tr>
+							<tr>
+								<td colspan="11" align="left" valign="middle"><b>
+									<small><font size="3" face="Liberation Serif">
+										Autorizado por: Es el director del área o el máximo responsable para autorizar
+										el
+										uso de los roles solicitados por el trabajador.</font></small></b></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="11" align="left" valign="middle" height="20"><b>
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">Solicitado por </font></b></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" valign="middle" height="38">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">Nombre y Apellidos: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;"
+										  t-field="inf.solicitado_por_nombre_apellidos"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Cargo:</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.solicitado_por_cargo"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" style="margin-left:5px;" face="Liberation Serif">UO:</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;"
+										  t-field="inf.solicitado_por_unidad_organizativa"/></font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" valign="middle" height="38">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">
+										Firma: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="center" valign="middle">
+									<font size="3" face="Liberation Serif"><br/>
+									</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Fecha:</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.solicitado_por_fecha"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" style="margin-left:5px;" face="Liberation Serif">Teléfono:
+								</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle">
+									<font size="3" face="Liberation Serif">
+										<span style="margin-left:5px;"
+											  t-field="inf.solicitado_por_telefono"/></font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="11" align="left" valign="middle" height="20"><b>
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">Autorizado por </font></b></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" valign="middle" height="38">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">Nombre y Apellidos: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;"
+										  t-field="inf.autorizado_por_nombre_apellidos"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Cargo:</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.autorizado_por_cargo"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" style="margin-left:5px;" face="Liberation Serif">UO:</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.autorizado_por_unidad_organizativa"/>
+								</font></td>
+							</tr>
+							<tr>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="left" valign="middle" height="38">
+									<font size="3" style="margin-left:5px;" face="Liberation Serif">Firma: </font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="center" valign="middle">
+									<font size="3" face="Liberation Serif"><br/>
+									</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" style="margin-left:5px;" face="Liberation Serif">
+									Fecha:</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="left" valign="middle"><font
+										size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.autorizado_por_fecha"/></font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" style="margin-left:5px;" face="Liberation Serif">Teléfono:
+								</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									align="left" valign="middle"><font size="3" face="Liberation Serif">
+									<span style="margin-left:5px;" t-field="inf.autorizado_por_telefono"/></font></td>
+							</tr>
+							<tr>
+								<td align="left" height="27"><font size="3" face="Liberation Serif"><br/>
+								</font></td>
+								<td align="left"><font size="3" face="Liberation Serif"><br/>
+								</font></td>
+								<td align="left"><font size="3" face="Liberation Serif"><br/>
+								</font></td>
+								<td align="left"><font size="3" face="Liberation Serif"><br/>
+								</font></td>
+								<td align="left"><font size="3" face="Liberation Serif"><br/>
+								</font></td>
+								<td align="left"><font size="3" face="Liberation Serif"><br/>
+								</font></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="3" align="right" valign="middle"><b>
+									<font size="3" style="margin-right:5px;" face="Liberation Serif">No
+										Consecutivo: </font></b></td>
+								<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+									colspan="2" align="center" valign="middle"><b><u>
+									<font size="4" face="Liberation Serif">
+										<span style="margin-left:5px;"
+											  t-field="inf.numero_consecutivo"/></font></u></b></td>
+							</tr>
+						</tbody>
+					</table>
+				</t>
+
+				<t t-call="web.address_layout"/>
+			</div>
+			<t t-out="0"/>
+		</t>
+	</template>
+
+</odoo>

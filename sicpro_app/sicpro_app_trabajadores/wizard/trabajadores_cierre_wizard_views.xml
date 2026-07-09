@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="trabajadores_cargar_cierre_wizard_view" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.cierre.wizard.form</field>
+            <field name="model">sicpro.app.trabajadores.cierre.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Cargar cierre">
+                    <div class="col-lg-12 font-weight-bold">
+                        Generar cierre
+                    </div>
+                    <field name="areas" widget='many2many_tags'
+                        options="{'no_open': True, 'no_quick_create': True, 'no_create_edit': True}"/>
+                    <footer>
+                        <button name="existe_cierre_anterior" string="Generar cierre" type="object" class="btn-primary"/>
+                        <button string="Cancelar" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="trabajadores_cargar_cierre_wizard_action" model="ir.actions.act_window">
+            <field name="name">Cargar cierre</field>
+            <field name="res_model">sicpro.app.trabajadores.cierre.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

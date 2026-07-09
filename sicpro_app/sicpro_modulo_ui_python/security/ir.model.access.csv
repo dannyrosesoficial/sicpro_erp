@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ui_python_admin,access_ui_python admin,model_sicpro_modulo_ui_python,base.group_system,1,1,1,1

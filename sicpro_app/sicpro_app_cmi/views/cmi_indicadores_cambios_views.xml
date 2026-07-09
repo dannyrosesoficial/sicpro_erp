@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+   <!-- inicio Vista del modal para solicitar cambios-->
+    <record id="solicitar_cambios_indicadores_modal_form" model="ir.ui.view">
+            <field name="name">sicpro.app.cmi.indicadores.modal.cambios.form</field>
+            <field name="model">sicpro.app.cmi.indicadores.modal.cambios</field>
+            <field name="priority">110</field>
+            <field name="arch" type="xml">
+                <form string="Motivo del Rechazo">
+                    <group class="oe_title">
+                        <field name="indicadores_ids" readonly="1"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="mes"/>
+                            <field name="responsable_id" readonly="1"/>
+                            <field name="user_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="meta_actual"/>
+                            <field name="meta_propuesta"/>
+                        </group>
+                        <group string="Documentación Digitales">
+                            <field name="attachment_ids" widget="many2many_binary" class="o_Attachment_image o-attachment-viewable"/>
+                        </group>
+                        <field name="detalles"/>
+                    </group>
+                    <footer>
+                        <button name="action_cambio_meta" string="Enviar" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    <record id="solicitar_cambios_indicadores_modal_action" model="ir.actions.act_window">
+            <field name="name">Solicitar Cambios de Metas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.cmi.indicadores.modal.cambios</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="solicitar_cambios_indicadores_modal_form"/>
+            <field name="target">new</field>
+        </record>
+    <!-- Fin Vista del modal para solicitar cambios-->
+
+
+    <record id="solicitar_cambios_indicador_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.cmi.indicador.cambios.tree</field>
+        <field name="model">sicpro.app.cmi.indicadores.cambios</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <tree string="Indicadores" editable="bottom" create="false" edit="true" delete="false">
+                <field name="name" readonly="1"/>
+                <field name="responsable_id" readonly="1"/>
+                <field name="mes" readonly="1"/>
+                <field name="meta_actual" readonly="1" class="text-center font-weight-bold"/>
+                <field name="meta_propuesta" class="text-center" attrs="{'readonly': [('estado', '!=', 'revision')]}"/>
+                <field name="detalles" readonly="1"/>
+                <field name="attachment_ids" widget="many2many_binary" />
+                <field name="observaciones" attrs="{'readonly': [('estado', '!=', 'revision')]}"/>
+                <field name="estado" readonly="1" decoration-info="estado=='pendiente'"
+                       decoration-danger="estado=='rechazado'" decoration-warning="estado=='revision'"
+                       decoration-success="estado=='aprobado'" widget="badge"/>
+                <button name="cambios_historial_indicadores" type="object" class="btn btn-link text-info"
+                        icon="fa-history" string="Historial" context="{'default_id': name, 'default_mes': mes}"/>
+                <button name="cambios_revision_indicadores" type="object" string="Revisión" class="btn btn-link"
+                        icon="fa-bullseye" attrs="{'invisible': [('estado', '!=', 'pendiente')]}"/>
+                <button name="cambios_aprobar_indicadores" type="object" string="Aplicar" class="btn btn-link"
+                        icon="fa-save" attrs="{'invisible': [('estado', '!=', 'revision')]}"/>
+                <button name="cambios_rechazar_indicadores" type="object" string="Rechazar" class="btn text-warning"
+                        icon="fa-times" attrs="{'invisible': [('estado', '!=', 'revision')]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="solicitar_cambios_indicadores_view_filter" model="ir.ui.view">
+       <field name="name">sicpro.app.cmi.indicadores.cambios.filter</field>
+       <field name="model">sicpro.app.cmi.indicadores.cambios</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Indicadores">
+                <field name="name"/>
+                <field name="estado"/>
+                <field name="user_id"/>
+                <field name="responsable_id"/>
+                <separator />
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator />
+                <filter string="Pendientes" name="estado_pendiente" domain="[('estado', 'in',['pendiente', 'revision'])]"/>
+                <separator />
+                <filter string="Aprobados" name="estado_aprobado" domain="[('estado', '=','aprobado')]"/>
+                <filter string="Rechazados" name="estado_rechazado" domain="[('estado', '=','rechazado')]"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                    <filter string="Estado" name="estado" context="{'group_by':'estado'}"/>
+                    <filter string="Mes" name="mes" context="{'group_by':'mes'}"/>
+                </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="solicitar_cambios_indicadores_action" model="ir.actions.act_window">
+        <field name="name">Solicitudes de Cambios en los Indicadores</field>
+        <field name="res_model">sicpro.app.cmi.indicadores.cambios</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="solicitar_cambios_indicadores_view_filter"/>
+        <field name="view_id" ref="solicitar_cambios_indicador_view_tree"/>
+        <field name="context">{'search_default_estado_pendiente': 1}</field>
+    </record>
+
+    <!-- Acción de la vista de historial -->
+    <record id="historial_cambios_indicadores_action" model="ir.actions.act_window">
+        <field name="name">Historial de Cambios en los Indicadores</field>
+        <field name="res_model">sicpro.app.cmi.indicadores.cambios</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="solicitar_cambios_indicadores_view_filter"/>
+        <field name="view_id" ref="solicitar_cambios_indicador_view_tree"/>
+    </record>
+
+</odoo>

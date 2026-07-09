@@ -1,0 +1,32 @@
+.o_list_view .o_list_table thead {
+    position: sticky;
+    top: 0;
+    z-index:999;
+}
+.o_list_view .table-responsive .table thead{
+    z-index: 1;
+}
+
+.o_kanban_view .o_kanban_header_title{
+    .o_column_title{
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background-color: #f8f9fa;
+    }
+
+}
+
+$zi: 99;
+@for $i from $zi to 0{
+    .o_kanban_view .o_kanban_group:nth-child(#{$i}){
+        z-index: #{$zi - $i};
+    }
+    .o_kanban_view .o_kanban_group:nth-child(#{$i}):not(.o_column_folded) .o_kanban_header{
+        position: sticky;
+        background-color: #f8f9fa;
+        top: 0;
+        z-index: #{$zi - ($i - 1)};
+    }
+}
+

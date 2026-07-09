@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_salon_clases</OriginalElement>
+  <nodes>
+    <node x="967.5535714285716" y="282.5">typing.Sequence</node>
+    <node x="1325.5535714285716" y="348.5">typing.Sized</node>
+    <node x="1476.5535714285716" y="304.0">odoo.models.MetaModel</node>
+    <node x="1519.0" y="6678.0">sicpro_app_salon_clases.models.sicpro_app_salon_clases_temas.SalonClasesTemas</node>
+    <node x="1748.5535714285716" y="337.5">typing.Iterator</node>
+    <node x="3329.6785714285716" y="3329.0">AbstractModel</node>
+    <node x="754.0" y="6788.5">sicpro_app_salon_clases.models.sicpro_app_salon_clases_etiquetas.SalonClasesEtiquetas</node>
+    <node x="1925.4285714285716" y="6032.0">sicpro_app_salon_clases.models.ir_http.SalonClasesHttp</node>
+    <node x="3920.4285714285716" y="6098.5">sicpro_app_salon_clases.controllers.main.BinarySalon</node>
+    <node x="2251.4303571428572" y="348.5">typing.Iterable</node>
+    <node x="2993.0" y="6612.0">sicpro_app_salon_clases.models.sicpro_app_salon_clases.SalonClases</node>
+    <node x="4716.539285714286" y="3329.0">Controller</node>
+    <node x="1713.4285714285716" y="6087.5">odoo.models.Model</node>
+    <node x="2235.0" y="6788.5">sicpro_app_salon_clases.models.sicpro_app_salon_clases_tipo_tematica.SalonClasesTipo</node>
+    <node x="0.0" y="6315.0">sicpro_app_salon_clases.models.sicpro_app_salon_clases_adjuntos.SalonClasesAdjuntos</node>
+    <node x="2424.4303571428572" y="348.5">typing.Container</node>
+    <node x="3170.633035714286" y="0.0">typing.Hashable</node>
+    <node x="1189.9285714285716" y="709.0">odoo.models.BaseModel</node>
+    <node x="4187.289285714286" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_app_salon_clases.controllers.main.BinarySalon" target="object" relationship="REALIZATION">
+      <point x="17.1104285714282" y="-50.0" />
+      <point x="4852.039" y="3046.0" />
+      <point x="3708.0" y="3046.0" />
+      <point x="3708.0" y="376.5" />
+      <point x="-137.5002857142863" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="571.5" y="-1718.0" />
+      <point x="2536.9303571428572" y="1626.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_salon_clases.models.ir_http.SalonClasesHttp" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="4.2857142852881225E-4" y="-116.5" />
+      <point x="2912.929" y="6006.0" />
+      <point x="1761.429" y="6006.0" />
+      <point x="4.2857142852881225E-4" y="2635.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-564.0" y="-2635.5" />
+      <point x="60.875" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="-137.5002857142863" y="-15.0" />
+      <point x="3424.0" y="361.5" />
+      <point x="3424.0" y="28.0" />
+      <point x="81.49996428571376" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5004285714285" y="-1703.0" />
+      <point x="3424.0" y="1641.5" />
+      <point x="3424.0" y="28.0" />
+      <point x="81.49996428571376" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="63.125" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="sicpro_app_salon_clases.models.ir_http.SalonClasesHttp" target="AbstractModel" relationship="REALIZATION">
+      <point x="15.000428571428529" y="-116.5" />
+      <point x="2927.929" y="4657.5" />
+      <point x="3122.0" y="4657.5" />
+      <point x="3122.0" y="3344.5" />
+      <point x="-76.99957142857147" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-158.875" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="sicpro_app_salon_clases.models.sicpro_app_salon_clases_temas.SalonClasesTemas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-182.5" />
+      <point x="1867.0" y="6630.0" />
+      <point x="1852.0" y="6630.0" />
+      <point x="1852.0" y="6449.0" />
+      <point x="1809.429" y="6449.0" />
+      <point x="4.2857142852881225E-4" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_salon_clases.models.sicpro_app_salon_clases_etiquetas.SalonClasesEtiquetas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="1126.5" y="6630.0" />
+      <point x="1852.0" y="6630.0" />
+      <point x="1852.0" y="6449.0" />
+      <point x="1809.429" y="6449.0" />
+      <point x="4.2857142852881225E-4" y="61.0" />
+    </edge>
+    <edge source="Controller" target="object" relationship="REALIZATION">
+      <point x="-59.00028571428629" y="0.0" />
+      <point x="3708.0" y="3344.5" />
+      <point x="3708.0" y="376.5" />
+      <point x="-137.5002857142863" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="564.0" y="-2635.5" />
+      <point x="-2.5017857142856883" y="28.0" />
+    </edge>
+    <edge source="AbstractModel" target="object" relationship="REALIZATION">
+      <point x="77.00042857142853" y="0.0" />
+      <point x="3708.0" y="3344.5" />
+      <point x="3708.0" y="376.5" />
+      <point x="-137.5002857142863" y="0.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="4.2857142852881225E-4" y="-61.0" />
+      <point x="1809.429" y="6006.0" />
+      <point x="1761.429" y="6006.0" />
+      <point x="4.2857142852881225E-4" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_salon_clases.models.sicpro_app_salon_clases_tipo_tematica.SalonClasesTipo" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="2604.0" y="6630.0" />
+      <point x="1852.0" y="6630.0" />
+      <point x="1852.0" y="6449.0" />
+      <point x="1809.429" y="6449.0" />
+      <point x="4.2857142852881225E-4" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="AbstractModel" relationship="REALIZATION">
+      <point x="42.57142857142844" y="61.0" />
+      <point x="1852.0" y="6322.5" />
+      <point x="5766.929" y="6322.5" />
+      <point x="5766.929" y="4657.5" />
+      <point x="3122.0" y="4657.5" />
+      <point x="3122.0" y="3344.5" />
+      <point x="-76.99957142857147" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_salon_clases.controllers.main.BinarySalon" target="Controller" relationship="REALIZATION">
+      <point x="-59.389285714285506" y="-50.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="sicpro_app_salon_clases.models.sicpro_app_salon_clases_adjuntos.SalonClasesAdjuntos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="367.0" y="-89.5" />
+      <point x="1111.5" y="6771.0" />
+      <point x="1111.5" y="6630.0" />
+      <point x="1852.0" y="6630.0" />
+      <point x="1852.0" y="6449.0" />
+      <point x="1809.429" y="6449.0" />
+      <point x="4.2857142852881225E-4" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-370.375" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="571.5004285714285" y="-298.5" />
+      <point x="3708.0" y="3046.0" />
+      <point x="3708.0" y="376.5" />
+      <point x="-137.5002857142863" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_salon_clases.models.sicpro_app_salon_clases.SalonClases" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-248.5" />
+      <point x="3286.0" y="6449.0" />
+      <point x="1809.429" y="6449.0" />
+      <point x="4.2857142852881225E-4" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.08241314301104229" showDependencies="false" x="2875.0" y="3703.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

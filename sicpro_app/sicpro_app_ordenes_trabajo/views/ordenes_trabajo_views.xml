@@ -1,0 +1,868 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Inicio de las Vistas del modal para la paralización de la orden -->
+    <record id="ordenes_paralizada_form" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.trabajo.paralizacion.form</field>
+        <field name="model">sicpro.app.ordenes.trabajo.paralizacion</field>
+        <field name="priority">60</field>
+        <field name="arch" type="xml">
+            <form string="Motivo de la Paralización">
+                <group class="oe_title">
+                    <field name="motivo_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="detalles_paralizacion"/>
+                </group>
+                <footer>
+                    <button name="action_motivo_paralizacion" string="Enviar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="ordenes_paralizada_action" model="ir.actions.act_window">
+        <field name="name">Motivo de la Paralización</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.ordenes.trabajo.paralizacion</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ordenes_paralizada_form"/>
+        <field name="target">new</field>
+    </record>
+    <!-- Fin de las Vistas del modal para la paralización de la orden -->
+
+    <!-- Inicio de las Vistas del modal para la cancelación de la orden -->
+    <record id="ordenes_canceladas_form" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.trabajo.canceladas.form</field>
+        <field name="model">sicpro.app.ordenes.trabajo.canceladas</field>
+        <field name="priority">80</field>
+        <field name="arch" type="xml">
+            <form string="Motivo de Cancelación">
+                <group class="oe_title">
+                    <field name="motivo_id"/>
+                </group>
+                <footer>
+                    <button name="action_motivo_cancelacion" string="Enviar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="ordenes_canceladas_action" model="ir.actions.act_window">
+        <field name="name">Motivo de la Cancelación</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.ordenes.trabajo.canceladas</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ordenes_canceladas_form"/>
+        <field name="target">new</field>
+    </record>
+    <!-- Fin de las Vistas del modal para la cancelación de la orden -->
+
+    <!-- Inicio de las Vistas del modal para la cancelación de la orden -->
+    <record id="ordenes_aviso_intension_form" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.trabajo.aviso.intension.form</field>
+        <field name="model">sicpro.app.ordenes.trabajo.aviso.intension</field>
+        <field name="priority">80</field>
+        <field name="arch" type="xml">
+            <form string="Aviso de Intensión">
+                <group class="oe_title">
+                    <field name="nueva_fecha"/>
+                    <field name="motivo_aviso_intension"/>
+                </group>
+                <footer>
+                    <button name="action_motivo_cambio" string="Enviar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="ordenes_aviso_intension_action" model="ir.actions.act_window">
+        <field name="name">Aviso de Intensión</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.ordenes.trabajo.aviso.intension</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ordenes_aviso_intension_form"/>
+        <field name="target">new</field>
+    </record>
+    <!-- Fin de las Vistas del modal para la cancelación de la orden -->
+
+    <!-- Inicio de las Vistas del modal para la cancelación de la orden -->
+    <record id="ordenes_rechazo_form" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.trabajo.rechazadas.form</field>
+        <field name="model">sicpro.app.ordenes.trabajo.rechazadas</field>
+        <field name="priority">80</field>
+        <field name="arch" type="xml">
+            <form string="Aviso de Intensión">
+                <group class="oe_title">
+                    <field name="motivo_id"/>
+                </group>
+                <footer>
+                    <button name="action_motivo_rechazo" string="Enviar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="ordenes_rechazo_action" model="ir.actions.act_window">
+        <field name="name">Rechazar Orden</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.ordenes.trabajo.rechazadas</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ordenes_rechazo_form"/>
+        <field name="target">new</field>
+    </record>
+    <!-- Fin de las Vistas del modal para la cancelación de la orden -->
+
+
+    <record id="ordenes_trabajo_search" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.trabajo.search</field>
+        <field name="model">sicpro.app.ordenes.trabajo</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name" string="Consecutivo de la orden"/>
+                <field name="texto_breve_sap" string="Nombre de la solicitud"/>
+                <field name="etiquetas_ids" string="Etiquetas" filter_domain="[('etiquetas_ids', 'ilike', self)]"/>
+                <field name="cliente_id"/>
+                <field name="pep" string="Número SAP"/>
+                <field name="anio" string="Año"/>
+                <separator/>
+                <filter string="Fecha de Solicitud" name="fecha_solicitud_orden" date="fecha_solicitud_orden"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Órdenes de Inversiones" name="inversiones"
+                        domain="[('tipo_orden', '=', 'inversiones')]"/>
+                <filter string="Órdenes de Mantenimiento" name="mantenimiento"
+                        domain="[('tipo_orden', '=', 'mantenimiento')]"/>
+                <separator/>
+                <filter string="Órdenes de Paralizadas" name="paralizadas" domain="[('is_paralizado', '=', True)]"/>
+                <filter string="Órdenes de Terminadas" name="terminadas" domain="[('is_terminada', '=', True)]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Tipo de Orden" name="tipo_orden" context="{'group_by':'tipo_orden'}"/>
+                    <filter string="Área" name="agrupacion_id" context="{'group_by':'agrupacion_id'}"/>
+                    <filter string="Cliente" name="cliente_id" context="{'group_by':'cliente_id'}"/>
+                    <filter string="Unidad Organizativa" name="uo" context="{'group_by':'uo_abreviatura'}"/>
+                    <filter name="provincia_id" string="Provincia" context="{'group_by': 'provincia_id'}"/>
+                    <filter string="Prioridad" name="priority" context="{'group_by':'priority'}"/>
+                    <filter string="Proceso Ejecutor" name="company_id" context="{'group_by':'company_id'}"/>
+                    <filter string="Solicitante de la Orden" name="user_id" context="{'group_by':'user_id'}"/>
+                    <separator orientation="vertical"/>
+                    <filter string="Fecha de solicitud" context="{'group_by':'fecha_solicitud_orden:month'}"
+                            name="month"/>
+                    <filter string="Año" context="{'group_by':'anio'}" name="month"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="ordenes_trabajo_form" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.trabajo.form</field>
+        <field name="model">sicpro.app.ordenes.trabajo</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <form class="o_lead_opportunity_form">
+                <header>
+                    <button name="action_solicitar_orden" string="Solicitar Orden" type="object" class="oe_highlight"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', 'not in',['borrador', 'rechazar_solicitud']),]}"/>
+
+                    <button name="action_validar_orden" string="Validar Orden" type="object" class="oe_highlight"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_validar,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', 'not in',['solicitada', 'rechazar_creacion']),]}"/>
+                    <button name="%(ordenes_rechazo_action)d" string="Rechazar Solicitud" type="action"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_validar,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', 'not in',['solicitada', 'rechazar_creacion']),]}"/>
+
+                    <button name="action_crear_orden" string="Crear Orden" type="object" class="oe_highlight"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_ejecutor,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'validada')]}"/>
+                    <button name="%(ordenes_rechazo_action)d" string="Rechazar Creación" type="action"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_ejecutor,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'validada')]}"/>
+
+                    <button name="action_sin_comenzar_orden" string="Sin Comenzar" type="object" class="oe_highlight"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|','|', ('active', '=', False), ('estado_interno', '!=', 'creada'),
+                            ('is_preparacion_tecnica', '!=', True)]}"/>
+
+                    <button name="action_en_proceso_orden" string="En Proceso" type="object" class="oe_highlight"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|','|', ('active', '=', False), ('estado_interno', '!=', 'creada'),
+                            ('is_fecha_inicial', '!=', True)]}"/>
+
+                    <button name="%(ordenes_paralizada_action)d" string="Paralizar Orden" type="action"
+                            class="oe_highlight"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('is_en_proceso', '!=', True)]}"/>
+
+                    <button name="action_reiniciar_orden" string="Reiniciar Orden" type="object"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('is_paralizado', '!=', True)]}"/>
+                    <button name="%(ordenes_canceladas_action)d" string="Cancelar Orden" type="action"
+                            class="oe_highlight"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('is_paralizado', '!=', True)]}"/>
+
+                    <button name="%(ordenes_canceladas_action)d" string="Cancelar Orden" type="action"
+                            class="oe_highlight"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('is_en_proceso', '!=', True)]}"/>
+
+                    <button name="%(ordenes_aviso_intension_action)d" string="Enviar Aviso de intensión" type="action"
+                            class="oe_highlight"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('is_en_proceso', '!=', True)]}"/>
+
+                    <button name="action_terminar_orden" string="Terminar Obra" type="object"
+                            groups="sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante,sicpro_app_ordenes_trabajo.grupo_ordenes_admin"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('is_en_proceso', '!=', True)]}"/>
+
+                    <field name="estado_id" widget="statusbar" options="{'clickable': '0', 'fold_field': 'fold'}"
+                           domain="[('company_id', '=', company_id)]" readonly="1"/>
+                </header>
+                <div class="alert alert-warning text-center" colspan="4" role="alert"
+                     attrs="{'invisible': [('estado_interno', '!=', 'borrador')]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La orden de trabajo está en estado de BORRADOR esperando a ser solicitada.</strong>
+                </div>
+                <div class="alert alert-warning text-center" colspan="4" role="alert"
+                     attrs="{'invisible': [('estado_interno', '!=', 'solicitada')]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La orden de trabajo está SOLICITADA esperando a ser validada.</strong>
+                </div>
+                <div class="alert alert-warning text-center" colspan="4" role="alert"
+                     attrs="{'invisible': [('estado_interno', '!=', 'validada')]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La orden de trabajo está VALIDADA esperando a ser CREADA.</strong>
+                </div>
+                <div class="alert alert-danger text-center" colspan="4" role="alert"
+                     attrs="{'invisible': [('estado_interno', '!=', 'rechazar_solicitud')]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La solicitud de la orden de trabajo ha sido rechazada.</strong>
+                </div>
+                <div class="alert alert-danger text-center" colspan="4" role="alert"
+                     attrs="{'invisible': [('estado_interno', '!=', 'rechazar_creacion')]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La creación de la orden de trabajo ha sido rechazada.</strong>
+                </div>
+                <div class="alert alert-info text-center" colspan="4" role="alert"
+                     attrs="{'invisible': [('estado_interno', '!=', 'pendiente_sap')]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La orden de trabajo esta pendiente a ser creada en SAP.</strong>
+                </div>
+                <div class="alert alert-success text-center" colspan="4" role="alert"
+                     attrs="{'invisible': ['|','|','|', ('estado_interno', '!=', 'creada'), ('is_en_proceso', '=', True),
+                     ('is_paralizado', '=', True), ('is_cancelado', '=', True)]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La orden de Trabajo ha sido CREADA correctamente.</strong>
+                </div>
+                <div class="alert alert-warning text-center" colspan="4" role="alert"
+                     attrs="{'invisible': [('is_paralizado', '!=', True)]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La orden de trabajo está en estado de PARALIZACIÓN esperando a ser REINICIADA.</strong>
+                </div>
+                <div class="alert alert-danger text-center" colspan="4" role="alert"
+                     attrs="{'invisible': [('is_cancelado', '!=', True)]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La orden de trabajo ha sido CANCELADA.</strong>
+                </div>
+                <div class="alert alert-success text-center" colspan="4" role="alert"
+                     attrs="{'invisible': [('is_terminada', '!=', True)]}"
+                     style="margin-bottom: 0px !important;">
+                    <strong>La orden de Trabajo ha sido TERMINADA correctamente.</strong>
+                </div>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                         <button name="action_empaty_trabajadores" type="object"
+                                 class="oe_stat_button" icon="fa-users">
+                                <field string="Trabajadores" name="trabajadores_count" widget="statinfo"/>
+                            </button>
+                        <button name="action_empaty_vehiculos" type="object"
+                                 class="oe_stat_button" icon="fa-automobile">
+                                <field string="Vehículos" name="vehiculos_count" widget="statinfo"/>
+                            </button>
+                        <button name="action_empaty_especializados" type="object"
+                                 class="oe_stat_button" icon="fa-truck">
+                                <field string="Especializados" name="equipos_especializados_count" widget="statinfo"/>
+                            </button>
+                        <button name="action_empaty_complementarios" type="object"
+                                 class="oe_stat_button" icon="fa-cogs">
+                                <field string="Complementarios" name="equipos_complementarios_count" widget="statinfo"/>
+                            </button>
+                     </div>
+                    <div name="button_box"/>
+                    <field name="readonly_admin" invisible="1"/>
+                    <field name="active" invisible="1"/>
+                    <field name="is_cancelado" invisible="1"/>
+                    <field name="is_paralizado" invisible="1"/>
+                    <field name="is_terminada" invisible="1"/>
+                    <field name="is_en_proceso" invisible="1"/>
+                    <field name="is_fecha_inicial" invisible="1"/>
+                    <field name="is_preparacion_tecnica" invisible="1"/>
+                    <field name="company_currency" invisible="1"/>
+                    <field name="estado_interno" invisible="1"/>
+                    <field name="anio" invisible="1"/>
+                    <field name="grupo_crear_orden" invisible="1"/>
+                    <field name="orden_principal" invisible="1"/>
+                    <field name="control_active_guardado" invisible="1"/>
+                    <field name="pep_corto" invisible="1"/>
+                    <field name="creada_sistema" invisible="1"/>
+                    <field name="consecutivo_unico_orden" invisible="1"/>
+                    <field name="especialidad_letra" invisible="1"/>
+                    <field name="control_autor" invisible="1"/>
+                    <field name="orden_rechazada" invisible="1"/>
+                    <field name="motivo_aviso_intension_enviada" invisible="1"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Cancelada" bg_color="bg-danger"
+                            attrs="{'invisible': [('is_cancelado', '!=', True)]}"/>
+                    <widget name="web_ribbon" title="Paralizada" bg_color="bg-warning"
+                            attrs="{'invisible': [('is_paralizado', '!=', True)]}"/>
+                    <field name="image_1920" widget="image" class="oe_avatar"
+                           options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+                    <field name="tipo_orden" widget="radio" options="{'horizontal': true}"/>
+
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Consecutivo de la Orden"/>
+                        <h1><field name="name" readonly="1"/>
+                        </h1>
+                        <h4>
+                            <field name="titulo"/>
+                        </h4>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="solicitud_selection"/>
+                            <field name="solicitud_id" string="Titulo de la Solicitud" class="oe_read_only"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="id_solicitud" string="ID de la Solicitud"/>
+                            <field name="clase_orden_proyecto"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                   attrs="{'invisible': [('company_abreviatura', '!=','PROYECTOS')],
+                                   'required': [('company_abreviatura', '=','PROYECTOS')]}"/>
+                            <field name="orden_control_autor"
+                                   attrs="{'invisible': [('control_autor', '!=',True)],
+                                   'required': [('control_autor', '=',True)]}"/>
+                            <field name="priority" widget="priority"/>
+                        </group>
+                        <group>
+                            <field name="creada_sap" widget="boolean_toggle"
+                                   attrs="{'readonly': ['|', ('creada_sap', '=', True), ('grupo_crear_orden', '!=', True)],
+                                           'invisible': [('estado_interno', 'not in', ['pendiente_sap', 'creada'])]}"/>
+                            <field name="company_abreviatura" string="Proceso"/>
+                            <field name="company_id" string="Proceso" invisible="1"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="etiquetas_ids" widget="many2many_tags"
+                                   options="{'color_field': 'color', 'no_create_edit': True}"/>
+                            <field name="barra_avance_obra" widget="progressbar"/>
+                        </group>
+                    </group>
+
+                    <group string="Detalles de la solicitud">
+                        <group>
+                            <field name="texto_breve_sap"/>
+                            <field name="pep"/>
+                            <field name="especialidad_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="agrupacion_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="especialista_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="uo_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="uo_abreviatura"/>
+                            <field name="provincia_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+
+                            <label for="proyecto_id"/>
+                            <div>
+                                <field name="proyecto_id" class="oe_inline"/>
+                                <button type="object" name="orden_asociada_proyectos_view"
+                                        class="btn-sm btn-link mb4 fa fa-eye"
+                                        aria-label="Orden de Proyectos" title="Ver Orden de Proyecto"/>
+                            </div>
+                            <field name="tarea_tecnica_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="alcance" attrs="{'required': [('company_abreviatura', '=','PROYECTOS')]}"/>
+                    </group>
+
+                    <group>
+                        <group string="Detalles importantes sobre la solicitud" class="oe_title">
+                            <field name="observaciones_solicitud" nolabel='1'
+                                   placeholder="Añadir una observación sobre la solicitud de la orden de trabajo…"/>
+                        </group>
+                        <group string="Detalles importantes sobre la creación" class="oe_title">
+                            <field name="observaciones_creacion" nolabel='1'
+                                   placeholder="Añadir una observación sobre la creación de la orden de trabajo…"/>
+                        </group>
+                    </group>
+
+                    <group string="Paralización de la Orden" attrs="{'invisible': [('is_paralizado', '!=', True)]}">
+                        <group>
+                            <field name="motivo_paralizacion" readonly="1" string="Motivo"/>
+                        </group>
+                        <group>
+                            <field name="detalles_paralizacion" readonly="1" string="Detalles"/>
+                        </group>
+                    </group>
+                    <group string="Cancelación de la Orden" attrs="{'invisible': [('is_cancelado', '!=', True)]}">
+                        <field name="motivo_cancelacion" readonly="1" string="Motivo"/>
+                    </group>
+
+                    <group>
+                        <field name="motivo_rechazo" attrs="{'invisible': [('orden_rechazada', '!=', True)]}"/>
+                    </group>
+
+                    <notebook>
+                        <page name="actualizar" string="Actualización del Estado">
+                            <group string="Detalles del Acuerdo de Servicio y Ficha de Costo">
+                                <group>
+                                    <field name="as_numero"/>
+                                </group>
+                                <group>
+                                    <field name="as_valor" widget='monetary'
+                                           attrs="{'invisible': [('company_abreviatura', 'not in',['DEOCT', 'DEOIT'])]}"/>
+                                    <field name="ficha_costo_valor" widget='monetary'
+                                           attrs="{'invisible': [('company_abreviatura', '!=','PROYECTOS')]}"/>
+                                </group>
+                            </group>
+
+                            <group string="Otros datos">
+                                <group>
+                                    <field name="programa_inversiones" string="Programa de Inv."
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="trimestre"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                                <group>
+                                    <field name="avance_obra" widget="percentage"/>
+                                </group>
+                            </group>
+
+                            <group string="Horas">
+                                <group>
+                                    <field name="horas_estimadas" widget="float_time"
+                                           attrs="{'readonly': ['|','|', ('is_paralizado', '=', True),
+                                           ('is_cancelado', '=', True), ('is_terminada', '=', True)]}"/>
+                                </group>
+                                <group>
+                                    <field name="horas_reales" widget="float_time"
+                                           attrs="{'readonly': ['|','|', ('is_paralizado', '=', True),
+                                           ('is_cancelado', '=', True), ('is_terminada', '=', True)]}"/>
+                                </group>
+                            </group>
+
+                            <group string="Detalles de la actualización de la Orden" >
+                                <field name="observaciones_actualizacion" nolabel='1'
+                                       placeholder="Añadir una observación sobre la actualización de la orden de trabajo…"/>
+                            </group>
+                        </page>
+
+                        <page name="trabajadores" string="Trabajadores en la Ejecución">
+                            <group>
+                                <div class="row">
+                                    <div class="col-lg-10 d-flex">
+                                        <field name="trabajadores_ids" mode="tree" nolabel="1"
+                                               context="{'default_orden_id': id,}">
+                                            <tree editable="bottom" sample="1">
+                                                <field name="orden_id" invisible="1"/>
+                                                <field name="company_id_orden" invisible="0"/>
+                                                <field name="fecha_inicio"/>
+                                                <field name="name" domain="[('company_id', '=', company_id_orden)]"
+                                                       options="{'no_create': True, 'no_create_edit':True}"/>
+                                                <field name="estado" class="font-weight-bold"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                <field name="detalles"/>
+                                                <field name="fecha_fin"/>
+                                                <field name="user_id"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </div>
+                            </group>
+                        </page>
+                        <page name="vehiculos_equipos" string="Vehículos y Equipos en la Ejecución">
+                            <group string="Gestión de los Vehículos">
+                                <div class="row">
+                                    <div class="col-lg-10 d-flex">
+                                        <field name="transporte_vehiculos_ids" mode="tree" nolabel="1"
+                                               context="{'default_orden_id': id,}">
+                                            <tree editable="bottom" sample="1">
+                                                <field name="orden_id" invisible="1"/>
+                                                <field name="tipo_vehiculo_id_domain" invisible="1"/>
+                                                <field name="fecha_inicio"/>
+                                                <field name="name" domain="tipo_vehiculo_id_domain"
+                                                       options="{'no_create': True, 'no_create_edit':True}"/>
+                                                <field name="vehiculo_combustible" string="Combustible"/>
+                                                <field name="vehiculo_estado_siptc" string="SIPTC-Estado"
+                                                       class="font-weight-bold"
+                                                       decoration-success="vehiculo_estado_siptc=='Activo'"
+                                                       decoration-danger="vehiculo_estado_siptc=='Paralizado'"
+                                                       widget="badge"/>
+                                                <field name="vehiculo_estaActivo" string="SIPTC-Activo" invisible="1"/>
+                                                <field name="estado" class="font-weight-bold"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                <field name="detalles"/>
+                                                <field name="fecha_fin"/>
+                                                <field name="user_id"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </div>
+                            </group>
+                            <group string="Gestión de los Equipos Especializados">
+                                <div class="row">
+                                    <div class="col-lg-10 d-flex">
+                                        <field name="transporte_especializados_ids" mode="tree" nolabel="1"
+                                               context="{'default_orden_id': id,}">
+                                            <tree editable="bottom" sample="1">
+                                                <field name="orden_id" invisible="1"/>
+                                                <field name="tipo_vehiculo_id_domain" invisible="1"/>
+                                                <field name="fecha_inicio"/>
+                                                <field name="name" domain="tipo_vehiculo_id_domain"
+                                                       options="{'no_create': True, 'no_create_edit':True}"/>
+                                                <field name="vehiculo_combustible" string="Combustible"/>
+                                                <field name="vehiculo_estado_siptc" string="SIPTC-Estado"
+                                                       class="font-weight-bold"
+                                                       decoration-success="vehiculo_estado_siptc=='Activo'"
+                                                       decoration-danger="vehiculo_estado_siptc=='Paralizado'"
+                                                       widget="badge"/>
+                                                <field name="vehiculo_estaActivo" string="SIPTC-Activo" invisible="1"/>
+                                                <field name="estado" class="font-weight-bold"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                <field name="detalles"/>
+                                                <field name="fecha_fin"/>
+                                                <field name="user_id"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </div>
+                            </group>
+                            <group string="Gestión de los Equipos Complementarios">
+                                <div class="row">
+                                    <div class="col-lg-10 d-flex">
+                                        <field name="transporte_complementarios_ids" mode="tree" nolabel="1"
+                                               context="{'default_orden_id': id,}">
+                                            <tree editable="bottom" sample="1">
+                                                <field name="orden_id" invisible="1"/>
+                                                <field name="tipo_vehiculo_id_domain" invisible="1"/>
+                                                <field name="fecha_inicio"/>
+                                                <field name="name" domain="tipo_vehiculo_id_domain"
+                                                       options="{'no_create': True, 'no_create_edit':True}"/>
+                                                <field name="vehiculo_combustible" string="Combustible"/>
+                                                <field name="vehiculo_estado_siptc" string="SIPTC-Estado"
+                                                       class="font-weight-bold"
+                                                       decoration-success="vehiculo_estado_siptc=='Activo'"
+                                                       decoration-danger="vehiculo_estado_siptc=='Paralizado'"
+                                                       widget="badge"/>
+                                                <field name="vehiculo_estaActivo" string="SIPTC-Activo" invisible="1"/>
+                                                <field name="estado" class="font-weight-bold"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                <field name="detalles"/>
+                                                <field name="fecha_fin"/>
+                                                <field name="user_id"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </div>
+                            </group>
+                        </page>
+
+                        <page name="problemas" string="Problemas en la Ejecución">
+                            <group>
+                                <div class="row">
+                                    <div class="col-lg-10 d-flex">
+                                        <field name="problemas_ids" mode="tree" nolabel="1"
+                                               context="{'default_orden_id': id,}">
+                                            <tree editable="bottom" sample="1">
+                                                <field name="orden_id" invisible="1"/>
+                                                <field name="fecha_inicio"/>
+                                                <field name="name"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                <field name="detalles_problema"/>
+                                                <field name="estado" class="font-weight-bold"/>
+                                                <field name="fecha_fin"/>
+                                                <field name="user_id"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </div>
+                            </group>
+                        </page>
+                        <page name='clientes' string="Datos del Cliente">
+                            <group>
+                                <group>
+                                    <field name="cliente_id"
+                                           options="{'no_create': True, 'no_create_edit':True}"/>
+                                    <field name="cliente_territorio_id" string="Unidad Organizativa"/>
+                                    <field name="cliente_provincia_id" string="Provincia"/>
+                                </group>
+                                <group>
+                                    <field name="cliente_cargo"/>
+                                    <field name="cliente_telefono_fijo"/>
+                                    <field name="cliente_telefono_movil"/>
+                                    <field name="cliente_correo" widget="email"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="sap" string="Datos para SAP">
+                            <group>
+                                <group>
+                                    <field name="sap_consecutivo" string="Consecutivo" widget="CopyClipboardChar"/>
+                                    <field name="sap_pep" widget="CopyClipboardChar"/>
+                                    <field name="sap_uo" string="Unidad Organizativa" widget="CopyClipboardChar"/>
+                                    <field name="sap_especialidad_id" string="Especialidad" widget="CopyClipboardChar"/>
+                                    <field name="sap_cliente_id" string="Inversionista" widget="CopyClipboardChar"/>
+                                    <field name="sap_fecha_solicitud_orden" string="Fecha de Solicitud"
+                                           widget="CopyClipboardChar"/>
+                                    <field name="sap_id_solicitud" string="Id Solicitud" widget="CopyClipboardChar"/>
+                                </group>
+                                <group>
+                                    <field name="sap_titulo" string="Titulo" widget="CopyClipboardChar"/>
+                                    <field name="sap_titulo_sap" string="Titulo SAP" widget="CopyClipboardChar"/>
+                                    <field name="sap_programa_inversiones" string="Programa de Inv."
+                                           widget="CopyClipboardChar"/>
+                                    <field name="sap_as_numero" string="Acuerdo de Servicio"
+                                           widget="CopyClipboardChar"/>
+                                    <field name="sap_as_valor" string="Valor AS" widget="CopyClipboardChar"
+                                           attrs="{'invisible': [('company_abreviatura', '=','PROYECTOS')]}"/>
+                                    <field name="sap_ficha_costo_valor" string="Valor FC" widget="CopyClipboardChar"
+                                           attrs="{'invisible': [('company_abreviatura', '!=','PROYECTOS')]}"/>
+                                    <field name="sap_fecha_inicio_cronograma" string="Inicio de Cronograma"
+                                           widget="CopyClipboardChar"/>
+                                    <field name="sap_fecha_fin_cronograma" string="Fin de Cronograma"
+                                           widget="CopyClipboardChar"/>
+                                </group>
+
+                            </group>
+                        </page>
+                        <page name="vinculo" string="Vincular Orden">
+                            <group string="Vincular orden de años anteriores">
+                                <group>
+                                    <field name="anteriores_orden_id"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                                <group>
+                                    <field name="anteriores_as_valor" string="Valor AS" widget='monetary'
+                                           attrs="{'invisible': [('company_abreviatura', 'not in',['DEOCT', 'DEOIT'])]}"/>
+                                    <field name="anteriores_FC_valor" string="Valor FC" widget='monetary'
+                                           attrs="{'invisible': [('company_abreviatura', '!=','PROYECTOS')]}"/>
+                                    <field name="anteriores_pep" string="Pep"/>
+                                </group>
+
+                            </group>
+                        </page>
+                        <page name="fechas" string="información extra">
+                            <group string="Asignación">
+                                <group>
+                                    <field name="user_id" readonly="1"/>
+                                    <field name="fecha_creacion_orden" readonly="1"/>
+                                    <field name="fecha_inicio_real"/>
+                                    <field name="mes_inicio"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_solicitud_orden" readonly="1"/>
+                                    <field name="fecha_creacion_orden_sap" readonly="1"/>
+                                    <field name="anio" invisible="1"/>
+                                    <field name="fecha_fin_real"/>
+                                    <field name="mes_fin"/>
+                                </group>
+                            </group>
+                            <group string="Cronograma">
+                                <group>
+                                    <field name="fecha_inicio_cronograma"
+                                           attrs="{'readonly': ['|','|','|', ('is_en_proceso', '=', True),
+                                           ('is_paralizado', '=', True), ('is_cancelado', '=', True),
+                                           ('is_terminada', '=', True)]}"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_fin_cronograma"
+                                           attrs="{'readonly': ['|','|','|', ('is_en_proceso', '=', True),
+                                           ('is_paralizado', '=', True), ('is_cancelado', '=', True),
+                                           ('is_terminada', '=', True)]}"/>
+                                </group>
+                                <group>
+                                    <field name="motivo_aviso_intension" readonly="1"
+                                           attrs="{'invisible': [('motivo_aviso_intension_enviada', '!=', True),]}"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_fin_cronograma_original" readonly="1"
+                                           attrs="{'invisible': [('motivo_aviso_intension_enviada', '!=', True),]}"/>
+                                </group>
+                            </group>
+                            <group string="Análisis">
+                                <group>
+                                    <field name="dias_instalacion"/>
+                                    <field name="fecha_termino_orden" string="Fecha Terminada" readonly="1"/>
+                                    <field name="fecha_cancelacion_orden" string="Fecha Cancelada" readonly="1"/>
+                                    <field name="fecha_rechazada" string="Fecha Rechazada" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_paralizacion" string="Fecha Paralizada" readonly="1"/>
+                                    <field name="dias_paralizacion"/>
+                                    <field name="fecha_reinicio_paralizacion" readonly="1"/>
+                                    <field name="fecha_emision_proyecto" string="Emisión de Proyecto"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'open_attachments': True}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="ordenes_trabajo_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.trabajo.tree</field>
+        <field name="model">sicpro.app.ordenes.trabajo</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <tree string="Orden" decoration-bf="1" decoration-danger="is_cancelado == True"
+                  decoration-warning="estado_interno in ['rechazar_solicitud', 'rechazar_creacion'] or is_paralizado == True"
+                  decoration-success="is_en_proceso == True">
+                <field name="estado_interno"/>
+                <field name="estado_id"/>
+                <field name="tipo_orden"/>
+                <field name="name" string="Consecutivo"/>
+                <field name="pep"/>
+                <field name="titulo"/>
+                <field name="cliente_id"/>
+                <field name="priority" widget="priority"/>
+                <field name="fecha_solicitud_orden"/>
+                <field name="company_abreviatura"/>
+                <field name="anio" invisible="1"/>
+                <field name="estado_interno" invisible="1"/>
+                <field name="is_en_proceso" invisible="1"/>
+                <field name="is_cancelado" invisible="1"/>
+                <field name="is_paralizado" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ordenes_trabajo_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.trabajo.kanban</field>
+        <field name="model">sicpro.app.ordenes.trabajo</field>
+        <field name="priority" eval="50"/>
+        <field name="arch" type="xml">
+            <kanban default_group_by="estado_id" group_create="false" group_delete="false" group_edit="false"
+                    class="o_kanban_small_column o_kanban_project_tasks"
+                    archivable="false">
+                <field name="id"/>
+                <field name="estado_id" readonly="True"/><field name="name"/>
+                <field name="cliente_id"/>
+                <field name="priority"/>
+                <field name="etiquetas_ids"/>
+                <field name="user_id"/>
+                <field name="message_needaction_counter"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <field name="as_valor"/>
+                <field name="ficha_costo_valor"/>
+                <field name="etiquetas_ids"/>
+                <field name="sap_titulo_sap"/>
+                <progressbar field="estado_interno"
+                             colors='{"creada": "success", "terminada": "success", "rechazar_creacion": "danger",
+                             "rechazar_solicitud": "danger", "solicitada": "warning", "validada": "warning",
+                             "pendiente_sap": "info"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                                <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                <ul>
+                                    <li><field name="sap_titulo_sap"/></li>
+                                    <li class="font-weight-bold"><field name="especialidad_id"/></li>
+                                    <li t-if="record.etiquetas_ids.raw_value">
+                                        <field name="etiquetas_ids" widget="many2many_tags"
+                                               options="{'color_field': 'color'}"/>
+                                    </li>
+                                </ul>
+                                <div class="oe_kanban_partner_links"/>
+                                <div class="oe_kanban_footer">
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <field name="as_numero"/>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field name="priority" widget="priority"/>
+                                            <field name="activity_ids" widget="kanban_activity"/>
+                                            <field name="user_id" widget="many2one_avatar_user"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ordenes_trabajo_activity" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.trabajo.activity</field>
+        <field name="model">sicpro.app.ordenes.trabajo</field>
+        <field name="arch" type="xml">
+            <activity string="Ordene de Trabajo">
+                <field name="cliente_id"/>
+                <!--  <field name="company_currency"/> -->
+                <templates>
+                    <div t-name="activity-box">
+                        <img t-att-src="activity_image('sicpro.app.clientes', 'image_128', record.cliente_id.partner_id.raw_value)"
+                             t-att-title="record.cliente_id.partner_id.value"
+                             t-att-alt="record.cliente_id.partner_id.value"/>
+                        <div>
+                            <field name="name" display="full"/>
+                            <!-- <field name="planned_revenue" widget="monetary" display="full" muted="1"/> -->
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="ordenes_trabajo_action">
+        <field name="name">Órdenes de Trabajo</field>
+        <field name="res_model">sicpro.app.ordenes.trabajo</field>
+        <field name="view_mode">tree,kanban,form,activity</field>
+        <field name="view_id" ref="ordenes_trabajo_form"/>
+        <field name="search_view_id" ref="ordenes_trabajo_search"/>
+        <field name="context">{'search_default_anio': (context_today().strftime('%Y'))}
+        </field>
+    </record>
+
+    <record id="ordenes_trabajo_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="ordenes_trabajo_tree"/>
+        <field name="act_window_id" ref="ordenes_trabajo_action"/>
+    </record>
+
+    <record id="ordenes_trabajo_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="ordenes_trabajo_kanban"/>
+        <field name="act_window_id" ref="ordenes_trabajo_action"/>
+    </record>
+
+
+</odoo>

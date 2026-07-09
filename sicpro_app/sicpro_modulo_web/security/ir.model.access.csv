@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+modulo_web_url_system,Url introductorio system,model_sicpro_modulo_web_about,base.group_system,1,1,1,1
+modulo_web_url_web,Url introductorio web,model_sicpro_modulo_web_about,,1,0,0,0
+modulo_web_galeria_etiquetas_system,Galería Etiquetas,model_sicpro_modulo_web_galeria_etiquetas,base.group_system,1,1,1,1
+modulo_web_galeria_system,Galería System,model_sicpro_modulo_web_galeria,base.group_system,1,1,1,1
+modulo_web_galeria_web,Galería Web,model_sicpro_modulo_web_galeria,,1,0,0,0
+modulo_web_equipo_system,Equipo System,model_sicpro_modulo_web_equipo,base.group_system,1,1,1,1
+modulo_web_equipo_web,Equipo Web,model_sicpro_modulo_web_equipo,,1,0,0,0
+modulo_web_version_system,Version System,model_sicpro_modulo_web_version,base.group_system,1,1,1,1
+modulo_web_manuales_system,Manuales System,model_sicpro_modulo_web_manuales,base.group_system,1,1,1,1
+modulo_web_manuales_web,Manuales Web,model_sicpro_modulo_web_manuales,,1,0,0,0

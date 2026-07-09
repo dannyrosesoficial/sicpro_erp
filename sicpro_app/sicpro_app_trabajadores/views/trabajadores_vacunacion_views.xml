@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_trabajadores_vacunacion_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.vacunacion.tree</field>
+            <field name="model">sicpro.app.trabajadores.vacunacion</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Vacunación del Trabajador">
+                    <field name="name"/>
+                    <field name="plaza_id"/>
+                    <field name="tipo_vacuna"/>
+                    <field name="fecha"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="trabajadores_vacunacion_view_action" model="ir.actions.act_window">
+            <field name="name">Registro de Vacunación</field>
+            <field name="res_model">sicpro.app.trabajadores.vacunacion</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+    </data>
+</odoo>

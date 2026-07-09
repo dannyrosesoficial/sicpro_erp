@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="control_informacion_etiquetas_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.control.informacion.etiquetas.tree</field>
+        <field name="model">sicpro.app.control.informacion.etiquetas</field>
+        <field name="arch" type="xml">
+            <tree string="Etiquetas" editable="bottom">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="control_informacion_etiquetas_action" model="ir.actions.act_window">
+        <field name="name">Etiquetas</field>
+        <field name="res_model">sicpro.app.control.informacion.etiquetas</field>
+        <field name="view_id" ref="control_informacion_etiquetas_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear etiquetas para el control de información
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id='transporte_distancias_view_tree' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.distancia.salida.tree</field>
+        <field name="model">sicpro.app.transporte.distancia.salida</field>
+        <field name="arch" type="xml">
+            <tree string="Distancias" editable="bottom">
+                <field name="name"/>
+                <field name="destino"/>
+                <field name="recorrido"/>
+                <field name="km"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='transporte_distancia_action' model='ir.actions.act_window'>
+        <field name="name">Tabla de Distancias</field>
+        <field name="res_model">sicpro.app.transporte.distancia.salida</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo registro de distancia para los vehículos
+            </p>
+        </field>
+    </record>
+
+    <record id='transporte_distancias_lugar_view_tree' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.distancia.lugar.tree</field>
+        <field name="model">sicpro.app.transporte.distancia</field>
+        <field name="arch" type="xml">
+            <tree string="Lugar" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='transporte_distancia_lugar_action' model='ir.actions.act_window'>
+        <field name="name">Nomenclador de Lugares</field>
+        <field name="res_model">sicpro.app.transporte.distancia</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo lugar
+            </p>
+        </field>
+    </record>
+
+</odoo>

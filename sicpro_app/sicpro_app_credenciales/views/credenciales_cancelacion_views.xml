@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+         <record id="view_credenciales_cancelacon_tree" model="ir.ui.view">
+             <field name="name">sicpro.app.credenciales.siglas.tree</field>
+             <field name="model">sicpro.app.credenciales.cancelacion</field>
+             <field eval="8" name="priority"/>
+             <field name="arch" type="xml">
+                 <tree string="Motivos de Cancelación" editable="bottom">
+                     <field name="name"/>
+                     <field name="color" widget="color_picker"/>
+                 </tree>
+             </field>
+         </record>
+
+         <record id="credenciales_cancelacion_action" model="ir.actions.act_window">
+             <field name="name">Motivos de Cancelación</field>
+             <field name="res_model">sicpro.app.credenciales.cancelacion</field>
+             <field name="view_mode">tree,form</field>
+         </record>
+
+     </data>
+ </odoo>

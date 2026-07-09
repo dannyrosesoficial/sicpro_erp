@@ -1,0 +1,34 @@
+<t>
+    <t t-set="set_master_pwd" t-value="set_master_pwd or False" />
+    <t t-set="input_class" t-value="'form-control'" />
+
+    <t t-if="insecure">
+        <t t-if="set_master_pwd">
+            <input class="form-control" name="master_pwd" type="hidden" value="admin"/>
+        </t>
+        <t t-else="">
+            <div class="alert alert-warning">
+                <p>Advertencia, su administrador de base de datos de SICPRO ERP no está protegido. Para protegerlo, hemos generado la siguiente contraseña maestra para él:</p>
+                <p style="text-align: center;"><strong class="generated_master_pwd"></strong></p>
+                <p>Puede cambiarlo a continuación, pero asegúrese de recordarlo, se le pedirá para futuras operaciones en bases de datos.</p>
+            </div>
+            <t t-set="input_class" t-value="'form-control generated_master_pwd_input'" />
+        </t>
+    </t>
+    <t t-if="not insecure or not set_master_pwd">
+        <div class="form-group row">
+            <label class="col-md-4 col-form-label" for="master_pwd">Contraseña M.</label>
+            <div class="col-md-8 input-group">
+                <input autocomplete="current-password"
+                    autofocus="autofocus"
+                    name="master_pwd"
+                    required="required"
+                    t-att-class="input_class"
+                    type="password" />
+                <div class="input-group-append">
+                    <span aria-hidden="true" class="fa fa-eye o_little_eye input-group-text" style="cursor: pointer;"></span>
+                </div>
+            </div>
+        </div>
+    </t>
+</t>

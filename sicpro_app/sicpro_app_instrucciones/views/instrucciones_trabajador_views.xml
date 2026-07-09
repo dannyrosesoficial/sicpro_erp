@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="instrucciones_trabajadores_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.trabajador.form</field>
+        <field name="model">sicpro.app.instrucciones.trabajador</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <form string="Instrucción" create="false">
+                <header>
+                    <field name="estado_ids" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <field name="readonly_admin" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <span class="text-danger font-weight-bold" attrs="{'invisible':[('response_id','!=',False)]}">
+                            <i class="fa fa-warning"/>
+                            POR FAVOR ANTES DE INTRODUCIR SU NOMBRE LEA EL MODO DE USO DE LA APLICACIÓN EN LA
+                            PESTAÑA INFERIOR.
+                        </span>
+                     <button name="action_iniciar_encuesta" class="oe_stat_button" icon="fa-user" type="object"
+                             context="{'survey_id': encuesta_id}"
+                             attrs="{'invisible':['|', ('response_id','!=',False), ('acepto_acuerdo_instrucion','!=',True)]}">
+                         <div class="o_field_widget o_stat_info">
+                             <span class="o_stat_text">Iniciar</span>
+                             <span class="o_stat_text">Cuestionario</span>
+                         </div>
+                     </button>
+                </div>
+                    <widget name="web_ribbon" title="Aprobado" bg_color="bg-success"
+                            attrs="{'invisible': ['|', ('encuesta_calificacion', '=', 0), ('encuesta_aprobado', '=', False)]}"/>
+                    <widget name="web_ribbon" title="Suspenso" bg_color="bg-danger"
+                            attrs="{'invisible': ['|', ('encuesta_calificacion', '=', 0), ('encuesta_aprobado', '=', True)]}"/>
+
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                   <group>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" string="Nombre" placeholder="Seleccionar Nombre del Trabajador"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/></h1>
+                    </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="instrucciones_id"
+                                   groups="sicpro_app_instrucciones.grupo_app_instruciones_responsable"/>
+                            <field name="encuesta_aprobado" invisible="1"/>
+                            <field name="company_id_instruccion"/>
+                            <field name="area_id_instruccion" widget="many2many_tags" placeholder="Seleccione las Áreas"
+                                           options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="attachment_ids" string="Documentación" widget="many2many_binary"
+                                   class="o_Attachment_image"/>
+                            <field name="active" invisible="1"/>
+                            <field name="color" invisible="1"/>
+                            <field name="encuesta_id" invisible="0"/>
+                        </group>
+                        <group>
+                            <field name="fecha_creacion"/>
+                            <field name="user_id"/>
+                            <field name="company_id"/>
+                            <field name="encuesta_calificacion"
+                                   groups="sicpro_app_instrucciones.grupo_app_instruciones_responsable"/>
+                            <field name="response_id" invisible="1"
+                                   groups="sicpro_app_instrucciones.grupo_app_instruciones_responsable"/>
+                            <field name="response_id_final"
+                                   groups="sicpro_app_instrucciones.grupo_app_instruciones_responsable"/>
+                        </group>
+                    </group>
+                    <group>
+                        <div>
+                            <span class="font-weight-bold">
+                                <div class="text-info col-lg-6">
+                                    Es obligatorio la visualización y estudio de toda la documentación que le es
+                                    proporcionada por el instructor, en caso de tener dudas acerca de la instrucción
+                                    no realize la prueba y contacte al instructor correspondiente.
+                                </div>
+                                <div class="text-danger col-lg-12">
+                                    <field name="acepto_acuerdo_instrucion" nolabel="1" widget="boolean_toggle"/>
+                                    Acepto los términos y condiciones para realizar la instrucción periódica.
+                                </div>
+                            </span>
+                        </div>
+                    </group>
+                    <notebook>
+                        <page string="MODO DE USO">
+                            <div>
+                                <span class="text-danger font-weight-bold">
+                                    <STRONG>
+                                        Para usar la aplicación, primero debe seleccionar su nombre en el campo
+                                        Trabajador, posteriormente guardar el registro dando clic al botón Guardar,
+                                        ejecute la documentación de estudio digital. Al concluir ejecutar el botón
+                                        superior Iniciar Cuestionario. Después de concluir el cuestionario solo debe
+                                        dar finalizar y habrá culminado la actividad de Instrucción. Gracias!!!
+                                    </STRONG>
+                                </span>
+                            </div>
+                            </page>
+                            <page string="Descripción de la Instrucción">
+                                <div>
+                                    <label for="descripcion"/>
+                                    <field name="descripcion"/>
+                                </div>
+                            </page>
+                            <page string="Detalles del Trabajador">
+                                <group>
+                                    <group>
+                                        <field name="plaza_id"/>
+                                        <field name="clase_contrato"/>
+                                        <field name="categoria_ocupacional" string="Categoría O."/>
+                                        <field name="parent_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="ocupacion_titulo"/>
+                                        <field name="area_id"/>
+                                        <field name="company_id_trabajador" string="Proceso"/>
+                                        <field name="inicio_contrato"/>
+                                        <field name="fecha_incorporacion" string="Incorporación"/>
+                                        </group>
+                                </group>
+                            </page>
+                        </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': False}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="instrucciones_trabajadores_view_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.trabajador.kanban</field>
+        <field name="model">sicpro.app.instrucciones.trabajador</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="estado_ids" group_create="false" group_delete="false" group_edit="false">
+                <field name="estado_ids"/>
+                <field name="name"/>
+                <field name="color"/>
+                <field name="plaza_id"/>
+                <field name="clase_contrato"/>
+                <field name="categoria_ocupacional"/>
+                <field name="company_id_trabajador"/>
+                <field name="ocupacion_titulo"/>
+                <field name="fecha_creacion"/>
+                <field name="activity_ids" />
+                <field name="activity_state" />
+                <field name="encuesta_id"/>
+                <field name="encuesta_calificacion"/>
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-tooltip">
+                        <ul class="oe_kanban_tooltip">
+                            <li t-if="record.clase_contrato.raw_value"><b>Clase de Contrato:</b>
+                                <t t-esc="record.clase_contrato.value"/></li>
+                            <li t-if="record.categoria_ocupacional.raw_value"><b>Categoría Ocupacional:</b>
+                                <t t-esc="record.categoria_ocupacional.value"/></li>
+                            <li t-if="record.company_id_trabajador.raw_value"><b>Proceso:</b>
+                                <t t-esc="record.company_id_trabajador.value"/></li>
+                        </ul>
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_content" tooltip="kanban-tooltip">
+                                <div class="o_kanban_record_top">
+                                    <b class="o_kanban_record_title">
+                                        <span class="font-weight-bold">
+                                               <field name="name"/>
+                                           </span>
+                                        <small>
+                                        <span t-if="record.plaza_id.raw_value"> (<field name="plaza_id"/>)</span>
+                                        </small></b>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div t-if="record.ocupacion_titulo.raw_value">Ocupación: <field name="ocupacion_titulo"/></div>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div t-if="record.area_id.raw_value">
+                                        <span class="font-weight-bold">
+                                        <field name="area_id"/></span></div>
+
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div t-if="record.encuesta_calificacion.raw_value">
+                                        <span class="font-weight-bold text-info">Calificación:
+                                        <field name="encuesta_calificacion"/> (%)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <div class="badge badge-secondary"
+                                             t-if="record.parent_id.raw_value">Jefe:
+                                            <field name="parent_id"/>
+                                        </div>
+                                    </div>
+                                    <field name="estado_ids" invisible="1"/>
+                                    <div class="oe_kanban_bottom_right">
+                                        <div class="o_kanban_inline_block" t-if="!selection_mode">
+                                            <field name="activity_ids" widget="kanban_activity" />
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                        <field name="user_id" widget="many2one_avatar_user"/>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_clear"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="instrucciones_trabajadores_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.trabajador.tree</field>
+        <field name="model">sicpro.app.instrucciones.trabajador</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <tree string="Instrucción" decoration-info="estado_ids == 'aprobado'"
+                  decoration-danger="estado_ids == 'suspenso'"  create="false" edit="false" delete="false">
+                <field name="name"/>
+                <field name="active" invisible="1"/>
+                <field name="plaza_id"/>
+                <field name="ocupacion_titulo"/>
+                <field name="area_id"/>
+                <field name="company_id_trabajador"/>
+                <field name="fecha_creacion"/>
+                <field name="estado_ids"/>
+                <field name="encuesta_id" invisible="1"/>
+                <field name="response_id" invisible="1"/>
+                <field name="response_id_final" invisible="1"/>
+                <field name="activity_exception_decoration" widget="activity_exception"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="instrucciones_trabajadores_view_search" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.trabajador.search</field>
+        <field name="model">sicpro.app.instrucciones.trabajador</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field string="Trabajador" name="name"/>
+                <field name="categoria_ocupacional"/>
+                <field name="clase_contrato"/>
+                <field name="plaza_id"/>
+                <separator/>
+                <filter string="Aprobados" name="aprobados" domain="[('estado_ids','=','aprobado')]"/>
+                <filter string="Suspensos" name="suspensos" domain="[('estado_ids','=','suspenso')]"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <group  expand='0' string='Group by...'>
+                    <filter string='Estado' name="estado_ids" domain="[]" context="{'group_by': 'estado_ids'}"/>
+                    <filter string='Instrucción' name="instruccion" domain="[]" context="{'group_by': 'instrucciones_id'}"/>
+                    <filter string='Trabajador' name="trabajador" domain="[]" context="{'group_by': 'name'}"/>
+                    <filter string='Categoría Ocupacional' name="ocupacion_titulo" domain="[]" context="{'group_by': 'ocupacion_titulo'}"/>
+                    <filter string='Área' name="area_id" domain="[]" context="{'group_by': 'area_id'}"/>
+                    <filter string='Proceso' name="company_id_trabajador" domain="[]" context="{'group_by': 'company_id_trabajador'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="instrucciones_trabajadores_view_graph" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.trabajador.graph</field>
+        <field name="model">sicpro.app.instrucciones.trabajador</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <graph string="Instrucciones">
+                <field name="instrucciones_id" type="row"/>
+                <field name="estado_ids" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="instrucciones_trabajadores_view_pivot" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.trabajador.pivot</field>
+        <field name="model">sicpro.app.instrucciones.trabajador</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <pivot string="Instrucciones">
+                <field name="instrucciones_id" type="row"/>
+                <field name="estado_ids" type="row"/>
+                <field name="name" type="row"/>
+                <field name="encuesta_calificacion" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="instrucciones_trabajadores_action" model="ir.actions.act_window">
+        <field name="name">Instrucciones al Trabajador</field>
+        <field name="res_model">sicpro.app.instrucciones.trabajador</field>
+        <field name="view_mode">kanban,tree,form,pivot,graph</field>
+         <field name="context">{'default_instrucciones_id': active_id,}</field>
+        <field name="domain">[('instrucciones_id', '=', active_id),]</field>
+        <field name="view_id" ref="instrucciones_trabajadores_view_kanban"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar nuevo Trabajador
+            </p>
+        </field>
+    </record>
+
+    <!-- Acción para ver informes de trabajadores -->
+    <record id="instrucciones_trabajadores_action_reports" model="ir.actions.act_window">
+        <field name="name">Reportes de Instrucciones</field>
+        <field name="res_model">sicpro.app.instrucciones.trabajador</field>
+        <field name="view_mode">pivot,graph</field>
+    </record>
+
+    <!-- Acción para crear instrucción individual al trabajador -->
+    <record id="instrucciones_trabajadores_action_crear" model="ir.actions.act_window">
+        <field name="name">Instrucciones al Trabajador</field>
+        <field name="res_model">sicpro.app.instrucciones.trabajador</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="instrucciones_trabajadores_view_form"/>
+    </record>
+
+    <!-- Acción y vista tree para la vista de tarjeta de control -->
+    <record id="instrucciones_trabajadores_view_tree_control" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.trabajador.tree</field>
+        <field name="model">sicpro.app.instrucciones.trabajador</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <tree string="Instrucción" create="false" edit="false" delete="false">
+                <field name="active" invisible="1"/>
+                <field name="desde"/>
+                <field name="hasta"/>
+                <field name="abreviatura_IG"/>
+                <field name="abreviatura_IE"/>
+                <field name="abreviatura_P"/>
+                <field name="abreviatura_ET"/>
+                <field name="abreviatura_OP"/>
+                <field name="abreviatura_EM"/>
+                <field name="abreviatura_EP"/>
+                <field name="abreviatura_TC"/>
+                <field name="name"/>
+                <field name="ocupacion_titulo"/>
+                <field name="company_id_trabajador"/>
+                <field name="encuesta_calificacion"/>
+                <field name="tipo" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="instrucciones_trabajadores_action_control" model="ir.actions.act_window">
+        <field name="name">Tarjeta de Control</field>
+        <field name="res_model">sicpro.app.instrucciones.trabajador</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="instrucciones_trabajadores_view_tree_control"/>
+    </record>
+
+</odoo>

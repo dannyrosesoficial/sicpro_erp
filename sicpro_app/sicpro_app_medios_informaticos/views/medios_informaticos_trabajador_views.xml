@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sicpro_app_medios_informaticos_trabajadores" model="ir.ui.view">
+        <field name="name">sicpro.app.trabajadores.medios.informatica.form</field>
+        <field name="model">sicpro.app.trabajadores</field>
+        <field name="inherit_id" ref="sicpro_app_trabajadores.view_trabajadores_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="medios_trabajador_view" type="object" class="o_stat_button" icon="fa-desktop">
+                    <field string='Informática' name="medios_informaticos_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

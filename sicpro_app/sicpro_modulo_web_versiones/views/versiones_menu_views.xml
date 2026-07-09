@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="modulo_web_version_menu" name="Registro de Versiones" action="view_web_registro_version_action"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="11"/>
+
+    </data>
+</odoo>

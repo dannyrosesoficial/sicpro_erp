@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="formato_papel_horizontal_instrucciones" model="report.paperformat">
+        <field name="name">Papel Horizontal Instrucciones</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+    </record>
+
+    <record id="informe_modelo_instrucciones_action" model="ir.actions.report">
+        <field name="name">Modelo de Instrucciones Periódicas</field>
+        <field name="model">sicpro.app.instrucciones.instruccion</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="paperformat_id" ref="formato_papel_horizontal_instrucciones"/>
+        <field name="report_name">sicpro_app_instrucciones.informe_modelo_instruccion</field>
+        <field name="report_file">sicpro_app_instrucciones.informe_modelo_instruccion</field>
+        <field name="print_report_name">'Modelo de Instrucciones Periódicas'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_instrucciones_instruccion"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="informe_modelo_instruccion">
+
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;"
+                             alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección de los datos -->
+
+            <t t-foreach="docs" t-as="inf">
+                <t t-set="instruccion_id" t-value="inf.id"/>
+                <t t-set="areas_ids" t-value="inf.buscar_areas_trabajadores(instruccion_id)"/>
+                <t t-foreach="areas_ids" t-as="area">
+                    <div t-attf-class="article">
+                        <!-- sección del page -->
+                        <table cellspacing="0" border="0">
+                            <colgroup width="27"></colgroup> <colgroup width="227"></colgroup> <colgroup
+                                width="216"></colgroup> <colgroup width="189"></colgroup> <colgroup
+                                width="68"></colgroup>
+                            <colgroup width="205"></colgroup> <colgroup width="234"></colgroup> <colgroup
+                                width="93" span="2"></colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="9" height="29" align="left"><i><font size="4" face="Arial Black">
+                                        REGISTRO
+                                        DE INSTRUCCIÓN DE SEGURIDAD Y SALUD EN EL TRABAJO</font></i></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="9" height="24" align="center"><b><i><font size="3" face="Arial Black">
+                                        DIVISIÓN
+                                        DE PROYECTOS Y EJECUCIÓN DE OBRAS</font></i></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="9" valign="middle" height="18" align="center"><br></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" valign="middle" height="22" align="left"><b><font size="3"
+                                                                                                      face="Times New Roman">
+                                        (1) Tipo de Instrucción: </font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" align="left"><font size="3" face="Times New Roman"><span
+                                            t-field="inf.tipo"/></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="5" align="left"><b><font size="3" face="Times New Roman">
+                                        Certifico:</font></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" height="23" align="left"><b><font size="3" face="Times New Roman">
+                                        Dirección
+                                        Central o División territorial: DVPE</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="5" align="left"><b>Jefe de Dpto de Capital Humano</b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" height="23" align="left"><b><font size="3" face="Times New Roman">
+                                        Fecha:</font></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" sdval="6570110" sdnum="9226;0;DD/MM/AAAA" valign="middle"
+                                        align="left"><font size="3" face="Times New Roman"><span
+                                            t-field="inf.fecha_fin"/></font></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="5" valign="middle" align="center"><b><font size="3"
+                                                                                            face="Times New Roman"><br></br>
+                                    </font></b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="9" height="21" align="center"><br></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        rowspan="2" valign="middle" height="39" align="center"><b>No</b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        rowspan="2" valign="middle" align="center"><b>(2) Nombres y
+                                        Apellidos</b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        rowspan="2" valign="middle" align="center"><b>Cargo del trabajador</b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        rowspan="2" valign="middle" align="center"><b>(3) U.O</b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        rowspan="2" valign="middle" align="center"><b>(4) Eval.</b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        rowspan="2" valign="middle" align="center"><b>Nombre del instructor</b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        rowspan="2" valign="middle" align="center"><b>Cargo del Instructor</b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" align="center"><b>Firmas</b></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center"><b>Instruido</b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center"><b>Instructor</b></td>
+                                </tr>
+                                <t t-set="count_participantes" t-value="1"/>
+                                <t t-foreach="inf.request_ids" t-as="participantes">
+                                    <t t-if="area == participantes.area_id.name">
+                                        <tr>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                                sdval="1" sdnum="9226;" height="27" align="center"><span
+                                                    t-out="count_participantes"/></td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                                align="left"><span t-field="participantes.name"/></td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                                align="left"><span t-field="participantes.ocupacion_titulo"/></td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                                align="left"><span t-field="participantes.area_id"/></td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                                align="center"><b><span
+                                                    t-field="participantes.encuesta_calificacion"/></b></td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                                align="left"><span t-field="inf.user_id"/></td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                                align="left"><span t-field="inf.user_id.ocupacion_id"/></td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                                align="left"><br></br>
+                                            </td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                                align="left"><br></br>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-set="count_participantes" t-value="count_participantes + 1"/>
+                                </t>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="5" rowspan="9" valign="top" height="177" align="left">(5)
+                                        Materiales didácticos utilizados: </td>
+                                    <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" valign="middle" align="left">Leyenda: </td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" valign="middle" align="left">(1) Nombre de la
+                                        instrucción Impartida.</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" valign="middle" align="left">(2) Trabajador que recibe
+                                        la instrucción.</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" valign="middle" align="left">(3)
+                                        CTLC,Departamento,Unidad, Área a la que pertenece el trabajador. </td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" valign="middle" align="left">(4) Nota final de la
+                                        evaluación oral o escrita.</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" valign="middle" align="left">(5)
+                                        Legislaciones,Resoluciones,normas,etc.</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" rowspan="3" valign="middle" align="center"><br></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                <tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <t t-call="web.address_layout"/>
+                    </div>
+                </t>
+                </t>
+
+
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+                <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+                    Cuba.</span>
+                <div style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+                            <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+                        <br/>
+                        <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+                            Justicia de la República de Cuba.
+                            Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+                    <div t-if="report_type == 'pdf'" class="text-center text-muted">
+                        Página: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

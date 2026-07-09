@@ -1,0 +1,19 @@
+
+.o_AttachmentCard{
+    .o_AttachmentCard_details{
+        .o_AttachmentCard_description{
+            width: 180px;
+            max-height: 40px;
+            min-height: 20px;
+            font-weight: bold;
+        }
+    }
+    .o_AttachmentCard_asideItemComment {
+        cursor: pointer;
+
+        &:hover {
+            background-color: gray('400');
+
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <!--Creo la categoría de Simulación del usuario -->
+        <record id="module_category_simulacion_usuario" model="ir.module.category">
+            <field name="name">Simular Usuario</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_administracion_general"/>
+            <field name="sequence" >5</field>
+        </record>
+
+        <record id="group_user_simulation" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="module_category_simulacion_usuario"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

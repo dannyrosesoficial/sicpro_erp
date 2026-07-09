@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="metrologia_magnitudes_view_tree" model="ir.ui.view">
+        <field name="name">metrologia.magnitudes.tree</field>
+        <field name="model">sicpro.app.metrologia.magnitud</field>
+        <field name="arch" type="xml">
+            <tree string="Magnitudes" editable="bottom">
+                <field name="name"/>
+                <field name="magnitud_corta"/>
+                <field name="active" invisible="1"/>
+                <field name="vigencia"/>
+                <field name="dias"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="metrologia_magnitudes_view_search" model="ir.ui.view">
+        <field name="name">metrologia.magnitudes.search</field>
+        <field name="model">sicpro.app.metrologia.magnitud</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field string="Magnitud" name="name"/>
+                <filter string="Archivado" domain="[('active', '=', False)]" name="active"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="metrologia_magnitudes_action" model="ir.actions.act_window">
+        <field name="name">Magnitudes</field>
+        <field name="res_model">sicpro.app.metrologia.magnitud</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="metrologia_magnitudes_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar magnitudes para el control de los equipos
+            </p>
+        </field>
+    </record>
+</odoo>

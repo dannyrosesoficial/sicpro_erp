@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="ordenes_programa_inversiones_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.programa.inversiones.tree</field>
+        <field name="model">sicpro.app.ordenes.programa.inversiones</field>
+        <field name="arch" type="xml">
+            <tree string="Programa" editable="bottom">
+                <field name="consecutivo"/>
+                <field name="plan"/>
+                 <field name="name"/>
+                 <field name="company_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ordenes_programa_inversiones_action" model="ir.actions.act_window">
+        <field name="name">Programa de inversiones</field>
+        <field name="res_model">sicpro.app.ordenes.programa.inversiones</field>
+        <field name="view_id" ref="ordenes_programa_inversiones_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear programa de inversiones
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sicpro_app_administracion_action" model="ir.actions.act_window">
+        <field name="name">Administración</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.administracion</field>
+        <field name="view_mode">kanban</field>
+    </record>
+
+</odoo>

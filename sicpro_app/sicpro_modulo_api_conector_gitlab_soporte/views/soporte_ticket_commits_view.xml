@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="ticket_commit_view_search" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.commit.search.inherit</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="inherit_id" ref="sicpro_app_soporte.ticket_view_search"/>
+        <field name="arch" type="xml">
+            <separator/>
+            <field name="aplicaciones" position="after">
+                <field name="commit" filter_domain="['|', ('commit', 'ilike', self), ('commit_mensaje', 'ilike', self)]"/>
+                <field name="branch_nombre"/>
+                <field name="commit_id_corto"/>
+                <field name="commit_creado"/>
+                <field name="commit_autor"/>
+            </field>
+            <filter name='group_version' position="after">
+                <separator/>
+                <filter string="Branch" name="branch_nombre" context="{'group_by':'branch_nombre'}"/>
+                    <filter string="Autor" name="commit_autor" context="{'group_by':'commit_autor'}"/>
+                    <separator orientation="vertical"/>
+                    <filter string="Fecha de creación" context="{'group_by':'commit_creado:month'}"
+                            name="commit_creado"/>
+                <separator/>
+            </filter>
+            <separator/>
+        </field>
+    </record>
+
+    <record id="ticket_commits_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.commits.tree</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="inherit_id" ref="sicpro_app_soporte.ticket_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="commit" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ticket_commits_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.commits.form</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="inherit_id" ref="sicpro_app_soporte.ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="conector_api_cron_sicpro_api_gitlab" class="btn btn-success btn-outline-dark"
+                        string="Actualizar Commits" attrs="{'invisible': [('closed', '=', True)]}"
+                        type="object" icon="fa-gitlab" groups="sicpro_app_soporte.group_soporte_ejecutor"/>
+            </xpath>
+            <xpath expr="//field[@name='version_id']" position="after">
+                <field name="team_id_commits" invisible="1"/>
+                <field name="commit" attrs="{'invisible': [('team_id_commits', '=', True)]}"
+                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='tareas']" position="after">
+                <page name="commit" string="Registro de Commits"
+                      attrs="{'invisible': ['|', ('team_id_commits', '=', True), ('commit', '=', False)]}">
+                    <group>
+                        <group>
+                            <field name="branch_nombre"/>
+                            <field name="commit_autor"/>
+                            <field name="commit_creado"/>
+                        </group>
+                        <group>
+                            <field name="commit_id_largo"/>
+                            <field name="commit_id_corto"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="commit_mensaje"/>
+                    </group>
+                    <group>
+                        <field name="branch_web_url" widget="url"/>
+                    </group>
+                    <group>
+                        <field name="commit_web_url" widget="url"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

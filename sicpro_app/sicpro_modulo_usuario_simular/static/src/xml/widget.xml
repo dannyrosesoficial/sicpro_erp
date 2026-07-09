@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="WebClient.UserSimulation">
+        <div class="o_mail_navbar_item o_no_notification">
+             <a href="#" title="Simular Usuario" aria-label="Simular Usuario"
+                tabindex="-1" data-action="manage_filters">
+                 <span class="fa fa-users" />
+             </a>
+         </div>
+    </t>
+</templates>

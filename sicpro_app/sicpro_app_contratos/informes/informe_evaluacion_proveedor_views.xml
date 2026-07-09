@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<record id="informe_evaluacion_proveedor_action" model="ir.actions.report">
+        <field name="name">Evaluación del Proveedor</field>
+        <field name="model">sicpro.app.contratos.proveedores</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_contratos.informe_evaluacion_proveedor</field>
+        <field name="report_file">sicpro_app_contratos.informe_evaluacion_proveedor</field>
+        <field name="print_report_name">'Evaluación del Proveedor'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_contratos_proveedores"/>
+		<field name="groups_id" eval="[(4, ref('sicpro_app_contratos.grupo_app_contratos_proveedor_validar'))]"/>
+		<field name="binding_type">report</field>
+    </record>
+
+	<template id="informe_evaluacion_proveedor">
+		<!-- Página evaluación del proveedor -->
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+						<table cellspacing="0" border="0" style="font-size: medium">
+	<colgroup width="21">
+	</colgroup>
+	<colgroup span="3" width="85">
+	</colgroup>
+	<colgroup width="88">
+	</colgroup>
+	<colgroup width="86">
+	</colgroup>
+	<colgroup span="4" width="85">
+	</colgroup>
+	<colgroup width="22">
+	</colgroup>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 1px solid #000000" colspan="11" height="17" align="center" valign="middle">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="justify">
+			
+</td>
+			<td style="font-size: medium; border-bottom: 2px solid #000000" rowspan="2" align="center" valign="middle">
+			<span t-field="inf.sequence_consecutivo"/></td>
+			<td colspan="8" align="center" valign="middle" style="font-size: medium">
+			<b>Anexo II:Modelo de Evaluación de Desempeño de 
+			los Proveedores. </b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="justify">
+			
+</td>
+			<td align="left" valign="bottom" style="font-size: medium">
+			<b>
+</b></td>
+			<td colspan="7" align="left" valign="middle" style="font-size: medium">
+			<b>Código:PG-LG-012/16</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="justify">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b><u>
+</u></b></td>
+			<td colspan="7" align="left" valign="middle" style="font-size: medium">
+			<b><u>PROVEEDOR NACIONAL</u></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="justify">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b>
+</b></td>
+			<td colspan="3" align="left" valign="middle" style="font-size: medium">
+			<b>En el periodo comprendido 
+			entre:</b></td>
+			<td colspan="4" align="left" valign="middle" style="font-size: medium">
+			<span t-field="inf.periodo_evaluado"/></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="9" rowspan="2" align="center" valign="middle">
+			<b>DATOS GENERALES DEL PROVEEDOR</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td style="font-size: medium; border-left: 2px solid #000000; border-right: 2px solid #000000; border-bottom: 2px solid #000000" colspan="2" align="center" valign="middle">
+			<u>Nombre del Proveedor:</u></td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="7" align="left" valign="middle">
+			<b><u><span t-field="inf.name"/></u></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="2" align="center" valign="middle">
+			<u>Valor total contrato:</u></td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="7" align="left" valign="middle">
+			<b><u><span t-field="inf.valor_contrato"/></u></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="33" align="left">
+			
+</td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="2" align="left" valign="middle">
+			Cantidad de contratos firmados</td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="7" align="center" valign="middle">
+			<b><u>
+</u></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 1px solid #000000" colspan="9" align="left" valign="middle">
+			<b>Indicar si es</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="19" align="left">
+			
+</td>
+			<td style="font-size: medium; border-left: 1px solid #000000" align="left" valign="top">
+			
+</td>
+			<td colspan="2" align="left" style="font-size: medium">
+			Productor:</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="center" valign="top">
+			<b>
+				<t t-if="inf.tipo_proveedor=='productor'">X</t>
+			</b>
+			</td>
+			<td align="left" valign="top" style="font-size: medium">
+			
+</td>
+			<td colspan="2" align="left" valign="middle" style="font-size: medium">
+			Intermediario Reconocido:</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="center" valign="top">
+			<b>
+				<t t-if="inf.tipo_proveedor=='intermediario'">X</t>
+			</b>
+			</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left" valign="top">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="19" align="left">
+			
+</td>
+			<td style="font-size: medium; border-left: 1px solid #000000" align="left" valign="top">
+			
+</td>
+			<td colspan="2" align="left" style="font-size: medium">
+			Distribuidor Oficial:</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="center" valign="top">
+			<b>
+				<t t-if="inf.tipo_proveedor=='oficial'">X</t>
+			</b>
+			</td>
+			<td align="left" valign="top" style="font-size: medium">
+			
+</td>
+			<td colspan="2" align="left" valign="middle" style="font-size: medium">
+			Otros Servicios:</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="center" valign="top">
+			<b>
+				<t t-if="inf.tipo_proveedor=='otros'">X</t>
+			</b>
+			</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left" valign="top">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-bottom: 1px solid #000000" colspan="9" align="center" valign="middle">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="3" align="center" valign="middle">
+			<b>Categoría General</b></td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="6" align="center" valign="middle">
+			<b><u>Puntuación</u></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="3" align="center" valign="middle">
+			Estado de la documentación Legal</td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="6" align="center" valign="middle" sdval="7" sdnum="3082;">
+			<b><span t-field="inf.puntos_documentacion"/></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="11" height="17" align="center" valign="middle">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td colspan="9" align="center" valign="middle" style="font-size: medium">
+			Indicadores a tenerse en cuenta para la evaluación del desempeño</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="60" align="left">
+			
+</td>
+			<td style="font-size: medium; border-left: 2px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000" align="center" valign="middle">
+			No.</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000" align="center" valign="middle">
+			<b>No. De Contrato.</b></td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000" align="center" valign="middle">
+			<b>Producto</b></td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000" align="center" valign="middle">
+			<b>Valor</b></td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000" align="center" valign="middle">
+			cumplimiento en las fechas de entrega</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000" align="center" valign="middle">
+			Faltantes y/o sobrantes</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000" align="center" valign="middle">
+			Reclamaciones</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000" align="center" valign="middle">
+			Penalidades</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 2px solid #000000; border-top: 2px solid #000000" align="center" valign="middle">
+			<b>TOTAL</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td style="font-size: medium; border-left: 2px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000; border-bottom: 2px solid #000000" colspan="4" align="center" valign="bottom">
+			<b>Puntuación a asignar</b></td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000; border-bottom: 2px solid #000000" align="center" valign="bottom" sdval="15" sdnum="3082;">
+			15</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000; border-bottom: 2px solid #000000" align="center" valign="bottom" sdval="10" sdnum="3082;">
+			10</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000; border-bottom: 2px solid #000000" align="center" valign="bottom" sdval="10" sdnum="3082;">
+			10</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: 2px solid #000000; border-bottom: 2px solid #000000" align="center" valign="bottom" sdval="10" sdnum="3082;">
+			10</td>
+			<td style="font-size: medium; border-right: 2px solid #000000; border-top: 2px solid #000000; border-bottom: 2px solid #000000" rowspan="3" align="center" valign="middle" sdval="45" sdnum="3082;">
+			<b>45</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="4" rowspan="2" align="center" valign="top">
+			<b><u>Área que aporta la Información:</u></b></td>
+			<td style="font-size: medium; border: 2px solid #000000" rowspan="2" align="center" valign="middle" sdval="7" sdnum="3082;">
+			<b><span t-field="inf.puntos_fechas_entrega"/></b></td>
+			<td style="font-size: medium; border: 2px solid #000000" rowspan="2" align="center" valign="middle" sdval="7" sdnum="3082;">
+			<b><span t-field="inf.puntos_faltantes_sobrantes"/></b></td>
+			<td style="font-size: medium; border: 2px solid #000000" rowspan="2" align="center" valign="middle" sdval="7" sdnum="3082;">
+			<b><span t-field="inf.puntos_reclamaciones"/></b></td>
+			<td style="font-size: medium; border: 2px solid #000000" rowspan="2" align="center" valign="middle" sdval="7" sdnum="3082;">
+			<b><span t-field="inf.puntos_penalidades"/></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td colspan="4" align="left" valign="middle" style="font-size: medium">
+			<b><i><u>Evaluacion Cuantitativa:
+			<span t-field="inf.puntos_total"/></u></i></b></td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td colspan="4" align="left" valign="middle" style="font-size: medium">
+			<b><i><u>Evaluacion Cualitativa:
+			<span t-field="inf.puntos_cualitativa"/></u></i></b></td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b><u>
+</u></b></td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b><u>
+</u></b></td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b><u>
+</u></b></td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: x-small">
+			<b>Puntuación Asignada (30ptos)</b></td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b>
+</b></td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b>
+</b></td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b>
+</b></td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b>
+</b></td>
+			<td align="left" valign="middle" style="font-size: medium">
+			<b>
+</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td style="font-size: medium; border: 2px solid #000000" colspan="9" rowspan="3" align="left" valign="top">
+			<span t-field="inf.criterios_cualitativa"/></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: medium">
+			<b>PUNTUACIÓN FINAL
+			</b></td>
+			<td colspan="5" align="center" valign="middle" style="font-size: medium">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td colspan="2" align="center" valign="middle" style="font-size: x-small">
+			<b>(marcar con una X)</b></td>
+			<td colspan="3" align="left" valign="middle" style="font-size: medium">
+			Proveedor Satisfactorio 
+			</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="center" valign="bottom">
+			<b>
+				<t t-if="inf.puntuacion_final=='satisfactorio'">X</t>
+			</b>
+			</td>
+			<td colspan="2" align="center" valign="middle" style="font-size: medium">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td colspan="3" align="center" valign="middle" style="font-size: medium">
+			
+</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: medium">
+			Proveedor Aceptable</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="center" valign="bottom">
+			<b>
+				<t t-if="inf.puntuacion_final=='aceptable'">X</t>
+			</b>
+			</td>
+			<td colspan="2" align="center" valign="middle" style="font-size: medium">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td colspan="3" align="center" valign="middle" style="font-size: medium">
+			
+</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: medium">
+			Proveedor No Satisfactorio</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="center" valign="bottom">
+			<b>
+				<t t-if="inf.puntuacion_final=='no_satisfactorio'">X</t>
+			</b>
+			</td>
+			<td colspan="2" align="center" valign="middle" style="font-size: medium">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="11" height="17" align="center" valign="middle">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td colspan="3" align="center" valign="middle" style="font-size: medium">
+			<b>EVALUACIÓN GENERAL</b></td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="2" align="center" valign="middle" sdval="100" sdnum="3082;">
+			<b><u><span t-field="inf.evaluacion_final"/></u></b></td>
+			<td colspan="3" align="center" valign="middle" style="font-size: medium">
+			
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="11" height="17" align="center" valign="middle">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			<i>
+</i></td>
+			<td colspan="3" align="left" valign="middle" style="font-size: medium">
+			<b>Nombre, Firma y Cargo</b></td>
+			<td colspan="5" align="center" valign="middle" style="font-size: medium">
+			<b>
+</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td colspan="8" align="left" valign="middle" style="font-size: medium">
+			<b>Responsable 
+			Evaluación:__________________________</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="11" height="17" align="center" valign="middle">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="18" align="left">
+			
+</td>
+			<td align="left" style="font-size: medium">
+			
+</td>
+			<td colspan="8" align="left" valign="middle" style="font-size: medium">
+			<b>Fecha de la 
+			Evaluación:___________________________</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+			
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000; border-bottom: 1px solid #000000" colspan="11" height="17" align="center" valign="middle">
+			
+</td>
+		</tr>
+</table>
+					</t>
+
+                    <t t-call="web.address_layout"/>
+                </div>
+                <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+				<span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+                <div style="border-top: 1px solid black;">
+					<ul class="list-inline mb4">
+					<span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+						<i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+						<br/>
+					<span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba.
+						Tomo  II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+					<div t-if="report_type == 'pdf'" class="text-center text-muted">
+						Página: <span class="page"/> / <span class="topage"/>
+					</div>
+				</div>
+			</div>
+
+		</t>
+    </template>
+
+</odoo>

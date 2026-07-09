@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="trabajadores_cierre_historial_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.alimetacion.cierre.historial.tree</field>
+        <field name="model">sicpro.app.trabajadores.cierre.historial</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <tree string="Historial Cierre mensual" sample="1" create="false" decoration-danger="name == 'archivado'">
+                <field name="name" class="font-weight-bold" widget="badge"  decoration-success="name == 'activo'"
+                     decoration-danger="name == 'archivado'"/>
+                <field name="mes"/>
+                <field name="anio"/>
+                <field name="total"/>
+                <field name="altas"/>
+                <field name="bajas"/>
+                <field name="usuario" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="trabajadores_cierre_historial_filter" model="ir.ui.view">
+        <field name="name">sicpro.app.alimetacion.cierre.historial.search</field>
+        <field name="model">sicpro.app.trabajadores.cierre.historial</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name"/>
+                <field name="mes"/>
+                <field name="anio"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                    <filter string='Mes' name="mes" domain="[]" context="{'group_by': 'mes'}"/>
+                    <filter string='Año' name="anio" domain="[]" context="{'group_by': 'anio'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="trabajadores_cierre_historial_action" model="ir.actions.act_window">
+        <field name="name">Historiales Cierre mensual</field>
+        <field name="res_model">sicpro.app.trabajadores.cierre.historial</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>
+

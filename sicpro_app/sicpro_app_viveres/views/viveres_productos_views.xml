@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="viveres_productos_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.productos.tree</field>
+        <field name="model">sicpro.app.viveres.productos</field>
+        <field name="arch" type="xml">
+            <tree string="Productos" editable="bottom">
+                <field name="name"/>
+                <field name="image_1920" widget="image" class="oe_avatar"
+                           options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="viveres_productos_action" model="ir.actions.act_window">
+        <field name="name">Productos</field>
+        <field name="res_model">sicpro.app.viveres.productos</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>

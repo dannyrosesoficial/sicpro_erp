@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+conector_rest_api_admin,Conector RestApi admin,model_sicpro_modulo_api_conector,sicpro_app_administracion.grupo_app_administracion_admin,1,1,1,1
+conector_rest_api_historial_admin,Conector RestApi Historial admin,model_sicpro_modulo_api_conector_historial,sicpro_app_administracion.grupo_app_administracion_admin,1,1,1,1

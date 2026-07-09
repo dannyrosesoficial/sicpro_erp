@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="xml_rpc_log_view_tree" model="ir.ui.view">
+        <field name="name">xml.rpc.log.view.tree</field>
+        <field name="model">xml.rpc.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="model"/>
+                <field name="method"/>
+                <field name="data"/>
+                <field name="return_msg"/>
+                <field name="create_uid"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="xml_rpc_log_action" model="ir.actions.act_window">
+        <field name="name">Historial de Solicitudes XmlRPC</field>
+        <field name="res_model">xml.rpc.log</field>
+        <field name="view_mode">tree</field>
+    </record>
+    
+   
+    <menuitem id="config_log_menu" name="Historial de Solicitudes XmlRPC"
+              parent="sicpro_app_administracion.menu_administracion_3"
+              action="xml_rpc_log_action" sequence="10"/>
+ 
+</odoo>

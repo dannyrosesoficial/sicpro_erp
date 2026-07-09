@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sicpro_scanned_qr_tree_view" model="ir.ui.view">
+        <field name="name">sicpro.app.codigos.escaneados.tree</field>
+        <field name="model">sicpro.app.codigos.escaneados</field>
+        <field name="arch" type="xml">
+            <tree string="Escaneos Qr">
+                <field name="nombre_modelo"/>
+                <field name="identificador" invisible = "1"/>
+                <field name="nombre_elemento"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sicpro_scanned_qr_form_view" model="ir.ui.view">
+        <field name="name">sicpro.app.codigos.escaneados.form</field>
+        <field name="model">sicpro.app.codigos.escaneados</field>
+        <field name="arch" type="xml">
+            <form string="Escaneos Qr">
+                <sheet>
+                    <group>
+                        <field name="nombre_modelo"/>
+                        <field name="identificador" invisible = "1"/>
+                        <field name="nombre_elemento"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- actions -->
+    <record id="qr_scanner_action" model="ir.actions.client">
+        <field name="name">Escáner Qr</field>
+        <field name="tag">qr_scanner_action</field>
+        <field name="target">current</field>
+    </record>
+
+    <record id="qr_scanner_action_tree_view" model="ir.actions.act_window">
+        <field name="name">Escaneos Qr</field>
+        <field name="res_model">sicpro.app.codigos.escaneados</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="sicpro_scanned_qr_tree_view"/>
+        <field name="target">current</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_escaner_qr_root" name="Escáner Qr" sequence="205"
+              web_icon="sicpro_app_escaner_codigos,static/description/icon.png"/>
+
+    <menuitem id="menu_escaner_qr" name="Escáner Qr" parent="menu_escaner_qr_root"
+              action="qr_scanner_action" sequence="10"/>
+
+    <!-- groups="grupo_app_contratos_usuario" -->
+
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="medios_informaticos_pdte_pieza_form" model="ir.ui.view">
+        <field name="name">sicpro.app.medios.informaticos.pdtes.piezas.form</field>
+        <field name="model">sicpro.app.medios.informaticos.pdtes.piezas</field>
+        <field name="arch" type="xml">
+            <form string="Pendiente Pieza">
+                <header>
+                </header>
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name"
+                                   options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                            <field name="equipo"/>
+                            <field name="no_orden"/>
+                            <field name="no_tique"/>
+                            <field name="denominacion"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="usuario_ant"
+                                   options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                            <field name="area"/>
+                            <field name="pieza_orden_trabajo"/>
+                            <field name="pieza_a_utilizar"/>
+                        </group>
+                    </group>
+                    <group name="group_bottom">
+                        <field name="observaciones_glpi"/>
+                        <field name="observaciones"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="medios_informaticos_pdte_pieza_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.medios.informaticos.pdtes.piezas.tree</field>
+        <field name="model">sicpro.app.medios.informaticos.pdtes.piezas</field>
+        <field name="arch" type="xml">
+            <tree string="Pendiente Pieza">
+                <field name="name"/>
+                <field name="equipo"/>
+                <field name="no_orden"/>
+                <field name="no_tique"/>
+                <field name="denominacion"/>
+                <field name="usuario_ant"/>
+                <field name="pieza_orden_trabajo"/>
+                <field name="observaciones_glpi"/>
+                <field name="area"/>
+                <field name="pieza_a_utilizar"/>
+                <field name="observaciones"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="medios_informaticos_pdte_pieza_action" model="ir.actions.act_window">
+        <field name="name">Pendientes por Piezas</field>
+        <field name="res_model">sicpro.app.medios.informaticos.pdtes.piezas</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
+

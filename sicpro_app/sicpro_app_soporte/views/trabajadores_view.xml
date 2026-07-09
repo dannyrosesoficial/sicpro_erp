@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_soporte_trabajadores_form" model="ir.ui.view">
+        <field name="name">view_soporte_trabajadores_form</field>
+        <field name="model">sicpro.app.trabajadores</field>
+        <field name="inherit_id" ref="sicpro_app_trabajadores.view_trabajadores_form"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" name="button_box">
+                <button context="{'search_default_open': True, 'default_trabajador_id': active_id}"
+                        name="action_view_soporte_tickets" type="object" class="oe_stat_button" icon="fa-life-ring">
+                    <field invisible="True" name="ticket_activos_count"/>
+                    <field invisible="True" name="ticket_count"/>
+                    <field name="ticket_count_string" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+</odoo>

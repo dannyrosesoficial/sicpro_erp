@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="survey_page_print_inherit" inherit_id="survey.survey_page_print">
+        <xpath expr="//div[@role='alert']" position="before">
+            <t t-if="question.question_type in ['time','month','address','url','week','color','email','password','many2one','file','range','many2many','name','matrix','selection','qr','barcode']">
+                <t t-if="question.question_type == 'time'" t-call="sicpro_app_encuestas.question_time"/>
+                <t t-if="question.question_type == 'month'" t-call="sicpro_app_encuestas.question_month"/>
+                <t t-if="question.question_type == 'url'" t-call="sicpro_app_encuestas.question_url"/>
+                <t t-if="question.question_type == 'week'" t-call="sicpro_app_encuestas.question_week"/>
+                <t t-if="question.question_type == 'color'" t-call="sicpro_app_encuestas.question_color"/>
+                <t t-if="question.question_type == 'address'" t-call="sicpro_app_encuestas.question_address"/>
+                <t t-if="question.question_type == 'email'" t-call="sicpro_app_encuestas.question_email"/>
+                <t t-if="question.question_type == 'range'" t-call="sicpro_app_encuestas.question_range"/>
+                <t t-if="question.question_type == 'selection'" t-call="sicpro_app_encuestas.question_selection_choice"/>
+                <t t-if="question.question_type == 'password'" t-call="sicpro_app_encuestas.question_password"/>
+                <t t-if="question.question_type == 'many2one'" t-call="sicpro_app_encuestas.question_many2one"/>
+                <t t-if="question.question_type == 'name'" t-call="sicpro_app_encuestas.question_name"/>
+                <t t-if="question.question_type == 'file'" t-call="sicpro_app_encuestas.question_file"/>
+                <t t-if="question.question_type == 'matrix'" t-call="sicpro_app_encuestas.question_matrix_custom"/>
+                <t t-if="question.question_type == 'many2many'" t-call="sicpro_app_encuestas.question_many2many"/>
+                <t t-if="question.question_type == 'barcode'" t-call="sicpro_app_encuestas.question_barcode"/>
+                <t t-if="question.question_type == 'qr'" t-call="sicpro_app_encuestas.question_qr"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

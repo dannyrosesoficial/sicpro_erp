@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="ListView.buttons" t-name="template_transferir_cj74">
+        <t t-jquery="button.o_list_button_add" t-operation="replace">
+            <button type="button" class="btn btn-primary o_button_transferir_cj74">
+                Transferir
+            </button>
+            <button type="button" class="btn btn-secondary o_button_subir_cj74 fa fa-upload">
+                Subir
+            </button>
+        </t>
+    </t>
+
+</templates>

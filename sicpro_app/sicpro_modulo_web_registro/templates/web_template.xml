@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_template_registro_btn" inherit_id="sicpro_modulo_web.web_plantilla_inicio">
+        <xpath expr="//a[@name='btn_login']" position="after">
+            <a name="btn_registro" href="/web/registro/" class=" btn-watch-video"><i class="bi bi-play-circle"></i>
+                <span>Solicitar Usuario</span>
+            </a>
+        </xpath>
+    </template>
+</odoo>

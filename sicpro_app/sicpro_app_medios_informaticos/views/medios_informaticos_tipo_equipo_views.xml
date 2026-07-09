@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="medios_informaticos_tipo_equipo_form" model="ir.ui.view">
+        <field name="name">sicpro.app.medios.informaticos.tipo.equipo.form</field>
+        <field name="model">sicpro.app.medios.informaticos.tipo.equipo</field>
+        <field name="arch" type="xml">
+            <form string="Tipo Equipo">
+                <header>
+                </header>
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name"/>
+                            <field name="imagen" widget="image"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="medios_informaticos_tipo_equipo_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.medios.informaticos.tipo.equipo.tree</field>
+        <field name="model">sicpro.app.medios.informaticos.tipo.equipo</field>
+        <field name="arch" type="xml">
+            <tree string="Tipo Equipo" editable="bottom">
+                <field name="name"/>
+                <field name="imagen" widget="image" class="oe_avatar"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="medios_informaticos_tipo_equipo_action" model="ir.actions.act_window">
+        <field name="name">Tipo Equipo</field>
+        <field name="res_model">sicpro.app.medios.informaticos.tipo.equipo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
+

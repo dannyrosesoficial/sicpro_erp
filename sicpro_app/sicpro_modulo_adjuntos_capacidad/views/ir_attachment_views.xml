@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_attachment_form_inherit">
+            <field name="name">view.attachment.form.inherit</field>
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="base.view_attachment_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='mimetype']" position='after'>
+                    <field name="size" groups="base.group_no_one" />
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_attachment_tree_inherit">
+            <field name="name">view.attachment.tree.inherit</field>
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="base.view_attachment_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='file_size']" position='replace'>
+                    <field name="store_fname" optional="hide"/>
+                    <field name="size" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_attachment_search_inherit" model="ir.ui.view">
+            <field name="model">ir.attachment</field>
+            <field name="inherit_id" ref="base.view_attachment_search" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='create_date']" position='after'>
+                    <field name="store_fname"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_ir_attachment_description_form" model="ir.ui.view">
+        <field name="name">ir.attachment.description</field>
+        <field name="model">ir.attachment</field>
+        <field name="priority" eval="1000"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="description" string="Descripción"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    </data>
+</odoo>

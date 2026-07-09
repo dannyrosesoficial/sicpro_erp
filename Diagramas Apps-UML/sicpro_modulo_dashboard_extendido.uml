@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_dashboard_extendido</OriginalElement>
+  <nodes>
+    <node x="2220.75" y="282.5">typing.Sequence</node>
+    <node x="4159.0" y="6808.0">sicpro_modulo_dashboard_extendido.models.dashboard_secciones.SeccionesConfig</node>
+    <node x="2578.75" y="348.5">typing.Sized</node>
+    <node x="2729.75" y="304.0">odoo.models.MetaModel</node>
+    <node x="3001.75" y="337.5">typing.Iterator</node>
+    <node x="3173.75" y="348.5">typing.Iterable</node>
+    <node x="1396.9999999999998" y="7017.5">sicpro_modulo_dashboard_extendido.models.dashboard_iconos.IconosConfig</node>
+    <node x="3037.5" y="6020.0">odoo.models.Model</node>
+    <node x="2804.0" y="6984.5">sicpro_modulo_dashboard_extendido.models.dashboard_grupos.GruposConfig</node>
+    <node x="2065.0" y="7028.5">sicpro_modulo_dashboard_extendido.models.dashboard_colores.ColorsDataSetConfig</node>
+    <node x="3483.0" y="7028.5">sicpro_modulo_dashboard_extendido.models.dashboard_colores.ColorsConfig</node>
+    <node x="702.0" y="6192.0">sicpro_modulo_dashboard_extendido.models.dashboard_graficos.GraficosConfig</node>
+    <node x="5603.0" y="6984.0">sicpro_modulo_dashboard_extendido.models.dashboard_graficos.ValoresExtraOrdenados</node>
+    <node x="4879.0" y="7006.5">sicpro_modulo_dashboard_extendido.models.dashboard_colores.ColorsOrderConfig</node>
+    <node x="0.0" y="6687.0">sicpro_modulo_dashboard_extendido.models.dashboard_tableros.TablerosConfig</node>
+    <node x="3346.75" y="348.5">typing.Container</node>
+    <node x="3721.75" y="0.0">typing.Hashable</node>
+    <node x="2562.0" y="699.0">odoo.models.BaseModel</node>
+    <node x="3591.75" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_modulo_dashboard_extendido.models.dashboard_tableros.TablerosConfig" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-413.5" />
+      <point x="341.0" y="5962.5" />
+      <point x="2203.25" y="5962.5" />
+      <point x="2203.25" y="6485.0" />
+      <point x="3133.5" y="6485.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="325.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_dashboard_extendido.models.dashboard_grupos.GruposConfig" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-116.0" />
+      <point x="3133.5" y="6882.0" />
+      <point x="2768.0" y="6882.0" />
+      <point x="2768.0" y="6485.0" />
+      <point x="3133.5" y="6485.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="2389.75" y="3334.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="3891.0" y="376.5" />
+      <point x="3891.0" y="88.5" />
+      <point x="3803.25" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_dashboard_extendido.models.dashboard_graficos.GraficosConfig" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="337.5" y="-310.0" />
+      <point x="1706.0" y="6790.5" />
+      <point x="1706.0" y="6485.0" />
+      <point x="3133.5" y="6485.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_dashboard_extendido.models.dashboard_graficos.ValoresExtraOrdenados" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-116.5" />
+      <point x="5977.0" y="6485.0" />
+      <point x="3133.5" y="6485.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="3891.0" y="3334.5" />
+      <point x="3891.0" y="88.5" />
+      <point x="3803.25" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-55.75" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-277.75" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="116.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_dashboard_extendido.models.dashboard_colores.ColorsConfig" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="3811.0" y="6882.0" />
+      <point x="2768.0" y="6882.0" />
+      <point x="2768.0" y="6485.0" />
+      <point x="3133.5" y="6485.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_dashboard_extendido.models.dashboard_colores.ColorsDataSetConfig" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="2424.5" y="6882.0" />
+      <point x="2768.0" y="6882.0" />
+      <point x="2768.0" y="6485.0" />
+      <point x="3133.5" y="6485.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_modulo_dashboard_extendido.models.dashboard_colores.ColorsOrderConfig" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.0" />
+      <point x="5231.0" y="6485.0" />
+      <point x="3133.5" y="6485.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-489.25" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-31.75" y="270.5" />
+    </edge>
+    <edge source="sicpro_modulo_dashboard_extendido.models.dashboard_secciones.SeccionesConfig" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-292.5" />
+      <point x="4509.0" y="6485.0" />
+      <point x="3133.5" y="6485.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_dashboard_extendido.models.dashboard_iconos.IconosConfig" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="2.2737367544323206E-13" y="-83.0" />
+      <point x="1721.0" y="6882.0" />
+      <point x="2768.0" y="6882.0" />
+      <point x="2768.0" y="6485.0" />
+      <point x="3133.5" y="6485.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.07398181591729978" showDependencies="false" x="3175.5" y="4004.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

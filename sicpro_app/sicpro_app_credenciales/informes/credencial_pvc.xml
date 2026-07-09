@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<record id="informe_credencial_pvc_action" model="ir.actions.report">
+		<field name="name">Credencial PVC</field>
+		<field name="model">sicpro.app.credenciales</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">sicpro_app_credenciales.informe_credencial_pvc</field>
+		<field name="report_file">sicpro_app_credenciales.informe_credencial_pvc</field>
+		<field name="print_report_name">'Credencial pvc'</field>
+		<field name="binding_model_id" ref="model_sicpro_app_credenciales"/>
+		<field name="binding_type">report</field>
+	</record>
+
+
+	<template id="informe_credencial_pvc">
+		<!-- Página credencial pvc -->
+		<t t-call="web.html_container">
+			<div t-attf-class="article">
+				<div class="pase-contenedor">
+					<t t-set="i" t-value="0"/>
+					<t t-foreach="docs" t-as="inf">
+						<t t-set="i" t-value="i+1"/>
+						<t t-call="sicpro_app_credenciales.credencial_pvc_front"/>
+						<script>
+							if(document.getElementsByClassName("pase-contenedor")[0]){
+							document.body.parentElement.className=(document.body.parentElement.className + " pase-body")
+							document.body.className=(document.body.className + " pase-body")
+							}
+						</script>
+						<t t-if="i == 1">
+							<t t-set="i" t-value="0"/>
+							<div style="page-break-before: always;"/>
+						</t>
+						<t t-set="i" t-value="i+1"/>
+						<t t-call="sicpro_app_credenciales.credencial_pvc_back"/>
+						<t t-if="i == 1">
+							<t t-set="i" t-value="0"/>
+							<div style="page-break-before: always;"/>
+						</t>
+					</t>
+				</div>
+			</div>
+		</t>
+	</template>
+
+	<template id="credencial_pvc_front">
+		<div class="pase-front-back">
+			<!-- 455px -->
+			<div t-attf-class="pase-base pase-color-bordes-{{ 'permanente' if 'PERMANENTE' in inf.tipo_credencial.name else 'constructor' if 'CONSTRUCTOR' in inf.tipo_credencial.name else 'especial' if 'ESPECIAL' in inf.tipo_credencial.name else 'provisional' }}">
+				<div class="pase-tipo-credencial">
+					<b><h1 class="pase-tipo-credencial-data" t-field="inf.tipo_credencial"/></b>
+				</div>
+				<div class="pase-imagen">
+					<span t-field="inf.credencial_image_1920"
+						  t-options='{"widget": "image", "style": "min-height: 505.26px; min-width: 524.38px; max-height: 505.26px; max-width: 524.38px"}'/>
+				</div>
+				<div class="pase-nombre">
+					<div class="pase-nombre-contenedor"><h1 class="pase-nombre-data" t-field="inf.name"/></div>
+				</div>
+				<div class="pase-identificacion">
+					<div class="pase-identificacion-contenedor-text">
+						<h1 class="pase-identificacion-text">CI.</h1>
+					</div>
+					<div class="pase-identificacion-contenedor-id">
+						<h1 class="pase-identificacion-data" t-field="inf.identification_id"/>
+					</div>
+				</div>
+				<div class="pase-front-lower-seccion">
+					<div style="height: 110px; width: 60%; margin-left: 0px; margin-top: 0px;">
+						<div class="pase-numero-credencial-contenedor">
+							<t t-if="'PERMANENTE' in inf.tipo_credencial.name">
+								<h1 class="pase-numero-credencial-data" t-field="inf.no_credencial_permanente"/>
+							</t>
+							<t t-if="'CONSTRUCTOR' in inf.tipo_credencial.name">
+								<h1 class="pase-numero-credencial-data" t-field="inf.no_credencial_constructores"/>
+							</t>
+							<t t-if="'ESPECIAL' in inf.tipo_credencial.name">
+								<h1 class="pase-numero-credencial-data" t-field="inf.no_credencial_especial"/>
+							</t>
+							<t t-if="'PROVISIONAL' in inf.tipo_credencial.name">
+								<h1 class="pase-numero-credencial-data" t-field="inf.no_credencial_provisional"/>
+							</t>
+						</div>
+
+						<div class="pase-alcance-siglas">
+							<div class="pase-alcance-contenedor">
+								<h1 class="pase-alcance-data" t-field="inf.alcance_credencial"/>
+							</div>
+							<div class="pase-text-contenedor">
+								<h1 class="pase-text-data"> / </h1>
+							</div>
+							<div class="pase-siglas-contenedor">
+								<b><h1 class="pase-siglas-data" t-field="inf.siglas_credencial"/></b>
+							</div>
+						</div>
+					</div>
+					<div class="pase-logo-etecsa-contenedor">
+						<img alt="Logo" src="sicpro_app_credenciales/static/src/img/etecsaId_300_4.png" width="300px"
+							 height="300px"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="credencial_pvc_back">
+		<div class="pase-front-back">
+			<div t-attf-class="pase-base pase-color-bordes-{{ 'permanente' if 'PERMANENTE' in inf.tipo_credencial.name else 'constructor' if 'CONSTRUCTOR' in inf.tipo_credencial.name else 'especial' if 'ESPECIAL' in inf.tipo_credencial.name else 'provisional' }}">
+				<div class="pase-tipo-credencial">
+					<b><h1 class="pase-tipo-credencial-data" t-field="inf.tipo_credencial"/></b>
+				</div>
+				<h6 class="accesos">ACCESOS:</h6>
+				<t t-if="'PERMANENTE' not in inf.tipo_credencial.name and 'CONSTRUCTOR' not in inf.tipo_credencial.name">
+					<div class="accesos-contenedor-line1">
+						<h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: auto; margin-left: 1px; margin-top: 13px; font-size: 279%; font-weight: 600"
+							t-field="inf.accesos_credencial"/>
+					</div>
+					<div class="accesos-contenedor-line2"/>
+					<div style="position: relative; margin: 0px auto auto 50px; height: 94.74px; width: 60%; text-align: left;">
+						<div style="font-family: Calibri; font-size: 280%;">Válido hasta: </div>
+						<div style="height: 100%; width: 50%; text-align: left; margin: -67px 60%">
+							<p style="font-family: Calibri; font-size: 280%" t-field="inf.fecha_valida"/></div>
+					</div>
+					<div class="firma-contenedor">
+						<p class="firma-data">FIRMA AUTORIZADA</p>
+					</div>
+				</t>
+				<t t-else="">
+					<div class="accesos-contenedor-line1">
+						<h1 style="font-family: Arial, 'Times New Roman', sans-serif; margin: auto; margin-left: 1px; margin-top: 13px; font-size: 279%; font-weight: 600"
+							t-field="inf.accesos_credencial"/>
+					</div>
+					<div class="accesos-contenedor-line2"/>
+					<div class="accesos-contenedor-line3"/>
+					<div class="firma-contenedor">
+						<p class="firma-data">FIRMA AUTORIZADA</p>
+					</div>
+				</t>
+				<div class="pase-logo2-etecsa-contenedor">
+					<img alt="Logo" src="sicpro_app_credenciales/static/src/img/etecsaId_300_8.png" width="550px"
+						 height="250px"/>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<!--    <template id="credencial_pvc_front">-->
+	<!--        <div t-attf-class="pase-base pase-front">-->
+	<!--            <t t-set="color_titulo_back"-->
+	<!--               t-value="'height: 620px; width: 325px; margin: 10.5px auto auto auto; border: solid 1px grey; border-top: solid 126px grey; border-radius: 20px;'"/>-->
+	<!--            <t t-if="'PERMANENTE' in inf.tipo_credencial.name">-->
+	<!--                <t t-set="color_titulo_back"-->
+	<!--                   t-value="'height: 620px; width: 325px; margin: 10.5px auto auto auto; border: solid 1px darkblue; border-top: solid 126px darkblue; border-radius: 20px;'"/>-->
+	<!--            </t>-->
+	<!--            <t t-if="'CONSTRUCTOR' in inf.tipo_credencial.name">-->
+	<!--                <t t-set="color_titulo_back"-->
+	<!--                   t-value="'height: 620px; width: 325px; margin: 10.5px auto auto auto; border: solid 1px black; border-top: solid 126px black; border-radius: 20px;'"/>-->
+	<!--            </t>-->
+	<!--            <t t-if="'ESPECIAL' in inf.tipo_credencial.name">-->
+	<!--                <t t-set="color_titulo_back"-->
+	<!--                   t-value="'height: 620px; width: 325px; margin: 10.5px auto auto auto; border: solid 1px darkgreen; border-top: solid 126px darkgreen; border-radius: 20px;'"/>-->
+	<!--            </t>-->
+	<!--            <div t-attf-style="{{ color_titulo_back }}">-->
+	<!--                <div style="height: 60px; width: 290px; position: absolute; margin: -70px auto auto -40px; text-align: center; -webkit-transform: translate(20%); -webkit-transform-origin: center top">-->
+	<!--                    <b><h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 220% ; color: white; font-weight: 700"-->
+	<!--                           t-field="inf.tipo_credencial"/></b>-->
+	<!--                </div>-->
+	<!--                <div style="position: relative; margin: 20px auto auto 85px; height: 185px; width: 160px; text-align: center;">-->
+	<!--                    <span t-field="inf.credencial_image_1920"-->
+	<!--                          t-options='{"widget": "image", "style": "min-height: 175px; min-width: 160px; max-height: 170px; max-width: 160px"}'-->
+	<!--                          style="text-align: center"/>-->
+	<!--                </div>-->
+	<!--                <div style="position: relative; height: 30px; width: 320px; margin: 30px auto auto 27px; text-align: left;">-->
+	<!--                    <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 130%; font-weight: 400"-->
+	<!--                        t-field="inf.name"/>-->
+	<!--                </div>-->
+	<!--                <div style="position: relative; margin: 30px auto auto 27px; height: 25px; width: 320px; text-align: left;">-->
+	<!--                    <div style="width: 15%; text-align: left; overflow: hidden">-->
+	<!--                        <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-weight: 400; font-size: 130%; ">-->
+	<!--                            CI. </h1>-->
+	<!--                    </div>-->
+	<!--                    <div style="width: 80%; text-align: left; position: relative; margin: -33px auto auto auto; overflow: hidden">-->
+	<!--                        <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 130%; font-weight: 400; "-->
+	<!--                            t-field="inf.identification_id"/>-->
+	<!--                    </div>-->
+	<!--                </div>-->
+	<!--                <div style="height: 150px; width: 320px; margin: 0px auto auto 2px; overflow: hidden;">-->
+	<!--                    <div style="height: 150px; width: 60%; margin-left: 0px; margin-top: 0px;">-->
+	<!--                        <div style="position: relative; height: 50%; width: 100%; margin: 40px auto auto 24px; text-align: left">-->
+	<!--                            <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 160%; font-weight: 700"-->
+	<!--                                t-field="inf.no_credencial_permanente"/>-->
+	<!--                        </div>-->
+	<!--                        <div style="position: relative; height: 50%; width: 100%; margin: 6px auto auto 24px; text-align: left">-->
+	<!--                            <div style="text-align: left position: relative; margin: -12px auto auto auto; overflow: hidden">-->
+	<!--                                <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; color: black; font-size: 250%; font-weight: 400"-->
+	<!--                                    t-field="inf.alcance_credencial"/>-->
+	<!--                            </div>-->
+	<!--                            <div style="text-align: left position: relative; margin: -55px auto auto 112px; overflow: hidden">-->
+	<!--                                <h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-weight: 400; font-size: 250%; ">-->
+	<!--                                    / </h1>-->
+	<!--                            </div>-->
+	<!--                            <div style="text-align: left position: relative; margin: -57px auto auto 125px; overflow: hidden">-->
+	<!--                                <b><h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; color: black; font-size: 250%; font-weight: 700"-->
+	<!--                                       t-field="inf.siglas_credencial"/></b>-->
+	<!--                            </div>-->
+	<!--                        </div>-->
+	<!--                    </div>-->
+	<!--                    <div style="position: relative; height: 150px; width: 40%; margin: -180px auto auto 190px;">-->
+	<!--                        <div style="position: relative; margin: 0px auto auto 0px; height: 100%; width: 100%; text-align: left;">-->
+	<!--                            <img alt="Logo" src="sicpro_app_credenciales/static/src/img/etecsaId_300_4.png" width="110"-->
+	<!--                                 height="130"/>-->
+	<!--                        </div>-->
+	<!--                    </div>-->
+	<!--                </div>-->
+	<!--            </div>-->
+	<!--        </div>-->
+
+	<!--    </template>-->
+
+	<!--    <template id="credencial_pvc_back">-->
+	<!--        <t t-set="color_titulo_back"-->
+	<!--           t-value="'height: 620px; width: 325px; margin: 10.5px auto auto auto; border: solid 1px grey; border-top: solid 126px grey; border-radius: 20px;'"/>-->
+	<!--        <t t-if="'PERMANENTE' in inf.tipo_credencial.name">-->
+	<!--            <t t-set="color_titulo_back"-->
+	<!--               t-value="'height: 620px; width: 325px; margin: 10.5px auto auto auto; border: solid 1px darkblue; border-top: solid 126px darkblue; border-radius: 20px;'"/>-->
+	<!--        </t>-->
+	<!--        <t t-if="'CONSTRUCTOR' in inf.tipo_credencial.name">-->
+	<!--            <t t-set="color_titulo_back"-->
+	<!--               t-value="'height: 620px; width: 325px; margin: 10.5px auto auto auto; border: solid 1px black; border-top: solid 126px black; border-radius: 20px;'"/>-->
+	<!--        </t>-->
+	<!--        <t t-if="'ESPECIAL' in inf.tipo_credencial.name">-->
+	<!--            <t t-set="color_titulo_back"-->
+	<!--               t-value="'height: 620px; width: 325px; margin: 10.5px auto auto auto; border: solid 1px darkgreen; border-top: solid 126px darkgreen; border-radius: 20px;'"/>-->
+	<!--        </t>-->
+
+	<!--        <div t-attf-style="{{ color_titulo_back }}">-->
+
+	<!--            <div style="height: 60px; width: 290px; position: absolute; margin:-70px auto auto 20px; text-align: center; -webkit-transform: rtranslate(-40%); -webkit-transform-origin: center top">-->
+	<!--                <b><h1 style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 220% ; color: white; font-weight: 700"-->
+	<!--                       t-field="inf.tipo_credencial"/></b>-->
+	<!--            </div>-->
+	<!--            <div style="height: 475px; width: 275px; margin: 10.5px auto auto auto;">-->
+	<!--                <div style="position: relative; margin: 28px auto auto 15px; text-align: left;">-->
+	<!--                    <p style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 100%">ACCESOS</p>-->
+	<!--                </div>-->
+	<!--                <t t-if="'PERMANENTE' not in inf.tipo_credencial.name and 'CONSTRUCTOR' not in inf.tipo_credencial.name">-->
+	<!--                    <div style="position: relative; margin: 50px auto auto auto; height: 30px; width: 245px; border-top: 1px solid black; text-align: center;"/>-->
+	<!--                    <div style="position: relative; margin: 30px auto auto auto; height: 30px; width: 245px; border-top: 1px solid black; text-align: center;"/>-->
+	<!--                    <div style="position: relative; margin: 30px auto auto auto; height: 30px; width: 245px; text-align: left;">-->
+	<!--                        <h5 style="font-family: Calibri, 'Times New Roman', sans-serif; font-size: 100% position: relative; margin: -10px auto auto auto;">-->
+	<!--                            Válido hasta:</h5>-->
+	<!--                    </div>-->
+	<!--                    <div style="position: relative; margin: 65px auto auto auto; height: 20px; width: 225px; border-top: 1px solid black; text-align: center;">-->
+	<!--                        <p style="font-family: Calibri, 'Times New Roman', sans-serif; font-size: 85% position: relative; margin: 15px auto auto auto;">-->
+	<!--                            FIRMA AUTORIZADA</p>-->
+	<!--                    </div>-->
+	<!--                </t>-->
+	<!--                <t t-else="">-->
+	<!--                    <div style="position: relative; margin: 50px auto auto auto; height: 30px; width: 245px; border-top: 1px solid black; text-align: center;"/>-->
+	<!--                    <div style="position: relative; margin: 30px auto auto auto; height: 30px; width: 245px; border-top: 1px solid black; text-align: center;"/>-->
+	<!--                    <div style="position: relative; margin: 30px auto auto auto; height: 30px; width: 245px; border-top: 1px solid black; text-align: center;"/>-->
+	<!--                    <div style="position: relative; margin: 55px auto auto auto; height: 20px; width: 225px; border-top: 1px solid black; text-align: center;">-->
+	<!--                        <p style="font-family: 'Calibri', 'Times New Roman', sans-serif; font-size: 85% position: relative; margin: 15px auto auto auto;">-->
+	<!--                            FIRMA AUTORIZADA</p>-->
+	<!--                    </div>-->
+	<!--                </t>-->
+	<!--                <div style="position: relative; margin: 50px auto auto 35px; height: 65px; width: 185px; text-align: center;">-->
+	<!--                    <img alt="Logo" src="sicpro_app_credenciales/static/src/img/etecsaId_300_8.png" width="200"-->
+	<!--                         height="65"/>-->
+	<!--                </div>-->
+	<!--            </div>-->
+	<!--        </div>-->
+
+
+	<!--    </template>-->
+</odoo>

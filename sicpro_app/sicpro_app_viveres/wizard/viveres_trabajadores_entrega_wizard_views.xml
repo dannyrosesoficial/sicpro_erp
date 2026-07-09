@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="viveres_trabajadores_entregas_wizard_view" model="ir.ui.view">
+            <field name="name">sicpro.app.viveres.trabajadores.entrega.wizard.form</field>
+            <field name="model">sicpro.app.viveres.trabajadores.entrega.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Realizar entrega al trabajador">
+                    <group>
+                        <field name="area"
+                               options="{'no_open': True, 'no_quick_create': True, 'no_create_edit': True}"/>
+                    </group>
+                    <group>
+                        <field name="productos_entregar_compute" attrs="{'invisible': True}"/>
+                        <field name="productos_entregar" widget='many2many_tags'
+                               options="{'no_open': True, 'no_quick_create': True, 'no_create_edit': True}"/>
+                    </group>
+                    <group>
+                        <field name="trabajadores_compute" attrs="{'invisible': True}"/>
+                        <field name="trabajadores" widget='many2many_tags'
+                               options="{'no_open': True, 'no_quick_create': True, 'no_create_edit': True}"/>
+                    </group>
+                    <group>
+                        <field name="fecha_entrega"/>
+                    </group>
+                    <group>
+                        <field name="estado"/>
+                    </group>
+                    <group>
+                        <field name="observaciones"/>
+                    </group>
+                    <footer>
+                        <button name="realizar_entrega" string="Realizar entrega" type="object" class="btn-primary"/>
+                        <button string="Cancelar" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="viveres_trabajadores_entregas_wizard_action" model="ir.actions.act_window">
+            <field name="name">Realizar entrega al trabajador</field>
+            <field name="res_model">sicpro.app.viveres.trabajadores.entrega.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

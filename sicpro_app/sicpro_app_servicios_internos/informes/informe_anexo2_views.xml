@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="informe_servicios_internos_anexo2_action" model="ir.actions.report">
+        <!--        le retiro el nombre al action para que no salga en el botón de imprimir-->
+        <!--        <field name="name">Anexo 2</field>-->
+        <field name="name"></field>
+        <field name="model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_servicios_internos.informe_servicios_internos_anexo2</field>
+        <field name="report_file">sicpro_app_servicios_internos.informe_servicios_internos_anexo2</field>
+        <field name="print_report_name">'Anexo 2'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_servicios_internos_solicitudes"/>
+        <field name="groups_id"
+               eval="[(4, ref('sicpro_app_servicios_internos.grupo_app_internos_solicitudes_ejecutor'))]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="informe_servicios_internos_anexo2">
+        <!-- Página evaluación del proveedor -->
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_servicios_internos/static/src/img/etecsaId_300_8.png"
+                             style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección de los datos -->
+            <div t-attf-class="article">
+                <!-- sección del page -->
+                <t t-foreach="docs" t-as="inf">
+
+                    <table cellspacing="0" border="0">
+                        <colgroup width="284"></colgroup> <colgroup width="347"></colgroup> <colgroup
+                            width="185"></colgroup>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" height="19" align="left"><b>Ficha de solicitud de aumento de minutos
+                                    de servicio.</b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="18" align="left"><b><font face="Arial"><br></br>
+                                </font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" height="22" align="center"><b><font size="3" face="Times New Roman">
+                                    Solicitud
+                                    de aumento de minutos de servicio.</font></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="18" align="left"><b><font face="Arial"><br></br>
+                                </font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" height="17" align="left"><b><font face="Arial">Directivo que aprueba
+                                    el servicio</font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Nombres y Apellidos:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="left"><b><font size="3" face="Arial">
+                                    <span t-field="inf.solicitante_trabajador.name"/>
+                                </font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Cargo:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="left"><b><font size="3" face="Arial">
+                                    <span t-field="inf.solicitante_ocupacion_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Unidad Organizativa:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="left"><b><font size="3" face="Arial">
+                                    <span t-field="inf.solicitante_area_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="17" align="left"><font face="Arial">Firma:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="left"><font face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="20" align="left"><font size="3"
+                                                                               face="Times New Roman"></font><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" height="17" align="left"><b><font face="Arial">Aumentar los minutos
+                                    de servicio a favor de: </font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Nombres y Apellidos:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="left"><b><font size="3" face="Arial">
+                                    <span t-field="inf.beneficiario_trabajador.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Cargo:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="left"><b><font size="3" face="Arial">
+                                    <span t-field="inf.beneficiario_ocupacion_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Unidad Organizativa:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="left"><b><font size="3" face="Arial">
+                                    <span t-field="inf.beneficiario_area_id.name"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="20" align="left"><font size="3"
+                                                                               face="Times New Roman"></font><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="17" align="left"><b><font face="Arial">Fundamentar la
+                                    solicitud:</font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><b><font face="Arial">Fecha: <span
+                                        t-field="inf.fecha_solicitud"/></font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><b><font face="Arial">Teléfono: <span
+                                        t-field="inf.telefono"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" valign="middle" height="38" align="left"><font face="Arial">
+                                    <span t-field="inf.observaciones"/>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="20" align="left"><font size="3" face="Times New Roman"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="18" align="left"><b>Por el área que aprueba el aumento de
+                                    minutos. </b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="20" align="left"><font size="3" face="Times New Roman"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" height="17" align="left"><b><font face="Arial">Directivo que aprueba
+                                    el aumento de minutos: </font></b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><b><font face="Arial">Fecha: <span
+                                        t-field="inf.directivo_fecha"/></font></b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    valign="top" height="20" align="left"><font face="Arial">Nombres y
+                                    Apellidos:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><font size="3" face="Times New Roman">
+                                    <span t-field="inf.directivo_trabajador"/>
+                                </font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    valign="middle" align="center"><font color="#000000" face="Calibri">
+                                    <span t-field="inf.directivo_cantidad_minutos"/> Min</font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Cargo:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><font size="3" face="Calibri"><span t-field="inf.directivo_cargo"/>
+                                </font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><font size="3" face="Calibri"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    height="20" align="left"><font face="Arial">Unidad Organizativa:</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><font size="3" face="Calibri"><span
+                                        t-field="inf.directivo_uo"/></font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left"><font size="3" face="Calibri"><br></br>
+                                </font></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </t>
+
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+                <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+                    Cuba.</span>
+                <div style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+                            <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+                        <br/>
+                        <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+                            Justicia de la República de Cuba.
+                            Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+                    <div t-if="report_type == 'pdf'" class="text-center text-muted">
+                        Página: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <template id="web_plantilla_registro_selector">
+    <t t-call-assets="web.assets_common"/>
+    <t t-call-assets="web.assets_backend" t-js="false"/>
+    <t t-call-assets="web.web_registros"/>
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>SICPRO ERP - Acceso</title>
+      <meta http-equiv="cache-control" content="no-cache"/>
+      <meta http-equiv="pragma" content="no-cache"/>
+
+      <!-- Favicons -->
+      <link href="/sicpro_modulo_web_registro/static/src/images/SICPRO_ERP.png" rel="icon"/>
+      <link href="/sicpro_modulo_web_registro/static/src/images/SICPRO_ERP.png" rel="apple-touch-icon"/>
+
+    </head>
+
+    <body class="body">
+      <div class="main">
+
+        <section class="signup">
+          <h2 class="nombre-title">
+            <img src="/sicpro_modulo_web_registro/static/src/images/SICPRO ERP_blanco.png" alt="SICPRO"
+                 class="img-fluid"/>
+            SICPRO ERP</h2>
+
+          <div class="container">
+            <div class="signup-content">
+              <div class="signup-form-selector">
+                <h1 class="form-title"><a href="/web/registro" class="signup-image-link"><i class="fa fa-arrow-left"/>
+                  Inicio</a> Selección de Accesos</h1>
+
+                <form method="POST" class="register-form" id="register-form">
+                  <div class="form-group">
+                    <span>
+                      <span class="text-danger"><i class="fa fa-exclamation-triangle"/></span><b> Responsabilidades de
+                      los
+                      Usuarios (Favor leer cuidadosamente)</b><br/>
+                      <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b> Tipo de
+                      usuario:</b><em><small> Define si el usuario tiene permisos normales o de
+                      administración.</small></em><br/>
+                      <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b>
+                      Canales:</b><em><small> Aquí
+                      seleccioné, el o los canales asociados al proceso del usuario para la
+                      comunicación interna.</small></em><br/>
+                      <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b> Rol
+                      Usuario:</b><em><small>
+                      Define solamente permisos de visualización a las
+                      aplicaciones.</small></em><br/>
+                      <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b> Rol Visualiza
+                      Todo:</b><em><small> Visualización avanzada de los subprocesos de una aplicación
+                      independiente</small></em><br/>
+                      <span class="text-warning"><i class="fa fa-chevron-circle-right"/></span><b> Rol
+                      Responsable:</b><em><small> Permisos a los usuarios encargados de cambiar la configuración de
+                      nomencladores de una aplicación.</small></em><br/>
+                      <span class="text-warning"><i class="fa fa-chevron-circle-right"/></span><b> Rol
+                      Administrador:</b><em><small> Permisos elevados a las aplicaciones (la diferencia con el rol
+                      responsable es que Permite eliminar)</small></em><br/>
+                      <span class="text-success"><i class="fa fa-chevron-circle-right"/></span><b> Rol
+                      Ejecutor:</b><em><small>
+                      Permisos para visualizar, crear y modificar la información de las
+                      aplicaciones, permite archivar el registro.</small></em><br/>
+                      <br/>
+                      <i class="fa fa-angle-double-right"/><small><span class="text-danger"> Todos los demás roles
+                      heredan el
+                      permiso del Rol Ejecutor, lo que cambia es la funcionalidad directa de
+                      la persona, el área, departamento o dirección de trabajo.</span></small><br/>
+                      <i class="fa fa-angle-double-right"/><small><span class="text-danger"> El periodo de validez de
+                      los roles
+                      es por 1 Año, posterior a este tiempo debera volverlos a solicitar.</span></small><br/>
+                    </span>
+
+                  </div>
+                </form>
+
+              </div>
+              <div class="signup-image">
+                <figure>
+                  <img src="/sicpro_modulo_web_registro/static/src/images/signup-image.jpg" alt="sing up image"/>
+                </figure>
+                <t t-set="social_links" t-value="request.env['res.company'].sudo().search(
+                    [('login_redes_sociales', '=', True)])"/>
+                <div class="social-login">
+                  <span class="social-label">Nuestras páginas</span>
+                  <ul class="socials">
+                    <li><a t-if="social_links.social_twitter" t-att-href="social_links.social_twitter"
+                           aria-label="Twitter" title="Twitter">
+                      <i class="display-flex-center zmdi zmdi-twitter"/>
+                    </a></li>
+                    <li><a t-if="social_links.social_facebook" t-att-href="social_links.social_facebook"
+                           aria-label="Facebook" title="Facebook">
+                      <i class="display-flex-center zmdi zmdi-facebook"/>
+                    </a></li>
+                    <li><a t-if="social_links.social_instagram" t-att-href="social_links.social_instagram"
+                           aria-label="Instagram" title="Instagram">
+                      <i class="display-flex-center zmdi zmdi-instagram"/>
+                    </a></li>
+                    <li><a href="https://www.dvpe.etecsa.cu/" title="DVPE">
+                      <i class="display-flex-center zmdi zmdi-etecsa">
+                        <img src="/sicpro_modulo_web/static/src/img/etecsaCi_300_6_blanco.png" width="18" height="18"/>
+                      </i></a></li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="seleccion-registro-trabajador ">
+              <span>
+                <b> VERIFIQUE LOS DATOS DEL TRABAJADOR (Si no coincide regrese a la pantalla anterior)</b>
+                <span class="text-danger"><i class="fa fa-arrow-circle-o-left"/>
+                  <a href="/web/registro/"><strong> Oops... No es mi usuario!</strong></a></span>
+                <br/>
+                <b> Nombre:</b><em class="text text-success"><t t-esc="nombre_apellidos"/></em><br/>
+                <b> Cargo:</b><em class="text text-success"><t t-esc="cargo"/></em><br/>
+                <b> Unidad Organizativa:</b><em class="text text-success"><t t-esc="uo"/></em><br/>
+              </span>
+            </div>
+
+            <div class="signup-content-botones">
+              <div class="seleccion-registro-titulo"><h1>Acciones Disponibles</h1></div>
+              <div class="seleccion-registro-botones row">
+
+                <t t-if="ejecutar == 'usuario_ldap_true'">
+                <div class="col-sm-3 text-center">
+                  <button class="btn btn-primary form-submit-selector btn-crear">
+                    <i class="fa fa-user-plus"/> <span class="font-weight-bold"> Crear </span>
+                  </button>
+                </div>
+                </t>
+
+                <t t-if="ejecutar == 'usuario_sistema_true'">
+                <div class="col-sm-3 text-center">
+                  <button class="btn btn-primary form-submit-selector btn-modificar">
+                    <i class="fa fa-user-circle"/> <span class="font-weight-bold"> Modificar </span>
+                  </button>
+                </div>
+                </t>
+
+                <t t-if="ejecutar == 'usuario_sistema_false'">
+                <div class="col-sm-3 text-center">
+                  <button class="btn btn-warning form-submit-selector btn-reiniciar">
+                    <i class="fa fa-user-secret"/> <span class="font-weight-bold"> Reiniciar </span>
+                  </button>
+                </div>
+                </t>
+
+                <t t-if="ejecutar == 'usuario_sistema_true'">
+                <div class="col-sm-3 text-center">
+                  <button class="btn btn-danger form-submit-selector btn-eliminar">
+                    <i class="fa fa-user-times"/> <span class="font-weight-bold"> Eliminar </span>
+                  </button>
+                </div>
+                </t>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </body>
+    <script>
+      var correo_trabajador = {
+      'correo': "<t t-esc="email"/>",
+      'tipo': "<t t-esc="tipo"/>",
+      'estado_usuario': "<t t-esc="ejecutar"/>",
+      }
+    </script>
+  </template>
+
+</odoo>

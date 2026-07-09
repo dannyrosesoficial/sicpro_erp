@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Heredo vista formulario de rest api -->
+    <record id="caldav_rest_api_inherit" model="ir.ui.view">
+    <field name="name">caldav.rest.api.form</field>
+    <field name="model">sicpro.app.administracion.rest.api</field>
+    <field name="inherit_id" ref="sicpro_app_administracion.administracion_rest_api_view_form" />
+    <field name="arch" type="xml">
+        <!-- boto para ejecutar el cron
+        <xpath expr="//button[@name='api_cron']" position="before">
+            <button name="api_cron_sicpro_modulo_api_calendario" string="Ejecutar Cron" type="object"
+                    class="oe_highlight" attrs="{'invisible': [('name', '!=', 'sicpro.modulo.calendario.sync')]}"/>
+        </xpath> -->
+        <!-- botón de test de conexión -->
+        <xpath expr="//button[@name='api_test']" position="before">
+            <button name="api_test_sicpro_modulo_api_calendario" string=" Test de Conexión" type="object"
+                    icon="fa-television" attrs="{'invisible': [('name', '!=', 'sicpro.modulo.calendario.sync')]}"/>
+        </xpath>
+    </field>
+  </record>
+
+
+</odoo>

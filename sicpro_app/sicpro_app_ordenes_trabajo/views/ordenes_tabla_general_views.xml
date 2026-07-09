@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ordenes_tabla_general_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.solicitudes.tabla.oportunidades.tree</field>
+        <field name="model">sicpro.app.solicitudes.tabla.oportunidades</field>
+        <field name="priority">300</field>
+        <field name="arch" type="xml">
+            <tree string="Tabla General" create="false">
+                <field name="anio"/>
+                <field name="stage_id"/>
+                <field name="id_solicitud" string="Id Solicitud"/>
+                <field name="especialidad"/>
+                <field name="name" string="Oportunidad"/>
+                <field name="pep"/>
+                <field name="valor_sap_cup" optional="hide"/>
+                <field name="partner_id" optional="hide"/>
+                <field name="territorio_id" optional="hide"/>
+                <field name="provincia_id"/>
+                <field name="departamento" optional="hide"/>
+                <field name="especialista_ejecutor" string='Especialista' optional="hide"/>
+                <field name="priority" readonly="1"/>
+                <field name="tipo" invisible="1"/>
+                <field name="estado_interno"/>
+                <field name="fecha_solicitud_trabajo" optional="hide"/>
+                <field name="fecha_aprobacion" optional="hide"/>
+                <field name="fecha_asignacion" optional="hide"/>
+                <field name="type" string="Tipo"/>
+                <field name="area_id"/>
+                <field name="company_id" optional="hide"/>
+                <field name="company_currency" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ordenes_tabla_general_form" model="ir.ui.view">
+        <field name="name">sicpro.app.solicitudes.tabla.oportunidades.form</field>
+        <field name="model">sicpro.app.solicitudes.tabla.oportunidades</field>
+        <field name="priority">300</field>
+        <field name="arch" type="xml">
+            <form class="o_lead_opportunity_form" create="false" edit="false">
+                <header>
+                    <field name="estado_interno" invisible="1"/>
+                    <field name="tipo" invisible="1"/>
+                    <field name="tipo" invisible="1"/>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Cancelada" bg_color="bg-danger"
+                            attrs="{'invisible': [('estado_interno', 'not in',['cancelada_cliente', 'cancelada_ejecutor'])]}"/>
+                    <widget name="web_ribbon" title="Rechazado" bg_color="bg-warning"
+                            attrs="{'invisible': [('estado_interno', 'not in',['rechazada_dtp', 'rechazada_ejecutor'])]}"/>
+                    <field name="image_1920" widget="image" class="oe_avatar"
+                           options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+
+                    <div class="oe_title" readonly="1">
+                        <label for="name" class="oe_edit_only" string="Iniciativa"
+                               attrs="{'invisible': [('type', '=', 'oportunidad')]}"/>
+                        <label for="name" class="oe_edit_only" attrs="{'invisible': [('type', '=', 'iniciativa')]}"/>
+                        <h1>
+                            <field name="name" readonly="1" placeholder="ej. Nombre de la solicitud de trabajo"/>
+                        </h1>
+                        <h4>
+                            <field name="especialidad" readonly="1" domain="[('company_id', '=', company_id)]"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </h4>
+                        <field name="company_currency" invisible="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="type" invisible="1"/>
+                            <field name="valor_sap_cup" readonly="1" widget='monetary'/>
+                        </group>
+                        <group>
+                            <field name="pep" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="id_solicitud"/>
+                            <field name="anio" readonly="1"/>
+                            <field name="tag_ids" widget="many2many_tags" readonly="1"
+                                   options="{'color_field': 'color', 'no_create_edit': True}"/>
+                        </group>
+                        <group>
+                            <field name="priority" widget="priority" readonly="1"/>
+                            <field name="departamento" string="Departamento"
+                                   attrs="{'invisible': [('tipo', '!=', 'subsolicitud')]}"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="company_id" attrs="{'readonly': [('company_id', '!=', False)]}"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <group string="Asignar esta oportunidad a" class="oe_title">
+                        <group>
+                            <field name="especialista_ejecutor"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="cargo_especialista"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                    </group>
+
+                    <group string="Detalles importantes sobre la solicitud" class="oe_title">
+                        <field name="observaciones_grupo_ejecutor" placeholder="Añadir una observación..."/>
+                    </group>
+                    <group>
+                        <field name="motivo_rechazo" readonly="1"/>
+                        <field name="motivo_cancelacion" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Documentación" attrs="{'invisible': [('tipo', '=', 'principal')]}">
+                            <group string="Documentación para el Proyectista">
+                                <group>
+                                    <field name="microlocalizacion"/>
+                                    <field name="enia"/>
+                                </group>
+                                <group>
+                                    <field name="ipf"/>
+                                </group>
+                            </group>
+                            <group string="Documentación Técnica">
+                                <group string="Proyecto">
+                                    <field name="ejecucion_proyecto" readonly="1"/>
+                                    <field name="consecutivo_proyecto"
+                                           attrs="{'invisible': [('ejecucion_proyecto', '=', False)]}"/>
+                                </group>
+                                <group string="Tarea Técnica">
+                                    <field name="ejecucion_tt" readonly="1"/>
+                                    <field name="codigo_tt" attrs="{'invisible': [('ejecucion_tt', '=', False)]}"/>
+                                </group>
+                                <group>
+                                    <field name="attachment_ids" widget="many2many_binary" class="oe_inline"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Equipos y Materiales" attrs="{'invisible': [('tipo', '=', 'principal')]}">
+                            <group string="Equipos y Materiales para la Ejecución">
+                                <group string="Datos del Equipamiento">
+                                    <field name="datos_equipamiento_1" readonly="1"/>
+                                    <field name="datos_equipamiento_2" readonly="1"/>
+                                    <field name="datos_equipamiento_3" readonly="1"/>
+                                    <field name="datos_equipamiento_4" readonly="1"/>
+                                    <field name="datos_equipamiento_5" readonly="1"/>
+                                </group>
+                                <group string="Datos de los Materiales">
+                                    <field name="datos_materiales_1" readonly="1"/>
+                                    <field name="datos_materiales_2" readonly="1"/>
+                                    <field name="datos_materiales_3" readonly="1"/>
+                                    <field name="datos_materiales_4" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Alcance los Trabajos" attrs="{'invisible': [('tipo', '=', 'principal')]}">
+                            <field name="description" placeholder="Añadir una descripción..." readonly="1"/>
+                        </page>
+
+                        <page string="información extra">
+                            <group>
+                                <group string="Asignación" name="categorization">
+                                    <field name="company_cliente" options="{'no_create': True}"/>
+                                </group>
+                                <group string="Análisis">
+                                    <field name="fecha_solicitud_trabajo"/>
+                                    <field name="fecha_aprobacion"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page name="iniciativa" string="Cliente">
+                            <group>
+                                <group string="Información de contacto">
+                                    <field name="partner_id" readonly="1"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="territorio_id" readonly="1"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="provincia_id" readonly="1"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="website" readonly="1" widget="url"/>
+                                </group>
+                                <group class="mt48">
+                                    <field name="cargo" readonly="1"/>
+                                    <field name="telefono_fijo" readonly="1"/>
+                                    <field name="telefono_movil" readonly="1"/>
+                                    <field name="correo" widget="email" readonly="1"/>
+                                    <field name="pagina_web" widget="url" readonly="1"/>
+                                </group>
+                                <group string="Otros" name="Misc">
+                                    <field name="dias_aprobar"/>
+                                    <field name="dias_asignar"/>
+                                    <field name="type" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'open_attachments': True}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="ordenes_tabla_general_search" model="ir.ui.view">
+        <field name="name">sicpro.app.solicitudes.tabla.oportunidades.search</field>
+        <field name="model">sicpro.app.solicitudes.tabla.oportunidades</field>
+        <field name="priority">300</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Solicitud">
+                <filter string="Iniciativas principales" name="iniciativa_principal"
+                        domain="[('especialidad', '=', False)]"/>
+                <filter string="Sub Iniciativas" name="sub_siniciativa" domain="[('especialidad', '!=', False)]"/>
+                <filter string="Oportunidades" name="type" domain="[('type', '=', 'oportunidad')]"/>
+                <field name="name" string="Oportunidad" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="tag_ids" string="Etiquetas" filter_domain="[('tag_ids', 'ilike', self)]"/>
+                <field name="partner_id"/>
+                <field name="especialidad"/>
+                <field name="especialista_ejecutor"/>
+                <field name="id_solicitud" string="Solicitud ID"/>
+                <field name="pep_corto" string="Número SAP"/>
+                <field name="anio" string="Año"/>
+                <separator/>
+                <filter string="Fecha de Solicitud" name="fecha_solicitud_trabajo" date="fecha_solicitud_trabajo"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter name="especialidad" string="Especialidad" context="{'group_by':'especialidad'}"/>
+                    <separator/>
+                    <filter name="departamento" string="Departamento" context="{'group_by':'departamento'}"/>
+                    <separator/>
+                    <filter string="Cliente" name="partner_id" context="{'group_by':'partner_id'}"/>
+                    <filter string="Territorio" name="territorio_id" context="{'group_by':'territorio_id'}"/>
+                    <filter name="provincia_id" string="Provincia" context="{'group_by': 'provincia_id'}"/>
+                    <filter string="Prioridad" name="priority" context="{'group_by':'priority'}"/>
+                    <filter string="Proceso Ejecutor" name="company_id" context="{'group_by':'company_id'}"/>
+                    <separator orientation="vertical"/>
+                    <filter string="Fecha de creación" context="{'group_by':'fecha_solicitud_trabajo:month'}"
+                            name="month"/>
+                    <filter string="Año" context="{'group_by':'anio'}" name="month"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="solicitudes_tabla_general_action">
+        <field name="name">Solicitudes General</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.solicitudes.tabla.oportunidades</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="solicitudes_tabla_general_tree"/>
+        <field name="search_view_id" ref="solicitudes_tabla_general_search"/>
+        <field name="context">{'search_default_anio': (context_today().strftime('%Y')), 'search_default_type': 1}
+        </field>
+    </record>
+
+</odoo>

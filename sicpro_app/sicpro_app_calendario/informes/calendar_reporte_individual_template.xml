@@ -1,0 +1,2644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="formato_papel_horizontal_calendario_individual" model="report.paperformat">
+            <field name="name">Papel Horizontal Calendario Individual</field>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+        </record>
+
+        <record id="calendar_plan_trabajo_report_action" model="ir.actions.report">
+            <field name="name">Reporte de Plan de Trabajo Individual</field>
+            <field name="model">calendar.plan.reporte</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="paperformat_id" ref="formato_papel_horizontal_calendario_individual"/>
+            <field name="report_name">sicpro_app_calendario.reporte_calendar_plan_trabajo_individual</field>
+            <field name="report_file">sicpro_app_calendario.reporte_calendar_plan_trabajo_individual</field>
+            <field name="print_report_name">'Reporte de Plan de Trabajo'</field>
+            <field name="binding_model_id" ref="model_calendar_plan_reporte"/>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+        <template id="reporte_calendar_plan_trabajo_individual">
+
+            <t t-call="web.html_container">
+
+                <!-- sección de los datos 1 -->
+                <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0">
+                            <colgroup width="29"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <colgroup
+                                    width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <tbody>
+                                <t t-set="calendario" t-value="inf.report_busca_dias()"/>
+                                <t t-foreach='calendario' t-as='nombre'>
+                                    <t t-if="nombre['dia'] == 1">
+                                        <t t-set="dia_1" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 2">
+                                        <t t-set="dia_2" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 3">
+                                        <t t-set="dia_3" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 4">
+                                        <t t-set="dia_4" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 5">
+                                        <t t-set="dia_5" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 6">
+                                        <t t-set="dia_6" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 7">
+                                        <t t-set="dia_7" t-value="nombre['nombre']"/>
+                                    </t>
+                                </t>
+                                <t t-set="eventos" t-value="inf.report_busca_calendario()"/>
+                                <t t-set="firma_aprueba" t-value="request.env['calendar.pie.firmas'].sudo().search(
+                                [('active', '=', True), ('tipo', '=', 'aprueba')])"/>
+                                <t t-set="firma_elabora" t-value="request.env['calendar.pie.firmas'].sudo().search(
+                                [('active', '=', True), ('tipo', '=', 'elabora')])"/>
+
+                                <tr>
+                                    <td height="23" align="left"></td>
+                                    <td style="border-top: 0px; border-bottom: 0px; border-left: 0px" align="left">
+                                        <b>
+                                            <font size="4"></font>
+                                        </b>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="left">
+                                        <span class="font-weight-bold">
+                                            <t t-if="firma_aprueba">
+                                                <t t-out="firma_aprueba.name.ocupacion_id.name.name or ''"/>
+                                            </t>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="left">
+                                    </td>
+                                    <td colspan="28" valign="middle" align="left">
+                                        <span class="font-weight-bold">
+                                            Aprobado:
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="left">
+                                    </td>
+                                    <td style="border-top: 0px; border-bottom: 0px; border-left: 0px"
+                                        align="left">
+                                        <b>
+                                            <font size="4"></font>
+                                        </b>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="left">
+                                        <span class="font-weight-bold">
+                                            <t t-if="firma_aprueba">
+                                                <t t-out="firma_aprueba.name.name or ''"/>
+                                            </t>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="17" align="left">
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <h3 size="4">
+                                            PLAN DE TRABAJO INDIVIDUAL PARA EL MES DE <t t-esc="inf.mes.name.upper()"/>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="17" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_1">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_1"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="1" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >1
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_2">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_2"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="2" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >2
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_3">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_3"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="3" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >3
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_4">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_4"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="4" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >4
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_5">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_5"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="5" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >5
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_6">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_6"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="6" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >6
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_7">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_7"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="7" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >7
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_1">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_2">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_3">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_4">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_5">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_6">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_7">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+
+                                </tr>
+                                <tr>
+                                    <td height="265" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_1">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 1">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_2">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 2">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_3">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 3">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_4">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 4">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_5">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 5">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_6">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 6">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_7">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 7">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_1">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_2">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_3">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_4">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_5">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_6">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_7">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="11" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+
+                <!-- sección de los datos 2 -->
+                <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0">
+                            <colgroup width="29"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <colgroup
+                                    width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <tbody>
+                                <t t-set="calendario" t-value="inf.report_busca_dias()"/>
+                                <t t-foreach='calendario' t-as='nombre'>
+                                    <t t-if="nombre['dia'] == 8">
+                                        <t t-set="dia_8" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 9">
+                                        <t t-set="dia_9" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 10">
+                                        <t t-set="dia_10" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 11">
+                                        <t t-set="dia_11" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 12">
+                                        <t t-set="dia_12" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 13">
+                                        <t t-set="dia_13" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 14">
+                                        <t t-set="dia_14" t-value="nombre['nombre']"/>
+                                    </t>
+                                </t>
+                                <t t-set="eventos" t-value="inf.report_busca_calendario()"/>
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <b>
+                                            <font size="4">
+                                                PLAN DE TRABAJO INDIVIDUAL PARA EL MES DE
+                                                <t t-esc="inf.mes.name.upper()"/>
+                                            </font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="17" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_8">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_8"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="1" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >8
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_9">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_9"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="2" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >9
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_10">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_10"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="3" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >10
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_11">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_11"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="4" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >11
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_12">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_12"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="5" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >12
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_13">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_13"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="6" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >13
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_14">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_14"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="7" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >14
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_8">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_9">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_10">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_11">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_12">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_13">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_14">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+
+                                </tr>
+                                <tr>
+                                    <td height="265" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_8">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 8">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_9">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 9">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_10">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 10">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_11">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 11">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_12">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 12">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_13">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 13">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_14">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 14">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_8">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_9">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_10">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_11">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_12">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_13">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_14">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="11" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+
+                <!-- sección de los datos 3 -->
+                <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0">
+                            <colgroup width="29"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <colgroup
+                                    width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <tbody>
+                                <t t-set="calendario" t-value="inf.report_busca_dias()"/>
+                                <t t-foreach='calendario' t-as='nombre'>
+                                    <t t-if="nombre['dia'] == 15">
+                                        <t t-set="dia_15" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 16">
+                                        <t t-set="dia_16" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 17">
+                                        <t t-set="dia_17" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 18">
+                                        <t t-set="dia_18" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 18">
+                                        <t t-set="dia_19" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 20">
+                                        <t t-set="dia_20" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 21">
+                                        <t t-set="dia_21" t-value="nombre['nombre']"/>
+                                    </t>
+
+                                </t>
+                                <t t-set="eventos" t-value="inf.report_busca_calendario()"/>
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <b>
+                                            <font size="4">
+                                                PLAN DE TRABAJO INDIVIDUAL PARA EL MES DE
+                                                <t t-esc="inf.mes.name.upper()"/>
+                                            </font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="17" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_15">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_15"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="1" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >15
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_16">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_16"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="2" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >16
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_17">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_17"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="3" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >17
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_18">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_18"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="4" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >18
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_19">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_19"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="5" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >19
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_20">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_20"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="6" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >20
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_21">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_21"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="7" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >21
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_15">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_16">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_17">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_18">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_19">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_20">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_21">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+
+                                </tr>
+                                <tr>
+                                    <td height="265" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_15">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 15">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_16">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 16">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_17">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 17">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_18">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 18">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_19">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 19">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_20">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 20">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_21">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 21">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_15">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_16">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_17">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_18">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_19">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_20">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_21">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="11" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+
+                <!-- sección de los datos 4 -->
+                <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0">
+                            <colgroup width="29"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <colgroup
+                                    width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <tbody>
+                                <t t-set="calendario" t-value="inf.report_busca_dias()"/>
+                                <t t-foreach='calendario' t-as='nombre'>
+                                    <t t-if="nombre['dia'] == 22">
+                                        <t t-set="dia_22" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 23">
+                                        <t t-set="dia_23" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 24">
+                                        <t t-set="dia_24" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 25">
+                                        <t t-set="dia_25" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 26">
+                                        <t t-set="dia_26" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 27">
+                                        <t t-set="dia_27" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 28">
+                                        <t t-set="dia_28" t-value="nombre['nombre']"/>
+                                    </t>
+                                </t>
+                                <t t-set="eventos" t-value="inf.report_busca_calendario()"/>
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <b>
+                                            <font size="4">
+                                                PLAN DE TRABAJO INDIVIDUAL PARA EL MES DE
+                                                <t t-esc="inf.mes.name.upper()"/>
+                                            </font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="17" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_22">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_22"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="1" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >22
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_23">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_23"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="2" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >23
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_24">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_24"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="3" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >24
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_25">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_25"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="4" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >25
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_26">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_26"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="5" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >26
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_27">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_27"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="6" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >27
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_28">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_28"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="7" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >28
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_22">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_23">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_24">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_25">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_26">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_27">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_28">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+
+                                </tr>
+                                <tr>
+                                    <td height="265" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_22">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 22">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_23">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 23">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_24">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 24">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_25">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 25">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_26">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 26">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_27">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 27">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_28">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 28">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_22">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_23">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_24">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_25">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_26">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_27">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_28">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="11" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+
+                <!-- sección de los datos 5 -->
+                <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0">
+                            <colgroup width="29"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <colgroup
+                                    width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14" span="2"></colgroup>
+                            <colgroup width="113" span="2"></colgroup>
+                            <colgroup width="14"></colgroup>
+                            <tbody>
+                                <t t-set="calendario" t-value="inf.report_busca_dias()"/>
+                                <t t-foreach='calendario' t-as='nombre'>
+                                    <t t-if="nombre['dia'] == 29">
+                                        <t t-set="dia_29" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 30">
+                                        <t t-set="dia_30" t-value="nombre['nombre']"/>
+                                    </t>
+                                    <t t-if="nombre['dia'] == 31">
+                                        <t t-set="dia_31" t-value="nombre['nombre']"/>
+                                    </t>
+                                </t>
+                                <t t-set="eventos" t-value="inf.report_busca_calendario()"/>
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <b>
+                                            <font size="4">
+                                                PLAN DE TRABAJO INDIVIDUAL PARA EL MES DE
+                                                <t t-esc="inf.mes.name.upper()"/>
+                                            </font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="17" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="23" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_29">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_29"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="1" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >29
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_30">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_30"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="2" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >30
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_31">
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-left: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            align="left">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <t t-out="dia_31"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000"
+                                            sdval="3" sdnum="9226;" align="right">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >31
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="border-top: 1px ridge #000000; border-bottom: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            align="right">
+                                            <b>
+                                                <font size="4" color="#000000">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_29">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4">
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_30">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_31">
+                                        <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <b>
+                                                <font size="4" color="#000000"
+                                                >
+                                                    <br></br>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="265" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_29">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 29">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_30">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 30">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_31">
+                                        <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="top" align="left">
+                                            <t t-foreach='eventos' t-as='evento'>
+                                                <t t-if="evento['dia'] == 31">
+                                                    <font color="#000000">·
+                                                        <t t-out="evento['hora']"/>
+                                                        -
+                                                        <t t-out="evento['evento']"/>
+                                                    </font>
+                                                    <br></br>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="6" align="left">
+                                        <br></br>
+                                    </td>
+                                    <t t-if="dia_29">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_30">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                    <t t-if="dia_31">
+                                        <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                            colspan="4" valign="middle" align="center">
+                                            <br></br>
+                                        </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="11" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td colspan="28" valign="middle" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="15" align="left"></td>
+                                    <td colspan="28" valign="middle" align="left">
+                                        <span class="font-weight-bold">
+                                            <t t-esc="env.user.ocupacion_id.name.name.upper()"/>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="15" align="left"></td>
+                                    <td colspan="28" valign="middle" align="left">
+                                        <span class="font-weight-bold">
+                                            <t t-esc="env.user.name.upper()"/>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+
+                <t t-out="0"/>
+
+            </t>
+        </template>
+    </data>
+</openerp>

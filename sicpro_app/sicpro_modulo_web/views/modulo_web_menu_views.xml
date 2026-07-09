@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="modulo_web_menu" name="Configuración WebSite"
+                  parent="sicpro_app_administracion.menu_configuracion_administrador" sequence="4"/>
+
+        <menuitem id="modulo_web_about_url_menu" name="Video de Introducción" action="web_url_video_action"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="1"/>
+
+        <menuitem id="modulo_web_galeria_menu" name="Galería Web" action="web_galeria_action"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="2"/>
+
+        <menuitem id="modulo_web_galeria_etiquetas_menu" name="Etiquetas de la Galería"
+                  action="web_galeria_etiquetas_action"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="3"/>
+
+        <menuitem id="modulo_web_equipo_menu" name="Equipo de Trabajo" action="web_equipo_action"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="4"/>
+
+        <menuitem id="modulo_web_manuales_menu" name="Manuales del sistema" action="web_manuales_action"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="5"/>
+
+        <menuitem id="modulo_web_version_menu" name="Versión del Sistema" action="web_version_action"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="12"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <template id="web_automatiza_correos">
+    <t t-call-assets="web.assets_common"/>
+    <t t-call-assets="web.web_automatizacion"/>
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>SICPRO ERP - Automatiza</title>
+      <meta http-equiv="cache-control" content="no-cache"/>
+      <meta http-equiv="pragma" content="no-cache"/>
+
+
+      <!-- Favicons -->
+      <link href="/sicpro_modulo_web_automatiza/static/src/img/SICPRO_ERP.png" rel="icon"/>
+      <link href="/sicpro_modulo_web_automatiza/static/src/img/SICPRO_ERP.png" rel="apple-touch-icon"/>
+    </head>
+
+    <body>
+
+      <!-- ======= Top Bar ======= -->
+      <div id="topbar" class="fixed-top d-flex align-items-center ">
+        <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+          <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">sicproerp@etecsa.cu</a>
+            <i class="bi bi-phone-fill phone-icon"></i> +53 52183663
+          </div>
+          <div class="cta d-none d-md-block">
+            <a href="/web/inicio" class="scrollto">Ir al Inicio</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top d-flex align-items-center ">
+        <div class="container d-flex align-items-center justify-content-between">
+
+          <div class="logo">
+            <a href="#">
+              <img src="/sicpro_modulo_web_automatiza/static/src/img/SICPRO_ERP_blanco.png" alt="SICPRO"
+                   width="32" height="32"/>
+              <strong class="text-logo">Automatización</strong>
+            </a>
+          </div>
+
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto" href="#hero">Inicio</a></li>
+              <li><a class="nav-link scrollto" href="#icon-boxes">Reglas</a></li>
+              <li><a class="nav-link scrollto" href="/web/login">Login</a></li>
+              <li><a class="nav-link scrollto" href="/web/registro/">Registro</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <!-- .navbar -->
+        </div>
+      </header>
+      <!-- Fin Header -->
+
+      <!-- ======= Inicio Hero ======= -->
+      <section id="hero" class="d-flex justify-cntent-center align-items-center">
+        <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="carousel-container">
+              <h2 class="animate__animated animate__fadeInDown">Automatización en <span>SICPRO ERP</span></h2>
+              <p class="animate__animated animate__fadeInUp">Como nueva funcionalidad, el sistema incorpora la función
+                de recepción y procesamiento de correos electrónicos, esta incluye también su documentación adjunta,
+                para que esta funcionalidad sea ejecutada correctamente, es necesario seguir los pasos que serán
+                indicados a continuación.</p>
+              <a href="mailto:daniel.borero@etecsa.cu"
+                 class="btn-get-started animate__animated animate__fadeInUp scrollto">Contacto</a>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="carousel-container">
+              <h2 class="animate__animated animate__fadeInDown">¿A quien se le enviá el correo?</h2>
+              <p class="animate__animated animate__fadeInUp">En todos los casos los correos siempre serán enviados
+                a la dirección oficial del sistema: <strong>sicproerp@etecsa.cu</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="carousel-container">
+              <h2 class="animate__animated animate__fadeInDown">Confección del correo</h2>
+              <p class="animate__animated animate__fadeInUp">Para que sea correctamente interpretado el correo es
+                necesario tener en cuenta dos aspectos importantes. Primeramente incorporar en el asunto del correo
+                alguna de las claves de asuntos que están predestinadas y en el cuerpo del mensaje la información
+                indicada para ser procesada por el sistema. A continuación se detallan los requisitos necesarios.</p>
+            </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+          </a>
+
+          <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+          </a>
+
+        </div>
+      </section>
+      <!-- Fin Hero -->
+
+      <main id="main">
+        <!-- ======= Inicio Icon Boxes ======= -->
+        <section id="icon-boxes" class="icon-boxes">
+          <div class="container">
+
+            <div class="row">
+
+              <t t-set="automatiza_ids" t-value="request.env['sicpro.modulo.web.automatiza'].sudo().search(
+                    [('active', '=', True)])"/>
+
+              <t t-foreach='automatiza_ids' t-as='data_automatiza'>
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 margin_bajos" data-aos="fade-up">
+                  <div class="icon-box">
+                    <div class="icon"><i t-att-class="'fa ' + data_automatiza['clase']"></i></div>
+                    <h4 class="title text-primary"><t t-out="data_automatiza['name']"/></h4>
+                    <p class="description"><t t-out="data_automatiza['descripcion']"/></p>
+                  </div>
+                </div>
+              </t>
+
+            </div>
+          </div>
+        </section>
+        <!-- Fin Icon Boxes Section -->
+      </main>
+      <!-- Fin #main -->
+
+      <!-- ======= Inicio Footer ======= -->
+      <footer id="footer">
+
+        <div class="container">
+          <div class="copyright">
+            <img src="/sicpro_modulo_web/static/src/img/etecsaCi_300_8 blanco.png" alt="ETECSA" width="32"
+                 height="32"/>
+            <strong>©2023 DIVISIÓN DE PROYECTOS Y EJECUCIÓN DE OBRAS </strong>
+          </div>
+          <div class="credits">
+            <strong>Todos los derechos reservados </strong>
+          </div>
+        </div>
+      </footer>
+      <!-- Fin Footer -->
+
+      <div id="preloader"></div>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i></a>
+    </body>
+    <t t-call-assets="web.web_automatizacion_js"/>
+  </template>
+
+
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+correos_entrantes_metodos_admin,Métodos Correos Entrantes admin,model_sicpro_modulo_base_correos_entrantes_metodos,sicpro_app_administracion.grupo_app_administracion_admin,1,1,1,1
+correos_entrantes_asuntos_admin,Asuntos Correos Entrantes admin,model_sicpro_modulo_base_correos_entrantes_asuntos,sicpro_app_administracion.grupo_app_administracion_admin,1,1,1,1

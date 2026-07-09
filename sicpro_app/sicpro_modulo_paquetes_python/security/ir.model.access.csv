@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+python_paquetes_instalados_public,python paquetes User,model_python_paquetes_instalados,,1,0,0,0
+python_paquetes_instalados_group_system,python paquetes Admin,model_python_paquetes_instalados,base.group_system,1,1,1,1
+
+

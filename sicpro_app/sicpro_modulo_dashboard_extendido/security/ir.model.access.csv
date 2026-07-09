@@ -1,0 +1,23 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+dashboard_tableros_usuario,Dashboard Tableros usuario,model_sicpro_modulo_dashboard_tableros,base.group_user,1,1,0,0
+dashboard_secciones_usuario,Dashboard Secciones usuario,model_sicpro_modulo_dashboard_secciones,base.group_user,1,0,0,0
+dashboard_grupos_usuario,Dashboard Grupos usuario,model_sicpro_modulo_dashboard_grupos,base.group_user,1,0,0,0
+dashboard_graficos_usuario,Dashboard Gráficos usuario,model_sicpro_modulo_dashboard_graficos,base.group_user,1,0,0,0
+dashboard_graficos_values_usuario,Dashboard Gráficos Valores Extras usuario,model_sicpro_modulo_dashboard_graficos_values,base.group_user,1,0,0,0
+dashboard_iconos_usuario,Dashboard Iconos usuario,model_sicpro_modulo_dashboard_iconos,base.group_user,1,0,0,0
+dashboard_colores_usuario,Dashboard Colores usuario,model_sicpro_modulo_dashboard_colores,base.group_user,1,0,0,0
+dashboard_colores_orden_usuario,Dashboard Colores Orden usuario,model_sicpro_modulo_dashboard_colores_orden,base.group_user,1,0,0,0
+dashboard_colores_set_usuario,Dashboard Colores Set usuario,model_sicpro_modulo_dashboard_colores_set,base.group_user,1,0,0,0
+
+dashboard_tableros_admin,Dashboard Tableros admin,model_sicpro_modulo_dashboard_tableros,base.group_system,1,1,1,1
+dashboard_secciones_admin,Dashboard Secciones admin,model_sicpro_modulo_dashboard_secciones,base.group_system,1,1,1,1
+dashboard_grupos_admin,Dashboard Grupos admin,model_sicpro_modulo_dashboard_grupos,base.group_system,1,1,1,1
+dashboard_graficos_admin,Dashboard Gráficos admin,model_sicpro_modulo_dashboard_graficos,base.group_system,1,1,1,1
+dashboard_graficos_values_admin,Dashboard Gráficos Valores Extras admin,model_sicpro_modulo_dashboard_graficos_values,base.group_system,1,1,1,1
+dashboard_iconos_admin,Dashboard Iconos admin,model_sicpro_modulo_dashboard_iconos,base.group_system,1,1,1,1
+dashboard_colores_admin,Dashboard Colores admin,model_sicpro_modulo_dashboard_colores,base.group_system,1,1,1,1
+dashboard_colores_orden_admin,Dashboard Colores Orden admin,model_sicpro_modulo_dashboard_colores_orden,base.group_system,1,1,1,1
+dashboard_colores_set_admin,Dashboard Colores Set admin,model_sicpro_modulo_dashboard_colores_set,base.group_system,1,1,1,1
+
+
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="contratos_cuentas_dvpe_view_form" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.economia.cuentas.dvpe.form</field>
+            <field name="model">sicpro.app.contratos.economia.cuentas.dvpe</field>
+            <field name="arch" type="xml">
+                <form string="Cuentas DVPE">
+                    <sheet>
+                        <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group name="bank_details" col="4">
+                            <field name="name"/>
+                            <field name="cuenta"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="moneda"/>
+                        </group>
+                        <group>
+                            <group>
+                                <label for="direccion" string="Dirección DVPE"/>
+                                <div class="o_address_format">
+                                    <field name="direccion" placeholder="Dirección..." class="o_address_street"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="telefono" class="o_force_ltr"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="contratos_cuentas_dvpe_view_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.economia.cuentas.dvpe.tree</field>
+            <field name="model">sicpro.app.contratos.economia.cuentas.dvpe</field>
+            <field name="arch" type="xml">
+                <tree string="Cuentas DVPE">
+                    <field name="moneda"/>
+                    <field name="name"/>
+                    <field name="cuenta"/>
+                    <field name="telefono"/>
+                    <field name="direccion"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="contratos_cuentas_dvpe_view_search" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.economia.cuentas.dvpe.search</field>
+            <field name="model">sicpro.app.contratos.economia.cuentas.dvpe</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Cuentas DVPE">
+                    <field name="name"/>
+                    <field name="moneda"/>
+                    <field name="cuenta"/>
+                    <separator/>
+                    <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                    <separator />
+                <group expand="0" string="Agrupar por">
+                        <filter string="Moneda" name="moneda" context="{'group_by':'moneda'}"/>
+                        <filter string="Cuenta Bancaria" name="cuenta" context="{'group_by':'cuenta'}"/>
+                </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="contratos_cuentas_dvpe_action" model="ir.actions.act_window">
+            <field name="name">Cuentas DVPE</field>
+            <field name="res_model">sicpro.app.contratos.economia.cuentas.dvpe</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="contratos_cuentas_dvpe_view_search"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear una nueva cuenta bancaria para la DVPE
+              </p><p>
+                Aquí controlara las cuentas bancarias utilizadas en las operaciones económicas del los contratos.
+              </p>
+            </field>
+        </record>
+
+
+</odoo>

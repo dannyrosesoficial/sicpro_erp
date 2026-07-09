@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista de Árbol (Tree) para Licencias -->
+        <record id="view_repositorio_institucional_licencia_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.repo.licencia.tree</field>
+            <field name="model">sicpro.app.repo.licencia</field>
+            <field name="arch" type="xml">
+                <tree string="Licencias" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="siglas"/>
+                    <field name="url" widget="url"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción de Ventana (Action Window) para Licencias -->
+        <record id="action_view_repositorio_institucional_licencia" model="ir.actions.act_window">
+            <field name="name">Licencias</field>
+            <field name="res_model">sicpro.app.repo.licencia</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

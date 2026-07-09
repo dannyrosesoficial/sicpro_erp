@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="grupo_readonly_admin" model="res.groups">
+            <field name="name">Acceso a Readonly Avanzada</field>
+            <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_accesos_variados"/>
+        </record>
+</odoo>

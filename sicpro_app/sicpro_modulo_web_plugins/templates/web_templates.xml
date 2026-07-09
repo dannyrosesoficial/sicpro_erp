@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <template id="web_plantilla_inicio_herencia_plugins" inherit_id="sicpro_modulo_web.web_plantilla_inicio">
+    <xpath expr="//a[@name='header_equipo']" position="after">
+      <li><a name='descarga' class="nav-link scrollto" href="#plugins">Plugins</a></li>
+    </xpath>
+
+    <xpath expr="//section[@name='equipo']" position="after">
+      <!-- ======= Inicio Plugins ======= -->
+      <section id="plugins" name="descargas" class="descargas">
+        <div class="container">
+          <div class="section-title">
+            <h2>PLUGINS</h2>
+            <p>SICPRO ERP utiliza aplicaciones externas y plugins para aumentar la productividad de los usuarios.
+              En esta sección damos acceso para la descarga de los mismos.</p>
+          </div>
+
+          <div class="row content">
+            <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
+              <img src="/sicpro_modulo_web/static/src/img/details-4.png" class="img-fluid" alt=""/>
+            </div>
+            <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
+              <h3>Qué función cumple un plugin y sus principales ventajas</h3>
+              <p class="fst-italic">
+                Los plugins son pequeños programas complementarios que amplían las funciones de las apps webs,
+                de los programas o de las herramientas. Es algo que se emplea a menudo dentro de entornos de
+                trabajo avanzado, mejorando la experiencia de uso del usuario.
+              </p>
+              <p>
+                Un plugin sirve para que una herramienta adquiera más posibilidades a base de añadir más funciones.
+                Cuantos más plugin se instalen en una plataforma, más facilidades obtendrá el usuario, se podrá
+                agilizar el trabajo, se evitará tener que instalar más programas y se reunirá todo en un mismo
+                lugar.
+                Además, podremos ampliar el conjunto de herramientas o funciones de un programa o plataforma.
+              </p>
+              <ul>
+                <li><i class="bi bi-check"></i> Añaden funcionalidades adicionales de manera rápida y sencilla.</li>
+                <li><i class="bi bi-check"></i> Se puede configurar y perfeccionar su funcionamiento.</li>
+                <li><i class="bi bi-check"></i> Tienen su propio panel de control para poder acceder a ellos y
+                  personalizar el funcionamiento.</li>
+              </ul>
+            </div>
+          </div>
+          <a href="/web/plugins/" class="btn-learn-more">Ver Plugins</a>
+        </div>
+      </section>
+      <!-- Fin Plugins -->
+    </xpath>
+
+  </template>
+
+
+</odoo>

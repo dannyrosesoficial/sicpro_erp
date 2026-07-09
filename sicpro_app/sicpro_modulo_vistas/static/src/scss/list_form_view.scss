@@ -1,0 +1,45 @@
+.o_list_row_count_sheliya {
+ 	width: 20px;
+    padding-left: 10px !important;
+    
+}
+
+.o_form_view .o_form_sheet_bg {
+    border-top: 1px solid #ddd;
+    margin-top: -1px;
+    z-index: 11;
+}
+
+.o_form_sheet_bg .o_form_statusbar {
+    //position: fixed !important; //Tiene problemas en la ubicación de la barra de estados
+    width: 100%;
+    z-index: 11;
+}
+
+.o_form_view .o_form_sheet_bg > .o_form_sheet {
+    margin-top: 50px;
+}
+
+thead tr:nth-child(1) th{
+    background-color: #eee;
+    color: #4c4c4c;
+    border-bottom: 1px solid #cacaca;
+    position: sticky !important;
+    top: 0;
+    z-index: 10;
+    font-size: 13px;
+}
+
+.o_list_view tr.o_data_row.selected_record {
+	 background-color: #7c7aad;
+     color:#ffffff
+}
+
+.o_list_view .o_list_table thead {
+    position: sticky;
+    top: 0;
+    z-index:999;
+}
+.o_list_view .table-responsive .table thead{
+z-index: 1;
+}

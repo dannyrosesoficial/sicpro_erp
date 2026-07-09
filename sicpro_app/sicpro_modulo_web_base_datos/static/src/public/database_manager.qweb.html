@@ -1,0 +1,400 @@
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <title>SICPRO ERP - BaseDatos</title>
+    <link href="/sicpro_modulo_web_base_datos/static/src/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="/web/static/lib/fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/web/static/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="/sicpro_modulo_web_base_datos/static/src/css/styles.css" rel="stylesheet">
+
+    <script src="/web/static/lib/jquery/jquery.js" ></script>
+    <script src="/web/static/lib/popper/popper.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/index.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/util.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/alert.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/button.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/carousel.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/collapse.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/dropdown.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/modal.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/tooltip.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/popover.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/scrollspy.js" ></script>
+    <script src="/web/static/lib/bootstrap/js/tab.js" ></script>
+    <script src="/sicpro_modulo_web_base_datos/static/src/public/database_manager.js" ></script>
+</head>
+<body class="ss-preload theme-static" id="top">
+
+    <div id="preloader">
+        <div class="dots-fade" id="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <section class="s-intro" id="intro">
+        <header class="s-intro__header">
+            <div class="s-intro__logo">
+                <a class="logo" href="#">
+                    <img alt="Gestión de Bases de Datos" src="/sicpro_modulo_web_base_datos/static/src/images/logo_sicpro 2.png">
+                </a>
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- Listado de las bases de datos -->
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 o_database_list">
+                <div class="margin-database font-weight-bold">BASES DE DATOS</div>
+                <t t-if="not list_db">
+                    <div class="alert alert-danger text-center">El administrador de la base de datos ha sido deshabilitado</div>
+                </t>
+                <t t-elif="insecure and databases">
+                    <div class="alert alert-warning">
+                        Advertencia, su administrador de base de datos de SICPRO ERP no está protegido.<br/>
+                        Por favor <a data-target=".o_database_master" data-toggle="modal" href="#">establecer una contraseña maestra</a> para asegurarlo.
+                    </div>
+                </t>
+                <t t-if="error">
+                    <div class="alert alert-danger" t-out="error"></div>
+                </t>
+                <t t-if="list_db and databases">
+                    <div class="list-group">
+
+                        <t t-as="db" t-foreach="databases">
+                            <div class="list-group-item d-flex align-items-center">
+                                <a class="d-block flex-grow-1" t-attf-href="/web?db={{ db }}">
+                                    <t t-if="db in incompatible_databases">
+                                        <i class="icon fa fa-warning float-right text-warning" title="Es posible que esta base de datos no sea compatible"></i>
+                                    </t>
+                                    <t t-out="db" />
+                                </a>
+                                <t t-if="manage">
+                                    <div class="btn-group btn-group-sm float-right">
+                                        <button class="o_database_action btn btn-success" data-target=".o_database_backup" t-att-data-db="db" type="button">
+                                            <i class="fa fa-floppy-o fa-fw"></i> Backup
+                                        </button>
+                                        <button class="o_database_action btn btn-primary ml-1" data-target=".o_database_duplicate" t-att-data-db="db" type="button">
+                                            <i class="fa fa-files-o fa-fw"></i> Duplicar
+                                        </button>
+                                        <button class="o_database_action btn btn-warning ml-1" data-target=".o_database_delete_sql" t-att-data-db="db" type="button">
+                                            <i class="fa fa-trash-o fa-fw"></i> Eliminar SQL
+                                        </button>
+                                        <button class="o_database_action btn btn-danger ml-1" data-target=".o_database_delete" t-att-data-db="db" type="button">
+                                            <i class="fa fa-trash-o fa-fw"></i> Eliminar Todo
+                                        </button>
+
+                                        <button class="o_database_action btn btn-secondary ml-3" data-target=".o_database_git_apps" t-att-data-db="db" type="button">
+                                            <i class="fa fa-download fa-fw"></i> Git Apps
+                                        </button>
+                                        <button class="o_database_action btn btn-secondary ml-1" data-target=".o_database_git_filestore" t-att-data-db="db" type="button">
+                                            <i class="fa fa-download"></i> Git Filestore
+                                        </button>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+                    </div>
+                    <t t-if="manage">
+                        <div class="d-flex mt-2">
+                            <button class="btn btn-primary flex-grow-1" data-target=".o_database_create" data-toggle="modal" type="button">Crear BaseDatos</button>
+                            <button class="btn btn-primary flex-grow-1 ml-2" data-target=".o_database_restore" data-toggle="modal" type="button">Restaurar BaseDatos</button>
+                            <button class="btn btn-primary flex-grow-1 ml-2" data-target=".o_database_master" data-toggle="modal" type="button">Contraseña Maestra</button>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="text-center mt-2">
+                            <a href="/web/database/dbstore/manager">Administrar bases de datos</a>
+                        </div>
+                    </t>
+                </t>
+                <t t-elif="list_db">
+                    <form action="/web/database/create" method="post" role="form">
+                        <t t-call="create_form" />
+                        <input class="btn btn-primary float-left" type="submit" value="Create database"/>
+                    </form>
+                    <a class="btn btn-link" data-target=".o_database_restore" data-toggle="modal" role="button">o restaurar una base de datos</a>
+                </t>
+            </div>
+        </div>
+
+        <!-- Crear -->
+        <div class="modal fade o_database_create" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="/web/database/create" method="post" role="form">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Crear Base de Datos</h4>
+                            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <t t-call="create_form" />
+                            <small class="text-muted">
+                                Para mejorar su experiencia, es posible que se envíen algunos datos a los servicios SICPRO ERP.
+                            </small>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary float-right" type="submit" value="Continuar"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurar -->
+        <div class="modal fade o_database_restore" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Restaurar Base de Datos</h4>
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <form action="/web/database/restore" enctype="multipart/form-data" id="form_restore_db" method="post" role="form">
+                        <div class="modal-body">
+                            <t t-call="master_input" />
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" for="backup_file">Archivo</label>
+                                <div class="col-md-8">
+                                    <input class="required" id="backup_file" name="backup_file" type="file"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" for="name">Nombre de la BD</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" id="dbname_restore" name="name" required="required" t-att-pattern="pattern" title="Solo se permiten caracteres alfanuméricos, guiones bajos, guiones y puntos." type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="copy">su base de datos podría haber sido movida o copiada.</label>
+                                <p class="form-text">
+                                    Para evitar conflictos entre bases de datos, SICPRO ERP necesita saber si esta base de datos se movió o se copió.<br/>
+                                    Si no lo sabe, responda "Esta base de datos es una copia".
+                                </p>
+                                <div class="custom-control custom-radio">
+                                    <input checked="1" class="custom-control-input" id="radio_copy_true" name="copy" type="radio" value="true" />
+                                    <label class="custom-control-label" for="radio_copy_true">Esta base de datos es una copia</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input class="custom-control-input" id="radio_copy_false" name="copy" type="radio" value="false" />
+                                    <label class="custom-control-label" for="radio_copy_false">Esta base de datos fue movida</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary float-right" type="submit" value="Continuar"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contraseña Maestra -->
+        <div class="modal fade o_database_master" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Establecer contraseña maestra</h4>
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <form action="/web/database/change_password" id="form_change_pwd" method="post" role="form">
+                        <div class="modal-body">
+                            <p>Se requiere la contraseña maestra para crear, eliminar, volcar o restaurar bases de datos.</p>
+                            <t t-set="set_master_pwd" t-value="True" />
+                            <t t-call="master_input" />
+                            <div class="form-group">
+                                <label class="col-form-label" for="master_pwd_new">Nueva contraseña maestra</label>
+                                <div class="input-group">
+                                    <input autocomplete="new-password" class="form-control" id="master_pwd_new" name="master_pwd_new" required="required" type="password"/>
+                                    <div class="input-group-append">
+                                        <span aria-hidden="true" class="fa fa-eye o_little_eye input-group-text" style="cursor: pointer;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary float-right" type="submit" value="Continue"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Duplicar -->
+        <div class="modal fade o_database_duplicate" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Duplicar Base de Datos</h4>
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <form action="/web/database/duplicate" id="form-duplicate-db" method="post" role="form">
+                        <div class="modal-body">
+                            <t t-set="set_master_pwd" t-value="False" />
+                            <t t-call="master_input" />
+                            <div class="form-group">
+                                <label class="col-form-label" for="name">Nombre de la Base de datos</label>
+                                <input class="form-control" id="dbname_duplicate" name="name" readonly="readonly" required="required" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="new_name">Nuevo nombre</label>
+                                <input class="form-control" id="new_name" name="new_name" required="required" t-att-pattern="pattern" title="Solo se permiten caracteres alfanuméricos, guiones bajos, guiones y puntos." type="text"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary float-right" type="submit" value="Continuar"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Eliminar Todo-->
+        <div class="modal fade o_database_delete" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Eliminar toda la Base de Datos</h4>
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <form action="/web/database/drop" id="form_drop_db" method="post" role="form">
+                        <div class="modal-body">
+                            <t t-call="master_input" />
+                            <div class="form-group">
+                                <label class="col-form-label" for="name">Base de datos</label>
+                                <input class="form-control" id="dbname_delete" name="name" readonly="readonly" required="required" type="text"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary float-right" type="submit" value="Eliminar"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+            <!-- Eliminar sql-->
+        <div class="modal fade o_database_delete_sql" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Eliminar SQL de la Base de Datos</h4>
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <form action="/web/database/drop_sql" id="form_drop_sql_db" method="post" role="form">
+                        <div class="modal-body">
+                            <t t-call="master_input" />
+                            <div class="form-group">
+                                <label class="col-form-label" for="name">Base de datos</label>
+                                <input class="form-control" id="dbname_delete_sql" name="name" readonly="readonly" required="required" type="text"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary float-right" type="submit" value="Eliminar"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backup -->
+        <div class="modal fade o_database_backup" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Backup de la Base de Datos</h4>
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <form action="/web/database/backup" id="form_backup_db" method="post" role="form">
+                        <div class="modal-body">
+                            <t t-call="master_input" />
+                            <div class="form-group">
+                                <label class="col-form-label" for="name">Nombre de la Base de Datos</label>
+                                <input class="form-control" id="dbname_backup" name="name" readonly="readonly" required="required" type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="backup_format">Formato del Backup </label>
+                                <select class="form-control" id="backup_format" name="backup_format" required="required">
+                                    <option value="zip">zip (incluye almacén de archivos)</option>
+                                    <option value="dump">pg_dump formato personalizado (sin almacén de archivos)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary float-right" type="submit" value="Backup"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+<!--        &lt;!&ndash; Gitlab Apps &ndash;&gt;-->
+<!--        <div class="modal fade o_database_git_apps" role="dialog">-->
+<!--            <div class="modal-dialog">-->
+<!--                <div class="modal-content">-->
+<!--                    <div class="modal-header">-->
+<!--                        <h4 class="modal-title">Actualizar Repositorio de Aplicaciones</h4>-->
+<!--                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>-->
+<!--                    </div>-->
+<!--                    <form action="/web/database/gitlab/apps" id="form-gitlab-apps" method="post" role="form">-->
+<!--                        <div class="modal-body">-->
+<!--                            <t t-set="set_master_pwd" t-value="False" />-->
+<!--                            <t t-call="master_input" />-->
+<!--                            <div class="form-group">-->
+<!--                                <label class="col-form-label" for="git_app_directorio">Directorio del Repositorio Local</label>-->
+<!--                                <input class="form-control" id="git_app_directorio" name="git_app_directorio" required="required" value="/opt/odoo/sicpro_erp/apps" title="Agregar el directorio físico donde se encuentra el repositorio local." type="text"/>-->
+<!--                                <label class="col-form-label" for="git_app_usuario">Usuario</label>-->
+<!--                                <input class="form-control" id="git_app_usuario" name="git_app_usuario" required="required" t-att-pattern="pattern" title="Introducir el usuario del servicio de GitLab." type="text"/>-->
+<!--                                <label class="col-form-label" for="git_app_password">Contraseña</label>-->
+<!--                                <input class="form-control" id="git_app_password" name="git_app_password" required="required" t-att-pattern="pattern" title="Introducir la contraseña del servicio de GitLab." type="password"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <input class="btn btn-primary float-right" type="submit" value="Continuar"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Gitlab Filestore &ndash;&gt;-->
+<!--        <div class="modal fade o_database_git_filestore" role="dialog">-->
+<!--            <div class="modal-dialog">-->
+<!--                <div class="modal-content">-->
+<!--                    <div class="modal-header">-->
+<!--                        <h4 class="modal-title">Actualizar Repositorio del Filestore</h4>-->
+<!--                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>-->
+<!--                    </div>-->
+<!--                    <form action="/web/database/gitlab/filestore" id="form-gitlab-filestore" method="post" role="form">-->
+<!--                        <div class="modal-body">-->
+<!--                            <t t-set="set_master_pwd" t-value="False" />-->
+<!--                            <t t-call="master_input" />-->
+<!--                            <div class="form-group">-->
+<!--                                <label class="col-form-label" for="git_filestore_directorio">Directorio del Repositorio Local</label>-->
+<!--                                <input class="form-control" id="git_filestore_directorio" name="git_filestore_directorio" required="required" value="/opt/odoo/sicpro_erp/data/filestore" title="Agregar el directorio físico donde se encuentra el repositorio local." type="text"/>-->
+<!--                                <label class="col-form-label" for="git_filestore_usuario">Usuario</label>-->
+<!--                                <input class="form-control" id="git_filestore_usuario" name="git_filestore_usuario" required="required" t-att-pattern="pattern" title="Introducir el usuario del servicio de GitLab." type="text"/>-->
+<!--                                <label class="col-form-label" for="git_filestore_password">Contraseña</label>-->
+<!--                                <input class="form-control" id="git_filestore_password" name="git_filestore_password" required="required" t-att-pattern="pattern" title="Introducir la contraseña del servicio de GitLab." type="password"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <input class="btn btn-primary float-right" type="submit" value="Continuar"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+    </div>
+
+        <div class="s-intro__notify">
+            <a class="btn--stroke btn--small" href="mailto:daniel.borrero@etecsa.cu" type="button">Contacto</a>
+        </div>
+    </section>
+
+    <script src="/sicpro_modulo_web_base_datos/static/src/js/main.js"></script>
+
+</body>
+</html>

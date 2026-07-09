@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="informe_modelo_despachos_action" model="ir.actions.report">
+        <field name="name">Modelo de Despachos Internos</field>
+        <field name="model">sicpro.app.reuniones.despachos</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_reuniones.informe_modelo_despachos</field>
+        <field name="report_file">sicpro_app_reuniones.informe_modelo_despachos</field>
+        <field name="print_report_name">'Modelo de Despachos Internos'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_reuniones_despachos"/>
+        <field name="groups_id" eval="[(4, ref('sicpro_app_reuniones.group_reuniones_usuario'))]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="informe_modelo_despachos">
+
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;"
+                             alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección de los datos -->
+            <div t-attf-class="article">
+                <!-- sección del page -->
+                <t t-foreach="docs" t-as="inf">
+
+                    <table border="0" cellspacing="0">
+                        <colgroup width="37"></colgroup> <colgroup width="53"></colgroup> <colgroup
+                            width="97"></colgroup> <colgroup width="17"></colgroup> <colgroup width="71"></colgroup>
+                        <colgroup width="77"></colgroup> <colgroup width="17"></colgroup> <colgroup
+                            width="79"></colgroup> <colgroup width="34"></colgroup> <colgroup width="43"></colgroup>
+                        <colgroup width="58"></colgroup> <colgroup width="50"></colgroup> <colgroup
+                            width="90"></colgroup> <colgroup width="20"></colgroup>
+                        <tbody>
+                            <tr>
+                                <td style="border-bottom: 2px double #000000" colspan="6" align="left"
+                                    valign="middle" height="17"><b>Oficina del Director Central</b></td>
+                                <td style="border-bottom: 2px double #000000" align="right" valign="middle"><b><br></br>
+                                </b></td>
+                                <td style="border-bottom: 2px double #000000" colspan="7" align="right"
+                                    valign="middle"><b>División de Proyectos y Ejecución de Obras</b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="14" align="center" valign="middle" height="17"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="14" align="center" valign="middle" height="17"><b>DESPACHOS
+                                    INTERNOS DVPE</b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="5" align="center" valign="middle" height="17"><b>UO/
+                                    DEPARTAMENTO/ ESPECIALISTAS:</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="9" align="center" valign="middle"><span t-field="inf.name"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="14" align="center" valign="middle" height="17"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="center" valign="bottom" height="17"><b>FECHA:</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    sdval="44687" sdnum="9226;0;DD/MM/AA" align="center" valign="bottom"><span
+                                        t-field="inf.fecha_inicio" t-options="{'widget': 'date'}"/></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="center" valign="middle"><b>HORA:</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" sdval="0,333333333333333" sdnum="9226;0;HH:MM:SS" align="center"
+                                    valign="middle"><span t-field="inf.fecha_inicio"
+                                                          t-options="{'widget': 'datetime', 'time_only': True, 'format': 'short'}"/></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="center" valign="bottom"><b>LUGAR:</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="6" align="center" valign="middle"><span t-field="inf.lugar"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="14" align="center" valign="middle" height="17"><b><br></br>
+                                </b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="14" align="left" valign="middle" height="17"><b>PARTICIPANTES</b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="center" valign="bottom" height="17"><b>No</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="5" align="center" valign="middle"><b>NOMBRES Y APELLIDOS</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="6" align="center" valign="middle"><b>CARGO</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="center" valign="middle"><b>FIRMA</b></td>
+                            </tr>
+                            <t t-set="count_participantes" t-value="1"/>
+                            <t t-foreach="inf.participantes_ids" t-as="participantes">
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        sdval="1" sdnum="9226;" align="center" valign="bottom" height="17"><b><span
+                                            t-out="count_participantes"/></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="5" align="left" valign="middle"><span
+                                            t-field="participantes.name"/></td>
+
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="6" align="left" valign="middle"><span
+                                            t-field="participantes.cargo"/></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" align="center" valign="middle"><br></br>
+                                    </td>
+                                </tr>
+                                <t t-set="count_participantes" t-value="count_participantes + 1"/>
+                            </t>
+                            <tr>
+                                <td colspan="14" align="center" valign="middle" height="17"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="center" valign="bottom" height="17"><b>No</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="13" align="left" valign="middle"><b>AGENDA/PUNTOS A TRATAR</b></td>
+                            </tr>
+                            <t t-set="count_agenda" t-value="1"/>
+                            <t t-foreach="inf.agenda_ids" t-as="agenda">
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        sdval="1" sdnum="9226;" align="center" valign="bottom" height="17"><b><span
+                                            t-out="count_agenda"/></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="13" align="left" valign="middle"><span t-field="agenda.name"/></td>
+                                </tr>
+                                <t t-set="count_agenda" t-value="count_agenda + 1"/>
+                            </t>
+                            <tr>
+                                <td colspan="14" align="center" valign="middle" height="17"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="center" valign="bottom" height="17"><b>No</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="13" align="left" valign="middle"><b>COMENTARIOS DE LOS
+                                    PUNTOS TRATADOS</b></td>
+                            </tr>
+                            <t t-set="count_comentarios" t-value="1"/>
+                            <t t-foreach="inf.comentarios_ids" t-as="comentarios">
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        sdval="2" sdnum="9226;" align="center" valign="bottom" height="17"><b><span
+                                            t-out="count_comentarios"/></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="13" align="left" valign="middle"><span
+                                            t-field="comentarios.name"/></td>
+                                </tr>
+                                <t t-set="count_comentarios" t-value="count_comentarios + 1"/>
+                            </t>
+                            <tr>
+                                <td colspan="14" align="center" valign="middle" height="17"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="14" align="left" valign="middle" height="17"><b>DECISIONES</b></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="center" valign="bottom" height="17"><b>No</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="3" align="center" valign="middle"><b>ACUERDOS</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="4" align="center" valign="middle"><b>ACCIONES</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="4" align="center" valign="middle"><b>RESPONSABLES</b></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" align="center" valign="middle"><b>CUMPLIMIENTO</b></td>
+                            </tr>
+                            <t t-set="count_decisiones" t-value="1"/>
+                            <t t-foreach="inf.decisiones_ids" t-as="decisiones">
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        sdval="3" sdnum="9226;" align="center" valign="bottom" height="17"><b><span
+                                            t-out="count_decisiones"/></b></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="3" align="left" valign="middle"><span
+                                            t-field="decisiones.name"/></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" align="left" valign="middle"><span
+                                            t-field="decisiones.description"/></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="4" align="left" valign="middle">
+                                        <t t-foreach="decisiones.responsable_ids" t-as="responsables">
+                                            <span t-field="responsables.name"/>
+                                        </t>
+                                    </td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" sdnum="9226;0;DD/MM/AA" align="center" valign="middle">
+                                        <span t-field="decisiones.fecha_fin"/></td>
+                                </tr>
+                                <t t-set="count_decisiones" t-value="count_decisiones + 1"/>
+                            </t>
+                        </tbody>
+                    </table>
+
+                </t>
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+                <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+                    Cuba.</span>
+                <div style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+                            <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+                        <br/>
+                        <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+                            Justicia de la República de Cuba.
+                            Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+                    <div t-if="report_type == 'pdf'" class="text-center text-muted">
+                        Página: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

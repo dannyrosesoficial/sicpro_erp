@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_users_form_deck_acuerdos" model="ir.ui.view">
+        <field name="name">deck.acuerdos.res.users.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <field name="nube_token" position="after">
+                    <field name="deck_acuerdos_activo" widget="boolean_toggle" string="Activar Deck Acuerdos"
+                           attrs="{'invisible': [('nube_token', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_users_form_preference_deck_acuerdos" model="ir.ui.view">
+        <field name="name">deck.acuerdos.preferences.res.users.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <field name="nube_token" position="after">
+                    <field name="deck_acuerdos_activo" widget="boolean_toggle" string="Activar Deck Acuerdos"
+                           attrs="{'invisible': [('nube_token', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

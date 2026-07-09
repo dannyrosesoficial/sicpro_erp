@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sicpro_modulo_nube_etecsa,Nube,sicpro_app_nube_etecsa.model_sicpro_modulo_nube_etecsa,base.group_user,1,0,0,0
+sicpro_modulo_nube_etecsa_token,Nube Token,sicpro_app_nube_etecsa.model_sicpro_app_nube_etecsa_token,base.group_user,1,1,1,1
+
+
+
+
+

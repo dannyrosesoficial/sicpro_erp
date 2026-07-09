@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+	<record id="formato_papel_horizontal_contratos" model="report.paperformat">
+        <field name="name">Papel Horizontal Contratos</field>
+        <field name="format">A4</field>
+		<field name="orientation">Landscape</field>
+    </record>
+
+	<record id="informe_cancelacion_cheques_action" model="ir.actions.report">
+        <field name="name">Cancelación de Cheques</field>
+        <field name="model">sicpro.app.contratos.economia</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="paperformat_id" ref="formato_papel_horizontal_contratos"/>
+        <field name="report_name">sicpro_app_contratos.informe_cancelacion_cheques</field>
+        <field name="report_file">sicpro_app_contratos.informe_cancelacion_cheques</field>
+        <field name="print_report_name">'Cancelación de Cheques'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_contratos_economia"/>
+		<field name="groups_id" eval="[(4, ref('sicpro_app_contratos.grupo_app_contratos_economia_operaciones_ip'))]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="informe_cancelacion_cheques">
+		<!-- Página Cancelación de Cheques -->
+        <t t-call="web.html_container">
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <h5><strong><center>Cancelación de Cheques</center></strong></h5>
+						<table cellspacing="0" border="0" style="font-size: medium">
+	<colgroup width="21">
+	</colgroup>
+	<colgroup width="121">
+	</colgroup>
+	<colgroup width="261">
+	</colgroup>
+	<colgroup width="110">
+	</colgroup>
+	<colgroup width="93">
+	</colgroup>
+	<colgroup width="94">
+	</colgroup>
+	<colgroup width="98">
+	</colgroup>
+	<colgroup width="206">
+	</colgroup>
+	<colgroup width="127">
+	</colgroup>
+	<colgroup width="157">
+	</colgroup>
+	<colgroup width="18">
+	</colgroup>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000; border-top: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: medium">
+			EMPRESA DE COMUNICACIONES DE CUBA S.A.</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: medium">
+			División de Proyectos de Ejecución de Obras.</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: medium">
+			DEPARTAMENTO DE ECONOMÍA</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="34" align="left">
+
+</td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b>No. CHEQUE </b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b>Nombre del Beneficiario</b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b>No. Solicitud de pago</b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b>Fecha del Cheque </b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b>Importe</b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b>Moneda</b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b>Motivo de la Cancelación</b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b>Emitir o No Emitir</b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b>Importe</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="150" align="left">
+
+</td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle" bgcolor="#FFFFFF" sdnum="3082;0;0">
+			<b><span t-field="inf.emision_sequence_consecutivo"/></b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="left" valign="middle" bgcolor="#FFFFFF">
+			<b><span t-field="inf.sip_beneficiario"/></b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b><span t-field="inf.sequence_consecutivo"/></b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle" sdval="44218" sdnum="3082;0;DD/MM/AAAA">
+			<b><span t-field="inf.emision_fecha"/></b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle" sdval="565,2" sdnum="3082;0;#.##0,00 _€">
+			<b><span t-field="inf.monto_facturado"/></b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b><span t-field="inf.moneda"/></b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="left" valign="middle">
+			<b><span t-field="inf.emision_motivo_cancelacion"/></b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+			<b><span t-field="inf.emision_cancelada_accion"/></b></td>
+			<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle" sdval="565,2" sdnum="3082;0;#.##0,00 _€">
+			<b><span t-field="inf.monto_facturado"/></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid #000000" align="left">
+			<b>Hecho:</b></td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="center" valign="middle">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+			<b>Revisado:</b></td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+			<b>Autorizado:</b></td>
+			<td style="font-size: medium; border-top: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000; border-top: 1px solid #000000" align="left">
+			<b>
+</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td style="font-size: medium; border-left: 1px solid #000000" colspan="2" align="left" valign="middle">
+
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td colspan="2" align="left" valign="middle" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" colspan="2" align="left" valign="middle">
+			Fecha Emisión:</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-bottom: 1px solid #000000" colspan="2" align="left" valign="middle">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="2" align="left" valign="middle">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000; border-bottom: 1px solid #000000" colspan="2" align="center" valign="middle" sdval="44222" sdnum="3082;0;DD/MM/AA">
+			<span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="center" valign="middle" style="font-size: medium">
+
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td align="left" style="font-size: medium">
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-bottom: 1px solid #000000" height="20" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="center" valign="middle">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000; border-bottom: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+</table>
+					</t>
+
+                    <t t-call="web.address_layout"/>
+                </div>
+                <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+				<span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+                <div style="border-top: 1px solid black;">
+					<ul class="list-inline mb4">
+					<span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+						<i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+						<br/>
+					<span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba.
+						Tomo  II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+					<div t-if="report_type == 'pdf'" class="text-center text-muted">
+						Página: <span class="page"/> / <span class="topage"/>
+					</div>
+				</div>
+			</div>
+		</t>
+    </template>
+
+</odoo>

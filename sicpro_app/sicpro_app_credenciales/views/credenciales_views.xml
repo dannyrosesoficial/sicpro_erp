@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inicio de las Vistas del modal para la cancelación del trabajador-->
+        <record id="credenciales_cancelacion_trabajador_form" model="ir.ui.view">
+            <field name="name">sicpro.app.credenciales.cancelar.form</field>
+            <field name="model">sicpro.app.credenciales.cancelar</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form string="Motivo de Cancelación">
+                    <group class="oe_title">
+                        <field name="motivo_cancelacion"/>
+                    </group>
+                    <footer>
+                        <button name="action_motivo_cancelacion" string="Enviar" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="credenciales_cancelacion_trabajador_action" model="ir.actions.act_window">
+            <field name="name">Motivo de Cancelación</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.credenciales.cancelar</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="credenciales_cancelacion_trabajador_form"/>
+            <field name="target">new</field>
+        </record>
+        <!-- Fin de las Vistas del modal para la cancelación del trabajador-->
+
+        <record id="view_credenciales_filtro" model="ir.ui.view">
+            <field name="name">sicpro.app.credenciales.search</field>
+            <field name="model">sicpro.app.credenciales</field>
+            <field name="arch" type="xml">
+                <search string="Trabajadores">
+                    <field name="name" string="Trabajador"/>
+                    <field name="no_credencial_permanente"/>
+                    <field name="no_credencial_provisional"/>
+                    <field name="no_credencial_constructores"/>
+                    <field name="no_credencial_especial"/>
+                    <field name="no_credencial_laptop"/>
+                    <field name="laptop_no_serie"/>
+                    <field name="laptop_no_folio"/>
+                    <field name="laptop_no_inventario"/>
+                    <separator/>
+                    <filter string="Laptop" name="tiene_laptop" domain="[('tiene_laptop', '=', True)]"/>
+                    <filter string="Pases Vencidos" name="fecha_valida" domain="[('fecha_valida', '&lt;', (context_today().strftime('%%Y-%%m-%%d')))]"/>
+                    <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter name="tipo_credencial" string="Tipo de Credencial" context="{'group_by': 'tipo_credencial'}"/>
+                        <filter name="accesos_credencial" string="Tipo de Acceso" context="{'group_by': 'accesos_credencial'}"/>
+                        <filter name="siglas_credencial" string="Siglas" context="{'group_by': 'siglas_credencial'}"/>
+                        <separator/>
+                        <filter name="company_id" string="Proceso" context="{'group_by': 'company_id'}"/>
+                        <filter name="clase_contrato" string="Clase de Contrato" context="{'group_by': 'clase_contrato'}"/>
+                        <filter name="group_department" string="Área" context="{'group_by': 'area_id'}"/>
+                        <filter name="group_job" string="Puesto de Trabajo" context="{'group_by': 'ocupacion_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <!-- <field name="company_id" icon="fa-building"/> -->
+                        <field name="area_id" icon="fa-users"/>
+                        <field name="ocupacion_id" icon="fa-users"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+        <record id="view_credenciales_kanban" model="ir.ui.view">
+           <field name="name">sicpro.app.credenciales.kanban</field>
+           <field name="model">sicpro.app.credenciales</field>
+           <field name="priority">10</field>
+           <field name="arch" type="xml">
+               <kanban class="o_hr_employee_kanban" js_class="hr_employee_kanban" sample="1">
+                   <field name="id"/>
+                   <field name="name"/>
+                   <field name="user_id"/>
+                   <field name="tiene_laptop" invisible="1"/>
+                   <field name="fecha_valida" invisible="1"/>
+                   <field name="fecha_actual" invisible="1"/>
+                   <field name="personal_externo"/>
+                   <templates>
+                       <t t-name="kanban-box">
+                       <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+                           <div class="o_kanban_image_fill_left d-none d-md-block"
+                                t-attf-style="background-image:url('#{kanban_image('sicpro.app.credenciales',
+                                'credencial_image_128', record.id.raw_value,  placeholder)}')">
+                           </div>
+                            <div class="oe_kanban_details">
+                               <div class="o_kanban_record_top">
+                                   <div class="o_kanban_record_headings">
+                                       <strong class="o_kanban_record_title">
+                                           <span class="font-weight-bold">
+                                               <field name="name" placeholder="Nombre del trabajador"/>
+                                               <field name="nombre_credencial" invisible="1"/>
+                                           </span>
+                                       </strong>
+                                      <span t-if="record.ocupacion_id.raw_value" class="o_kanban_record_subtitle">
+                                            <field name="ocupacion_id"/></span>
+                                   </div>
+                               </div>
+                                <span class="text-danger font-weight-bold"><field name="tipo_credencial"/></span>  -
+                                <!-- Mostrar número de credencial según el tipo de credencial -->
+                                <span class="text-blue font-weight-bold">
+                                    <field name="no_credencial_permanente"
+                                           attrs="{'invisible': [('nombre_credencial', '!=', 'PERMANENTE')]}"/></span>
+                                <span class="text-blue font-weight-bold">
+                                    <field name="no_credencial_provisional"
+                                           attrs="{'invisible': [('nombre_credencial', '!=', 'PROVISIONAL')]}"/></span>
+                                <span class="text-blue font-weight-bold">
+                                    <field name="no_credencial_constructores"
+                                           attrs="{'invisible': [('nombre_credencial', '!=', 'CONSTRUCTOR')]}"/></span>
+                                <span class="text-blue font-weight-bold">
+                                    <field name="no_credencial_especial"
+                                           attrs="{'invisible': [('nombre_credencial', '!=', 'ESPECIAL')]}"/></span>
+                                <div class="o_kanban_record_headings">
+                                       <strong class="o_kanban_record_title">
+                                           <span class="font-weight-bold">
+                                               <field name="accesos_credencial"/>
+                                           </span>
+                                       </strong>
+                                   </div>
+                                <ul>
+                                    <li attrs="{'invisible': [('tiene_laptop', '!=', True)]}">
+                                        <span class="fa fa-laptop fa-3x oe_inline" title='Laptop' style="color: blue;"/>
+                                        <t t-if="record.fecha_valida.raw_value">
+                                            <span class="fa fa-exclamation-circle fa-3x" title='Fecha'
+                                                  t-if="record.fecha_actual.raw_value &gt;= record.fecha_valida.raw_value"
+                                                  style="color: red;"/>
+                                        </t>
+                                        <t t-if="record.fecha_valida.raw_value">
+                                            <span class="fa fa-exclamation-circle fa-3x" title='Fecha'
+                                                  t-if="record.fecha_actual.raw_value &gt;= new Date(record.fecha_valida.raw_value - 15 * 24 * 60 * 60 * 1000) &amp;&amp; !(record.fecha_actual.raw_value &gt;= record.fecha_valida.raw_value)"
+                                                  style="color: yellow;"/>
+                                        </t>
+                                    </li>
+                                    <li id="last_login"/>
+                                    <t t-if="record.personal_externo.raw_value">
+                                        <li t-if="record.especial_correo_trabajo.raw_value" class="o_text_overflow">
+                                            <field name="especial_correo_trabajo" widget="email"/>
+                                        </li>
+                                        <li t-if="record.especial_telefono_trabajo.raw_value"><field
+                                                name="especial_telefono_trabajo"/>
+                                        </li>
+                                    </t>
+                                    <t t-else="">
+                                        <li t-if="record.correo_trabajo.raw_value" class="o_text_overflow">
+                                            <field name="correo_trabajo" widget="email"/>
+                                        </li>
+                                        <li t-if="record.telefono_trabajo.raw_value"><field name="telefono_trabajo"/>
+                                        </li>
+                                    </t>
+                                </ul>
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left"/>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field name="user_id" widget="many2one_avatar_user"
+                                                   attrs="{'invisible': [('user_id','=', False)]}"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                           </div>
+                       </div>
+                       </t>
+                   </templates>
+               </kanban>
+            </field>
+        </record>
+
+        <record id="view_credenciales_form" model="ir.ui.view">
+            <field name="name">sicpro.app.credenciales.form</field>
+            <field name="model">sicpro.app.credenciales</field>
+            <field name="arch" type="xml">
+                <form string="Trabajadores" js_class="hr_employee_form" class='o_employee_form'>
+                    <header>
+                        <button name="generate_qr" type="object" string="Generar Qr" class="btn btn-primary"
+                                attrs="{'invisible': [('cancelacion_active', '=', True)]}"/>
+                        <!-- Botón invisible para abrir el modal desde python -->
+                        <button name="abrir_modal_recortar_imagen" type="object" string="Recortar Imagen"
+                                id="boton_recortar_imagen" invisible="1"/>
+                        <button name="%(credenciales_cancelacion_trabajador_action)d" string="Cancelar Trabajador"
+                                type="action" class="btn btn-primary"
+                                attrs="{'invisible': [('cancelacion_active', '=', True)]}"/>
+                        <button name="action_reactiva_trabajador" string="Reactivar Trabajador" type="object"
+                                attrs="{'invisible': [('cancelacion_active', '!=', True)]}"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <field name="personal_externo" invisible="1"/>
+                        <field name="cancelacion_active" invisible="1"/>
+                        <field name="readonly_admin" invisible="1"/>
+                        <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <field name="credencial_image_1920" widget='imagen_con_recortar' class="oe_avatar"
+                               options='{"zoom": true, "preview_image":"credencial_image_128"}'/>
+                        <div class="oe_title">
+                            <h2 class="d-flex">
+                                <field name="tipo_credencial" class="oe_edit_only"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            </h2>
+                            <h1 class="d-flex">
+                                <field name="dominio_trabajador" invisible="1"/>
+                                <field name="trabajador" placeholder="Nombre del trabajador" domain="dominio_trabajador"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                       attrs="{'invisible': [('personal_externo', '!=', False)],
+                                               'required': [('personal_externo', '!=', True)]}"/>
+                                <field name="name" placeholder="Nombre del trabajador"
+                                       attrs="{'invisible': [('personal_externo', '!=', True)],
+                                               'required': [('personal_externo', '!=', False)]}"/>
+                            </h1>
+                            <h3>
+                                <field name="ocupacion_id" placeholder="Puestos de Trabajo"/>
+                            </h3>
+                            <field class="font-weight-bold" decoration-danger="clase_contrato" name="clase_contrato" placeholder="Clases"
+                                   options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            -
+                            <field class="text-black-50 font-weight-bold" name="categoria_ocupacional" placeholder="Categorías"
+                                   options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </div>
+                        <group>
+                            <group>
+                                <div class="oe_title pr-0">
+                                    <h2 class="d-flex flex-row justify-content-between">
+                                        <!-- Mostrar número de credencial según el tipo de credencial -->
+                                        <field name="no_credencial_permanente" class="o_task_name text-truncate"
+                                               readonly="0"
+                                               attrs="{'invisible': [('nombre_credencial', '!=', 'PERMANENTE')]}"/>
+                                        <field name="no_credencial_provisional" class="o_task_name text-truncate"
+                                               readonly="0"
+                                               attrs="{'invisible': [('nombre_credencial', '!=', 'PROVISIONAL')]}"/>
+                                        <field name="no_credencial_constructores" class="o_task_name text-truncate"
+                                               readonly="0"
+                                               attrs="{'invisible': [('nombre_credencial', '!=', 'CONSTRUCTOR')]}"/>
+                                        <field name="no_credencial_especial" class="o_task_name text-truncate"
+                                               readonly="0"
+                                               attrs="{'invisible': [('nombre_credencial', '!=', 'ESPECIAL')]}"/>
+                                    </h2>
+                                </div>
+                                <field name="name_corto" string="Nombre de la Credencial (no modificar)"/>
+                                <field name="tipo_credencial" class="oe_read_only"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="nombre_credencial" invisible="1"/>
+                                <field name="accesos_credencial"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="usuario" readonly="1"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="fecha_actual" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="siglas_credencial"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="alcance_credencial"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="fecha_entrega"/>
+                                <!-- Mostrar Fecha válida según el tipo de credencial que tenga fecha de vencimiento -->
+                                <field name="fecha_valida" attrs="{'invisible': ['|',('nombre_credencial', '=', 'PERMANENTE'),('nombre_credencial', '=', 'CONSTRUCTOR')]}"/>
+                                <field name="tiene_laptop" widget="boolean_toggle"/>
+                                <field name="qr_code" widget="image" class="oe_avatar"/>
+                            </group>
+                        </group>
+
+                        <div class="oe_title pr-0" attrs="{'invisible': [('tiene_laptop', '=', False)]}">
+                                    <h2 class="d-flex flex-row justify-content-between">CREDENCIAL DE LAPTOP </h2>
+                                    <h2 class="d-flex flex-row justify-content-between">
+                                        <field name="no_credencial_laptop" class="o_task_name text-truncate"
+                                               readonly="1"/>
+                                    </h2>
+                        </div>
+                        <group string="Registro de Laptop" attrs="{'invisible': [('tiene_laptop', '=', False)]}">
+                            <group>
+                                <field name="laptop_no_serie"/>
+                                <field name="laptop_no_folio"/>
+                            </group>
+                            <group>
+                                <field name="laptop_no_inventario"/>
+                            </group>
+                        </group>
+                        <group string="Cancelación del Trabajador"
+                               attrs="{'invisible': [('cancelacion_active', '!=', True)]}">
+                            <field name="cancelacion_fecha" readonly="1"/>
+                            <field name="cancelacion_motivos" string="Motivos" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="observaciones"/>
+                        </group>
+                        <notebook>
+                            <page name="public" string="Información del trabajo">
+                                <group>
+                                    <group>
+                                        <field name="plaza_id"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+                                        <field name="movil_trabajo" widget="phone"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+                                        <field name="telefono_trabajo" widget="phone"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+                                        <field name="correo_trabajo" widget="email"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+
+                                        <field name="especial_movil_trabajo" string="Móvil Trabajo" widget="phone"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+                                        <field name="especial_telefono_trabajo" string="Teléfono Trabajo" widget="phone"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+                                        <field name="especial_correo_trabajo" string="Correo Trabajo" widget="email"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="company_id"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                        <field name="area_id" attrs="{'invisible': [('personal_externo', '!=', False)]}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                        <field name="ocupacion_id" domain="[('area_id', '=', area_id)]"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                        <field name="parent_id" required="0"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+
+                                        <field name="especial_company_id" string="Proceso"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+                                        <field name="especial_area_id" string="Departamento"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+                                        <field name="especial_ocupacion_id" string="Puesto de trabajo"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+
+
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Ubicación">
+                                        <field name="fecha_incorporacion"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+                                        <field name="inicio_contrato"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+                                        <field name="ubicacion_laboral"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"
+                                               placeholder="Ej. Lugar, piso, número de oficina..."/>
+
+                                        <field name="especial_fecha_incorporacion" string="Fecha de Incorporación"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+                                        <field name="especial_inicio_contrato" string="Inicio del Contrato"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+                                        <field name="especial_ubicacion_laboral" string="Ubicación Laboral"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"
+                                               placeholder="Ej. Lugar, piso, número de oficina..."/>
+                                    </group>
+                                    <group string="Planificacion">
+                                        <field name="fecha_baja"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+
+                                        <field name="especial_fecha_baja" string="Fecha Baja"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+
+                                        <field name="color" widget="color_picker"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="personal_information" string="Información Privada" >
+                                <group>
+                                    <group string="Contacto Privado">
+                                        <field name="identification_id"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+                                        <field name="direccion_carnet"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+
+                                        <field name="especial_identification_id" string="Carnet de identidad"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)],
+                                               'required': [('personal_externo', '!=', False)]}"/>
+                                        <field name="especial_direccion_carnet" string="Dirección CI"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+                                    </group>
+                                    <group string="Ciudadanía">
+                                        <field name="genero"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+                                        <field name="raza" attrs="{'invisible': [('personal_externo', '!=', False)]}"
+                                               options='{"no_open": True, "no_create": True}'/>
+
+                                        <field name="especial_genero" string="Género"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+                                        <field name="especial_raza" string="Raza"
+                                               attrs="{'invisible': [('personal_externo', '!=', True)]}"/>
+
+                                        <field name="fecha_nacimiento"
+                                               attrs="{'invisible': [('personal_externo', '!=', False)]}"/>
+                                    </group>
+
+                                </group>
+                                <group>
+
+                                </group>
+                            </page>
+                            <page name="usuario_settings" string="Configuración de Usuario" >
+                                <group>
+                                    <group string='Estado' name="active_group">
+                                        <field name="user_id" readonly="1"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_credenciales_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.credenciales.tree</field>
+            <field name="model">sicpro.app.credenciales</field>
+            <field name="arch" type="xml">
+                <tree string="Trabajadores">
+                    <field name="tipo_credencial"/>
+                    <field name="name"/>
+                    <field name="telefono_trabajo" widget="phone" optional="show"/>
+                    <field name="movil_trabajo" widget="phone" optional="show"/>
+                    <field name="company_id" optional="show"/>
+                    <field name="area_id" optional="show"/>
+                    <field name="ocupacion_id" optional="show"/>
+                    <field name="parent_id" optional="show"/>
+
+                    <field name="especial_telefono_trabajo" widget="phone" optional="hide"/>
+                    <field name="especial_movil_trabajo" widget="phone" optional="hide"/>
+                    <field name="especial_company_id" optional="hide"/>
+                    <field name="especial_area_id" optional="hide"/>
+                    <field name="especial_ocupacion_id" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="menu_view_credenciales_tree" model="ir.actions.act_window">
+            <field name="name">Credenciales de Accesos</field>
+            <field name="res_model">sicpro.app.credenciales</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_credenciales_tree"/>
+            <field name="search_view_id" ref="view_credenciales_filtro"/>
+        </record>
+
+        <record id="credencial_permanente_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Credenciales: Consecutivo de la credencial del trabajador permanente</field>
+            <field name="code">credencial_permanente_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">No. </field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+    </record>
+
+        <record id="credencial_constructores_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Credenciales: Consecutivo de la credencial del trabajador constructor</field>
+            <field name="code">credencial_constructores_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">No. </field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+    </record>
+
+        <record id="credencial_especial_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Credenciales: Consecutivo de la credencial del trabajador especial</field>
+            <field name="code">credencial_especial_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">No. </field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+    </record>
+
+        <record id="credencial_provisional_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Credenciales: Consecutivo de la credencial del trabajador provisional</field>
+            <field name="code">credencial_provisional_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">No. </field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+    </record>
+
+        <record id="credencial_laptop_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Credenciales: Consecutivo de la credencial de la laptop</field>
+            <field name="code">credencial_laptop_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">No. </field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+    </record>
+
+        <record id="credenciales_views_actions" model="ir.actions.act_window">
+            <field name="name">Credenciales de Accesos</field>
+            <field name="res_model">sicpro.app.credenciales</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="search_view_id" ref="view_credenciales_filtro"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Agregar Nuevo Trabajador
+              </p><p>
+                En este módulo se tendrá el control de todas las credenciales de acceso de los trabajadores.
+            </p>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

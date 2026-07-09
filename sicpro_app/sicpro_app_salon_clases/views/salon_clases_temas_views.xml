@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Configuración -->
+        <record id="salon_clases_temas_form" model="ir.ui.view">
+            <field name="name">sicpro.app.salon.clases.temas.form</field>
+            <field name="model">sicpro.app.salon.clases.temas</field>
+            <field name="arch" type="xml">
+                <form string="Especialista">
+                <sheet>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nombre de la Temática"/>
+                        </h1>
+                        <div name="options_active">
+                            <div>
+                                <label for="tipo" class="oe_inline" string="Tipo :"/>
+                                <field name="tipo" class="oe_inline oe_input_align"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="user_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="company_id" invisible="1"/>
+                            <field name="nivel" widget="priority"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                        <group>
+                    </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="salon_clases_temas_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.salon.clases.temas.tree</field>
+            <field name="model">sicpro.app.salon.clases.temas</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="active" invisible="1"/>
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="salon_clases_temas_filter" model="ir.ui.view">
+            <field name="name">sicpro.app.salon.clases.temas.search</field>
+            <field name="model">sicpro.app.salon.clases.temas</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <field name="company_id"/>
+                    <separator/>
+                    <filter string="Archivadas" name="inactive" domain="[('active', '=', False)]"/>
+                    <separator/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Organizador" name="user_id" context="{'group_by': 'user_id'}"/>
+                        <filter name="tipo" string="Tipo de Temario" context="{'group_by': 'tipo'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="salon_clases_temas_action" model="ir.actions.act_window">
+            <field name="name">Tematicas de Estudio</field>
+            <field name="res_model">sicpro.app.salon.clases.temas</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="salon_clases_temas_filter"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    Crear nueva temática de estudio
+                </p>
+            </field>
+        </record>
+
+
+        <!-- Ejecución -->
+        <record model="ir.ui.view" id="salon_clases_temas_kanban">
+            <field name="name">sicpro.app.salon.clases.temas.kanban</field>
+            <field name="model">sicpro.app.salon.clases.temas</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard o_project_kanban o_emphasize_colors"
+                        create="false" edit="false" delete="false">
+                    <field name="name"/>
+                    <field name="color"/>
+                    <field name="tipo"/>
+                    <field name="user_id"/>
+                    <field name="clases_count"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click o_has_icon">
+                                <div class="o_project_kanban_main">
+                                    <div class="o_kanban_card_content">
+                                        <div class="o_kanban_primary_left">
+                                            <div class="o_primary">
+                                                <span><strong><t t-esc="record.name.value"/></strong></span>
+                                            </div>
+                                            <br>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <button class="btn btn-danger"
+                                                                name="%(sicpro_app_salon_clases.sicpro_app_salon_clases_action)d"
+                                                                type="action">Ver Clases</button>
+                                                    </div>
+                                                </div>
+                                            </br>
+                                            <div>
+                                                <span class="o_value">Tipo: <strong><t t-esc="record.tipo.value"/></strong></span>
+                                            </div>
+                                            <div>
+                                                <span class="o_value">Nivel: <field name="nivel" widget="priority" readonly="1"/></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="o_right">
+                                        <field name="favorito" widget="boolean_favorite" nolabel="1" force_save="1" />
+                                    </span>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <div>
+                                            <span class="o_value">Clases: <strong><t t-esc="record.clases_count.value"/>
+                                            </strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="user_id" widget="many2one_avatar_user"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="salon_clases_temas_kanban_action" model="ir.actions.act_window">
+            <field name="name">Temáticas de Estudios</field>
+            <field name="res_model">sicpro.app.salon.clases.temas</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="view_id" ref="salon_clases_temas_kanban"/>
+            <field name="search_view_id" ref="salon_clases_temas_filter"/>
+            <field name="target">main</field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sicpro_app_credenciales_recortador_de_imagenes_view_form" model="ir.ui.view">
+        <field name="name">Credenciales - Modal Recortador de Imágenes</field>
+        <field name="model">sicpro.app.credenciales.modal</field>
+        <field name="arch" type="xml">
+            <form string="Credenciales - Modal Recortador de Imágenes">
+                <sheet style="height: auto; width: auto;">
+                    <div class="alert alert-danger text-center o_form_header" role="status">
+                        <a class="close" data-dismiss="alert" href="#" aria-label="Close">
+                            <i title="Close" class="small fa fa-times"/>
+                        </a>
+                        <div>
+                            <strong>Antes de guardar, debe dar clic al botón de 'Aplicar' para que sus cambios surtan efecto.</strong>
+                        </div>
+                     </div>
+                    <div name="data" style="height: 120%; width: 100%; margin: 3% auto; position:relative;">
+                        <div name="imagen_a_recortar" style="position: relative; margin: auto; text-align: center;">
+                            <field name="imagen_a_recortar" widget="imagen_sin_barra" nolabel="1" style="height: 80%; width: 80%"/>
+                        </div>
+                        <div name="imagen_a_recortar" style="position: relative; margin: 10% auto; text-align: center;"></div>
+                    </div>                
+                </sheet>
+                <footer>
+                    <button special="cancel" string="Cancel" class="pull-left"/>
+                    <button name="action_salvar" type="object" string="Guardar" id="credenciales-recortaŕ-y-guardar"
+                            class="oe_highlight pull-right"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

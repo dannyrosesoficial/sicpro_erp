@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="transferencias_ordenes_gastos_search" model="ir.ui.view">
+        <field name="name">sicpro.app.transferencias.gastos.ordenes.search</field>
+        <field name="model">sicpro.app.transferencias.gastos.ordenes</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="orden_id" string="Orden de Trabajo"/>
+                <field name="company_abreviatura"/>
+                <field name="pep"/>
+                <field name="cliente_id"/>
+                <field name="anio"/>
+                <field name="mes"/>
+                <field name="devuelto_economia"/>
+                <separator/>
+                <filter string="Todos los Estados" name="todos_estados"
+                        domain="['&amp;', ('devuelto_economia', '=', False), ('terminado', '=', False)]"/>
+                <separator/>
+                <filter string="Pendiente por Contabilizar" name="devuelto_economia"
+                        domain="[('devuelto_economia', '=', True)]"/>
+                <filter string="Contabilizado" name="terminado" domain="[('terminado', '=', True)]"/>
+                <separator/>
+                <filter string="Fecha Revisión DTP" name="fecha_revision_tecnico" date="fecha_revision_tecnico"/>
+                <filter string="Fecha Validación Ejecutor" name="fecha_validacion_ejecutor"
+                        date="fecha_validacion_ejecutor"/>
+                <filter string="Fecha Validación Inversionista" name="fecha_validacion_inversionista"
+                        date="fecha_validacion_inversionista"/>
+                <filter string="Fecha Contabilizado Economía" name="fecha_contabilizado_economia"
+                        date="fecha_contabilizado_economia"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Año Certificado" name="anio_group" context="{'group_by':'anio'}"/>
+                    <filter string="Mes Certificado" name="mes" context="{'group_by':'mes'}"/>
+                    <filter string="Orden de Trabajo" name="name_group" context="{'group_by':'name'}"/>
+                    <filter string="Estados de la Certificación" name="estado_id" context="{'group_by':'estado_id'}"/>
+                    <filter string="Especialista de la Obra" name="especialista_id" context="{'group_by':'especialista_id'}"/>
+                    <filter string="Departamento asignado a la Ejecución" name="departamento" context="{'group_by':'departamento'}"/>
+                    <filter string="Área Asignada a la Ejecución" name="agrupacion_id" context="{'group_by':'agrupacion_id'}"/>
+                    <filter string="Cliente de la Obra" name="cliente_id" context="{'group_by':'cliente_id'}"/>
+                    <filter string="Territorio de la Ejecución" name="uo"
+                            context="{'group_by':'cliente_territorio_id'}"/>
+                    <filter name="provincia_id" string="Provincia de la Ejecución"
+                            context="{'group_by': 'provincia_id'}"/>
+                    <filter string="Proceso Ejecutor" name="company_id" context="{'group_by':'company_id'}"/>
+                    <separator orientation="vertical"/>
+                    <filter string="Fecha de Comienzo de Certificación"
+                            context="{'group_by':'fecha_revision_tecnico:month'}" name="month"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="transferencias_ordenes_gastos_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.transferencias.gastos.ordenes.tree</field>
+        <field name="model">sicpro.app.transferencias.gastos.ordenes</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <tree string="Gastos de Órdenes de Trabajo" decoration-bf="1" create="false">
+                <field name="anio"/>
+                <field name="mes"/>
+                <field name="orden_id"/>
+                <field name="pep"/>
+                <field name="titulo"/>
+                <field name="departamento" optional="hide"/>
+                <field name="agrupacion_id"/>
+                <field name="company_abreviatura" string="Proceso"/>
+                <field name="total_gastos"/>
+                <field name="cliente_id" optional="hide"/>
+                <field name="cantidad_cuentas" invisible="1"/>
+                <field name="provincia_id" optional="hide"/>
+                <field name="cliente_territorio_id" optional="hide"/>
+                <field name="company_id" optional="hide"/>
+                <field name="company_currency" invisible="1"/>
+                <field name="color_barra" invisible="1"/>
+                <field name="inicial" invisible="1"/>
+                <field name="estado_id" widget="badge"
+                       decoration-info="color_barra == 'info'" decoration-warning="color_barra == 'warning'"
+                       decoration-danger="color_barra == 'danger'" decoration-success="color_barra == 'success'"/>
+                <field name="modelo_gasto_attachment_ids" string="Modelo Generado" widget="many2many_binary"
+                       class="o_Attachment_image"/>
+                <field name="modelo_gasto_firmado_attachment_ids" string="Modelo Certificado" widget="many2many_binary"
+                       class="o_Attachment_image"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="transferencias_ordenes_gastos_form" model="ir.ui.view">
+        <field name="name">sicpro.app.transferencias.gastos.ordenes.form</field>
+        <field name="model">sicpro.app.transferencias.gastos.ordenes</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <form class="Gastos de las Órdenes de Trabajo">
+                <header>
+                    <button name="gastos_revision_tecnico" string="Aprobar Revisión" type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|', ('grupo_dtp', '!=', True), ('rol_interno', '!=', 'dtp')]}"/>
+                    <button name="%(transferencias_ordenes_rechazo_action)d" string="Rechazar Revisión" type="action"
+                            attrs="{'invisible': ['|', ('grupo_dtp', '!=', True), ('rol_interno', '!=', 'dtp')]}"/>
+                    <button name="generar_modelo_gastos" string="Generar Modelo de Gastos"
+                            type="object" class="btn-danger"
+                            attrs="{'invisible': ['|', ('grupo_dtp', '!=', True), ('rol_interno', '!=', 'dtp')]}"/>
+
+                    <button name="gastos_validacion_ejecutor" string="Validar Revisión Ejecutor"
+                            type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|', ('grupo_ejecutores', '!=', True),
+                             ('rol_interno', '!=', 'ejecutores')]}"/>
+                    <button name="%(transferencias_ordenes_rechazo_action)d" string="Rechazar Validación Ejecutor"
+                            type="action"
+                            attrs="{'invisible': ['|', ('grupo_ejecutores', '!=', True),
+                            ('rol_interno', '!=', 'ejecutores')]}"/>
+
+                    <button name="gastos_validacion_inversionista" string="Validar Gastos Inversionista"
+                            type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|', ('grupo_inversionistas', '!=', True),
+                            ('rol_interno', '!=', 'inversionistas')]}"/>
+                    <button name="%(transferencias_ordenes_rechazo_action)d" string="Rechazar Gastos Inversionista"
+                            type="action"
+                            attrs="{'invisible': ['|', ('grupo_inversionistas', '!=', True),
+                            ('rol_interno', '!=', 'inversionistas')]}"/>
+
+                    <button name="gastos_contabilizado_economia" string="Contabilizar Certificación"
+                            type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|','|','|', ('grupo_economia', '!=', True),
+                            ('rol_interno', '!=', 'economia'), ('terminado', '=', True), ('devuelto_economia', '=', True)]}"/>
+                    <button name="%(transferencias_ordenes_rechazo_action)d" string="Rechazar Certificación"
+                            type="action" attrs="{'invisible': ['|','|','|', ('grupo_economia', '!=', True),
+                            ('rol_interno', '!=', 'economia'), ('terminado', '=', True), ('devuelto_economia', '=', True)]}"/>
+
+
+                    <field name="estado_id" widget="statusbar" options="{'clickable': '0', 'fold_field': 'fold'}"
+                           readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+
+                    </div>
+                    <field name="readonly_admin" invisible="1"/>
+                    <field name="active" invisible="1"/>
+                    <field name="inicial" invisible="1"/>
+                    <field name="company_currency" invisible="1"/>
+                    <field name="anio" invisible="1"/>
+                    <field name="grupo_dtp" invisible="1"/>
+                    <field name="grupo_ejecutores" invisible="1"/>
+                    <field name="grupo_inversionistas" invisible="1"/>
+                    <field name="grupo_dtp_ejecutor" invisible="1"/>
+                    <field name="grupo_economia" invisible="1"/>
+                    <field name="rol_interno" invisible="1"/>
+                    <field name="doc_generado_count" invisible="1"/>
+                    <field name="doc_firmado_count" invisible="1"/>
+                    <field name="terminado" invisible="1"/>
+                    <field name="devuelto_economia" invisible="1"/>
+                    <field name="certificacion_rechazada" invisible="1"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Rechazada" bg_color="bg-warning"
+                            attrs="{'invisible': [('certificacion_rechazada', '!=', True)]}"/>
+
+                    <field name="image_1920" widget="image" class="oe_avatar"
+                           options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+
+                    <div class="oe_title">
+                        <label for="orden_id" class="oe_edit_only" string="Consecutivo de la Orden"/>
+                        <h1><field name="orden_id" readonly="1"/>
+                        </h1>
+                        <h4 class="font-weight-bold">
+                            <field name="titulo"/>
+                        </h4>
+                    </div>
+                    <group>
+                        <group string="Detalles de la Orden">
+                            <field name="pep"/>
+                            <field name="especialidad_id"/>
+                            <field name="agrupacion_id"/>
+                            <field name="departamento" readonly="1"/>
+                            <field name="departamento_trabajador_id" invisible="1"/>
+                            <field name="departamento_ocupacion_id" invisible="1"/>
+                            <field name="company_abreviatura" string="Proceso" invisible="1"/>
+                        </group>
+                        <group string="Detalles de los Gastos">
+                            <field name="anio"/>
+                            <field name="mes"/>
+                            <field name="user_id"/>
+                            <field name="especialista_id"/>
+                            <field name="company_id" string="Proceso"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                    </group>
+
+                    <group string="Detalles económicos importantes">
+                        <field name="detalles_economia" attrs="{'readonly': [('grupo_economia', '!=', True)]}"/>
+                    </group>
+
+                    <group>
+                        <group string="Detalles importantes de proyectistas o ejecutores" class="oe_title">
+                            <field name="observaciones_proyecto_ejecucion" nolabel='1'
+                                   attrs="{'readonly': [('grupo_dtp_ejecutor', '!=', True)]}"
+                                   placeholder="Añada observaciones sobre los de la orden de trabajo…"/>
+                        </group>
+                        <group string="Detalles importantes del inversionista" class="oe_title">
+                            <field name="observaciones_inversionista" nolabel='1'
+                                   attrs="{'readonly': [('grupo_inversionistas', '!=', True)]}"
+                                   placeholder="Añada observaciones sobre los de la orden de trabajo…"/>
+                        </group>
+                    </group>
+                    <group string="Motivo de rechazo de la Certificación"
+                           attrs="{'invisible': [('certificacion_rechazada', '!=', True)]}">
+                        <field name="motivo_rechazo"/>
+                    </group>
+
+                    <group string="Documentación Digital">
+                        <group>
+                            <field name="modelo_gasto_attachment_ids" widget="many2many_binary"
+                                   readonly="1" class="o_Attachment_image"/>
+                        </group>
+                        <group>
+                            <field name="modelo_gasto_firmado_attachment_ids" widget="many2many_binary"
+                                   class="o_Attachment_image" attrs="{'readonly': ['|',
+                                   ('grupo_inversionistas', '!=', True), ('rol_interno', '!=', 'inversionistas')]}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page name="gastos" string="Gastos a Certificar">
+                            <group>
+                                <div class="row">
+                                    <div class="col-lg-12 d-flex">
+                                        <field name="gastos_ids" mode="tree" nolabel="1" widget="one2many_search"
+                                               context="{'default_gasto_id': id,}">
+                                            <tree editable="bottom" create="false" edit="false" delete="false"
+                                                  sample="1">
+                                                <field name="gasto_id" invisible="1"/>
+                                                <field name="contabilizado" invisible="1"/>
+                                                <field name="mes" readonly="1"
+                                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                                <field name="name" readonly="1"/>
+                                                <field name="fecha_contable" readonly="1"/>
+                                                <field name="cl_coste" readonly="1"/>
+                                                <field name="denom_cl_coste" readonly="1"/>
+                                                <field name="denominacion" readonly="1"/>
+                                                <field name="valor_var" string="Valor" class="font-weight-bold"
+                                                       readonly="1"/>
+                                                <field name="usuario" readonly="1"/>
+                                                <field name="company_id" invisible="1"/>
+                                                <field name="company_currency" invisible="1"/>
+                                                <field name="material" readonly="1" optional="hide"/>
+                                                <field name="texto_breve_material" readonly="1" optional="hide"/>
+                                                <field name="ud_cantidad_contab" readonly="1" optional="hide"/>
+                                                <field name="cantidad_total_reg" readonly="1" optional="hide"/>
+                                                <button name="btn_contabilizar_sin_funcion" type="object"
+                                                        string='Contabilizado' class="btn-success" readonly="1"
+                                                        attrs="{'invisible': [('contabilizado', '=', False)]}"/>
+                                                <button name="btn_contabilizar_sin_funcion" type="object"
+                                                        string='No Contabilizado' class="btn-danger" readonly="1"
+                                                        attrs="{'invisible': [('contabilizado', '!=', False)]}"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </div>
+                            </group>
+
+                            <group>
+                                <group class="oe_footer oe_left">
+                                    <div>
+                                        <labe class="font-weight-bold">LEYENDA:</labe>
+                                    </div>
+                                </group>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="cantidad_cuentas"/>
+                                    <field name="total_gastos" readonly="1"
+                                           class="oe_subtotal_footer_separator text-danger"/>
+                                </group>
+                            </group>
+
+                        </page>
+                        <page name='clientes' string="Datos del Cliente">
+                            <div class="text-danger">
+                                <strong>ATENCIÓN: </strong>Para modificar el nombre del inversionista de la obra,
+                                debera hacerlo dede la orden de trabajo asociada.
+                            </div>
+                            <group>
+                                <group>
+                                    <field name="cliente_id"
+                                           options="{'no_create': True, 'no_create_edit':True}"/>
+                                    <field name="cliente_cargo"/>
+                                    <field name="cliente_correo" widget="email"/>
+                                </group>
+                                <group>
+                                    <field name="cliente_telefono_fijo"/>
+                                    <field name="cliente_telefono_movil"/>
+                                    <field name="cliente_territorio_id" string="Unidad Organizativa"/>
+                                    <field name="cliente_provincia_id" string="Provincia"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="fechas" string="información extra">
+                            <group string="Economía">
+                                <group>
+                                    <field name="user_id" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_liberado_gastos" readonly="1"/>
+                                </group>
+                            </group>
+
+                            <group string="Análisis">
+                                <group>
+                                    <field name="fecha_revision_tecnico" readonly="1"/>
+                                    <field name="fecha_validacion_ejecutor" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_validacion_inversionista" readonly="1"/>
+                                    <field name="fecha_contabilizado_economia" readonly="1"/>
+                                </group>
+                            </group>
+
+                            <group string="Otros">
+                                <group>
+                                    <field name="fecha_rechazada" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="anio" readonly="1"/>
+                                </group>
+                            </group>
+
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'open_attachments': False,}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="transferencias_ordenes_gastos_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.transferencias.gastos.ordenes.kanban</field>
+        <field name="model">sicpro.app.transferencias.gastos.ordenes</field>
+        <field name="priority" eval="50"/>
+        <field name="arch" type="xml">
+            <kanban default_group_by="estado_id" quick_create="false" sample="1" group_delete="false" group_edit="false"
+                    class="o_kanban_small_column o_kanban_mobile" archivable="false">
+                <field name="id"/>
+                <field name="estado_id" readonly="1"/>
+                <field name="orden_id"/>
+                <field name="cliente_id"/>
+                <field name="total_gastos" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+                <field name="user_id"/>
+                <field name="gastos_ids"/>
+                <field name="company_currency"/>
+                <field name="company_id"/>
+                <field name="message_needaction_counter"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <field name="cantidad_cuentas"/>
+                <field name="color_barra"/>
+                <progressbar field="color_barra"
+                             colors='{"info": "info",  "warning": "warning", "danger": "danger", "success": "success"}'
+                             sum_field="total_gastos" help="Total general de gastos asociados al estado"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title oe_partner_heading"><field name="orden_id"/></strong>
+                                <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                <ul>
+                                    <li><field name="titulo"/></li>
+                                    <li class="font-weight-bold"><field name="especialidad_id"/></li>
+                                    <li class="font-weight-bold"><field name="mes"/></li>
+                                </ul>
+                                <div class="oe_kanban_partner_links"/>
+                                <div class="oe_kanban_footer">
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <span class="font-weight-bold text-info">
+                                                <field name="cantidad_cuentas"/> Cuentas
+                                            </span> -
+                                            <span class="font-weight-bold text-danger">
+                                                <field name="total_gastos"/>
+                                            </span>
+
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+
+                                            <field name="activity_ids" widget="kanban_activity"/>
+                                            <field name="user_id" widget="many2one_avatar_user"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="transferencias_ordenes_gastos_activity" model="ir.ui.view">
+        <field name="name">sicpro.app.transferencias.gastos.ordenes.activity</field>
+        <field name="model">sicpro.app.transferencias.gastos.ordenes</field>
+        <field name="arch" type="xml">
+            <activity string="Gastos de Órdenes de Trabajo">
+                <field name="cliente_id"/>
+                <!--  <field name="company_currency"/> -->
+                <templates>
+                    <div t-name="activity-box">
+                        <img t-att-src="activity_image('sicpro.app.clientes', 'image_128', record.cliente_id.partner_id.raw_value)"
+                             t-att-title="record.cliente_id.partner_id.value"
+                             t-att-alt="record.cliente_id.partner_id.value"/>
+                        <div>
+                            <field name="orden_id" display="full"/>
+                            <!-- <field name="planned_revenue" widget="monetary" display="full" muted="1"/> -->
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="transferencias_ordenes_gastos_action">
+        <field name="name">Certificación de Gastos</field>
+        <field name="res_model">sicpro.app.transferencias.gastos.ordenes</field>
+        <field name="view_mode">tree,kanban,form,activity</field>
+        <field name="view_id" ref="transferencias_ordenes_gastos_form"/>
+        <field name="search_view_id" ref="transferencias_ordenes_gastos_search"/>
+        <field name="context">{'search_default_anio': (context_today().strftime('%Y')),
+                               'search_default_todos_estados': 1, }
+        </field>
+    </record>
+
+    <record id="transferencias_ordenes_gastos_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="transferencias_ordenes_gastos_tree"/>
+        <field name="act_window_id" ref="transferencias_ordenes_gastos_action"/>
+    </record>
+
+    <record id="transferencias_ordenes_gastos_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="transferencias_ordenes_gastos_kanban"/>
+        <field name="act_window_id" ref="transferencias_ordenes_gastos_action"/>
+    </record>
+
+        <!--    Generar modelo de gastos de todas las órdenes a la misma vez-->
+    <record id="transferencias_ordenes_generar_modelo_all" model="ir.actions.server">
+        <field name="name">Generar Todas las Certificaciones</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_sicpro_app_transferencias_gastos_ordenes"/>
+        <field name="binding_model_id" ref="model_sicpro_app_transferencias_gastos_ordenes"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.generar_modelo_gastos()</field>
+    </record>
+
+    <!--    Ejecutar la revisión de todas las órdenes a la misma vez-->
+    <record id="transferencias_ordenes_revisión_all" model="ir.actions.server">
+        <field name="name">Aprobar Todos las Revisiones</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_sicpro_app_transferencias_gastos_ordenes"/>
+        <field name="binding_model_id" ref="model_sicpro_app_transferencias_gastos_ordenes"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.gastos_revision_tecnico()
+        </field>
+    </record>
+
+
+</odoo>

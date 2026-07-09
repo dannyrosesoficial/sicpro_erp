@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- agrego vista kanban a res.user y la pongo como principal -->
+    <record id="view_users_kanban" model="ir.ui.view">
+        <field name="name">res.users.kanban</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="login"/>
+                <field name="identificador_corto"/>
+                <field name="active"/>
+                <field name="color"/>
+                <field name="login_date"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click oe_applicant_kanban oe_semantic_html_override">
+                            <div class="o_kanban_image">
+                                <img alt="Avatar"
+                                     t-att-src="kanban_image('res.users', 'image_128', record.id.raw_value)"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <field name="status" widget="state_selection"/>
+                                        <span class="text text-decoration-underline font-weight-bold">
+                                            <field name="name"/>
+                                        </span>
+                                    </li>
+                                    <li><span class="text text-info">
+                                        <field name="email"/>
+                                    </span></li>
+                                    <li class="badge badge-pill float-right mb4" t-if="record.identificador_corto.raw_value">
+                                        <field name="identificador_corto"/>
+                                    </li>
+                                    <li class="mb4" t-if="record.login.raw_value" title="Usuario"><i
+                                            class="fa fa-user" role="img" aria-label="Usuario"/>
+                                        <field name="login"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="base.action_res_users" model="ir.actions.act_window">
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="base.action_res_users_view1" model="ir.actions.act_window.view">
+        <field eval="5" name="sequence"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_users_kanban"/>
+        <field name="act_window_id" ref="base.action_res_users"/>
+    </record>
+
+
+    <!-- Heredo vista search de res.user y le agrego filtros de búsquedas -->
+    <record id="view_users_mod_search_inherit" model="ir.ui.view">
+        <field name="name">res.users.mod.search.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_search"/>
+        <field name="arch" type="xml">
+            <filter name='Inactive' position="after">
+                <separator/>
+                <filter string="Usuarios Conectados" name="online_usuarios" domain="[('status','=', 'done')]"/>
+              <filter string="Usuarios Desconectados" name="offline_usuarios" domain="[('status','=', 'blocked')]"/>
+                <separator/>
+            </filter>
+            <field name="company_ids" position="after">
+                <group expand="0" string="Agrupar por">
+                    <filter name="company_id" string="Procesos" context="{'group_by': 'company_id'}"/>
+                </group>
+                <searchpanel view_types="kanban,tree">
+                    <field name="company_id" enable_counters="1" expand="1" icon="fa-building"/>
+                    <field name="status" enable_counters="1" expand="1" icon="fa-user-times"/>
+                </searchpanel>
+            </field>
+        </field>
+    </record>
+
+    <!-- Heredo vista form de res.user y le agrego campos -->
+    <record id="user_email_form" model="ir.ui.view">
+        <field name="name">res.users.views.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <!-- botones de envío de notificaciones -->
+            <xpath expr="//button[@name='action_reset_password']" position="replace">
+                <button string="Enviar Invitación" class="oe_highlight"
+                        type="object" name="enviar_invitacion_usuario"/>
+                <button string="Enviar Actualización de Roles"
+                        type="object" name="enviar_actualizacion_roles"/>
+            </xpath>
+
+            <xpath expr="//div[hasclass('alert') and hasclass('alert-success') and hasclass('text-center') and hasclass('o_form_header')]"
+                   position="replace">
+                <!-- Elimino la barra verde de notificación del forms de usuarios odoo -->
+            </xpath>
+
+            <xpath expr="//div[(@name='button_box')]" position="replace">
+                <div class="oe_button_box" name="button_box">
+                    <button id="presencia_usuario_button" class="oe_stat_button" disabled="1">
+                        <span title="btn_separador" class="o_stat_text fa fa-fw"></span>
+                        <field name="status" widget="state_selection" class="ml-auto oe_read_only"
+                               style="margin-right:24px;"/>
+
+                        <div class="o_stat_info" attrs="{'invisible': [('status', '=', 'blocked')]}">
+                            <span class="o_stat_text">En Linea</span>
+                        </div>
+                        <div class="o_stat_info" attrs="{'invisible': [('status', '=', 'done')]}">
+                            <span class="o_stat_value" attrs="{'invisible': [('last_activity_time', '=', False)]}">
+                                <field name="last_activity_time"/>
+                            </span>
+                            <span class="o_stat_value" attrs="{'invisible': [('last_activity_time', '!=', False)]}">
+                                <field name="last_activity"/>
+                            </span>
+                            <span class="o_stat_text">Desconectado</span>
+                        </div>
+                    </button>
+
+                    <button name="action_show_groups" type="object" groups="base.group_system" class="oe_stat_button"
+                            icon="fa-users">
+                        <field string="Grupos" name="groups_count" widget="statinfo"/>
+                    </button>
+                    <button name="action_show_accesses" type="object" groups="base.group_system" class="oe_stat_button"
+                            icon="fa-list">
+                        <field string="Accesos" name="accesses_count" widget="statinfo"/>
+                    </button>
+                    <button name="action_show_rules" type="object" groups="base.group_system" class="oe_stat_button"
+                            icon="fa-list-ul">
+                        <field string="Reglas" name="rules_count" widget="statinfo"/>
+                    </button>
+                </div>
+            </xpath>
+
+            <xpath expr="//label[@for='login']" position="attributes">
+                <attribute name="string">Login</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='name']" position="replace">
+                <field name="status" widget="state_selection" class="ml-auto oe_read_only" style="margin-right:24px;"/>
+                <field name="name" placeholder="Ej. Daniel Barrero Reyes" required="1"/>
+            </xpath>
+            <xpath expr="//field[@name='login']" position="replace">
+                <field name="login" placeholder="Ej. daniel.borrero"/>
+            </xpath>
+
+            <field name="email" position="replace"/>
+            <field name="login" position="after">
+                <label for="email" class="oe_edit_only" string="Dirección de Correo"/>
+                <h2><field name="email" required="1" placeholder="Ej. daniel.borrero@etecsa.cu"/></h2>
+                <field name="last_activity" invisible="1"/>
+                <field name="last_activity_time" invisible="1"/>
+            </field>
+
+            <xpath expr="//div[hasclass('oe_title')]/group" position="replace">
+                <group>
+                    <group>
+                        <field name="partner_id" string="Contacto Relacionado" readonly="1" required="0"
+                               attrs="{'invisible': [('id', '=', False)]}"/>
+                    </group>
+                    <group>
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                </group>
+            </xpath>
+
+            <!-- Agrego un grupo para alojar a los mapas y calendario-->
+            <group name="messaging" position="after">
+                <group name="grupo_estatico_1">
+                </group>
+            </group>
+
+        </field>
+    </record>
+
+    <!-- Heredo vista tree de res.user y le agrego campos -->
+    <record id="user_email_tree" model="ir.ui.view">
+        <field name="name">res.users.views.tree</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+              <field name="status" widget="state_selection"/>
+           </xpath>
+            <field name="login" position="after">
+                <field name="email"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Heredo vista forms del perfil de res.user y modifico campos -->
+    <record id="view_users_form_preferencia_modif" model="ir.ui.view">
+        <field name="name">res.users.preferences.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='email']" position="replace">
+                <field name="email" widget="email" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='lang']" position="replace">
+                <field name="lang" required="1" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='tz']" position="replace">
+                <field name="tz" widget="timezone_mismatch" options="{'tz_offset_field': 'tz_offset'}" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='notification_type']" position="replace">
+                <field name="notification_type" widget="radio" readonly="1"/>
+            </xpath>
+            <xpath expr="//notebook/page[2]" position="replace">
+                <page string="Seguridad" groups="base.group_system">
+                    <group name="auth" string="Autentificación">
+                        <div>
+                            <button name="preference_change_password" type="object" string="Cambiar contraseña"
+                                    class="btn btn-secondary"/>
+                        </div>
+                    </group>
+                    <group string="Desarrollo API Keys" help="test">
+                        <a href="https://www.odoo.com/documentation/master/webservices/odoo.html#api-keys"
+                           target="_blank">
+                            <i class="fa fa-fw o_button_icon fa-arrow-right"></i>
+                            <span>Documentación</span>
+                        </a>
+                        <div colspan="2" attrs="{'invisible': [('api_key_ids', '=', [])]}">
+                            <field name="api_key_ids" nolabel="1" colspan="4" readonly="0">
+                                <tree editable="bottom" create="false" delete="false">
+                                    <field name="name"/>
+                                    <field name="scope"/>
+                                    <field name="create_date"/>
+                                    <button type="object" name="remove" icon="fa-trash"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div colspan="2">
+                            <button name="api_key_wizard" string="Nueva API Key" type="object"
+                                    class="btn btn-secondary"/>
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

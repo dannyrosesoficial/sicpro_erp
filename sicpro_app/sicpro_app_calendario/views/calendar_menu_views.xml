@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <menuitem id="calendar_menu_operaciones" name="Operaciones" parent="calendar.mail_menu_calendar" sequence="6"
+              groups="base.group_user"/>
+
+        <menuitem id="calendar_menu_tipos_tareas" name="Tipos de Tareas" sequence="1"
+              action="tareas_tipo_action" parent="calendar_menu_operaciones" groups="base.group_user"/>
+
+    <menuitem id="calendar_menu_reportes" name="Informes" parent="calendar.mail_menu_calendar" sequence="7"
+              groups="base.group_user"/>
+
+    <menuitem id="calendar_menu_reporte_plan_trabajo" name="Reporte de Plan de Trabajo" sequence="1"
+              action="reporte_plan_trabajo_action" parent="calendar_menu_reportes" groups="base.group_user"/>
+
+    <menuitem id="calendar_menu_reporte_cumplimiento" name="Cumplimiento del Plan de Trabajo" sequence="2"
+              action="reporte_cumplimiento_action" parent="calendar_menu_reportes" groups="base.group_user"/>
+
+
+    <menuitem
+            id="calendar.calendar_menu_config" parent="calendar.mail_menu_calendar" name="Configuración"
+            sequence="40" action="calendar.action_calendar_event"
+            groups="sicpro_app_reuniones.group_reuniones_secretaria"/>
+
+    <menuitem
+            id="menu_calendar_event_tipo" parent="calendar.calendar_menu_config" name="Tipos de calendario"
+            action="calendario_tipo_action" groups="base.group_system" sequence="3"/>
+
+    <menuitem
+            id="menu_actividades_organizativas_calendar" parent="calendar.calendar_menu_config"
+            name="Actividades Organizativas" action="calendario_actividades_organizativas_action"
+            groups="sicpro_app_reuniones.group_reuniones_secretaria" sequence="4"/>
+
+    <menuitem
+            id="menu_lugares_reuniones_calendar" parent="calendar.calendar_menu_config" name="Lugares de Reunión"
+            action="sicpro_app_reuniones.reuniones_lugares_action"
+            groups="sicpro_app_reuniones.group_reuniones_secretaria" sequence="5"/>
+
+    <menuitem
+            id="menu_cargos_externos_calendar" parent="calendar.calendar_menu_config" name="Cargos Externos"
+            action="calendario_cargos_externos_action" groups="sicpro_app_reuniones.group_reuniones_secretaria"
+            sequence="5"/>
+
+    <menuitem
+            id="calendar.calendar_submenu_reminders" parent="calendar.calendar_menu_config" name="Recordatorios"
+            action="calendar.action_calendar_alarm" groups="base.group_system" sequence="6"/>
+
+    <menuitem
+            id="menu_calendar_event_type" parent="calendar.calendar_menu_config" name="Etiquetas"
+            action="calendar.action_calendar_event_type" groups="base.group_system" sequence="8"/>
+
+    <menuitem
+            id="menu_calendar_pie_firma" parent="calendar.calendar_menu_config" name="Firmas del Plan de Trabajo"
+            action="calendario_pie_firma_action" groups="base.group_system" sequence="9"/>
+
+</odoo>

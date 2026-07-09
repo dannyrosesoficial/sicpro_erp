@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="desactivar_usuario_tree_view">
+            <field name="name">sicpro.app.modulo.usuario.desactivar.tree</field>
+            <field name="model">sicpro.app.modulo.usuario.desactivar</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <tree string="Desactivar usuarios" editable="bottom" create="false">
+                    <field name="name" widget="boolean_toggle"/>
+                    <field name="dias"/>
+                    <field name="tipo" readonly="1"/>
+                    <field name="avisos" widget="many2many_tags"
+                           options="{'color_field': 'color', 'no_create_edit': True}"
+                           placeholder="Seleccionar tiempo de avisos"/>
+                    <field name="company_id" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+    <record id="desactivar_usuario_action" model="ir.actions.act_window">
+        <field name="name">Servicio de Desactivación de Usuarios</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.modulo.usuario.desactivar</field>
+        <field name="view_id" ref="desactivar_usuario_tree_view"/>
+        <field name="view_mode">tree</field>
+    </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="modulo_web_registro_roles_menu" name="Registro de Roles"
+                  action="web_registro_roles_action"
+                  parent="sicpro_modulo_web.modulo_web_menu" sequence="14"/>
+
+    </data>
+</odoo>

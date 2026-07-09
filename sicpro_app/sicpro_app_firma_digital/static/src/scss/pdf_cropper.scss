@@ -1,0 +1,41 @@
+
+//------------------------------------------------------------------------------
+// modifico dimisiones del widget pdfviewer para el cropper pdf
+//------------------------------------------------------------------------------
+
+// PDF Cropper Viewer
+.o_field_pdf_cropper_viewer, .o_pdf_cropper_view_iframe {
+  width: 100% !important;
+  //height: 100% !important;
+  //height: 620px;
+  height: 80vh;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 1 100% !important;
+  border: none !important;
+}
+
+.py-3-top {
+  padding-top: 1rem !important;
+}
+
+.mx-sign-2 {
+  margin-right: 2% !important;
+}
+
+.mx-sign-10 {
+  margin-right: 10% !important;
+}
+
+.mx-sign-5 {
+  margin-right: 5% !important;
+}
+
+.o_form_view_nosheet {
+  display: block;
+  padding: 0 !important;
+}
+
+.ocultar_btn_form_controller {
+  display: none !important;
+}

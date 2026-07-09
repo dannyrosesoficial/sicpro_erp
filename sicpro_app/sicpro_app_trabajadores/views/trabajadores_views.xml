@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_trabajadores_filtro" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.search</field>
+            <field name="model">sicpro.app.trabajadores</field>
+            <field name="arch" type="xml">
+                <search string="Trabajadores">
+                    <field name="name" string="Trabajador" filter_domain="[('name', 'ilike', self)]"/>
+                    <field name="plaza_id"/>
+                    <field name="identification_id"/>
+                    <field name="company_id"/>
+                    <field name="ocupacion_id"/>
+                    <field name="employee_skill_ids"/>
+                    <field name="resume_line_ids" string="Educación"
+                           filter_domain="['|', ('resume_line_ids.name', 'ilike', self),
+                               ('resume_line_ids.description', 'ilike', self)]"/>
+                    <separator/>
+                    <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                    <filter string="Donantes" name="donante" domain="[('donante', '=', 'si')]"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter name="company_id" string="Proceso" context="{'group_by': 'company_id'}"/>
+                        <filter name="categoria_ocupacional" string="Categoría ocupacional"
+                                context="{'group_by': 'categoria_ocupacional'}"/>
+                        <filter name="clase_contrato" string="Clase de Contrato"
+                                context="{'group_by': 'clase_contrato'}"/>
+                        <filter name="group_manager" string="Responsable" context="{'group_by': 'parent_id'}"/>
+                        <filter name="group_department" string="Área" context="{'group_by': 'area_id'}"/>
+                        <filter name="group_job" string="Puesto de Trabajo" context="{'group_by': 'ocupacion_id'}"/>
+                        <filter name="grupo_sanguineo" string="Grupos Sanguíneos"
+                                context="{'group_by': 'grupo_sanguineo'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="area_id" enable_counters="1" expand="1" icon="fa-building"/>
+                        <field name="ocupacion_id" enable_counters="1" icon="fa-users"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_trabajadores_kanban" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.kanban</field>
+            <field name="model">sicpro.app.trabajadores</field>
+            <field name="priority">3</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="estado_conexion"/>
+                    <field name="user_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+                                <div class="o_kanban_image_fill_left d-none d-md-block"
+                                     t-attf-style="background-image:url('#{kanban_image('sicpro.app.trabajadores',
+                                'image_128', record.id.raw_value,  placeholder)}')">
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <div class="float-right"
+                                                     t-if="record.estado_conexion.raw_value == 'present'">
+                                                    <span class="fa fa-circle text-success" role="img"
+                                                          aria-label="Presente"
+                                                          title="Presente" name="presence_present"/>
+                                                </div>
+                                                <div class="float-right"
+                                                     t-if="record.estado_conexion.raw_value == 'absent'">
+                                                    <span class="fa fa-circle text-danger" role="img"
+                                                          aria-label="Ausente"
+                                                          title="Ausente" name="presence_absent"/>
+                                                </div>
+                                                <div class="float-right"
+                                                     t-if="record.estado_conexion.raw_value == 'to_define'">
+                                                    <span class="fa fa-circle text-warning" role="img"
+                                                          aria-label="Sin Usuario" title="Sin Usuario"
+                                                          name="presence_to_define"/>
+                                                </div>
+                                                <span class="font-weight-bold">
+                                                    <field name="name" placeholder="Nombre del trabajador"/>
+                                                </span>
+                                            </strong>
+                                            <span t-if="record.ocupacion_titulo.raw_value"
+                                                  class="o_kanban_record_subtitle">
+                                                <field name="ocupacion_titulo"/></span>
+                                        </div>
+                                    </div>
+                                    <span class="text-danger font-weight-bold"><field name="clase_contrato"/></span> -
+                                    <span class="text-blue font-weight-bold"><field
+                                            name="categoria_ocupacional"/></span>
+                                    <ul>
+                                        <li/>
+                                        <li t-if="record.correo_trabajo.raw_value" class="o_text_overflow">
+                                            <field name="correo_trabajo" widget="email"/>
+                                        </li>
+                                    </ul>
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <span class="font-weight-bold text-primary">M: </span>
+                                            <span class="font-weight-bold"><field name="movil_trabajo"/></span> -
+                                            <span class="font-weight-bold text-primary">F: </span>
+                                            <span class="font-weight-bold"><field name="telefono_trabajo"/></span>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field name="activity_ids" widget="kanban_activity"
+                                                   related="activity_state"/>
+                                            <field name="activity_state" invisible="1"/>
+                                            <field name="user_id" widget="many2one_avatar_user"
+                                                   attrs="{'invisible': [('user_id','=', False)]}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_trabajadores_form" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.form</field>
+            <field name="model">sicpro.app.trabajadores</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <form string="Trabajadores" js_class="hr_employee_form" class='o_employee_form'>
+                    <header>
+                    </header>
+
+                    <field name="active" invisible="1"/>
+                    <field name="grupo_capacitador" invisible="1"/>
+                    <field name="grupo_seguridad_salud" invisible="1"/>
+                    <field name="user_partner_id" invisible="1"/>
+                    <field name="estado_conexion" invisible="1"/>
+                    <sheet>
+                        <field name="readonly_admin" invisible="1"/>
+                        <div name="button_box" class="oe_button_box">
+                            <button
+                                    id="presencia_trabajador_button" class="oe_stat_button" disabled="1"
+                                    attrs="{'invisible': ['|', ('last_activity', '=', False), ('user_id', '=', False)]}">
+                                <div role="img" class="fa fa-fw fa-circle text-success"
+                                     attrs="{'invisible': [('estado_conexion', '!=', 'present')]}"
+                                     aria-label="Conectado" title="Conectado"/>
+                                <div role="img" class="fa fa-fw fa-circle text-warning"
+                                     attrs="{'invisible': [('estado_conexion', '!=', 'to_define')]}" aria-label="Away"
+                                     title="Away"/>
+                                <div role="img" class="fa fa-fw fa-circle text-danger"
+                                     attrs="{'invisible': [('estado_conexion', '!=', 'absent')]}"
+                                     aria-label="Desconectado" title="Desconectado"/>
+
+                                <div class="o_stat_info" attrs="{'invisible': [('estado_conexion', '!=', 'present')]}">
+                                    <span class="o_stat_text">Conectado</span>
+                                </div>
+                                <div class="o_stat_info" attrs="{'invisible': [('estado_conexion', '=', 'present')]}">
+                                    <span class="o_stat_value"
+                                          attrs="{'invisible': [('last_activity_time', '=', False)]}">
+                                        <field name="last_activity_time"/>
+                                    </span>
+                                    <span class="o_stat_value"
+                                          attrs="{'invisible': [('last_activity_time', '!=', False)]}">
+                                        <field name="last_activity"/>
+                                    </span>
+                                    <span class="o_stat_text">Desconectado</span>
+                                </div>
+                            </button>
+
+                            <button class="oe_stat_button" name="documentos_view" type="object" icon="fa-list-ol">
+                                <field string="Documentos" name="documentos_count" widget="statinfo"/>
+                            </button>
+                            <button name="disciplina_view" class="oe_stat_button" type="object" icon="fa-info-circle">
+                                <field string="Medidas" name="disciplina_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <field name="image_1920" widget='image' class="oe_avatar"
+                               options='{"zoom": true, "preview_image":"image_128"}'/>
+                        <div class="oe_title">
+                            <h1 class="d-flex">
+                                <field name="name" placeholder="Nombre del trabajador"
+                                       attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                            </h1>
+                            <h2>
+                                <field name="ocupacion_titulo" placeholder="Puestos de Trabajo"/>
+                            </h2>
+                            <field class="font-weight-bold" decoration-danger="clase_contrato" name="clase_contrato"
+                                   placeholder="Clases"
+                                   attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"
+                                   options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            -
+                            <field class="text-black-50 font-weight-bold" name="categoria_ocupacional"
+                                   placeholder="Categorías"
+                                   attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"
+                                   options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="plaza_id" placeholder="Número único de plaza"
+                                       attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                <field name="movil_trabajo" widget="phone"
+                                       attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                <field name="telefono_trabajo" widget="phone"
+                                       attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                <field name="correo_trabajo" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                <field name="importe" widget="monetary"/>
+                            </group>
+                            <group>
+                                <field name="company_id" required="1"
+                                       attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="area_id"
+                                       attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="ocupacion_id" domain="[('area_id', '=', area_id)]"
+                                       attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="parent_id" required="0"
+                                       attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="centro_costo"
+                                       attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="local_id" invisible="1"/>
+                                <field name="local_cc" domain="[('id', 'in', local_id)]"
+                                       attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="qr_code" widget="image" class="oe_avatar"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="public" string="Información del trabajo">
+                                <div id="o_work_employee_container">
+                                    <div id="o_work_employee_main">
+
+                                        <group string="Ubicación">
+                                            <field name="fecha_incorporacion" required="0"
+                                                   attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                            <field name="inicio_contrato"
+                                                   attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                            <field name="ubicacion_laboral"
+                                                   placeholder="Ej. Lugar, piso, número de oficina..."
+                                                   attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                            <field name="fecha_baja"
+                                                   attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        </group>
+                                        <group string="Planificacion">
+                                            <field name="resource_calendar_id" string="Horas laborales" required="1"
+                                                   attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"
+                                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                            <field name="tz"
+                                                   attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                            <field name="color" widget="color_picker"
+                                                   attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        </group>
+                                    </div>
+                                    <div id="o_employee_right">
+                                        <h4 class="o_org_chart_title mb16 mt0">Organigrama</h4>
+                                        <field name="child_ids" widget="hr_org_chart"/>
+                                    </div>
+                                </div>
+                            </page>
+                            <page name="personal_information" string="Información Privada">
+                                <group>
+                                    <group string="Contacto Privado">
+                                        <field name="direccion_privada"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="direccion_carnet"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="correo_privado" widget="email"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="movil_privado" widget="phone"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="telefono_privado" widget="phone"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                    </group>
+                                    <group string="Ciudadanía">
+                                        <field name="identification_id" required="1"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="fecha_nacimiento"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="edad" attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="raza" options='{"no_open": True, "no_create": True}'
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="genero" attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                    </group>
+                                    <group string="Estado civil">
+                                        <field name="estado_civil"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                    </group>
+                                    <group string="Dependientes">
+                                        <field name="madre"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="padre"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="hijos"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group name="fam_ids" colspan="4" string="Nexo Familiar">
+                                        <field name="nexo_familiar_ids" nolabel="1"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}">
+                                            <tree editable="bottom">
+                                                <field name="nombre" required="1"/>
+                                                <field name="relacion_id" required="1"/>
+                                                <field name="contacto"/>
+                                                <field name="cumple"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Emergencia">
+                                        <field name="emergencia_contacto"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="emergencia_telefono"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="donante"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="grupo_sanguineo" attrs="{'invisible': [('donante', '!=', 'si')],
+                                        'readonly': [('grupo_capacitador','=', True)]}"/>
+                                        <div>
+                                            <p class="text-danger" name="o_mas"
+                                               attrs="{'invisible': [('grupo_sanguineo', '!=', 'o_mas')]}">
+                                                DA: O+, A+, B+, AB+ <br></br> RECIBE: O+, O-
+                                            </p>
+                                            <p class="text-danger" name="o_menos"
+                                               attrs="{'invisible': [('grupo_sanguineo', '!=', 'o_menos')]}">
+                                                DA: TODOS <br></br> RECIBE: O-
+                                            </p>
+                                            <p class="text-danger" name="a_mas"
+                                               attrs="{'invisible': [('grupo_sanguineo', '!=', 'a_mas')]}">
+                                                DA: A+, AB+ <br></br> RECIBE: A+, A-, O+, O-
+                                            </p>
+                                            <p class="text-danger" name="a_menos"
+                                               attrs="{'invisible': [('grupo_sanguineo', '!=', 'a_menos')]}">
+                                                DA: A+, A-, AB+, AB- <br></br> RECIBE: A-, O-
+                                            </p>
+                                            <p class="text-danger" name="b_mas"
+                                               attrs="{'invisible': [('grupo_sanguineo', '!=', 'b_mas')]}">
+                                                DA: B+, AB+ <br></br> RECIBE: B+, B-, O+, O-
+                                            </p>
+                                            <p class="text-danger" name="b_menos"
+                                               attrs="{'invisible': [('grupo_sanguineo', '!=', 'b_menos')]}">
+                                                DA: B+, B-, AB+, AB- <br></br> RECIBE: B-, O-
+                                            </p>
+                                            <p class="text-danger" name="ab_mas"
+                                               attrs="{'invisible': [('grupo_sanguineo', '!=', 'ab_mas')]}">
+                                                DA: AB+ <br></br> RECIBE: TODOS
+                                            </p>
+                                            <p class="text-danger" name="ab_menos"
+                                               attrs="{'invisible': [('grupo_sanguineo', '!=', 'ab_menos')]}">
+                                                DA: AB+, AB- <br></br> RECIBE: AB-, A-, B-, O-
+                                            </p>
+                                        </div>
+                                    </group>
+                                    <group string="Educación">
+                                        <field name="nivel_escolar"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="estudio_especialidad"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="estudio_titulo"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="estudio_graduacion"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                    </group>
+                                </group>
+                                <group string="Salida del Pais">
+                                    <group>
+                                        <field name="visa_no"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="permiso_trabajo"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="visa_expira"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="pasaporte"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="passport_expiry_date"
+                                               attrs="{'invisible': [('pasaporte', 'in', [None,False])],
+                                               'readonly': [('grupo_capacitador','=', True)]}"/>
+                                        <field name="passport_attachment_id" widget="many2many_binary" class="oe_inline"
+                                               attrs="{'invisible': [('pasaporte', 'in', [None,False])],
+                                               'readonly': [('grupo_capacitador','=', True)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="fecha_salida_pais"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="fecha_regreso_pais"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="incorporacion_trabajo"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="fecha_baja"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                        <field name="motivo_salida"
+                                               attrs="{'readonly': ['|', ('grupo_capacitador','=', True), ('grupo_seguridad_salud','=', True)]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="educacion" string="Cursos y Educación">
+                                <div class="row">
+                                    <div class="o_hr_skills_group o_group_resume col-lg-7 d-flex">
+                                        <field mode="tree" nolabel="1" name="resume_line_ids" widget="hr_resume"
+                                               attrs="{'readonly': [('grupo_seguridad_salud','=', True)]}">
+                                            <tree>
+                                                <field name="line_type_id"/>
+                                                <field name="name"/>
+                                                <field name="description"/>
+                                                <field name="date_start"/>
+                                                <field name="date_end"/>
+                                                <field name="display_type" invisible="1"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                    <div class="o_hr_skills_group o_group_skills col-lg-5 d-flex flex-column">
+                                        <separator string="Cursos Realizados"/>
+                                        <field mode="tree" nolabel="1" name="employee_skill_ids" widget="hr_skills"
+                                               attrs="{'readonly': [('grupo_seguridad_salud','=', True)]}">
+                                            <tree>
+                                                <field name="skill_type_id" invisible="1"/>
+                                                <field name="skill_id"/>
+                                                <field name="skill_level_id"/>
+                                                <field name="level_progress" widget="progressbar"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </div>
+                            </page>
+                            <page name="salud" string="Instrucciones y Vacunación">
+                                <group>
+                                    <group string='Instrucciones'>
+                                        <field name="intrucciones_ids" class="col-lg-10" nolabel="1" mode="tree">
+                                            <tree create="false" edit="false" delete="false">
+                                                <field name="name" invisible="1"/>
+                                                <field name="tipo_intruccion" readonly="1"/>
+                                                <field name="instructor" readonly="1"/>
+                                                <field name="ocupacion_id" readonly="1"/>
+                                                <field name="fecha_desde" readonly="1"/>
+                                                <field name="evalucion" readonly="1"/>
+                                            </tree>
+                                            <form create="false" edit="false" delete="false">
+                                                <sheet>
+                                                    <field name="name" invisible="1"/>
+                                                    <field name="tipo_intruccion" readonly="1"/>
+                                                    <field name="instructor" readonly="1"/>
+                                                    <field name="ocupacion_id" readonly="1"/>
+                                                    <field name="fecha_desde" readonly="1"/>
+                                                    <field name="evalucion" readonly="1"/>
+                                                </sheet>
+                                            </form>
+                                        </field>
+                                    </group>
+                                    <group string="Vacunación">
+                                        <field name="vacunacion_ids" class="col-lg-10" nolabel="1" mode="tree">
+                                            <tree create="false" edit="false" delete="false">
+                                                <field name="name" invisible="1"/>
+                                                <field name="tipo_vacuna" readonly="1"/>
+                                                <field name="fecha" readonly="1"/>
+                                            </tree>
+                                            <form create="false" edit="false" delete="false">
+                                                <sheet>
+                                                    <field name="name" invisible="1"/>
+                                                    <field name="tipo_vacuna" readonly="1"/>
+                                                    <field name="fecha" readonly="1"/>
+                                                </sheet>
+                                            </form>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="proteccion" string="Medios de Protección">
+                                <group>
+                                    <field name="seguridad_ocupacion" invisible="1"/>
+                                </group>
+                                <group string='Medios de Seguridad y Protección'>
+                                    <field name="seguridad_ids" nolabel="1" mode="tree"
+                                           context="{'default_trabajador_id': id,
+                                               'default_cargo_get': seguridad_ocupacion}"
+                                           attrs="{'readonly': [('grupo_capacitador','=', True)]}">
+                                        <tree editable="bottom">
+                                            <field name="cargo_get" invisible="1"/>
+                                            <field name="trabajador_id" invisible="1"/>
+                                            <field name="cargo" invisible="1"/>
+                                            <field name="name"/>
+                                            <field name="talla" class="text-center text-warning"
+                                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                            <field name="codigo"/>
+                                            <field name="vida_util"/>
+                                            <field name="unida_medida" class="text-center"/>
+                                            <field name="demanda" class="text-danger text-center"
+                                                   attrs="{'readonly': [('name', '=', False)],
+                                                        'required': [('name', '!=', False)]}"/>
+                                            <field name="entregado" class="text-center"
+                                                   attrs="{'readonly': [('demanda', '=', False)]}"/>
+                                            <field name="anio" class="text-center"
+                                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                            <field name="precio" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page name="notas_trabajador" string="Notas">
+                                <group string='Detalles del trabajador' name="detalles_active_group">
+                                    <field name="notas"/>
+                                </group>
+                            </page>
+                            <page name="usuario_settings" string="Configuración de Usuario">
+                                <group>
+                                    <group string='Estado' name="active_group">
+                                        <field name="user_id" readonly="1"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                        <field name="pin" readonly="1"/>
+                                    </group>
+                                    <group string="Atención">
+                                        <field name="equipo_tecnico"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_trabajadores_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.tree</field>
+            <field name="model">sicpro.app.trabajadores</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <tree string="Trabajadores">
+                    <field name="company_id"/>
+                    <field name="area_id"/>
+                    <field name="plaza_id"/>
+                    <field name="name"/>
+                    <field name="ocupacion_id"/>
+                    <field name="parent_id"/>
+                    <field name="movil_trabajo" widget="phone"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="menu_view_trabajadores" model="ir.actions.act_window">
+            <field name="name">Trabajadores</field>
+            <field name="res_model">sicpro.app.trabajadores</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_trabajadores_filtro"/>
+            <field name="view_id" ref="view_trabajadores_kanban"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Agregar Nuevo Trabajador
+                </p>
+                <p>
+                    En este módulo se tendrá el control de todos los datos generales de los trabajadores.
+                </p>
+            </field>
+        </record>
+
+        <record id="menu_view_trabajadores_tree" model="ir.actions.act_window">
+            <field name="name">Trabajadores</field>
+            <field name="res_model">sicpro.app.trabajadores</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_trabajadores_tree"/>
+            <!-- <field name="domain">[('parent_id','=',False)]</field> -->
+            <field name="search_view_id" ref="view_trabajadores_filtro"/>
+            <field name="view_id" ref="view_trabajadores_tree"/>
+        </record>
+
+        <record id="action_trabajadores_view_kanban" model="ir.actions.act_window.view">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="sicpro_app_trabajadores.view_trabajadores_kanban"/>
+            <field name="act_window_id" ref="menu_view_trabajadores"/>
+        </record>
+
+        <record id="action_trabajadores_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="sicpro_app_trabajadores.view_trabajadores_tree"/>
+            <field name="act_window_id" ref="menu_view_trabajadores"/>
+        </record>
+
+        <record id="action_trabajadores_view_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sicpro_app_trabajadores.view_trabajadores_form"/>
+            <field name="act_window_id" ref="menu_view_trabajadores"/>
+        </record>
+
+
+        <record id="menu_view_trabajadores_activity" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.activity</field>
+            <field name="model">sicpro.app.trabajadores</field>
+            <field name="arch" type="xml">
+                <activity string="Trabajadores">
+                    <field name="id"/>
+                    <templates>
+                        <div t-name="activity-box">
+                            <img t-att-src="activity_image('sicpro.app.trabajadores', 'image_128', record.id.raw_value)"
+                                 role="img" t-att-title="record.id.value" t-att-alt="record.id.value"/>
+                            <div>
+                                <field name="name" display="full"/>
+                                <!--   <field name="ocupacion_id" muted="1" display="full"/> -->
+                            </div>
+                        </div>
+                    </templates>
+                </activity>
+            </field>
+        </record>
+
+        <record id="act_trabajadores_en_areas" model="ir.actions.act_window">
+            <field name="name">Trabajadores</field>
+            <field name="res_model">sicpro.app.trabajadores</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="search_view_id" ref="view_trabajadores_filtro"/>
+            <field name="context">{"searchpanel_default_department_id": active_id, "default_department_id": active_id}
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Agregar Nuevo Trabajador
+                </p>
+                <p>
+                    En este módulo se tendrá el control de todos los datos generales de los trabajadores.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

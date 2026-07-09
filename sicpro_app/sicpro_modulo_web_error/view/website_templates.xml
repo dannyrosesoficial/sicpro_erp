@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="replace_footer_odoo" name="Web layout footer" inherit_id="web.frontend_layout">
+        <xpath expr="//div[@id='wrapwrap']" position="replace">
+            <div id="wrapwrap" t-attf-class="#{pageName or ''}">
+                <header t-if="not no_header" id="top" data-anchor="true">
+                    <img class="img-responsive d-block mx-auto"
+                        t-attf-src="/sicpro_modulo_web_error/static/src/img/logo_sicpro 2.png" width="290" height="130"
+                        alt="Logo"/>
+                </header>
+                <main>
+                    <t t-raw="0"/>
+                </main>
+                <footer t-if="not no_footer" id="bottom" data-anchor="true" t-attf-class="o_cc5 o_footer">
+                    <div id="footer"/>
+                    <div t-if="not no_copyright" class="o_footer_copyright">
+                        <div class="container py-3">
+                            <div class="row">
+                                <div class="col-sm text-center text-sm-left text-muted">
+                                    <a href="mailto:daniel.borrero@etecsa.cu" target="_blank">
+                                    <img src="/sicpro_modulo_web_error/static/src/img/SICPRO ERP.png" width="18" height="18"/>
+                                    </a>
+                                    <span class="o_footer_copyright_name mr-2">
+                                        <a href="mailto:daniel.borrero@etecsa.cu" target="_blank">Contactar con
+                                            <span>Soporte:</span></a>
+                                        <span>Móvil: </span>52183663 -<span> Fijo: </span>78741436</span>
+                                </div>
+                                <div class="col-sm text-center text-sm-right">
+                                    <t t-call="web.brand_promotion"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+        </xpath>
+    </template>
+
+<template id="replace_footer_logo" name="Web layout footer logo" inherit_id="web.brand_promotion_message" >
+        <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="odoo_logo">
+            </t>
+        </xpath>
+
+    <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="sicpro_logo">
+            <a target="_blank"
+                t-attf-href="https://www.sicproerp.dvpe.etecsa.cu"
+                class="badge badge-light">
+                <img alt="SICPRO EPR" src="/sicpro_app_administracion/static/src/img/SICPRO ERP.png"
+                        style="height: 1em; vertical-align: baseline;"/>
+            </a>
+            </t>
+        </xpath>
+
+        <xpath expr="//t[@t-set='final_message']" position="replace">
+           <t t-set="final_message">DIVISIÓN DE PROYECTOS Y EJECUCIÓN DE OBRAS
+               <a target="_blank" t-attf-href="http://www.dvpe.etecsa.cu">DVPE</a> ETECSA %s%s</t>
+        </xpath>
+
+
+    </template>
+
+<template id="page_404" name="Page Not Found" inherit_id="http_routing.404" >
+    <xpath expr="//div['wrap']" position="replace">
+        <div id="wrap">
+                <t t-raw="0"/>
+                <div class="oe_structure oe_empty">
+                    <section class="pb24">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 pb24"><hr/></div>
+                                <div class="col-md-6 text-center text-md-right my-md-auto mb-5 mb-md-0">
+                                    <img class="img img-fluid" src="/sicpro_modulo_web_error/static/src/img/404.svg"/>
+                                </div>
+                                <div class="col-md-6 text-center text-md-left my-auto">
+                                    <h1 class="sr-only">Error 404</h1>
+                                    <h2 class="mb16">¡No pudimos encontrar la página que estás buscando!</h2>
+                                    <p><b>Que no cunda el pánico.</b> Si cree que es un error del sistema, envíenos un mensaje al <a href="mailto:daniel.borrero@etecsa.cu">correo</a>.</p>
+                                </div>
+                                <div class="col-12 pt40 pb24"><hr/></div>
+                                <div class="col-12">
+                                    <p class="text-center pt24">Quizás estabas buscando una páginas <b>que no exite?</b></p>
+                                    <ul class="list-inline text-center">
+                                        <li class="list-inline-item mb-2"><a href="/" class="btn btn-secondary">Inicio</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+    </xpath>
+
+</template>
+
+</odoo>

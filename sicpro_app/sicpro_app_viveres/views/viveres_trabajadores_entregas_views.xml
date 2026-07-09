@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="viveres_trabajadores_entregas_form" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.trabajadores.entregas.form</field>
+        <field name="model">sicpro.app.viveres.trabajadores.entregas</field>
+        <field name="arch" type="xml">
+            <form string="Entregas al trabajador">
+                <header>
+                </header>
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="estado"/>
+                            <field name="name"
+                                   options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                            <field name="jefe_area"
+                                   options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                            <field name="trabajador_id"
+                                   options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                            <field name="producto_comprado_trabajador" widget="many2many_tags"
+                                   options="{'color_field': 'color'}"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="fecha_entrega"/>
+                            <field name="fecha_entrega_trabajador"/>
+                            <field name="observaciones"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="viveres_trabajadores_entregas_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.trabajadores.entregas.tree</field>
+        <field name="model">sicpro.app.viveres.trabajadores.entregas</field>
+        <field name="arch" type="xml">
+            <tree string="Entregas al trabajador" decoration-bf="0" js_class="distribuir_productos" sample="1">
+                <field name="estado"/>
+                <field name="name"
+                       options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                <field name="jefe_area"
+                       options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                <field name="trabajador_id"
+                       options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                <field name="producto_comprado_trabajador" widget="many2many_tags"
+                       options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True', 'color_field': 'color'}"/>
+                <field name="fecha_entrega"/>
+                <field name="fecha_entrega_trabajador"/>
+                <field name="observaciones"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="viveres_trabajadores_entregas_filter" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.trabajadores.entregas.search</field>
+        <field name="model">sicpro.app.viveres.trabajadores.entregas</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name"/>
+                <field name="trabajador_id"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                    <filter string='Producto' name="producto_comprado_trabajador" domain="[]"
+                            context="{'group_by': 'producto_comprado_trabajador'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="viveres_trabajadores_entregas_action" model="ir.actions.act_window">
+        <field name="name">Entregas al trabajador</field>
+        <field name="res_model">sicpro.app.viveres.trabajadores.entregas</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

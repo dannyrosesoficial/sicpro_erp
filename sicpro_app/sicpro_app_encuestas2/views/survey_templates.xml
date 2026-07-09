@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <template id="Salida_encuestas" name="sicpro_app_encuestas_salida" inherit_id="survey.survey_fill_form_done">
+        <xpath expr="//h1" position="replace">
+            <h2>¡GRACIAS POR PARTICIPAR!</h2>
+            <div>
+                <a t-attf-href="/web" class="badge badge-light">
+                    <h4 class="font-weight-bold text-danger">TERMINAR </h4>
+                </a>
+            </div>
+        </xpath>
+    </template>
+    <template id="question_container" inherit_id="survey.question_container">
+        <xpath expr="//div[@role='alert']" position="before">
+            <t t-if="question.question_type == 'time'"><t t-call="sicpro_app_encuestas.question_time"/></t>
+            <t t-if="question.question_type == 'month'"><t t-call="sicpro_app_encuestas.question_month"/></t>
+            <t t-if="question.question_type == 'name'"><t t-call="sicpro_app_encuestas.question_name"/></t>
+            <t t-if="question.question_type == 'address'"><t t-call="sicpro_app_encuestas.question_address"/></t>
+            <t t-if="question.question_type == 'qr'"><t t-call="sicpro_app_encuestas.question_qr"/></t>
+            <t t-if="question.question_type == 'email'"><t t-call="sicpro_app_encuestas.question_email"/></t>
+            <t t-if="question.question_type == 'password'"><t t-call="sicpro_app_encuestas.question_password"/></t>
+            <t t-if="question.question_type == 'url'"><t t-call="sicpro_app_encuestas.question_url"/></t>
+            <t t-if="question.question_type == 'week'"><t t-call="sicpro_app_encuestas.question_week"/></t>
+            <t t-if="question.question_type == 'color'"><t t-call="sicpro_app_encuestas.question_color"/></t>
+            <t t-if="question.question_type == 'range'"><t t-call="sicpro_app_encuestas.question_range"/></t>
+            <t t-if="question.question_type == 'many2one'"><t t-call="sicpro_app_encuestas.question_many2one"/></t>
+            <t t-if="question.question_type == 'matrix' and question.matrix_subtype == 'custom'"><t t-call="sicpro_app_encuestas.question_matrix_custom"/></t>
+            <t t-if="question.question_type == 'file'"><t t-call="sicpro_app_encuestas.question_file"/></t>
+            <t t-if="question.question_type == 'many2many'"><t t-call="sicpro_app_encuestas.question_many2many"/></t>
+            <t t-if="question.question_type == 'selection'"><t t-call="sicpro_app_encuestas.question_selection_choice"/></t>
+            <t t-if="question.question_type == 'barcode'"><t t-call="sicpro_app_encuestas.question_barcode"/></t>
+        </xpath>
+    </template>
+</data>
+</odoo>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="SolMapFormFieldTemplate" xml:space="preserve">
+    <div t-name="SolMapFormField" class="container-fluid">
+        <div class="row">
+            <div class="col-1 mb-1">
+                <button type="button" id="sol-geocode" class="btn btn-info">GeoCódigo</button>
+            </div>
+            <div class="col">
+                <div id="o_geocoding_solform" class="col o_geocoding_solform alert alert-primary" rol="alert"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div id="olmapform" class="olmapform" style="height: 400px; width:auto;"></div>
+            </div>
+        </div>
+        <!-- Modal Chose Draw Type-->
+        <div class="modal fade" id="drawingModel" tabindex="-1" aria-labelledby="drawingModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="drawingModalLabel">Elija la forma para dibujar </h5>
+                          <!--<a role="button" id="btn-close-modal-solmap"  class="btn-close-modal-solmap"></a>-->
+                        <!--<button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                      </div>
+                      <div class="modal-body text-center">
+                          <div class="row">
+                              <div class="col px-2">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <h5 class="card-title">Punto</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Árbol</h6>
+                                          <p class="card-text">
+                                              <i class="fa fa-map-marker fa-4x startDraw" id="Point"></i>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col px-2">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <h5 class="card-title">Línea</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Carretera</h6>
+                                          <p class="card-text">
+                                              <i class="fa fa-road fa-4x startDraw" id="LineString"></i>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col px-2">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <h5 class="card-title">Polígono</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Edificio</h6>
+                                          <p class="card-text">
+                                              <i class="fa fa-building fa-4x startDraw" id="Polygon"></i>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col px-2">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <h5 class="card-title">Rectángulo</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Zona</h6>
+                                          <p class="card-text">
+                                              <i class="fa fa-square-o fa-4x startDraw" id="Box"></i>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col px-2">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <h5 class="card-title">Circulo</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Zona</h6>
+                                          <p class="card-text">
+                                              <i class="fa fa-circle-thin fa-4x startDraw" id="Circle"></i>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" id="solMapFormCloseDraw" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      </div>
+                  </div>
+            </div>
+        </div>
+        <!-- End Modal Chose Draw Type-->
+        <!-- Modal fill Draw Form-->
+        <div class="modal fade" id="EditFeatureModel" tabindex="-1" aria-labelledby="EditFeatureModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="EditFeatureModalLabel">Información del relleno </h5>
+                          <a role="button" id="btn-close-modal-solmap"  class="btn-close-modal-solmap"></a>
+                        <!--<button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                      </div>
+                      <div class="modal-body text-center">
+                          <table class="table table-striped">
+                              <tr>
+                                <td>
+                                    <label for="stroke-color" class="col-form-label" >Color del trazo</label>
+                                </td>
+                                <td>
+                                    <input type="color" id="stroke-color" value="#ffcc33" class="form-control form-control-sm" />
+                                </td>
+                                <td>
+                                    <label for="stroke-width" class="col-form-label">Anchura del trazo</label>
+                                </td>
+                                <td>
+                                    <input type="number" id="stroke-width" min="0" max ="6" step="1" value="2" class="form-control form-control-sm"/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    <label for="image-radius" class="col-form-label">Radio de la imagen</label>
+                                </td>
+                                <td>
+                                    <input type="number" id="image-radius" min="1" max="10" step="1" value="7" class="form-control form-control-sm"/>
+                                </td>
+                                  <td>
+                                    <label for="image-fill" class="col-form-label">Relleno de imagen</label>
+                                </td>
+                                <td>
+                                    <input type="color" id="image-fill" value="#ffcc33" class="form-control form-control-sm"/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    <label for="fill-color" class="col-form-label">Color de relleno</label>
+                                </td>
+                                <td>
+                                    <input type="color" id="fill-color"  value="#ffcc33" class="form-control form-control-sm"/>
+                                </td>
+                                <td>
+                                    <label for="fill-opacity" class="col-form-label">Opacidad del color de relleno</label>
+                                </td>
+                                <td>
+                                    <input type="number" min="0" max="1" step="0.1" value="1" id="fill-opacity" class="form-control form-control-sm"/>
+                                </td>
+                              </tr>
+                               <tr>
+                                <td>
+                                    <label for="Key-word" class="col-form-label">Palabra clave</label>
+                                </td>
+                                <td colspan="3">
+                                    <input type="text" id="Key-word" class="form-control form-control-sm"/>
+                                </td>
+                              </tr>
+                          </table>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" id="solMapFormCloseProp" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" id="solMapFormEditProp" class="btn btn-primary">Guardar</button>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</templates>

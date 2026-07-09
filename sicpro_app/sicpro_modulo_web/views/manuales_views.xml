@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="web_manuales_search_view">
+            <field name="name">sicpro.modulo.web.manuales.search</field>
+            <field name="model">sicpro.modulo.web.manuales</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="web_manuales_tree_view">
+            <field name="name">sicpro.modulo.web.manuales.tree</field>
+            <field name="model">sicpro.modulo.web.manuales</field>
+            <field name="arch" type="xml">
+                <tree string="Equipo de trabajo" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="icono" widget="widget_icono"/>
+                    <field name="clase"/>
+                    <field name="color" widget="color"/>
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                    <field name="manual"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="web_manuales_action" model="ir.actions.act_window">
+            <field name="name">Manuales del sistema</field>
+            <field name="res_model">sicpro.modulo.web.manuales</field>
+        </record>
+    </data>
+</odoo>

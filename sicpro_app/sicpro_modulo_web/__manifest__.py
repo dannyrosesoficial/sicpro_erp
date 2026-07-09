@@ -1,0 +1,41 @@
+# -*- encoding: utf-8 -*-
+
+{
+    'name': 'SICPRO: Web Página Inicial',
+    'version': '1.0.0',
+    # Estados (Desarrollo o Producción) Desarrollo: Store o actualiza Producción: Store avisa de nueva actualización
+    'estado': 'Desarrollo',
+    'category': 'Administración',
+    'summary': 'Muestra la pagina informativa inicial para SICPRO ERP',
+    'author': 'Daniel Barrero Reyes',
+    'support': 'daniel.borrero@etecsa.cu',
+    'price': 0,
+    'currency': 'CUP',
+    'company': 'División de Proyectos y Ejecución de Obras',
+    'website': 'https://www.facebook.com/dannyroses.oficial/',
+    'license': 'AGPL-3',
+    'sequence': 3,
+    "depends": ['nucleo_sicpro_erp', "base",
+                'base_setup', 'web', 'social_media',
+                "sicpro_app_administracion",
+                'sicpro_modulo_dashboard_extendido',
+                ],
+    "data": [
+        'security/ir.model.access.csv',
+        'templates/inicio_template.xml',
+        'views/video_url_views.xml',
+        'views/galerias_etiquetas_views.xml',
+        'views/galerias_views.xml',
+        'views/equipo_views.xml',
+        'views/version_views.xml',
+        'views/manuales_views.xml',
+        'views/modulo_web_menu_views.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [],
+    },
+    "installable": True,
+    'application': True,
+    "auto_install": False,
+    "pre_init_hook": "pre_init_check",
+}

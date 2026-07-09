@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sicpro_app_planilla_acceso_roles_form" model="ir.ui.view">
+        <field name="name">sicpro.modulo.roles.planilla.form</field>
+        <field name="model">sicpro.modulo.roles</field>
+        <field name="inherit_id" ref="sicpro_modulo_roles.view_res_users_role_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='code']" position="inside">
+                <field name="clave_solicitud"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sicpro_app_planilla_acceso_roles_tree" model="ir.ui.view">
+        <field name="name">sicpro.modulo.roles.planilla.tree</field>
+        <field name="model">sicpro.modulo.roles</field>
+        <field name="inherit_id" ref="sicpro_modulo_roles.view_res_users_role_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="clave_solicitud"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sicpro_app_planilla_acceso_roles_search" model="ir.ui.view">
+        <field name="name">sicpro.modulo.roles.planilla.search</field>
+        <field name="model">sicpro.modulo.roles</field>
+        <field name="inherit_id" ref="sicpro_modulo_roles.view_res_users_role_search"/>
+        <field name="arch" type="xml">
+            <filter name="inactive" position="after">
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                    <filter name="clave_solicitud" string="Código del ROL" context="{'group_by': 'clave_solicitud'}"/>
+                </group>
+            </filter>
+        </field>
+    </record>
+
+</odoo>

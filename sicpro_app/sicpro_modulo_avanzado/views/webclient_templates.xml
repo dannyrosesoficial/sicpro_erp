@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="replace_name_odoo" name="Web layout" inherit_id="web.layout">
+			<xpath expr="//title"  position="replace">
+				<title t-esc="title or 'SICPRO ERP'"/>
+			</xpath>
+		<xpath expr="//link"  position="replace">
+			<link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/sicpro_modulo_avanzado/static/src/img/favicon.png'"/>
+			</xpath>
+	</template>
+
+</odoo>

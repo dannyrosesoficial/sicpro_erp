@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="reporte_vivienda_aestadisticas_wizard" model="ir.ui.view">
+        <field name="name">sicpro.app.vivienda.reporte.estadistica.form</field>
+        <field name="model">sicpro.app.vivienda.reporte.estadistica</field>
+        <field name="arch" type="xml">
+            <form string="Anexo 3">
+                <group>
+                    <group>
+                        <field name="etapa" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="generar_reporte" string="Imprimir" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="reporte_vivienda_estadisticas_action" model="ir.actions.act_window">
+        <field name="name">Estadísticas del Programa de la Vivienda</field>
+        <field name="res_model">sicpro.app.vivienda.reporte.estadistica</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="reporte_vivienda_aestadisticas_wizard"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

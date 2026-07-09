@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_querydb</OriginalElement>
+  <nodes>
+    <node x="902.328125" y="282.5">typing.Sequence</node>
+    <node x="1260.328125" y="348.5">typing.Sized</node>
+    <node x="1411.328125" y="304.0">odoo.models.MetaModel</node>
+    <node x="1683.328125" y="337.5">typing.Iterator</node>
+    <node x="592.0" y="3319.0">AbstractModel</node>
+    <node x="1855.328125" y="348.5">typing.Iterable</node>
+    <node x="621.0" y="6020.0">odoo.models.Model</node>
+    <node x="0.0" y="6739.0">sicpro_modulo_querydb.wizard.pdforientation.PdfOrientation</node>
+    <node x="90.5" y="6346.0">odoo.models.TransientModel</node>
+    <node x="998.5" y="6192.0">sicpro_modulo_querydb.models.sicpro_query_db.QueryDB</node>
+    <node x="1055.1083333333333" y="6030.5">sicpro_modulo_querydb.report.print_pdf.PrintPdfParser</node>
+    <node x="2028.328125" y="348.5">typing.Container</node>
+    <node x="455.5" y="6368.5">sicpro_modulo_querydb.models.sicpro_query_db.TipsQueries</node>
+    <node x="661.5" y="0.0">typing.Hashable</node>
+    <node x="845.8583333333333" y="699.0">odoo.models.BaseModel</node>
+    <node x="531.5" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="263.0" y="6254.0" />
+      <point x="717.0" y="6254.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_querydb.models.sicpro_query_db.QueryDB" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-250.5" y="-112.0" />
+      <point x="521.5" y="6328.5" />
+      <point x="521.5" y="6254.0" />
+      <point x="717.0" y="6254.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="2140.828125" y="3334.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_querydb.wizard.pdforientation.PdfOrientation" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-83.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="827.0" y="376.5" />
+      <point x="827.0" y="88.5" />
+      <point x="743.0" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-346.03020833333335" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="-571.5003333333334" y="0.0" />
+      <point x="827.0" y="3334.5" />
+      <point x="827.0" y="88.5" />
+      <point x="743.0" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="341.96979166666665" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="119.96979166666665" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="514.4697916666667" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_querydb.report.print_pdf.PrintPdfParser" target="AbstractModel" relationship="REALIZATION">
+      <point x="-3.3333333340124227E-4" y="-50.5" />
+      <point x="1296.608" y="5995.0" />
+      <point x="669.0" y="5995.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="sicpro_modulo_querydb.models.sicpro_query_db.TipsQueries" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-210.5" y="-72.0" />
+      <point x="506.5" y="6254.0" />
+      <point x="717.0" y="6254.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_querydb.report.print_pdf.PrintPdfParser" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="-241.5003333333334" y="0.0" />
+      <point x="830.0" y="6081.0" />
+      <point x="830.0" y="4761.5" />
+      <point x="-571.5003333333334" y="1427.0" />
+    </edge>
+    <edge source="AbstractModel" target="object" relationship="REALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="270.5" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="96.0" y="0.0" />
+      <point x="830.0" y="6081.0" />
+      <point x="830.0" y="4761.5" />
+      <point x="-571.5003333333334" y="1427.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="AbstractModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="717.0" y="5995.0" />
+      <point x="669.0" y="5995.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-91.53020833333335" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="-3.3333333340124227E-4" y="-2635.5" />
+      <point x="1417.358" y="673.0" />
+      <point x="669.0" y="673.0" />
+      <point x="0.0" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.12200404273751082" showDependencies="false" x="1127.0" y="3453.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

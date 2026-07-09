@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vivienda_fondo_search" model="ir.ui.view">
+        <field name="name">sicpro.app.vivienda.fondo.search</field>
+        <field name="model">sicpro.app.vivienda.fondo</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="ofertas_id"/>
+                <field name="proveedor_id"/>
+                <field name="material_id"/>
+                <separator/>
+                <filter string="Fecha" name="fecha" date="fecha"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Pagos Anticipados" name="pago_anticipado"
+                        domain="['&amp;', ('oferta', '=', True), ('factura', '=', False)]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Estados" name="estado" context="{'group_by':'estado'}"/>
+                    <filter string="Proveedor" name="etapas" context="{'group_by':'proveedor_id'}"/>
+                    <filter string="Material" name="material" context="{'group_by':'material_id'}"/>
+                    <filter string="Fecha" context="{'group_by':'fecha:month'}" name="month"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="vivienda_fondo_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.vivienda.fondo.tree</field>
+        <field name="model">sicpro.app.vivienda.fondo</field>
+        <field name="arch" type="xml">
+            <tree string="Fondo" editable="bottom">
+                <button name="generar_saldo" type="object" string="Validar" class="btn btn-outline-success"
+                        icon="fa-check" attrs="{'invisible': [('saldo','!=', 0)]}"/>
+                <field name="name" invisible="1"/>
+                <field name="oferta" widget="boolean_toggle" attrs="{'readonly': [('saldo','=', 0)]}"/>
+                <field name="factura" widget="boolean_toggle" attrs="{'readonly': [('saldo','=', 0)]}"/>
+                <field name="ofertas_id" class="font-weight-bold text-info" attrs="{'readonly': [('saldo','!=', 0)]}"
+                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                <field name="proveedor_id"/>
+                <field name="dominio_materiales" invisible="1"/>
+                <field name="material_id" domain="dominio_materiales" class="font-weight-bold text-danger"
+                       attrs="{'readonly': [('saldo','!=', 0)]}"
+                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                <field name="cantidad_materiales"/>
+                <field name="trabajadores" class="font-weight-bold text-dark"/>
+                <field name="importe"/>
+                <field name="saldo" attrs="{'readonly': [('saldo','!=', 0)]}"/>
+                <field name="fecha" readonly="1"/>
+                <field name="estado" class="font-weight-bold" decoration-warning="estado=='pendiente'"
+                       decoration-success="estado=='facturado'" decoration-danger="estado=='pago_anticipado'"
+                       widget="badge"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="user_id" widget="many2one_avatar_user" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="vivienda_fondo_action" model="ir.actions.act_window">
+        <field name="name">Fondo de viviendas</field>
+        <field name="res_model">sicpro.app.vivienda.fondo</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="vivienda_fondo_tree"/>
+        <field name="context">{'default_name': active_id, }</field>
+        <field name="domain">[('name', '=', active_id), ]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo fondo
+            </p>
+        </field>
+    </record>
+
+    <record id="viviendas_etapas_views_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.vivienda.etapas.kanban</field>
+        <field name="model">sicpro.app.vivienda.etapas</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_maintenance_team_kanban" create="0">
+                <field name="name"/>
+                <field name="color"/>
+                <field name="company_id"/>
+                <field name="company_currency"/>
+                <field name="monto"/>
+                <field name="fecha_fin"/>
+                <field name="fecha_inicio"/>
+                <field name="estado"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="font-weight-bold text-black o_primary">
+                                        <field name="name"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#">
+                                        <i class="fa fa-ellipsis-v" role="img" aria-label="Opciones" title="Opciones"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="row">
+                                    <div class="col-6 o_kanban_primary_left">
+                                        <button class="btn btn-primary"
+                                                name="%(vivienda_fondo_action)d"
+                                                type="action">
+                                            Ver <t t-esc="record.name.value"/>
+                                        </button>
+                                    </div>
+                                    <div class="col-6 o_kanban_primary_right">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="row">
+                                    <div class="col-6 o_kanban_primary_left">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <span class="text-black font-weight-bold">Estado: </span>
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="text-info font-weight-bold"><field name="estado"/></span>
+                                            </div>
+                                            <div class="col-5">
+                                                <span class="text-black font-weight-bold">Comienzo: </span>
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="font-weight-bold"><field name="fecha_inicio"/></span>
+                                            </div>
+                                            <div class="col-5">
+                                                <span class="text-black font-weight-bold">Terminación: </span>
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="font-weight-bold"><field name="fecha_fin"/></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 o_kanban_primary_right">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <span class="text-black font-weight-bold">Asignado: </span>
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="text-success font-weight-bold"><field name="monto"/></span>
+                                            </div>
+                                            <div class="col-5">
+                                                <span class="text-black font-weight-bold">Usado: </span>
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="text-info font-weight-bold"><field
+                                                        name="monto_usado"/></span>
+                                            </div>
+                                            <div class="col-5">
+                                                <span class="text-black font-weight-bold">Restante: </span>
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="text-warning font-weight-bold"><field
+                                                        name="monto_restante"/></span>
+                                            </div>
+                                            <div class="col-5">
+                                                <span class="text-black font-weight-bold">Anticipado: </span>
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="text-danger font-weight-bold"><field
+                                                        name="pago_anticipado"/></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                <div class="row">
+                                    <div class="col-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                        <div role="menuitem" class="o_kanban_card_manage_title">
+                                            <span>Solicitudes</span>
+                                        </div>
+                                        <div role="menuitem">
+                                            <a name="%(vivienda_trabajo_action)d" type="action"
+                                               context="{'search_default_etapa': active_id}">
+                                                Todos
+                                            </a>
+                                        </div>
+                                        <div role="menuitem">
+                                            <a name="%(vivienda_trabajo_action)d"
+                                               type="action"
+                                               context="{'search_default_aprobado': 1, 'search_default_etapa': active_id}">
+                                                Proceso Logístico
+                                            </a>
+                                        </div>
+                                        <div role="menuitem">
+                                            <a name="%(vivienda_trabajo_action)d" type="action"
+                                               context="{'search_default_no_aprobado': 1, 'search_default_etapa': active_id}">
+                                                No Aprobados
+                                            </a>
+                                        </div>
+                                        <div role="menuitem">
+                                            <a name="%(vivienda_trabajo_action)d" type="action"
+                                               context="{'search_default_terminadas': 1, 'search_default_etapa': active_id}">
+                                                Terminados
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 o_kanban_card_manage_section o_kanban_manage_new">
+                                        <div role="menuitem" class="o_kanban_card_manage_title">
+                                            <span>Informes</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                    <div class="col-8" role="menuitem" aria-haspopup="true">
+                                        <ul role="menu" class="oe_kanban_colorpicker" data-field="color"/>
+                                    </div>
+                                    <div role="menuitem" class="col-4 text-right">
+                                        <a type="edit">Ajustes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="vivienda_etapas_kanban_action" model="ir.actions.act_window">
+        <field name="name">Etapas del fondo de viviendas</field>
+        <field name="res_model">sicpro.app.vivienda.etapas</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="viviendas_etapas_views_kanban"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar nuevas solicitudes de materiales
+            </p>
+        </field>
+    </record>
+</odoo>

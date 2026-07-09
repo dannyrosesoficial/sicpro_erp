@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista de Árbol (Tree) para Estados -->
+        <record id="view_repositorio_institucional_estado_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.repo.estados.tree</field>
+            <field name="model">sicpro.app.repo.estados</field>
+            <field name="arch" type="xml">
+                <tree string="Estado" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="requirements"/>
+                    <field name="is_inicial"/>
+                    <field name="is_won"/>
+                    <field name="is_cancelado"/>
+                    <field name="fold"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción de Ventana (Action Window) para Estados -->
+        <record id="action_view_repositorio_institucional_estado" model="ir.actions.act_window">
+            <field name="name">Estados</field>
+            <field name="res_model">sicpro.app.repo.estados</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

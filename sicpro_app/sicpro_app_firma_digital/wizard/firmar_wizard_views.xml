@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="sicpro_app_firma_wizard_view" model="ir.ui.view">
+            <field name="name">sicpro.app.firma.wizard.form</field>
+            <field name="model">sicpro.app.firma.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Seleccionar Firma Digital">
+                    <sheet>
+                        <field name="doc_id" invisible="1"/>
+                        <group>
+                            <field name="doc_firma"/>
+                        </group>
+                        <group>
+                            <div class="mt16 font-weight-bold text-info">
+                                Aquí debe introducir la contraseña del certificado digital
+                            </div>
+                        </group>
+                            <group>
+                            <field name="password" password="1"/>
+                        </group>
+                        <footer>
+                            <button name="firmar_documento" string="Firmar" type="object" class="btn-primary"/>
+                            <button string="Cancelar" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sicpro_app_firma_wizard_action" model="ir.actions.act_window">
+            <field name="name">Seleccionar Firma Digital</field>
+            <field name="res_model">sicpro.app.firma.wizard</field>
+            <field name="view_id" ref="sicpro_app_firma_wizard_view"/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

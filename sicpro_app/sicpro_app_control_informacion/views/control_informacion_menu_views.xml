@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+            id="control_informacion_menu_root" name="Informaciones"
+            web_icon="sicpro_app_control_informacion,static/description/icon.png" sequence="9"
+            groups="grupo_control_informacion_visualizar_proceso,grupo_control_informacion_revision,grupo_control_informacion_visualizar_todo"/>
+
+    <!--Inicio: Menu Dashboard-->
+    <record id="menu_Control_Informaciones_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">sicpro_dashboard_view</field>
+        <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.control.informacion'}</field>
+    </record>
+    <menuitem id="menu_Control_Informaciones_dashboard" name="Dashboard"
+              action="menu_Control_Informaciones_dashboard_action" sequence="1" parent="control_informacion_menu_root"/>
+    <!--Fin: Menu Dashboard-->
+
+
+    <menuitem id="menu_Control_Informaciones_operaciones" name="Operaciones" sequence="2"
+              parent="control_informacion_menu_root"/>
+
+    <menuitem id="menu_Control_Informaciones_actividades" name="Gestión Informativa"
+              parent="menu_Control_Informaciones_operaciones" action="control_informaciones_action" sequence="1"
+              groups="grupo_control_informacion_visualizar_proceso,grupo_control_informacion_revision,grupo_control_informacion_visualizar_todo"/>
+
+    <menuitem id="menu_Control_Informaciones_control_general" name="Control de Información General" sequence="2"
+              parent="menu_Control_Informaciones_operaciones"
+              action="control_informacion_actividades_control_general_action"
+              groups="grupo_control_informacion_visualizar_todo"/>
+
+    <menuitem id="menu_Control_Informaciones_control" name="Análisis del Control de Información" sequence="3"
+              parent="menu_Control_Informaciones_operaciones" action="control_informacion_actividades_dashboard_action"
+              groups="grupo_control_informacion_revision,grupo_control_informacion_visualizar_todo"/>
+
+
+    <menuitem id="menu_Control_Informaciones_report" name="Informes" parent="control_informacion_menu_root"
+              groups="grupo_control_informacion_revision,grupo_control_informacion_visualizar_todo"
+              sequence="6"/>
+
+    <menuitem id="menu_Control_Informaciones_evaluaciones_report" name="Evaluación de la Información"
+              parent="menu_Control_Informaciones_report"
+              action="control_informaciones_actividades_evaluaciones_action" sequence="1"
+              groups="grupo_control_informacion_revision,grupo_control_informacion_visualizar_todo"/>
+
+
+    <menuitem id="menu_Control_Informaciones_config" name="Configuración"
+              parent="control_informacion_menu_root" sequence="25" groups="grupo_control_informacion_responsable"/>
+
+    <menuitem id="menu_Control_Informaciones_areas" name="Áreas" sequence="0"
+              action="control_informacion_areas_action" parent="menu_Control_Informaciones_config"/>
+
+    <menuitem id="menu_Control_Informaciones_actividad" name="Actividades" sequence="1"
+              action="control_informacion_action" parent="menu_Control_Informaciones_config"/>
+
+    <menuitem id="menu_Control_Informaciones_etiquetas" name="Etiquetas"
+              action="control_informacion_etiquetas_action" parent="menu_Control_Informaciones_config" sequence="2"/>
+
+    <menuitem id="menu_Control_Informaciones_devoluciones" name="Motivos de devolución"
+              action="motivo_devolucion_action" parent="menu_Control_Informaciones_config" sequence="3"/>
+
+    <menuitem id="menu_Control_Informaciones_dias" name="Tiempo de notificaciones"
+              action="control_informacion_dias_action" parent="menu_Control_Informaciones_config" sequence="7"/>
+
+
+</odoo>

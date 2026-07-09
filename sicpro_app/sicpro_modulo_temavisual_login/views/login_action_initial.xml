@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <template id="web_login_action" inherit_id="sicpro_modulo_web_login.login_template" name="Plantilla login">
+            <xpath expr="//button[hasclass('btn-primary')]" position="attributes">
+                <attribute name="onclick">sessionStorage.setItem('abiertoUnaVez','true');</attribute>
+            </xpath>
+        </template>
+</odoo>

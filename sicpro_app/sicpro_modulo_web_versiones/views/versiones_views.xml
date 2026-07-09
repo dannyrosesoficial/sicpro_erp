@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="web_versiones_search_view">
+            <field name="name">sicpro.modulo.web.registro.versiones.search</field>
+            <field name="model">sicpro.modulo.web.registro.versiones</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name"/>
+                    <field name="modulo_nombre"/>
+                    <field name="modulo_app"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="web_versiones_form_view" model="ir.ui.view">
+            <field name="name">sicpro.modulo.web.registro.versiones.form</field>
+            <field name="model">sicpro.modulo.web.registro.versiones</field>
+            <field name="arch" type="xml">
+                <form string="Versiones del sistema">
+                    <sheet>
+                        <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <div class="oe_title">
+                            <field name="active" invisible="1"/>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Nombre de la Versión"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            </h1>
+                            <h4>
+                                <label for="fecha_liberacion" string="Liberado: "/>
+                                <field name="fecha_liberacion"/>
+                            </h4>
+                        </div>
+                        <group>
+                                <group>
+                                    <field name="modulos_no_usados" invisible="1"/>
+                                    <field name="modulo_nombre" domain="modulos_no_usados"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                                <group>
+                                    <field name="modulo_app"/>
+                                </group>
+                            </group>
+                         <notebook>
+                        <page string="Detalle Web">
+                            <group>
+                            <field name="descripcion" widget="html" class="oe-bordered-editor"
+                                   options="{'style-inline': true, 'codeview': true }"/>
+                        </group>
+                        </page>
+                        <page string="Ticket de Soporte">
+                            <field name="tickets_ids" widget="html" class="oe-bordered-editor" readonly="1"
+                                   options="{'style-inline': true, 'codeview': true }"/>
+                        </page>
+                             <page string="Registro de Aplicaciones" invisible="1">
+                            <field name="aplicaciones_ids" mode="kanban" widget="many2many" nolabel="1" readonly="1">
+                                <kanban class="o_kanban_mobile" archivable="false" default_group_by="stage_id"
+                                        group_create="false" group_delete="false" group_edit="false">
+                                    <field name="name"/>
+                                    <field name="stage_id"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+                                                <field name="image_128" widget="image" class="o_kanban_image_fill_left"
+                                                       options="{'zoom': true, 'zoom_delay': 1000, 'background': true, 'preventClicks': false}"/>
+
+                                                <div class="oe_kanban_details">
+                                                    <div class="o_kanban_record_top">
+                                                        <div class="o_kanban_record_headings">
+                                                            <strong class="o_kanban_record_title">
+                                                                <field name="name"/>
+                                                            </strong>
+                                                            <span t-if="record.tipo.raw_value"
+                                                                  class="o_kanban_record_subtitle"><field
+                                                                    name="tipo"/></span>
+                                                        </div>
+                                                    </div>
+                                                    <ul>
+                                                        <li t-if="record.fecha_desarrollo.raw_value"
+                                                            class="o_text_overflow">
+                                                            <strong>Desarrollo: </strong><field
+                                                                name="fecha_desarrollo"/></li>
+                                                        <li t-if="record.fecha_produccion.raw_value"
+                                                            class="o_force_ltr">
+                                                            <strong>Producción: </strong><field
+                                                                name="fecha_produccion"/>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="web_versiones_tree_view">
+            <field name="name">sicpro.modulo.web.registro.versiones.tree</field>
+            <field name="model">sicpro.modulo.web.registro.versiones</field>
+            <field name="arch" type="xml">
+                <tree string="Versiones del sistema">
+                    <field name="sequence" widget="handle"/>
+                    <field name="modulo_nombre"/>
+                    <field name="modulo_app"/>
+                    <field name="fecha_liberacion"/>
+                    <field name="name"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="web_versiones_action" model="ir.actions.act_window">
+            <field name="name">Registro de Versiones</field>
+            <field name="res_model">sicpro.modulo.web.registro.versiones</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Agregar nueva versión al sistema…
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

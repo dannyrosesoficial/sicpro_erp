@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <template id="web_plantilla_registro_terminos">
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>SICPRO ERP - Términos</title>
+      <meta http-equiv="cache-control" content="no-cache"/>
+      <meta http-equiv="pragma" content="no-cache"/>
+
+      <!-- Favicons -->
+      <link href="/sicpro_modulo_web_registro/static/src/images/SICPRO_ERP.png" rel="icon"/>
+      <link href="/sicpro_modulo_web_registro/static/src/images/SICPRO_ERP.png" rel="apple-touch-icon"/>
+
+      <!-- Vendor CSS Files -->
+      <link href="/sicpro_modulo_web_registro/static/src/vendor/aos/aos.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web_registro/static/src/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web_registro/static/src/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web_registro/static/src/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web_registro/static/src/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web_registro/static/src/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+
+      <!-- Template Main CSS File -->
+      <link href="/sicpro_modulo_web_registro/static/src/css/style_terminos.css" rel="stylesheet"/>
+
+    </head>
+
+    <body>
+
+      <!-- ======= Top Bar ======= -->
+      <section id="topbar" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+          <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:daniel.borrero@etecsa.cu">
+              daniel.borrero@etecsa.cu</a></i>
+            <i class="bi bi-phone d-flex align-items-center ms-4"><span>+53 52183663</span></i>
+          </div>
+          <t t-set="social_links" t-value="request.env['res.company'].sudo().search(
+                    [('login_redes_sociales', '=', True)])"/>
+          <div class="social-links d-none d-md-flex align-items-center">
+
+            <a t-if="social_links.social_twitter" t-att-href="social_links.social_twitter" class="twitter"
+                           aria-label="Twitter" title="Twitter">
+                      <i class="bi bi-twitter"/>
+                    </a>
+                 <a t-if="social_links.social_facebook" t-att-href="social_links.social_facebook" class="facebook"
+                           aria-label="Facebook" title="Facebook">
+                      <i class="bi bi-facebook"/>
+                    </a>
+             <a t-if="social_links.social_instagram" t-att-href="social_links.social_instagram" class="instagram"
+                           aria-label="Instagram" title="Instagram">
+                      <i class="bi bi-instagram"/>
+                    </a>
+                 <a href="https://www.dvpe.etecsa.cu/" title="DVPE" class="instagram">
+                      <i class="bi">
+                        <img src="/sicpro_modulo_web/static/src/img/etecsaCi_300_6_blanco.png" width="15" height="15"/>
+                      </i></a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= Header ======= -->
+      <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+          <h1 class="logo"><a href="index.html">Términos y Preguntas Frecuentes<span>.</span></a></h1>
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto active" href="/web/">Inicio</a></li>
+              <li><a class="nav-link scrollto" href="/web/login/">Login</a></li>
+              <li><a class="nav-link scrollto" href="/web/registro/">Registro</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <!-- .navbar -->
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <main id="main">
+
+        <!-- ======= Inicio de términos y condiciones ======= -->
+        <section id="faq" class="faq section-bg">
+          <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+              <h2>F.A.Q</h2>
+              <h3>Preguntas Frecuentes - <span>Términos de Servicios</span></h3>
+              <p>
+                Por favor lea atentamente estos Términos de Uso antes de continuar en SICPRO ERP, Servicio operado por
+                la DVPE-ETECSA.
+                El acceso y uso del servicio está condicionado a la aceptación y cumplimiento de estos términos. Estos
+                términos se aplican a todos los visitantes, usuarios y otros que accedan o usen el servicio.
+                Al acceder o utilizar el servicio usted acepta cumplir con estos términos. Si está en desacuerdo
+                con cualquier parte de los mismos entonces no podrá acceder al servicio.
+              </p>
+            </div>
+
+            <div class="row justify-content-center">
+              <div class="col-xl-10">
+                <ul class="faq-list">
+
+                  <!--                  Condiciones Generales-->
+                  <li>
+                    <div data-bs-toggle="collapse" class="collapsed question" href="#faq0">Condiciones Generales
+                      <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                    <div id="faq0" class="collapse" data-bs-parent=".faq-list">
+                      <ol>
+                        <li>Cualquier trabajador de ETECSA puede hacer uso de los servicios de SICPRO ERP, siempre
+                              que cumpla con el requisito de estar vinculado a la ejecución de los servicios de la DVPE.
+                            </li>
+                            <li>Para el uso de nuestros servicios el usuario se compromete a cumplir con las normas de uso de las
+                              tecnologías de la información implementadas por la empresa.
+                            </li>
+                            <li>Para solicitar el alta, modificación o baja del sistema, es obligatorio el envío de la
+                              planilla de solicitud de acceso con la aprobación del jefe inmediato y director de la
+                              unidad organizativa a la que pertenece al trabajador.
+                            </li>
+                            <li>En el caso de no utilizarse el sistema en el periodo de tiempo estipulado, se procederá a
+                              la desactivación inmediata de la cuenta del trabajador.
+                              La reactivación de la cuenta siempre podrá ser hecha enviando la planilla de solicitud de acceso.
+                            </li>
+                      </ol>
+                    </div>
+                  </li>
+
+                  <!--                  Guia para la solicitud de usuario-->
+                  <li>
+                    <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Guia para la solicitud de
+                      usuario <i class="bi bi-chevron-down icon-show"></i><i
+                              class="bi bi-chevron-up icon-close"></i></div>
+                    <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+                      <ol>
+                        <li>
+                          Las solicitudes de alta, modificación, reinicio y bajas serán realizadas mediante el propio
+                          sistema.
+                      </li>
+                        <li>
+                          La planilla de solicitud que debe ser firmada para validar el acceso será enviada por el
+                          propio sistema al usuario vía correo electrónico.
+                      </li>
+                        <li>
+                          Los datos del trabajador que aparezcan en el sistema serán captados mediante la
+                          vinculación con el Ldap empresarial.
+                      </li>
+                        <li>
+                          El usuario debe argumentar correctamente la necesidad de los roles y permisos solicitados,
+                          el administrador del sistema se reserva el derecho de realizar la verificación de la
+                          necesidad del uso antes de validar la solicitud.
+                      </li>
+                        <li>
+                          Las solicitudes enviadas serán puestas en pendientes hasta que no sea recibida la
+                          documentación que avalen las mismas.
+                      </li>
+                      </ol>
+                    </div>
+                  </li>
+
+                  <!--                  Guía para el envío del documento de solicitud de usuario-->
+                  <li>
+                    <div data-bs-toggle="collapse" class="collapsed question" href="#faq2">Guía para el envío del
+                      documento de solicitud de usuario <i class="bi bi-chevron-down icon-show"></i><i
+                              class="bi bi-chevron-up icon-close"></i></div>
+                    <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+                       <ol>
+                         <li>
+                          En todos los casos la planilla de solicitud debe ser firmada por el usuario que
+                          solícita el acceso a los servicios de SICPRO ERP.
+                      </li>
+                         <li>
+                           La planilla debera venir firmada obligatoriamente por el jefe inmediato del usuario y el
+                           director de la unidad organizativa en el caso de que la solicitud sea de alta, modificación
+                           o baja.
+                      </li>
+                         <li>
+                           En el caso de ser una solicitud de reinicio de usuario, la planilla solo debe ser firmada
+                           por el usuario que realiza la solicitud de los servicios.
+                      </li>
+                         <li>
+                           La recepción de la documentación en todos los casos será de forma digital.
+                           La planilla de solicitud firmada y escaneada debe ser enviada al correo
+                           <a href="mailto:sicproerp@etecsa.cu">SICPRO ERP</a>.
+                      </li>
+                         <li>
+                           En la confección del correo que será enviado con la documentacion se debe utilizar como
+                           asunto: ('Acceso' o 'Solicitud de acceso') y en el cuerpo del mensaje agregar el número del
+                           consecutivo que aparece en la planilla de solicitud generada. Ej: No:00007.
+                      </li>
+                      </ol>
+                    </div>
+                  </li>
+
+                  <!--                  Cancelación o desactivación de usuario-->
+                  <li>
+                    <div data-bs-toggle="collapse" class="collapsed question" href="#faq3">
+                      Cancelación o desactivación de usuario <i class="bi bi-chevron-down icon-show"></i>
+                      <i class="bi bi-chevron-up icon-close"></i></div>
+                    <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+                      <ol>
+                      <li>El sistema de forma automática realiza una verificación del estado de los usuarios y desactiva
+                        a los que no se encuentran existentes en el Ldap empresarial.
+                      </li>
+                      <li>El sistema de forma automática realiza una verificación del tiempo en desuso por parte de los
+                        usuarios y desactiva a todos los que excedan el tiempo( <strong>días</strong> ) máximo permitido.
+                      </li>
+                      <li>Podemos cancelar o suspender el acceso a nuestro servicio inmediatamente con previo aviso en
+                        caso de incumplimiento de los términos y condiciones dispuestas por la DVPE.
+                      </li>
+                      </ol>
+                    </div>
+                  </li>
+
+                  <!--                  Definiciones del sistema-->
+                  <li>
+                    <div data-bs-toggle="collapse" class="collapsed question" href="#faq4">Definiciones del sistema <i
+                            class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                    <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+                      <p><strong>Bug.</strong> Error o fallo en un sistema de software que desencadena un
+                        resultado indeseado.
+                      </p>
+                      <p><strong>Cliente:</strong> Todo usuario del sistema que entre en la definición de inversionista.
+                      </p>
+                      <p><strong>Configuración:</strong> se refiere a cambios en parámetros de cualquier
+                        sistema diseñado para aceptar esos cambios sin necesidad de cambios en el código del
+                        programa. No incluye por tanto programación ni reprogramación.
+                      </p>
+                      <p><strong>Documentación: </strong>Cuando se mencione la palabra documentación sin hablar de un
+                        documento específico se referirá a <strong>Documentación subida al sistema por el usuario</strong>.
+                      </p>
+                      <p><strong>Mantenimiento del sistema:</strong> Cuando el sistema se encuentra en modo de
+                        mantenimiento en el proceso de actualización de la versión o limpieza de las bases de datos.
+                      </p>
+                      <p><strong>Actualización del sistema:</strong> Subida de la versión con nuevas funcionalidades,
+                        modificaciones o corrección de errores detectados en la ejecución del sistema.
+                      </p>
+                      <p><strong>Programación:</strong> se refiere a la creación de pantallas, aplicaciones, módulos,
+                        procesos o rutinas que no impliquen simplemente la modificación de componentes
+                        previamente existentes en el sistema original.
+                      </p>
+                      <p><strong>Proveedor:</strong> Personal no usuario del sistema, el cual puede ser interno o
+                        externo a la empresa, con el cual se realiza el proceso de contratación de bienes y servicios.
+                      </p>
+                      <p><strong>Soporte:</strong> Se refiere a Soporte Técnico brindado por la administración del
+                        sistema ( <strong>SICPRO ERP</strong> ).
+                      </p>
+                      <p><strong>Usuarios:</strong> Todas las personas con permiso de usar el sistema
+                        excluyendo el Proveedor.
+                      </p>
+                      <p><strong>Usuarios Inversionista</strong>: Usuario externo o cliente que hace uso del sistema
+                        para realizar solicitudes de trabajo o servicios a la DVPE.
+                      </p>
+                    </div>
+                  </li>
+
+                  <!--                  Acciones de Capacitación-->
+                  <li>
+                    <div data-bs-toggle="collapse" class="collapsed question" href="#faq5">Acciones de Capacitación <i
+                            class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                    <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+                      <ol>
+                        <li>Toda capacitación programada debe ser cumplida en el periodo estipulado, de no
+                          realizarse debe ser reprogramada y notificada a todos los participantes.
+                        </li>
+                        <li>Las capacitaciones para los usuarios internos pueden ser solicitadas por el propio usuario o
+                          jefe inmediato al especialista de capacitación del departamento de Capital Humano de la DVPE.
+                        </li>
+                        <li>Las capacitaciones para los usuarios externos o inversionistas pueden ser solicitadas por el
+                          jefe inmediato del trabajador al administrador del sistema.
+                        </li>
+                        <li>Se incluyen soporte técnico para dudas en los temas de las capacitaciones con las mismas
+                          características que lo listado en el título <strong>Soporte Técnico</strong>.
+                        </li>
+                        <li>No se repetirán cursos ni sesiones de capacitación para personas que no hayan asistido en las
+                          fechas acordadas a menos que exista una justificación razonable y sea imperativo la
+                          capacitación de los mismos.
+                        </li>
+                        <li>En caso de que alguna de las personas capacitadas no pueda asistir a la capacitación
+                          podrá ser sustituida por otra persona o posponer la capacitación de todos con previo acuerdo
+                          de cambio de fecha.
+                        </li>
+                        <li>Si se logra cubrir en menos horas de las planificadas todos los temas de la
+                          capacitación establecidos, las horas restantes se podrán sustituir por más tiempo de soporte
+                          técnico a solicitud de los participantes.
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+
+                  <!--                  Soporte técnico-->
+                  <li>
+                    <div data-bs-toggle="collapse" class="collapsed question" href="#faq6">Soporte Técnico <i
+                            class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                    <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+                      <ol>
+                        <li>Se considera soporte técnico cualquier atención a usuarios sobre operaciones reales
+                          en el sistema, solicitudes de ayuda, de creación o modificación de funcionalidades del sistema.
+                        </li>
+                        <li>El soporte técnico incluye soporte para arreglar fallos del sistema
+                          y un número limitado de horas para arreglar problemas causados por los usuarios o
+                          dudas sobre el sistema SICPRO ERP.
+                        </li>
+                        <li>El soporte técnico para dudas se dará en horario normal de 9 a.m. a 12 p.m. en días hábiles.
+                        </li>
+                        <li>El soporte no incluye enseñar a reprogramar el sistema, solo cuestiones de configuración,
+                          seguridad y funciones del sistema que no se salgan de lo definido para el usuario.
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <!-- Fin de los términos y condiciones -->
+      </main>
+      <!-- End #main -->
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+        <div class="container py-4">
+          <div class="copyright">
+              <img src="/sicpro_modulo_web_registro/static/src/images/etecsa_300_8.png" alt="ETECSA" width="32"
+                   height="32"/>
+              <strong>©2023 DIVISIÓN DE PROYECTOS Y EJECUCIÓN DE OBRAS </strong>
+            </div>
+          <div class="credits">
+              <strong>Todos los derechos reservados </strong>
+            </div>
+        </div>
+      </footer>
+      <!-- End Footer -->
+
+      <div id="preloader"></div>
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+              class="bi bi-arrow-up-short"></i></a>
+
+      <!-- Vendor JS Files -->
+      <script src="/sicpro_modulo_web_registro/static/src/vendor/purecounter/purecounter_vanilla.js"></script>
+      <script src="/sicpro_modulo_web_registro/static/src/vendor/aos/aos.js"></script>
+      <script src="/sicpro_modulo_web_registro/static/src/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="/sicpro_modulo_web_registro/static/src/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="/sicpro_modulo_web_registro/static/src/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="/sicpro_modulo_web_registro/static/src/vendor/swiper/swiper-bundle.min.js"></script>
+      <script src="/sicpro_modulo_web_registro/static/src/vendor/waypoints/noframework.waypoints.js"></script>
+      <!-- Template Main JS File -->
+      <script src="/sicpro_modulo_web_registro/static/src/js/main_terminos.js"></script>
+
+    </body>
+
+  </template>
+
+
+</odoo>

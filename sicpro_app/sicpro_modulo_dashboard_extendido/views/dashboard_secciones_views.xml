@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sicpro_dashboard_secciones_new_tree_view">
+            <field name="model">sicpro.modulo.dashboard.secciones</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <tree string="Secciones" editable="bottom">
+                    <field name="sequencia" widget="handle"/>
+                    <field name="app" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="app_name" invisible="1"/>
+                    <field name="name"/>
+                    <field name="graficos_izq" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                    <field name="graficos_centro_1" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                    <field name="graficos_centro_2" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                    <field name="graficos_der" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                    <field name="grupo_izq" domain="[('app', '=', app)]" invisible = "1"/>
+                    <field name="grupo_centro_1" domain="[('app', '=', app)]" invisible = "1"/>
+                    <field name="grupo_centro_2" domain="[('app', '=', app)]" invisible = "1"/>
+                    <field name="grupo_der" domain="[('app', '=', app)]" invisible = "1"/>
+                    <field name="grupos" widget="many2many_tags" domain="[('app', '=', app)]" invisible = "1"/>
+                    <field name="tableros_contenido" invisible = "1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sicpro_dashboard_secciones_new_form_view">
+            <field name="model">sicpro.modulo.dashboard.secciones</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <form string="Sección">
+                    <group string="Datos de la Sección">
+                        <group>
+                            <field name="app" invisible="1"/>
+                            <field name="app_name" invisible="1"/>
+                            <field name="name"/>
+                            <field name="sequencia"/>
+                        </group>
+                        <group>
+                            <field name="grupos" widget="many2many_tags" domain="[('app', '=', app)]" invisible = "1"/>
+                            <field name="graficos_izq" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                            <field name="graficos_centro_1" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                            <field name="graficos_centro_2" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                            <field name="graficos_der" widget="many2many_tags" domain="[('app', '=', app)]"/>
+                            <field name="grupo_izq" domain="[('app', '=', app)]" invisible = "1"/>
+                            <field name="grupo_centro_1" domain="[('app', '=', app)]" invisible = "1"/>
+                            <field name="grupo_centro_2" domain="[('app', '=', app)]" invisible = "1"/>
+                            <field name="grupo_der" domain="[('app', '=', app)]" invisible = "1"/>
+                            <field name="tableros_contenido" invisible = "1"/>
+                            <field name="active" widget="boolean_button"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="sicpro_dashboard_secciones_new_search_view" model="ir.ui.view">
+            <field name="name">sicpro.modulo.dashboard.secciones.search</field>
+            <field name="model">sicpro.modulo.dashboard.secciones</field>
+            <field name="arch" type="xml">
+                <search string="Gráficos">
+                    <field name="app" string="Aplicación"/>
+                    <separator/>
+                    <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter name="app_group" string="Aplicación" context="{'group_by': 'app'}"/>
+                    </group>
+                </search>
+             </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dashboard_secciones_config_action">
+            <field name="name">Secciones del Tablero</field>
+            <field name="res_model">sicpro.modulo.dashboard.secciones</field>
+            <field name="view_mode">tree</field>
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_tableros_note_note_tree" model="ir.ui.view">
+    <field name="name">tableros.note.note.tree</field>
+    <field name="model">note.note</field>
+    <field name="inherit_id" ref="note.view_note_note_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='open']" position="before">
+            <field name="tableros_id"/>
+        </xpath>
+    </field>
+</record>
+
+    <record id="view_tableros_note_note_form" model="ir.ui.view">
+        <field name="name">tableros.note.note.form</field>
+        <field name="model">note.note</field>
+        <field name="inherit_id" ref="note.view_note_note_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="tableros_id" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='stage_id']" position="replace">
+                <field name="stage_id" domain="[('user_id','=',uid), ('tableros_id', '=', tableros_id)]"
+                       widget="statusbar" options="{'clickable': '1'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_tableros_note_note_filter" model="ir.ui.view">
+        <field name="name">tableros.note.note.search</field>
+        <field name="model">note.note</field>
+        <field name="inherit_id" ref="note.view_note_note_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search">
+                <field name="tableros_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="note.action_note_note" model="ir.actions.act_window">
+        <field name="name">Notas</field>
+        <field name="res_model">note.note</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="search_view_id" ref="note.view_note_note_filter"/>
+        <field name="context">{'default_tableros_id': active_id, }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar una nueva nota personal
+            </p>
+            <p>
+                Las notas son privadas, a menos que las comparta invitando a un seguidor en una nota.
+                (Útil para actas de reuniones).
+            </p>
+        </field>
+    </record>
+
+</odoo>

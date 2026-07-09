@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_calendario</OriginalElement>
+  <nodes>
+    <node x="171.5" y="282.5">typing.Sequence</node>
+    <node x="529.5" y="348.5">typing.Sized</node>
+    <node x="680.5" y="304.0">odoo.models.MetaModel</node>
+    <node x="952.5" y="337.5">typing.Iterator</node>
+    <node x="1124.5" y="348.5">typing.Iterable</node>
+    <node x="1008.0576923076923" y="6020.0">odoo.models.Model</node>
+    <node x="457.0" y="6203.0">sicpro_app_calendario.models.calendar_tipo_calendario.MeetingTipoCalendario</node>
+    <node x="1143.0" y="6236.0">sicpro_app_calendario.models.calendar_event.Meeting</node>
+    <node x="1297.5" y="348.5">typing.Container</node>
+    <node x="1634.0" y="6192.0">sicpro_app_calendario.models.calendar_plan_reporte.LoginUserReport</node>
+    <node x="0.0" y="6269.0">sicpro_app_calendario.models.res_partner.Partner</node>
+    <node x="1672.5" y="0.0">typing.Hashable</node>
+    <node x="532.5576923076923" y="699.0">odoo.models.BaseModel</node>
+    <node x="1542.5" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="305.9423076923076" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_calendario.models.calendar_tipo_calendario.MeetingTipoCalendario" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-105.5" />
+      <point x="790.0" y="6183.0" />
+      <point x="1104.058" y="6183.0" />
+      <point x="3.076923076150706E-4" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-571.5000000000001" y="0.0" />
+      <point x="340.5" y="3334.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="1842.0" y="376.5" />
+      <point x="1842.0" y="88.5" />
+      <point x="1754.0" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5003076923076" y="0.0" />
+      <point x="1842.0" y="3334.5" />
+      <point x="1842.0" y="88.5" />
+      <point x="1754.0" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-75.55769230769238" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-297.5576923076924" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="96.94230769230762" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_calendario.models.res_partner.Partner" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.5" />
+      <point x="218.5" y="6183.0" />
+      <point x="1104.058" y="6183.0" />
+      <point x="3.076923076150706E-4" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_calendario.models.calendar_plan_reporte.LoginUserReport" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-299.0" y="-90.0" />
+      <point x="1393.5" y="6218.5" />
+      <point x="1393.5" y="6183.0" />
+      <point x="1104.058" y="6183.0" />
+      <point x="3.076923076150706E-4" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-509.0576923076924" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-11.942307692307622" y="270.5" />
+    </edge>
+    <edge source="sicpro_app_calendario.models.calendar_event.Meeting" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.5" />
+      <point x="1378.5" y="6183.0" />
+      <point x="1104.058" y="6183.0" />
+      <point x="3.076923076150706E-4" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5499999999999999" showDependencies="false" x="1115.999999999999" y="584.5454545454546" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

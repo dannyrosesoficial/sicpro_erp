@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="informe_servicios_internos_compromiso_nauta_action" model="ir.actions.report">
+        <!--        le retiro el nombre al action para que no salga en el botón de imprimir-->
+        <!--        <field name="name">Compromiso Nauta</field>-->
+        <field name="name"></field>
+        <field name="model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_servicios_internos.informe_servicios_internos_compromiso_nauta</field>
+        <field name="report_file">sicpro_app_servicios_internos.informe_servicios_internos_compromiso_nauta</field>
+        <field name="print_report_name">'Compromiso Nauta'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_servicios_internos_solicitudes"/>
+        <field name="groups_id"
+               eval="[(4, ref('sicpro_app_servicios_internos.grupo_app_internos_solicitudes_ejecutor'))]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="informe_servicios_internos_compromiso_nauta">
+        <!-- Página evaluación del proveedor -->
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_servicios_internos/static/src/img/etecsaId_300_8.png"
+                             style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección de los datos -->
+            <div t-attf-class="article">
+                <!-- sección del page -->
+                <t t-foreach="docs" t-as="inf">
+
+                    <table cellspacing="0" border="0">
+                        <colgroup width="899"></colgroup>
+                        <tbody>
+                            <tr>
+                                <td height="20" align="center"><b><font size="3" face="Arial">COMPROMISOS
+                                    PARA EL USO DEL SERVICIO NAUTA </font></b></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="center"><b><font size="3" face="Arial">DE
+                                    USUARIOS INTERNOS DE ETECSA.</font></b></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" height="70" align="justify"><font size="3" face="Arial">Yo
+                                    <span t-field="inf.compromiso_trabajador"/>, en mi carácter de
+                                    <span t-field="inf.compromiso_ocupacion_id.name"/> y en
+                                    correspondencia con lo regulado sobre el acceso a Redes de Alcance
+                                    Global, me comprometo a cumplir con todas las medidas que se
+                                    establecen en el Manual de Seguridad Informática de la Empresa de
+                                    Telecomunicaciones de Cuba. S.A., con las Indicaciones y
+                                    Resoluciones que se emitan relacionadas con la Seguridad
+                                    Informática del servicio de navegación en salas, así como en
+                                    particular con las siguientes:</font></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" height="36" align="justify"><font color="#000000" size="3"
+                                                                                      face="Arial">El servicio ha sido
+                                    otorgado debido a mis funciones
+                                    actuales y es personal e intransferible. Los usuarios asumen en
+                                    primera instancia la responsabilidad de las consecuencias que se
+                                    deriven de la utilización impropia de las mismas.</font></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" height="36" align="justify"><font size="3" face="Arial">Hacer
+                                    uso de la facilidad otorgada vía INTERNET únicamente en interés de
+                                    funciones de trabajo relacionadas con esta plataforma y el
+                                    servicio que se ofrece, en ningún caso con fines lucrativos o
+                                    ilícitos.</font></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" height="36" align="justify"><font size="3" face="Arial">Responder
+                                    por el uso indebido del servicio y darle un uso adecuado, acorde a
+                                    los principios morales de nuestra sociedad, controlando
+                                    adecuadamente la clave de acceso y su confidencialidad.</font></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" height="20" align="justify"><font size="3" face="Arial">No
+                                    enviar a través de INTERNET documentos clasificados o sensibles.</font></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" height="36" align="justify"><font size="3" face="Arial">Al
+                                    recibir información por vía del correo electrónico, abrirlos sin
+                                    macros y revisarlos con los programas detectores de virus
+                                    establecidos.</font></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" height="36" align="justify"><font size="3" face="Arial">Informar
+                                    de inmediato la recepción de mensajes no deseados o que se
+                                    contravengan con los principios ético-morales de nuestra sociedad,
+                                    así como manifestaciones subversivas o contrarrevolucionarias.</font></td>
+                            </tr>
+                            <tr>
+                                <td valign="middle" height="20" align="justify"><font size="3" face="Arial">Acatar
+                                    las orientaciones que se emitan en la Empresa en aras del buen
+                                    funcionamiento del servicio.</font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial">Está prohibido
+                                    para todos los usuarios, independientemente del tipo de usuario
+                                    que sea:</font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial">Utilizar
+                                    cuentas ajenas.</font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial">Dejar sesiones
+                                    abiertas.</font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial">Violar las
+                                    normas de seguridad que se establezcan.</font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial">Enviar la clave
+                                    de acceso por correo electrónico.</font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial">Usar como clave
+                                    de acceso los nombres personales, de familiares o amigos.</font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial">Realizar
+                                    sondeos de seguridad tanto en la red, así como a otras redes
+                                    externas.</font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td height="19" align="left"><font size="3" face="Arial">Y para que así
+                                    conste firmo, a los <span t-field="inf.fecha_solicitud"/></font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="left"><font size="3" face="Arial"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td data-sheets-value="{ &quot;1&quot;: 2, &quot;2&quot;: &quot;Firma&quot;}"
+                                    height="20" align="center"><font size="3" face="Arial">Firma</font></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </t>
+
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+                <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+                    Cuba.</span>
+                <div style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+                            <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+                        <br/>
+                        <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+                            Justicia de la República de Cuba.
+                            Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+                    <div t-if="report_type == 'pdf'" class="text-center text-muted">
+                        Página: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

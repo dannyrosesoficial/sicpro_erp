@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record id="nomenclador_departamentos_tree_view" model="ir.ui.view">
+        <field name="name">nomenclador.departamentos.tree.view</field>
+        <field name="model">sicpro.nomenclador.departamentos</field>
+        <field name="arch" type="xml">
+            <tree string="Departamentos" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="nomenclador_departamentos_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Departamento</field>
+       <field name="model">sicpro.nomenclador.departamentos</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Departamento">
+            <field name="name" string="Nombre"/>
+                <field name="company_id"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator/>
+                    <group expand="0" string="Agrupar por">
+                        <filter name="company_id" string="Proceso" context="{'group_by': 'company_id'}"/>
+                    </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_nomenclador_departamentos" model="ir.actions.act_window">
+        <field name="name">Departamentos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.departamentos</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+
+    </data>
+</odoo>

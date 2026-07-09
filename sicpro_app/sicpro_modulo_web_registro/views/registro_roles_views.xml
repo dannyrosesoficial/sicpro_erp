@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="web_registro_roles_search_view">
+            <field name="name">sicpro.modulo.web.registro.roles.search</field>
+            <field name="model">sicpro.modulo.web.registro.roles</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="web_registro_roles_tree_view">
+            <field name="name">sicpro.modulo.web.registro.roles.tree</field>
+            <field name="model">sicpro.modulo.web.registro.roles</field>
+            <field name="arch" type="xml">
+                <tree string="Equipo de trabajo" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="roles" widget="many2many_tags"
+                                   options="{'color_field': 'color', 'no_create': True, 'no_create_edit': True}"
+                                   placeholder="Seleccionar roles asociados…"/>
+                    <field name="descripcion"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="web_registro_roles_action" model="ir.actions.act_window">
+            <field name="name">Registro de Roles</field>
+            <field name="res_model">sicpro.modulo.web.registro.roles</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,26 @@
+.o-menu-search-result.dropdown-item.col-12.ml-auto.mr-auto{
+    background-size: 23px;
+    margin-bottom: 1%; //5% deberia ser 5px pero da 27.35px
+    padding-left: 8%; //30% debería ser 40px pero da 164.1px
+}
+
+a.o_app.o_menuitem:hover{
+    transform: scale(1.2);
+}
+
+.sidebar a.nav-link:hover{
+    transform: scale(1.4);
+}
+
+.search-input input{
+    width: 100%;
+}
+
+// PONER EN LA APLICACION QUE VA PARA SABER DONDE BUSCAR
+
+.btn.btn-dark {
+    color: black !important;
+}
+
+//o-menu-search-result dropdown-item col-12 ml-auto mr-auto active
+

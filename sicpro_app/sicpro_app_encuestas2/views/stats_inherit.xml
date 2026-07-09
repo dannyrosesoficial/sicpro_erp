@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <template id="survey_stats_custom" inherit_id="survey.survey_page_statistics_question">
+        <xpath expr="//div[.//span[@class='badge badge-info' and contains(.,'matrix')]]" position="after">
+            <t t-if="question.question_type == 'time'"><t t-call="sicpro_app_encuestas.question_result_time"/></t>
+            <t t-if="question.question_type == 'month'"><t t-call="sicpro_app_encuestas.question_result_month"/></t>
+            <t t-if="question.question_type == 'week'"><t t-call="sicpro_app_encuestas.question_result_week"/></t>
+            <t t-if="question.question_type == 'range'"><t t-call="sicpro_app_encuestas.question_result_range"/></t>
+            <t t-if="question.question_type == 'many2one'"><t t-call="sicpro_app_encuestas.question_result_many2one"/></t>
+            <t t-if="question.question_type == 'many2many'"><t t-call="sicpro_app_encuestas.question_result_many2many"/></t>
+            <t t-if="question.question_type == 'selection'"><t t-call="sicpro_app_encuestas.question_result_selection"/></t>
+            <t t-if="question.question_type == 'file'"><t t-call="sicpro_app_encuestas.question_result_file"/></t>
+            <t t-if="question.question_type == 'qr'"><t t-call="sicpro_app_encuestas.question_result_qr"/></t>
+            <t t-if="question.question_type == 'barcode'"><t t-call="sicpro_app_encuestas.question_result_barcode"/></t>
+            <t t-if="question.question_type in ['name','address','color','email','password','url']"><t t-call="sicpro_app_encuestas.question_result_text_like"/></t>
+        </xpath>
+    </template>
+    <template id="question_result_time" name="Question: time result">
+        <ul class="nav nav-tabs d-print-none" role="tablist">
+            <li class="nav-item"><a t-att-href="'#survey_graph_question_%d' % question.id" class="nav-link active" data-toggle="tab" role="tab">Graph</a></li>
+            <li class="nav-item"><a t-att-href="'#survey_data_question_%d' % question.id" class="nav-link" data-toggle="tab" role="tab">Data</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active survey_graph" t-att-id="'survey_graph_question_%d' % question.id" t-att-data-graph-data="question_data['graph_data']" data-graph-type="bar"><canvas/></div>
+            <div role="tabpanel" class="tab-pane" t-att-id="'survey_data_question_%d' % question.id"><table class="table table-hover table-sm"><thead><tr><th>#</th><th>Hour</th><th>Count</th></tr></thead><tbody><tr t-foreach="question_data['graph_data']" t-as="g" t-att-class="'d-none' if g_index >= page_record_limit else ''"><td><t t-esc="g_index + 1"/></td><td><t t-esc="g['text']"/></td><td><t t-esc="g['count']"/></td></tr></tbody></table></div>
+        </div>
+    </template>
+    <template id="question_result_month" name="Question: month result"><div class="survey_graph" data-graph-type="bar" t-att-data-graph-data="question_data['graph_data']"><canvas/></div><t t-call="survey.question_table_pagination"/></template>
+    <template id="question_result_week" name="Question: week result"><div class="survey_graph" data-graph-type="bar" t-att-data-graph-data="question_data['graph_data']"><canvas/></div><t t-call="survey.question_table_pagination"/></template>
+    <template id="question_result_range" name="Question: range result"><t t-if="question_data.get('numerical_min')">Min: <strong t-esc="question_data['numerical_min']"/></t><t t-if="question_data.get('numerical_max')">Max: <strong t-esc="question_data['numerical_max']"/></t><t t-if="question_data.get('numerical_average')">Avg: <strong t-esc="round(question_data['numerical_average'],2)"/></t><div class="survey_graph" data-graph-type="bar" t-att-data-graph-data="question_data['graph_data']"><canvas/></div><t t-call="survey.question_table_pagination"/></template>
+    <template id="question_result_many2one" name="Question: many2one result"><div class="survey_graph" data-graph-type="pie" t-att-data-graph-data="question_data['graph_data']"><canvas/></div><t t-call="survey.question_table_pagination"/></template>
+    <template id="question_result_many2many" name="Question: many2many result"><div class="survey_graph" data-graph-type="pie" t-att-data-graph-data="question_data['graph_data']"><canvas/></div><t t-call="survey.question_table_pagination"/></template>
+    <template id="question_result_selection" name="Question: selection result"><div class="survey_graph" data-graph-type="pie" t-att-data-graph-data="question_data['graph_data']"><canvas/></div><t t-call="survey.question_table_pagination"/></template>
+    <template id="question_result_file" name="Question: file result"><table class="table table-hover table-sm"><thead><tr><th>#</th><th>File</th></tr></thead><tbody><tr t-foreach="question_data['table_data']" t-as="f"><td><t t-esc="f_index + 1"/></td><td><a t-attf-href="/web/content?model=ir.attachment&amp;id={{f['file_id']}}&amp;download=true">Download</a> - <t t-esc="f['filename']"/></td></tr></tbody></table></template>
+    <template id="question_result_qr" name="Question: QR result"><t t-foreach="question_data['table_data']" t-as="l"><t t-if="l.value_qr"><img t-att-src="'/report/barcode/?type=QR&amp;value=%s' % l.value_qr"/></t></t></template>
+    <template id="question_result_barcode" name="Question: barcode result"><t t-foreach="question_data['table_data']" t-as="l"><t t-if="l.value_barcode"><img t-att-src="'/report/barcode/EAN13/%s' % l.value_barcode" height="60"/></t></t></template>
+    <template id="question_result_text_like" name="Question: text-like result"><table class="table table-hover table-sm"><thead><tr><th>#</th><th>Value</th></tr></thead><tbody><tr t-foreach="question_data['table_data']" t-as="l" t-att-class="'d-none' if l_index >= page_record_limit else ''"><td><t t-esc="l_index + 1"/></td><td><t t-esc="l.display_name if hasattr(l,'display_name') else (l.value_char_box or l.value_text_box or '')"/></td></tr></tbody></table><t t-call="survey.question_table_pagination"/></template>
+</data>
+</odoo>

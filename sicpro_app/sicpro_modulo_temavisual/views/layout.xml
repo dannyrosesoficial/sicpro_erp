@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="tema_visual_claro_layout" inherit_id="web.layout" name="Tema Visual Claro">
+        <xpath expr="//meta[@content='IE=edge,chrome=1']" position="after">
+            <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+            <link t-attf-href="{{url}}/sicpro_modulo_temavisual/static/src/font/font.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- Menus -->
+    <menuitem id="soporte_root_menu" name="Soporte" sequence="99"
+              web_icon="sicpro_app_soporte,static/description/icon.png"
+              groups="base.group_user"/>
+
+    <!--Inicio: Menu Dashboard-->
+    <record id="menu_soporte_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">sicpro_dashboard_view</field>
+        <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.soporte'}</field>
+    </record>
+    <menuitem id="menu_soporte_dashboard" name="Dashboard"
+              parent="soporte_root_menu" action="menu_soporte_dashboard_action" sequence="1"
+              groups="base.group_user"/>
+    <!--Fin: Menu Dashboard-->
+
+    <menuitem id="soporte_operaciones_menu" name="Operaciones" parent="soporte_root_menu" sequence="2"
+              groups="group_soporte_ejecutor,group_soporte_todos"/>
+
+    <menuitem id="soporte_dashboard_menu" name="Tablero de Gestión" parent="soporte_operaciones_menu" sequence="1"
+              action="helpdesk_ticket_dashboard_action" groups="group_soporte_ejecutor"/>
+
+    <menuitem id="soporte_cronograma_plan_menu" name="Cronograma Planificado" parent="soporte_operaciones_menu"
+              action="soporte_cronograma_kanban_anios_action" sequence="2"
+              groups="group_soporte_ejecutor,group_soporte_todos"/>
+
+    <menuitem id="soporte_bitacora_menu" name="Bitácora de Usuarios" parent="soporte_operaciones_menu" sequence="3"
+              action="soporte_bitacora_action" groups="group_soporte_responsable,group_soporte_todos"/>
+
+    <menuitem id="soporte_modulos_aplicaciones_menu" name="Módulos &amp; Aplicaciones"
+              parent="soporte_operaciones_menu" sequence="4" action="soporte_aplicaciones_action"/>
+
+    <menuitem id="soporte_versiones_menu" name="Versiones" parent="soporte_operaciones_menu" sequence="5"
+              action="soporte_versiones_action"/>
+
+    <menuitem id="soporte_paketes_menu" name="Paquetes Linux" parent="soporte_operaciones_menu" sequence="6"
+              action="soporte_paquetes_action"/>
+
+    <menuitem id="soporte_fragmentos_menu" name="Fragmentos de Códigos" parent="soporte_operaciones_menu" sequence="7"
+              action="soporte_fragmento_codigos_action" groups="group_soporte_ejecutor"/>
+
+
+    <menuitem id="soporte_reportes_menu_ticket_main" name="Tickets" parent="soporte_root_menu" sequence="20"
+              groups="base.group_user"/>
+
+    <menuitem id="soporte_ticket_menu" name="Tickets" parent="soporte_reportes_menu_ticket_main" sequence="10"
+              action="helpdesk_ticket_action_main" groups="base.group_user"/>
+
+    <menuitem id="soporte_ticket_todos_menu" name="Todos los Tickets" parent="soporte_reportes_menu_ticket_main"
+              sequence="15" action="ticket_todos_view_action" groups="group_soporte_todos"/>
+
+
+    <menuitem id="soporte_reportes_menu" name="Reportes" parent="soporte_root_menu" sequence="30"
+              groups="group_soporte_responsable"/>
+
+    <menuitem id="soporte_reportes_informes" name="Informes" parent="soporte_reportes_menu" sequence="5"
+              action="helpdesk_ticket_reporting_action" groups="group_soporte_responsable"/>
+
+
+    <menuitem id="soporte_reportes_config_menu" name="Configuración"
+              parent="soporte_root_menu" sequence="40"
+              groups="group_soporte_responsable"/>
+
+    <menuitem id="helpdesk_ticket_team_menu" name="Equipos de Soporte"
+              parent="soporte_reportes_config_menu"
+              action="soporte_equipos_action" sequence="10"/>
+
+    <menuitem id="helpdesk_ticket_tag_menu" name="Etiquetas de Ejecución"
+              parent="soporte_reportes_config_menu"
+              action="soporte_etiqueta_action" sequence="20"/>
+
+    <menuitem id="helpdesk_ticket_stage_menu" name="Estados de Tickets"
+              parent="soporte_reportes_config_menu"
+              action="soporte_estados_action" sequence="40"/>
+
+    <menuitem id="helpdesk_ticket_stage_versiones_menu" name="Estados de Versiones"
+              parent="soporte_reportes_config_menu"
+              action="soporte_estados_versiones_action" sequence="50"/>
+
+    <menuitem id="helpdesk_ticket_stage_plicaciones_menu" name="Estados de Aplicaciones"
+              parent="soporte_reportes_config_menu"
+              action="soporte_estados_aplicaciones_action" sequence="60"/>
+
+    <menuitem id="helpdesk_ticket_stage_paquetes_menu" name="Estados de Paquetes"
+              parent="soporte_reportes_config_menu"
+              action="soporte_estados_paquetes_action" sequence="70"/>
+
+    <menuitem id="helpdesk_ticket_channel_menu" name="Canales de Solicitudes"
+              parent="soporte_reportes_config_menu"
+              action="soporte_canales_action" sequence="80"/>
+
+    <menuitem id="helpdesk_ticket_cronograma_anio_menu" name="Años del Cronograma"
+              parent="soporte_reportes_config_menu"
+              action="soporte_cronograma_anios_action" sequence="90"/>
+
+</odoo>

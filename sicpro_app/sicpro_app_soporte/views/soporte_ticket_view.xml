@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="ticket_view_search" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.view.search</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="number"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="tag_ids"/>
+                <field name="stage_id"/>
+                <field name="aplicaciones"/>
+                <filter string="Sin Asignar" name="sin_asignar" domain="[('user_id','=',False)]"/>
+                <filter string="Abierto" name="open" domain="[('closed', '=', False )]"/>
+                <filter string="No Proceden" name="no_procede" domain="[('unattended', '=', True )]"/>
+                <filter string="Alta Prioridad" name="prioridad" domain="[('priority','=','3')]"/>
+                <separator/>
+                <filter string="Mis Tickets" name="mytickets" domain="[('user_id','=',uid)]"/>
+                <separator/>
+                <filter name="last_week" string="Ultima Semana"
+                        domain="[('fecha_ticket','&gt;', (context_today() - datetime.timedelta(weeks=1)).strftime('%%Y-%%m-%%d') )]"/>
+                <separator/>
+                <filter string="Mis Actividades" name="activities_my"
+                        domain="[('activity_ids.user_id', '=', uid)]"/>
+                <filter string="Actividades Pendientes" name="activities_overdue"
+                        domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
+                <filter string="Actividades para Hoy" name="activities_today"
+                        domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Actividades Futuras" name="activities_upcoming_all"
+                        domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Terminación de Tickets" context="{'group_by':'closed_date:month'}"
+                            name="closed_date"/>
+                    <separator/>
+                    <filter string="Usuario" name="group_partner" domain="[]" context="{'group_by':'partner_id'}"/>
+                    <filter string="Equipo" name="group_team" domain="[]" context="{'group_by':'team_id'}"/>
+                    <filter string="Técnico" name="group_user" domain="[]" context="{'group_by':'user_id'}"/>
+                    <filter string="Estado" name="group_stage" domain="[]" context="{'group_by':'stage_id'}"/>
+                    <filter string="Aplicaciones" name="group_app" domain="[]" context="{'group_by':'aplicaciones'}"/>
+                    <filter string="Versiones" name="group_version" domain="[]" context="{'group_by':'version_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="ticket_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.view.form</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="priority" eval="12"/>
+        <field name="arch" type="xml">
+            <form string="Nuevo Ticket">
+                <header>
+                    <button string="Enviar Asignación al Ejecutor" name="asignar_al_ejecutor" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('asignado', '!=', False)]}"
+                            groups="sicpro_app_soporte.group_soporte_responsable"/>
+                    <button string="Asignármela a mi" name="asignarme_la_tarea" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('user_id', '!=', False)]}"
+                            groups="sicpro_app_soporte.group_soporte_responsable"/>
+                    <field name="stage_id" nolabel="1" colspan="2" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <field name="team_id_bitacora" invisible="1"/>
+                    <field name="readonly_admin" invisible="1"/>
+                    <field name="dias_pendientes" invisible="1"/>
+                    <field name="closed" invisible="1"/>
+                    <field name="unattended" invisible="1"/>
+                    <field name="grupo_ejecutor" invisible="1"/>
+                    <field name="grupo_responsable" invisible="1"/>
+                    <field name="asignado" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="text-danger oe_stat_button" icon="fa-life-ring" name="action_empaty_tareas" type="object">
+                            <field name="cantidad_tareas" widget="statinfo" string="Tickets"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="text-sm-right">
+                        <field name="kanban_state" widget="state_selection"/>
+                    </div>
+                    <div class="oe_title">
+                        <h1 class="oe_title">
+                            <field name="number"/>
+                        </h1>
+                        <h2 class="o_row">
+                            <field name="name"/>
+                        </h2>
+                        <div class="oe_title">
+                            <field name="tag_ids" widget="many2many_tags"
+                                   attrs="{'readonly': [('grupo_responsable', '!=', True)]}"
+                                   options="{'color_field': 'color', 'no_create_edit': True}"/>
+                            <span attrs="{'invisible': ['|','|', ('dias_pendientes', '=', 0), ('unattended', '=', True),
+                                                            ('closed', '=', True)]}" class="mx-2 text-muted">
+                                <i class="fa fa-lg fa-clock-o mr-2" title="Días Iniciado"/>
+                                <field name="dias_pendientes"/>
+                            </span>
+                        </div>
+                    </div>
+                    <group string="Usuarios">
+                        <group>
+                            <field name="user_ids" invisible="1" readonly="1"/>
+                            <field name="fecha_ticket" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                            <field name="partner_user_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                   widget="many2one_avatar_user"/>
+                            <field name="partner_id" invisible="1"/>
+                            <field name="partner_email"/>
+                        </group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="partner_name" invisible="1"/>
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                            <field name="channel_id" attrs="{'readonly': [('grupo_responsable', '!=', True)]}"
+                                   options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <group string="Ejecutores">
+                        <group>
+                            <field name="team_id" attrs="{'readonly': [('grupo_responsable', '!=', True)]}"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="user_id" attrs="{'readonly': [('grupo_responsable', '!=', True)]}"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="aplicaciones" attrs="{'readonly': [('grupo_responsable', '!=', True)]}"/>
+                            <field name="version_id" attrs="{'readonly': [('grupo_responsable', '!=', True)]}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page name="observaciones" string="Observaciones">
+                                <field name="descripcion" widget="html"/>
+                            </page>
+                            <page name="tareas" string="Tareas">
+                                <group>
+                                    <group>
+                                        <field name="horas_planificadas" widget="float_time"
+                                               attrs="{'readonly': [('grupo_responsable', '!=', True)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="progreso" widget="progressbar"/>
+                                    </group>
+                                </group>
+                                <p/>
+                                <field name="tareas_ids" mode="tree" context="{'default_name': name,}"
+                                       attrs="{'readonly': [('grupo_responsable', '!=', True)]}">
+                                    <tree string="Tareas" editable="bottom" default_order="id">
+                                        <field name="name" invisible="1"/>
+                                        <field name="fecha"/>
+                                        <field name="user_id" widget="many2one_avatar_user"/>
+                                        <field name="descripcion"/>
+                                        <field name="activity_ids" widget="kanban_activity" string="Actividades"/>
+                                        <field name="estado" decoration-info="estado=='pendiente'"
+                                               decoration-danger="estado=='bloqueado'"
+                                               decoration-warning="estado=='proceso'"
+                                               decoration-success="estado=='cumplido'"/>
+                                        <field name="horas" widget="float_time" decoration-danger="horas &gt; 24"/>
+                                    </tree>
+                                    <form string="Tareas">
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="name" invisible="1"/>
+                                                    <field name="fecha"/>
+                                                    <field name="estado"/>
+                                                </group>
+                                                <group>
+                                                    <field name="user_id"/>
+                                                    <field name="descripcion"/>
+                                                    <field name="horas" widget="float_time"
+                                                           decoration-danger="horas &gt; 24"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                                <group>
+                                    <group class=" text-left">
+                                        <div class="oe_title">
+                                            <span class="text-danger font-weight-bold">*</span>
+                                            <span class="text-primary text-small">
+                                                De las 8 horas de trabajo, se estiman 5 horas en función directa al
+                                                desarrollo
+                                            </span>
+                                        </div>
+
+                                    </group>
+                                    <group class="oe_subtotal_footer oe_right">
+                                        <field name="cantidad_horas_tareas"/>
+                                        <field name="total_dias_tareas" class="oe_subtotal_footer_separator"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="info" string="Otras Informaciones">
+                                <group>
+                                    <field name="last_stage_update"
+                                           attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                    <field name="assigned_date" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                    <field name="closed_date" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                </group>
+                                <group>
+
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'open_attachments': True}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="ticket_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.view.tree</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="priority" eval="11"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="number"/>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="user_id"/>
+                <field name="stage_id"/>
+                <field name="priority" widget="priority"/>
+                <field name="fecha_ticket" readonly="1"/>
+                <field name="last_stage_update"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.kanban</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="priority" eval="10"/>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column o_kanban_helpdesk_ticket" archivable="false"
+                    default_group_by="stage_id" group_create="false"
+                    group_delete="false" group_edit="false">
+                <field name="number"/>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="partner_user_id"/>
+                <field name="user_id"/>
+                <field name="color"/>
+                <field name="grupo_ejecutor"/>
+                <field name="stage_id" attrs="{'readonly': [('grupo_ejecutor', '=', False)]}"/>
+                <field name="priority" widget="priority"/>
+                <field name="assigned_date"/>
+                <field name="aplicaciones"/>
+                <field name="dias_pendientes"/>
+                <field name="closed"/>
+                <field name="unattended"/>
+                <progressbar field="activity_state"
+                             colors="{&quot;planned&quot;: &quot;success&quot;, &quot;today&quot;: &quot;warning&quot;, &quot;overdue&quot;: &quot;danger&quot;}"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_content oe_kanban_global_click">
+                            <div class="o_dropdown_kanban dropdown" groups="base.group_user">
+                                <a class="dropdown-toggle btn" role="button" data-toggle="dropdown" href="#">
+                                    <span class="fa fa-ellipsis-v" aria-hidden="true" title="ellipsis1"/>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li t-if="widget.editable"><a type="edit">Editar</a></li>
+                                    <li t-if="widget.deletable"><a type="delete">Eliminar</a></li>
+                                    <li class="divider"/>
+                                    <li>
+                                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title" style="font-weight: bold"><field
+                                            name="number"/> - <field name="name"/></strong>
+                                    <small class="o_kanban_record_subtitle text-muted">
+                                        <field name="partner_id"/>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="priority" widget="priority"/>
+                                    <span attrs="{'invisible': ['|','|', ('dias_pendientes', '=', 0), ('unattended', '=', True),
+                                                            ('closed', '=', True)]}" class="mx-2 text-muted">
+                                        <i class="fa fa-lg fa-clock-o mr-2" title="Días Iniciado"/>
+                                        <field name="dias_pendientes"/>
+                                    </span>
+                                </div>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                <span class="text-danger" style="font-weight: bold">
+                                    <field name="aplicaciones"/>
+                                </span>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <span style="font-weight: bold">
+                                        <field name="version_id"/>
+                                    </span>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="activity_ids" widget="kanban_activity" related="activity_state"/>
+                                    <field name="kanban_state" widget="state_selection"/>
+                                    <field name="activity_state" invisible="1"/>
+                                    <field name="partner_user_id" widget="many2one_avatar_user"/>
+                                    <field name="user_id" widget="many2one_avatar_user"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_views_pivot" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.view.pivot</field>
+        <field name="model">sicpro.app.soporte</field>
+        <field name="priority" eval="14"/>
+        <field name="arch" type="xml">
+            <pivot string="Análisis de los Tickets">
+                <field name="team_id" type="row"/>
+                <field name="assigned_date" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- action para el ticket de usuario-->
+    <record id="action_helpdesk_ticket_kanban_from_dashboard" model="ir.actions.act_window">
+        <field name="name">Tickets del Equipo</field>
+        <field name="res_model">sicpro.app.soporte</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_team_id': active_id, 'default_team_id': active_id}</field>
+        <field name="domain">[('team_id', '=', active_id)]</field>
+    </record>
+
+    <!-- action de los informes -->
+    <record id="helpdesk_ticket_reporting_action" model="ir.actions.act_window">
+        <field name="name">Análisis de los Tickets Cerrados</field>
+        <field name="res_model">sicpro.app.soporte</field>
+        <field name="view_mode">pivot,graph</field>
+    </record>
+
+    <record id="helpdesk_ticket_action_main" model="ir.actions.act_window">
+        <field name="name">Tickets de Soporte</field>
+        <field name="res_model">sicpro.app.soporte</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="search_view_id" ref="ticket_view_search"/>
+        <field name="context">{'search_default_my_ticket': True, 'search_default_is_open': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo ticket.
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

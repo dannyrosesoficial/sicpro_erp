@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id='transporte_estado_view_tree' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.estado.tree</field>
+        <field name="model">sicpro.app.transporte.estado</field>
+        <field name="arch" type="xml">
+            <tree string="State" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='transporte_estado_action' model='ir.actions.act_window'>
+        <field name="name">Estado del vehículo</field>
+        <field name="res_model">sicpro.app.transporte.estado</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo estado para los vehiculos
+            </p>
+        </field>
+    </record>
+
+</odoo>

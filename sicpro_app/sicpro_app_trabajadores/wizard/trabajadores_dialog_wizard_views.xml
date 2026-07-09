@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="trabajadores_cargar_dialog_wizard_view" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.dialog.wizard.form</field>
+            <field name="model">sicpro.app.trabajadores.dialog.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Atención">
+                    <div class="col-lg-12 font-weight-bold">
+                        Ya se realizó un cierre este mes, ¿desea hacer un nuevo cierre?
+                    </div>
+                    <footer>
+                        <button name="show_dialog" string="Aceptar" type="object" class="btn-primary"
+                            context="{'default_areas': 'areas'}"/>
+                        <button string="Cancelar" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>      
+    </data>
+</odoo>

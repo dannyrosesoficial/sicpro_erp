@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sicpro_dashboard_graficos_new_tree_view">
+            <field name="model">sicpro.modulo.dashboard.graficos</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <tree string="Gráficos">
+                    <field name="app" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <field name="modelo" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="modelo_nombre" invisible="1"/>
+                    <field name="modelo_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sicpro_dashboard_graficos_new_form_view">
+            <field name="model">sicpro.modulo.dashboard.graficos</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <form string="Gráfico">
+                    <header>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                            <group string="Datos Básicos del gráfico">
+                                <group string="Datos">
+                                    <field name="app" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="app_name" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="tipo"/>
+                                    <field name="modelo" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="agrupar" domain="[('model_id', '=', modelo_id), ('store', '=', True)]"
+                                        attrs="{'invisible': ['|',('tipo', 'like', 'gauge'),('tipo', 'like', 'tarjeta')]}"
+                                        options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                                        <field name="operacion" attrs="{'invisible': ['!',('tipo', 'like', 'bar'),'!',('tipo', 'like', 'line')]}"/>
+                                        <field name="orientacion_barra" attrs="{'invisible': ['!',('tipo', 'like', 'bar')]}"/>
+                                        <field name="es_barra_vertical" invisible="1"/>
+                                        <field name="es_agrupar" invisible="1"/>
+                                        <field name="modelo_nombre" invisible="1"/>
+                                        <field name="orden"/>
+                                    </group>
+                                    <group string="Dominio">
+                                        <field name="dominio" widget="domain" options="{'model': 'modelo_nombre', 'in_dialog': True}"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Datos Específicos del gráfico">
+                                        <field name="icono" attrs="{'invisible': ['!',('tipo', 'like', 'tarjeta')]}"
+                                            options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                            <field name="tarjeta_orientacion" attrs="{'invisible': ['!',('tipo', 'like', 'tarjeta')]}"/>
+                                            <field name="tarjeta_extra" attrs="{'invisible': ['!',('tipo', 'like', 'tarjeta'),'!',('tipo', 'like', 'top')]}"/>
+                                            <field name="tarjeta_extra_posicion" attrs="{'invisible': ['!',('tipo', 'like', 'tarjeta'),'!',('tipo', 'like', 'top')]}"/>
+                                            <field name="tarjeta_icono_posicion" attrs="{'invisible': ['!',('tipo', 'like', 'tarjeta')]}"/>
+                                            <field name="tarjeta_valor_titulo_posicion" attrs="{'invisible': ['!',('tipo', 'like', 'tarjeta')]}"/>
+                                            <field name="nombre_serie" attrs="{'invisible': [('tipo', 'like', 'tarjeta')]}"/>
+                                            <field name="encabezado_etiquetas" attrs="{'invisible': ['!',('tipo', 'like', 'columnHeatmap'),'!',('tipo', 'like', 'table')]}"/>
+                                            <!-- <field name="valores" domain="[('model_id', '=', modelo_id), ('store', '=', True)]" attrs="{'invisible': ['!',('tipo', 'like', 'columnHeatmap'),'!',('tipo', 'like', 'top'),'!',('tipo', 'like', 'line')]}"/> -->
+                                            <field name="valores" domain="[('model_id', '=', modelo_id), ('store', '=', True)]" attrs="{'invisible': ['!',('tipo', 'like', 'columnHeatmap'),'!',('tipo', 'like', 'table'),'!',('tipo', 'like', 'top'),'!','&amp;',('tipo', 'like', 'bar'),('es_agrupar','=',False),'!','&amp;',('tipo', 'like', 'line'),('es_agrupar','=',False)]}"/>
+                                            <field name="agrupar_extra" domain="[('model_id', '=', modelo_id), ('store', '=', True)]" attrs="{'invisible': ['!','&amp;',('tipo', 'like', 'bar'),('es_agrupar','=',True),'!','&amp;',('tipo', 'like', 'line'),('es_agrupar','=',True)]}"/>
+                                            <field name="agrupar_extra_nombre" invisible="1"/>
+                                            <field name="valores_id" invisible="1"/>
+                                            <field name="valores_extras" context="{'default_modelo_id': modelo_id}" attrs="{'invisible': ['!',('tipo', 'like', 'columnHeatmap'),'!',('tipo', 'like', 'table'),'!',('tipo', 'like', 'top'),'!','&amp;',('tipo', 'like', 'bar'),('es_agrupar','=',False),'!','&amp;',('tipo', 'like', 'line'),('es_agrupar','=',False)]}">
+                                                <tree string="Valores Extras" editable="bottom">
+                                                    <field name="sequencia"/>
+                                                    <field name="name"/>
+                                                    <field name="modelo_id" invisible="1"/>
+                                                    <field name="valores" domain="[('model_id', '=', modelo_id), ('store', '=', True)]"/>
+                                                    <field name="grafico" invisible = "1"/>
+                                                </tree>
+                                            </field>
+                                            <field name="orden_valores" attrs="{'invisible': ['!',('tipo', 'like', 'columnHeatmap'),'!',('tipo', 'like', 'top'),'!',('tipo', 'like', 'table'),'!',('tipo', 'like', 'line')]}"/>
+                                            <field name="limite_tabla" attrs="{'invisible': ['!',('tipo', 'like', 'columnHeatmap'),'!',('tipo', 'like', 'top'),'!',('tipo', 'like', 'table'),'!',('tipo', 'like', 'line')]}"/>
+                                            <field name="nombre_eje_x" attrs="{'invisible': ['!',('tipo', 'like', 'bar'),'!',('tipo', 'like', 'line')]}"/>
+                                            <field name="nombre_eje_y" attrs="{'invisible': ['!',('tipo', 'like', 'bar'),'!',('tipo', 'like', 'line')]}"/>
+                                            <field name="font_size" attrs="{'invisible': ['!',('tipo', 'like', 'bar'),'!',('tipo', 'like', 'line')]}"/>
+
+                                            <field name="grupos_contenido" invisible = "1"/>
+                                            <field name="icono_tarjeta" invisible = "1"/>
+                                            <field name="sequencia" invisible="1"/>
+                                            <field name="modelo_id" invisible="1"/>
+                                            <field name="agrupar_nombre" invisible = "1"/>
+                                            <field name="valores_nombre" invisible="1"/>
+                                            <field name="valores_extras_nombres" invisible="1"/>
+                                            <field name="valores_extras_nombre_serie" invisible="1"/>
+                                            <field name="active" widget="boolean_toggle"/>
+                                        </group>
+                                    </group>
+                                    <group string="Colores">
+                                        <group>
+                                            <div class="o_row">
+                                                <b class="text-primary">Reiniciar colores</b>
+                                                <button type="object" name="button_colores_default" class="btn-sm btn-link mb4 fa fa-cog"
+                                                        aria-label="Reiniciar colores del tablero" title="Reiniciar colores del tablero"/>
+                                            </div>
+                                        </group>
+                                        <group>
+                                        </group>
+                                            <group>
+                                                <field name="color_background" widget="color"/>
+                                                <field name="color_name" widget="color"/>
+                                                <field name="colores_graficos" attrs="{'invisible': ['|','|','|',('tipo', 'like', 'columnHeatmap'),('tipo', 'like', 'table'),('tipo', 'like', 'top'),('tipo', 'like', 'tarjeta')]}"/>
+                                                <field name="color_background_grafico" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'bar'),'!',('tipo', 'like', 'line')]}"/>
+                                                <field name="color_valor" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'tarjeta'),'!',('tipo', 'like', 'top'),'!',('tipo', 'like', 'columnHeatmap'),'!',('tipo', 'like', 'table')]}"/>
+                                                <field name="color_background_valor" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'table')]}"/>
+                                            </group>
+                                            <group>
+                                                <field name="color_etiquetas" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'columnHeatmap'),'!',('tipo', 'like', 'table')]}"/>
+                                                <field name="color_background_etiquetas" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'table')]}"/>
+                                                <field name="color_encabezados" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'columnHeatmap'),'!',('tipo', 'like', 'table')]}"/>
+                                                <field name="color_background_encabezados" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'table')]}"/>
+                                                <field name="color_top_subtitulo" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'top')]}"/>
+                                                <field name="color_icono" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'tarjeta'),'!',('tipo', 'like', 'top')]}"/>
+                                                <field name="color_background_icono" widget="color" attrs="{'invisible': ['!',('tipo', 'like', 'tarjeta'),'!',('tipo', 'like', 'top')]}"/>
+                                            </group>
+                                        </group>
+                                </sheet>
+                            </form>
+                        </field>
+                    </record>
+
+                    <record id="sicpro_dashboard_graficos_new_search_view" model="ir.ui.view">
+                        <field name="name">sicpro.modulo.dashboard.graficos.search</field>
+                        <field name="model">sicpro.modulo.dashboard.graficos</field>
+                        <field name="arch" type="xml">
+                            <search string="Gráficos">
+                                <field name="app" string="Aplicación"/>
+                                <field name="modelo" string="Modelo"/>
+                                <separator/>
+                                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                                <group expand="0" string="Agrupar por">
+                                    <filter name="app_group" string="Aplicación" context="{'group_by': 'app'}"/>
+                                    <filter name="modelo_group" string="Modelo" context="{'group_by': 'modelo'}"/>
+                                </group>
+                            </search>
+                        </field>
+                    </record>
+
+                    <record model="ir.actions.act_window" id="dashboard_graficos_config_action">
+                        <field name="name">Gráficos del Tablero</field>
+                        <field name="res_model">sicpro.modulo.dashboard.graficos</field>
+                        <field name="view_mode">tree,form</field>
+                    </record>
+
+                </data>
+            </odoo>

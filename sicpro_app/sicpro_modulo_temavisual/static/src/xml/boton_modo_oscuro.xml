@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-inherit="web.NavBar" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_menu_systray')]" position="replace">
+            <div class="o_menu_systray" role="menu">
+
+                <div class="o_modo_oscuro_menu btn_selector_tema">
+                    <div class="fa fa-lg fa-moon-o btn_selector_tema_luna" style="display: none;" title="Modo Oscuro" aria-label="Modo Oscuro"/>
+                    <div class="fa fa-lg fa-sun-o btn_selector_tema_sol" style="display: none;" title="Modo Claro" aria-label="Modo Claro"/>
+                </div>
+
+                <t t-foreach="systrayItems" t-as="item" t-key="item.key">
+                    <NotUpdatable>
+                        <ErrorHandler onError="error => handleItemError(error, item)">
+                            <t t-component="item.Component" t-props="item.props"/>
+                        </ErrorHandler>
+                    </NotUpdatable>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</templates>

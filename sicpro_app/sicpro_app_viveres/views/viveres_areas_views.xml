@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="viveres_areas_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.areas.tree</field>
+        <field name="model">sicpro.app.viveres.areas</field>
+        <field name="arch" type="xml">
+            <tree string="Áreas" editable="bottom" sample="1">
+                <field name="name"
+                       options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                <field name="direccion"
+                       options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="viveres_areas_action" model="ir.actions.act_window">
+        <field name="name">Áreas</field>
+        <field name="res_model">sicpro.app.viveres.areas</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>

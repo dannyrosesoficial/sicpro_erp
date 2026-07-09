@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="firma_digital_etiquetas_search_view">
+            <field name="name">sicpro.app.firma.etiquetas.search</field>
+            <field name="model">sicpro.app.firma.etiquetas</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Etiquetas">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="firma_digital_etiquetas_tree_view">
+            <field name="name">sicpro.app.firma.etiquetas.tree</field>
+            <field name="model">sicpro.app.firma.etiquetas</field>
+            <field name="arch" type="xml">
+                <tree string="Etiquetas de la Firma" editable="bottom">
+                    <field name="name"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="firma_digital_etiquetas_action" model="ir.actions.act_window">
+            <field name="name">Etiquetas de la Firma</field>
+            <field name="res_model">sicpro.app.firma.etiquetas</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear nueva etiqueta...
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

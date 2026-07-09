@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="configuracion_dashboard_menu" name="Tableros"
+                  parent="sicpro_app_administracion.menu_configuracion_administrador"
+                  groups="sicpro_app_administracion.grupo_app_administracion_admin" sequence="9"/>
+
+        <menuitem action="dashboard_tableros_config_action"
+                  id="menu_dashboard_nuevo_tableros_configuracion"
+                  name="Tableros" parent="configuracion_dashboard_menu"
+                  groups="sicpro_app_administracion.grupo_app_administracion_admin" sequence="20"/>
+
+        <!-- <menuitem action="dashboard_secciones_config_action"
+                  id="menu_dashboard_nuevo_secciones_configuracion"
+                  name="Secciones" parent="configuracion_dashboard_menu"
+                  groups="sicpro_app_administracion.grupo_app_administracion_admin" sequence="21"/> -->
+
+
+        <!-- <menuitem action="dashboard_grupos_config_action"
+                  id="menu_dashboard_nuevo_grupos_configuracion"
+                  name="Grupos" parent="configuracion_dashboard_menu"
+                  groups="sicpro_app_administracion.grupo_app_administracion_admin" sequence="22"/> -->
+
+
+        <!-- <menuitem action="dashboard_graficos_config_action"
+                  id="menu_dashboard_nuevo_graficos_configuracion"
+                  name="Gráficos" parent="configuracion_dashboard_menu"
+                  groups="sicpro_app_administracion.grupo_app_administracion_admin" sequence="23"/> -->
+
+        <menuitem action="action_dashboard_iconos"
+                id="menu_dashboard_nuevo_iconos" name="Íconos"
+                parent="configuracion_dashboard_menu"
+                groups="sicpro_app_administracion.grupo_app_administracion_admin"
+                sequence="24" />
+
+        <!-- <menuitem action="action_dashboard_colores"
+                id="menu_dashboard_nuevo_colores" name="Colores"
+                parent="configuracion_dashboard_menu"
+                groups="sicpro_app_administracion.grupo_app_administracion_admin"
+                sequence="25" /> -->
+
+        <menuitem action="action_dashboard_colores_set"
+                id="menu_dashboard_nuevo_colores_set" name="Sets de Colores"
+                parent="configuracion_dashboard_menu"
+                groups="sicpro_app_administracion.grupo_app_administracion_admin"
+                sequence="26" />
+
+        <!-- <menuitem action="action_dashboard_colores_orden"
+                id="menu_dashboard_nuevo_colores_orden" name="Colores Orden"
+                parent="configuracion_dashboard_menu"
+                groups="sicpro_app_administracion.grupo_app_administracion_admin"
+                sequence="27" /> -->
+    </data>
+</odoo>

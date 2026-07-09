@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_desactivar_usuarios" name="Servicio Desactivar Usuarios" sequence="6"
+                  parent="sicpro_app_administracion.menu_administracion_4" action="desactivar_usuario_action" groups="base.group_system"/> -->
+
+    </data>
+</odoo>

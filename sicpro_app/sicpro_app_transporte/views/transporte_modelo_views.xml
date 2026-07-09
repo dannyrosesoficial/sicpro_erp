@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <record id='transporte_marca_view_tree' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.modelo.tree</field>
+        <field name="model">sicpro.app.transporte.modelo</field>
+        <field name="arch" type="xml">
+            <tree string="Model Make">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='transporte_marca_view_form' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.modelo.form</field>
+        <field name="model">sicpro.app.transporte.modelo</field>
+        <field name="arch" type="xml">
+            <form string="Model Make">
+                <sheet>
+                    <group>
+                        <div>
+                            <field name="image_128" widget="image" class="oe_avatar"/>
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='transporte_marca_view_kanban' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.modelokanban</field>
+        <field name="model">sicpro.app.transporte.modelo</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_vignette oe_semantic_html_override">
+                            <a type="open" href="#" class="o_kanban_image oe_kanban_action">
+                                <img alt="Open"
+                                     t-att-src="kanban_image('sicpro.app.transporte.modelo', 'image_128', record.id.raw_value)"
+                                     class="img-fluid" style="width:100px;"/>
+                            </a>
+                            <div class="oe_kanban_details">
+                                <h4 class="oe_partner_heading">
+                                    <a type="open" class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id='transporte_marca_action' model='ir.actions.act_window'>
+        <field name="name">Fabricantes de automóviles</field>
+        <field name="res_model">sicpro.app.transporte.modelo</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar fabricantes de automóviles
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

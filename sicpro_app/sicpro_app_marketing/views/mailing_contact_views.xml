@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="marketing_contactos_view_search" model="ir.ui.view">
+        <field name="name">marketing.contactos.view.search</field>
+        <field name="model">mailing.contact</field>
+        <field name="inherit_id" ref="mass_mailing.mailing_contact_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_valid_email_recipient']" position="before">
+                <filter name="active" string="Archivados" domain="[('active', '=', False)]"/>
+                <filter name="usuario_sistema" string="Usuarios del Sistema" domain="[('usuario_sistema', '=', True)]"/>
+            </xpath>
+            <xpath expr="//filter[@name='group_create_date']" position="before">
+                <filter string="Proceso" name="company_name" context="{'group_by': 'company_name'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="marketing_contactos_view_tree" model="ir.ui.view">
+        <field name="name">marketing.contactos.view.tree</field>
+        <field name="model">mailing.contact</field>
+        <field name="inherit_id" ref="mass_mailing.mailing_contact_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='create_date']" position="before">
+                <field name="usuario_sistema"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="marketing_contactos_view_form" model="ir.ui.view">
+        <field name="name">marketing.contactos.view.form</field>
+        <field name="model">mailing.contact</field>
+        <field name="inherit_id" ref="mass_mailing.mailing_contact_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <group>
+                    <field name="usuario" class="oe_edit_only"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='title_id']" position="replace">
+                <field name="ocupacion_id"/>
+            </xpath>
+            <xpath expr="//field[@name='message_bounce']" position="after">
+                <field name="usuario_sistema"/>
+                <field name="active" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

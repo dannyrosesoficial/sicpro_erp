@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="sicpro_app_soporte.gantt_view">
+
+        <div class="o_dhx_gantt_root">
+            <div class="o_dhx_gantt_header">
+                <div class="">
+                    <button class="btn btn-primary o_dhx_button_left">Exportar</button>
+
+                    <button type="button" class="btn btn-outline-dark o_dhx_zoom_out o_dhx_button_right">
+                        <i class="fa fa-search-minus fa-fw mr-1"/>Alejar</button>
+                    <button type="button" class="btn btn-outline-dark o_dhx_zoom_in o_dhx_button_right">
+                        <i class="fa fa-search-plus fa-fw mr-1"/>Acercar</button>
+                </div>
+            </div>
+            <div class="o_dhx_gantt">
+            </div>
+        </div>
+    </t>
+</templates>

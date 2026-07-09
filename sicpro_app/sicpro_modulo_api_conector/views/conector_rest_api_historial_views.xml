@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="conector_rest_api_historial_tree_view" model="ir.ui.view">
+            <field name="name">sicpro.modulo.api.conector.historial.tree</field>
+            <field name="model">sicpro.modulo.api.conector.historial</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name="name"/>
+                    <field name="app_externa"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="registros_creados"/>
+                    <field name="registros_actualizados"/>
+                    <field name="registros_archivados"/>
+                    <field name="estado" decoration-danger="estado=='fallido'"
+                           decoration-success="estado=='exito'" widget="badge"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="conector_rest_api_historial_filter" model="ir.ui.view">
+            <field name="name">sicpro.modulo.api.conector.historial.search</field>
+            <field name="model">sicpro.modulo.api.conector.historial</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name"/>
+                    <field name="estado"/>
+                    <filter string="Exitosas" name="estado_exitosas" domain="[('estado', '=','exito')]"/>
+                    <filter string="Fallidas" name="estado_fallidas" domain="[('estado', '=','fallido')]"/>
+                    <separator/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Aplicación" name="name" context="{'group_by':'name'}"/>
+                        <separator/>
+                        <filter string="Estado" name="estado" context="{'group_by':'estado'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Fecha de Ejecución" context="{'group_by':'fecha_inicio:month'}"
+                                name="fecha_inicio"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="conector_rest_api_historial_action">
+            <field name="name">Historial de Conexiones RestApi</field>
+            <field name="res_model">sicpro.modulo.api.conector.historial</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+    </data>
+</odoo>

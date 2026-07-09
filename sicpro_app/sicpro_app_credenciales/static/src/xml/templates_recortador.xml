@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ImagenConBotonDeRecortarTemplate" t-inherit="web.FieldBinaryImage">
+    	<xpath expr="//div[@class='o_field_image']" position="replace">
+    		<div class="o_field_image" aria-atomic="true">
+                <t t-if="widget.mode !== 'readonly'">
+                  <div class="o_form_image_controls">
+                      <button class="fa fa-pencil fa-lg float-left o_select_file_button" title="Edit" aria-label="Edit"/>
+                          <t t-if="!widget.isEmpty()">
+                            <button class="fa fa-crop fa-lg float-left o_crop_file_button" title="Recortar" aria-label="Recortar"/>
+                        </t>
+                        <button class="fa fa-trash-o fa-lg float-left o_clear_file_button" title="Clear" aria-label="Clear"/>
+                        <span class="o_form_binary_progress">Uploading...</span>
+                        <t t-call="HiddenInputFile">
+                           <t t-set="fileupload_id" t-value="widget.fileupload_id"/>
+                       </t>
+                   </div>
+               </t>
+           </div>
+       </xpath>
+    </t>
+
+    <!-- Reimplementando el renderizador de imagen del widget para que se renderice la imagen recortada -->
+    <t t-name="ImagenConBotonDeRecortarTemplate-img" t-inherit="web.FieldBinaryImage-img">
+    <xpath expr="//img[@class='img img-fluid']" position="replace">
+        <img class="img img-fluid"
+            alt="Binary file"
+            t-att-src='url'
+            t-att-border="widget.readonly ? 0 : 1"
+            t-att-name="widget.name"/>
+        </xpath>
+    </t>
+    
+    <t t-name="ImagenSinBarraTemplate" t-inherit="web.FieldBinaryImage">
+    	<xpath expr="//div[@class='o_field_image']" position="replace">
+    		<div class="o_field_image" aria-atomic="true">
+              <t t-if="widget.mode !== 'readonly'">
+              </t>
+          </div>
+      </xpath>
+    </t>
+
+
+
+</templates>

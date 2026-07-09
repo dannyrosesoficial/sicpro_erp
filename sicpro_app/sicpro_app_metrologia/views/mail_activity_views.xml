@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Tipos de actividades config -->
+    <record id="mail_activity_type_action_config_maintenance" model="ir.actions.act_window">
+        <field name="name">Tipos de Actividad</field>
+        <field name="res_model">mail.activity.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|', ('res_model', '=', False), ('res_model', '=', 'maintenance.request')]</field>
+        <field name="context">{'default_res_model': 'maintenance.request'}</field>
+    </record>
+
+
+</odoo>

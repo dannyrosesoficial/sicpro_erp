@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!-- Vista del DASHBOARD-->
+    <record id="cmi_objetivos_anuales_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.cmi.objetivos.anuales.tree</field>
+        <field name="model">sicpro.app.cmi.objetivos.anuales</field>
+        <field name="arch" type="xml">
+            <tree string="Objetivos Anuales">
+                <field name="porciento_superior"/>
+                <field name="name"/>
+           </tree>
+        </field>
+    </record>
+
+    <record id="cmi_objetivos_anuales_view_filter" model="ir.ui.view">
+       <field name="name">sicpro.app.cmi.objetivos.anuales.filter</field>
+       <field name="model">sicpro.app.cmi.objetivos.anuales</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Objetivos Anuales">
+                <field name="name"/>
+                <field name="obj_estrategico_id" invisible="1"/>
+                <separator />
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                    <filter string="Ejes Estratégicos" name="eje_estrategico_id" context="{'group_by':'eje_estrategico_id'}"/>
+                </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="cmi_objetivos_anuales_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.cmi.objetivos.anuales.form</field>
+        <field name="model">sicpro.app.cmi.objetivos.anuales</field>
+        <field name="arch" type="xml">
+            <form string="Objetivos Anuales">
+                <sheet>
+                    <group>
+                        <label for="name" string="Nombre"/>
+                        <div class="o_row">
+                            <field name="name"/>
+                        </div>
+                        <field name="obj_estrategico_id" invisible="1"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="porciento_superior" string="Peso"/>
+                            <field name="eje_estrategico_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <label for="name" string="Año"/>
+                            <div class="o_row">
+                                <field name="anio"/><h1 class="text-danger">*</h1>
+                            </div>
+                        </group>
+                        </group>
+                    <group string="Descripción del objetivo">
+                        <field name="detalles"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="cmi_objetivos_anuales_views_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.cmi.objetivos.anuales.kanban</field>
+        <field name="model">sicpro.app.cmi.objetivos.anuales</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban" create="true" sample="1">
+                <field name="name"/>
+                <field name="color"/>
+                <field name="porciento_superior"/>
+                <field name="porciento_avance_barra"/>
+                <field name="obj_estrategico_id" invisible="0"/>
+                <field name="json_indicadores"/>
+                <field name="real_acumulado"/>
+                <field name="meta_acumulado"/>
+                <field name="diferencia_acumulado"/>
+                <field name="incumplido"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                            <div class="ribbon ribbon-top-right">
+                                    <span class="bg-muted text text-black"><t t-esc="record.porciento_superior.value"/> %</span>
+                                </div>
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary col-12">
+                                        <span><t t-esc="record.name.value"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <t>
+                                    <div class="row o_kanban_primary_bottom_cmi bottom_block_cmi">
+                                        <div class="col-4">
+                                            <i t-if="record.incumplido.raw_value > 0"
+                                               class="fa fa-chevron-down text-danger" title="Atención"/>
+                                            <i t-if="record.incumplido.raw_value == 0"
+                                               class="fa fa-chevron-up text-success" title="Correcto"/>
+                                            <span class="font-weight-bold text-black" style="padding: 0px 4px;">
+                                                <t t-esc="record.porciento_avance_barra.raw_value"/>%
+                                            </span>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="d-flex align-items-center font-weight-bold">
+                                                <div class="progress flex-grow-1">
+                                                    <div t-if="record.incumplido.raw_value > 0"
+                                                         class="progress-bar bg-danger" role="progressbar"
+                                                         t-attf-style="width: #{record.porciento_avance_barra.raw_value}%">
+                                                    </div>
+                                                    <div t-if="record.incumplido.raw_value == 0"
+                                                         class="progress-bar bg-success" role="progressbar"
+                                                         t-attf-style="width: #{record.porciento_avance_barra.raw_value}%">
+                                                    </div>
+                                                </div>
+                                                <span style="padding: 0px 4px;"><t t-esc="record.porciento_avance_barra.raw_value"/>%</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <p></p>
+                                        </div>
+                                        <div class="col-7">
+                                    <button class="btn btn-primary" name="action_todos_indicadores" type="object">Indicadores</button>
+                                   </div>
+                                        <div class="col-5 o_kanban_primary_right text-muted">
+                                            <span class="text-black font-weight-bold">
+                                                <field name="mes_temp"/>  <field name="anio"/>
+                                            </span>
+                                        </div>
+                                        <div class="col-8">
+                                            <small class="text-muted">
+                                                <field name="detalles"/>
+                                            </small>
+                                        </div>
+
+                                    </div>
+                                </t>
+                                <div class="row-cmi">
+                                    <div class="o_recruitment_kanban_box o_kanban_primary_bottom bottom_block_estrategia" >
+                                        <t t-set="i" t-value="JSON.parse(record.json_indicadores.raw_value)"/>
+                                        <t t-foreach="i" t-as="c">
+                                            <div class="o_kanban_card_header_title">
+                                                <div class="o_primary o_text_overflow">
+                                                    <div class="col-12 text-left">
+                                                        <div>
+                                                            <i t-if="c['diferencia_acumulado'] &lt; 0 and c['condicion_presupuesto']===false"
+                                                                                       class="fa fa-chevron-down text-danger" title="Atención"/>
+                                                                                    <i t-if="c['diferencia_acumulado'] &gt; 0 and c['condicion_presupuesto']===false"
+                                                                                       class="fa fa-chevron-up text-success" title="Correcto"/>
+                                                                                    <i t-if="c['diferencia_acumulado'] === 0 and c['condicion_presupuesto']===false"
+                                                                                       class="fa fa-exchange text-success" title="Correcto"/>
+                                                                                    <i t-if="c['diferencia_acumulado'] &lt; 0 and c['condicion_presupuesto']===true"
+                                                                                       class="fa fa-chevron-down text-success" title="Correcto"/>
+                                                                                    <i t-if="c['diferencia_acumulado'] &gt; 0 and c['condicion_presupuesto']===true"
+                                                                                       class="fa fa-chevron-up text-danger" title="Atención"/>
+                                                                                    <i t-if="c['diferencia_acumulado'] === 0 and c['condicion_presupuesto']===true"
+                                                                                       class="fa fa-exchange text-danger" title="Correcto"/>
+
+                                                            <a type="object" name="action_indicadores"
+                                                               t-attf-data-context="{'default_id': #{c['id']}}">
+                                                                <small class="text-black font-weight-bold" t-att-title="c['name']">
+                                                                    <t t-esc="c['name']"/>
+                                                                </small>
+                                                            </a>
+                                                        </div>
+                                                        <div class="d-flex align-items-center font-weight-bold">
+                                                            <div class="progress flex-grow-1" style="background-color: inherit; height:14px; border: 0.5px solid;">
+                                                                <div t-if="c['diferencia_acumulado'] &lt; 0 and c['condicion_presupuesto']===false"
+                                                                     class="progress-bar bg-danger" role="progressbar"
+                                                                     t-attf-style="width: #{c['porciento_barra1']}%">
+                                                                </div>
+                                                                <div t-if="c['diferencia_acumulado'] &gt;= 0 and c['condicion_presupuesto']===false"
+                                                                     class="progress-bar bg-success" role="progressbar"
+                                                                     t-attf-style="width: #{c['porciento_barra1']}%">
+                                                                </div>
+                                                                <div t-if="c['diferencia_acumulado'] &lt; 0 and c['condicion_presupuesto']===true"
+                                                                     class="progress-bar bg-success" role="progressbar"
+                                                                     t-attf-style="width: #{c['porciento_barra1']}%">
+                                                                </div>
+                                                                <div t-if="c['diferencia_acumulado'] &gt;= 0 and c['condicion_presupuesto']===true"
+                                                                     class="progress-bar bg-danger" role="progressbar"
+                                                                     t-attf-style="width: #{c['porciento_barra1']}%">
+                                                                </div>
+                                                            </div>
+                                                            <span style="padding: 0px 4px;"><t t-esc="c['porciento_barra1']"/>%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_hr_job_boxes">
+                                <a class="o_hr_job_box" />
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action del DASHBOARD-->
+    <record id="cmi_objetivos_anuales_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Tablero de Objetivos Anuales</field>
+        <field name="res_model">sicpro.app.cmi.objetivos.anuales</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="cmi_objetivos_anuales_views_kanban"/>
+        <field name="search_view_id" ref="cmi_objetivos_anuales_view_filter"/>
+        <field name="context">{'search_default_obj_estrategico_id': active_id,
+                               'default_obj_estrategico_id': active_id,}</field>
+    </record>
+
+    <!-- Action de la llamada de los botones del kanban -->
+    <record id="call_cmi_objetivos_anuales_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Tablero de Objetivos Anuales</field>
+        <field name="res_model">sicpro.app.cmi.objetivos.anuales</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="cmi_objetivos_anuales_views_kanban"/>
+        <field name="search_view_id" ref="cmi_objetivos_anuales_view_filter"/>
+    </record>
+
+
+</odoo>

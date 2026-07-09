@@ -1,0 +1,34 @@
+GENERAR CERTIFICADO E IMPORTARLO AL SISTEMA OPERATIVO
+ Buscar el certificado: openssl s_client -connect lds.etecsa.cu:636 -showcerts
+ Agregar el certificado al directorio: sudo nano /usr/local/share/ca-certificates/ds_etecsa_cu_ca.crt
+ Actualizar almacen de certificados: sudo update-ca-certificates
+ 
+ 
+ Cómo obtener el Certificado Digital del Servidor del LDAP SSL (ds.etecsa.cu) ?
+
+    Crear el fichero "/home/usuario/ds.etecsa.cu.cer" asociado al Certificado Digital del Servicio LDAP SSL "ldaps://ds.etecsa.cu:636" del Centro de Datos de Buena Vista:
+
+        Ejecutar el siguiente comando (en Linux):
+
+        usuario@my-pc:~> openssl s_client -connect ds.etecsa.cu:636
+
+        Copiar en el portapapeles el texto enmarcado:
+
+        desde "-----BEGIN CERTIFICATE-----"
+        hasta "-----END CERTIFICATE-----"
+
+        Ejecutar el siguiente comando (en Linux) para crear el fichero "/home/usuario/ds.etecsa.cu.cer":
+
+        usuario@my-pc:~> nano /home/usuario/ds.etecsa.cu.cer
+
+            Pegar el contenido del portapapeles hacia el editor de texto "nano"
+            Guardar los cambios y salir del "nano"
+
+    Utilizar el fichero "/home/usuario/ds.etecsa.cu.cer" en la configuración de la plataforma, framework o aplicación  requerida
+
+
+
+Diferentes tipos de realizar consultas al ldap desde la terminal
+1.- ldapsearch -x -H ldaps://lds.etecsa.cu:636 -b "ou=etecsa.cu,ou=People,dc=etecsa,dc=cu" "(uid=daniel.borrero)"
+2.- LDAPTLS_REQCERT=never ldapsearch -x -H ldaps://lds.etecsa.cu:636 -b "ou=etecsa.cu,ou=People,dc=etecsa,dc=cu" "(uid=daniel.borrero)"
+3.- ldapsearch -x -H ldaps://lds.etecsa.cu:636 -D "uid=rouser,ou=special users,dc=etecsa,dc=cu" -w r0us3r "(&(objectClass=inetOrgPerson)(ou=DVPE))"

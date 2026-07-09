@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_backup_local</OriginalElement>
+  <nodes>
+    <node x="0.0" y="282.5">typing.Sequence</node>
+    <node x="358.0000000000001" y="348.5">typing.Sized</node>
+    <node x="509.0000000000001" y="304.0">odoo.models.MetaModel</node>
+    <node x="781.0000000000001" y="337.5">typing.Iterator</node>
+    <node x="953.0" y="348.5">typing.Iterable</node>
+    <node x="877.8750000000001" y="6202.0">sicpro_modulo_backup_local.models.backup_local.BackupProcess</node>
+    <node x="822.3400000000001" y="6030.0">odoo.models.Model</node>
+    <node x="183.8750000000001" y="6389.0">sicpro_modulo_backup_local.models.backup_local_detalles.ProcessBackupDetail</node>
+    <node x="1182.6575" y="348.5">typing.Container</node>
+    <node x="1509.8400000000001" y="3162.0">sicpro_modulo_backup_local.models.lib.manage_backup_crons.Cronjob</node>
+    <node x="1595.0587500000001" y="0.0">typing.Hashable</node>
+    <node x="1770.8400000000001" y="106.0">object</node>
+    <node x="346.84000000000015" y="709.0">odoo.models.BaseModel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_modulo_backup_local.models.backup_local_detalles.ProcessBackupDetail" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-1.1368683772161603E-13" y="-127.5" />
+      <point x="520.875" y="6177.0" />
+      <point x="918.34" y="6177.0" />
+      <point x="-1.1368683772161603E-13" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="376.8174999999999" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_backup_local.models.lib.manage_backup_crons.Cronjob" target="object" relationship="REALIZATION">
+      <point x="-2.2737367544323206E-13" y="-182.5" />
+      <point x="-2.2737367544323206E-13" y="270.5" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="-137.50000000000023" y="0.0" />
+      <point x="1543.0" y="376.5" />
+      <point x="1543.0" y="28.0" />
+      <point x="-81.49975000000018" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="166.3750000000001" y="3344.5" />
+      <point x="-2.6249999999998863" y="94.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.4999999999998" y="-1786.5" />
+      <point x="1543.0" y="1558.0" />
+      <point x="1543.0" y="28.0" />
+      <point x="-81.49975000000018" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-61.34000000000003" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-283.34000000000003" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="111.15999999999985" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-494.84000000000003" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="571.4999999999998" y="-1733.5" />
+      <point x="1908.34" y="1611.0" />
+      <point x="-2.2737367544323206E-13" y="270.5" />
+    </edge>
+    <edge source="sicpro_modulo_backup_local.models.backup_local.BackupProcess" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-314.5" />
+      <point x="1245.875" y="6177.0" />
+      <point x="918.34" y="6177.0" />
+      <point x="-1.1368683772161603E-13" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.08670267114289884" showDependencies="false" x="1153.5" y="3415.5000000000005" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- inicio Vista del modal para el rechazo de la revisión-->
+    <record id="internos_solicitud_rechazada_revision_form" model="ir.ui.view">
+        <field name="name">internos.solicitudes.rechazado.revision.form</field>
+        <field name="model">internos.solicitudes.rechazado.revision</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <form string="Motivo del Rechazo">
+                <group class="oe_title">
+                    <field name="lost_reason_id"/>
+                </group>
+                <footer>
+                    <button name="action_motivo_rechazo_revision" string="Enviar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="internos_solicitud_rechazada_revision_action" model="ir.actions.act_window">
+        <field name="name">Motivo de Rechazo</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">internos.solicitudes.rechazado.revision</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="internos_solicitud_rechazada_revision_form"/>
+        <field name="target">new</field>
+    </record>
+    <!-- Fin Vista del modal para el rechazo de la revisión-->
+
+    <!-- inicio Vista del modal para el rechazo de la validación-->
+    <record id="solicitud_rechazada_validacion_form" model="ir.ui.view">
+        <field name="name">internos.solicitudes.rechazado.validacion.form</field>
+        <field name="model">internos.solicitudes.rechazado.validacion</field>
+        <field name="priority">110</field>
+        <field name="arch" type="xml">
+            <form string="Motivo del Rechazo">
+                <group class="oe_title">
+                    <field name="lost_reason_id"/>
+                </group>
+                <footer>
+                    <button name="action_motivo_rechazo" string="Enviar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="solicitud_rechazada_validacion_action" model="ir.actions.act_window">
+        <field name="name">Motivo de Rechazo</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">internos.solicitudes.rechazado.validacion</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="solicitud_rechazada_validacion_form"/>
+        <field name="target">new</field>
+    </record>
+    <!-- Fin Vista del modal para el rechazo de la validación-->
+
+    <!-- inicio Vista del modal para cancelar la solicitud-->
+    <record id="solicitud_cancelada_form" model="ir.ui.view">
+        <field name="name">internos.solicitudes.cancelado.form</field>
+        <field name="model">internos.solicitudes.cancelado</field>
+        <field name="priority">120</field>
+        <field name="arch" type="xml">
+            <form string="Motivo del Rechazo">
+                <group class="oe_title">
+                    <field name="lost_reason_id"/>
+                </group>
+                <footer>
+                    <button name="action_motivo_cancelado" string="Enviar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="solicitud_cancelada_action" model="ir.actions.act_window">
+        <field name="name">Motivo de Cancelación</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">internos.solicitudes.cancelado</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="solicitud_cancelada_form"/>
+        <field name="target">new</field>
+    </record>
+    <!-- Fin Vista del modal para cancelar la solicitud-->
+
+    <record id="view_internos_solicitudes_filtro" model="ir.ui.view">
+        <field name="name">sicpro.app.servicios.internos.solicitudes.filtro</field>
+        <field name="model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name"/>
+                <field name="solicitante_trabajador"/>
+                <field name="beneficiario_trabajador"/>
+                <field name="solicitante_area_id"/>
+                <field name="beneficiario_CI"/>
+                <field name="fecha_solicitud"/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <filter string="Fecha de registro" name="fecha" domain="[]"
+                        context="{'group_by': 'fecha_solicitud:month'}"/>
+                <separator/>
+                <filter string="Solicitudes Activas" name="activas" domain="[('estado', '!=','cancelado')]"/>
+                <filter string="Solicitudes Canceladas" name="canceladas" domain="[('estado', '=','cancelado')]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Estado" name="estado" context="{'group_by':'estado'}"/>
+                    <separator/>
+                    <filter string="Solicitante" name="solicitante_trabajador"
+                            context="{'group_by':'solicitante_trabajador'}"/>
+                    <filter string="Beneficiado" name="beneficiario_trabajador"
+                            context="{'group_by':'beneficiario_trabajador'}"/>
+                </group>
+                <searchpanel>
+                    <field name="estado" enable_counters="1" expand="1" icon="fa-star"/>
+                    <field name="beneficiario_area_id" enable_counters="1" expand="1" icon="fa-building"/>
+                    <field name="beneficiario_trabajador" enable_counters="1" icon="fa-users"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_internos_solicitudes_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.servicios.internos.solicitudes.tree</field>
+        <field name="model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="arch" type="xml">
+            <tree string="Lineas">
+                <field name="estado" decoration-bf="1" decoration-muted="estado=='borrador'"
+                       decoration-danger="estado=='cancelado'" decoration-success="estado=='aprobado'"
+                       decoration-info="estado in ['revision', 'validacion']"
+                       decoration-warning="estado in ['rechazado_revision', 'rechazado_validacion']" widget="badge"/>
+                <field name="name"/>
+                <field name="fecha_solicitud"/>
+                <field name="solicitante_trabajador"/>
+                <field name="beneficiario_trabajador"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_internos_solicitudes_form" model="ir.ui.view">
+        <field name="name">sicpro.app.servicios.internos.solicitudes.form</field>
+        <field name="model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generar_solicitud" string="Generar Solicitud" type="object"
+                            groups="sicpro_app_servicios_internos.grupo_app_internos_solicitudes_ejecutor"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado', '!=','borrador'),]}"/>
+                    <button name="action_liberar" string="Liberar Solicitud" type="object" class="oe_highlight"
+                            groups="sicpro_app_servicios_internos.grupo_app_internos_solicitudes_ejecutor"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado', '!=','borrador'),]}"/>
+
+                    <button name="%(solicitud_cancelada_action)d" type="action" string="Cancelar Solicitud"
+                            class="oe_highlight"
+                            groups="sicpro_app_servicios_internos.grupo_app_internos_solicitudes_ejecutor"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado','!=', 'rechazado_revision'),]}"/>
+                    <button name="action_reiniciar_solicitud" string="Reiniciar Solicitud" type="object"
+                            class="oe_highlight"
+                            groups="sicpro_app_servicios_internos.grupo_app_internos_solicitudes_ejecutor"
+                            attrs="{'invisible': ['|', ('active', '=', False),('estado','!=', 'rechazado_revision'),]}"/>
+
+                    <button name="action_revisado" string="Solicitud Revisada" type="object" class="oe_highlight"
+                            groups="sicpro_app_servicios_internos.grupo_app_internos_solicitudes_revision"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado','not in', ['revision', 'rechazado_validacion']),]}"/>
+                    <button name="%(internos_solicitud_rechazada_revision_action)d" type="action"
+                            string="Rechazar Revisión"
+                            class="oe_highlight"
+                            groups="sicpro_app_servicios_internos.grupo_app_internos_solicitudes_revision"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado','not in', ['revision', 'rechazado_validacion']),]}"/>
+
+                    <button name="action_validar" string="Validar Solicitud" type="object" class="oe_highlight"
+                            groups="sicpro_app_servicios_internos.grupo_app_internos_solicitudes_validar"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado', '!=','validacion'),]}"/>
+                    <button name="%(solicitud_rechazada_validacion_action)d" type="action" string="Rechazar Validación"
+                            class="oe_highlight"
+                            groups="sicpro_app_servicios_internos.grupo_app_internos_solicitudes_validar"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado', '!=','validacion'),]}"/>
+
+                    <field name="estado" widget="statusbar" options="{'clickable': '1'}" readonly="1"/>
+                </header>
+                <field name="active" invisible="1"/>
+                <field name="readonly_admin" invisible="1"/>
+                <field name="observaciones_rechazo_revision_bool" invisible="1"/>
+                <field name="observaciones_rechazo_validacion_bool" invisible="1"/>
+                <field name="observaciones_cancelacion_bool" invisible="1"/>
+                <field name="color" widget="color_picker" invisible="1"/>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_empaty_doc_solicitudes" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field string="Documentos" name="doc_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div name="button_box"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Cancelado" bg_color="bg-danger"
+                            attrs="{'invisible': [('estado', '!=', 'cancelado')]}"/>
+                    <widget name="web_ribbon" title="Aprobado" bg_color="bg-success"
+                            attrs="{'invisible': [('estado', '!=', 'aprobado')]}"/>
+                    <div class="oe_title">
+                        <h1 class="d-flex">
+                            <field name="name" placeholder="Tipo de documento"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </h1>
+
+                        <label for="id_solicitud" string="Consecutivo: "/>
+                        <field name="id_solicitud"/>
+
+                    </div>
+                    <group string="Compromiso del servicio Nauta"
+                           attrs="{'invisible': [('name', '!=', 'Compromiso_nauta')]}">
+                        <group>
+                            <field name="compromiso_trabajador" string="Solicitante"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="compromiso_ocupacion_id" string="Cargo"/>
+                            <field name="compromiso_area_id" string="Área"/>
+                            <field name="compromiso_company_id" string="Proceso"/>
+                        </group>
+                        <group>
+                            <field name="fecha_solicitud"/>
+                        </group>
+                    </group>
+                    <field name="compromiso_html" readonly="1"
+                           attrs="{'invisible': [('name', '!=', 'Compromiso_nauta')]}"/>
+
+                    <group>
+                        <field name="tipo_movimiento" class="font-weight-bold" widget="radio"
+                               options="{'horizontal': true}"
+                               attrs="{'invisible': [('name', '!=', 'Planilla_unica')],
+                               'required': [('name', '=', 'Planilla_unica')]}"/>
+                    </group>
+
+                    <group string="Por el área que solícita el servicio"
+                           attrs="{'invisible': [('name','=', 'Compromiso_nauta')]}">
+                        <group string="Directivo que solícita el servicio">
+                            <field name="solicitante_trabajador"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="solicitante_ocupacion_id" string="Cargo"/>
+                            <field name="solicitante_area_id" string="Área"/>
+                            <field name="solicitante_correo"
+                                   string="Correo" attrs="{'invisible': [('name', '!=', 'Planilla_unica')]}"/>
+                            <field name="solicitante_company_id" string="Proceso"/>
+                        </group>
+                        <group string="Otorgar o modificar servicio a favor de:">
+                            <field name="beneficiario_trabajador"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="beneficiario_sap"
+                                   attrs="{'invisible': [('name', '!=', 'Planilla_unica')]}"/>
+                            <field name="beneficiario_CI"
+                                   attrs="{'invisible': [('name', '!=', 'Planilla_unica')]}"/>
+                            <field name="beneficiario_ocupacion_id" string="Cargo"/>
+                            <field name="beneficiario_area_id" string="Área"/>
+                            <field name="beneficiario_correo" string="Correo"
+                                   attrs="{'invisible': [('name', '!=', 'Planilla_unica')]}"/>
+                            <field name="beneficiario_company_id" string="Proceso"/>
+                        </group>
+                    </group>
+
+                    <group string="Fundamentar la solicitud"
+                           attrs="{'invisible': [('name','=', 'Compromiso_nauta')]}">
+                        <group>
+                            <field name="observaciones" domain="[('tipo', '=',name)]"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="fecha_solicitud"/>
+                            <field name="telefono"/>
+                            <field name="ip" attrs="{'invisible': [('name', '!=', 'Planilla_unica')]}"/>
+                            <field name="almacen" attrs="{'invisible': [('name', '!=', 'Planilla_unica')]}"/>
+                        </group>
+                    </group>
+
+                    <label for="observaciones_rechazo_revision"
+                           string="Observaciones sobre el rechazo de la revisión"
+                           attrs="{'invisible': [('observaciones_rechazo_revision_bool', '!=', True)]}"/>
+                    <field name="observaciones_rechazo_revision"
+                           attrs="{'invisible': [('observaciones_rechazo_revision_bool', '!=', True)]}"/>
+                    <label for="observaciones_rechazo_validacion"
+                           string="Observaciones sobre el rechazo de la validación"
+                           attrs="{'invisible': [('observaciones_rechazo_validacion_bool', '!=', True)]}"/>
+                    <field name="observaciones_rechazo_validacion"
+                           attrs="{'invisible': [('observaciones_rechazo_validacion_bool', '!=', True)]}"/>
+                    <label for="observaciones_cancelacion"
+                           string="Observaciones sobre la cancelación"
+                           attrs="{'invisible': [('observaciones_cancelacion_bool', '!=', True)]}"/>
+                    <field name="observaciones_cancelacion"
+                           attrs="{'invisible': [('observaciones_cancelacion_bool', '!=', True)]}"/>
+
+                    <notebook>
+                        <page name="aprobado" string="Directivo que aprueba el servicio"
+                              attrs="{'invisible': [('name', '!=', 'anexo1')]}">
+                            <group>
+                                <group>
+                                    <field name="aprueba_fecha"/>
+                                </group>
+                                <group>
+                                </group>
+                                <group>
+                                    <field name="aprueba_trabajador"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="aprueba_ocupacion_id" string="Cargo"/>
+                                </group>
+                                <group>
+                                    <field name="aprueba_area_id" string="Área"/>
+                                    <field name="aprueba_company_id" string="Proceso"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="servicios" string="Servicios a otorgar"
+                              attrs="{'invisible': [('name', '!=', 'anexo1')]}">
+                            <group>
+                                <group>
+                                    <field name="servicio_mensaje" widget="boolean_toggle"/>
+                                    <field name="servicio_voz" widget="boolean_toggle"/>
+                                    <field name="servicio_plan_tope"/>
+                                    <field name="servicio_gprs" widget="boolean_toggle"/>
+                                    <field name="servicio_intranet" widget="boolean_toggle"/>
+                                </group>
+                                <group>
+                                    <field name="servicio_mensaje_voz" widget="boolean_toggle"/>
+                                    <field name="servicio_ldi" widget="boolean_toggle"/>
+                                    <field name="servicio_roaming" widget="boolean_toggle"/>
+                                    <field name="servicio_wap" widget="boolean_toggle"/>
+                                    <field name="servicio_mms" widget="boolean_toggle"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="modificaciones" string="Modificaciones a realizar"
+                              attrs="{'invisible': [('name', '!=', 'anexo1')]}">
+                            <group>
+                                <group>
+                                    <field name="cambio_servicio"/>
+                                    <field name="gama" class="font-weight-bold" widget="radio"
+                                           options="{'horizontal': true}"/>
+                                </group>
+                                <group>
+                                    <field name="cambio_equipo"/>
+                                    <field name="fecha_roaming"/>
+                                    <label for="fecha_roaming_inicio" string="Fechas"/>
+                                    <div class="o_row" attrs="{'invisible': [('fecha_roaming', '!=', True)]}">
+                                        <field name="fecha_roaming_inicio" widget="daterange" nolabel="1"
+                                               class="oe_inline"
+                                               options="{'related_end_date': 'fecha_roaming_fin'}"/>
+                                        <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon"
+                                           title="Arrow"/>
+                                        <field name="fecha_roaming_fin" widget="daterange" nolabel="1"
+                                               class="oe_inline"
+                                               options="{'related_start_date': 'fecha_roaming_inicio'}"/>
+                                    </div>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="minutos" string="Directivo que aprueba el aumento de minutos"
+                              attrs="{'invisible': [('name', '!=', 'anexo2')]}">
+                            <group>
+                                <group>
+                                    <field name="directivo_trabajador"/>
+                                    <field name="directivo_cargo"/>
+                                    <field name="directivo_uo"/>
+                                </group>
+                                <group>
+                                    <field name="directivo_fecha"/>
+                                    <field name="directivo_cantidad_minutos"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="sistemas_aplicaciones" string="Sistemas o aplicaciones"
+                              attrs="{'invisible': [('name', '!=', 'Planilla_unica')]}">
+                            <group>
+                                <group>
+                                    <field name="app_OperCAT"/>
+                                    <field name="app_WebTransfer"/>
+                                    <field name="app_Boulevard_MiTransfer"/>
+                                    <field name="app_RUNA"/>
+                                    <field name="app_KBS"/>
+                                    <field name="app_SIGEN"/>
+                                    <field name="app_reclamaciones_SIGEN"/>
+                                    <field name="app_Avila_DocPro"/>
+                                    <label for="app_Nauta_interna"/>
+                                    <div class="o_row">
+                                        <field name="app_Nauta_interna" class="oe_inline"/>
+                                        <span class="font-weight-bold" style="width:142px;"
+                                              attrs="{'invisible': [('app_Nauta_interna', '!=', True)]}"> Horas</span>
+                                        <field name="horas_nauta" class="font-weight-bold" widget="radio"
+                                               options="{'horizontal': true}"
+                                               attrs="{'invisible': [('app_Nauta_interna', '!=', True)]}"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="app_ReportesSINBADPLUS"/>
+                                    <field name="app_SINBADPLUS_GOS"/>
+                                    <field name="app_COBROS"/>
+                                    <field name="app_eCRM"/>
+                                    <field name="app_Capa_servicios"/>
+                                    <field name="app_SIGC"/>
+                                    <field name="app_SADTEL"/>
+                                    <field name="app_GESNAUTA"/>
+                                    <field name="app_GESCOM"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'open_attachments': True}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="Internos_solicitudes_id_consecutivo_incrementar" model="ir.sequence">
+        <field name="name">Servicios Internos: Consecutivo de las solicitudes</field>
+        <field name="code">internos_solicitudes_id_consecutivo_incrementar</field>
+        <field name="padding">4</field>
+        <field name="prefix">SO-%(range_year)s/</field>
+        <field name="number_increment">1</field>
+        <field name="use_date_range">True</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="internos_solicitudes_anexo1_views_actions" model="ir.actions.act_window">
+        <field name="name">Gestión de Anexo 1</field>
+        <field name="res_model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_internos_solicitudes_tree"/>
+        <field name="search_view_id" ref="view_internos_solicitudes_filtro"/>
+        <field name="context">{'search_default_name': 'anexo1', 'default_name': 'anexo1', 'search_default_activas': 1, }
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar un nuevo registro de solicitud
+            </p>
+        </field>
+    </record>
+
+    <record id="internos_solicitudes_anexo2_views_actions" model="ir.actions.act_window">
+        <field name="name">Gestión de Anexo 2</field>
+        <field name="res_model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_internos_solicitudes_tree"/>
+        <field name="search_view_id" ref="view_internos_solicitudes_filtro"/>
+        <field name="context">{'search_default_name': 'anexo2', 'default_name': 'anexo2', 'search_default_activas': 1, }
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar un nuevo registro de solicitud
+            </p>
+        </field>
+    </record>
+
+    <record id="internos_solicitudes_compromiso_views_actions" model="ir.actions.act_window">
+        <field name="name">Gestión del Compromiso Nauta</field>
+        <field name="res_model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_internos_solicitudes_tree"/>
+        <field name="search_view_id" ref="view_internos_solicitudes_filtro"/>
+        <field name="context">{'search_default_name': 'Compromiso_nauta', 'default_name': 'Compromiso_nauta',
+                               'search_default_activas': 1, }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar un nuevo registro de solicitud
+            </p>
+        </field>
+    </record>
+
+    <record id="internos_solicitudes_planilla_unica_views_actions" model="ir.actions.act_window">
+        <field name="name">Gestión de la Planilla Única</field>
+        <field name="res_model">sicpro.app.servicios.internos.solicitudes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_internos_solicitudes_tree"/>
+        <field name="search_view_id" ref="view_internos_solicitudes_filtro"/>
+        <field name="context">{'search_default_name': 'Planilla_unica', 'default_name': 'Planilla_unica',
+                               'search_default_activas': 1, }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar un nuevo registro de solicitud
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

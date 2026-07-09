@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="reporte_cmi_report_action_acciones" model="ir.actions.report">
+        <field name="name">Reporte del Plan de Acciones</field>
+        <field name="model">sicpro.app.cmi.reporte</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_cmi.reporte_cmi_report_acciones</field>
+        <field name="report_file">sicpro_app_cmi.reporte_cmi_report_acciones</field>
+        <field name="print_report_name">'Reporte del Plan de Acciones'</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="reporte_cmi_report_acciones">
+        <t t-set="company" t-value="env.company"/>
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table width="954" cellpadding="5" cellspacing="0" style="page-break-before: always">
+                            <colgroup>
+                                <col width="178"></col>
+                                <col width="113"></col>
+                                <col width="77"></col>
+                                <col width="88"></col>
+                                <col width="97"></col>
+                                <col width="90"></col>
+                                <col width="103"></col>
+                                <col width="126"></col>
+                            </colgroup>
+                            <tr valign="top">
+                                <td width="178" height="10"></td>
+                                <td align="center"  colspan="7" width="755">
+                                    <b><h2>Informe de los Objetivos de Trabajo</h2></b>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td width="178" height="10"></td>
+                                <td align="center" colspan="7" width="755">
+                                    <b>Año: <t t-esc="inf.anio"/></b>
+                                </td>
+                            </tr>
+
+                            <t t-foreach='inf.reporte_cmi_anios_indicadores()' t-as='indicador'>
+                                <tr valign="top">
+                                    <td width="178" height="10" style="border: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <b>ARC</b></td>
+                                    <td colspan="7" width="755" class="text-center" style="border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <b><span t-esc="indicador['perspectiva_name']"/></b></td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="178" height="9" style="border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: medium none; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <b>Dirección Estratégica DVPE</b></td>
+                                    <td colspan="7" width="755" style="border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <span t-esc="indicador['obj_ejes_name']"/></td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="178" height="17" style="border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: medium none; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <b>Objetivo Estratégico DVPE</b></td>
+                                    <td colspan="7" width="755" style="border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <span t-esc="indicador['obj_estrategico_name']"/></td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="178" height="18" style="border-left: 1px solid #000000; border-right: 1px solid #000000; border-top: medium none; border-bottom: medium none; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <b>Objetivo Anual DVPE</b></td>
+                                    <td colspan="7" width="755" style="border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1.00pt solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <span t-esc="indicador['obj_anuales_name']"/></td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="178" height="17" style="border-left: 1.00pt solid #000000; border-right: 1px solid #000000; border-top: 1.00pt solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <b>Criterio de medida</b></td>
+                                    <td colspan="7" width="755" bgcolor="#d9d9d9" style="border-left: 1px solid #000000; border-right: 1.00pt solid #000000; border-top: 1.00pt solid #000000; border-bottom: medium none; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm; background: #d9d9d9">
+                                        <p style="orphans: 0; widows: 0; margin-bottom: 0cm">
+                                            <span t-esc="indicador['name']"/></p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="178" height="17" style="border-left: 1.00pt solid #000000; border-right: 1px solid #000000; border-top: 1.00pt solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <b>Responsable</b></td>
+                                    <td colspan="7" width="755" style="border-left: 1px solid #000000; border-right: 1.00pt solid #000000; border-top: 1.00pt solid #000000; border-bottom: medium none; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                        <span t-esc="indicador['responsable_id']"/></td>
+                                </tr>
+                                <tr valign="top">
+                                    <td colspan="2" bgcolor="#d9d9d9" style="border: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm; background: #d9d9d9">
+                                        <b>Acciones</b></td>
+                                    <td width="100" bgcolor="#d9d9d9" style="border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm; background: #d9d9d9">
+                                        <b>Fecha de Comienzo</b></td>
+                                    <td bgcolor="#d9d9d9" style="border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm; background: #d9d9d9">
+                                        <b>Fecha de Terminación</b></td>
+                                    <td width="150" bgcolor="#d9d9d9" style="border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm; background: #d9d9d9">
+                                        <b>Implicados </b></td>
+                                    <td bgcolor="#d9d9d9" style="border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm; background: #d9d9d9">
+                                        <b>Responsables</b></td>
+                                    <td bgcolor="#d9d9d9" style="border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm; background: #d9d9d9">
+                                        <b>Controla </b></td>
+                                    <td bgcolor="#d9d9d9" style="border-left: medium none; border-right: 1.00pt solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm; background: #d9d9d9">
+                                        <b>Modo de Control</b></td>
+                                </tr>
+
+                                <t t-foreach='inf.reporte_cmi_anios_acciones()' t-as='acciones'>
+                                    <t t-if="acciones['indicador_id'] == indicador['id']">
+                                        <tr>
+                                            <td colspan="2" style="font-size: medium; border: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                                <span t-esc="acciones['name']"/></td>
+                                            <td style="font-size: medium; border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;" align="center">                                                <p style="orphans: 0; widows: 0; text-align: center"/>
+                                                <span t-esc="acciones['fecha_inicio']"/></td>
+                                            <td style="font-size: medium; border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                                <p style="orphans: 0; widows: 0; text-align: center"/>
+                                                <span t-esc="acciones['fecha_fin']"/></td>
+                                            <td style="font-size: medium; border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                                <t t-set="participante" t-value="acciones['participantes_ids']"/>
+                                                <t t-foreach='participante' t-as='participantes'>
+                                                <li><span t-esc="participantes['name']"/></li>
+                                                </t>
+                                            </td>
+                                            <td style="font-size: medium; border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                                <span t-esc="acciones['responsable_id']"/></td>
+                                            <td style="font-size: medium; border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                                <span t-esc="acciones['controla_id']"/></td>
+                                            <td style="font-size: medium; border-left: medium none; border-right: 1px solid #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding-left: 0.12cm; padding-right: 0.12cm; padding-top: 0cm; padding-bottom: 0cm;">
+                                                <span t-esc="acciones['modo_control']"/></td>
+                                        </tr>
+                                    </t>
+                                </t>
+                                 <tr>
+                                    <td width="178" height="17"></td>
+                                    <td colspan="7" width="755"></td>
+                                </tr>
+                                <tr>
+                                    <td width="178" height="17"></td>
+                                    <td colspan="7" width="755"></td>
+                                </tr>
+                            </t>
+                        </table>
+                    </t>
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+				<span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+                <div style="border-top: 1px solid black;">
+					<ul class="list-inline mb4">
+					<span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+						<i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+						<br/>
+					<span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba.
+						Tomo  II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+					<div t-if="report_type == 'pdf'" class="text-center text-muted">
+						Página: <span class="page"/> / <span class="topage"/>
+					</div>
+				</div>
+			</div>
+
+        </t>
+    </template>
+    </data>
+</openerp>

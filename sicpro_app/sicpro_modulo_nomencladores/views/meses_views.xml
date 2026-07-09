@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record id="nomenclador_meses_tree_view" model="ir.ui.view">
+        <field name="name">nomenclador.meses.tree.view</field>
+        <field name="model">sicpro.nomenclador.meses</field>
+        <field name="arch" type="xml">
+            <tree string="Mes" editable="bottom">
+                <field name="codigo_mes" string="Código" width="5"/>
+                <field name="name" string="Mes"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="nomenclador_meses_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Meses</field>
+       <field name="model">sicpro.nomenclador.meses</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Meses">
+            <field name="name" string="Mes"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+
+    <record id="action_nomenclador_meses" model="ir.actions.act_window">
+        <field name="name">Meses</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.meses</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+    </data>
+</odoo>

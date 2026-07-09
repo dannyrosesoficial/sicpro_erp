@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+    <t t-name="Qr_Popup">
+        <div class="o_qr_scanner_pop_up_mode_container o_home_menu_background">
+            <span class="o_qr_scanner_pop_up_backdrop"/>
+            <div class="o_qr_scanner_clock text-center"/>
+            <div class="o_qr_scanner_pop_up_mode o_qr_main">
+                <h2><small>Identificar Material</small></h2>
+                <div class="row o_qr_scanner_pop_up_welcome_row">
+                    <div class="col-sm-5 mt16">
+                        <img class="img img-fluid d-block mx-auto qr_scanner_button" src="/sicpro_app_escaner_codigos/static/src/img/frame.png"/>
+                        <h5 class="mt8 mb0 text-muted">Escanear Qr</h5>
+                    </div>
+                    <div class="col-sm-2 mt32">
+                        <h4 class="mt0 mb8"><i></i></h4>
+                        <!-- <h4 class="mt0 mb8"><i>O</i></h4> -->
+                    </div>
+                    <div class="col-sm-5 mt16">
+                        <button class="o_qr_scanner_button_manually btn btn-primary mb16">
+                            <div class="mb16 mt16">Identificar Manualmente</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="qr_code_scanner_popup">
+        <div class="qr_code_scanner_popup">
+            <div class="qr_code_scanner_wrapper">
+                <div class="qr_code_scanner_container">
+                    <div id="qr_code_scanner"></div>
+                </div>
+                <div class="qr_code_scanner_success_message d-none">
+                    <span id="qr_code_test"/>
+                    <div class="btn_block">
+                        <button id="qr_code_scanner_save_resume_btn" class="btn btn-success">Guardar Y Continuar</button>
+                        <button id="qr_code_scanner_save_btn" class="btn btn-primary">Guardar Y Salir</button>
+                        <button id="qr_code_scanner_resume_btn" class="btn btn-primary">Descartar Y Continuar</button>
+                    </div>
+                </div>
+            </div>
+            <span class="fa fa-close qr_code_scanner_close_popup_btn"/>
+        </div>
+    </t>
+</template>

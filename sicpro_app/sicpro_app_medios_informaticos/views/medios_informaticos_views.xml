@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="view_form_inventory" model="ir.ui.view">
+        <field name="name">sicpro.app.medios.informaticos.form</field>
+        <field name="model">sicpro.app.medios.informaticos</field>
+        <field name="arch" type="xml">
+            <form string="Inventory">
+                <header>                     
+                </header>
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="estado"/>
+                            <field name="name"/>
+                            <field name="equipo"/>
+                            <field name="tipo_equipo"
+                                   options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                            <field name="local"
+                                   options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                            <field name="centro_costo"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="are_id"/>
+                            <field name="emplazamiento"
+                                   options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                            <field name="centro_planificacion"/>
+                            <field name="activo_fijo"/>
+                            <field name="no_pieza_fab"/>
+                            <field name="responsable"/>
+                            <field name="trabajador_id"/>
+                        </group>
+                    </group>
+                    <group name="group_bottom">
+                        <field name="denominacion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_inventario" model="ir.ui.view">
+        <field name="name">sicpro.app.medios.informaticos.tree</field>
+        <field name="model">sicpro.app.medios.informaticos</field>
+        <field name="arch" type="xml">
+            <tree string="Inventory">
+                <field name="name"/>
+                <field name="equipo"/>
+                <field name="tipo_equipo"/>
+                <field name="denominacion"/>
+                <field name="centro_costo"/>
+                <field name="local"/>
+                <field name="are_id"/>
+                <field name="emplazamiento"/>
+                <field name="centro_planificacion"/>
+                <field name="activo_fijo"/>
+                <field name="no_pieza_fab"/>
+                <field name="responsable"/>
+                <field name="trabajador_id"/>
+                <field name="estado" class="font-weight-bold" widget="badge"
+                       decoration-success="estado == 'reserva'" decoration-primary="estado == 'taller'"
+                       decoration-danger="estado == 'piezas'" decoration-muted="estado == 'funcionando'"
+                       decoration-warning="estado == 'proceso_baja'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_filter_inventario" model="ir.ui.view">
+        <field name="name">sicpro.app.medios.informaticos.search</field>
+        <field name="model">sicpro.app.medios.informaticos</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name"/>
+                <field name="trabajador_id"/>
+                <separator/>
+                 <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                     <filter string='Tipo de Equipo' name="tipo_equipo" domain="[]"
+                             context="{'group_by': 'tipo_equipo'}"/>
+                    <separator/>
+                    <filter string='Local' name="local" domain="[]" context="{'group_by': 'local'}"/>
+                    <filter string='Centro Coste' name="centro_costo" domain="[]"
+                            context="{'group_by': 'centro_costo'}"/>
+                    <separator/>
+                    <filter string='Are' name="are_id" domain="[]" context="{'group_by': 'are_id'}"/>
+                    <filter string='Emplazamiento' name="emplazamiento" domain="[]"
+                            context="{'group_by': 'emplazamiento'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="medios_informaticos_inventario_action" model="ir.actions.act_window">
+        <field name="name">Inventario Medios de Cómputo</field>
+        <field name="res_model">sicpro.app.medios.informaticos</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
+

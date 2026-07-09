@@ -1,0 +1,45 @@
+# -*- coding: utf-8 -*-
+
+import operator
+
+from odoo import api, fields, models, modules
+
+
+class IrModule(models.Model):
+    _inherit = 'ir.module.module'
+
+    local_updatable = fields.Boolean('Local updatable', compute='_get_latest_version',
+                                     compute_sudo=False, default=False, store=True)
+
+    def module_multi_uninstall(self):
+        modules = self.browse(self.env.context.get('active_ids'))
+        [module.button_immediate_uninstall() for module in modules if
+         module not in ['base', 'web']]
+
+    def module_multi_refresh_po(self):
+        lang = self.env.user.lang
+        modules = self.browse(self.env.context.get('active_ids'))
+
+        for rec in modules:
+            translate = self.env['ir.translation'].search(
+                [('lang', '=', lang), ('module', '=', rec.name)])
+            translate.sudo().unlink()
+        self.sudo().with_context(overwrite=True)._update_translations(lang)
+
+    def button_get_po(self):
+        self.ensure_one()
+        action = self.env.ref(
+            'sicpro_modulo_avanzado.action_server_module_multi_get_po').read()[0]
+        action['context'].update({'default_lang': self.env.user.lang, })
+        return action
+
+    @api.depends('name', 'latest_version', 'state')
+    def _get_latest_version(self):
+        default_version = modules.adapt_version('1.0')
+        for module in self:
+            module.installed_version = self.get_module_info(module.name).get('version', default_version)
+            if module.installed_version and module.latest_version and operator.gt(
+                    module.installed_version, module.latest_version):
+                module.local_updatable = True
+            else:
+                module.local_updatable = False

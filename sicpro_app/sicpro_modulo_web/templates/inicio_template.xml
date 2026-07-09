@@ -1,0 +1,583 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <template id="web_plantilla_inicio">
+    <t t-call-assets="web.assets_common"/>
+
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>SICPRO ERP - Inicio</title>
+      <meta http-equiv="cache-control" content="no-cache"/>
+      <meta http-equiv="pragma" content="no-cache"/>
+
+      <!-- Favicons -->
+      <link href="/sicpro_modulo_web/static/src/img/SICPRO_ERP.png" rel="icon"/>
+      <link href="/sicpro_modulo_web/static/src/img/SICPRO_ERP.png" rel="apple-touch-icon"/>
+
+      <!-- Vendor CSS -->
+      <link href="/sicpro_modulo_web/static/src/vendor/aos/aos.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web/static/src/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web/static/src/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web/static/src/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web/static/src/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web/static/src/vendor/remixicon/remixicon.css" rel="stylesheet"/>
+      <link href="/sicpro_modulo_web/static/src/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+      <!-- Template Main CSS -->
+      <link href="/sicpro_modulo_web/static/src/css/style.css" rel="stylesheet"/>
+
+    </head>
+    <body>
+      <div name="div_inicial">
+
+        <!-- ======= Inicio Encabezado ======= -->
+        <header id="header" class="fixed-top d-flex align-items-center">
+          <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+              <a href="#">
+                <img src="/sicpro_modulo_web/static/src/img/SICPRO_ERP.png" alt="SICPRO" class="img-fluid"/>
+                <strong class="text-logo">SICPRO</strong>
+              </a>
+            </div>
+
+            <nav id="navbar" class="navbar">
+              <ul>
+                <li><a name='header_inicio' class="nav-link scrollto active" href="#presentacion">Inicio</a></li>
+                <li><a name='header_about' class="nav-link scrollto" href="#about">¿SICPRO?</a></li>
+                <li><a name='header_manuales' class="nav-link scrollto" href="#manuales">Manuales</a></li>
+                <li><a name='header_equipo' class="nav-link scrollto" href="#equipo">Equipo</a></li>
+                <li><a name='header_contactos' class="nav-link scrollto" href="#footer">Contacto</a></li>
+              </ul>
+              <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+
+            <t t-set="social_links" t-value="request.env['res.company'].sudo().search(
+                    [('login_redes_sociales', '=', True)])"/>
+            <div class="social-links">
+              <a t-if="social_links.social_twitter" t-att-href="social_links.social_twitter"
+                 class="twitter" aria-label="Twitter" title="Twitter">
+                <i class="bi bi-twitter"/>
+              </a>
+              <a t-if="social_links.social_facebook" t-att-href="social_links.social_facebook"
+                 class="facebook" aria-label="Facebook" title="Facebook">
+                <i class="bi bi-facebook"/>
+              </a>
+              <a t-if="social_links.social_instagram" t-att-href="social_links.social_instagram"
+                 class="instagram" aria-label="Instagram" title="Instagram">
+                <i class="bi bi-instagram"/>
+              </a>
+              <a href="https://www.dvpe.etecsa.cu/" class="instagram" title="DVPE">
+                <img src="/sicpro_modulo_web/static/src/img/etecsaCi_300_6_blanco.png" width="18" height="18"/></a>
+            </div>
+          </div>
+        </header>
+        <!-- Fin Encabezado -->
+
+        <!-- ======= Inicio Presentación ======= -->
+        <section id="presentacion" class="header">
+
+          <div class="container">
+            <div class="row">
+              <t t-set="version_ids" t-value="request.env['sicpro.modulo.web.version'].sudo().search([])"/>
+
+              <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+                   data-aos="fade-up" data-aos-delay="200">
+                <h1>SICPRO ERP</h1>
+                <h2>Sistema Integral de Control de la Producción para la #DVPE</h2>
+                <h5><a name="href_version" href="#" class="text color-version-titulo">Ver cambios en la
+                  <strong><i class="bi bi-arrow-right"/></strong> <i class="color-version"><t t-out="version_ids['name']"/></i></a>
+                </h5>
+                <div class="d-flex justify-content-center justify-content-lg-start">
+                  <a name="btn_login" href="/web/login" class="btn-get-started scrollto">Iniciar Sesión</a>
+                </div>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                <img src="/sicpro_modulo_web/static/src/img/hero-img.png" class="img-fluid animated" alt=""/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inicio Animación -->
+          <div>
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="waves" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+              <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+              </defs>
+              <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7"/>
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"/>
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"/>
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff"/>
+              </g>
+            </svg>
+          </div>
+          <!--Fin Animación-->
+        </section>
+        <!-- Fin Presentación -->
+
+        <main id="main">
+          <!-- ======= Inicio Accesos ======= -->
+          <section id="accesos" name="accesos" class="accesos section-bg">
+            <div class="container">
+              <div class="row" data-aos="zoom-in">
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                  <a href="https://nube.etecsa.cu" title="Nube ETECSA">
+                    <img src="/sicpro_modulo_web/static/src/img/accesos/nube.png" class="img-fluid"/></a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                  <a href="https://gitlab.etecsa.cu" title="GitLab">
+                    <img src="/sicpro_modulo_web/static/src/img/accesos/gitlab.png" class="img-fluid"/></a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                  <a href="https://autogestionpersonal.etecsa.cu" title="Autogestión Personal">
+                    <img src="/sicpro_modulo_web/static/src/img/accesos/autogestion.png" class="img-fluid"/></a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                  <a href="https://webmail.etecsa.cu/" title="Webmail">
+                    <img src="/sicpro_modulo_web/static/src/img/accesos/webmail.png" class="img-fluid"/></a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                  <a href="https://jitsi.etecsa.cu/" title="VideoConferencia">
+                    <img src="/sicpro_modulo_web/static/src/img/accesos/jitsi.png" class="img-fluid"/></a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                  <a href="https://www.portal.etecsa.cu" title="Portal del Trabajador">
+                    <img src="/sicpro_modulo_web/static/src/img/accesos/portal.png" class="img-fluid"/></a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Fin Accesos -->
+
+          <!-- ======= Inicio Que es SICPRO ======= -->
+          <section id="about" name="about" class="about">
+            <div class="container" data-aos="fade-up">
+              <div class="section-title">
+                <h2>¿SICPRO?</h2>
+              </div>
+              <div class="row">
+                <t t-set="url_video" t-value="request.env['sicpro.modulo.web.about'].sudo().search(
+                [('active', '=', True)])"/>
+
+                <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                  <img src="/sicpro_modulo_web/static/src/img/about.png" class="img-fluid" alt=""/>
+                  <a t-if="url_video.name" t-att-href="url_video.url_computado" class="glightbox play-btn mb-4"></a>
+                </div>
+                <div class="col-lg-6 pt-3 pt-lg-0 content">
+                  <h3>Qué es SICPRO ERP y Principales ventajas.</h3>
+                  <p class="fst-italic">
+                    SICPRO ERP es una suite de aplicaciones de gestión, que absolutamente todo funcionan de manera
+                    integrada debido a que incluye una gama de módulos de fácil uso, para optimizar y rentabilizar
+                    los procesos de trabajo.
+                    Su objetivo es englobar en un único software todas las herramientas que necesita la DVPE para la
+                    operatividad en sus Procesos.
+                  </p>
+                  <ul>
+                    <li><i class="bx bx-check-double"></i>
+                      Funciona en la nube, lo que garantiza tu conexión desde cualquier lugar.
+                    </li>
+                    <li><i class="bx bx-check-double"></i>
+                      Se utiliza mediante un navegador web, sin importar la plataforma o fabricante del dispositivo
+                      desde donde te conectes.
+                    </li>
+                    <li><i class="bx bx-check-double"></i>
+                      Todos los módulos están integrados en una única plataforma,
+                      por lo que no es necesario el empleo de varios sistemas a la vez.
+                    </li>
+                    <li><i class="bx bx-check-double"></i>
+                      Con el sistema de permisos puedes establecer niveles de acceso a los distintos colaboradores y
+                      departamentos, facilitando el control.
+                    </li>
+                    <li><i class="bx bx-check-double"></i>
+                      Base de datos relacional, cualquier dato que introduzcas en el sistema es visible para todos los
+                      módulos y usuarios. De esta forma la información está disponible en tiempo real según los niveles
+                      de permisos definidos.
+                    </li>
+                  </ul>
+                  <a t-if="url_video.name" t-att-href="url_video.url_computado"
+                     style="font-size: 22px; font-weight: bold;  transition: 0.5s; color: #ff4a17;">
+                    <i class="bi bi-play-circle"></i><span>Ver Video</span></a>
+
+                </div>
+              </div>
+
+            </div>
+          </section>
+          <!-- Fin Que es SICPRO -->
+
+          <!-- ======= Inicio Logros ======= -->
+          <section id="logros" name="logros" class="logros">
+            <div class="container">
+
+              <div class="row">
+                <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start"
+                     data-aos="fade-right" data-aos-delay="150">
+                  <img src="/sicpro_modulo_web/static/src/img/counts-img.svg" alt="" class="img-fluid"/>
+                </div>
+
+                <div class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0" data-aos="fade-left" data-aos-delay="300">
+                  <div class="content d-flex flex-column justify-content-center">
+                    <div class="row">
+                      <div class="col-md-6 d-md-flex align-items-md-stretch">
+                        <div class="count-box">
+                          <i class="bi bi-emoji-smile"></i>
+                          <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                          <p><strong>Jornada de Calidad</strong> Ventajas del SICPRO ERP para el uso del Teletrabajo en
+                            la DVPE.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 d-md-flex align-items-md-stretch">
+                        <div class="count-box">
+                          <i class="bi bi-clock"></i>
+                          <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                          <p><strong>Taller VPIV 2022</strong> Implementación del SICPRO ERP para las solicitudes de
+                            trabajo por los inversionistas.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 d-md-flex align-items-md-stretch">
+                        <div class="count-box">
+                          <i class="bi bi-journal-richtext"></i>
+                          <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                          <p><strong>Fórum 2022</strong> Informatización de los procesos de elaboración de proyectos de
+                            seguridad y salud en el trabajo para obras civiles y capacitación en la materia.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 d-md-flex align-items-md-stretch">
+                        <div class="count-box">
+                          <i class="bi bi-award"></i>
+                          <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                          <p><strong>X Simposio Internacional de Telecomunicaciones</strong> Sistema de control de la
+                            producción para la división de proyectos y ejecución de obras.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Fin Logros -->
+
+          <!-- ======= Inicio Manuales ======= -->
+          <section id="manuales" name="manuales" class="manuales">
+            <div class="container">
+              <div class="section-title" data-aos="fade-up">
+                <h2>Manuales</h2>
+                <p>Sección para la consulta de los manuales de usuarios de las aplicaciones</p>
+              </div>
+              <t t-set="manuales_ids" t-value="request.env['sicpro.modulo.web.manuales'].buscar_datos_manuales()"/>
+              <div class="row" data-aos="fade-up" data-aos-delay="300">
+                <t t-foreach='manuales_ids' t-as='data_manuales'>
+                  <div class="col-lg-3 col-md-4 mt-4 mt-md-0" t-att-title="data_manuales['descripcion']">
+                    <div class="icon-box">
+                      <i t-att-class="'fa ' + data_manuales['icono']" t-attf-style="color: #{data_manuales['color']};"></i>
+                      <h3>
+                        <a t-att-href="data_manuales['manual']"><span><t t-out="data_manuales['nombre']"/></span></a>
+                      </h3>
+                    </div>
+                  </div>
+                </t>
+
+              </div>
+            </div>
+          </section>
+          <!-- Fin Manuales -->
+
+          <!-- ======= Inicio Galería ======= -->
+          <section id="galeria" name="galeria" class="galeria">
+            <div class="container" data-aos="fade-up">
+              <div class="section-title">
+                <h2>Galería</h2>
+                <p>Capturas de pantallas de las características principales del sistema. Análisis de uso y versatilidad
+                  de los datos del mismo.</p>
+              </div>
+
+              <t t-set="etiquetas_galeria" t-value="request.env['sicpro.modulo.web.galeria.etiquetas'].sudo().search(
+                    [('active', '=', True)])"/>
+
+              <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">Todas</li>
+                <t t-foreach='etiquetas_galeria' t-as='data_etiqueta'>
+                  <li t-att-data-filter="'.' + data_etiqueta['name']"><t t-out="data_etiqueta['name']"/></li>
+                </t>
+              </ul>
+              <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+                <t t-set="img_ids" t-value="request.env['sicpro.modulo.web.galeria'].sudo().buscar_datos_img()"/>
+                <t t-foreach='img_ids' t-as='imagen_etiqueta'>
+
+                  <div t-att-class="'col-lg-4 col-md-6 portfolio-item ' + imagen_etiqueta['etiquetas']">
+                    <div class="portfolio-img">
+                      <img t-attf-src="#{imagen_etiqueta['imagen']}" class="img-fluid" alt=""/>
+                    </div>
+                    <div class="portfolio-info">
+                      <h4><t t-out="imagen_etiqueta['nombre']"/></h4>
+                      <p><t t-out="imagen_etiqueta['etiquetas']"/></p>
+                      <a t-attf-href="#{imagen_etiqueta['imagen']}"
+                         data-gallery="portfolioGallery" class="preview-link" t-att-title="imagen_etiqueta['nombre']">
+                        <i class="bx bx-plus"></i></a>
+                    </div>
+                  </div>
+                </t>
+              </div>
+            </div>
+          </section>
+          <!--  Fin Galería -->
+
+          <!-- ======= Inicio del Equipo ======= -->
+          <section id="equipo" name="equipo" class="equipo section-bg">
+            <div class="container" data-aos="fade-up">
+              <div class="section-title">
+                <h2>EQUIPO</h2>
+                <p>El sistema cuenta con muchos colaboradores tanto internos como externos a la división.
+                  Presentamos a los principales encargados de la administración, desarrollo y la medición
+                  del cumplimiento de las actividades</p>
+              </div>
+              <div class="row">
+                <t t-set="equipos_ids" t-value="request.env['sicpro.modulo.web.equipo'].buscar_datos_equipos()"/>
+                <t t-set="count_delay" t-value="100"/>
+
+                <t t-foreach='equipos_ids' t-as='data_equipos'>
+                  <div class="col-lg-6 mt-4" data-aos="zoom-in" t-att-data-aos-delay="count_delay">
+                    <div class="member d-flex align-items-start">
+                      <div class="pic"><img t-attf-src="#{data_equipos['imagen']}" class="img-fluid" alt=""/></div>
+                      <div class="member-info">
+                        <h4><t t-out="data_equipos['nombre']"/></h4>
+                        <span><t t-out="data_equipos['cargo']"/></span>
+                        <p><t t-out="data_equipos['responsabilidad']"/></p>
+                        <div class="social">
+                          <a t-if="data_equipos['twitter']" t-att-href="data_equipos['twitter']" aria-label="Twitter"
+                             title="Twitter">
+                            <i class="ri-twitter-fill"/>
+                          </a>
+                          <a t-if="data_equipos['facebook']" t-att-href="data_equipos['facebook']" aria-label="Facebook"
+                             title="Facebook">
+                            <i class="ri-facebook-fill"/>
+                          </a>
+                          <a t-if="data_equipos['instagram']" t-att-href="data_equipos['instagram']"
+                             aria-label="Instagram"
+                             title="Instagram">
+                            <i class="ri-instagram-fill"/>
+                          </a>
+                          <a t-if="data_equipos['linkedin']" t-att-href="data_equipos['linkedin']" aria-label="Linkedin"
+                             title="Linkedin">
+                            <i class="ri-linkedin-box-fill"/>
+                          </a>
+                          <a t-if="data_equipos['correo']" t-att-href="'mailto:' + data_equipos['correo']"
+                             aria-label="Correo"
+                             title="Correo">
+                            <i class="ri-mail-fill"/>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <t t-set="count_delay" t-value="count_delay + 100"/>
+                </t>
+
+              </div>
+            </div>
+          </section>
+          <!-- Fin del Equipo -->
+
+          <!-- ======= Inicio Organización ======= -->
+          <section id="organizacion" name="organizacion" class="organizacion section-bg">
+            <div class="container">
+
+              <div class="section-title">
+                <h2>Organización</h2>
+                <p>SICPRO es sistemas de planificación de recursos empresariales, de información gerencial que integra y
+                  manejan las actividades asociadas con las operaciones de producción y de los aspectos de distribución
+                  de
+                  la división, comprometida en la producción de bienes o servicios.
+                  La gestión correcta es una tarea tan compleja, como lo es controlar todos sus procesos de trabajo.
+                  La dificultad es aún mayor cuanto mayor es el número de clientes y trabajadores.</p>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4 col-md-6">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bi bi-cash-stack" style="color: #ff689b;"></i></div>
+                    <h4 class="title"><a href="">Elimina las duplicidades</a></h4>
+                    <p class="description">Gestiona y controla que las tareas no introduzcan datos duplicados, con la
+                      pérdida
+                      de tiempo que supone y generación de incoherencias, y lo desmotivador que puede llegar a resultar
+                      para el trabajador.</p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bi bi-calendar4-week" style="color: #e9bf06;"></i></div>
+                    <h4 class="title"><a href="">Facilita la comunicación</a></h4>
+                    <p class="description">Gracias al almacenamiento centralizado de los datos, la información
+                      fluye con mayor facilidad entre las diferentes áreas de la DVPE, lo que agiliza los trámites y
+                      permite
+                      una mayor coordinación a todos los niveles.</p>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-wow-delay="0.1s">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bi bi-chat-text" style="color: #3fcdc7;"></i></div>
+                    <h4 class="title"><a href="">Adaptabilidad y escalabilidad</a></h4>
+                    <p class="description">Su funcionamiento a través de módulos permite adaptar el software a las
+                      necesidades
+                      de la DVPE, dando la posibilidad de ampliar conforme van aumentando las exigencias.</p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-wow-delay="0.1s">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bi bi-credit-card-2-front" style="color:#41cf2e;"></i></div>
+                    <h4 class="title"><a href="">Automatización de tareas repetitivas</a></h4>
+                    <p class="description">Garantiza la automatización de tareas repetitivas, liberando a los
+                      trabajadores del
+                      trabajo más tedioso, para que puedan afrontar otras labores más creativas y motivadoras (es decir,
+                      más productivas).</p>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bi bi-globe" style="color: #d6ff22;"></i></div>
+                    <h4 class="title"><a href="">Facilita el acceso a los datos</a></h4>
+                    <p class="description">Aporta una visión panorámica de la información, muy valiosa para la toma
+                      medidas
+                      estratégicas y tácticas.
+                      Facilita la consulta en base a indicadores gráficos muy visuales. Además, la funcionalidad de
+                      autoservicio permite su adaptación a las necesidades de cada usuario.</p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
+                  <div class="icon-box">
+                    <div class="icon"><i class="bi bi-clock" style="color: #4680ff;"></i></div>
+                    <h4 class="title"><a href="">Consigue una mayor eficiencia</a></h4>
+                    <p class="description">Todo ese incremento en la inteligencia y el aprovechamiento de los recursos
+                      finalmente se traduce en un ahorro muy significativo en costes y un aumento en los beneficios y
+                      la productividad en la DVPE.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+          <!-- Fin Organización -->
+        </main>
+        <!-- End #main -->
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+          <div class="footer-top">
+            <div class="container">
+              <div class="row">
+
+                <div class="col-lg-4 col-md-6 footer-info">
+                  <h3><strong>SICPRO</strong></h3>
+                  <p>Es una solución que se enfoca en las necesidades de la DVPE, convirtiéndose es un sistema de
+                    gestión de la información, estructurado para satisfacer las demandas de soluciones de la gestión
+                    empresarial, basado en el ofrecimiento de una solución completa que permita a los procesos claves
+                    y de apoyo evaluar, implementar y gestionar más fácilmente su negocio.</p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                  <h4>Enlaces útiles</h4>
+                  <ul>
+                    <li><a name="footer_inicio" href="#presentacion">Inicio</a></li>
+                    <li><a name="footer_about" href="#about">¿SICPRO?</a></li>
+                    <!--                    <li><a name="footer_automatización" href="#">Automatización</a></li>-->
+                    <!--                    <li><a name="footer_registro" href="#">Solicitar Usuario</a></li>-->
+                    <li><a name="footer_portal" href="https://www.dvpe.etecsa.cu/">Portal DVPE</a></li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                  <h4>Contacto y Soporte</h4>
+                  <p>
+                    Carlos III / Calle Santiago y Belascoaín <br/>
+                    Edificio Masónico<br/>
+                    Oficina 920 <br/>
+                    <strong>Fijo:</strong> +53 78741436<br/>
+                    <strong>Móvil:</strong> +53 52183663<br/>
+                    <strong>Correo:</strong> daniel.borrero@etecsa.cu<br/>
+                  </p>
+
+                  <div class="social-links">
+                    <a t-if="social_links.social_twitter" t-att-href="social_links.social_twitter"
+                       class="twitter" aria-label="Twitter" title="Twitter">
+                      <i class="bi bi-twitter"/>
+                    </a>
+                    <a t-if="social_links.social_facebook" t-att-href="social_links.social_facebook"
+                       class="facebook" aria-label="Facebook" title="Facebook">
+                      <i class="bi bi-facebook"/>
+                    </a>
+                    <a t-if="social_links.social_instagram" t-att-href="social_links.social_instagram"
+                       class="instagram" aria-label="Instagram" title="Instagram">
+                      <i class="bi bi-instagram"/>
+                    </a>
+                    <a href="https://www.dvpe.etecsa.cu/" class="instagram" title="DVPE">
+                      <img src="/sicpro_modulo_web/static/src/img/etecsaCi_300_6_blanco.png" width="18" height="18"/>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-newsletter">
+                  <h4>Nuestro boletín</h4>
+                  <p>Suscríbase a nuestro boletín, para que pueda ser el primero en conocer las últimas noticias y
+                    consejos sobre las aplicaciones, así como actualizaciones generales durante todo el año.</p>
+                  <form action="" method="post">
+                    <input type="email" name="email"/><input type="submit" value="Subscribe" disabled="disabled"/>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="copyright">
+              <img src="/sicpro_modulo_web/static/src/img/etecsaCi_300_8 blanco.png" alt="ETECSA" width="32"
+                   height="32"/>
+              <strong>©2023 DIVISIÓN DE PROYECTOS Y EJECUCIÓN DE OBRAS </strong>
+            </div>
+            <div class="credits">
+              <strong>Todos los derechos reservados </strong>
+            </div>
+          </div>
+        </footer>
+        <!-- Fin Footer -->
+
+<!--        Desactivado el preloader con la vista de carga principal-->
+<!--        <div id="preloader"></div>-->
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+          <i class="bi bi-arrow-up-short"></i>
+        </a>
+
+      </div>
+      <!-- Vendor JS -->
+      <script src="/sicpro_modulo_web/static/src/vendor/aos/aos.js"></script>
+      <script src="/sicpro_modulo_web/static/src/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="/sicpro_modulo_web/static/src/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="/sicpro_modulo_web/static/src/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="/sicpro_modulo_web/static/src/vendor/swiper/swiper-bundle.min.js"></script>
+      <script src="/sicpro_modulo_web/static/src/vendor/waypoints/noframework.waypoints.js"></script>
+      <script src="/sicpro_modulo_web/static/src/vendor/purecounter/purecounter_vanilla.js"></script>
+      <!-- Template Main JS -->
+      <script src="/sicpro_modulo_web/static/src/js/main.js"></script>
+
+<!--    <t t-call-assets="web.web_inicio_js"/>-->
+    </body>
+
+  </template>
+
+
+
+</odoo>

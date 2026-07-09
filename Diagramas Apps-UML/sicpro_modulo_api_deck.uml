@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_api_deck</OriginalElement>
+  <nodes>
+    <node x="1378.5" y="282.5">typing.Sequence</node>
+    <node x="2353.0" y="6453.0">sicpro_modulo_api_deck.models.deck_api_tarjetas.SicproDeckApi</node>
+    <node x="1723.0" y="6475.0">sicpro_modulo_api_deck.models.deck_api_usuario.SicproDeckApi</node>
+    <node x="1736.5" y="348.5">typing.Sized</node>
+    <node x="1887.5" y="304.0">odoo.models.MetaModel</node>
+    <node x="2159.5" y="337.5">typing.Iterator</node>
+    <node x="1117.0" y="6464.0">sicpro_modulo_api_deck.models.deck_api_participante.SicproDeckApi</node>
+    <node x="2331.5" y="348.5">typing.Iterable</node>
+    <node x="2195.25" y="6020.0">odoo.models.Model</node>
+    <node x="2930.0" y="6431.0">sicpro_modulo_api_deck.models.deck_api_etiquetas.SicproDeckApi</node>
+    <node x="2220.5" y="6225.0">sicpro_modulo_api_deck.models.administracion_rest_api.AdministracionRestApi</node>
+    <node x="1855.5" y="6192.0">odoo.models.TransientModel</node>
+    <node x="557.0" y="6464.0">sicpro_modulo_api_deck.models.deck_api_config.SicproDeckApi</node>
+    <node x="2504.5" y="348.5">typing.Container</node>
+    <node x="3575.0" y="6442.0">sicpro_modulo_api_deck.models.deck_api_estados.SicproDeckApi</node>
+    <node x="0.0" y="6431.0">sicpro_modulo_api_deck.models.deck_api_board.SicproDeckApi</node>
+    <node x="2879.5" y="0.0">typing.Hashable</node>
+    <node x="1719.75" y="699.0">odoo.models.BaseModel</node>
+    <node x="2749.5" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_modulo_api_deck.models.deck_api_config.SicproDeckApi" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.5" />
+      <point x="827.0" y="6406.0" />
+      <point x="2028.0" y="6406.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="2028.0" y="6167.0" />
+      <point x="2291.25" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="214.3125" y="-2635.5" />
+      <point x="2505.5625" y="678.0" />
+      <point x="2617.0" y="678.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_api_deck.models.deck_api_estados.SicproDeckApi" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-83.5" />
+      <point x="3851.5" y="6406.0" />
+      <point x="2028.0" y="6406.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-500.0625" y="-2635.5" />
+      <point x="1791.1875" y="678.0" />
+      <point x="1547.5" y="678.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="0.0" y="-270.5" />
+      <point x="2887.0" y="81.0" />
+      <point x="2961.0" y="81.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="500.0625" y="-2635.5" />
+      <point x="2791.3125" y="678.0" />
+      <point x="3035.0" y="678.0" />
+      <point x="3035.0" y="81.0" />
+      <point x="2961.0" y="81.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-71.4375" y="-2635.5" />
+      <point x="2219.8125" y="678.0" />
+      <point x="2235.5" y="678.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-214.3125" y="-2635.5" />
+      <point x="2076.9375" y="678.0" />
+      <point x="2013.5" y="678.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="71.4375" y="-2635.5" />
+      <point x="2362.6875" y="678.0" />
+      <point x="2408.0" y="678.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_api_deck.models.deck_api_board.SicproDeckApi" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="268.5" y="6406.0" />
+      <point x="2028.0" y="6406.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_modulo_api_deck.models.deck_api_participante.SicproDeckApi" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.5" />
+      <point x="1410.0" y="6406.0" />
+      <point x="2028.0" y="6406.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="sicpro_modulo_api_deck.models.deck_api_tarjetas.SicproDeckApi" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-72.5" />
+      <point x="2631.5" y="6406.0" />
+      <point x="2028.0" y="6406.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="sicpro_modulo_api_deck.models.deck_api_usuario.SicproDeckApi" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-50.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="sicpro_modulo_api_deck.models.administracion_rest_api.AdministracionRestApi" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-61.5" />
+      <point x="2554.5" y="6167.0" />
+      <point x="2291.25" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_api_deck.models.deck_api_etiquetas.SicproDeckApi" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="3242.5" y="6406.0" />
+      <point x="2028.0" y="6406.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-357.1875" y="-2635.5" />
+      <point x="1934.0625" y="678.0" />
+      <point x="1802.0" y="678.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="357.1875" y="-2635.5" />
+      <point x="2648.4375" y="668.0" />
+      <point x="2887.0" y="668.0" />
+      <point x="0.0" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.0894578313253012" showDependencies="false" x="2064.0" y="3310.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_administracion_menu_accesos_search" model="ir.ui.view">
+        <field name="name">sicpro.app.administracion.menus.search</field>
+        <field name="model">sicpro.app.administracion.menus</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Menus">
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_administracion_menu_accesos_form" model="ir.ui.view">
+        <field name="name">sicpro.app.administracion.menus.form</field>
+        <field name="model">sicpro.app.administracion.menus</field>
+        <field name="arch" type="xml">
+            <form string="Menus de Accesos">
+                <header>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image_1920" widget='image' class="oe_avatar"
+                           options='{"zoom": true, "preview_image":"image_128"}'/>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" required="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Menus de Accesos">
+                            <field name="accesos" mode="tree,form" context="{'default_menu': name}">
+                                <tree editable="bottom" string="Menus de Accesos">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="accesos"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="name"/>
+                                    <field name="action"/>
+                                    <field name="menu" invisible="1"/>
+                                </tree>
+                                <form string="Menus de Accesos">
+                                    <sheet>
+                                        <group>
+                                            <field name="accesos"/>
+                                            <field name="name"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_administracion_menu_accesos_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.administracion.menus.tree</field>
+        <field name="model">sicpro.app.administracion.menus</field>
+        <field name="arch" type="xml">
+            <tree string="Menus de Accesos">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="administracion_menu_accesos_action" model="ir.actions.act_window">
+        <field name="name">Menus de Accesos</field>
+        <field name="res_model">sicpro.app.administracion.menus</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo menu de acceso
+            </p>
+        </field>
+    </record>
+
+
+    <record id="administracion_menu_accesos_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.administracion.menus.kanban</field>
+        <field name="model">sicpro.app.administracion.menus</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard_administracion o_hr_recruitment_kanban" create="false"
+                    sample="1">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="color"/>
+                <field name="json_menus"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''} o_kanban_record_has_image_fill o_hr_kanban_record">
+                            <div class="o_dropdown_kanban dropdown" groups="base.group_user">
+                                <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                                   href="#" aria-label="Menu Avanzado" title="Menu Avanzado">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <t t-if="widget.editable">
+                                        <a role="menuitem" type="edit" class="dropdown-item font-weight-bold">
+                                        Configuración
+                                        </a>
+                                    </t>
+                                    <div role="separator" class="dropdown-divider"/>
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                            <div class="o_kanban_image_fill_left d-none d-md-block"
+                                 t-attf-style="background-image:url('#{kanban_image('sicpro.app.administracion.menus',
+                                'image_1024', record.id.raw_value,  placeholder)}')">
+                            </div>
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <div class="o_kanban_card_header_title">
+                                            <div class="o_primary col-12 font-weight-bold">
+                                                <h2><span><t t-esc="record.name.value"/></span></h2>
+                                                <span class="o_kanban_record_subtitle text-primary">
+                                                    Menus de accesos
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container o_kanban_card_manage_pane">
+                                    <div class="row">
+                                        <div class="col-12 o_kanban_card_manage_section o_kanban_manage_reports">
+                                            <div>
+                                                <div>
+                                                    <t t-set="a" t-value="JSON.parse(record.json_menus.raw_value)"/>
+                                                    <t t-foreach="a" t-as="o">
+                                                       <li>
+                                                            <a type="action" t-att-data-name="o['menu_action']"
+                                                               class="sales_team_target_definition color_links_menu_administracion o_inline_link">
+                                                                <t t-esc="o['menu_nombre']"/>
+                                                            </a>
+
+<!--                                                            <a name="action_menu_admin" type="object"-->
+<!--                                                               t-attf-data-context="{'default_obj_menu': #{o['menu_action']}}"-->
+<!--                                                               class="sales_team_target_definition color_links_menu_administracion o_inline_link">-->
+<!--                                                                <t t-esc="o['menu_nombre']"/>-->
+<!--                                                            </a>-->
+                                                        </li>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="administracion_menu_accesos_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Tablero de Administración</field>
+        <field name="res_model">sicpro.app.administracion.menus</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                Aquí aparecen los accesos a la administración
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

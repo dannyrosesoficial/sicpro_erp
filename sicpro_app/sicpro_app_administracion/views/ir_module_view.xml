@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Heredo vista search de res.module y le agrego filtros de búsquedas por el autor sicpro-->
+    <record id="view_module_filter_inherit" model="ir.ui.view">
+        <field name="name">ir.module.module.list.select</field>
+        <field name="model">ir.module.module</field>
+        <field name="arch" type="xml">
+            <search string="Search modules">
+                <field name="name" filter_domain="['|', '|', ('summary', 'ilike', self), ('shortdesc', 'ilike', self), ('name',
+                        'ilike', self)]" string="Module"/>
+                <filter name="sicpro" string="SICPRO" domain="[('author', '=', 'Daniel Barrero Reyes')]"/>
+                <filter name="app" string="Apps" domain="[('application', '=', True)]"/>
+                <filter name="extra" string="Extra" domain="[('application', '=', False)]"/>
+                <separator/>
+                <filter name="installed" string="Installed"
+                        domain="[('state', 'in', ['installed', 'to upgrade', 'to remove'])]"/>
+                <filter name="not_installed" string="Not Installed"
+                        domain="[('state', 'in', ['uninstalled', 'uninstallable', 'to install'])]"/>
+                <field name="category_id"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Autor" name="author" domain="[]" context="{'group_by':'author'}"/>
+                    <filter string="Categoría" name="category" domain="[]" context="{'group_by':'category_id'}"/>
+                    <filter string="Estado" name="state" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+                <searchpanel>
+                    <field name="category_id" string="Categorías" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!-- agrego vista al action la búsqueda automática por las apps de sicpro y la pongo como principal -->
+    <record id="base.open_module_tree" model="ir.actions.act_window">
+        <field name="context">{'search_default_sicpro': 1}</field>
+        <field name="search_view_id" ref="sicpro_app_administracion.view_module_filter_inherit"/>
+    </record>
+
+    <!-- Desactivo el menu de la tienda de aplicaciones internacional-->
+    <record id="base.module_mi" model="ir.ui.menu">
+        <field name="active">False</field>
+    </record>
+    <!-- Desactivo el menu de aplicaciones de terceros -->
+    <record id="base.menu_third_party" model="ir.ui.menu">
+        <field name="active">False</field>
+    </record>
+    <!-- Desactivo el menu de tienda de temas -->
+    <record id="base.menu_theme_store" model="ir.ui.menu">
+        <field name="active">False</field>
+    </record>
+
+</odoo>

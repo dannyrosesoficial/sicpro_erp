@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+videoconferencias_usuario,videoconferencia usuario,model_sicpro_app_videoconferencias,base.group_user,1,1,1,1
+videoconferencias_usuario_externo,videoconferencia usuario externo,model_sicpro_app_videoconferencias_usuarioexterno,base.group_user,1,1,1,1
+

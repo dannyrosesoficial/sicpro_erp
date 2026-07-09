@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_rest_api</OriginalElement>
+  <nodes>
+    <node x="1611.5285326086955" y="6787.0">sicpro_app_rest_api.models.api_rest_parametros.ApiRestFunctionParameter</node>
+    <node x="3467.528532608696" y="6875.5">sicpro_app_rest_api.models.api_rest_categorias.ApiRestTag</node>
+    <node x="2569.1875" y="348.5">typing.Sized</node>
+    <node x="3423.1875" y="304.0">odoo.models.MetaModel</node>
+    <node x="3251.1875" y="337.5">typing.Iterator</node>
+    <node x="1974.2323369565215" y="3329.0">AbstractModel</node>
+    <node x="1234.7323369565215" y="6032.0">sicpro_app_rest_api.controllers.api.RestApi</node>
+    <node x="3078.1875" y="348.5">typing.Iterable</node>
+    <node x="2575.7323369565215" y="6054.0">odoo.models.Model</node>
+    <node x="3997.528532608696" y="6765.0">sicpro_app_rest_api.models.api_rest_registros.ApiRestLog</node>
+    <node x="1962.7323369565215" y="6075.5">sicpro_app_rest_api.models.ir_http.Http</node>
+    <node x="32.0" y="3228.0">BaseException</node>
+    <node x="2409.5285326086955" y="6248.0">sicpro_app_rest_api.models.api_rest_directorios.ApiRestPath</node>
+    <node x="1074.5285326086955" y="6732.0">sicpro_app_rest_api.models.api_rest_version.ApiRestVersion</node>
+    <node x="1614.8097826086955" y="0.0">typing.Hashable</node>
+    <node x="2148.2323369565215" y="709.0">odoo.models.BaseModel</node>
+    <node x="2720.1875" y="282.5">typing.Sequence</node>
+    <node x="2950.528532608696" y="6732.0">sicpro_app_rest_api.models.api_rest_campos.ApiRestField</node>
+    <node x="0.0" y="6897.5">sicpro_app_rest_api.tools.http.RecordNotFoundError</node>
+    <node x="1321.5" y="3329.0">Controller</node>
+    <node x="171.0" y="6099.5">Exception</node>
+    <node x="798.7323369565217" y="6076.0">sicpro_app_rest_api.controllers.api.RestApiDocs</node>
+    <node x="2182.2160326086955" y="348.5">typing.Container</node>
+    <node x="544.4823369565217" y="3316.5">sicpro_app_rest_api.tools.http.api_management</node>
+    <node x="639.5285326086957" y="6875.0">sicpro_app_rest_api.models.res_users.ResUsers</node>
+    <node x="1122.0285326086955" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_app_rest_api.controllers.api.RestApiDocs" target="Controller" relationship="REALIZATION">
+      <point x="14.999663043478222" y="-39.0" />
+      <point x="1021.732" y="4679.5" />
+      <point x="1121.0" y="4679.5" />
+      <point x="1121.0" y="3344.5" />
+      <point x="-59.0" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="564.0" y="-2635.5" />
+      <point x="-43.45516304347848" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="571.5" y="0.0" />
+      <point x="3549.1875" y="3344.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="434.9551630434785" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="BaseException" target="object" relationship="REALIZATION">
+      <point x="196.0" y="0.0" />
+      <point x="526.982" y="3344.5" />
+      <point x="526.982" y="3258.0" />
+      <point x="1707.0" y="3258.0" />
+      <point x="1707.0" y="376.5" />
+      <point x="137.50046739130448" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.models.ir_http.Http" target="AbstractModel" relationship="REALIZATION">
+      <point x="119.26766304347848" y="-39.5" />
+      <point x="2259.0" y="6052.0" />
+      <point x="2051.232" y="6052.0" />
+      <point x="-3.369565215507464E-4" y="15.5" />
+    </edge>
+    <edge source="sicpro_app_rest_api.tools.http.RecordNotFoundError" target="Exception" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="AbstractModel" target="object" relationship="REALIZATION">
+      <point x="-3.369565215507464E-4" y="-15.5" />
+      <point x="2051.232" y="3258.0" />
+      <point x="1707.0" y="3258.0" />
+      <point x="1707.0" y="376.5" />
+      <point x="137.50046739130448" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.models.res_users.ResUsers" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.673913042552158E-4" y="-61.5" />
+      <point x="847.029" y="6475.0" />
+      <point x="1501.5" y="6475.0" />
+      <point x="1501.5" y="6223.0" />
+      <point x="2671.732" y="6223.0" />
+      <point x="-3.369565215507464E-4" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.models.ir_http.Http" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="-3.369565215507464E-4" y="-39.5" />
+      <point x="2139.732" y="6028.0" />
+      <point x="2719.732" y="6028.0" />
+      <point x="-3.369565215507464E-4" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_rest_api.models.api_rest_campos.ApiRestField" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.673913040278421E-4" y="-204.5" />
+      <point x="3199.029" y="6223.0" />
+      <point x="2671.732" y="6223.0" />
+      <point x="-3.369565215507464E-4" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.controllers.api.RestApi" target="Controller" relationship="REALIZATION">
+      <point x="-354.00033695652155" y="-61.5" />
+      <point x="1121.0" y="6053.5" />
+      <point x="1121.0" y="3344.5" />
+      <point x="-59.0" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.controllers.api.RestApiDocs" target="object" relationship="REALIZATION">
+      <point x="-3.369565217781201E-4" y="-39.0" />
+      <point x="1006.732" y="3258.0" />
+      <point x="1707.0" y="3258.0" />
+      <point x="1707.0" y="376.5" />
+      <point x="137.50046739130448" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.models.api_rest_registros.ApiRestLog" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.673913044825895E-4" y="-171.5" />
+      <point x="4247.029" y="6223.0" />
+      <point x="2671.732" y="6223.0" />
+      <point x="-3.369565215507464E-4" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="AbstractModel" relationship="REALIZATION">
+      <point x="-96.00033695652155" y="0.0" />
+      <point x="2417.029" y="6115.0" />
+      <point x="2417.029" y="6052.0" />
+      <point x="2051.232" y="6052.0" />
+      <point x="-3.369565215507464E-4" y="15.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-85.04483695652152" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="-425.016304347826" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.controllers.api.RestApi" target="object" relationship="REALIZATION">
+      <point x="-302.7323369565215" y="-83.0" />
+      <point x="1286.0" y="3258.0" />
+      <point x="1707.0" y="3258.0" />
+      <point x="1707.0" y="376.5" />
+      <point x="137.50046739130448" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.tools.http.api_management" target="object" relationship="REALIZATION">
+      <point x="-3.369565217781201E-4" y="-28.0" />
+      <point x="752.982" y="3258.0" />
+      <point x="1707.0" y="3258.0" />
+      <point x="1707.0" y="376.5" />
+      <point x="137.50046739130448" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="169.45516304347848" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.50046739130448" y="-15.0" />
+      <point x="1528.0" y="361.5" />
+      <point x="1528.0" y="28.0" />
+      <point x="-81.49978260869557" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="-571.5003369565216" y="33.0" />
+      <point x="1528.0" y="3377.5" />
+      <point x="1528.0" y="28.0" />
+      <point x="-81.49978260869557" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.models.api_rest_directorios.ApiRestPath" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.673913044825895E-4" y="-688.5" />
+      <point x="2670.029" y="6223.0" />
+      <point x="2671.732" y="6223.0" />
+      <point x="-3.369565215507464E-4" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.models.api_rest_version.ApiRestVersion" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.673913044825895E-4" y="-204.5" />
+      <point x="1333.029" y="6475.0" />
+      <point x="1501.5" y="6475.0" />
+      <point x="1501.5" y="6223.0" />
+      <point x="2671.732" y="6223.0" />
+      <point x="-3.369565215507464E-4" y="61.0" />
+    </edge>
+    <edge source="Controller" target="object" relationship="REALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="1380.5" y="3258.0" />
+      <point x="1707.0" y="3258.0" />
+      <point x="1707.0" y="376.5" />
+      <point x="137.50046739130448" y="0.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="-3.369565215507464E-4" y="-61.0" />
+      <point x="2671.732" y="6028.0" />
+      <point x="2719.732" y="6028.0" />
+      <point x="-3.369565215507464E-4" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_rest_api.models.api_rest_parametros.ApiRestFunctionParameter" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.673913044825895E-4" y="-149.5" />
+      <point x="1933.529" y="6475.0" />
+      <point x="1501.5" y="6475.0" />
+      <point x="1501.5" y="6223.0" />
+      <point x="2671.732" y="6223.0" />
+      <point x="-3.369565215507464E-4" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_rest_api.models.api_rest_categorias.ApiRestTag" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.673913040278421E-4" y="-61.0" />
+      <point x="3722.529" y="6223.0" />
+      <point x="2671.732" y="6223.0" />
+      <point x="-3.369565215507464E-4" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="-571.5003369565216" y="-298.5" />
+      <point x="1707.0" y="3046.0" />
+      <point x="1707.0" y="376.5" />
+      <point x="137.50046739130448" y="0.0" />
+    </edge>
+    <edge source="Exception" target="BaseException" relationship="REALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="116.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.08005232177894048" showDependencies="false" x="2248.5" y="3812.5000000000005" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

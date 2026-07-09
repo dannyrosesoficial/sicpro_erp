@@ -1,0 +1,141 @@
+<templates id="template" xml:space="preserve">
+        <t t-inherit="web.NavBar" t-inherit-mode="extension" owl="1">
+            <xpath expr="//nav[hasclass('o_main_navbar')]" position="attributes">
+                <attribute name="id">barra_superior</attribute>
+            </xpath>
+        </t>
+
+    <t t-inherit="web.NavBar.AppsMenu" t-inherit-mode="extension" owl="1">
+
+        <xpath expr="//Dropdown[hasclass('o_navbar_apps_menu')]" position="replace">
+            <li class="dropdown d-flex justify-content-left">
+                <a class="o_menu_toggle" data-toggle="dropdown" title="Menu Principal"
+                   data-display="static" href="#"
+                   onclick="$('a.o_menu_brand').toggleClass('o_hidden'); $('div.o_menu_sections').toggleClass('o_hidden');
+                   $('#barra_superior').toggleClass('o_main_navbar_custom'); 
+                   $('.o_menu_systray').toggleClass('o_menu_systray_custom');
+                   $('a.o_menu_toggle svg, a.o_menu_toggle .sicpro-return-icon').toggle();
+                   $('.search-container').removeClass('has-results');
+                   $('.o_apps').removeClass('o_hidden');
+                   $('.search-results').empty();
+                   "
+                >
+                   <!-- onclick="$('a.o_menu_brand').addClass('o_hidden'); $('div.o_menu_sections').addClass('o_hidden');
+                   $('#barra_superior').addClass('o_main_navbar_custom'); 
+                   $('.o_menu_systray').addClass('o_menu_systray_custom');" -->
+                    <svg width="14px" height="14px" viewBox="0 0 14 14">
+                        <g fill="currentColor" id="o_menu_toggle_row_0">
+                            <rect width="4" height="4" x="0" y="0"></rect>
+                            <rect width="4" height="4" x="5" y="0"></rect>
+                            <rect width="4" height="4" x="10" y="0"></rect>
+                        </g>
+                        <g fill="currentColor" id="o_menu_toggle_row_1">
+                            <rect width="4" height="4" x="0" y="5"></rect>
+                            <rect width="4" height="4" x="5" y="5"></rect>
+                            <rect width="4" height="4" x="10" y="5"></rect>
+                        </g>
+                        <g fill="currentColor" id="o_menu_toggle_row_2">
+                            <rect width="4" height="4" x="0" y="10"></rect>
+                            <rect width="4" height="4" x="5" y="10"></rect>
+                            <rect width="4" height="4" x="10" y="10"></rect>
+                        </g>
+                    </svg>
+                    <div width="14px" height="14px" class="sicpro-return-icon fa fa-lg fa-angle-left"
+                         style="display: none;"
+                         onclick="sessionStorage.setItem('abandonadoUnaVez','true'); "></div>
+                </a>
+                <div id="selector_imagen" class="dropdown-menu fullscreen-menu menu_app" role="menu">
+
+                        <div class="search-container form-row align-items-center m-auto mb-5 col-12">
+                            <div class="search-input col-md-10 ml-auto mr-auto mb-5"
+                                 t-on-input="_searchMenusSchedule">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-search"/>
+                                            </div>
+                                        </div>
+                                        <input type="search" autocomplete="off"
+                                               placeholder="Buscar menus..." class="form-control"/>
+                                    </div>
+                                </div>
+                            <div class="search-results ml-auto mr-auto rounded"/>
+                        </div>
+
+                    <div class="nav-container">
+                            <div class="o_apps row user-select-none" role="listbox">
+                                <t t-foreach="menuService.getApps()" t-as="app">
+                                    <a role="menuitem"
+                                       t-attf-href="#menu_id={{app.id}}"
+                                       class="o_app o_menuitem col-4 col-sm-3 col-md-2 p-2 mb-3 d-flex
+                                       flex-column rounded justify-content-center align-items-center"
+                                       t-att-data-menu-id="app.menuID" t-att-data-menu-xmlid="app.xmlID"
+                                       t-att-data-action-id="app.actionID">
+                                        <!-- t-attf-onclick="location.href='/#menu_id={{app.id}}';"  -->
+                                        <!--  onclick="$('a.o_menu_brand').removeClass('o_hidden'); $('div.o_menu_sections').removeClass('o_hidden'); $('a.o_menu_toggle').removeClass('o_hidden'); $('#barra_superior').removeClass('o_main_navbar_custom'); $('.o_menu_systray').removeClass('o_menu_systray_custom');" -->
+                                        <img t-att-title="app.name" class="o_app_icon"
+                                             t-attf-src="data:image/png;base64,{{app.webIconData}}"/>
+                                        <b class="o_caption w-100 text-center text-truncate text-white mt-2">
+                                            <t t-esc="app.name"/></b>
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+
+                    <div class="text-center menu-app-logo-division">
+                        <img src="/sicpro_modulo_temavisual/static/img/etecsaIs_300_4.png"
+                             title="Empresa de Telecomunicaciones de Cuba. S.A" alt="DVPE" width="25" height="25"/>
+                        <strong>
+                            <b class="o_caption w-100 text-center text-truncate text-white mt-2">
+                                DIVISIÓN DE PROYECTOS Y EJECUCIÓN DE OBRAS. SICPRO ERP © 2019 - 2023.
+                            </b>
+                        </strong>
+                    </div>
+                    <div class="text-center menu-app-logo-cuba">
+                        <img src="/sicpro_modulo_temavisual/static/img/bandera1.png" title="CUBA" alt="Cuba"
+                             width="60"/>
+                    </div>
+
+                </div>
+            </li>
+
+        </xpath>
+    </t>
+
+    <t t-name="sicpro_modulo_temavisual.SearchResults">
+        <t t-foreach="results" t-as="result">
+            <div class="search_icons">
+            <a t-attf-class="o-menu-search-result dropdown-item col-12 ml-auto mr-auto #{result_first ? 'active' : ''}"
+               t-attf-style="background-image:url('data:image/png;base64,#{result.webIconData}')"
+               t-attf-href="#menu_id=#{result.id}&amp;action_id=#{result.actionID}"
+               t-att-data-menu-id="result.id"
+               t-att-data-action-id="result.actionID"
+               t-raw="result.name"
+               onclick="$('.dropdown-menu').removeClass('show'); $('.search-results').addClass('o_hidden'); $('.app-menu').removeClass('o_hidden'); $('.search-input input').val('');"/>
+            </div>
+        </t>
+    </t>
+
+    <t t-inherit="web.NavBar" t-inherit-mode="extension" owl="1">
+        <xpath expr="//nav[hasclass('o_main_navbar')]" position="after">
+
+    <div class="sidebar_panel" id="sidebar_panel">
+        <div class="sidebar">
+            <ul class="sidebar_menu">
+	            <t t-foreach="menuService.getApps()" t-as="app">
+		            <li>
+		            	<a role="menuitem" t-attf-href="#menu_id={{app.id}}" class="nav-link" t-att-title="app.name">
+		                	<img class="sidebar_img" t-attf-src="data:image/png;base64,{{app.webIconData}}"/>
+                            <b class="o_caption-side text-center text-truncate text-white mt-2-side">
+                                <t t-esc="app.name"/></b>
+		            	 </a>
+
+		            </li>
+		    	</t>
+	        </ul>
+	    </div>
+    </div>
+    </xpath>
+  </t>
+
+</templates>

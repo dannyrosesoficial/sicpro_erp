@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <menuitem name="CMI"  id="menu_cmi_root" sequence="5"
+       web_icon="sicpro_app_cmi,static/description/icon.png"/>
+
+
+    <!--Inicio: Menu Dashboard-->
+<!--        <record id="menu_cmi_dashboard_action" model="ir.actions.client">-->
+<!--            <field name="name">Dashboard</field>-->
+<!--            <field name="tag">sicpro_dashboard_view</field>-->
+<!--            <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.cmi'}</field>-->
+<!--        </record>-->
+<!--        <menuitem id="menu_contratos_dashboard" name="Dashboard"-->
+<!--                  parent="menu_cmi_root" action="menu_cmi_dashboard_action" sequence="1"-->
+<!--                  groups="grupo_app_cmi_usuario"/>-->
+        <!--Fin: Menu Dashboard-->
+
+
+    <menuitem id="menu_cmi_tablero_perspectivas_anios" name="Mapa Estratégico" parent="menu_cmi_root"
+              action="cmi_perspectivas_anios_dashboard_action" sequence="2"
+              groups="grupo_app_cmi_usuario"/>
+
+    <menuitem id="menu_cmi_tablero_operaciones" name="Operaciones" parent="menu_cmi_root"
+              groups="grupo_app_cmi_responsable" sequence="3"/>
+
+    <menuitem id="menu_cmi_cambio_indicador" name="Cambios de Indicadores" parent="menu_cmi_tablero_operaciones"
+              action="solicitar_cambios_indicadores_action"
+              groups="grupo_app_cmi_responsable" sequence="1"/>
+
+    <menuitem id="menu_cmi_indicadores_acciones" name="Registro de Acciones" parent="menu_cmi_tablero_operaciones"
+              action="cmi_indicador_acciones_action"
+              groups="grupo_app_cmi_responsable" sequence="2"/>
+
+
+    <menuitem id="menu_cmi_informes" name="Informes" parent="menu_cmi_root"
+              groups="grupo_app_cmi_usuario" sequence="4"/>
+
+    <menuitem id="menu_report_cmi" name="Reportes del CMI" groups="grupo_app_cmi_usuario"
+              action="reporte_cmi_wizard_action" parent="menu_cmi_informes" sequence="1"/>
+    
+    
+    <menuitem id="menu_cmi_configuracion" name="Configuración" parent="menu_cmi_root"
+              sequence="5"/>
+
+    <menuitem id="menu_cmi_perspectivas_anios" name="Años de Perspectivas" parent="menu_cmi_configuracion"
+              action="cmi_perspectivas_anios_tree_action" sequence="1"
+              groups="grupo_app_cmi_responsable" />
+
+    <menuitem id="menu_cmi_filtro_periodos" name="Filtros de Periodos" parent="menu_cmi_configuracion"
+              action="cmi_perspectivas_periodo_tree_action" sequence="2"
+              groups="grupo_app_cmi_responsable" />
+
+    <menuitem id="menu_cmi_perspectivas" name="Tipos Perspectivas" parent="menu_cmi_configuracion"
+              action="cmi_perspectivas_action" sequence="3"
+              groups="grupo_app_cmi_responsable" />
+
+    <menuitem id="menu_cmi_perspectivas_eje_estrategico" name="Ejes Estratégico" parent="menu_cmi_configuracion"
+              action="cmi_perspectivas_eje_estrategico_tree_action" sequence="4"
+              groups="grupo_app_cmi_responsable" />
+
+    <menuitem id="menu_cmi_acciones_estados" name="Estado de las Acciones" parent="menu_cmi_configuracion"
+              action="cmi_estados_action" sequence="5"
+              groups="grupo_app_cmi_admin" />
+
+    <menuitem id="menu_cmi_acciones_modo_control" name="Modos de Control" parent="menu_cmi_configuracion"
+              action="cmi_modo_control_action" sequence="6"
+              groups="grupo_app_cmi_responsable" />
+
+
+</odoo>

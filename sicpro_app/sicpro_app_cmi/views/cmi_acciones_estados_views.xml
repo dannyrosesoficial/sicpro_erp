@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="cmi_estados_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.cmi.acciones.estado.tree</field>
+        <field name="model">sicpro.app.cmi.acciones.estado</field>
+        <field name="arch" type="xml">
+            <tree string="Estado de acciones" editable="bottom">
+                <field name="name"/>
+                <field name="inicial"/>
+                <field name="final"/>
+                <field name="cancelado"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cmi_estados_view_filter" model="ir.ui.view">
+       <field name="name">sicpro.app.cmi.acciones.estado.filter</field>
+       <field name="model">sicpro.app.cmi.acciones.estado</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Estado">
+                <field name="name"/>
+        </search>
+       </field>
+    </record>
+
+    <record id="cmi_estados_action" model="ir.actions.act_window">
+        <field name="name">Estado de las Acciones</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.cmi.acciones.estado</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Crea los estados de las acciones
+          </p>
+        </field>
+    </record>
+
+
+</odoo>

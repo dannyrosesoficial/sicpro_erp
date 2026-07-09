@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record model="ir.module.category" id="api_rest_category">
+        <field name="name">API REST</field>
+        <field name="sequence">13</field>
+        <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_administracion_general"/>
+    </record>
+
+    <record id="grupo_app_api_rest_admin" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="category_id" ref="sicpro_app_rest_api.api_rest_category"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

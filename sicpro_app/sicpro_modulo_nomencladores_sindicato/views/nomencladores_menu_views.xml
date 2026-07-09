@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <!--Menus principal Nomencladores-->
+    <menuitem id="menu_nomenclador_sindicato" name="Secciones Sindicales"
+              parent="sicpro_modulo_nomencladores.menu_nomencladores_root" action="nomenclador_sindicato_action"
+              sequence="25"/>
+
+</odoo>

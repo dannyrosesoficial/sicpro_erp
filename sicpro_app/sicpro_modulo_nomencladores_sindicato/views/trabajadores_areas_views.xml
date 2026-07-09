@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_department_sindicato_form" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.areas.sindicato.form</field>
+            <field name="model">sicpro.app.trabajadores.areas</field>
+            <field name="inherit_id" ref="sicpro_app_trabajadores.view_department_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="seccion_sindical_id"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

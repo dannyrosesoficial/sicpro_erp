@@ -1,0 +1,62 @@
+<t>
+    <t t-call="master_input" />
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label" for="name">Nombre de la BD</label>
+        <div class="col-md-8">
+            <input autocomplete="off" class="form-control" id="dbname" name="name" required="required" t-att-pattern="pattern" title="Solo se permiten caracteres alfanuméricos, guiones bajos, guiones y puntos." type="text"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label" for="login">Correo electrónico</label>
+        <div class="col-md-8">
+            <input autocomplete="off" class="form-control" id="login" name="login" required="required" type="text"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label" for="password">Contraseña</label>
+        <div class="col-md-8 input-group">
+            <input autocomplete="off" class="form-control" id="password" name="password" required="required" type="password"/>
+            <div class="input-group-append">
+                <span aria-hidden="true" class="fa fa-eye o_little_eye input-group-text" style="cursor: pointer;"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label" for="phone">Teléfono</label>
+        <div class="col-md-8 input-group">
+            <input autocomplete="off" class="form-control" id="phone" name="phone" type="tel"/>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label" for="lang">Idioma</label>
+        <div class="col-md-8">
+            <select autocomplete="off" class="form-control" id="lang" name="lang" required="required">
+                <t t-as="lang" t-foreach="langs">
+                    <t t-if="lang[0] == 'en_US'">
+                        <option selected="selected" t-att-value="lang[0]" t-out="lang[1]"/>
+                    </t>
+                    <t t-else="">
+                        <option t-att-value="lang[0]" t-out="lang[1]"/>
+                    </t>
+                </t>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label " for="country">País</label>
+        <div class="col-md-8">
+            <select autocomplete="off" class="form-control" id="country" name="country_code">
+                <option value=""></option>
+                <t t-as="country" t-foreach="countries">
+                    <option t-att-value="country[0]" t-out="country[1]"/>
+                </t>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label" for="load_demo_checkbox">Datos Demos</label>
+        <div class="col-md-8">
+            <input class="form-control-sm" id="load_demo_checkbox" name="demo" type="checkbox" value="1" />
+        </div>
+    </div>
+</t>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="ListView.buttons" t-name="template_viveres_distribuir_productos">
+        <t t-jquery="button.o_list_button_add" t-operation="replace">
+            <button type="button" class="btn btn-primary o_button_distribuir_productos fa fa-cart-arrow-down">
+                Distribuir Productos
+            </button>
+        </t>
+    </t>
+
+</templates>

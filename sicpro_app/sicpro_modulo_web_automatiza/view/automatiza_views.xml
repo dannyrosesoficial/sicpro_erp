@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_web_automatiza_correos_filter" model="ir.ui.view">
+        <field name="name">sicpro.modulo.web.automatiza.filter</field>
+        <field name="model">sicpro.modulo.web.automatiza</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name"/>
+                <separator/>
+                <filter string="Rechazadas" name="active" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_web_automatiza_correos_form" model="ir.ui.view">
+        <field name="name">sicpro.modulo.web.automatiza.form</field>
+        <field name="model">sicpro.modulo.web.automatiza</field>
+        <field name="arch" type="xml">
+            <form string="Automatización de Correos">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title mb24">
+                        <field name="active" invisible="1"/>
+                      <h1>
+                        <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="icono"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="clase" widget="widget_icono"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="descripcion" widget="html" class="oe-bordered-editor"
+                               options="{'style-inline': true, 'codeview': true }"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_web_automatiza_correos_tree" model="ir.ui.view">
+        <field name="name">sicpro.modulo.web.automatiza.tree</field>
+        <field name="model">sicpro.modulo.web.automatiza</field>
+        <field name="arch" type="xml">
+            <tree string="Automatización de Correos">
+                <field name="name"/>
+                <field name="clase" widget="widget_icono"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_web_automatiza_correos" model="ir.actions.act_window">
+        <field name="name">Web Automatización de Correos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.modulo.web.automatiza</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_web_automatiza_correos_filter"/>
+    </record>
+
+</odoo>

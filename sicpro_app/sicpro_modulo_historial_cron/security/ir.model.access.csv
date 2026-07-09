@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_create,perm_write,perm_unlink
+cron_historial_usuarios,Historial usuarios,model_ir_cron_history,,1,0,0,0
+cron_historial_admin,Historial admin,model_ir_cron_history,base.group_system,1,1,1,1

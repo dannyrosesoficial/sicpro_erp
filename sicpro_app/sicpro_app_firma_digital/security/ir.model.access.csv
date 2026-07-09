@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+firma_etiquetas_base.user,Etiquetas,model_sicpro_app_firma_etiquetas,base.group_user,1,0,0,0
+firma_documentos_base.user,Documentos,model_sicpro_app_firma_documentos,base.group_user,1,0,0,0
+firma_documentos_wizard_base.user,Documentos Wizard user,model_sicpro_app_firma_documentos_wizard,base.group_user,1,1,1,1
+firma_wizard_base.user,Firma Wizard user,model_sicpro_app_firma_wizard,base.group_user,1,1,1,1
+firma_subir_pdf_wizard_base.user,Subir PDF Wizard user,model_sicpro_app_firma_subir_pdf_wizard,base.group_user,1,1,1,1
+
+firma_documentos_usuario,Documentos usuario,model_sicpro_app_firma_documentos,grupo_app_firma_usuario,1,1,1,0
+firma_documentos_imagenes_usuario,Imágenes usuario,model_sicpro_app_firma_documentos_imagenes,grupo_app_firma_usuario,1,1,1,0
+
+firma_etiquetas_admin,Etiquetas admin,model_sicpro_app_firma_etiquetas,grupo_app_firma_admin,1,1,1,1
+firma_documentos_admin,Documentos admin,model_sicpro_app_firma_documentos,grupo_app_firma_admin,1,1,1,1
+firma_documentos_imagenes_admin,Imágenes admin,model_sicpro_app_firma_documentos_imagenes,grupo_app_firma_admin,1,1,1,1

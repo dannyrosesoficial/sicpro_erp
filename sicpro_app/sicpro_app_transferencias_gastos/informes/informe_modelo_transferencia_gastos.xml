@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <record id="formato_papel_horizontal_modelo_transferencia_gastos" model="report.paperformat">
+        <field name="name">Papel Horizontal Modelo Transferencia de Gastos</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+    </record>
+
+    <record id="informe_modelo_transferencia_gastos_action" model="ir.actions.report">
+        <field name="name">Modelo de Transferencia de Gastos</field>
+        <field name="model">sicpro.app.transferencias.gastos.ordenes</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="paperformat_id" ref="formato_papel_horizontal_modelo_transferencia_gastos"/>
+        <field name="report_name">sicpro_app_transferencias_gastos.informe_modelo_transferencia_gastos</field>
+        <field name="report_file">sicpro_app_transferencias_gastos.informe_modelo_transferencia_gastos</field>
+        <field name="print_report_name">'Modelo de Transferencia de Gastos'</field>
+<!--        <field name="binding_model_id" ref="model_sicpro_app_transferencias_gastos_ordenes"/>-->
+<!--        <field name="binding_type">report</field>-->
+    </record>
+
+    <template id="informe_modelo_transferencia_gastos">
+
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;"
+                             alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección de datos -->
+            <div t-attf-class="">
+                <meta charset="utf-8"/>
+                <!-- sección del page -->
+                <t t-foreach="docs" t-as="inf">
+                    <table border="0" cellspacing="0">
+                        <colgroup width="90"></colgroup> <colgroup width="109"></colgroup> <colgroup
+                            width="244"></colgroup> <colgroup width="160"></colgroup> <colgroup width="90"></colgroup>
+                        <colgroup width="150"></colgroup> <colgroup width="252"></colgroup>
+                        <colgroup width="70" span="3"></colgroup>
+                        <tbody>
+                            <tr>
+                                <td colspan="10" align="center" valign="middle" height="25"><b>
+                                    <strong color="#000000">
+                                    División de Proyectos y Ejecución de Obras
+                                    </strong></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10" align="center" valign="middle" height="20"><font color="#000000">
+                                   <span t-field="inf.company_id.name"/>
+                                </font></td></tr>
+                            <tr>
+                                <td colspan="10" align="center" valign="middle" height="18"><font color="#000000">
+                                    <span t-field="inf.departamento"/></font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10" align="center" valign="middle" height="18"><font
+                                        color="#000000"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" align="left" valign="middle" height="20"><font color="#000000">
+                                    <span t-field="inf.name"/>/<span t-field="inf.pep"/>/<span
+                                        t-field="inf.texto_breve_sap"/></font></td>
+                                <td colspan="2" align="center" valign="middle"><font color="#000000"><span
+                                        t-field="inf.pep"/></font></td>
+                                <td align="justify" valign="top"><font color="#000000"><br></br>
+                                </font></td>
+                                <td align="center" valign="top"><font color="#000000">Mes:</font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000"><span
+                                        t-field="inf.mes.name"/></font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10" align="center" valign="middle" height="18"><font
+                                        color="#000000"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    bgcolor="#C0C0C0" align="center" valign="top" height="21"><font size="2"
+                                                                                                    color="#000000">
+                                    Fecha</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    bgcolor="#C0C0C0" align="center" valign="top"><font size="2" color="#000000">
+                                    Objeto</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    bgcolor="#C0C0C0" align="center" valign="top"><font size="2" color="#000000">Texto
+                                    de cabecera</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    bgcolor="#C0C0C0" align="center" valign="top"><font size="2" color="#000000">Clase
+                                    de coste</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    bgcolor="#C0C0C0" align="center" valign="top"><font size="2" color="#000000">
+                                    Material</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="2" bgcolor="#C0C0C0" align="center" valign="middle"><font size="2"
+                                                                                                       color="#000000">
+                                    Texto breve de material</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    bgcolor="#C0C0C0" align="center" valign="top"><font size="2" color="#000000">
+                                    Valor</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    bgcolor="#C0C0C0" align="center" valign="top"><font size="2" color="#000000">
+                                    Moneda</font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    bgcolor="#C0C0C0" align="center" valign="top"><font size="2" color="#000000">
+                                    Usuario</font></td>
+                            </tr>
+                            <t t-foreach="inf.gastos_ids" t-as="gastos">
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center" valign="bottom"
+                                        height="18"><small color="#000000"><span
+                                            t-field="gastos.fecha_contable"/></small></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center" valign="bottom"><small color="#000000"><span
+                                            t-field="gastos.name.name"/></small></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="left" valign="bottom"><small color="#000000"><span
+                                            t-field="gastos.texto_cabecera_documento"/></small></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="left" valign="bottom"><small color="#000000"><span
+                                            t-field="gastos.denom_cl_coste"/></small></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center" valign="top"><small color="#000000"><span
+                                            t-field="gastos.material"/></small></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" align="left" valign="middle"><small color="#000000"><span
+                                            t-field="gastos.texto_breve_material"/></small></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="right" valign="top"><small color="#000000"><span
+                                            t-field="gastos.valor_var"/></small></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center" valign="top"><small color="#000000">CUP</small></td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        align="center" valign="top"><small color="#000000"><span
+                                            t-field="gastos.usuario"/></small></td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    colspan="7" align="center" valign="middle" height="18"><font
+                                        color="#000000"><br></br>
+                                </font></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="right" valign="bottom"><strong color="#000000"><span
+                                        t-field="inf.total_gastos"/></strong></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="center" valign="bottom"><strong color="#000000">CUP</strong></td>
+                                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                    align="left" valign="bottom"><font color="#000000"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="10" rowspan="2" align="center" valign="middle" height="37"><font
+                                        color="#000000"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left" valign="middle" height="20"><font size="3"
+                                                                                               color="#000000">Por el
+                                    ejecutor</font></td>
+                                <td align="left" valign="bottom"><font color="#000000"><br></br>
+                                </font></td>
+                                <td align="left" valign="middle"><font size="3" color="#000000"><br></br>
+                                </font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">Por
+                                    el inversionista</font></td>
+                                <td align="left" valign="bottom"><font color="#000000"><br></br>
+                                </font></td>
+                                <td colspan="3" align="center" valign="middle"><font color="#000000"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left" valign="middle" height="18"><font color="#000000">
+                                    Revisado</font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">
+
+                                </font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">
+                                    Certificado</font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">
+
+                                </font></td>
+                                <td colspan="2" align="center" valign="middle"><font color="#000000"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left" valign="middle" height="18"><font color="#000000">Nombre
+                                    y Apellidos:</font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">
+                                    <span t-field="inf.departamento_trabajador_id.name"/></font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">Nombre
+                                    y Apellidos:</font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">
+                                    <span t-field="inf.cliente_id.name"/></font></td>
+                                <td colspan="2" align="center" valign="middle"><font color="#000000"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left" valign="middle" height="18"><font color="#000000">
+                                    Cargo:</font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">
+                                    <span t-field="inf.departamento_ocupacion_id.name"/>
+                                </font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">Cargo:</font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">
+                                    <span t-field="inf.cliente_cargo"/>
+                                </font></td>
+                                <td colspan="2" align="center" valign="middle"><font color="#000000"><br></br>
+                                </font></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left" valign="middle" height="18"><font color="#000000">
+                                    Firma:</font></td>
+                                <td style="border-bottom: 1px solid #000000" align="left" valign="middle"><font
+                                        color="#000000"><br></br>
+                                </font></td>
+                                <td align="left" valign="bottom"><font color="#000000"><br></br>
+                                </font></td>
+                                <td colspan="2" align="left" valign="middle"><font color="#000000">Firma:</font></td>
+                                <td style="border-bottom: 1px solid #000000" align="center" valign="middle"><font
+                                        color="#000000"><br></br>
+                                </font></td>
+                                <td align="center" valign="middle"><font color="#000000"><br></br>
+                                </font></td>
+                                <td colspan="2" align="center" valign="middle"><font color="#000000"><br></br>
+                                </font></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+                <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+                    Cuba.</span>
+                <div style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+                            <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+                        <br/>
+                        <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+                            Justicia de la República de Cuba.
+                            Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+                    <div t-if="report_type == 'pdf'" class="text-center text-muted">
+                        Página: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

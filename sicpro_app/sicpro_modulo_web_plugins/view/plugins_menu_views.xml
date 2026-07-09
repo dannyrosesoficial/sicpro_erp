@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <data>
+        <menuitem id="modulo_web_plugins_menu" name="Plugins y Aplicaciones"
+                  action="action_web_plugins" parent="sicpro_modulo_web.modulo_web_menu" sequence="9"/>
+    </data>
+
+</odoo>

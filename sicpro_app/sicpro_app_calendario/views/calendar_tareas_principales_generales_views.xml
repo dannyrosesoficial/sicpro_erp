@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="tareas_tipo_search_view">
+            <field name="name">calendar.tareas.principales.generales.search</field>
+            <field name="model">calendar.tareas.principales.generales</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <field name="anio" string="Año"/>
+                    <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                    <separator/>
+                    <filter string="Tareas Principales" name="principales" domain="[('tipo', '=','principales')]"/>
+                    <filter string="Tareas Principales" name="generales" domain="[('tipo', '=','generales')]"/>
+                    <separator/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Año" name="anios" context="{'group_by':'anio'}"/>
+                        <filter string="Mes" name="mes" context="{'group_by':'mes'}"/>
+                        <filter string="Tipo de Tarea" name="tipo" context="{'group_by':'tipo'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tareas_tipo_tree_view">
+            <field name="name">calendar.tareas.principales.generales.tree</field>
+            <field name="model">calendar.tareas.principales.generales</field>
+            <field name="arch" type="xml">
+                <tree string="Tipo" default_order="anio desc, codigo_mes desc, tipo desc" editable="bottom">
+                    <field name="tipo"/>
+                    <field name="name"/>
+                    <field name="mes" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="codigo_mes" invisible='1'/>
+                    <field name="anio"/>
+                    <field name="active" invisible='1'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="tareas_tipo_action" model="ir.actions.act_window">
+            <field name="name">Tipos de Tareas</field>
+            <field name="res_model">calendar.tareas.principales.generales</field>
+            <field name="view_mode">tree</field>
+            <field name="search_view_id" ref="tareas_tipo_search_view"/>
+            <field name="context">{'search_default_anio': (context_today().strftime('%Y')), 'search_default_anios': 1,
+                                   'search_default_mes': 1, }
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear una nueva tarea
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

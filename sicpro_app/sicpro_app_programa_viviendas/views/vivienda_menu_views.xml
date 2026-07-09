@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+            id="viviendas_menu_root" name="Vivienda"
+            web_icon="sicpro_app_programa_viviendas,static/description/icon.png" sequence="6"
+            groups="grupo_app_vivienda_secretario,grupo_app_vivienda_visualizar"/>
+
+    <!--Inicio: Menu Dashboard-->
+    <record id="menu_vivienda_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">sicpro_dashboard_view</field>
+        <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.vivienda'}</field>
+    </record>
+    <menuitem id="menu_vivienda_dashboard" name="Dashboard" action="menu_vivienda_dashboard_action" sequence="1"
+              parent="viviendas_menu_root"/>
+    <!--Fin: Menu Dashboard-->
+
+
+    <menuitem id="vivienda_menu_operaciones" name="Operaciones" parent="viviendas_menu_root" sequence="2"/>
+
+    <menuitem id="menu_vivienda_solicitudes" name="Solicitud de Materiales" parent="vivienda_menu_operaciones"
+              action="vivienda_trabajo_action" sequence="1"/>
+
+    <menuitem id="menu_vivienda_fondo" name="Fondo de la Vivienda" parent="vivienda_menu_operaciones"
+              action="vivienda_etapas_kanban_action" sequence="2"/>
+
+
+    <menuitem id="vivienda_menu_report" name="Informes" parent="viviendas_menu_root" sequence="6"/>
+
+    <menuitem id="vivienda_menu_report_anexo3" name="Demanda de materiales para el Programa de la Vivienda"
+              parent="vivienda_menu_report" action="reporte_vivienda_anexo3_action" sequence="1"/>
+
+    <menuitem id="vivienda_menu_report_anexo4" name="Registro de Trabajadores Beneficiados"
+              parent="vivienda_menu_report"
+              action="reporte_vivienda_anexo4_action" sequence="2"/>
+
+    <menuitem id="vivienda_menu_report_consolidado_compra" name="Consolidado para compra de materiales"
+              parent="vivienda_menu_report" action="vivienda_trabajo_productos_action" sequence="3"/>
+
+    <menuitem id="vivienda_menu_report_estadisticas" name="Estadísticas del Programa de la Vivienda"
+              parent="vivienda_menu_report" action="reporte_vivienda_estadisticas_action" sequence="3"/>
+
+
+    <menuitem id="vivienda_menu_config" name="Configuración"
+              parent="viviendas_menu_root" sequence="25"/>
+
+    <menuitem id="menu_vivienda_etapas" name="Etapas" action="vivienda_etapas_action" parent="vivienda_menu_config"
+              groups="grupo_app_vivienda_responsable" sequence="2"/>
+
+    <menuitem id="menu_vivienda_sindicato" name="Secciones sindicales" parent="vivienda_menu_config"
+              action="sicpro_modulo_nomencladores_sindicato.nomenclador_sindicato_action"
+              groups="grupo_app_vivienda_secretario_general" sequence="3"/>
+
+    <menuitem id="menu_vivienda_proveedor" name="Proveedores" sequence="4"
+              action="vivienda_proveedor_action" parent="vivienda_menu_config" groups="grupo_app_vivienda_logistica"/>
+
+    <menuitem id="menu_vivienda_materiales" name="Materiales" sequence="5"
+              action="vivienda_materiales_action" parent="vivienda_menu_config" groups="grupo_app_vivienda_logistica"/>
+
+    <menuitem id="menu_vivienda_materiales_um" name="Unidades de medidas" parent="vivienda_menu_config"
+              action="vivienda_materiales_um_action" groups="grupo_app_vivienda_logistica" sequence="6"/>
+
+    <menuitem id="menu_vivienda_escalafon" name="Escalafón" action="vivienda_escalafon_action"
+              parent="vivienda_menu_config" groups="grupo_app_vivienda_admin" sequence="7"/>
+
+</odoo>

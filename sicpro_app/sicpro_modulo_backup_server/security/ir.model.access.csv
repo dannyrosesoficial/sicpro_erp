@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+backup_server_system,Backup Server Local,model_sicpro_modulo_backup_server_local,base.group_system,1,1,1,1
+backup_server_dropbox_auth_backup_server_system,Backup Server Dropbox,model_sicpro_modulo_backup_dropbox_auth,base.group_system,1,1,1,1
+backup_server_url_gitlab_system,Url Gitlab System,model_sicpro_modulo_backup_server_gitlab,base.group_system,1,1,1,1

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_template_versiones" inherit_id="sicpro_modulo_web.web_plantilla_inicio">
+        <xpath expr="//a[@name='href_version']" position="attributes">
+            <attribute name="href">/web/versiones</attribute>
+        </xpath>
+    </template>
+</odoo>

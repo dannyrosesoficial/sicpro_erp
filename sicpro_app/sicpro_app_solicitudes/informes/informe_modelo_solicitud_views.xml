@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="informe_modelo_solicitud_action" model="ir.actions.report">
+        <field name="name">Modelo de Solicitud de Trabajo</field>
+        <field name="model">sicpro.app.solicitudes.oportunidades</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_solicitudes.informe_modelo_solicitud</field>
+        <field name="report_file">sicpro_app_solicitudes.informe_modelo_solicitud</field>
+        <field name="print_report_name">'Modelo de Solicitud de Trabajo'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_solicitudes_oportunidades"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="informe_modelo_solicitud">
+
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;"
+                             alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                <!-- sección del page -->
+                <t t-foreach="docs" t-as="inf">
+
+                    <table border="0" cellspacing="0">
+                        <colgroup width="27"></colgroup> <colgroup width="17"></colgroup> <colgroup
+                            width="53"></colgroup> <colgroup width="138"></colgroup> <colgroup width="17"></colgroup>
+                        <colgroup width="71"></colgroup> <colgroup width="77"></colgroup> <colgroup
+                            width="17"></colgroup> <colgroup width="73"></colgroup> <colgroup width="34"></colgroup>
+                        <colgroup width="43"></colgroup> <colgroup width="58"></colgroup> <colgroup
+                            width="44"></colgroup> <colgroup width="90"></colgroup> <colgroup width="12"></colgroup>
+                        <tbody>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-bottom: 2px double #000000" colspan="14" align="right"
+                                    valign="middle"><b><span t-field="inf.company_id.name"/></b></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br></td>
+                                <td colspan="14" align="center" valign="middle"><br></br></td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="middle" height="20"><br></br></td>
+                                <td style="border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000"
+                                    colspan="14" align="center" valign="middle"><b><font size="3" face="Arial Narrow">
+                                    Solicitud de Ejecución de Obras</font></b></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td colspan="14" align="center" valign="middle"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td align="right" valign="bottom">A:</td>
+                                <td colspan="6" align="left" valign="middle"><b><span
+                                        t-field="inf.company_id.jefe_proceso"/></b></td>
+                                <td colspan="4" align="right" valign="middle">Fecha de la Solicitud:</td>
+                                <td style="border-bottom: 1px ridge #000000" colspan="2"
+                                    align="center" valign="bottom"><span t-field="inf.fecha_solicitud_trabajo"/></td>
+                                <td align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td colspan="2" align="left" valign="bottom">DE:</td>
+                                <td style="border-bottom: 1px ridge #000000" colspan="8" align="left"
+                                    valign="middle"><b><span t-field="inf.partner_id.name"/></b></td>
+                                <td colspan="2" align="right" valign="bottom">Prioridad</td>
+                                <td style="border-bottom: 1px ridge #000000"
+                                    align="center" valign="bottom"><b><span t-field="inf.priority"/></b></td>
+                                <td align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br></td>
+                                <td colspan="2" align="left" valign="bottom">Plan:</td>
+                                <td colspan="3" align="left" valign="middle"><b><span t-field="inf.tipo_plan"/></b></td>
+                                <td colspan="2" align="right" valign="bottom"></td>
+                                <td colspan="4" align="center" valign="bottom"></td>
+                                <td align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td colspan="14" align="center" valign="middle"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td align="left" valign="bottom"><br></br>
+                                </td>
+                                <td colspan="13" align="left" valign="middle">Por este medio sé solícita la ejecución de
+                                    la siguiente obra.</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-top: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                    colspan="14" align="center" valign="middle"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-left: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                                <td align="center" colspan="1" valign="bottom">Titulo:</td>
+                                <td style="border-bottom: 1px ridge #000000" colspan="6" align="left"
+                                    valign="bottom"><span t-field="inf.name"/></td>
+                                <td align="center" valign="bottom">PEP:</td>
+                                <td style="border-bottom: 1px ridge #000000" colspan="2" sdnum="9226;0;@"
+                                    align="center" valign="bottom"><span t-field="inf.pep_corto"/></td>
+                                <td align="center" valign="bottom">C.MEP:</td>
+                                <td style="border-bottom: 1px ridge #000000" sdval="325" sdnum="9226;"
+                                    align="center" valign="bottom"><span t-field="inf.c_mep"/></td>
+                                <td style="border-right: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                    colspan="14" align="center" valign="middle"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-left: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                                <td align="center" valign="bottom">UO:</td>
+                                <td style="border-bottom: 1px ridge #000000" colspan="5" align="left"
+                                    valign="bottom"><span t-field="inf.territorio_id.name"/></td>
+                                <td align="center" valign="bottom">Lugar:</td>
+                                <td style="border-bottom: 1px ridge #000000" colspan="5" align="center"
+                                    valign="bottom"><span t-field="inf.lugar_trabajo"/></td>
+                                <td style="border-right: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                    colspan="14" align="center" valign="middle"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-left: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                                <td colspan="12" align="center" valign="middle"><font color="#2E75B6">El
+                                    Especialista a cargo de la Inversión; responsable de la validación
+                                    de los gastos.</font></td>
+                                <td style="border-right: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-left: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                                <td align="right" valign="bottom">Nombre:</td>
+                                <td style="border-bottom: 1px ridge #000000" colspan="7" align="center"
+                                    valign="bottom"><span t-field="inf.partner_id.name"/></td>
+                                <td colspan="2" align="right" valign="middle">Teléfonos: </td>
+                                <td align="center" valign="bottom">Fijo </td>
+                                <td style="border-bottom: 1px ridge #000000" sdnum="9226;"
+                                    align="center" valign="bottom"><span t-field="inf.telefono_fijo"/></td>
+                                <td style="border-right: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-left: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                                <td align="right" valign="bottom">Cargo:</td>
+                                <td style="border-bottom: 1px ridge #000000" colspan="7" align="center"
+                                    valign="bottom"><span t-field="inf.cargo"/></td>
+                                <td align="left" valign="bottom"><br></br>
+                                </td>
+                                <td align="left" valign="bottom"><br></br>
+                                </td>
+                                <td align="center" valign="bottom">Móvil </td>
+                                <td style="border-bottom: 1px ridge #000000" sdnum="9226;"
+                                    align="center" valign="bottom"><span t-field="inf.telefono_movil"/></td>
+                                <td style="border-right: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-left: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                                <td align="right" valign="bottom">Correo:</td>
+                                <td style="border-bottom: 1px ridge #000000" colspan="7" align="center"
+                                    valign="bottom"><u><font color="#0563C1"><span
+                                        t-field="inf.correo"/></font></u></td>
+                                <td align="left" valign="bottom"><br></br>
+                                </td>
+                                <td align="left" valign="bottom"><br></br>
+                                </td>
+                                <td align="center" valign="bottom"><br></br>
+                                </td>
+                                <td align="center" valign="bottom"><br></br>
+                                </td>
+                                <td style="border-right: 1px ridge #000000" align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-bottom: 1px ridge #000000; border-left: 1px ridge #000000; border-right: 1px ridge #000000"
+                                    colspan="14" align="center" valign="middle"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td colspan="14" align="center" valign="middle"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="18"><br></br>
+                                </td>
+                                <td style="border-bottom: 1px solid #000000" colspan="14" align="center"
+                                    valign="bottom"><b>Especialidades que se ejecutaran</b></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td colspan="14" align="left" valign="middle"><b>
+                                    <t t-foreach="inf.hijos_ids" t-as="especialidades">
+                                        <span t-field="especialidades.image_128"
+                                              t-options='{"widget": "image", "style": "min-height: 20px; min-width: 20px; max-height: 20px; max-width: 20px"}'
+                                              style="text-align: center"/>
+                                        <span t-field="especialidades.especialidad"/> - PEP: <span
+                                            t-field="especialidades.pep"/> - $: <span
+                                            t-field="especialidades.valor_sap_cup"/> -
+                                        TT: <span t-field="especialidades.codigo_tt"/> -
+                                        Proyecto: <span t-field="especialidades.consecutivo_proyecto"/>
+                                        <br></br>
+                                        Microlocalización: <span t-field="especialidades.microlocalizacion"/> -
+                                        Estudio de Enia: <span t-field="especialidades.enia"/> -
+                                        Aprobación del IPF: <span t-field="especialidades.ipf"/>
+                                        <br></br>
+                                    </t>
+                                </b></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td colspan="14" align="center" valign="middle"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-bottom: 1px solid #000000" colspan="13" align="center"
+                                    valign="bottom"><b>Alcance los Trabajos</b></td>
+                                <td align="justify" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td style="border-bottom: 2px solid #000000" colspan="13" align="left"
+                                    valign="bottom"><span t-field="inf.observaciones_grupo_ejecutor"/></td>
+                                <td align="left" valign="bottom"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td colspan="14" align="center" valign="middle"><br></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="bottom" height="17"><br></br>
+                                </td>
+                                <td align="left" valign="bottom">→</td>
+                                <td colspan="7" align="left" valign="middle">Este modelo es para
+                                    enviar por correo, no requiere firma.</td>
+                                <td colspan="3" align="right" valign="middle">No. Consecutivo</td>
+                                <td style="border-bottom: 2px solid #000000" colspan="3" align="center"
+                                    valign="bottom"><span t-field="inf.id_solicitud"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </t>
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+                <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+                    Cuba.</span>
+                <div style="border-top: 1px solid black;">
+                    <ul class="list-inline mb4">
+                        <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+                            <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+                        <br/>
+                        <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+                            Justicia de la República de Cuba.
+                            Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+                    <div t-if="report_type == 'pdf'" class="text-center text-muted">
+                        Página: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

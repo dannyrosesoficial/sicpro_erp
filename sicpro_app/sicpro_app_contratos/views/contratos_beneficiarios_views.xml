@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="contratos_beneficiarios_search_view">
+            <field name="name">sicpro.app.contratos.beneficiarios.search</field>
+            <field name="model">sicpro.app.contratos.beneficiarios</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Tipo">
+                    <field name="name"/>
+                    <field name="cuenta_beneficiario"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_beneficiarios_form_view">
+            <field name="name">sicpro.app.contratos.beneficiarios.form</field>
+            <field name="model">sicpro.app.contratos.beneficiarios</field>
+            <field name="arch" type="xml">
+                <form string="Tipo de Contrato">
+                    <sheet>
+                        <field name="readonly_admin" invisible="1"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="cuenta_beneficiario"/>
+                            <field name="moneda"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_beneficiarios_tree_view">
+            <field name="name">sicpro.app.contratos.beneficiarios.tree</field>
+            <field name="model">sicpro.app.contratos.beneficiarios</field>
+            <field name="arch" type="xml">
+                <tree string="Tipo de Contrato" editable="bottom">
+                    <field name="name"/>
+                    <field name="cuenta_beneficiario"/>
+                    <field name="moneda"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="contratos_beneficiarios_action" model="ir.actions.act_window">
+            <field name="name">Beneficiarios del Contrato</field>
+            <field name="res_model">sicpro.app.contratos.beneficiarios</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo beneficiarios del Contrato...
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

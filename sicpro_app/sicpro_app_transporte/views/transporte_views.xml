@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id='transporte_view_form' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.general.form</field>
+        <field name="model">sicpro.app.transporte.general</field>
+        <field name="arch" type="xml">
+            <form string="Vehículo" create="0">
+                <header>
+                    <field name="state_id"  widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <field name="readonly_admin" invisible="1"/>
+                    <div name="button_box" class="oe_button_box">
+                <button name="action_piquera_view" type="object" class="o_stat_button" icon="fa-car" >
+                    <field name="piquera_count" widget="statinfo"/>
+                </button>
+            </div>
+                    <field name="currency_id" invisible="1"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image_128" widget='image' class="oe_avatar" readonly="True"/>
+
+                    <div class="oe_title">
+                        <label for="matricula"/>
+                        <h2>
+                            <field name="name" class="oe_inline" readonly="True"/>
+                        </h2>
+                    </div>
+                    <group string=" Información de la ubicación">
+                        <group>
+                            <field name="unidadNombre" readonly="True"/>
+                            <field name="unidadAcronimo" readonly="True"/>
+                            <field name="matricula" readonly="True"/>
+                            <field name="piquera"/>
+                        </group>
+                        <group>
+                             <field name="areaNombre" readonly="True"/>
+                            <field name="areaIdentificacion" readonly="True"/>
+                            <field name="grupoEquipoNombre" readonly="True"/>
+                        </group>
+                        </group>
+
+                    <group string=" Información del Vehículo">
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="tipoNombre" readonly="True"/>
+                            <label for="marcaNombre" readonly="True"/>
+                            <div>
+                                <field name="marcaNombre" class="oe_inline" readonly="True"/>
+                                <field name="marca_id" style="width:142px;" class="oe_edit_only"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            </div>
+                            <field name="modeloNombre" readonly="True"/>
+                            <field name="color" readonly="True"/>
+                            <field name="fechaRecibo" readonly="True"/>
+                            <field name="annoFabricacion" readonly="True"/>
+                        </group>
+                        <group>
+                            <field name="especialidadNombre" readonly="True"/>
+                            <field name="actividadNombre" readonly="True"/>
+                             <field name="actividadFundamentalNombre" readonly="True"/>
+                            <field name="estadoTecnicoNombre" readonly="True"/>
+                            <field name="combustibleNombre" readonly="True"/>
+                        </group>
+                        </group>
+                    <group>
+                            <group string="Identificación" readonly="True">
+                            <field name="capacidadCargaNombre" readonly="True"/>
+                            <field name="codigoEquipo" readonly="True"/>
+                            <field name="numeroCirculacion" readonly="True"/>
+                            <field name="numeroInventario" readonly="True"/>
+                        </group>
+                             <group string="Odometro" readonly="True">
+                            <field name="tieneOdometro" readonly="True"/>
+                            <field name="odometroOk" readonly="True"/>
+                            <field name="tieneHorametro" readonly="True"/>
+                            <field name="horametroOk" readonly="True"/>
+                        </group>
+                        </group>
+                    <notebook>
+                        <page string="Detalles del Chofer">
+                        <group>
+                            <group string="Chofer" readonly="True">
+                                <field name="choferNombre" readonly="True"/>
+                                <field name="chofer_trabajador_id" readonly="True"/>
+                                <field name="choferCi" readonly="True"/>
+                                <field name="choferCargo" readonly="True"/>
+                                <field name="choferDireccion" readonly="True"/>
+                                <field name="choferLicencia" readonly="True"/>
+                                <field name="choferEsChoferProfesional" readonly="True"/>
+                            </group>
+                            <group string="Jefe del Chofer">
+                                <field name="jefeChoferNombre" readonly="True"/>
+                                <field name="jefe_trabajador_id" readonly="True"/>
+                                <field name="jefeChoferCi" readonly="True"/>
+                                <field name="jefeChoferCargo" readonly="True"/>
+                                <field name="jefeChoferDireccion" readonly="True"/>
+                                <field name="jefeChoferLicencia" readonly="True"/>
+                                <field name="jefeChoferEsChoferProfesional" readonly="True"/>
+                            </group>
+                        </group>
+                        </page>
+                        <page string="Observaciones">
+                            <group>
+                             <field name="observacion" readonly="True"/>
+                            </group>
+                        </page>
+                        <page string="Motor y Consumos">
+                        <group>
+                            <group string="Motor" readonly="True">
+                                <field name="vin" readonly="True"/>
+                                <field name="numeroSerie" readonly="True"/>
+                                <field name="numeroMotor" readonly="True"/>
+                                <field name="marcaMotorNombre" readonly="True"/>
+                                <field name="modeloMotorNombre" readonly="True"/>
+                            </group>
+                            <group string="Consumos">
+                                <field name="indiceConsumoNormado" readonly="True"/>
+                                <field name="indiceConsumoFabrica" readonly="True"/>
+                            </group>
+                        </group>
+                        </page>
+                        <page string="Parqueo">
+                        <group>
+                            <field name="parqueoNombre" readonly="True"/>
+                            <field name="parqueoDireccion" readonly="True"/>
+                            <field name="parqueoTipo" readonly="True"/>
+                            <field name="parqueoProvincia" readonly="True"/>
+                        </group>
+                        </page>
+                        <page string="Estado">
+                        <group>
+                            <group>
+                                <field name="esAlquilado" readonly="True"/>
+                                <field name="esParalizado" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="estaDefectuoso" readonly="True"/>
+                                <field name="estaActivo" readonly="True"/>
+                            </group>
+                        </group>
+                        </page>
+                        <page string="Otros">
+                            <group>
+                                <group>
+                                    <field name="visual_fuerzas_medios"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_actualizado" readonly="True"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id='transporte_view_tree' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.general.tree</field>
+        <field name="model">sicpro.app.transporte.general</field>
+        <field name="arch" type="xml">
+            <tree string="Vehículo" create="0">
+                <field name="active" invisible="1"/>
+                <field name="matricula"/>
+                <field name="tipoNombre"/>
+                <field name="marcaNombre"/>
+                <field name="modeloNombre"/>
+                <field name="actividadFundamentalNombre"/>
+                <field name="choferNombre"/>
+                <field name="areaIdentificacion"/>
+                <field name="piquera"/>
+                <field name="fecha_actualizado"/>
+                <field name="activity_exception_decoration" widget="activity_exception"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="transporte_view_search" model="ir.ui.view">
+        <field name="name">sicpro.app.transporte.general.search</field>
+        <field name="model">sicpro.app.transporte.general</field>
+        <field name="arch" type="xml">
+            <search string="Todos los vehículos">
+                <field string="Vehículo" name="name"
+                       filter_domain="['|', ('name', 'ilike', self), ('matricula', 'ilike', self)]"/>
+                <field string="Chofer" name="choferNombre"/>
+                <field string="Estado" name="state_id"/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Piquera Activos" name="piquera_dvpe" domain="[('piquera', '=', True)]"/>
+                <separator/>
+                <filter string="Administrativa" name="administrativa"
+                        domain="[('actividadFundamentalNombre', '=', 'Administrativa')]"/>
+                <filter string="Operación" name="operacion"
+                        domain="[('actividadFundamentalNombre', '=', 'Operación')]"/>
+                <filter string="Servicios" name="servicios"
+                        domain="[('actividadFundamentalNombre', '=', 'Servicios')]"/>
+                <filter string="Piquera" name="piquera" domain="[('actividadFundamentalNombre', '=', 'Piquera')]"/>
+                <separator/>
+                <filter string="Alquilado" name="esAlquilado" domain="[('esAlquilado', '=', 'Sí')]"/>
+                <filter string="Paralizado" name="esParalizado" domain="[('esParalizado', '=', 'Sí')]"/>
+                <filter string="Defectuoso" name="estaDefectuoso" domain="[('estaDefectuoso', '=', 'Sí')]"/>
+                <filter string="Activo" name="estaActivo" domain="[('estaActivo', '=', 'Sí')]"/>
+                <separator/>
+                <filter invisible="1" string="Ultimas actividades" name="activities_overdue"
+                        domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
+                <filter invisible="1" string="Actividades diarias" name="activities_today"
+                        domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter invisible="1" string="Actividades futuras" name="activities_upcoming_all"
+                    domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <group expand="1" string="Agrupar por">
+                    <filter string="Área" name="groupby_status" context="{'group_by': 'areaNombre'}"/>
+                    <filter string="Identificación" name="groupby_status" context="{'group_by': 'areaIdentificacion'}"/>
+                    <filter string="Actividad Fundamental" name="groupby_status" context="{'group_by': 'actividadFundamentalNombre'}"/>
+                </group>
+           </search>
+        </field>
+    </record>
+
+    <record id='transporte_view_kanban' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.general.kanban</field>
+        <field name="model">sicpro.app.transporte.general</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state_id" group_create="false" group_delete="false" group_edit="false">
+                <field name="matricula" />
+                <field name="choferNombre" />
+                <field name="state_id" />
+                <field name="id" />
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('sicpro.app.transporte.general', 'image_128', record.id.raw_value)"
+                                     alt="Vehicle"/>
+                            </div>
+                            <div class="oe_kanban_details">
+
+                                <ul>
+                                    <li>
+                                        <t t-if="record.choferNombre.raw_value"><field name="choferNombre"/></t>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="o_kanban_inline_block" t-if="!selection_mode">
+                                <field name="activity_ids" widget="kanban_activity"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id='transporte_action' model='ir.actions.act_window'>
+        <field name="name">Registro de Transporte</field>
+        <field name="res_model">sicpro.app.transporte.general</field>
+        <field name="view_mode">tree,form,kanban,activity</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Crear nuevo vehículo
+          </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="viveres_areas_fondo_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.areas.fondo.tree</field>
+        <field name="model">sicpro.app.viveres.areas.fondo</field>
+        <field name="arch" type="xml">
+            <tree string="Fondo por áreas" sample="1" editable="bottom" create="false">
+                <field name="name"
+                       options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                <field name="direccion"
+                       options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                <field name="fondo"/>
+                <field name="mes"
+                       options="{'no_open': True, 'no_quick_create': True, 'no_create_edit':'True'}"/>
+                <field name="anio"/>
+                <field name="fecha_entrega"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="viveres_areas_fondo_action" model="ir.actions.act_window">
+        <field name="name">Fondo por áreas</field>
+        <field name="res_model">sicpro.app.viveres.areas.fondo</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>
+

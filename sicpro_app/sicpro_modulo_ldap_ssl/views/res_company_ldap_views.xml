@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_ldap_installer_form" model="ir.ui.view">
+        <field name="name">res.company.ldap.form</field>
+        <field name="model">res.company.ldap</field>
+        <field name="inherit_id" ref="auth_ldap.view_ldap_installer_form"/>
+        <field name="arch" type="xml">
+            <field name="ldap_tls" position="before">
+                <field name="ssl"/>
+                <field name="validar_certificado" string="Omitir Certificado"/>
+                <field name="active" invisible="1"/>
+            </field>
+            <field name="ldap_base" position="before">
+                <field name="dir_certificado"
+                       attrs="{
+                       'invisible': ['|', ('ssl', '=', False), ('validar_certificado', '=',True),],
+                       'required': ['&amp;', ('ssl', '=', True), ('validar_certificado', '=',False),]}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_ldaps_installer_tree" model="ir.ui.view">
+        <field name="name">res.company.ldap.tree</field>
+        <field name="model">res.company.ldap</field>
+        <field name="inherit_id" ref="auth_ldap.res_company_ldap_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company']" position="after">
+                <field name="active" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="calendario_tipo_search_view">
+            <field name="name">calendar.event.tipo.search</field>
+            <field name="model">calendar.tipo.calendario</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="calendario_tipo_tree_view">
+            <field name="name">calendar.event.plantilla.tree</field>
+            <field name="model">calendar.tipo.calendario</field>
+            <field name="arch" type="xml">
+                <tree string="Tipo" editable="bottom">
+                    <field name="name"/>
+                    <field name="tipo_defecto"/>
+                    <field name="plantilla_impresion"/>
+                    <field name="tipo_dvpe"/>
+                    <field name="tipo_desarrollo"/>
+                    <field name="prioridad"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="calendario_tipo_action" model="ir.actions.act_window">
+            <field name="name">Tipo de Calendario</field>
+            <field name="res_model">calendar.tipo.calendario</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear una nueva clasificación de calendario
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

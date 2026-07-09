@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_view_custom_form_mod" model="ir.ui.view">
+    <field name="name">ir_view_custom_form_mod</field>
+    <field name="model">ir.ui.view.custom</field>
+    <field name="inherit_id" ref="base.view_view_custom_form" />
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='ref_id']" position="after">
+        <field name="aplicacion_filtro"/>
+    </xpath>
+    </field>
+  </record>
+
+
+    <record id="ir_view_custom_tree_mod" model="ir.ui.view">
+    <field name="name">ir_view_custom_tree_mode</field>
+    <field name="model">ir.ui.view.custom</field>
+    <field name="inherit_id" ref="base.view_view_custom_tree" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='ref_id']" position="after">
+        <field name="aplicacion_filtro"/>
+    </xpath>
+    </field>
+  </record>
+
+
+</odoo>

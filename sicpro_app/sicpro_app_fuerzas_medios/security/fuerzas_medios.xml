@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <data>
+        <!-- Creo la categoría de transferencias de gastos generales-->
+        <record id="module_category_transferencias_gastos" model="ir.module.category">
+            <field name="name">Transferencias de Gastos Generales</field>
+            <field name="description">Acceso a visualizar y modificar las transferencias de Gastos.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_gestión_gastos"/>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="grupo_transferencias_visualizar" model="res.groups">
+            <field name="name">Visualizar todas las Transferencias</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_economia" model="res.groups">
+            <field name="name">Gestión Económica</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="category_id" ref="module_category_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_inversionistas" model="res.groups">
+            <field name="name">Gestión del Inversionista</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="category_id" ref="module_category_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_economia'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="category_id" ref="module_category_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_inversionistas'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos de lectura/Escritura/Eliminación</field>
+            <field name="category_id" ref="module_category_transferencias_gastos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_responsable'))]"/>
+        </record>
+    </data>
+    <data noupdate="0">
+<!--        <record id="transferencias_rule_usuario_inversionista" model="ir.rule">-->
+<!--            <field name="name">Ver transferencias del inversionista</field>-->
+<!--            <field ref="model_sicpro_app_transferencias_gastos" name="model_id"/>-->
+<!--            <field name="domain_force">[('cliente_id.user_id','=',user.id)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('grupo_transferencias_inversionistas'))]"/>-->
+<!--        </record>-->
+
+<!--        <record id="transferencias_rule_usuario_responsable" model="ir.rule">-->
+<!--            <field name="name">Ver todas las transferencias</field>-->
+<!--            <field ref="model_sicpro_app_transferencias_gastos" name="model_id"/>-->
+<!--            <field name="domain_force">[(1, '=', 1)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('grupo_transferencias_responsable'))]"/>-->
+<!--        </record>-->
+    </data>
+
+
+    <data>
+        <!-- Creo la categoría de transferencias de gastos para los procesos claves-->
+        <record id="module_category_transferencias_gastos_procesos" model="ir.module.category">
+            <field name="name">Transferencias de Gastos Procesos</field>
+            <field name="description">Acceso a visualizar y modificar las transferencias de Gastos e los Procesos.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_gestión_gastos"/>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="grupo_transferencias_visualizar_proceso" model="res.groups">
+            <field name="name">Visualizar Procesos</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_transferencias_gastos_procesos"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_ejecutores_procesos" model="res.groups">
+            <field name="name">Gestión del Ejecutor</field>
+            <field name="comment">Permisos de lectura/Escritura</field>
+            <field name="category_id" ref="module_category_transferencias_gastos_procesos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar_proceso'))]"/>
+        </record>
+    </data>
+    <data noupdate="0">
+<!--        <record id="transferencias_rule_usuario_ejecutor" model="ir.rule">-->
+<!--            <field name="name">Ver transferencias por procesos</field>-->
+<!--            <field ref="model_sicpro_app_transferencias_gastos" name="model_id"/>-->
+<!--            <field name="domain_force">[('company_id','in',company_ids)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('grupo_transferencias_visualizar_proceso'))]"/>-->
+<!--        </record>-->
+    </data>
+
+
+
+
+</odoo>

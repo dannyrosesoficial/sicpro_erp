@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <data>
+        <!-- Categoría Principal de Medios Informáticos -->
+        <record id="modulo_categoria_medios_informaticos" model="ir.module.category">
+            <field name="name">Informática</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Informática.</field>
+            <field name="sequence">50</field>
+        </record>
+    </data>
+
+    <data>
+        <!-- Categoría de permisos Medios Informáticos -->
+        <record id="modulo_categoria_medios_informaticos_inventario" model="ir.module.category">
+            <field name="name">Medios Informáticos</field>
+            <field name="description">Módulo para la gestión de los medios informáticos.</field>
+            <field name="parent_id" ref="modulo_categoria_medios_informaticos"/>
+             <field name="sequence" >1</field>
+         </record>
+        <record id="grupo_app_medios_informaticos_inventario_usuario" model="res.groups">
+            <field name="name">Visualizar</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="modulo_categoria_medios_informaticos_inventario"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="grupo_app_medios_informaticos_inventario_tecnico" model="res.groups">
+            <field name="name">Técnico</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="modulo_categoria_medios_informaticos_inventario"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_medios_informaticos_inventario_usuario'))]"/>
+        </record>
+        <record id="grupo_app_medios_informaticos_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="modulo_categoria_medios_informaticos_inventario"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_medios_informaticos_inventario_tecnico'))]"/>
+        </record>
+        <record id="grupo_app_medios_informaticos_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="modulo_categoria_medios_informaticos_inventario"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_medios_informaticos_responsable'))]"/>
+        </record>
+    </data>
+
+    <data>
+        <!-- Categoría de permisos de Taller -->
+        <record id="modulo_categoria_medios_informaticos_taller" model="ir.module.category">
+            <field name="name">Taller</field>
+            <field name="description">Módulo para la gestión de los medios informáticos.</field>
+            <field name="parent_id" ref="modulo_categoria_medios_informaticos"/>
+             <field name="sequence" >2</field>
+         </record>
+        <record id="grupo_app_medios_informaticos_taller_usuario" model="res.groups">
+            <field name="name">Visualizar</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="modulo_categoria_medios_informaticos_taller"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="grupo_app_medios_informaticos_taller_tecnico" model="res.groups">
+            <field name="name">Técnico</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="modulo_categoria_medios_informaticos_taller"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_medios_informaticos_taller_usuario'))]"/>
+        </record>
+    </data>
+</odoo>

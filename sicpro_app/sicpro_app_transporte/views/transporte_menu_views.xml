@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem name="Transporte" id="transporte_menu_root" sequence="115"
+              web_icon="sicpro_app_transporte,static/description/icon.png"/>
+
+    <!--Inicio: Menu Dashboard-->
+    <record id="menu_transporte_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">sicpro_dashboard_view</field>
+        <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.transporte'}</field>
+    </record>
+    <menuitem id="menu_transporte_dashboard" name="Dashboard"
+              parent="transporte_menu_root" action="menu_transporte_dashboard_action" sequence="1"
+              groups="grupo_app_transporte_usuario"/>
+    <!--Fin: Menu Dashboard-->
+
+
+    <menuitem name="Vehículos" parent="transporte_menu_root"
+              id="transporte_vehiculos_menu" sequence="2"/>
+
+    <menuitem id="transporte_vehiculos" name="Vehículos" action="transporte_action"
+              parent="transporte_vehiculos_menu" groups="grupo_app_transporte_usuario"
+              sequence="2"/>
+
+
+    <menuitem id="transporte_piquera_menu" name="Piquera" action="transporte_piquera_action"
+              parent="transporte_menu_root" groups="grupo_app_transporte_piquera_usuario,grupo_app_transporte_admin"
+              sequence="5"/>
+
+
+    <menuitem name="Informes" parent="transporte_menu_root" id="menu_transporte_informes"
+              sequence="99"/>
+
+
+    <menuitem name="Configuración" parent="transporte_menu_root" id="transporte_configuracion"
+              groups="grupo_app_transporte_responsable" sequence="100"/>
+
+    <menuitem name="Fabricantes de automóviles" action="transporte_marca_action"
+              groups="grupo_app_transporte_responsable" parent="transporte_configuracion"
+              id="transporte_marca_menu" sequence="2"/>
+
+    <menuitem name="Estado del vehiculo" action="transporte_estado_action" parent="transporte_configuracion"
+              id="transporte_estado_menu" groups="grupo_app_transporte_admin" sequence="3"/>
+
+    <menuitem name="Tipo de Combustible" action="transporte_combustible_action" parent="transporte_configuracion"
+              id="transporte_combustible_menu" groups="grupo_app_transporte_responsable" sequence="4"/>
+
+    <menuitem name="Nomenclador de Lugares" action="transporte_distancia_lugar_action" parent="transporte_configuracion"
+              id="transporte_distancias_lugar_menu" groups="grupo_app_transporte_admin" sequence="7"/>
+
+    <menuitem name="Tabla de Distancias" action="transporte_distancia_action" parent="transporte_configuracion"
+              id="transporte_distancias_menu" groups="grupo_app_transporte_responsable" sequence="8"/>
+
+
+</odoo>

@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<record id="informe_sap_proveedor_anexo2_action" model="ir.actions.report">
+        <field name="name">Anexo 2 Resolución No.27</field>
+        <field name="model">sicpro.app.contratos.proveedores</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_contratos.informe_proveedores_anexo2</field>
+        <field name="report_file">sicpro_app_contratos.informe_proveedores_anexo2</field>
+        <field name="print_report_name">'Anexo 2 Resolución No.27'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_contratos_proveedores"/>
+		<field name="groups_id" eval="[(4, ref('sicpro_app_contratos.grupo_app_contratos_proveedor_validar'))]"/>
+		<field name="binding_type">report</field>
+    </record>
+
+	<template id="informe_proveedores_anexo2">
+		<!-- Página Anexo 2 Resolución No.27 -->
+        <t t-call="web.html_container">
+
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0" style="font-size: small">
+	<colgroup width="21">
+	</colgroup>
+	<colgroup width="95">
+	</colgroup>
+	<colgroup width="85">
+	</colgroup>
+	<colgroup width="66">
+	</colgroup>
+	<colgroup width="40">
+	</colgroup>
+	<colgroup width="25">
+	</colgroup>
+	<colgroup width="176">
+	</colgroup>
+	<colgroup width="128">
+	</colgroup>
+	<colgroup width="123">
+	</colgroup>
+	<colgroup width="85">
+	</colgroup>
+	<colgroup width="22">
+	</colgroup>
+		<tr style="font-size: small">
+			<td style="font-size: small;" colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="18" align="center" valign="middle">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: small">
+			Resolución No. 27</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="18" align="center" valign="middle">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: small">
+			Fecha: 8 de Mayo de 2017</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="9" align="center" valign="middle" style="font-size: small">
+			<b>Anexo 2</b></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="19" align="center" valign="middle">
+
+</td>
+			<td colspan="9" align="center" valign="middle" style="font-size: small">
+			<b>FICHA DEL PROVEEDOR (NACIONAL)</b></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="4" align="left" valign="middle" style="font-size: small">
+			Denominación legal:</td>
+			<td colspan="5" align="left" valign="middle" style="font-size: small">
+			<span t-field="inf.nombre_comercial"/></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="4" align="left" valign="middle" style="font-size: small">
+			Códigos: </td>
+			<td colspan="5" align="left" valign="middle" style="font-size: small">
+			<span t-field="inf.codigo_reeup"/></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="4" align="left" valign="middle" style="font-size: small">
+			Fecha de Constitución:</td>
+			<td colspan="5" align="left" valign="middle" style="font-size: small">
+			<span t-field="inf.fecha_constitucion"/></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="4" align="left" valign="middle" style="font-size: small">
+			No. documento de Constitución: </td>
+			<td colspan="5" align="left" valign="middle" style="font-size: small">
+			</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="6" align="left" valign="middle" style="font-size: small">
+			No. Certificación de los Registros correspondiente/Fechas:</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: small">
+			</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="6" align="left" valign="middle" style="font-size: small">
+			Registro Central Comercial u otro que corresponda:</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: small">
+			</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="6" align="left" valign="middle" style="font-size: small">
+			Registro Mercantil, de Sociedad anónima u otro que corresponda:</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: small">
+			</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="5" align="left" valign="middle" style="font-size: small">
+			Objeto Social o Actividad autorizada:</td>
+			<td colspan="4" align="left" valign="middle" style="font-size: small">
+			<span t-field="inf.servicio_comercializable"/></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="5" align="left" valign="middle" style="font-size: small">
+			Actividades secundarias autorizadas:</td>
+			<td style="font-size: small;" colspan="5" align="left" valign="middle">
+			</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="18" align="center" valign="middle">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: small">
+			Clasificación:</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: small">
+			Productor: ___________ Intermediario: ___________ Prestador de
+			Servicios: ___________</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="5" align="left" valign="middle" style="font-size: small">
+			Bienes y/o Servicios que Comercializa: </td>
+			<td colspan="4" align="left" valign="middle" style="font-size: small">
+			<span t-field="inf.servicio_comercializable"/></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="2" align="left" valign="middle" style="font-size: small">
+			Domicilio Social: </td>
+			<td colspan="7" align="left" valign="middle" style="font-size: small">
+			<span t-field="inf.domicilio_social"/></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: small">
+			Ciudad: _______________ Provincia: _______________ Código Postal:
+			_______________ </td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: small">
+			Teléfono: <span t-field="inf.telefono_movil"/>  Fax: _______________  E-Mail: <span t-field="inf.correo"/> </td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="19" align="center" valign="middle">
+
+</td>
+			<td style="font-size: small; border: 1px solid #000000" colspan="2" align="center" valign="middle">
+			No. Cuenta Bancaria</td>
+			<td style="font-size: small; border: 1px solid #000000" colspan="4" align="center" valign="middle">
+			Nombre del Banco u Organización Financiera</td>
+			<td style="font-size: small; border: 1px solid #000000" colspan="2" align="center" valign="middle">
+			Titular de la Cuenta</td>
+			<td style="font-size: small; border: 1px solid #000000" align="center" valign="middle">
+			Moneda</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td style="font-size: small; border: 1px solid #000000" colspan="2" align="center" valign="middle">
+			<span t-field="inf.cuenta_bancaria"/></td>
+			<td style="font-size: small; border: 1px solid #000000" colspan="4" align="center" valign="middle">
+			<span t-field="inf.banco"/></td>
+			<td style="font-size: small; border: 1px solid #000000" colspan="2" align="center" valign="middle">
+			<span t-field="inf.nombre_directivo"/></td>
+			<td style="font-size: small; border: 1px solid #000000" align="center">
+			CUP</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="19" align="center" valign="middle">
+
+</td>
+			<td colspan="2" align="center" valign="middle" style="font-size: small">
+			No. Licencia Bancaria:</td>
+			<td colspan="7" align="left" valign="middle" style="font-size: small">
+			<span t-field="inf.licencia_bancaria"/></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="6" align="left" valign="middle" style="font-size: small">
+			Nombres, Cargo y Firma de la persona que elabora el perfil:</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: small">
+			</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td align="left" style="font-size: small">
+			Fecha: </td>
+			<td colspan="8" align="left" valign="middle" style="font-size: small">
+			</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="6" align="left" valign="middle" style="font-size: small">
+			A llenar por el área que solicite su aprobación en ETECSA:</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: small">
+			</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="6" align="left" valign="middle" style="font-size: small">
+			Propone incorporación en la Cartera de Proveedores:</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: small">
+			</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: small">
+			Nombre y Apellidos/Firma:</td>
+			<td colspan="6" align="left" valign="middle" style="font-size: small">
+			<b>
+</b></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td align="left" style="font-size: small">
+			Cargo:</td>
+			<td colspan="8" align="left" valign="middle" style="font-size: small">
+			<b>
+</b></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="3" align="left" valign="middle" style="font-size: small">
+			Área a qué pertenece:</td>
+			<td colspan="6" align="left" valign="middle" style="font-size: small">
+			<b>
+</b></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td align="left" style="font-size: small">
+			Fecha:</td>
+			<td colspan="8" align="left" valign="middle" style="font-size: small">
+			<b>
+</b></td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="9" rowspan="3" align="left" valign="top" style="font-size: small">
+			Nombre y Apellidos/Firma/Fecha Aprobación por el máximo dirigente
+			del Área que propone la inclusión en la Cartera:</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small; " height="17" align="center" valign="middle">
+
+</td>
+			<td style="font-size: small;" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: small">
+			<td style="font-size: small;" colspan="11" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+</table>
+					</t>
+                    <t t-call="web.address_layout"/>
+                </div>
+                <t t-out="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+				<span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+                <div style="border-top: 1px solid black;">
+					<ul class="list-inline mb4">
+					<span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+						<i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+						<br/>
+					<span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba.
+						Tomo  II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+					<div t-if="report_type == 'pdf'" class="text-center text-muted">
+						Página: <span class="page"/> / <span class="topage"/>
+					</div>
+				</div>
+			</div>
+
+		</t>
+    </template>
+
+</odoo>

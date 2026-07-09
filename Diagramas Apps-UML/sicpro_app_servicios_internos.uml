@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_servicios_internos</OriginalElement>
+  <nodes>
+    <node x="1057.25" y="282.5">typing.Sequence</node>
+    <node x="1415.25" y="348.5">typing.Sized</node>
+    <node x="1566.25" y="304.0">odoo.models.MetaModel</node>
+    <node x="2435.0" y="6621.0">sicpro_app_servicios_internos.models.sicpro_app_trabajadores.Trabajadores</node>
+    <node x="1838.25" y="337.5">typing.Iterator</node>
+    <node x="1525.0" y="6742.5">sicpro_app_servicios_internos.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador</node>
+    <node x="2010.25" y="348.5">typing.Iterable</node>
+    <node x="764.0" y="6478.0">sicpro_app_servicios_internos.models.sicpro_app_internos_nauta.ServiciosInternosNauta</node>
+    <node x="1874.0" y="6020.0">odoo.models.Model</node>
+    <node x="3095.0" y="6511.0">sicpro_app_servicios_internos.models.sicpro_app_internos_fijos.ServiciosInternosFijos</node>
+    <node x="2183.25" y="348.5">typing.Container</node>
+    <node x="2558.25" y="0.0">typing.Hashable</node>
+    <node x="1398.5" y="699.0">odoo.models.BaseModel</node>
+    <node x="2428.25" y="106.0">object</node>
+    <node x="0.0" y="6192.0">sicpro_app_servicios_internos.models.sicpro_app_internos_lineas.ServiciosInternosLineas</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="325.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="1226.25" y="3334.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="2728.0" y="376.5" />
+      <point x="2728.0" y="88.5" />
+      <point x="2639.75" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="2728.0" y="3334.5" />
+      <point x="2728.0" y="88.5" />
+      <point x="2639.75" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-55.75" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-277.75" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="sicpro_app_servicios_internos.models.sicpro_app_trabajadores.Trabajadores" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-160.5" />
+      <point x="2755.0" y="6551.0" />
+      <point x="2300.0" y="6551.0" />
+      <point x="2300.0" y="6320.0" />
+      <point x="1970.0" y="6320.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_servicios_internos.models.sicpro_app_internos_lineas.ServiciosInternosLineas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="372.0" y="-481.0" />
+      <point x="1955.0" y="6300.5" />
+      <point x="1955.0" y="6320.0" />
+      <point x="1970.0" y="6320.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="116.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_servicios_internos.models.sicpro_app_internos_fijos.ServiciosInternosFijos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-270.5" />
+      <point x="3453.0" y="6320.0" />
+      <point x="1970.0" y="6320.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-489.25" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-31.75" y="270.5" />
+    </edge>
+    <edge source="sicpro_app_servicios_internos.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="1970.0" y="6551.0" />
+      <point x="2300.0" y="6551.0" />
+      <point x="2300.0" y="6320.0" />
+      <point x="1970.0" y="6320.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_servicios_internos.models.sicpro_app_internos_nauta.ServiciosInternosNauta" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-303.5" />
+      <point x="1134.5" y="6320.0" />
+      <point x="1970.0" y="6320.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.08280340955215804" showDependencies="false" x="1905.5" y="3685.4999999999995" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

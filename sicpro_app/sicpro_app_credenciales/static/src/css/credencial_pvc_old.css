@@ -1,0 +1,461 @@
+html.pase-body, body.pase-body {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    /*width: 1491.23px;*/
+    width: 1491.23px;
+}
+
+.pase-contenedor {
+    /*width: 964px;*/
+    width: 947.37px;
+    font-family: Arial, 'Times New Roman', sans-serif;
+}
+
+.pase-front-back {
+    position: relative;
+    overflow: visible;
+    /*width: 455px; diff = 1036,23*/
+    width: 1491.23px;
+    /*height:  300px; diff = 647,37*/
+    height: 947.37px;
+    -webkit-transform: rotate(270deg) translate(-100%);
+    -webkit-transform-origin: left top;
+}
+
+/*Parte trasera*/
+
+.pase-base {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border: solid 16.39px;
+}
+
+.pase-color-bordes-permanente {
+    border-color:  darkblue;
+}
+
+.pase-color-bordes-provisional {
+    border-color:  orange;
+}
+
+.pase-color-bordes-especial {
+    border-color:  darkgreen;
+}
+
+.pase-color-bordes-constructor {
+    border-color:  black;
+}
+
+.pase_color_principal_azul {
+    color: rgb(8,52,128);
+}
+
+.pase_color_principal_negro {
+    color: rgb(0,0,0);
+}
+
+.pase_color_secundario_azul_claro {
+    color: rgb(0,204,255);
+}
+
+.pase_color_secundario_azul_oscuro {
+    color: rgb(0,12,66);
+}
+
+.triangulo-derecha {
+    /*width: 1481.23px;*/
+    width: 1464.84px;
+    /*height: 937.37px;*/
+    height: 920.98px;
+    /*border-left: 445px solid transparent;*/
+    /*border-left: 1481.23px solid transparent;*/
+    /*border-bottom: 290px solid;*/
+    /*border-bottom: 937.37px solid;*/
+    position: absolute;
+    /*opacity: 0.3;*/
+}
+
+.accesos {
+    position: relative;
+    /*margin: 15px auto auto 15px;*/
+    margin: 48.48px auto auto 49.93px;
+    /*font-size: 90%; --> 115% done*/
+    /*font-size: 295%;*/
+    font-size: 377%;
+}
+
+.accesos-contenedor {
+    position: relative;
+    /*margin: 35px auto auto auto;*/
+    margin: 110.53px auto auto auto;
+    /*height: 30px;*/
+    height: 94.74px;
+    /*width: 280px;*/
+    width: 1391.81px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.accesos-data {
+    margin: auto;
+    /*margin-left: 5?px;*/
+    margin-left: 32.77px;
+    /*font-size: 130%; --> 160% done*/
+    /*font-size: 426%;*/
+    font-size: 524%;
+    font-weight: 600;
+}
+
+.firma-contenedor {
+    position: relative;
+    /*margin: 145px auto auto auto;*/
+    margin: 457.9px auto auto auto;
+    /*height: 20px;*/
+    height: 63.16px;
+    /*width: 275px;*/
+    width: 901.29px;
+    /*border-top: 1px solid black;*/
+    border-top: 3.16px solid black;
+    text-align: center;
+}
+
+.firma-data {
+    /*font-size: 85%;*/
+    font-size: 279%;
+}
+
+.valido-contenedor {
+    position: relative;
+    /*margin: -120px auto auto 10px;*/
+    margin: -378.95px auto auto 33.51px;
+    /*height: 20px; --> 25px done*/
+    /*height: 63.16px;*/
+    height: 78.95px;
+    /*width: 225px; --> 270px done*/
+    /*width: 737.42px;*/
+    width: 884.91px;
+    overflow: hidden;
+}
+
+.valido-label {
+    height: 100%;
+    /*width: 60%; -- > 50%;*/
+    width: 60%;
+    text-align: left;
+}
+
+.valido-label-data {
+    /*font-size: 87%; --> 97% done*/
+    /*font-size: 285%;*/
+    font-size: 318%;
+}
+
+.valido-data-contendor {
+    height: 100%;
+    /*width: 40%; --> 45% done*/
+    /*width: 40%;*/
+    width: 45%;
+    text-align: right;
+    /*margin: -20px 60%; --> -30px 55% done*/
+    /*margin: -63.16px 60%;*/
+    margin: -94.74px 55%;
+}
+
+.valido-data {
+    /*font-size: 85%; --> 135% done*/
+    /*font-size: 279%;*/
+    font-size: 442%;
+}
+
+/* Parte delantera */
+
+.pase-front {
+    /*border-left-width: 75px;*/
+    border-left-width: 245.81px;
+}
+
+.pase-lateral-tipo-credencial {
+    /*height: 60px;*/
+    height: 192.65px;
+    /*width: 290px;*/
+    width: 915.79px;
+    position: absolute;
+    margin: auto;
+    /*margin-left: -70px;*/
+    /*margin-left: -229.42px;*/
+    margin-left: -223.42px;
+    text-align: center;
+    -webkit-transform: rotate(270deg) translate(-100%);
+    -webkit-transform-origin: left top;
+}
+
+.pase-tipo-credencial-data {
+    /*font-size: 170% ;*/
+    font-size: 557% ;
+    /*margin: 20px auto;*/
+    margin: 63.16px auto;
+    color: white;
+    font-weight: 900;
+}
+
+.pase-front-upper-seccion {
+    overflow: visible;
+    /*height: 130px; --> 160px done*/
+    /*height: 410.53px;*/
+    height: 505.26px;
+    /*width: 365px;*/
+    width: 1196.26px;
+    /*margin: 5px auto auto 5px;*/
+    margin: 15.78px auto auto 16.39px;
+}
+
+.pase-imagen-contenedor {
+    position: relative;
+    margin: 0px auto auto 0px;
+    /*height: 130px; --> 160px (in xml too) done*/
+    /*height: 410.52px;*/
+    height: 505.26px;
+    /*width: 115px; --> 160px (in xml too) done */
+    /*width: 376.90px;*/
+    width: 524.38px;
+    /*width: 115px; to 130px*/
+    /*width: 410,52px;*/
+    text-align: center;
+}
+
+.pase-logo-etecsa-contenedor {
+    position: relative;
+    /*margin: -130px auto auto 120px; --> -160px auto auto 165px done*/
+    /*margin: -410.52px auto auto 393.29px;*/
+    margin: -505.26px auto auto 540.78px;
+    /*height: 65px;*/
+    height: 205.26px;
+    /*width: 230px; --> 185px done*/
+    /*width: 753.81px;*/
+    width: 606.32px;
+    text-align: center;
+}
+
+.pase-numero-credencial-contenedor {
+    position: absolute;
+    /*height: 60px;*/
+    height: 189.47px;
+    /*width: 230px; --> 220px done*/
+    /*width: 753.81px;*/
+    width: 721.03px;
+    /*margin: 5px auto auto 120px; --> 20px auto auto 145px done*/
+    /*margin: 15.79px auto auto 393.29px;*/
+    margin: 63.16px auto auto 475.23px;
+    text-align: center;
+}
+
+.pase-numero-credencial-data {
+    /*margin: 12px auto auto auto; --> margin: 10px auto auto auto done*/
+    /*margin: 37.89px auto auto auto;*/
+    margin: 31.58px auto auto auto;
+    /*font-size: 195%; --> 200% done*/
+    /*font-size: 639%;*/
+    font-size: 655%;
+    font-weight: 700;
+}
+
+.pase-front-lower-seccion {
+    /*height: 145px; --> 124px done*/
+    /*height: 457.89px;*/
+    height: 391.58px;
+    /*width: 365px;*/
+    width: 1196.26px;
+    /*margin: 5px auto auto 5px; --> 1px auto auto 5px done*/
+    /*margin: 15.79px auto auto 16.39px;*/
+    margin: 3.16px auto auto 16.39px;
+}
+
+.pase-front-lower-first-seccion {
+    /*height: 75px;*/
+    height: 236.84px;
+    /*width: 365px;*/
+    width: 1196.26px;
+    overflow: hidden;
+}
+
+.pase-front-nombre-contenedor {
+    position: relative;
+    /*height: 12px;*/
+    height: 37.89px;
+    /*width: 345px;*/
+    width: 1130.71px;
+    margin: auto;
+    /*margin-top: 25px; --> 20px done*/
+    /*margin-top: 78.95px;*/
+    margin-top: 63.16px;
+    text-align: center;
+}
+
+.pase-front-nombre-data {
+    /*font-size: 100%;*/
+    font-size: 328%;
+    font-weight: 800
+}
+
+.pase-front-nombre-label-contenedor {
+    position: relative;
+    /*height: 25px;*/
+    height: 78.95px;
+    /*width: 345px;*/
+    width: 1130.71px;
+    margin: auto;
+    /*margin-top: 5px;*/
+    margin-top: 15.79px;
+    text-align: center;
+    /*border-top: 1px solid black;*/
+    border-top: 3.16px solid black;
+}
+
+.pase-front-nombre-label-data {
+    /*font-size: 85%;*/
+    font-size: 279%;
+}
+
+.pase-front-lower-last-seccion {
+    /*height: 60px; --> 55px done*/
+    /*height: 189.47px;*/
+    height: 173.68px;
+    /*width: 355px;*/
+    width: 1163.49px;
+    /*margin: 5px auto auto 5px; --> -10px auto auto 1px; done*/
+    /*margin: 15.78px auto auto 16.39px;*/
+    margin: -31.58px auto auto 3.28px;
+    /*new*/
+    overflow: hidden;
+}
+
+
+
+.pase-front-alcance-borders {
+    /*height: 100%; --> 110% done*/
+    /*height: 100%;*/
+    height: 110%;
+    /*width: 70%; --> 63% done*/
+    /*width: 70%;*/
+    width: 63%;
+    text-align: center;
+    /*border: 2px solid;*/
+    border: 6.32px solid;
+    overflow: hidden;
+    /*new*/
+    /*padding-top: 5%; padding-bottom: 5%;*/
+}
+
+.pase-front-lower-last-seccion-left {
+    /*height: 60px; --> 55px done*/
+    /*height: 189.47px;*/
+    height: 173.68px;
+    /*width: 60%; --> 50% done*/
+    /*width: 60%;*/
+    width: 50%;
+    /*new*/
+    margin-left: -2%;
+    /*margin-top: 10px;*/
+    margin-top: 31.58px;
+}
+
+.pase-front-lower-last-seccion-left-up {
+    /*height: 50%; --> 30% done*/
+    height: 30%;
+    width: 80%;
+    margin: auto auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.pase-front-carnet-data {
+    /*font-size: 105%;*/
+    font-size: 344%;
+    font-weight: 800;
+    /*margin: 6% auto;*/
+    margin: 0% auto;
+}
+
+.pase-front-lower-last-seccion-left-down {
+    /*height: 50%; -->  55% done*/
+    height: 55%;
+    /*width: 90%; --> 95% done*/
+    width: 95%;
+    margin: auto auto;
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+.pase-front-carnet-label {
+    /*font-size: 229%;*/
+    /*font-size: 204%;*/
+    font-size: 209%;
+}
+
+.pase-front-lower-last-seccion-right {
+    position: relative;
+    /*height: 40px; --> 90% (si, es por ciento) done*/
+    height: 90%;
+    /*width: 40%; --> 50% done*/
+    width: 50%;
+    /*margin: -50px 60%; --> margin: -18% 50%; done*/
+    margin: -18% 50%;
+}
+
+.pase-front-alcance-bordes {
+    /*height: 100%; --> 110% done*/
+    height: 110%;
+    /*width: 70%; --> 63% done*/
+    width: 63%;
+    text-align: center;
+    /*border-width: 2px;*/
+    border-width: 6.32px;
+    border-style: solid;
+    overflow: hidden;
+    /*new*/
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.pase-front-alcance-data {
+    color: blue;
+    position: relative;
+    /*font-size: 165%; --> 200% done*/
+    /*font-size: 541%;*/
+    font-size: 655%;
+    /*margin-top: 8%; --> removed property*/
+    /*margin-top: 8%;*/
+    font-weight: 700;
+}
+
+.pase-front-siglas-bordes {
+    /*height: 100%; --> 110% done*/
+    height: 110%;
+    /*width: 30%; --> 37% done*/
+    width: 37%;
+    text-align: center;
+    /*border-width: 2px;*/
+    border-width: 6.32px;
+    border-style: solid;
+    /*margin: -40px 70%; --> -29.35% 63% done*/
+    /*margin: -126.32px 70%;*/
+    margin: -29.35% 63%;
+    overflow: hidden;
+    border-left: 0;
+    /*new*/
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.pase-front-siglas-data {
+    color: blue;
+    position: relative;
+    /*font-size: 165%; --> 200% done*/
+    /*font-size: 541%;*/
+    font-size: 655%;
+    /*margin-top: 18%; --> removed property*/
+    /*margin-top: 18%;*/
+    font-weight: 700;
+}

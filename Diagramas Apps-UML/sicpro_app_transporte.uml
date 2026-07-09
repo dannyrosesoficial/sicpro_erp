@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_transporte</OriginalElement>
+  <nodes>
+    <node x="3928.0" y="282.5">typing.Sequence</node>
+    <node x="794.0" y="8015.0">sicpro_app_transporte.models.sicpro_app_transporte_piquera.TransportePiqueraCanceladas</node>
+    <node x="4286.0" y="348.5">typing.Sized</node>
+    <node x="4437.0" y="304.0">odoo.models.MetaModel</node>
+    <node x="4709.0" y="337.5">typing.Iterator</node>
+    <node x="7124.75" y="6247.0">sicpro_app_transporte.models.sicpro_app_transporte_piquera.TransportePiquera</node>
+    <node x="6489.75" y="6192.0">sicpro_app_transporte.models.sicpro_app_transporte.TransporteGeneral</node>
+    <node x="4881.0" y="348.5">typing.Iterable</node>
+    <node x="7826.75" y="7006.5">sicpro_app_transporte.models.sicpro_app_transporte_estados.TransporteEstados</node>
+    <node x="3998.75" y="7039.5">sicpro_app_transporte.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador</node>
+    <node x="2525.75" y="7017.0">sicpro_app_transporte.models.sicpro_app_trabajadores.TransporteTrabajadores</node>
+    <node x="4744.75" y="6020.0">odoo.models.Model</node>
+    <node x="3215.75" y="6929.0">sicpro_app_transporte.models.sicpro_app_transporte_distancias.TransporteDistanciasSalida</node>
+    <node x="5702.75" y="6962.0">sicpro_app_transporte.models.sicpro_app_transporte_piquera.TransportePiqueraRecorridos</node>
+    <node x="0.0" y="8015.0">sicpro_app_transporte.models.sicpro_app_transporte_piquera.TransportePiqueraRechazadas</node>
+    <node x="1711.75" y="6995.5">sicpro_app_transporte.models.sicpro_app_transporte_distancias.TransporteDistanciasRecorrido</node>
+    <node x="975.75" y="7006.5">sicpro_app_transporte.models.sicpro_app_transporte_marca.TransporteModeloBrand</node>
+    <node x="610.75" y="6984.0">odoo.models.TransientModel</node>
+    <node x="4850.75" y="6962.5">sicpro_app_transporte.models.sicpro_app_transporte_tipo_combustible.TransporteTipoCombustible</node>
+    <node x="5054.0" y="348.5">typing.Container</node>
+    <node x="5429.0" y="0.0">typing.Hashable</node>
+    <node x="8531.75" y="7006.5">sicpro_app_transporte.models.sicpro_app_transporte_distancias.TransporteDistancias</node>
+    <node x="4269.25" y="699.0">odoo.models.BaseModel</node>
+    <node x="5299.0" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_app_transporte.models.sicpro_app_trabajadores.TransporteTrabajadores" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-61.5" />
+      <point x="2860.75" y="6546.0" />
+      <point x="3527.0" y="6546.0" />
+      <point x="3527.0" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_distancias.TransporteDistanciasRecorrido" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="2108.75" y="6546.0" />
+      <point x="3527.0" y="6546.0" />
+      <point x="3527.0" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="783.25" y="6546.0" />
+      <point x="3527.0" y="6546.0" />
+      <point x="3527.0" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="325.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_distancias.TransporteDistancias" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="8890.25" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_piquera.TransportePiqueraRecorridos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-116.5" />
+      <point x="6086.25" y="6546.0" />
+      <point x="3527.0" y="6546.0" />
+      <point x="3527.0" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_tipo_combustible.TransporteTipoCombustible" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-116.0" />
+      <point x="5266.75" y="6546.0" />
+      <point x="3527.0" y="6546.0" />
+      <point x="3527.0" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="4097.0" y="3334.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="5598.0" y="376.5" />
+      <point x="5598.0" y="88.5" />
+      <point x="5510.5" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="5598.0" y="3334.5" />
+      <point x="5598.0" y="88.5" />
+      <point x="5510.5" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-55.75" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-277.75" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_piquera.TransportePiquera" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-831.5" />
+      <point x="7465.75" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="116.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte.TransporteGeneral" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-886.5" />
+      <point x="6797.25" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_piquera.TransportePiqueraCanceladas" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="61.5" />
+      <point x="1179.5" y="8161.0" />
+      <point x="-17.5" y="8161.0" />
+      <point x="-17.5" y="7078.5" />
+      <point x="-172.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="4414.75" y="6546.0" />
+      <point x="3527.0" y="6546.0" />
+      <point x="3527.0" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_marca.TransporteModeloBrand" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="1333.75" y="6546.0" />
+      <point x="3527.0" y="6546.0" />
+      <point x="3527.0" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_piquera.TransportePiqueraRechazadas" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="61.5" />
+      <point x="387.0" y="8161.0" />
+      <point x="-17.5" y="8161.0" />
+      <point x="-17.5" y="7078.5" />
+      <point x="-172.5" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-489.25" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-31.75" y="270.5" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_estados.TransporteEstados" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="8169.25" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_transporte.models.sicpro_app_transporte_distancias.TransporteDistanciasSalida" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-85.25" y="-149.5" />
+      <point x="3512.0" y="6546.0" />
+      <point x="3527.0" y="6546.0" />
+      <point x="3527.0" y="6167.0" />
+      <point x="4840.75" y="6167.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.07501838685952439" showDependencies="false" x="4624.5" y="4069.0000000000005" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

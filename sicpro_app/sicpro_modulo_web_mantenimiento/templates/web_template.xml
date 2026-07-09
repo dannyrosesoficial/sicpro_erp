@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_template_registro_mantenimiento_btn" inherit_id="sicpro_modulo_web.web_plantilla_inicio">
+        <xpath expr="//a[@name='btn_registro']" position="replace">
+            <t t-set="mtto"
+               t-value="request.env['sicpro.modulo.web.mantenimiento'].sudo().search([('active', '=', True)])"/>
+            <t t-if="mtto.activar_mantenimiento == False">
+                <a name="btn_registro" href="/web/registro/" class=" btn-watch-video"><i class="bi bi-play-circle"></i>
+                    <span>Solicitar Usuarios</span>
+                </a>
+            </t>
+        </xpath>
+    </template>
+</odoo>

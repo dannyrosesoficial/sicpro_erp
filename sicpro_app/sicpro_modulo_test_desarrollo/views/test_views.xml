@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+    <record id="sicpro_modulo_test_form_view" model="ir.ui.view">
+        <field name="name">sicpro.modulo.test.form.view</field>
+        <field name="model">sicpro.modulo.test</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="fun_test_1" string="Función Prueba 1" type="object" class="oe_highlight"/>
+
+                    <button name="fun_test_2" string="Función Prueba 2" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                         <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sicpro_modulo_test_tree_view" model="ir.ui.view">
+        <field name="name">sicpro.modulo.test.tree.view</field>
+        <field name="model">sicpro.modulo.test</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sicpro_modulo_test_filter_view" model="ir.ui.view">
+       <field name="name">Buscar</field>
+       <field name="model">sicpro.modulo.test</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+            <field name="name"/>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_sicpro_modulo_test" model="ir.actions.act_window">
+        <field name="name">SICPRO TEST</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.modulo.test</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+     <menuitem id="test_menu_root" name="TEST" sequence="1000"
+            web_icon="sicpro_modulo_test_desarrollo,static/description/icon.png"
+            groups="grupo_test_desarrollo"/>
+
+        <menuitem id="test_menu_test" name="TEST"
+              parent="test_menu_root" action="action_sicpro_modulo_test" sequence="1"/>
+    </data>
+</odoo>

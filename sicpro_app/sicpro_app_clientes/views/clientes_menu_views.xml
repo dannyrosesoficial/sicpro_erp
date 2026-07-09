@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <!--<menuitem name="Clientes"  id="menu_clientes_root" sequence="9"
+       web_icon="sicpro_app_clientes,static/description/icon.png"/>-->
+
+    <menuitem id="menu_clientes_principal" name="Clientes" action="action_clientes"
+              parent="sicpro_app_contactos.menu_contactos" groups="grupo_app_clientes_usuario" sequence="4"/>
+
+
+    <menuitem id="menu_clientes_configuracion" name="Clientes" parent="sicpro_app_contactos.contactos_menu_config"
+              sequence="9"/>
+    <menuitem id="menu_nomenclador_cliente_territorio" name="Unidad Organizativa" parent="menu_clientes_configuracion"
+              action="sicpro_modulo_nomencladores.action_nomenclador_territorio"
+              groups="grupo_app_clientes_admin" sequence="2"/>
+    <menuitem id="menu_etiquetas_clientes" name="Etiquetas" parent="menu_clientes_configuracion"
+              action="etiquetas_clientes_action" sequence="1"
+              groups="grupo_app_clientes_responsable" />
+
+
+</odoo>

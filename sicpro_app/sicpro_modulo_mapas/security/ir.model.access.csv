@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sicpro_mapas_user,sicpro_mapas_user,model_sicpro_modulo_mapas,,1,0,0,0
+sicpro_mapas_admin,sicpro_mapas_admin,model_sicpro_modulo_mapas,base.group_system,1,1,1,1

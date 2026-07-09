@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sicpro_app_trabajadores_general_servicios_internos" model="ir.ui.view">
+        <field name="name">sicpro.app.trabajadores.servicios.internos.form</field>
+        <field name="model">sicpro.app.trabajadores</field>
+        <field name="inherit_id" ref="sicpro_app_trabajadores.view_trabajadores_form"/>
+        <field name="arch" type="xml">
+            <field name="movil_trabajo" position="replace">
+                <label for="movil_trabajo"/>
+                <div>
+                    <field name="movil_trabajo" class="oe_inline"/>
+                    <button type="object" name="linea_trabajador_view" class="btn-sm btn-link mb4 fa fa-phone"
+                            aria-label="Servicio Móvil" title="Servicio Móvil"/>
+                </div>
+            </field>
+
+            <field name="telefono_trabajo" position="replace">
+                <label for="telefono_trabajo"/>
+                <div>
+                    <field name="telefono_trabajo" class="oe_inline"/>
+                    <button type="object" name="fijos_trabajador_view" class="btn-sm btn-link mb4 fa fa-tty"
+                            aria-label="Servicio Fijo" title="Servicio Fijo"/>
+                </div>
+            </field>
+
+            <field name="correo_trabajo" position="replace">
+                <label for="correo_trabajo"/>
+                <div>
+                    <field name="correo_trabajo" class="oe_inline" widget="email"/>
+                </div>
+            </field>
+
+            <field name="importe" position="before">
+                <label for="nauta_count"/>
+                <div class="o_row">
+                    <field name="nauta_count" class="oe_inline"/>
+                    <span class="font-weight-bold" style="width:142px;"> Horas</span>
+                    <button type="object" name="nauta_trabajador_view" class="btn-sm btn-link mb4 fa fa-gift"
+                            aria-label="Cuenta Nauta" title="Cuenta Nauta"/>
+                </div>
+                <label for="tope_voz"/>
+                <div>
+                    <field name="tope_voz" class="oe_inline"/>
+                    <span class="font-weight-bold" style="width:142px;"> min</span>
+                </div>
+                <label for="tope_sms"/>
+                <div>
+                    <field name="tope_sms" class="oe_inline"/>
+                    <span class="font-weight-bold" style="width:142px;"> min</span>
+                </div>
+                <label for="tope_datos"/>
+                <div>
+                    <field name="tope_datos" class="oe_inline"/>
+                    <span class="font-weight-bold" style="width:142px;"> mb</span>
+                </div>
+
+                <field name="linea_ids" invisible="1"/>
+                <field name="fijo_ids" invisible="1"/>
+                <field name="correo_ids" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+
+</odoo>

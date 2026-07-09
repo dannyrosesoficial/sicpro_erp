@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- Creo la categoría de Administración General -->
+        <record id="modulo_categoria_administracion_general" model="ir.module.category">
+            <field name="name">Administración SICPRO ERP</field>
+            <field name="description">Módulo para el acceso a los tableros de mando de los sistemas SICPRO.</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <!-- Creo la categoría de SICPRO Administración -->
+        <record id="modulo_categoria_administracion" model="ir.module.category">
+            <field name="name">Administración</field>
+            <field name="description">Módulo para el control de los sistemas SICPRO.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_administracion_general"/>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="grupo_app_administracion_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="modulo_categoria_administracion"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+
+        <!-- Creo la categoría de notificaciones de la Administración -->
+        <record id="modulo_categoria_notificaciones_administracion" model="ir.module.category">
+            <field name="name">Notificaciones</field>
+            <field name="description">Módulo para el control de los sistemas SICPRO.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_administracion_general"/>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="grupo_app_administracion_notificaciones" model="res.groups">
+            <field name="name">Notificar</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="modulo_categoria_notificaciones_administracion"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Creo la categoría de acceso a los canales de comunicación -->
+        <record id="modulo_categoria_canales" model="ir.module.category">
+            <field name="name">Accesos a Canales de Comunicación</field>
+            <field name="description">Módulo para otorgar el acceso a los canales de comunicación en el sistema.</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="grupo_canal_staff" model="res.groups">
+            <field name="name">Canal del STAFF</field>
+            <field name="comment">Permisos al Canal del STAFF</field>
+            <field name="category_id" ref="modulo_categoria_canales"/>
+        </record>
+        <record id="grupo_canal_proyectos" model="res.groups">
+            <field name="name">Canal de Proyectos</field>
+            <field name="comment">Permisos al Canal de Proyectos</field>
+            <field name="category_id" ref="modulo_categoria_canales"/>
+        </record>
+        <record id="grupo_canal_deoct" model="res.groups">
+            <field name="name">Canal de DEOCT</field>
+            <field name="comment">Permisos al Canal de DEOCT</field>
+            <field name="category_id" ref="modulo_categoria_canales"/>
+        </record>
+        <record id="grupo_canal_deoit" model="res.groups">
+            <field name="name">Canal de DEOIT</field>
+            <field name="comment">Permisos al Canal de DEOIT</field>
+            <field name="category_id" ref="modulo_categoria_canales"/>
+        </record>
+        <record id="grupo_canal_inversiones" model="res.groups">
+            <field name="name">Canal de Inversiones</field>
+            <field name="comment">Permisos al Canal de Inversiones</field>
+            <field name="category_id" ref="modulo_categoria_canales"/>
+        </record>
+
+
+        <!-- ################################################################################################ -->
+        <!-- ######################## Categorías Principales de los Accesos ################################# -->
+        <!-- ################################################################################################ -->
+
+        <!-- Creo la categoría Principal de Permisos variados -->
+        <record id="modulo_categoria_accesos_variados" model="ir.module.category">
+            <field name="name">Otros Permisos de SICPRO ERP</field>
+            <field name="description">Permisos generales del sistema SICPRO.</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="base.group_allow_export" model="res.groups">
+            <field name="name">Acceso a la función de exportación</field>
+            <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_accesos_variados"/>
+            <field name="users" eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"/>
+        </record>
+        <record id="base.group_private_addresses" model="res.groups">
+            <field name="name">Acceso a direcciones privadas</field>
+            <field name="category_id" ref="sicpro_app_administracion.modulo_categoria_accesos_variados"/>
+        </record>
+
+
+        <!-- Creo la categoría Principal de Dashboard -->
+        <record id="modulo_categoria_dashboard" model="ir.module.category">
+            <field name="name">Dashboard SICPRO ERP</field>
+            <field name="description">Módulo para el acceso a los tableros de mando del sistema SICPRO.</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Contratación -->
+        <record id="modulo_categoria_contratacion" model="ir.module.category">
+            <field name="name">Contratación</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Contratos.</field>
+            <field name="sequence">6</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Capital Humano -->
+        <record id="modulo_categoria_capital_humano" model="ir.module.category">
+            <field name="name">Capital Humano</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Capital Humano.</field>
+            <field name="sequence">7</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Transportación -->
+        <record id="modulo_categoria_transportacion" model="ir.module.category">
+            <field name="name">Transportación</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Transportación.</field>
+            <field name="sequence">8</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Productos -->
+        <record id="modulo_categoria_productos" model="ir.module.category">
+            <field name="name">Productos</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Productos.</field>
+            <field name="sequence">9</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Herramientas y Equipos -->
+        <record id="modulo_categoria_herramientas_equipos" model="ir.module.category">
+            <field name="name">Herramientas y Equipos</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Herramientas y Equipos.</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Solicitudes de Obras -->
+        <record id="modulo_categoria_solicitudes_obras" model="ir.module.category">
+            <field name="name">Solicitudes de Obras</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Solicitudes de Obras.</field>
+            <field name="sequence">11</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Preparación Técnica -->
+        <record id="modulo_categoria_preparación_tecnica" model="ir.module.category">
+            <field name="name">Preparación Técnica</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Preparación Técnica.</field>
+            <field name="sequence">12</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Órdenes de Trabajo -->
+        <record id="modulo_categoria_ordenes_trabajo" model="ir.module.category">
+            <field name="name">Órdenes de Trabajo</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Órdenes de Trabajo.</field>
+            <field name="sequence">13</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Gestión de Gastos -->
+        <record id="modulo_categoria_gestión_gastos" model="ir.module.category">
+            <field name="name">Gestión de Gastos</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Gestión de Gastos.</field>
+            <field name="sequence">14</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Gestión de Reuniones -->
+        <record id="modulo_categoria_gestión_reuniones" model="ir.module.category">
+            <field name="name">Gestión de Reuniones</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Gestión de Reuniones.</field>
+            <field name="sequence">15</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Activos y Herramientas -->
+        <record id="modulo_categoria_activos_herramientas" model="ir.module.category">
+            <field name="name">Activos y Herramientas</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Activos y Herramientas.</field>
+            <field name="sequence">16</field>
+        </record>
+
+        <!-- Creo la categoría Principal de los servicios corporativos de la DVPE -->
+        <record id="modulo_categoria_gestión_documentos" model="ir.module.category">
+            <!--        <field name="name">Documentos</field>  (ANTES)  -->
+            <field name="name">Servicios Corporativos</field>
+            <field name="description">Módulo para el acceso a los servicios corporativos del sistema</field>
+            <field name="sequence">19</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Gestión de Producción -->
+        <record id="modulo_categoria_gestion_produccion" model="ir.module.category">
+            <field name="name">Gestión de Producción</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Gestión de Producción.</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Creo la categoría Principal de Sociales -->
+        <record id="modulo_categoria_Sociales" model="ir.module.category">
+            <field name="name">Sociales</field>
+            <field name="description">Módulo para el acceso a las aplicaciones de Sociales.</field>
+            <field name="sequence">21</field>
+        </record>
+
+
+        <!-- Creado para garantizar el NO acceso a menus no necesarios u obsoletos -->
+        <record id="grupo_app_administracion_obsoletos" model="res.groups">
+            <field name="name">Menus y Accesos Obsoletos</field>
+            <field name="comment">Permisos Obsoletos</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+
+    </data>
+
+    <data noupdate="0">
+
+    </data>
+
+</odoo>

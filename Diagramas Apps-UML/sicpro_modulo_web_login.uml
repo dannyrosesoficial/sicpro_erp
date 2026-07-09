@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_web_login</OriginalElement>
+  <nodes>
+    <node x="559.2610294117646" y="282.5">typing.Sequence</node>
+    <node x="1595.84375" y="6216.5">sicpro_modulo_web_login.models.login_image.LoginImage</node>
+    <node x="917.2610294117646" y="348.5">typing.Sized</node>
+    <node x="1068.2610294117646" y="304.0">odoo.models.MetaModel</node>
+    <node x="426.84375" y="6433.0">sicpro_modulo_web_login.models.res_config_settings.ResConfigSettings</node>
+    <node x="1340.2610294117646" y="337.5">typing.Iterator</node>
+    <node x="1512.2610294117646" y="348.5">typing.Iterable</node>
+    <node x="128.75" y="3319.0">Controller</node>
+    <node x="1155.34375" y="6022.0">odoo.models.Model</node>
+    <node x="926.84375" y="6216.5">sicpro_modulo_web_login.models.sicpro_app_login.SicproConfigLoginVersion</node>
+    <node x="561.84375" y="6194.0">odoo.models.TransientModel</node>
+    <node x="9.0" y="6044.0">sicpro_modulo_web_login.controllers.main.Home</node>
+    <node x="1685.2610294117646" y="348.5">typing.Container</node>
+    <node x="0.0" y="6260.5">sicpro_modulo_web_login.controllers.main.Website</node>
+    <node x="962.8115808823529" y="0.0">typing.Hashable</node>
+    <node x="679.84375" y="699.0">odoo.models.BaseModel</node>
+    <node x="119.75" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="2.500000000509317E-4" y="-94.5" />
+      <point x="734.344" y="6004.5" />
+      <point x="1524.5" y="6004.5" />
+      <point x="1524.5" y="6191.0" />
+      <point x="1251.344" y="6191.0" />
+      <point x="2.500000000509317E-4" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_web_login.controllers.main.Website" target="sicpro_modulo_web_login.controllers.main.Home" relationship="REALIZATION">
+      <point x="0.0" y="-28.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="546.4172794117646" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="0.0" y="-270.5" />
+      <point x="257.25" y="81.0" />
+      <point x="1044.312" y="81.0" />
+      <point x="4.1911764697033504E-4" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_web_login.controllers.main.Home" target="Controller" relationship="REALIZATION">
+      <point x="-34.75" y="-39.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-523.0827205882354" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="-571.49975" y="0.0" />
+      <point x="541.761" y="3334.5" />
+      <point x="541.761" y="81.0" />
+      <point x="1044.312" y="81.0" />
+      <point x="4.1911764697033504E-4" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="164.91727941176464" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="15.000250000000051" y="-2635.5" />
+      <point x="72.08297058823541" y="72.5" />
+    </edge>
+    <edge source="Controller" target="object" relationship="REALIZATION">
+      <point x="59.0" y="0.0" />
+      <point x="498.0" y="3334.5" />
+      <point x="498.0" y="673.0" />
+      <point x="257.25" y="673.0" />
+      <point x="0.0" y="270.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="337.41727941176464" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_modulo_web_login.models.res_config_settings.ResConfigSettings" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-149.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="sicpro_modulo_web_login.models.sicpro_app_login.SicproConfigLoginVersion" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="2.500000000509317E-4" y="-72.0" />
+      <point x="2.500000000509317E-4" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_web_login.controllers.main.Home" target="object" relationship="REALIZATION">
+      <point x="213.5" y="0.0" />
+      <point x="498.0" y="6083.0" />
+      <point x="498.0" y="673.0" />
+      <point x="257.25" y="673.0" />
+      <point x="0.0" y="270.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-268.58272058823536" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="2.500000000509317E-4" y="-2635.5" />
+      <point x="1251.344" y="673.0" />
+      <point x="257.25" y="673.0" />
+      <point x="0.0" y="270.5" />
+    </edge>
+    <edge source="sicpro_modulo_web_login.models.login_image.LoginImage" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="2.500000000509317E-4" y="-72.0" />
+      <point x="1846.344" y="6191.0" />
+      <point x="1251.344" y="6191.0" />
+      <point x="2.500000000509317E-4" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.12514810426540285" showDependencies="false" x="1048.5" y="3366.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

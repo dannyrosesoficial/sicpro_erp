@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- ATENCIÓN: Se unifican los dos bloques <data> en uno solo y se usa noupdate="0"
+             para asegurar que las reglas de acceso se actualicen correctamente. -->
+
+        <!-- CATEGORÍA DE MÓDULO (Debe tener noupdate="1" para que no se reescriba) -->
+        <record model="ir.module.category" id="module_category_repositorio_institucional">
+            <field name="name">Repositorio Institucional</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_gestión_documentos"/>
+            <field name="sequence">2</field>
+        </record>
+
+        <!-- GRUPOS DE USUARIO -->
+        <record id="group_repositorio_institucional_user" model="res.groups">
+            <field name="name">Usuario</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_repositorio_institucional"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_repositorio_institucional_creador" model="res.groups">
+            <field name="name">Creador</field>
+            <field name="comment">Permisos de Lectura/Escritura de documentos propios</field>
+            <field name="category_id" ref="module_category_repositorio_institucional"/>
+            <field name="implied_ids" eval="[(4, ref('group_repositorio_institucional_user'))]"/>
+        </record>
+
+        <record id="group_repositorio_institucional_validar" model="res.groups">
+            <field name="name">Validación</field>
+            <field name="comment">Permisos de Lectura/Escritura para revisión</field>
+            <field name="category_id" ref="module_category_repositorio_institucional"/>
+            <field name="implied_ids" eval="[(4, ref('group_repositorio_institucional_creador'))]"/>
+        </record>
+
+        <record id="group_repositorio_institucional_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Configuración</field>
+            <field name="category_id" ref="module_category_repositorio_institucional"/>
+            <field name="implied_ids" eval="[(4, ref('group_repositorio_institucional_validar'))]"/>
+        </record>
+
+        <record id="group_repositorio_institucional_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos de Lectura/Escritura/Configuración</field>
+            <field name="category_id" ref="module_category_repositorio_institucional"/>
+            <field name="implied_ids" eval="[(4, ref('group_repositorio_institucional_responsable'))]"/>
+        </record>
+
+        <!-- REGLAS DE REGISTRO (IR.RULE) -->
+        <!-- Regla de acceso para usuarios normales (group_repositorio_institucional_user).
+        Permite:
+        1. Ver TODOS los registros que son carpetas (doc_carpeta = 'carpeta').
+        2. Ver SOLO los registros que son documentos (doc_carpeta != 'carpeta')
+           y que están publicados (stage_id.is_won = True).
+        -->
+        <record id="repositorios_rule_usuario_publicado" model="ir.rule">
+            <field name="name">Repositorio: Ver Carpetas y Documentos Publicados</field>
+            <field ref="model_sicpro_app_repo" name="model_id"/>
+            <field name="domain_force">['|', ('doc_carpeta', '=', 'carpeta'), '&amp;', ('doc_carpeta', '!=', 'carpeta'),
+                                        ('stage_id.is_won', '=', True)]</field>
+            <field name="groups" eval="[(4, ref('group_repositorio_institucional_user'))]"/>
+        </record>
+
+        <!-- Esta regla permite al grupo 'Creador' ver:
+        1. Todos los documentos que están Publicados.
+        2. Todas las Carpetas (visibilidad estructural).
+        3. El trabajo propio (Soy Creador O soy un Autor).
+        Se incluyó ('create_uid', '=', user.id) para garantizar que el creador
+        siempre pueda ver sus propios borradores al momento de crearlos y editarlos.
+        -->
+        <record id="repositorios_rule_usuario_creador" model="ir.rule">
+            <field name="name">Repositorio: Ver documentos propios</field>
+            <field ref="model_sicpro_app_repo" name="model_id"/>
+            <field name="domain_force">['|', ('stage_id.is_won', '=', True), '|', ('doc_carpeta', '=', 'carpeta'), '|',
+                                        ('create_uid', '=', user.id),
+                                        ('autores_ids.user_id.user_ids', 'in', user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_repositorio_institucional_creador'))]"/>
+        </record>
+
+        <!-- 3. Regla para Revisión/Responsable: Acceso total -->
+        <record id="repositorios_rule_revisar_all" model="ir.rule">
+            <field name="name">Repositorio: Acceso total para Revisión y superiores</field>
+            <field ref="model_sicpro_app_repo" name="model_id"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_repositorio_institucional_validar'))]"/>
+        </record>
+    </data>
+</odoo>

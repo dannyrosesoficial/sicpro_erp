@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="metodos_correos_entrantes_menu" name="Automatización de Correos Entrantes"
+                  parent="sicpro_app_administracion.menu_configuracion_administrador" sequence="3"/>
+
+        <menuitem id="metodos_correos_entrantes_variantes_menu" name="Métodos de Correos Entrantes"
+                  action="action_metodos_correos_entrantes"
+                  parent="sicpro_modulo_base_correos_entrantes.metodos_correos_entrantes_menu" sequence="1"/>
+
+
+    </data>
+</odoo>

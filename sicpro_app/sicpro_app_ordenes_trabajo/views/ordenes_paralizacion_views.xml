@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="ordenes_paralizacion_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.ordenes.paralizacion.tree</field>
+        <field name="model">sicpro.app.ordenes.paralizacion</field>
+        <field name="arch" type="xml">
+            <tree string="Etiquetas" editable="bottom">
+                <field name="name"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ordenes_paralizacion_action" model="ir.actions.act_window">
+        <field name="name">Motivos de Paralización</field>
+        <field name="res_model">sicpro.app.ordenes.paralizacion</field>
+        <field name="view_id" ref="ordenes_paralizacion_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear motivo de paralización
+            </p>
+        </field>
+    </record>
+
+</odoo>

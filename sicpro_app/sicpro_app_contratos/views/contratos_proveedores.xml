@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- inicio Vista del modal para el rechazo del proveedor-->
+    <record id="proveedor_rechazado_form" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.proveedores.rechazadas.form</field>
+            <field name="model">sicpro.app.contratos.proveedores.rechazadas</field>
+            <field name="priority">110</field>
+            <field name="arch" type="xml">
+                <form string="Motivo del Rechazo">
+                    <group class="oe_title">
+                        <field name="lost_reason_id"/>
+                    </group>
+                    <footer>
+                        <button name="action_motivo_rechazo" string="Enviar" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    <!-- action del modal para el rechazo del proveedor-->
+    <record id="proveedor_rechazado_action" model="ir.actions.act_window">
+            <field name="name">Motivo de Rechazo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.contratos.proveedores.rechazadas</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="proveedor_rechazado_form"/>
+            <field name="target">new</field>
+        </record>
+    <!-- Fin Vista del modal para el rechazo del proveedor-->
+
+    <record id="contratos_proveedores_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.contratos.proveedores.tree</field>
+        <field name="model">sicpro.app.contratos.proveedores</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+                <field name="domicilio_social"/>
+                <field name="nombre_directivo"/>
+                <field name="cargo_directivo"/>
+                <field name="telefono_movil"/>
+                <field name="correo"/>
+                <field name="pep"/>
+                <field name="codigo_reeup"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de la cartera de proveedores-->
+    <record id="contratos_proveedores_form" model="ir.ui.view">
+        <field name="name">sicpro.app.contratos.proveedores.form</field>
+        <field name="model">sicpro.app.contratos.proveedores</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <form string="Proveedores" create="false" edit="false" delete="false">
+                <header>
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"
+                           readonly="1"/>
+                </header>
+                <sheet>
+                    <field name="readonly_admin" invisible="1"/>
+                     <div class="oe_button_box" name="button_box">
+                         <button class="oe_stat_button" icon="fa-dollar">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="company_currency" invisible="1"/>
+                                    <field name="monto_contratos_ejecutado" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                </span>
+                                <span class="o_stat_text">Ejecutado</span>
+                            </div>
+                        </button>
+                         <button class="oe_stat_button" icon="fa-archive">
+                                <field name="doc_count" widget="statinfo"/>
+                         </button>
+                         <button name="proveedor_contratos_ejecutados_action" type="object"
+                                 class="o_stat_button" icon="fa-file-text">
+                             <field name="contratos_count" widget="statinfo"/>
+                         </button>
+                     </div>
+
+                    <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" text="Aprobado" bg_color="bg-success"
+                            attrs="{'invisible': [('estado_interno', '!=', 'aprobado')]}"/>
+                    <field name="image_1920" widget="image" class="oe_avatar"
+                           options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+
+                    <div class="oe_title">
+                        <field name="estado_interno" invisible="1"/>
+                        <field name="active" invisible="1"/>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Nombre del Proveedor"
+                            attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                        </h1>
+                        <h4>
+                        <field name="tipo" attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"
+                            options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </h4>
+                    </div>
+                    <div class="oe_title pr-0">
+                        <h2 class="d-flex flex-row justify-content-between">
+                            <field name="sequence_consecutivo" class="o_task_name text-truncate"/>
+                        </h2>
+                    </div>
+                  <group name="group_top">
+                    <group name="group_left">
+                          <field name="domicilio_social"
+                                 attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                          <field name="nombre_comercial"
+                                 attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                          <field name="organismo"
+                                 attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                          <field name="fecha_constitucion"
+                                 attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                        <field name="clasificacion"
+                                 attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                        <field name="etiquetas" widget="many2many_tags"
+                                   attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"
+                                   options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Etiquetas"/>
+                    </group>
+                    <group name="group_right">
+                        <field name="nombre_directivo"
+                                 attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                          <field name="cargo_directivo"
+                                 attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                            <field name="telefono_fijo" widget="phone"
+                                   attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                            <field name="telefono_movil"  widget="phone"
+                                   attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                            <field name="correo" widget="email"
+                                   attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                            <field name="pagina_web" string="Sitio Web" widget="url"
+                                   placeholder="Ej. https://www.etecsa.cu"
+                                   attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                    </group>
+                  </group>
+                    <group string="Productos o servicios que se comercializan">
+                        <field name="servicio_comercializable" placeholder=" Notas del servicio comercial..."
+                         attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                    </group>
+                     <group string="Registro de Acuerdos del Consejo de Dirección">
+                        <field name="acuerdos" placeholder=" Notas de los acuerdos..."/>
+                    </group>
+                    <group string="Motivo de Rechazo" attrs="{'invisible': ['|',('active', '=', False),
+                            ('estado_interno', '!=', 'rechazado')]}">
+                            <field name="rechazar"/>
+                        </group>
+                    <notebook colspan="4">
+                        <page name="datos_proveedor" string="Datos del Proveedor">
+                                <group string='Datos'>
+                                    <group>
+                                        <field name="pep" attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="codigo_reeup"
+                                         attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                                        <field name="valor_contrato"
+                                         attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                        <page name="datos_bancarios" string="Datos Bancarios">
+                            <group string='Detalles Bancarios del Proveedor'>
+                                <group>
+                                        <field name="cuenta_bancaria"
+                                               attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                                    <field name="codigo_swift"
+                                               attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+                                <group>
+                                        <field name="banco"
+                                         attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                                        <field name="sucursal"
+                                         attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                                    <field name="licencia_bancaria"
+                                         attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+                            </group>
+                            <group>
+                                        <field name="direccion"
+                                               attrs="{'readonly': [('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+                        </page>
+                        <page name="evaluacion" string="Evaluación del Proveedor">
+                            <group>
+                                    <group string='Tipos / Cualitativas'>
+                                        <field name="tipo_proveedor"/>
+                                        <field name="puntos_cualitativa"/>
+                                        <field name="criterios_cualitativa"/>
+                                        <field name="puntuacion_final" invisible="0"/>
+                                        <field name="evaluacion_final" invisible="0"/>
+                                    </group>
+                                    <group string='Indicadores'>
+                                        <field name="puntos_documentacion"/>
+                                        <field name="puntos_fechas_entrega"/>
+                                        <field name="puntos_faltantes_sobrantes"/>
+                                        <field name="puntos_reclamaciones"/>
+                                        <field name="puntos_penalidades"/>
+                                        <field name="puntos_total" invisible="0"/>
+                                    </group>
+                                </group>
+                        </page>
+                        <page name="observaciones" string="Detalles Generales del Proveedor">
+                            <field name="observaciones" placeholder="Notas sobre el proveedor..."/>
+                        </page>
+                        <page name="user_proveedor" string="Configuración de Usuario">
+                                <group>
+                                    <group>
+                                        <field name="user_id" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="company_id" attrs="{'readonly': [('readonly_admin', '!=', True)]}"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                       <field name="fecha_agregado" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="fecha_liberar_proveedor" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="fecha_rechazo" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="fecha_validacion_documentacion" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="fecha_validacion_proveedor" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="fecha_descontinuado" string="Proveedor Desactivado" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="contratos_proveedores_filter" model="ir.ui.view">
+       <field name="name">Buscar Proveedor</field>
+       <field name="model">sicpro.app.contratos.proveedores</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Proveedor">
+                <field name="name"/>
+                <field name="nombre_directivo"/>
+                <field name="cargo_directivo"/>
+                <field name="telefono_movil"/>
+                <field name="correo"/>
+                <field name="pep"/>
+                <field name="etiquetas"/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                        <filter string="Estado" name="stage_id" context="{'group_by':'stage_id'}" />
+                        <filter string="Tipo de Proveedor" name="tipo" context="{'group_by':'tipo'}"/>
+                </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="contratos_proveedores_kanban" model="ir.ui.view">
+     <field name="name">sicpro.app.contratos.proveedores.kanban</field>
+      <field name="model">sicpro.app.contratos.proveedores</field>
+        <field name="priority">110</field>
+     <field name="arch" type="xml">
+        <kanban create="false" edit="false" delete="false">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="tipo" />
+                <field name="telefono_movil"/>
+                <field name="correo"/>
+                <field name="etiquetas"/>
+                <field name="active" invisible="1"/>
+                <field name="pep" invisible="1"/>
+                <field name="image_128"/>
+           <templates>
+             <t t-name="kanban-box">
+                   <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                       <t>
+                           <t t-set="placeholder" t-value="'/base/static/img/avatar_grey.png'"/>
+                           <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('sicpro.app.contratos.proveedores', 'image_128', record.id.raw_value,  placeholder)}')">
+                           </div>
+                           <div class="o_kanban_image rounded-circle d-md-none" t-attf-style="background-image:url('#{kanban_image('sicpro.app.contratos.proveedores', 'image_128', record.id.raw_value,  placeholder)}')">
+                           </div>
+                       </t>
+                  <div class="oe_kanban_details">
+                      <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                      <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                      <ul>
+                          <li t-if="record.etiquetas.raw_value"><field name="etiquetas" widget="many2many_tags" options="{'color_field': 'color'}"/></li>
+                          <li t-if="record.tipo.raw_value"><field name="tipo"/></li>
+                          <li t-if="record.nombre_directivo.raw_value"><field name="nombre_directivo"/></li>
+                          <li t-if="record.cargo_directivo.raw_value"><field name="cargo_directivo"/></li>
+                         <li t-if="record.correo.raw_value and record.telefono_movil.raw_value" class="o_text_overflow"><field name="telefono_movil"/>, <field name="correo"/></li>
+                      </ul>
+                      <div class="oe_kanban_partner_links"/>
+                      <div class="oe_kanban_footer">
+                          <div class="o_kanban_record_bottom">
+                              <div class="oe_kanban_bottom_left">
+                                  <field name="sequence_consecutivo"/>
+                              </div>
+                              <div class="oe_kanban_bottom_right">
+                                  <span class="fa fa-archive text-warning">
+                                      <field name="doc_count" nolabel="1"/>
+                                  </span>
+                                  <field name="activity_ids" widget="kanban_activity"/>
+                                  <field name="user_id" widget="many2one_avatar_user"/>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="oe_clear"/>
+                  </div>
+               </div>
+             </t>
+           </templates>
+        </kanban>
+     </field>
+    </record>
+
+    <record id="contratos_proveedores_action" model="ir.actions.act_window">
+        <field name="name">Cartera de Proveedores</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.contratos.proveedores</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="contratos_proveedores_kanban"/>
+        <field name="domain">[('stage_id.is_won', '=', True)]</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Agregar un nuevo proveedor en tu cartera
+          </p><p>
+            SICPRO ERP lo ayuda a rastrear fácilmente todas las actividades
+            relacionadas con los proveedores.
+          </p>
+        </field>
+    </record>
+
+    <record id="proveedor_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Contratos: Consecutivo del Proveedor de Contratos</field>
+            <field name="code">proveedor_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">Proveedor/</field>
+            <field name="number_increment">1</field>
+            <field name="use_date_range">False</field>
+            <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Vista de la cartera de gestión de proveedores-->
+    <record id="contratos_proveedores_gestion_form" model="ir.ui.view">
+        <field name="name">sicpro.app.contratos.proveedores.form</field>
+        <field name="model">sicpro.app.contratos.proveedores</field>
+        <field name="priority">70</field>
+        <field name="arch" type="xml">
+            <form string="Proveedores">
+                <header>
+                    <button name="action_liberar_proveedor" string="Liberar Proveedor" type="object"
+                            class="oe_highlight" groups="sicpro_app_contratos.grupo_app_contratos_gestor"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'borrador')]}"/>
+
+                    <button name="action_regresar_borrador_proveedor" string="Reiniciar Proveedor" type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', 'not in', ['rechazado', 'desactivado'])]}"/>
+
+                    <button name="action_validar_documentacion" string="Validar Documentación" type="object"
+                            class="oe_highlight" groups="sicpro_app_contratos.grupo_app_contratos_proveedor_validar"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', '!=', 'validar_documentos')]}"/>
+
+                    <button name="action_desvalidar_documentacion" string="Desvalidar Documentación" type="object"
+                            groups="sicpro_app_contratos.grupo_app_contratos_proveedor_validar"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', '!=', 'validar_proveedor')]}"/>
+
+                    <button name="action_validar_proveedor" string="Validar Proveedor" type="object"
+                            class="oe_highlight" groups="sicpro_app_contratos.grupo_app_contratos_proveedor_validar"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'validar_proveedor')]}"/>
+
+                    <button name="%(proveedor_rechazado_action)d" string="Rechazar" type="action"
+                            groups="sicpro_app_contratos.grupo_app_contratos_proveedor_validar"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', 'not in', ['validar_documentos', 'validar_proveedor'])]}"/>
+
+                    <button name="action_descontinuar_proveedor" string="Desactivar Proveedor" type="object"
+                            class="oe_highlight" groups="sicpro_app_contratos.grupo_app_contratos_proveedor_validar"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'aprobado')]}"/>
+
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"
+                           readonly="1"/>
+                </header>
+                <sheet>
+                    <field name="readonly_admin" invisible="1"/>
+                     <div class="oe_button_box" name="button_box">
+                         <button name="action_empaty_proveedor" type="object"
+                                 class="oe_stat_button" icon="fa-archive" >
+                                <field name="doc_count" widget="statinfo" string="Documentos"/>
+                         </button>
+                         <button name="%(contratos_action)d" type="action"
+                                 class="o_stat_button" icon="fa-file-text">
+                             <field name="contratos_count" widget="statinfo" string="Contratos"/>
+                         </button>
+                     </div>
+
+                    <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" text="Aprobado" bg_color="bg-success"
+                            attrs="{'invisible': [('estado_interno', '!=', 'aprobado')]}"/>
+                    <field name="image_1920" widget="image" class="oe_avatar"
+                           options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+
+                    <div class="oe_title">
+                        <field name="estado_interno" invisible="1"/>
+                        <field name="active" invisible="1"/>
+                        <field name="grupo_administrador_distribuidor" invisible="1"/>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Nombre del Proveedor"
+                            attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                            ('estado_interno', '!=', 'borrador')]}"/>
+                        </h1>
+                        <h4>
+                        <field name="tipo" attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                        ('estado_interno', '!=', 'borrador')]}"
+                            options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </h4>
+                    </div>
+                    <div class="oe_title pr-0">
+                        <h2 class="d-flex flex-row justify-content-between">
+                            <field name="sequence_consecutivo" class="o_task_name text-truncate"/>
+                        </h2>
+                    </div>
+                  <group name="group_top">
+                    <group name="group_left">
+                          <field name="domicilio_social"
+                                 attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                 ('estado_interno', '!=', 'borrador')]}"/>
+                          <field name="nombre_comercial"
+                                 attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                 ('estado_interno', '!=', 'borrador')]}"/>
+                        <field name="organismo"
+                                 attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                 ('estado_interno', '!=', 'borrador')]}"/>
+                        <field name="fecha_constitucion"
+                                 attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                 ('estado_interno', '!=', 'borrador')]}"/>
+                        <field name="clasificacion"
+                                 attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                 ('estado_interno', '!=', 'borrador')]}"/>
+                        <field name="etiquetas" widget="many2many_tags"
+                                   attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                   ('estado_interno', '!=', 'borrador')]}"
+                                   options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Etiquetas"/>
+                    </group>
+                    <group name="group_right">
+                        <field name="nombre_directivo"
+                                 attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                 ('estado_interno', '!=', 'borrador')]}"/>
+                          <field name="cargo_directivo"
+                                 attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                 ('estado_interno', '!=', 'borrador')]}"/>
+                            <field name="telefono_fijo" widget="phone"
+                                   attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                   ('estado_interno', '!=', 'borrador')]}"/>
+                            <field name="telefono_movil"  widget="phone"
+                                   attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                   ('estado_interno', '!=', 'borrador')]}"/>
+                            <field name="correo" widget="email"
+                                   attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                   ('estado_interno', '!=', 'borrador')]}"/>
+                            <field name="pagina_web" string="Sitio Web" widget="url"
+                                   placeholder="Ej. https://www.etecsa.cu"
+                                   attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                   ('estado_interno', '!=', 'borrador')]}"/>
+                    </group>
+                  </group>
+                    <group string="Productos o servicios que se comercializan">
+                        <field name="servicio_comercializable" placeholder=" Notas del servicio comercial..."
+                         attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                         ('estado_interno', '!=', 'borrador')]}"/>
+                    </group>
+                     <group string="Registro de Acuerdos del Consejo de Dirección">
+                        <field name="acuerdos" placeholder=" Notas de los acuerdos..." nolabel="1"/>
+                    </group>
+                    <group string="Motivo de Rechazo" attrs="{'invisible': ['|',('active', '=', False),
+                            ('estado_interno', '!=', 'rechazado')]}">
+                            <field name="rechazar"/>
+                        </group>
+                    <notebook colspan="4">
+                        <page name="datos_proveedor" string="Datos del Proveedor">
+                                <group string='Datos'>
+                                    <group>
+                                        <field name="pep"
+                                               attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                               ('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+
+                                    <group>
+                                        <field name="codigo_reeup"
+                                         attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                         ('estado_interno', '!=', 'borrador')]}"/>
+                                        <field name="valor_contrato"
+                                         attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                         ('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                        <page name="datos_bancarios" string="Datos Bancarios">
+                            <group string='Detalles Bancarios del Proveedor'>
+                                <group>
+                                        <field name="cuenta_bancaria"
+                                               attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                               ('estado_interno', '!=', 'borrador')]}"/>
+                                    <field name="codigo_swift"
+                                               attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                               ('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+                                <group>
+                                        <field name="banco"
+                                         attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                         ('estado_interno', '!=', 'borrador')]}"/>
+                                        <field name="sucursal"
+                                         attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                         ('estado_interno', '!=', 'borrador')]}"/>
+                                    <field name="licencia_bancaria"
+                                         attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                         ('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+                            </group>
+                            <group>
+                                        <field name="direccion"
+                                               attrs="{'readonly': ['&amp;', ('grupo_administrador_distribuidor', '!=', True),
+                                               ('estado_interno', '!=', 'borrador')]}"/>
+                                    </group>
+                        </page>
+                        <page name="evaluacion" string="Evaluación del Proveedor">
+                            <group>
+                                    <group string='Tipo de Proveedor'>
+                                        <field name="tipo_proveedor"/>
+                                        <field name="periodo_evaluado"/>
+                                    </group>
+                                    <group string='Indicadores'>
+                                        <field name="puntos_documentacion"/>
+                                        <field name="puntos_fechas_entrega"/>
+                                        <field name="puntos_faltantes_sobrantes"/>
+                                        <field name="puntos_reclamaciones"/>
+                                        <field name="puntos_penalidades"/>
+                                        <p class="text-danger"> <field name="puntos_total"/>  Puntos</p>
+                                    </group>
+                                </group>
+                             <group>
+                                    <group string='Cualitativas'>
+                                        <field name="puntos_cualitativa"/>
+                                        <field name="criterios_cualitativa"/>
+                                    </group>
+                                    <group string='Evaluación Final'>
+                                        <field name="puntuacion_final"/>
+                                       <p class="text-danger"> <field name="evaluacion_final"/> Puntos</p>
+                                    </group>
+                                </group>
+                        </page>
+                        <page name="observaciones" string="Detalles Generales del Proveedor">
+                            <field name="observaciones" placeholder="Notas sobre el proveedor..."/>
+                        </page>
+                        <page name="user_proveedor" string="Configuración de Usuario">
+                                <group>
+                                    <group>
+                                        <field name="user_id" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="company_id" attrs="{'readonly': [('readonly_admin', '!=', True)]}"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                       <field name="fecha_agregado" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="fecha_liberar_proveedor" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="fecha_rechazo" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="fecha_validacion_documentacion" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="fecha_validacion_proveedor" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                        <field name="fecha_descontinuado" string="Proveedor Desactivado" attrs="{'readonly': [('readonly_admin', '!=', True)]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+     <!-- Vista del kanban para la gestión del proveedor-->
+    <record id="contratos_proveedores_gestion_kanban" model="ir.ui.view">
+     <field name="name">sicpro.app.contratos.proveedores.gestion.kanban</field>
+      <field name="model">sicpro.app.contratos.proveedores</field>
+        <field name="priority">120</field>
+     <field name="arch" type="xml">
+        <kanban default_group_by="stage_id" group_create="false" group_delete="false" group_edit="false" class="o_kanban_small_column o_kanban_project_tasks"
+                        archivable="false" >
+                <field name="id"/>
+                <field name="name"/>
+                <field name="tipo" />
+                <field name="telefono_movil"/>
+                <field name="correo"/>
+                <field name="etiquetas"/>
+                <field name="active" invisible="1"/>
+                <field name="pep" invisible="1"/>
+                <field name="image_128"/>
+                <field name="stage_id" readonly="1" />
+                <progressbar field="kanban_state" colors='{"secondary": "secondary", "info": "info", "done": "success", "blocked": "danger", "normal": "warning"}'/>
+            <templates>
+             <t t-name="kanban-box">
+                   <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+
+                  <div class="oe_kanban_details">
+                      <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                      <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                      <ul>
+                          <li t-if="record.etiquetas.raw_value"><field name="etiquetas" widget="many2many_tags" options="{'color_field': 'color'}"/></li>
+                          <li t-if="record.tipo.raw_value"><field name="tipo"/></li>
+                          <li t-if="record.nombre_directivo.raw_value"><field name="nombre_directivo"/></li>
+                          <li t-if="record.cargo_directivo.raw_value"><field name="cargo_directivo"/></li>
+                         <li t-if="record.correo.raw_value and record.telefono_movil.raw_value" class="o_text_overflow">
+                             <field name="telefono_movil"/>, <field name="correo"/>
+                         </li>
+                      </ul>
+                      <div class="oe_kanban_footer">
+                          <div class="o_kanban_record_bottom">
+                              <div class="oe_kanban_bottom_left">
+                                  <field name="sequence_consecutivo"/>
+                              </div>
+                              <div class="oe_kanban_bottom_right">
+                                  <span class="fa fa-archive text-warning">
+                                      <field name="doc_count" nolabel="1"/>
+                                  </span>
+                                  <field name="activity_ids" widget="kanban_activity"/>
+                                  <field name="user_id" widget="many2one_avatar_user"/>
+                              </div>
+                          </div>
+                      </div>
+                       <div class="oe_clear"/>
+                  </div>
+
+               </div>
+             </t>
+           </templates>
+        </kanban>
+     </field>
+    </record>
+
+        <!-- action del kanban para la gestión del proveedor-->
+    <record id="contratos_proveedores_gestion_action" model="ir.actions.act_window">
+            <field name="name">Gestión de Proveedores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.contratos.proveedores</field>
+            <field name="view_mode">kanban,form,tree,activity</field>
+        <field name="view_ids" eval="[(5,0,0),
+        (0,0,{'view_mode':'kanban','view_id':ref('contratos_proveedores_gestion_kanban')}),
+        (0,0,{'view_mode':'form','view_id':ref('contratos_proveedores_gestion_form')})]"/>
+            <field name="view_id" ref="contratos_proveedores_gestion_kanban"/>
+    </record>
+        <!-- Fin Vista del kanban para la gestión del proveedor-->
+
+    <record id="gestion_proveedores_activity" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.proveedores.activity</field>
+            <field name="model">sicpro.app.contratos.proveedores</field>
+            <field name="arch" type="xml">
+                <activity string="Gestión de Proveedores">
+                    <field name="user_id"/>
+                    <field name="stage_id"/>
+                    <templates>
+                        <div t-name="activity-box">
+                            <field name="user_id" widget="many2one_avatar_user"/><div>
+                                <field name="name" display="full"/>
+                               <field name="stage_id" display="full" muted="1"/>
+                            </div>
+                        </div>
+                    </templates>
+                </activity>
+            </field>
+    </record>
+
+
+</odoo>

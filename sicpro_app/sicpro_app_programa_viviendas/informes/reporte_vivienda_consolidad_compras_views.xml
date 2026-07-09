@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="vivienda_trabajo_productos_search" model="ir.ui.view">
+        <field name="name">sicpro.app.vivienda.trabajador.productos.search</field>
+        <field name="model">sicpro.app.vivienda.trabajador.productos</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Etapas" name="etapas" context="{'group_by':'etapa'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="vivienda_trabajo_productos_pivot" model="ir.ui.view">
+        <field name="name">sicpro.app.vivienda.trabajador.productos.pivot</field>
+        <field name="model">sicpro.app.vivienda.trabajador.productos</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <pivot string="Consolidado para compra de materiales" display_quantity="false"
+                   disable_linking="true" sample="1">
+                <field name="company_id_trabajador" type="row"/>
+                <field name="solicitud_id" type="row"/>
+                <field name="name" type="col"/>
+                <field name="cantidad" type="measure"/>
+
+            </pivot>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="vivienda_trabajo_productos_action">
+        <field name="name">Consolidado para compra de materiales</field>
+        <field name="res_model">sicpro.app.vivienda.trabajador.productos</field>
+        <field name="domain">[('estado', 'in', ['aprobado', 'entregado'])]</field>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="vivienda_trabajo_productos_pivot"/>
+
+    </record>
+
+
+</odoo>

@@ -1,0 +1,15 @@
+
+.o_kanban_view.o_kanban_dashboard_administracion {
+    &.o_hr_recruitment_kanban {
+        &.o_kanban_ungrouped .o_kanban_record {
+            width: 350px;
+            &:not(.o_kanban_ghost) {
+                height: 180px;
+            }
+        }
+}
+}
+
+.color_links_menu_administracion {
+    color: #0b0d63;
+}

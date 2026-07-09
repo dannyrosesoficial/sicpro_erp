@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_form_viveres_productos_comprados_filter" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.productos.comprados.search</field>
+        <field name="model">sicpro.app.viveres.productos.comprados</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="producto_id"/>
+                <field name="name"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                    <filter string='Producto' name="producto_id" domain="[]" context="{'group_by': 'producto_id'}"/>
+                    <filter string='Fecha' name="fecha" domain="[]" context="{'group_by': 'fecha'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_form_viveres_productos_comprados" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.productos.comprados.form</field>
+        <field name="model">sicpro.app.viveres.productos.comprados</field>
+        <field name="arch" type="xml">
+            <form string="Productos comprados">
+                <header>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image_1920" widget="image" class="oe_avatar"
+                           options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+                    <group>
+                        <group>
+                            <field name="numero"/>
+                            <field name="producto_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="fecha"/>
+                            <field name="precio"/>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_viveres_productos_comprados" model="ir.ui.view">
+        <field name="name">sicpro.app.viveres.productos.comprados.tree</field>
+        <field name="model">sicpro.app.viveres.productos.comprados</field>
+        <field name="arch" type="xml">
+            <tree string="Productos comprados" sample="1"
+                  decoration-success="estado == 'entregado'" decoration-warning="estado == 'pendiente'">
+                <!--field name="is_check"/-->
+                <field name="estado" class="font-weight-bold" widget="badge"
+                       decoration-success="estado == 'entregado'" decoration-warning="estado == 'pendiente'"/>
+                <field name="producto_id"/>
+                <field name="fecha"/>
+                <field name="precio"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="viveres_productos_comprados_action" model="ir.actions.act_window">
+        <field name="name">Productos comprados</field>
+        <field name="res_model">sicpro.app.viveres.productos.comprados</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

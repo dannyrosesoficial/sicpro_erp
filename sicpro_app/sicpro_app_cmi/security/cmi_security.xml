@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <data>
+          <!-- Creo la categoría de permisos Cuadro de Mando Integral -->
+           <record id="module_category_cmi" model="ir.module.category">
+            <field name="name">CMI</field>
+             <field name="description">Módulo para la Gestión del CMI.</field>
+               <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_gestion_produccion"/>
+            <field name="sequence" >1</field>
+        </record>
+
+        <record id="grupo_app_cmi_usuario" model="res.groups">
+            <field name="name">Usuarios</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_cmi"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+         <record id="grupo_app_cmi_ejecutor" model="res.groups">
+            <field name="name">Ejecutor</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="module_category_cmi"/>
+             <field name="implied_ids" eval="[(4, ref('grupo_app_cmi_usuario'))]"/>
+        </record>
+
+         <record id="grupo_app_cmi_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="module_category_cmi"/>
+             <field name="implied_ids" eval="[(4, ref('grupo_app_cmi_ejecutor'))]"/>
+        </record>
+
+        <record id="grupo_app_cmi_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="module_category_cmi"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_cmi_responsable'))]"/>
+        </record>
+
+     </data>
+
+
+</odoo>

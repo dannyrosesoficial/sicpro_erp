@@ -1,0 +1,236 @@
+<?xml version="1.0" ?>
+<odoo>
+
+        <!-- Creo la categoría de permisos Trabajadores usuarios-->
+    <record id="modulo_categoria_trabajadores_usuarios" model="ir.module.category">
+            <field name="name">Usuario del Proceso</field>
+            <field name="description">Módulo principal de los trabajadores.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_capital_humano"/>
+            <field name="sequence" >1</field>
+         </record>
+    <record id="grupo_app_trabajador_usuario_proceso" model="res.groups">
+            <field name="name">Usuarios</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_usuarios"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_usuario_todos" model="res.groups">
+            <field name="name">Todos los Trabajadores</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_usuarios"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_usuario_proceso'))]"/>
+        </record>
+
+
+    <!-- Creo la categoría de permisos Trabajadores técnicos y responsables-->
+    <record id="modulo_categoria_trabajadores" model="ir.module.category">
+            <field name="name">Trabajadores</field>
+            <field name="description">Módulo principal de los trabajadores.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_capital_humano"/>
+            <field name="sequence" >2</field>
+         </record>
+    <record id="grupo_app_trabajador_ejecutor" model="res.groups">
+            <field name="name">Técnicos</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_ejecutor'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_responsable'))]"/>
+        </record>
+
+
+    <!-- Creo la categoría de permisos Equipo técnico-->
+    <record id="modulo_categoria_trabajadores_equipos" model="ir.module.category">
+            <field name="name">Equipo Técnico</field>
+            <field name="description">Módulo para el control de los equipos técnicos.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_capital_humano"/>
+            <field name="sequence" >3</field>
+         </record>
+    <record id="grupo_app_trabajador_equipos_usuario" model="res.groups">
+            <field name="name">Técnicos</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_equipos"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_equipos_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_equipos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_equipos_usuario'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_equipos_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_equipos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_equipos_responsable'))]"/>
+        </record>
+
+
+    <!-- Creo la categoría de permisos Medidas disciplinarias -->
+    <record id="modulo_categoria_trabajadores_medidas" model="ir.module.category">
+            <field name="name">Disciplinarias</field>
+            <field name="description">Módulo para el control de las medidas al trabajador.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_capital_humano"/>
+            <field name="sequence" >4</field>
+         </record>
+    <record id="grupo_app_trabajador_disciplina_jefe" model="res.groups">
+            <field name="name">Jefe del Proceso</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_medidas"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_disciplina_usuario" model="res.groups">
+            <field name="name">Técnicos</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_medidas"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_disciplina_jefe'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_disciplina_legal" model="res.groups">
+            <field name="name">Acción Legal</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_medidas"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_disciplina_usuario'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_disciplina_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_medidas"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_disciplina_legal'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_disciplina_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_medidas"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_disciplina_responsable'))]"/>
+        </record>
+
+
+    <!-- Creo la categoría de permisos capacitación -->
+    <record id="modulo_categoria_trabajadores_capacitacion" model="ir.module.category">
+            <field name="name">Capacitación</field>
+            <field name="description">Módulo para la gestión de la capacitación.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_capital_humano"/>
+            <field name="sequence" >5</field>
+         </record>
+    <record id="grupo_app_trabajador_capacitacion" model="res.groups">
+            <field name="name">Capacitador</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_capacitacion"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_capacitacion_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_capacitacion"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_capacitacion'))]"/>
+        </record>
+
+
+
+    <!-- Creo la categoría de permisos seguridad y salud -->
+    <record id="modulo_categoria_trabajadores_salud" model="ir.module.category">
+            <field name="name">Seguridad y Salud</field>
+            <field name="description">Módulo para el control de la seguridad y salud del trabajo.</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_capital_humano"/>
+            <field name="sequence" >6</field>
+         </record>
+    <record id="grupo_app_trabajador_seguridad_salud" model="res.groups">
+            <field name="name">Ejecutor</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_salud"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    <record id="grupo_app_trabajador_seguridad_salud_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="modulo_categoria_trabajadores_salud"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajador_seguridad_salud'))]"/>
+        </record>
+
+
+    <data noupdate="0">
+        <!-- Regla de permisos de los trabajadores en general para el proceso especifico -->
+        <record id="trabajadores_general_usuarios_rule" model="ir.rule">
+        <field name="name">Regla de usuarios para Trabajadores Multi compañía</field>
+        <field name="model_id" ref="model_sicpro_app_trabajadores"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_trabajador_usuario_proceso'))]"/>
+        </record>
+
+        <!-- Regla de permisos de los trabajadores en general para verlos todos -->
+        <record id="trabajadores_general_usuarios_todo_rule" model="ir.rule">
+        <field name="name">Regla de usuarios para todos los Trabajadores</field>
+        <field name="model_id" ref="model_sicpro_app_trabajadores"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_trabajador_usuario_todos'))]"/>
+        </record>
+
+    <record id="trabajadores_general_tecnicos_rule" model="ir.rule">
+        <field name="name">Regla de técnicos para Trabajadores Multi compañía</field>
+        <field name="model_id" ref="model_sicpro_app_trabajadores"/>
+        <field name="domain_force">[('equipo_tecnico', '=', user.trabajador.equipo_tecnico_id.id)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_trabajador_ejecutor'))]"/>
+    </record>
+
+        <record id="trabajadores_general_responsable_rule" model="ir.rule">
+        <field name="name">Regla de técnicos para Trabajadores Multi compañía</field>
+        <field name="model_id" ref="model_sicpro_app_trabajadores"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_trabajador_responsable'))]"/>
+    </record>
+
+         <!-- Regla de acceso a las medidas disciplinarias -->
+        <record id="trabajadores_disciplinaria_jefes_rule" model="ir.rule">
+            <field name="name">Regla de jefes para medidas disciplinarias</field>
+            <field ref="model_sicpro_app_trabajadores_disiplinaria_acciones" name="model_id"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('grupo_app_trabajador_disciplina_jefe'))]"/>
+        </record>
+
+        <record id="trabajadores_disciplinaria_tecnicos_rule" model="ir.rule">
+            <field name="name">Regla de técnicos para medidas disciplinarias</field>
+            <field ref="model_sicpro_app_trabajadores_disiplinaria_acciones" name="model_id"/>
+            <field name="domain_force">[('equipo_tecnico', '=', user.trabajador.equipo_tecnico_id.id)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_trabajador_disciplina_usuario'))]"/>
+        </record>
+        <record id="trabajadores_disciplinaria_legal_rule" model="ir.rule">
+            <field name="name">Regla de legal para medidas disciplinarias</field>
+            <field ref="model_sicpro_app_trabajadores_disiplinaria_acciones" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_app_trabajador_disciplina_legal'))]"/>
+        </record>
+        <record id="trabajadores_disciplinaria_responsable_rule" model="ir.rule">
+            <field name="name">Regla de responsables para medidas disciplinarias</field>
+            <field ref="model_sicpro_app_trabajadores_disiplinaria_acciones" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_app_trabajador_disciplina_responsable'))]"/>
+        </record>
+
+        <!-- Regla de permisos de capacitación -->
+        <record id="trabajadores_capacitacion_rule" model="ir.rule">
+        <field name="name">Regla de capacitación para Trabajadores Multi compañía</field>
+        <field name="model_id" ref="model_sicpro_app_trabajadores"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_trabajador_capacitacion'))]"/>
+    </record>
+
+        <!-- Regla de seguridad y salud -->
+        <record id="trabajadores_seguridad_salud_rule" model="ir.rule">
+        <field name="name">Regla de seguridad y salud para Trabajadores Multi compañía</field>
+        <field name="model_id" ref="model_sicpro_app_trabajadores"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_trabajador_seguridad_salud'))]"/>
+    </record>
+
+    </data>
+</odoo>

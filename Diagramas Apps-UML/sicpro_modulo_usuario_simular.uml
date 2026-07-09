@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_usuario_simular</OriginalElement>
+  <nodes>
+    <node x="0.0" y="282.5">typing.Sequence</node>
+    <node x="358.0" y="348.5">typing.Sized</node>
+    <node x="509.00000000000006" y="304.0">odoo.models.MetaModel</node>
+    <node x="339.63461538461536" y="6431.0">sicpro_modulo_usuario_simular.wizard.sicpro_modulo_simular_usuario.SimularUsuario</node>
+    <node x="781.0" y="337.5">typing.Iterator</node>
+    <node x="953.0" y="348.5">typing.Iterable</node>
+    <node x="847.25" y="6020.0">odoo.models.Model</node>
+    <node x="891.6346153846154" y="6225.0">sicpro_modulo_usuario_simular.models.res_users.ResUsers</node>
+    <node x="526.6346153846154" y="6192.0">odoo.models.TransientModel</node>
+    <node x="1126.0" y="348.5">typing.Container</node>
+    <node x="1510.3846153846155" y="0.0">typing.Hashable</node>
+    <node x="371.75" y="699.0">odoo.models.BaseModel</node>
+    <node x="1371.0" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="172.50038461538463" y="79.0" />
+      <point x="1416.135" y="6365.5" />
+      <point x="1416.135" y="6194.0" />
+      <point x="943.25" y="6194.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="295.25" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="0.0" y="270.5" />
+      <point x="1508.5" y="673.0" />
+      <point x="1663.5" y="673.0" />
+      <point x="71.61538461538453" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="169.0" y="3334.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="0.0" y="-2635.5" />
+      <point x="943.25" y="673.0" />
+      <point x="1663.5" y="673.0" />
+      <point x="71.61538461538453" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-86.25" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="sicpro_modulo_usuario_simular.models.res_users.ResUsers" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="3.8461538474621193E-4" y="-61.5" />
+      <point x="1145.135" y="6194.0" />
+      <point x="943.25" y="6194.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-308.25" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="86.25" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_usuario_simular.wizard.sicpro_modulo_simular_usuario.SimularUsuario" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-83.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-519.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="550.25" y="-2635.5" />
+      <point x="-15.0" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.1276820791779994" showDependencies="false" x="837.0" y="3299.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

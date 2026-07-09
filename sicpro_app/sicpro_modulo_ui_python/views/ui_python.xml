@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record model="ir.ui.view" id="sicpro_modulo_ui_python_form">
+        <field name="name">sicpro.modulo.ui.python.form</field>
+        <field name="model">sicpro.modulo.ui.python</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="model_id"/>
+                        <field name="python_code" widget="ace" options="{'mode': 'python'}"/>
+                        <field name="results" readonly="1"/>
+                    </group>
+                </group>
+                <button name="execute_method" string="Ejecutar código" type="object"
+                        class="fa fa-check oe_highlight" data-hotkey="q"/>
+                <button name="clear_method" string="Borrar" type="object"
+                        class="fa fa-refresh" data-hotkey="c"/>
+                <br></br>
+                <br></br>
+                <br></br>
+                <field name="helpful_commands" readonly="1" nolabel="1"/>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="sicpro_modulo_ui_python_action">
+        <field name="name">Ejecutar Código Python</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.modulo.ui.python</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+
+    <menuitem id="ui_python_menu" name="Ejecutar Código Python" action="sicpro_modulo_ui_python_action"
+              parent="sicpro_app_administracion.menu_administracion_1" sequence="305"/>
+
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="ldap_historial_tree_view">
+            <field name="name">sicpro.app.modulo.ldap.historial.tree</field>
+            <field name="model">sicpro.app.modulo.ldap.historial</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name="fecha"/>
+                    <field name="name"/>
+                    <field name="registros_creados"/>
+                    <field name="registros_actualizados"/>
+                    <field name="registros_archivados"/>
+                    <field name="estado" decoration-danger="estado=='fallido'"
+                           decoration-success="estado=='exito'" widget="badge"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ldap_historial_filter" model="ir.ui.view">
+       <field name="name">sicpro.app.modulo.ldap.historial.search</field>
+       <field name="model">sicpro.app.modulo.ldap.historial</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                    <field name="name"/>
+                    <field name="estado"/>
+                <filter string="Exitosas" name="estado_exitosas" domain="[('estado', '=','exito')]"/>
+                <filter string="Fallidas" name="estado_fallidas" domain="[('estado', '=','fallido')]"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                    <filter string="Aplicación" name="name" context="{'group_by':'name'}"/>
+                    <separator />
+                    <filter string="Estado" name="estado" context="{'group_by':'estado'}"/>
+                    <separator orientation="vertical" />
+                    <filter string="Fecha de Ejecución" context="{'group_by':'fecha:month'}" name="fecha"/>
+                </group>
+            </search>
+       </field>
+    </record>
+
+        <record model="ir.actions.act_window" id="ldap_historial_action_window">
+            <field name="name">Historial de Registros LDAP</field>
+            <field name="res_model">sicpro.app.modulo.ldap.historial</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="menu_ldap_registros" name="Registros LDAP"
+                  parent="sicpro_app_administracion.menu_configuracion_administrador" sequence="3"/>
+             <menuitem id="menu_ldap_historial_registros" parent="menu_ldap_registros" sequence="1"
+                  action="ldap_historial_action_window" name="Historial de Registros LDAP"/>
+
+  </data>
+</odoo>

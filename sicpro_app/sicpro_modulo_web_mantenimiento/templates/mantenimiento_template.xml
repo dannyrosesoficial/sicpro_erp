@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <template id="web_plantilla_mantenimiento">
+        <t t-call-assets="web.web_mantenimiento"/>
+        <head>
+            <meta charset="utf-8"/>
+            <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+            <title>SICPRO ERP - Mantenimiento</title>
+            <meta http-equiv="cache-control" content="no-cache" />
+            <meta http-equiv="pragma" content="no-cache" />
+
+            <!-- Favicons -->
+            <link href="/sicpro_modulo_web_mantenimiento/static/src/images/SICPRO_ERP.png" rel="icon"/>
+            <link href="/sicpro_modulo_web_mantenimiento/static/src/images/SICPRO_ERP.png" rel="apple-touch-icon"/>
+        </head>
+        <body>
+            <div class="fh5co-loader"></div>
+
+            <div id="page">
+                <div id="fh5co-container" class="js-fullheight">
+                    <div class="countdown-wrap js-fullheight">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="display-t js-fullheight">
+                                    <div class="display-tc animate-box">
+                                        <nav class="fh5co-nav" role="navigation">
+                                            <div id="fh5co-logo"><a href="/web/inicio/">SICPRO ERP</a></div>
+                                        </nav>
+                                        <h1>¡Sistema en Mantenimiento!</h1>
+                                        <h2>En este momento el sistema está recibiendo actualizaciones.
+                                            <a href="/web/inicio/" target="_blank"> - Ir al Inicio - </a>
+                                        </h2>
+                                        <div class="simply-countdown simply-countdown-one"></div>
+                                        <div class="row">
+                                            <div class="col-md-12 desc">
+                                                <h2>SICPRO ERP estará listo muy pronto. <br/> ¡Por favor regístrese para
+                                                    notificarle cuando esté listo!
+                                                </h2>
+                                                <form class="form-inline" id="fh5co-header-subscribe">
+                                                    <div class="col-md-12 col-md-offset-0">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" id="email"
+                                                                   placeholder="Introduzca su correo"/>
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Subscribirse</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <t t-set="social_links" t-value="request.env['res.company'].sudo().search(
+                                                                    [('login_redes_sociales', '=', True)])"/>
+                                                <ul class="fh5co-social-icons">
+                                                    <li><a t-if="social_links.social_twitter"
+                                                           t-att-href="social_links.social_twitter"
+                                                           aria-label="Twitter" title="Twitter">
+                                                        <i class="icon-twitter-with-circle"/>
+                                                    </a></li>
+                                                    <li><a t-if="social_links.social_facebook"
+                                                           t-att-href="social_links.social_facebook"
+                                                           aria-label="Facebook" title="Facebook">
+                                                        <i class="icon-facebook-with-circle"/>
+                                                    </a></li>
+                                                    <li><a t-if="social_links.social_instagram"
+                                                           t-att-href="social_links.social_instagram"
+                                                           aria-label="Instagram" title="Instagram">
+                                                        <i class="icon-instagram-with-circle"/>
+                                                    </a></li>
+                                                    <li><a href="https://www.dvpe.etecsa.cu/" title="DVPE">
+                                                         <i class="icon-info-with-circle"/>
+                                                    </a></li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-cover js-fullheight"
+                         style="background-image:url(/sicpro_modulo_web_mantenimiento/static/src/images/hero-carousel-1.jpg);">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gototop js-top">
+                <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+            </div>
+
+            <t t-set="contador" t-value="request.env['sicpro.modulo.web.mantenimiento'].sudo().search(
+                    [('active', '=', True)])"/>
+            <script>
+                var d = new Date('<t t-out="contador['fecha_activacion']"/>');
+
+                // default example
+                simplyCountdown('.simply-countdown-one', {
+                year: d.getFullYear(),
+                month: d.getMonth() + 1,
+                day: d.getDate()
+                });
+
+                //jQuery example
+                $('#simply-countdown-losange').simplyCountdown({
+                year: d.getFullYear(),
+                month: d.getMonth() + 1,
+                day: d.getDate(),
+                enableUtc: false
+                });
+            </script>
+        </body>
+    </template>
+
+
+</odoo>

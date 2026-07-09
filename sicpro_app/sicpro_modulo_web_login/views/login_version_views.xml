@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="login_version_tree_view">
+            <field name="name">sicpro.app.login.config.version.tree</field>
+            <field name="model">sicpro.app.login.config.version</field>
+            <field name="arch" type="xml">
+                <tree string="Versión" editable="bottom" create="false">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="login_version_action" model="ir.actions.act_window">
+            <field name="name">Versión de SICPRO ERP</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.login.config.version</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem
+                id="menu_login_version" name="VERSIÓN"
+                parent="sicpro_app_administracion.menu_administracion_1"
+                sequence="500" action="login_version_action"
+                groups="base.group_system"/>
+
+
+    </data>
+</odoo>

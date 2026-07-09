@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="cmi_perspectivas_eje_estrategico_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.cmi.perspectivas.eje.estrategico.tree</field>
+        <field name="model">sicpro.app.cmi.perspectivas.eje.estrategico</field>
+        <field name="arch" type="xml">
+            <tree string="Eje Estratégico" editable="bottom">
+                <field name="name" class="font-weight-bold"/>
+                <field name="descripcion"/>
+                <field name="user_id" widget="many2one_avatar_user"
+                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cmi_perspectivas_eje_estrategico_view_filter" model="ir.ui.view">
+       <field name="name">sicpro.app.cmi.perspectivas.eje.estrategico.filter</field>
+       <field name="model">sicpro.app.cmi.perspectivas.eje.estrategico</field>
+        <field name="arch" type="xml">
+            <search string="Eje Estratégico">
+                <field name="name"/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <record id="cmi_perspectivas_eje_estrategico_tree_action" model="ir.actions.act_window">
+        <field name="name">Eje Estratégico</field>
+        <field name="res_model">sicpro.app.cmi.perspectivas.eje.estrategico</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="cmi_perspectivas_eje_estrategico_view_filter"/>
+        <field name="view_id" ref="cmi_perspectivas_eje_estrategico_view_tree"/>
+    </record>
+
+</odoo>

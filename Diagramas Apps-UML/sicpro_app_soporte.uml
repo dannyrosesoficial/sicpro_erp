@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_soporte</OriginalElement>
+  <nodes>
+    <node x="634.0" y="6873.0">sicpro_app_soporte.models.sicpro_app_trabajadores.SoporteTrabajadores</node>
+    <node x="4523.0" y="348.5">typing.Sized</node>
+    <node x="4674.0" y="304.0">odoo.models.MetaModel</node>
+    <node x="6834.0" y="6807.5">sicpro_app_soporte.models.sicpro_app_soporte_estados_aplicaciones.SoporteEstadosAplicaciones</node>
+    <node x="4946.0" y="337.5">typing.Iterator</node>
+    <node x="8309.0" y="6829.5">sicpro_app_soporte.models.sicpro_app_soporte_estados_versiones.SoporteEstadosVersiones</node>
+    <node x="5118.0" y="348.5">typing.Iterable</node>
+    <node x="10316.0" y="6741.0">sicpro_app_soporte.models.sicpro_app_soporte_versiones.SoporteVeriones</node>
+    <node x="6043.0" y="6829.5">sicpro_app_soporte.models.sicpro_app_soporte_estados_paquetes.SoporteEstadospaquetes</node>
+    <node x="5288.0" y="6030.0">odoo.models.Model</node>
+    <node x="9106.0" y="6774.0">sicpro_app_soporte.models.sicpro_app_soporte_tareas.SoporteTicketTareas</node>
+    <node x="7670.0" y="6741.0">sicpro_app_soporte.models.sicpro_app_soporte_bitacora.SoporteBitacora</node>
+    <node x="1910.0000000000005" y="6873.5">sicpro_app_soporte.models.sicpro_app_soporte_etiquetas.SoporteEtiquetas</node>
+    <node x="4058.0000000000005" y="6543.0">sicpro_app_soporte.models.sicpro_app_soporte_todos.SoporteTicketTodos</node>
+    <node x="6024.0" y="0.0">typing.Hashable</node>
+    <node x="4709.0" y="6686.0">sicpro_app_soporte.models.sicpro_app_soporte_aplicaciones.SoporteAplicaciones</node>
+    <node x="1276.0" y="6763.0">sicpro_app_soporte.models.sicpro_app_soporte_equipos.SoporteEquipos</node>
+    <node x="4812.5" y="709.0">odoo.models.BaseModel</node>
+    <node x="5291.0" y="282.5">typing.Sequence</node>
+    <node x="2570.0000000000005" y="6917.5">sicpro_app_soporte.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador</node>
+    <node x="3399.0000000000005" y="6774.0">sicpro_app_soporte.models.sicpro_app_soporte_paquetes.SoportePaquetes</node>
+    <node x="5649.0" y="348.5">typing.Container</node>
+    <node x="5412.0" y="6884.5">sicpro_app_soporte.models.sicpro_app_soporte_canales.SoporteCanales</node>
+    <node x="9767.0" y="6202.0">sicpro_app_soporte.models.sicpro_app_soporte.SoporteTicket</node>
+    <node x="0.0" y="6796.5">sicpro_app_soporte.models.sicpro_app_soporte_estados.SoporteEstados</node>
+    <node x="5894.0" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_estados_paquetes.SoporteEstadospaquetes" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-385.5" y="95.0" />
+      <point x="5718.0" y="7051.5" />
+      <point x="5718.0" y="7393.0" />
+      <point x="-17.5" y="7393.0" />
+      <point x="-17.5" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_tareas.SoporteTicketTareas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-182.5" />
+      <point x="9426.5" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-362.0" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-564.0" y="-2635.5" />
+      <point x="20.0" y="72.5" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_equipos.SoporteEquipos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-193.5" />
+      <point x="1583.0" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_trabajadores.SoporteTrabajadores" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-83.5" />
+      <point x="945.0" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="-189.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_estados_aplicaciones.SoporteEstadosAplicaciones" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-149.0" />
+      <point x="7242.0" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_etiquetas.SoporteEtiquetas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-83.0" />
+      <point x="2230.0" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_paquetes.SoportePaquetes" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-182.5" />
+      <point x="3718.5" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-39.0" />
+      <point x="2974.5" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_versiones.SoporteVeriones" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-215.5" />
+      <point x="10634.0" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="4588.5" y="3344.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_aplicaciones.SoporteAplicaciones" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="341.5" y="95.0" />
+      <point x="5718.0" y="7051.5" />
+      <point x="5718.0" y="7393.0" />
+      <point x="-17.5" y="7393.0" />
+      <point x="-17.5" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="377.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="76.0" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="6193.0" y="376.5" />
+      <point x="6193.0" y="88.5" />
+      <point x="6105.5" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="6193.0" y="3344.5" />
+      <point x="6193.0" y="88.5" />
+      <point x="6105.5" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte.SoporteTicket" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-754.5" />
+      <point x="10031.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_estados.SoporteEstados" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-160.0" />
+      <point x="307.0" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_bitacora.SoporteBitacora" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-215.5" />
+      <point x="7979.5" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_canales.SoporteCanales" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="20.0" y="72.0" />
+      <point x="5737.5" y="7051.5" />
+      <point x="5718.0" y="7051.5" />
+      <point x="5718.0" y="7393.0" />
+      <point x="-17.5" y="7393.0" />
+      <point x="-17.5" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_todos.SoporteTicketTodos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-413.5" />
+      <point x="4373.5" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_soporte.models.sicpro_app_soporte_estados_versiones.SoporteEstadosVersiones" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-127.0" />
+      <point x="8697.5" y="6358.0" />
+      <point x="4860.5" y="6358.0" />
+      <point x="4860.5" y="6177.0" />
+      <point x="5384.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-83.5" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.07916181606519208" showDependencies="false" x="5476.0" y="3855.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

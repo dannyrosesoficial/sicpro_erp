@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_cmi</OriginalElement>
+  <nodes>
+    <node x="4550.5" y="348.5">typing.Sized</node>
+    <node x="4701.5" y="304.0">odoo.models.MetaModel</node>
+    <node x="2969.0" y="6807.0">sicpro_app_cmi.models.sicpro_app_cmi_indicadores_cambios.AppCMIIndicadoresCambios</node>
+    <node x="10427.0" y="6972.5">sicpro_app_cmi.models.sicpro_app_cmi_acciones_estado.AppCMIAccionesEstado</node>
+    <node x="4973.5" y="337.5">typing.Iterator</node>
+    <node x="7258.0" y="6697.0">sicpro_app_cmi.models.sicpro_app_cmi_objetivos_anuales.AppCMIObjetivosAnuales</node>
+    <node x="5145.5" y="348.5">typing.Iterable</node>
+    <node x="6531.0" y="6917.0">sicpro_app_cmi.models.sicpro_app_cmi_perspectivas_anio.AppCMIPerspectivasAnios</node>
+    <node x="5315.5" y="6030.0">odoo.models.Model</node>
+    <node x="7980.0" y="6939.0">sicpro_app_cmi.models.sicpro_app_cmi_indicadores_graficos.AppCMIIndicadoresGraficos</node>
+    <node x="587.0" y="8025.0">sicpro_app_cmi.models.sicpro_app_cmi_indicadores.AppCMIIndicadoresModalCambios</node>
+    <node x="4524.0" y="6719.0">sicpro_app_cmi.models.sicpro_app_cmi_acciones.AppCMIAcciones</node>
+    <node x="1600.0" y="6862.0">sicpro_app_cmi.models.sicpro_app_cmi_indicadores_valores.AppCMIIndicadoresValores</node>
+    <node x="442.0" y="6994.0">odoo.models.TransientModel</node>
+    <node x="6051.5" y="0.0">typing.Hashable</node>
+    <node x="4840.0" y="709.0">odoo.models.BaseModel</node>
+    <node x="5101.0" y="6675.0">sicpro_app_cmi.models.sicpro_app_cmi_perspectivas.AppCMIPerspectivas</node>
+    <node x="5318.5" y="282.5">typing.Sequence</node>
+    <node x="807.0" y="6697.0">sicpro_app_cmi.models.sicpro_app_cmi_objetivos_estrategicos.AppCMIObjetivosEstrategicos</node>
+    <node x="5742.0" y="6961.0">sicpro_app_cmi.models.sicpro_app_cmi_perspectivas_periodos.AppCMIPerspectivasPeriodos</node>
+    <node x="0.0" y="8058.0">sicpro_app_cmi.informes.sicpro_app_cmi_reporte.AppCMIReportes</node>
+    <node x="3730.0" y="7049.5">sicpro_app_cmi.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador</node>
+    <node x="8738.0" y="6939.0">sicpro_app_cmi.models.sicpro_app_cmi_perspectivas_eje_estrategico.AppCMIPerspectivasEjeEstrategico</node>
+    <node x="5676.5" y="348.5">typing.Container</node>
+    <node x="9625.0" y="7005.5">sicpro_app_cmi.models.sicpro_app_cmi_acciones_modo_control.AppCMIAccionesModoControl</node>
+    <node x="2348.0" y="6202.0">sicpro_app_cmi.models.sicpro_app_cmi_indicadores.AppCMIIndicadores</node>
+    <node x="5921.5" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-362.0" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_acciones_estado.AppCMIAccionesEstado" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-116.0" />
+      <point x="10764.0" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-564.0" y="-2635.5" />
+      <point x="20.0" y="72.5" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_indicadores.AppCMIIndicadores" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-886.5" />
+      <point x="2648.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="-189.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_indicadores_valores.AppCMIIndicadoresValores" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-226.5" />
+      <point x="1964.0" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_acciones_modo_control.AppCMIAccionesModoControl" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="10016.0" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_perspectivas_anio.AppCMIPerspectivasAnios" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-171.5" />
+      <point x="6884.5" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="4117.0" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="4616.0" y="3344.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_objetivos_anuales.AppCMIObjetivosAnuales" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-391.5" />
+      <point x="7609.0" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_objetivos_estrategicos.AppCMIObjetivosEstrategicos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-391.5" />
+      <point x="1193.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="614.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="377.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_perspectivas.AppCMIPerspectivas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-413.5" />
+      <point x="5411.5" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_indicadores.AppCMIIndicadoresModalCambios" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="-358.5" y="-205.0" />
+      <point x="500.0" y="8035.5" />
+      <point x="500.0" y="7620.5" />
+      <point x="614.5" y="7620.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="76.0" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="6221.0" y="376.5" />
+      <point x="6221.0" y="88.5" />
+      <point x="6133.0" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="6221.0" y="3344.5" />
+      <point x="6221.0" y="88.5" />
+      <point x="6133.0" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_acciones.AppCMIAcciones" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-369.5" />
+      <point x="4802.5" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_perspectivas_periodos.AppCMIPerspectivasPeriodos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-127.5" />
+      <point x="6126.5" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_indicadores_graficos.AppCMIIndicadoresGraficos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-149.5" />
+      <point x="8349.0" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_perspectivas_eje_estrategico.AppCMIPerspectivasEjeEstrategico" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-149.5" />
+      <point x="9171.5" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_cmi.informes.sicpro_app_cmi_reporte.AppCMIReportes" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-182.5" />
+      <point x="283.5" y="7620.5" />
+      <point x="614.5" y="7620.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="sicpro_app_cmi.models.sicpro_app_cmi_indicadores_cambios.AppCMIIndicadoresCambios" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-281.5" />
+      <point x="3339.5" y="6424.0" />
+      <point x="5771.5" y="6424.0" />
+      <point x="5771.5" y="6177.0" />
+      <point x="5411.5" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-83.5" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.07715903728173666" showDependencies="false" x="5550.5" y="4228.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

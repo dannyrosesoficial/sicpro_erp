@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_mapas_externo</OriginalElement>
+  <nodes>
+    <node x="2079.7775735294117" y="282.5">typing.Sequence</node>
+    <node x="2609.926470588235" y="348.5">typing.Sized</node>
+    <node x="2760.926470588235" y="304.0">odoo.models.MetaModel</node>
+    <node x="0.0" y="2370.0">unittest.case.TestCase</node>
+    <node x="3032.926470588235" y="337.5">typing.Iterator</node>
+    <node x="2944.875" y="6785.5">sicpro_modulo_mapas_externo.models.res_partner.ResPartner</node>
+    <node x="3204.926470588235" y="348.5">typing.Iterable</node>
+    <node x="2609.279411764706" y="6294.5">odoo.models.Model</node>
+    <node x="1027.3014705882354" y="6741.5">odoo.tests.common.TransactionCase</node>
+    <node x="988.8014705882354" y="6030.0">odoo.tests.common.BaseCase</node>
+    <node x="813.8014705882354" y="7035.0">sicpro_modulo_mapas_externo.tests.test_partner_external_map.TestPartnerExternalMap</node>
+    <node x="3377.926470588235" y="348.5">typing.Container</node>
+    <node x="1700.0" y="3272.0">odoo.tests.common.MetaCase</node>
+    <node x="1386.0606617647059" y="0.0">typing.Hashable</node>
+    <node x="1642.0275735294117" y="6763.5">sicpro_modulo_mapas_externo.models.res_users.ResUsers</node>
+    <node x="2365.875" y="6731.0">sicpro_modulo_mapas_externo.models.map_website.MapWebsite</node>
+    <node x="702.5" y="106.0">object</node>
+    <node x="2133.779411764706" y="709.0">odoo.models.BaseModel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_modulo_mapas_externo.models.res_users.ResUsers" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.264705883088027E-4" y="94.5" />
+      <point x="1894.528" y="7008.0" />
+      <point x="2348.375" y="7008.0" />
+      <point x="2348.375" y="6355.5" />
+      <point x="-96.00041176470586" y="0.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="3500.375" y="3344.5" />
+      <point x="9.948529411764866" y="28.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="-111.5" />
+      <point x="2150.0" y="265.0" />
+      <point x="2150.0" y="180.0" />
+      <point x="1467.561" y="180.0" />
+      <point x="3.3823529406618036E-4" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-456.50183823529414" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="unittest.case.TestCase" target="object" relationship="REALIZATION">
+      <point x="0.0" y="-974.5" />
+      <point x="0.0" y="270.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="-112.85341176470592" y="-2635.5" />
+      <point x="2592.426" y="180.0" />
+      <point x="1467.561" y="180.0" />
+      <point x="3.3823529406618036E-4" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="403.6470588235293" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="sicpro_modulo_mapas_externo.tests.test_partner_external_map.TestPartnerExternalMap" target="odoo.tests.common.TransactionCase" relationship="REALIZATION">
+      <point x="0.0" y="-171.5" />
+      <point x="0.0" y="116.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="181.64705882352928" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="564.0" y="-2635.5" />
+      <point x="-12.147058823529278" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_mapas_externo.models.map_website.MapWebsite" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="127.0" />
+      <point x="2645.375" y="7008.0" />
+      <point x="2348.375" y="7008.0" />
+      <point x="2348.375" y="6355.5" />
+      <point x="-96.00041176470586" y="0.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="odoo.tests.common.BaseCase" target="odoo.tests.common.MetaCase" relationship="INSTANCEOF">
+      <point x="201.5" y="0.0" />
+      <point x="1837.5" y="6355.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.tests.common.TransactionCase" target="odoo.tests.common.BaseCase" relationship="REALIZATION">
+      <point x="0.0" y="-116.5" />
+      <point x="0.0" y="325.5" />
+    </edge>
+    <edge source="sicpro_modulo_mapas_externo.models.res_partner.ResPartner" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="72.5" />
+      <point x="3213.875" y="7008.0" />
+      <point x="2348.375" y="7008.0" />
+      <point x="2348.375" y="6355.5" />
+      <point x="-96.00041176470586" y="0.0" />
+    </edge>
+    <edge source="odoo.tests.common.BaseCase" target="unittest.case.TestCase" relationship="REALIZATION">
+      <point x="0.0" y="-325.5" />
+      <point x="350.30147058823536" y="974.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="14.99958823529414" y="-2635.5" />
+      <point x="44.85252941176486" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="-4.117647058592411E-4" y="-2635.5" />
+      <point x="2705.279" y="678.0" />
+      <point x="840.0" y="678.0" />
+      <point x="0.0" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.08029197080291971" showDependencies="false" x="1801.5" y="3689.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

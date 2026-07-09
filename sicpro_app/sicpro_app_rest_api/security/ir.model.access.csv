@@ -1,0 +1,12 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"api_rest_version","Api REST Versión","model_api_rest_version",,1,0,0,0
+"api_rest_version_admin","Api REST Versión Admin","model_api_rest_version","sicpro_app_rest_api.grupo_app_api_rest_admin",1,1,1,1
+"api_rest_directorio","Api REST Directorio","model_api_rest_path",,1,0,0,0
+"api_rest_directorio_admin","Api REST Directorio Admin","model_api_rest_path","sicpro_app_rest_api.grupo_app_api_rest_admin",1,1,1,1
+"api_rest_campos","Api REST Campos","model_api_rest_field",,1,0,0,0
+"api_rest_campos_admin","Api REST Campos Admin","model_api_rest_field","sicpro_app_rest_api.grupo_app_api_rest_admin",1,1,1,1
+"api_rest_categorias","Api REST Categorías","model_api_rest_tag",,1,0,0,0
+"api_rest_categorias_admin","Api REST Categorías","model_api_rest_tag","sicpro_app_rest_api.grupo_app_api_rest_admin",1,1,1,1
+"api_rest_parametros","Api REST Parámetros","model_api_rest_function_parameter",,1,0,0,0
+"api_rest_parametros_admin","Api REST Parámetros Admin","model_api_rest_function_parameter","sicpro_app_rest_api.grupo_app_api_rest_admin",1,1,1,1
+"api_rest_registros_admin","Api REST Registros","model_api_rest_log",,1,0,1,1

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="survey_question_form" model="ir.ui.view">
+        <field name="name">survey.question.view.form.inherit.enhanced.survey.management</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_form"/>
+        <field name="arch" type="xml">
+            <!-- herede la vista de preguntas para agregar una vista previa personalizada del nuevo tipo de pregunta. -->
+            <xpath expr="//div[hasclass('o_preview_questions')]"
+                   position="inside">
+                <!-- Huso horario -->
+                <div attrs="{'invisible': [('question_type', '!=', 'time')]}">
+                    <span>Hora de inicio del trabajo</span>
+                    <br/>
+                    <i class="fa fa-clock-o" role="img"
+                       aria-label="Single Line" title="Single Line">&#160;
+                        &#160; --:--
+                    </i>
+                </div>
+                <!-- Correo electrónico -->
+                <div attrs="{'invisible': [('question_type', '!=', 'email')]}">
+                    <span>Correo electrónico</span>
+                    <br/>
+                    <i class="fa fa-envelope" role="img"
+                       aria-label="Single Line" title="Single Line">&#160;
+                        &#160; ____________
+                    </i>
+                </div>
+                <!-- Zona Mes -->
+                <div attrs="{'invisible': [('question_type', '!=', 'month')]}">
+                    <span>Nombre un mes</span>
+                    <br/>
+                    <i class="fa fa-calendar" role="img"
+                       aria-label="Single Line" title="Single Line">&#160;
+                        &#160; ____________
+                    </i>
+                </div>
+                <!-- Contraseña -->
+                <div attrs="{'invisible': [('question_type', '!=', 'password')]}">
+                    <span>Contraseña</span>
+                    <br/>
+                    <i class="fa fa-lock" role="img"
+                       aria-label="Single Line" title="Single Line">&#160;
+                        &#160; #########
+                    </i>
+                </div>
+                <!-- Rango -->
+                <div attrs="{'invisible': [('question_type', '!=', 'range')]}">
+                    <span>Rango</span>
+                    <br/>
+                    <i>------</i>
+                    <i class="fa fa-bullseye" role="img"
+                       aria-label="Single Line" title="Single Line">
+                    </i>
+                    <i>----</i>
+                </div>
+                <!-- Address Zone -->
+                <div attrs="{'invisible': [('question_type', '!=', 'address')]}">
+                    <span>Dirección actual</span>
+                    <br/>
+                    <i role="img" aria-label="Single Line" title="Single Line">
+                        &#160; &#160; __________
+                        <br/> &#160; &#160;&#160; &#160;&#160; &#160;__________
+                        <br/>
+                        ___ ___ ___<br/>______
+                    </i>
+                </div>
+                <!-- Nombre -->
+                <div attrs="{'invisible': [('question_type', '!=', 'name')]}">
+                    <span>Su nombre</span>
+                    <br/>
+                    <i role="img" aria-label="Name" title="Single Line">&#160;
+                        &#160; ___ ___ ___
+                    </i>
+                </div>
+                <!-- URL -->
+                <div attrs="{'invisible': [('question_type', '!=', 'url')]}">
+                    <span>URL</span>
+                    <br/>
+                    <i role="img" aria-label="URL" class="fa fa-link"
+                       title="Single Line">&#160; &#160; ________
+                    </i>
+                </div>
+                <!-- Semana -->
+                <div attrs="{'invisible': [('question_type', '!=', 'week')]}">
+                    <span>Selecciona una semana</span>
+                    <br/>
+                    <i role="img" aria-label="Week" class="fa fa-calendar"
+                       title="Week">&#160; &#160;Week --, ---
+                    </i>
+                </div>
+                <!-- Color -->
+                <div attrs="{'invisible': [('question_type', '!=', 'color')]}">
+                    <span>Elige un color</span>
+                    <br/>
+                    <i role="img" aria-label="Color" class="fa fa-paint-brush"
+                       title="Color">&#160; &#160;________
+                    </i>
+                </div>
+                <!-- Código QR -->
+                <div attrs="{'invisible': [('question_type', '!=', 'qr')]}">
+                    <span>Escanear código QR</span>
+                    <br/>
+                    <i role="img" aria-label="Color" class="fa fa-qrcode"
+                       title="Color">&#160;
+                    </i>
+                    ___________
+                </div>
+                <!-- Código de barras -->
+                <div attrs="{'invisible': [('question_type', '!=', 'barcode')]}">
+                    <span>Escanear código de barras</span>
+                    <br/>
+                    <i role="img" aria-label="Color" class="fa fa-barcode"
+                       title="Color">&#160;
+                    </i>
+                    ___________
+                </div>
+                <!-- Subir un archivo -->
+                <div attrs="{'invisible': [('question_type', '!=', 'file')]}">
+                    <span>Subir un archivo</span>
+                    <br/>
+                    <i role="img" aria-label="Color" class="fa fa-file"
+                       title="Color">&#160;
+                    </i>
+                    ___________
+                </div>
+                <!-- Selección de una lista -->
+                <div attrs="{'invisible': [('question_type', '!=', 'selection')]}">
+                    <span>Seleccionar de la lista</span>
+                    <br/>
+                    <i role="img" aria-label="Color" class="fa fa-angle-down"
+                       title="Color">&#160;
+                    </i>
+                    ___________
+                </div>
+                <!-- Many2one -->
+                <div attrs="{'invisible': [('question_type', '!=', 'many2one')]}">
+                    <span>Seleccione un valor</span>
+                    <br/>
+                    ___________
+                    <i role="img" aria-label="Color" class="fa fa-angle-down"
+                       title="Color">&#160;
+                    </i>
+                </div>
+            </xpath>
+            <!-- Agregar el campo necesario relacionado con tipos de preguntas personalizadas -->
+            <xpath expr="//page[@name='answers']" position="inside">
+                <group attrs="{'invisible': [('question_type', '!=', 'many2one')]}">
+                    <field name="model_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                           attrs="{'required': [('question_type', '=', 'many2one')]}"/>
+                </group>
+                <group>
+                    <field name="selection_ids"
+                           attrs="{'invisible': [('question_type', '!=', 'selection')]}">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </group>
+                <group attrs="{'invisible': [('question_type', '!=', 'range')]}">
+                    <field name="range_min"/>
+                    <field name="range_max"/>
+                </group>
+                <group attrs="{'invisible': [('question_type', '!=', 'qr')]}">
+                    <field name="qrcode"/>
+                </group>
+                <group attrs="{'invisible': [('question_type', '!=', 'barcode')]}">
+                    <field name="barcode"/>
+                </group>
+            </xpath>
+            <!-- Agregar un campo de matriz relacionado con tipos de preguntas de matriz -->
+            <xpath expr="//field[@name='suggested_answer_ids']/tree/field[@name='value']"
+                   position="after">
+                <field name="answer_type"
+                       attrs="{'column_invisible': [('parent.matrix_subtype', '!=', 'custom')]}"/>
+                <field name="model_id"
+                       attrs="{'required': [('answer_type','=','many2one')],
+                               'column_invisible': [('parent.matrix_subtype', '!=', 'custom')]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!--vista formulario-->
+    <record id="dashboard_colores_form_view" model="ir.ui.view">
+        <field name="name">dashboard.colores.form.view</field>
+        <field name="model">sicpro.modulo.dashboard.colores</field>
+        <field name="arch" type="xml">
+            <form string="Colores">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dashboard_colores_tree_view" model="ir.ui.view">
+        <field name="name">dashboard.colores.tree.view</field>
+        <field name="model">sicpro.modulo.dashboard.colores</field>
+        <field name="arch" type="xml">
+            <tree string="Colores"  editable="bottom">
+                <field name="name"/>
+                <field name="color" widget="color"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="dashboard_colores_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Colores</field>
+       <field name="model">sicpro.modulo.dashboard.colores</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Colores">
+            <field name="name"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_dashboard_colores" model="ir.actions.act_window">
+        <field name="name">Colores</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.modulo.dashboard.colores</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--vista formulario Set-->
+    <record id="dashboard_colores_set_form_view" model="ir.ui.view">
+        <field name="name">dashboard.colores.set.form.view</field>
+        <field name="model">sicpro.modulo.dashboard.colores.set</field>
+        <field name="arch" type="xml">
+            <form string="Set de Colores">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <field name="colores">
+                        <tree string="Colores" editable="bottom">
+                            <field name="orden" widget="handle"/>
+                            <field name="color" widget="color"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol Set-->
+    <record id="dashboard_colores_set_tree_view" model="ir.ui.view">
+        <field name="name">dashboard.colores.set.tree.view</field>
+        <field name="model">sicpro.modulo.dashboard.colores.set</field>
+        <field name="arch" type="xml">
+            <tree string="Set de Colores">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda Set-->
+    <record id="dashboard_colores_set_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Set de Colores</field>
+       <field name="model">sicpro.modulo.dashboard.colores.set</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Set de Colores">
+            <field name="name"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción Set-->
+    <record id="action_dashboard_colores_set" model="ir.actions.act_window">
+        <field name="name">Set Colores</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.modulo.dashboard.colores.set</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--vista formulario Orden-->
+    <record id="dashboard_colores_orden_form_view" model="ir.ui.view">
+        <field name="name">dashboard.colores.orden.form.view</field>
+        <field name="model">sicpro.modulo.dashboard.colores.orden</field>
+        <field name="arch" type="xml">
+            <form string="Orden de Colores">
+                <sheet>
+                    <group>
+                        <field name="orden"/>
+                        <field name="color" widget="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol Orden-->
+    <record id="dashboard_colores_orden_tree_view" model="ir.ui.view">
+        <field name="name">dashboard.colores.orden.tree.view</field>
+        <field name="model">sicpro.modulo.dashboard.colores.orden</field>
+        <field name="arch" type="xml">
+            <tree string="Orden de Colores" editable="bottom">
+                <field name="orden" widget="handle"/>
+                <field name="color" widget="color"/>
+                <field name="color_set" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda Orden-->
+    <record id="dashboard_colores_orden_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Orden de Colores</field>
+       <field name="model">sicpro.modulo.dashboard.colores.orden</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Orden de Colores">
+            <field name="color"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción Orden-->
+    <record id="action_dashboard_colores_orden" model="ir.actions.act_window">
+        <field name="name">Orden Colores</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.modulo.dashboard.colores.orden</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    </data>
+</odoo>

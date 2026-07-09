@@ -1,0 +1,560 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <template id="web_plantilla_registro_planilla">
+    <t t-call-assets="web.assets_common"/>
+    <t t-call-assets="web.assets_backend" t-js="false"/>
+    <t t-call-assets="web.web_registros_planilla"/>
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>SICPRO ERP - Planilla</title>
+      <meta http-equiv="cache-control" content="no-cache"/>
+      <meta http-equiv="pragma" content="no-cache"/>
+
+      <!-- Favicons -->
+      <link href="/sicpro_modulo_web_registro/static/src/images/SICPRO_ERP.png" rel="icon"/>
+      <link href="/sicpro_modulo_web_registro/static/src/images/SICPRO_ERP.png" rel="apple-touch-icon"/>
+    </head>
+
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <!-- Wizard container -->
+            <div class="wizard-container">
+              <div class="card wizard-card" data-color="red" id="wizard">
+                <form id="formulario-registro-roles" action="/web/registro_crear/" method="get">
+                  <div class="inicio-href wizard-title">
+                    <a href="/web/registro" class="signup-image-link"><i class="fa fa-arrow-left"/>
+                      Inicio</a>
+                  </div>
+                  <div class="wizard-header">
+                    <h4 class="wizard-title">
+                      <img src="/sicpro_modulo_web_registro/static/src/images/SICPRO_ERP.png"
+                           alt="SICPRO" class="img-fluid"/> SICPRO ERP
+                    </h4>
+                    <h3 class="wizard-title">
+                      Registro de Usuarios
+                    </h3>
+                    <h5>Rellene o corrija los datos del usuario para configurar su cuenta</h5>
+                  </div>
+                  <div class="wizard-navigation">
+                    <ul>
+                      <li><a href="#usuario" data-toggle="tab">Usuario</a></li>
+                      <li><a href="#roles" data-toggle="tab">Roles</a></li>
+                      <li><a href="#motivos" data-toggle="tab">Motivos</a></li>
+                      <li><a href="#autorizacion" data-toggle="tab">Autorización</a></li>
+                    </ul>
+                  </div>
+
+                  <input name="solicitud" type="text" class="o_hidden" t-att-value="solicitud"/>
+
+                  <div class="tab-content">
+                    <div class="tab-pane" id="usuario">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <h4 class="info-text"> Información general sobre el trabajador.</h4>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-user-o fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Nombre y Apellidos</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Nombre y apellidos del trabajador que solícita el servicio.">
+                                  <input name="nombre" type="text" class="form-control" t-att-value="nombre_apellidos"
+                                         readonly="1"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-id-card-o fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Carnet de Identidad</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Número de identificación del trabajador que solícita el servicio.">
+                                  <input name="carnet" id="carnet" type="text" class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-graduation-cap fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Nivel Escolar</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Nivel escolar del trabajador que solícita el servicio.">
+                                   <select name="nivel" id="nivel" class="form-control">
+                                     <option value="0">Elija un Nivel Escolar</option>
+                                     <option value="Sin Título">Sin Título</option>
+                                     <option value="Primaria">Primaria</option>
+                                     <option value="Secundaria Básica">Secundaria Básica</option>
+                                     <option value="Técnico Medio">Técnico Medio</option>
+                                     <option value="Medio">Medio</option>
+                                     <option value="Medio Superior">Medio Superior</option>
+                                     <option value="Superior">Superior</option>
+                                   </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-star fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Cargo</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Cargo que ocupa el trabajador que solícita el servicio.">
+                                  <input name="cargo" type="text" class="form-control" t-att-value="cargo"
+                                         readonly="1"/></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-map-marker fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Área</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Área del trabajador que solícita el servicio.">
+                                  <input name="area" type="text" class="form-control" t-att-value="area"
+                                         readonly="1"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-building fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Unidad Organizativa</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Unidad organizativa del trabajador que solícita el servicio.">
+                                  <input name="uo" type="text" class="form-control" t-att-value="uo"
+                                         readonly="1"/></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-warning fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Número de Plaza (Código SAP)</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Identificación en SAP del trabajador que solícita el servicio.">
+                                  <input name="plaza" type="text" class="form-control" t-att-value="codigo_sap"
+                                         readonly="1"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-users fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Tipo de Usuario</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Tipo de usuario que será asignado al trabajador que solícita el servicio.">
+                                  <select name="tipo_usuario" id="tipo_usuario" placeholder="Tipo de Usuario"
+                                          class="form-control">
+                                    <option t-att-value="tipo_value"><t t-esc="tipo_nombre"/></option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-envelope-o fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Correo Electrónico</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Correo electrónico empresarial del trabajador que solícita el servicio.">
+                                  <input name="correo" type="text" class="form-control" t-att-value="correo"
+                                         readonly="1"/>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-mobile-phone fa-2x"></i>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Teléfonos de Contacto</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Números de contacto del trabajador que solícita el servicio, sepárelos con
+                                      '-' en el caso de ser más de uno.">
+                                  <input name="contacto" id="contacto" type="text" class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <h4 class="footer-text"> Por favor llene los campos vacíos, si la información generada del
+                            trabajador contiene algún error intente volver a realizar el registro del usuario.
+                            <a href="/web/registro" class="signup-image-link text text-success">
+                              <i class="fa fa-arrow-left"/>Inicio</a>
+                            <p/>
+                            <i class="text text-warning fa fa-warning"/>
+                            Si el problema persiste contacte al administrador del sistema.
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="roles">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <h4 class="info-text"> Permisos y Roles de Acceso</h4>
+                        </div>
+                        <div class="col-sm-12">
+
+                          <t t-set="registros_ids"
+                             t-value="request.env['sicpro.modulo.web.registro.roles'].sudo().search([('active', '=', True)])"/>
+
+                          <t t-foreach='registros_ids' t-as='data_registro'>
+                            <div class="col-sm-6">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-cubes">
+                                  <p class="text text-dark font-weight-bold"><t t-out="data_registro['name']"/></p>
+                                </i></span>
+                                <div class="form-group label-floating">
+                                  <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                       t-att-title="data_registro['descripcion']">
+
+                                    <t t-if="disabled_roles == 'disabled'">
+                                      <select t-att-name="data_registro['name']" t-att-id="data_registro['name']"
+                                              class="form-control desahabilitar-roles">
+                                        <option value="">Elija un rol</option>
+                                        <t t-foreach='data_registro.roles' t-as='data_roles'>
+                                          <option t-att-value="data_roles['nombre_registro']"
+                                                  t-att-title="data_roles['descripcion']">
+                                            <t t-out="data_roles['nombre_registro']"/></option>
+                                        </t>
+                                      </select>
+                                    </t>
+                                    <t t-else="">
+                                      <select t-att-name="data_registro['name']" t-att-id="data_registro['name']"
+                                              class="form-control">
+                                        <option value="">Elija un rol</option>
+                                        <t t-foreach='data_registro.roles' t-as='data_roles'>
+                                          <option t-att-value="data_roles['nombre_registro']"
+                                                  t-att-title="data_roles['descripcion']">
+                                            <t t-out="data_roles['nombre_registro']"/></option>
+                                        </t>
+                                      </select>
+                                    </t>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </t>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="motivos">
+                      <h4 class="info-text">Permisos Especiales / Fundamentación y especificaciones </h4>
+                      <div class="row">
+                        <div class="col-md-12 radiogroup">
+                          <t t-set="especiales_ids" t-value="roles_especiales"/>
+
+                          <t t-if="'Importar Datos' in especiales_ids">
+                            <div class="choice active" data-toggle="wizard-checkbox" rel="tooltip"
+                                 title="Permiso especial para la subida masiva de datos desde archivos xls.">
+                              <input type="checkbox" name="importar" id="importar" checked="checked"/>
+                              <div class="icon"><i class='fa fa-upload'/></div><h6>Importar Datos</h6>
+                            </div>
+                          </t>
+                          <t t-else="">
+                            <div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+                                 title="Permiso especial para la subida masiva de datos desde archivos xls.">
+                              <input type="checkbox" name="importar" id="importar"/>
+                              <div class="icon"><i class='fa fa-upload'/></div><h6>Importar Datos</h6>
+                            </div>
+                          </t>
+
+                          <t t-if="'Exportar Datos' in especiales_ids">
+                            <div class="choice active" data-toggle="wizard-checkbox" rel="tooltip"
+                                 title="Permiso especial para exportar todos los campos del modelo de la base de datos.">
+                              <input type="checkbox" name="exportar_avanzado" id="exportar_avanzado" checked="checked"/>
+                              <div class="icon"><i class="fa fa-download"/></div><h6>Exportar Datos</h6>
+                            </div>
+                          </t>
+                          <t t-else="">
+                            <div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+                                 title="Permiso especial para exportar todos los campos del modelo de la base de datos.">
+                              <input type="checkbox" name="exportar_avanzado" id="exportar_avanzado"/>
+                              <div class="icon"><i class="fa fa-download"/></div><h6>Exportar Datos</h6>
+                            </div>
+                          </t>
+
+                          <t t-if="'Exportar Datos' in especiales_ids">
+                            <div class="choice active" data-toggle="wizard-checkbox" rel="tooltip"
+                                 title="Acceso a visualizar los datos de más de un proceso del sistema.">
+                              <input type="checkbox" name="multiprocesos" id="multiprocesos" checked="checked"/>
+                              <div class="icon"><i class="fa fa-building"></i></div><h6>Multiprocesos</h6>
+                            </div>
+                          </t>
+                          <t t-else="">
+                            <div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+                                 title="Acceso a visualizar los datos de más de un proceso del sistema.">
+                              <input type="checkbox" name="multiprocesos" id="multiprocesos"/>
+                              <div class="icon"><i class="fa fa-building"></i></div><h6>Multiprocesos</h6>
+                            </div>
+                          </t>
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <i class="fa fa-terminal"/>
+                            </span>
+                            <div class="form-group label-floating">
+                              <label class="control-label">Fundamentar el acceso a los permisos especiales</label>
+                              <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                   title="Especifique la necesidad de utilización de los permisos especiales.">
+                                <textarea name="detalles_permisos_especiales" id="detalles_permisos_especiales"
+                                          type="text" class="form-control"></textarea></div>
+                            </div>
+                          </div>
+
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <i class="fa fa-file-text"/>
+                            </span>
+                            <div class="form-group label-floating">
+                              <label class="control-label">Fundamentar el motivo de la solicitud</label>
+                              <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                   title="Fundamentar la necesidad de uso del sistema y especifiqué brevemente
+                                   la funciones que desea realzar.">
+                                <textarea name="detalles_uso_sistema" id="detalles_uso_sistema" type="text"
+                                          class="form-control"></textarea></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="tab-pane" id="autorizacion">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <h4 class="info-text"> Autorización de Acceso a Sistema</h4>
+                          <p class="info-text-aviso"> No es obligatorio completar esta sección en caso de reinicio de la
+                            cuenta</p>
+                        </div>
+                        <div class="col-sm-12">
+                          <div class="col-sm-12">
+                            <p class="info-text-autoriza"> Datos del Jefe inmediato del trabajador</p>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-user-circle-o"/>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Nombre y Apellidos</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Nombre y apellidos del jefe inmediato superior del trabajador que solícita el acceso.">
+                                  <input name="nombre_jefe_inmediato" id="nombre_jefe_inmediato" type="text"
+                                         class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-star"/>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Cargo</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Cargo del jefe inmediato superior del trabajador que solícita el acceso.">
+                                  <input name="cargo_jefe_inmediato" id="cargo_jefe_inmediato" type="text"
+                                         class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-building"/>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Unidad Organizativa</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Unidad Organizativa del jefe inmediato superior del trabajador que solícita el acceso.">
+                                  <input name="uo_jefe_inmediato" id="uo_jefe_inmediato" type="text"
+                                         class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-mobile-phone"/>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Teléfono</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Contacto del jefe inmediato superior del trabajador que solícita el acceso.">
+                                  <input name="telefono_jefe_inmediato" id="telefono_jefe_inmediato" type="text"
+                                         class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div class="col-sm-12">
+                            <p class="info-text-autoriza"> Datos del director del área del trabajador</p>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-user-circle"/>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Nombre y Apellidos</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Nombre y apellidos del director del área del trabajador que solícita el acceso.">
+                                  <input name="nombre_director" id="nombre_director" type="text"
+                                         class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-star"/>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Cargo</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Cargo del director del área del trabajador que solícita el acceso.">
+                                  <input name="cargo_director" id="cargo_director" type="text"
+                                         class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-building"/>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Unidad Organizativa</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Unidad Organizativa del director del área del trabajador que solícita el acceso.">
+                                  <input name="uo_director" id="uo_director" type="text" class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <i class="fa fa-mobile-phone"/>
+                              </span>
+                              <div class="form-group label-floating">
+                                <label class="control-label">Teléfono</label>
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip"
+                                     title="Contacto del director del área del trabajador que solícita el acceso.">
+                                  <input name="telefono_director" id="telefono_director" type="text"
+                                         class="form-control"/></div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="wizard-footer">
+                    <div class="pull-right">
+                      <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' id='next'
+                             value='Siguiente'/>
+                      <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' id='finish'
+                              value='Finalizar'/>
+                      <button class='btn btn-enviar btn-fill btn-danger btn-wd' type="submit" name='enviar' id='enviar'
+                              form="formulario-registro-roles" value="Enviar"> Enviar</button>
+                    </div>
+                    <div class="pull-left">
+                      <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous'
+                             id='previous' value='Anterior'/>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- wizard container -->
+          </div>
+        </div>
+        <!-- row -->
+      </div>
+    </body>
+    <script>
+      var data_solicitud = {
+      'solicitud': "<t t-esc="solicitud"/>",
+      'templete': "planilla_roles",
+      'roles_externos': "<t t-esc="roles_externos"/>",
+      'roles_internos': "<t t-esc="roles_internos"/>",
+      'roles_especiales': "<t t-esc="roles_especiales"/>",
+      }
+    </script>
+  </template>
+
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <!-- Creo la categoría de permisos Instrucciones Laborales -->
+         <record id="module_category_instrucciones" model="ir.module.category">
+            <field name="name">Instrucciones L.</field>
+             <field name="description">Módulo para el control de las Instrucciones Laborales.</field>
+             <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_capital_humano"/>
+            <field name="sequence" >10</field>
+        </record>
+
+        <record id="grupo_app_instruciones_usuario" model="res.groups">
+            <field name="name">Usuarios</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_instrucciones"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_app_instruciones_responsable" model="res.groups">
+            <field name="name">Instructor</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="module_category_instrucciones"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_instruciones_usuario'))]"/>
+        </record>
+
+         <record id="grupo_app_instruciones_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="module_category_instrucciones"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_instruciones_responsable'))]"/>
+        </record>
+
+
+    </data>
+
+    <data noupdate="0">
+        <record id="instrucciones_rule_usuario_proceso" model="ir.rule">
+            <field name="name">Instrucciones Visualizar el Proceso Usuarios</field>
+            <field ref="model_sicpro_app_instrucciones_instruccion" name="model_id"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('grupo_app_instruciones_usuario'))]"/>
+        </record>
+
+        <record id="instrucciones_rule_responsable_proceso" model="ir.rule">
+            <field name="name">Instrucciones Visualizar el Proceso Responsables</field>
+            <field ref="model_sicpro_app_instrucciones_instruccion" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_app_instruciones_responsable'))]"/>
+        </record>
+
+        <record id="instrucciones_rule_proceso" model="ir.rule">
+            <field name="name">Vista de procesos instrucciones</field>
+            <field ref="base.model_res_company" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('grupo_app_instruciones_responsable'))]"/>
+        </record>
+    </data>
+</odoo>

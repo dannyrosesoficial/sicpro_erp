@@ -1,0 +1,66 @@
+# -*- coding: utf-8 -*-
+
+{
+    'name': 'SICPRO: Web Mantenimiento',
+    'version': '1.0.0',
+    # Estados (Desarrollo o Producción) Desarrollo: Store o actualiza Producción: Store avisa de nueva actualización
+    'estado': 'Desarrollo',
+    'summary': "Aplicación para pasar el sistema al modo de mantenimiento con el objetivo de realizar actualizaciones",
+    'description': "Aplicación para pasar el sistema al modo de mantenimiento con él "
+                   "objetivo de realizar actualizaciones",
+    'category': 'Administración',
+    'author': 'Daniel Barrero Reyes',
+    'support': 'daniel.borrero@etecsa.cu',
+    'price': 0,
+    'currency': 'CUP',
+    'company': 'División de Proyectos y Ejecución de Obras',
+    'website': "https://www.facebook.com/dannyroses.oficial/",
+    'license': 'AGPL-3',
+    'sequence': 3,
+    # 'external_dependencies': {'python': ['nombre del paquete', 'nombre del paquete']},
+    'depends': [
+        'base',
+        'nucleo_sicpro_erp',
+        'sicpro_app_administracion',
+        'sicpro_modulo_web',
+        'sicpro_modulo_web_login',
+        'sicpro_modulo_web_registro',
+        'sicpro_modulo_ldap_ssl',
+        'fetchmail',
+        'sicpro_modulo_usuario_desactivar',
+        'sicpro_modulo_backup_server',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'templates/mantenimiento_template.xml',
+        'templates/web_template.xml',
+        'views/mantenimiento_views.xml',
+        'views/mantenimiento_menu_views.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [],
+        'web.assets_frontend': [],
+        'web.assets_qweb': [],
+        'web.web_mantenimiento': [
+            'sicpro_modulo_web_mantenimiento/static/src/css/animate.css',
+            'sicpro_modulo_web_mantenimiento/static/src/css/icomoon.css',
+            'sicpro_modulo_web_mantenimiento/static/src/css/bootstrap.css',
+            'sicpro_modulo_web_mantenimiento/static/src/css/style.css',
+            'sicpro_modulo_web_mantenimiento/static/src/js/modernizr-2.6.2.min.js',
+
+            'sicpro_modulo_web_mantenimiento/static/src/js/jquery.min.js',
+            'sicpro_modulo_web_mantenimiento/static/src/js/jquery.easing.1.3.js',
+            'sicpro_modulo_web_mantenimiento/static/src/js/bootstrap.min.js',
+            'sicpro_modulo_web_mantenimiento/static/src/js/jquery.waypoints.min.js',
+            'sicpro_modulo_web_mantenimiento/static/src/js/simplyCountdown.js',
+            'sicpro_modulo_web_mantenimiento/static/src/js/main.js',
+
+        ],
+    },
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'pre_init_hook': 'pre_init_check',
+    # 'post_init_hook': 'post_init_hook',
+    # 'uninstall_hook': 'uninstall_hook',
+}

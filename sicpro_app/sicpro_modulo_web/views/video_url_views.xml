@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="web_url_video_tree_view">
+            <field name="name">sicpro.modulo.web.about.tree</field>
+            <field name="model">sicpro.modulo.web.about</field>
+            <field name="arch" type="xml">
+                <tree string="Video">
+                    <field name="name"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="web_video_form_view" model="ir.ui.view">
+        <field name="name">sicpro.modulo.web.about.form</field>
+        <field name="model">sicpro.modulo.web.about</field>
+        <field name="arch" type="xml">
+            <form string="Galería">
+                <sheet>
+                    <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <field name="active" invisible="1"/>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Nombre del Video"/>
+                        </h1>
+                    </div>
+                  <group name="group_top">
+                   <field name="video"/>
+                  </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="web_url_video_action" model="ir.actions.act_window">
+            <field name="name">Versión de SICPRO ERP</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.modulo.web.about</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

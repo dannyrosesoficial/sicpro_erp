@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+
+{
+    'name': 'SICPRO: Metrología',
+    'version': '1.0.0',
+    # Estados (Desarrollo o Producción) Desarrollo: Store o actualiza Producción: Store avisa de nueva actualización
+    'estado': 'Desarrollo',
+    'sequence': 2,
+    'category': 'Productividad',
+    'summary': "Esta aplicación se encargará de todo el control de los "
+               "instrumentos de medición de la división.",
+    'website': 'https://www.facebook.com/dannyroses.oficial/',
+    'author': 'Daniel Barrero Reyes',
+    'support': 'daniel.borrero@etecsa.cu',
+    'price': 0,
+    'currency': 'CUP',
+    'license': 'AGPL-3',
+    # 'external_dependencies': {'python': ['nombre del paquete', 'nombre del paquete']},
+    'depends': ['nucleo_sicpro_erp',
+                'base',
+                'mail',
+                'sicpro_app_administracion',
+                'sicpro_modulo_nomencladores',
+                'sicpro_app_trabajadores',
+                'sicpro_modulo_dashboard_extendido',
+                ],
+    'data': [
+        'security/metrologia.xml',
+        'security/ir.model.access.csv',
+        'views/mail_activity_views.xml',
+        'views/metrologia_estado_tecnico_views.xml',
+        'views/metrologia_equipos_procesos_views.xml',
+        'views/metrologia_centro_calibracion_views.xml',
+        'views/metrologia_magnitudes_views.xml',
+        'views/metrologia_equipamientos_views.xml',
+        'data/metrologia_estados_tecnico_data.xml',
+        'data/metrologia_centro_calibracion_data.xml',
+        'views/metrologia_plan_calibracion_views.xml',
+        'views/metrologia_todos_equipos_views.xml',
+        'views/metrologia_registro_magnitudes_views.xml',
+        'data/cron_automatizacion.xml',
+        'data/plantillas_correo_data.xml',
+        'views/metrologia_trabajadores_views.xml',
+        'views/metrologia_dashboard_equipos_views.xml',
+        'views/metrologia_menu_views.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'sicpro_app_metrologia/static/src/scss/maintenance_team_dashboard.scss'
+        ],
+    },
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'pre_init_hook': 'pre_init_check',
+    # 'post_init_hook': 'post_init_hook',
+    # 'uninstall_hook': 'uninstall_hook',
+}

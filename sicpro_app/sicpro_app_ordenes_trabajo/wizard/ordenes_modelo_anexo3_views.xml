@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="ordenes_anexo3_wizard_view" model="ir.ui.view">
+            <field name="name">sicpro.app.ordenes.trabajo.anexo3.form</field>
+            <field name="model">sicpro.app.ordenes.trabajo.anexo3</field>
+            <field name="arch" type="xml">
+                <form string="Anexo 3 Ordenes">
+                    <div class="col-lg-12 font-weight-bold">
+                        MODELO AVISO DE COMIENZO O TERMINACIÓN DE ORDEN DE TRABAJO
+                    </div>
+                    <group string="Seleccione el tipo de informe que desea generar">
+                        <field name="orden_trabajo_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="company_abreviatura" invisible="1"/>
+                        <field name="sap_titulo" invisible="1"/>
+                        <field name="pep" invisible="1"/>
+                        <field name="territorio" invisible="1"/>
+                        <field name="uo" invisible="1"/>
+                        <field name="especialidad_id" invisible="1"/>
+                        <field name="fecha_inicio_cronograma" invisible="1"/>
+                        <field name="fecha_fin_cronograma" invisible="1"/>
+                        <field name="fecha_inicio_real" invisible="1"/>
+                        <field name="fecha_fin_real" invisible="1"/>
+                        <field name="dia" invisible="1"/>
+                        <field name="mes" invisible="1"/>
+                        <field name="anio" invisible="1"/>
+                        <field name="cargo" invisible="1"/>
+
+                        <field name="tipo" widget="radio" options="{'horizontal': true}"/>
+                        <field name="certifica" widget="many2one_avatar_user"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    </group>
+                    <group string="Comentarios">
+                        <field name="comentario" nolabel="1"/>
+                    </group>
+                    <footer>
+                        <button name="generar_reporte_anexo3" string="Imprimir" type="object" class="btn-primary"/>
+                        <button string="Cancelar" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="ordenes_anexo3_wizard_action" model="ir.actions.act_window">
+            <field name="name">Modelo de Anexo 3</field>
+            <field name="res_model">sicpro.app.ordenes.trabajo.anexo3</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_sicpro_app_ordenes_trabajo"/>
+        </record>
+
+    </data>
+</odoo>

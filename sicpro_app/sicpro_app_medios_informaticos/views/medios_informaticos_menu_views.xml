@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>   
+
+    <menuitem id="medios_informaticos_menu_root" name="Informática"
+              web_icon="sicpro_app_medios_informaticos,static/description/icon.png" sequence="50"
+              groups="grupo_app_medios_informaticos_inventario_usuario,grupo_app_medios_informaticos_taller_usuario"/>
+
+    <!--Inicio: Menu Dashboard-->
+    <record id="menu_medios_informaticos_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">sicpro_dashboard_view</field>
+        <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.medios.informaticos'}</field>
+    </record>
+    <menuitem id="menu_medios_informaticos_dashboard" name="Dashboard"
+              parent="medios_informaticos_menu_root" action="menu_medios_informaticos_dashboard_action" sequence="1"/>
+    <!--Fin: Menu Dashboard-->
+
+    <!--Inicio: Menu Inventario-->
+    <menuitem id="medios_informaticos_menu_inventario" name="Inventario" parent="medios_informaticos_menu_root"
+              sequence="10"/>
+
+    <menuitem id="menu_inventario_medios_informaticos" name="Medios Informáticos"
+              parent="medios_informaticos_menu_inventario"
+              action="medios_informaticos_inventario_action" sequence="10"
+              groups="grupo_app_medios_informaticos_inventario_usuario,grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_inventario_tecnico,grupo_app_medios_informaticos_responsable"/>
+
+    <menuitem id="menu_inventario_importar" name="Importar" parent="medios_informaticos_menu_inventario"
+              action="medios_informaticos_importar_action" sequence="20"
+              groups="grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable,grupo_app_medios_informaticos_inventario_tecnico"/>
+    <!--Fin: Menu Inventario-->
+
+
+    <!--Inicio: Menu Taller-->
+    <menuitem id="medios_informaticos_menu_taller" name="Taller" parent="medios_informaticos_menu_root" sequence="20"/>
+
+    <menuitem id="menu_taller_envios" name="Envíos a taller" parent="medios_informaticos_menu_taller"
+              action="medios_informaticos_envio_taller_action" sequence="10"
+              groups="grupo_app_medios_informaticos_taller_usuario,grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable"/>
+
+    <menuitem id="menu_taller_bajas" name="Bajas o Destino Final" parent="medios_informaticos_menu_taller"
+              action="medios_informaticos_baja_action" sequence="20"
+              groups="grupo_app_medios_informaticos_taller_usuario,grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable"/>
+
+    <menuitem id="menu_taller_pendiente_piezas" name="Pendientes por piezas" parent="medios_informaticos_menu_taller"
+              action="medios_informaticos_pdte_pieza_action" sequence="30"
+              groups="grupo_app_medios_informaticos_taller_usuario,grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable"/>
+    <!--Fin: Menu Taller-->
+
+    <!--Inicio: Menu Informes-->
+    <menuitem id="medios_informaticos_menu_informes" name="Informes" parent="medios_informaticos_menu_root"
+              sequence="30"/>
+
+    <menuitem id="menu_informe_trazas" name="Trazas de Actualización" parent="medios_informaticos_menu_informes"
+              action="medios_informaticos_historial_action" sequence="10"
+              groups="grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable"/>
+    <!--Fin: Menu Informes-->
+
+    <!--Inicio: Menu Config-->
+    <menuitem id="medios_informaticos_menu_configuracion" name="Configuración" parent="medios_informaticos_menu_root"
+              sequence="40"/>
+
+    <menuitem id="menu_config_tipo_equipo" name="Tipo de Equipo" parent="medios_informaticos_menu_configuracion"
+              action="sicpro_app_medios_informaticos.medios_informaticos_tipo_equipo_action" sequence="10"
+              groups="grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable"/>
+
+    <menuitem id="menu_config_tramites" name="Trámites taller" parent="medios_informaticos_menu_configuracion"
+              action="sicpro_app_medios_informaticos.medios_informaticos_tramites_action" sequence="15"
+              groups="grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable"/>    
+
+    <menuitem id="menu_config_centro_coste" name="Centros de Coste" parent="medios_informaticos_menu_configuracion"
+              action="sicpro_modulo_nomencladores.action_nomenclador_centro_costo" sequence="20"
+              groups="grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable"/>
+
+    <menuitem id="menu_config_locales" name="Locales" parent="medios_informaticos_menu_configuracion"
+              action="sicpro_modulo_nomencladores.action_nomenclador_locales" sequence="30"
+              groups="grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable"/>
+
+    <menuitem id="menu_config_emplazamientos" name="Emplazamientos" parent="medios_informaticos_menu_configuracion"
+              action="sicpro_modulo_nomencladores.action_nomenclador_emplazamiento" sequence="40"
+              groups="grupo_app_medios_informaticos_admin,grupo_app_medios_informaticos_responsable"/>
+    <!--Fin: Menu Config-->
+
+</odoo>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="control_informacion_actividades_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.control.informacion.actividad.kanban</field>
+        <field name="model">sicpro.app.control.informacion.actividad</field>
+        <field name="priority" eval="50"/>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard" create="0">
+                <field name="name"/>
+                <field name="color"/>
+                <field name="gestores"/>
+                <field name="cuenta_mes_actual"/>
+                <field name="cuenta_enviados"/>
+                <field name="cuenta_pendientes"/>
+                <field name="cuenta_validados"/>
+                <field name="cuenta_atrasados"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <a name="%(control_informacion_actividades_control_action)d" type="action">
+                                            <field name="name"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#">
+                                        <i class="fa fa-ellipsis-v" title="ellipsis2"/>
+                                    </a>
+                                </div>
+                                <div class="container o_kanban_card_content">
+                                    <div class="row">
+                                        <div class="col-6 o_kanban_primary_left" style="padding-top:20px;">
+                                            <button class="btn btn-primary"
+                                                    name="%(control_informacion_actividades_control_action)d"
+                                                    type="action"
+                                                    context="{'search_default_anio': (context_today().strftime('%Y')),
+                                                            'search_default_mes_id': (context_today().strftime('%m')),}">
+                                                <t t-esc="record.cuenta_mes_actual.value"/> Mes Actual
+                                            </button>
+                                        </div>
+                                        <div class="col-6 o_kanban_primary_right">
+                                            <div class="row">
+                                                <div class="col-9">
+                                                    <a name="%(control_informacion_actividades_control_action)d"
+                                                       type="action" class="text-warning"
+                                                       context="{'search_default_anio': (context_today().strftime('%Y')),
+                                                            'search_default_mes_id': (context_today().strftime('%m')),
+                                                            'search_default_pendiente': 1}">
+                                                        Pendientes
+                                                    </a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <t t-esc="record.cuenta_pendientes.value"/>
+                                                </div>
+                                                <div class="col-9">
+                                                    <a name="%(control_informacion_actividades_control_action)d"
+                                                       type="action" class="text-black"
+                                                       context="{'search_default_anio': (context_today().strftime('%Y')),
+                                                            'search_default_mes_id': (context_today().strftime('%m')),
+                                                            'search_default_enviados': 1}">
+                                                        Enviados
+                                                    </a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <t t-esc="record.cuenta_enviados.value"/>
+                                                </div>
+                                                <div class="col-9">
+                                                    <a name="%(control_informacion_actividades_control_action)d"
+                                                       type="action"
+                                                       context="{'search_default_anio': (context_today().strftime('%Y')),
+                                                            'search_default_mes_id': (context_today().strftime('%m')),
+                                                            'search_default_validado': 1}">
+                                                        Validados
+                                                    </a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <t t-esc="record.cuenta_validados.value"/>
+                                                </div>
+                                                <div class="col-9">
+                                                    <a name="%(control_informacion_actividades_control_action)d"
+                                                       type="action" class="text-danger"
+                                                       context="{'search_default_anio': (context_today().strftime('%Y')),
+                                                            'search_default_mes_id': (context_today().strftime('%m')),
+                                                            'search_default_atrasado': 1}">
+                                                        Atrasados
+                                                    </a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <t t-esc="record.cuenta_atrasados.value"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                    <div class="row">
+                                        <div class="col-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                            <div class="o_kanban_card_manage_title">
+                                                <span>Ver</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                        <div class="col-8">
+                                            <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="control_informacion_actividades_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Control Informativo</field>
+        <field name="res_model">sicpro.app.control.informacion.actividad</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="control_informacion_actividades_kanban"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nueva actividad
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

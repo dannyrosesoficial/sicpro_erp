@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="KanbanView.buttons" t-name="template_subir_pdf_kanban">
+        <t t-jquery="button" t-operation="replace">
+            <button t-if="widget.modelName =='sicpro.app.firma.documentos'" type="button"
+                    class="btn btn-primary o_subir_pdf_kanban">
+                SUBIR PDF A FIRMAR
+            </button>
+        </t>
+    </t>
+
+</templates>

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="transferencias_contabilizado_views_pivot" model="ir.ui.view">
+        <field name="name">sicpro.app.transferencias.gastos.view.pivot</field>
+        <field name="model">sicpro.app.transferencias.gastos</field>
+        <field name="priority" eval="12"/>
+        <field name="arch" type="xml">
+            <pivot string="Análisis de Gastos Contabilizados por Procesos">
+                <field name="company_abreviatura" type="row"/>
+                <field name="mes" type="col"/>
+                <field name="valor_var" string='Valor variable' type="measure" widget="monetary"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="transferencias_contabilizado_views_action" model="ir.actions.act_window">
+        <field name="name">Análisis de Gastos Contabilizados por Procesos</field>
+        <field name="res_model">sicpro.app.transferencias.gastos</field>
+        <field name="domain">[('contabilizado', '=', True)]</field>
+        <field name="view_id" ref="transferencias_contabilizado_views_pivot"/>
+        <field name="context">{'search_default_anio': (context_today().strftime('%Y'))}</field>
+        <field name="view_mode">pivot,graph</field>
+    </record>
+
+</odoo>

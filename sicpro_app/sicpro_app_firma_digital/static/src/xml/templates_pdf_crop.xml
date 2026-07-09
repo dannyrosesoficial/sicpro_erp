@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+	<div t-name="sicpro.firma.digital.crop.original" class="o_we_crop_widget" contenteditable="false">
+        <div class="o_we_cropper_wrapper">
+            <img class="o_we_cropper_img" />
+            <div class="o_we_crop_buttons text-center mt16 position-absolute o_we_no_overlay" contenteditable="false">
+<!--                <div class="btn-group" role="group">-->
+<!--                    <button type="button" title="Seleccionar" data-action="apply" class="btn btn-primary"><i class="fa fa-check"/> Seleccionar </button>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+
+</templates>

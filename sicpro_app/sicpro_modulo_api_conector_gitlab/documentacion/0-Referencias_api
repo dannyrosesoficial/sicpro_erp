@@ -1,0 +1,4754 @@
+API reference (gitlab package)
+Module contents
+
+Wrapper for the GitLab API.
+
+class gitlab.Gitlab(url: Optional[str] = None, private_token: Optional[str] = None, oauth_token: Optional[str] = None, job_token: Optional[str] = None, ssl_verify: Union[bool, str] = True, http_username: Optional[str] = None, http_password: Optional[str] = None, timeout: Optional[float] = None, api_version: str = '4', per_page: Optional[int] = None, pagination: Optional[str] = None, order_by: Optional[str] = None, user_agent: str = 'python-gitlab/3.13.0', retry_transient_errors: bool = False, keep_base_url: bool = False, **kwargs: Any)
+
+    Bases: object
+
+    Represents a GitLab server connection.
+
+    Parameters
+
+            url (Optional[str]) – The URL of the GitLab server (defaults to https://gitlab.com).
+
+            private_token (Optional[str]) – The user private token
+
+            oauth_token (Optional[str]) – An oauth token
+
+            job_token (Optional[str]) – A CI job token
+
+            ssl_verify (Union[bool, str]) – Whether SSL certificates should be validated. If the value is a string, it is the path to a CA file used for certificate validation.
+
+            timeout (Optional[float]) – Timeout to use for requests to the GitLab server.
+
+            http_username (Optional[str]) – Username for HTTP authentication
+
+            http_password (Optional[str]) – Password for HTTP authentication
+
+            api_version (str) – Gitlab API version to use (support for 4 only)
+
+            pagination (Optional[str]) – Can be set to ‘keyset’ to use keyset pagination
+
+            order_by (Optional[str]) – Set order_by globally
+
+            user_agent (str) – A custom user agent to use for making HTTP requests.
+
+            retry_transient_errors (bool) – Whether to retry after 500, 502, 503, 504 or 52x responses. Defaults to False.
+
+            keep_base_url (bool) – keep user-provided base URL for pagination if it differs from response headers
+
+            session (requests.Session) – HTTP Requests Session
+
+            backend (RequestsBackend) – Backend that will be used to make http requests
+
+            per_page (Optional[int]) –
+
+            kwargs (Any) –
+
+    property api_url: str
+
+        The computed API base URL.
+
+    property api_version: str
+
+        The API version used (4 only).
+
+    appearance
+
+        See ApplicationAppearanceManager
+
+    applications
+
+        See ApplicationManager
+
+    audit_events
+
+        See AuditEventManager
+
+    auth() → None
+
+        Performs an authentication using private token. Warns the user if a potentially misconfigured URL is detected on the client or server side.
+
+        The user attribute will hold a gitlab.objects.CurrentUser object on success.
+
+        Return type
+
+            None
+
+    broadcastmessages
+
+        See BroadcastMessageManager
+
+    bulk_import_entities
+
+        See BulkImportAllEntityManager
+
+    bulk_imports
+
+        See BulkImportManager
+
+    ci_lint
+
+        See CiLintManager
+
+    deploykeys
+
+        See DeployKeyManager
+
+    deploytokens
+
+        See DeployTokenManager
+
+    dockerfiles
+
+        See DockerfileManager
+
+    static enable_debug() → None
+
+        Return type
+
+            None
+
+    events
+
+        See EventManager
+
+    features
+
+        See FeatureManager
+
+    classmethod from_config(gitlab_id: Optional[str] = None, config_files: Optional[List[str]] = None, **kwargs: Any) → Gitlab
+
+        Create a Gitlab connection from configuration files.
+
+        Parameters
+
+                gitlab_id (Optional[str]) – ID of the configuration section.
+
+                list[str] (config_files) – List of paths to configuration files.
+
+                config_files (Optional[List[str]]) –
+
+                kwargs (Any) –
+
+        Return type
+
+            Gitlab
+
+        kwargs:
+
+            session requests.Session: Custom requests Session
+
+        Returns
+
+            A Gitlab connection.
+        Raises
+
+            gitlab.config.GitlabDataError – If the configuration is not correct.
+        Parameters
+
+                gitlab_id (Optional[str]) –
+
+                config_files (Optional[List[str]]) –
+
+                kwargs (Any) –
+
+        Return type
+
+            Gitlab
+
+    geonodes
+
+        See GeoNodeManager
+
+    get_license(**kwargs: Any) → Dict[str, Union[str, Dict[str, str]]]
+
+        Retrieve information about the current license.
+
+        Parameters
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabGetError – If the server cannot perform the request
+
+        Returns
+
+            The current license information
+        Return type
+
+            Dict[str, Union[str, Dict[str, str]]]
+
+    gitignores
+
+        See GitignoreManager
+
+    gitlabciymls
+
+        See GitlabciymlManager
+
+    groups
+
+        See GroupManager
+
+    headers
+
+        Headers that will be used in request to GitLab
+
+    hooks
+
+        See HookManager
+
+    http_delete(path: str, **kwargs: Any) → Response
+
+        Make a DELETE request to the Gitlab server.
+
+        Parameters
+
+                path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Returns
+
+            The requests object.
+        Raises
+
+            GitlabHttpError – When the return code is not 2xx
+        Return type
+
+            Response
+
+    http_get(path: str, query_data: Optional[Dict[str, Any]] = None, streamed: bool = False, raw: bool = False, **kwargs: Any) → Union[Dict[str, Any], Response]
+
+        Make a GET request to the Gitlab server.
+
+        Parameters
+
+                path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+                query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+                streamed (bool) – Whether the data should be streamed
+
+                raw (bool) – If True do not try to parse the output as json
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Returns
+
+            A requests result object is streamed is True or the content type is not json. The parsed json data otherwise.
+        Raises
+
+                GitlabHttpError – When the return code is not 2xx
+
+                GitlabParsingError – If the json data could not be parsed
+
+        Return type
+
+            Union[Dict[str, Any], Response]
+
+    http_head(path: str, query_data: Optional[Dict[str, Any]] = None, **kwargs: Any) → requests.structures.CaseInsensitiveDict[Any]
+
+        Make a HEAD request to the Gitlab server.
+
+        Parameters
+
+                path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+                query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo, page, per_page)
+
+        Returns
+
+            A requests.header object
+        Raises
+
+            GitlabHttpError – When the return code is not 2xx
+        Return type
+
+            requests.structures.CaseInsensitiveDict[Any]
+
+    http_list(path: str, query_data: Optional[Dict[str, Any]] = None, *, as_list: Optional[bool] = None, iterator: Optional[bool] = None, **kwargs: Any) → Union[GitlabList, List[Dict[str, Any]]]
+
+        Make a GET request to the Gitlab server for list-oriented queries.
+
+        Parameters
+
+                path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projects’)
+
+                query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+                iterator (Optional[bool]) – Indicate if should return a generator (True)
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo, page, per_page)
+
+                as_list (Optional[bool]) –
+
+        Returns
+
+            A list of the objects returned by the server. If iterator is True and no pagination-related arguments (page, per_page, get_all) are defined then a GitlabList object (generator) is returned instead. This object will make API calls when needed to fetch the next items from the server.
+        Raises
+
+                GitlabHttpError – When the return code is not 2xx
+
+                GitlabParsingError – If the json data could not be parsed
+
+        Return type
+
+            Union[GitlabList, List[Dict[str, Any]]]
+
+    http_post(path: str, query_data: Optional[Dict[str, Any]] = None, post_data: Optional[Dict[str, Any]] = None, raw: bool = False, files: Optional[Dict[str, Any]] = None, **kwargs: Any) → Union[Dict[str, Any], Response]
+
+        Make a POST request to the Gitlab server.
+
+        Parameters
+
+                path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+                query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+                post_data (Optional[Dict[str, Any]]) – Data to send in the body (will be converted to json by default)
+
+                raw (bool) – If True, do not convert post_data to json
+
+                files (Optional[Dict[str, Any]]) – The files to send to the server
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Returns
+
+            The parsed json returned by the server if json is return, else the raw content
+        Raises
+
+                GitlabHttpError – When the return code is not 2xx
+
+                GitlabParsingError – If the json data could not be parsed
+
+        Return type
+
+            Union[Dict[str, Any], Response]
+
+    http_put(path: str, query_data: Optional[Dict[str, Any]] = None, post_data: Optional[Union[Dict[str, Any], bytes]] = None, raw: bool = False, files: Optional[Dict[str, Any]] = None, **kwargs: Any) → Union[Dict[str, Any], Response]
+
+        Make a PUT request to the Gitlab server.
+
+        Parameters
+
+                path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+                query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+                post_data (Optional[Union[Dict[str, Any], bytes]]) – Data to send in the body (will be converted to json by default)
+
+                raw (bool) – If True, do not convert post_data to json
+
+                files (Optional[Dict[str, Any]]) – The files to send to the server
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Returns
+
+            The parsed json returned by the server.
+        Raises
+
+                GitlabHttpError – When the return code is not 2xx
+
+                GitlabParsingError – If the json data could not be parsed
+
+        Return type
+
+            Union[Dict[str, Any], Response]
+
+    http_request(verb: str, path: str, query_data: Optional[Dict[str, Any]] = None, post_data: Optional[Union[Dict[str, Any], bytes]] = None, raw: bool = False, streamed: bool = False, files: Optional[Dict[str, Any]] = None, timeout: Optional[float] = None, obey_rate_limit: bool = True, retry_transient_errors: Optional[bool] = None, max_retries: int = 10, **kwargs: Any) → Response
+
+        Make an HTTP request to the Gitlab server.
+
+        Parameters
+
+                verb (str) – The HTTP method to call (‘get’, ‘post’, ‘put’, ‘delete’)
+
+                path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+                query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+                post_data (Optional[Union[Dict[str, Any], bytes]]) – Data to send in the body (will be converted to json by default)
+
+                raw (bool) – If True, do not convert post_data to json
+
+                streamed (bool) – Whether the data should be streamed
+
+                files (Optional[Dict[str, Any]]) – The files to send to the server
+
+                timeout (Optional[float]) – The timeout, in seconds, for the request
+
+                obey_rate_limit (bool) – Whether to obey 429 Too Many Request responses. Defaults to True.
+
+                retry_transient_errors (Optional[bool]) – Whether to retry after 500, 502, 503, 504 or 52x responses. Defaults to False.
+
+                max_retries (int) – Max retries after 429 or transient errors, set to -1 to retry forever. Defaults to 10.
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Returns
+
+            A requests result object.
+        Raises
+
+            GitlabHttpError – When the return code is not 2xx
+        Return type
+
+            Response
+
+    issues
+
+        See IssueManager
+
+    issues_statistics
+
+        See IssuesStatisticsManager
+
+    keys
+
+        See KeyManager
+
+    ldapgroups
+
+        See LDAPGroupManager
+
+    licenses
+
+        See LicenseManager
+
+    lint(content: str, **kwargs: Any) → Tuple[bool, List[str]]
+
+        Validate a gitlab CI configuration.
+
+        Parameters
+
+                content (str) – The .gitlab-ci.yml content
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabVerifyError – If the validation could not be done
+
+        Returns
+
+            (True, []) if the file is valid, (False, errors(list)) otherwise
+        Return type
+
+            Tuple[bool, List[str]]
+
+    markdown(text: str, gfm: bool = False, project: Optional[str] = None, **kwargs: Any) → str
+
+        Render an arbitrary Markdown document.
+
+        Parameters
+
+                text (str) – The markdown text to render
+
+                gfm (bool) – Render text using GitLab Flavored Markdown. Default is False
+
+                project (Optional[str]) – Full path of a project used a context when gfm is True
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabMarkdownError – If the server cannot perform the request
+
+        Returns
+
+            The HTML rendering of the markdown text.
+        Return type
+
+            str
+
+    classmethod merge_config(options: Dict[str, Any], gitlab_id: Optional[str] = None, config_files: Optional[List[str]] = None) → Gitlab
+
+        Create a Gitlab connection by merging configuration with the following precedence:
+
+            Explicitly provided CLI arguments,
+
+            Environment variables,
+
+            Configuration files:
+
+                    explicitly defined config files:
+
+                            via the –config-file CLI argument,
+
+                            via the PYTHON_GITLAB_CFG environment variable,
+
+                    user-specific config file,
+
+                    system-level config file,
+
+            Environment variables always present in CI (CI_SERVER_URL, CI_JOB_TOKEN).
+
+        Parameters
+
+                options (Dict[str, Any]) – A dictionary of explicitly provided key-value options.
+
+                gitlab_id (Optional[str]) – ID of the configuration section.
+
+                config_files (Optional[List[str]]) – List of paths to configuration files.
+
+        Returns
+
+            A Gitlab connection.
+        Return type
+
+            (gitlab.Gitlab)
+        Raises
+
+            gitlab.config.GitlabDataError – If the configuration is not correct.
+
+    mergerequests
+
+        See MergeRequestManager
+
+    namespaces
+
+        See NamespaceManager
+
+    notificationsettings
+
+        See NotificationSettingsManager
+
+    pagesdomains
+
+        See PagesDomainManager
+
+    personal_access_tokens
+
+        See PersonalAccessTokenManager
+
+    projects
+
+        See ProjectManager
+
+    registry_repositories
+
+        See RegistryRepositoryManager
+
+    runners
+
+        See RunnerManager
+
+    runners_all
+
+        See RunnerManager
+
+    search(scope: str, search: str, **kwargs: Any) → Union[GitlabList, List[Dict[str, Any]]]
+
+        Search GitLab resources matching the provided string.’
+
+        Parameters
+
+                scope (str) – Scope of the search
+
+                search (str) – Search string
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabSearchError – If the server failed to perform the request
+
+        Returns
+
+            A list of dicts describing the resources found.
+        Return type
+
+            Union[GitlabList, List[Dict[str, Any]]]
+
+    set_license(license: str, **kwargs: Any) → Dict[str, Any]
+
+        Add a new license.
+
+        Parameters
+
+                license (str) – The license string
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabPostError – If the server cannot perform the request
+
+        Returns
+
+            The new license information
+        Return type
+
+            Dict[str, Any]
+
+    settings
+
+        See ApplicationSettingsManager
+
+    sidekiq
+
+        See SidekiqManager
+
+    snippets
+
+        See SnippetManager
+
+    ssl_verify
+
+        Whether SSL certificates should be validated
+
+    statistics
+
+        See ApplicationStatisticsManager
+
+    timeout
+
+        Timeout to use for requests to gitlab server
+
+    todos
+
+        See TodoManager
+
+    topics
+
+        See TopicManager
+
+    property url: str
+
+        The user-provided server URL.
+
+    user_activities
+
+        See UserActivitiesManager
+
+    users
+
+        See UserManager
+
+    variables
+
+        See VariableManager
+
+    version() → Tuple[str, str]
+
+        Returns the version and revision of the gitlab server.
+
+        Note that self.version and self.revision will be set on the gitlab object.
+
+        Returns
+
+            The server version and server revision.
+
+                (‘unknown’, ‘unknown’) if the server doesn’t perform as expected.
+
+        Return type
+
+            Tuple[str, str]
+
+exception gitlab.GitlabActivateError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabAttachFileError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabAuthenticationError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabBanError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabBlockError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabBuildCancelError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabCancelError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabBuildEraseError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabBuildPlayError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabBuildRetryError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabCancelError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabCherryPickError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabCiLintError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabConnectionError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabCreateError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabDeactivateError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabDeleteError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabDeploymentApprovalError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: Exception
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabFollowError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabGetError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabGroupTransferError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabHeadError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabHousekeepingError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabHttpError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabImportError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabInvitationError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabJobCancelError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabCancelError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabJobEraseError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabJobPlayError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabJobRetryError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabLicenseError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+class gitlab.GitlabList(gl: Gitlab, url: str, query_data: Dict[str, Any], get_next: bool = True, **kwargs: Any)
+
+    Bases: object
+
+    Generator representing a list of remote objects.
+
+    The object handles the links returned by a query to the API, and will call the API again when needed.
+
+    Parameters
+
+            gl (Gitlab) –
+
+            url (str) –
+
+            query_data (Dict[str, Any]) –
+
+            get_next (bool) –
+
+            kwargs (Any) –
+
+    property current_page: int
+
+        The current page number.
+
+    next() → Dict[str, Any]
+
+        Return type
+
+            Dict[str, Any]
+
+    property next_page: Optional[int]
+
+        The next page number.
+
+        If None, the current page is the last.
+
+    property per_page: Optional[int]
+
+        The number of items per page.
+
+    property prev_page: Optional[int]
+
+        The previous page number.
+
+        If None, the current page is the first.
+
+    property total: Optional[int]
+
+        The total number of items.
+
+    property total_pages: Optional[int]
+
+        The total number of pages.
+
+exception gitlab.GitlabListError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabMRApprovalError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabMRClosedError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabMRForbiddenError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabMROnBuildSuccessError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabMRRebaseError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabMRResetApprovalError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabMarkdownError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabOperationError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabOwnershipError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabParsingError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabPipelineCancelError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabCancelError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabPipelinePlayError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabPipelineRetryError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabProjectDeployKeyError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabPromoteError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabProtectError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabRenderError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabRepairError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabRestoreError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabRetryError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabRevertError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabSearchError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabSetError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabStopError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabSubscribeError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabTimeTrackingError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabTodoError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabTopicMergeError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabTransferProjectError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabUnbanError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabUnblockError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabUnfollowError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabUnsubscribeError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabUpdateError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabUploadError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabUserApproveError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabUserRejectError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.GitlabVerifyError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.RedirectError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+class gitlab.Gitlab(url: Optional[str] = None, private_token: Optional[str] = None, oauth_token: Optional[str] = None, job_token: Optional[str] = None, ssl_verify: Union[bool, str] = True, http_username: Optional[str] = None, http_password: Optional[str] = None, timeout: Optional[float] = None, api_version: str = '4', per_page: Optional[int] = None, pagination: Optional[str] = None, order_by: Optional[str] = None, user_agent: str = 'python-gitlab/3.13.0', retry_transient_errors: bool = False, keep_base_url: bool = False, **kwargs: Any)
+
+Bases: object
+
+Represents a GitLab server connection.
+
+Parameters
+
+        url (Optional[str]) – The URL of the GitLab server (defaults to https://gitlab.com).
+
+        private_token (Optional[str]) – The user private token
+
+        oauth_token (Optional[str]) – An oauth token
+
+        job_token (Optional[str]) – A CI job token
+
+        ssl_verify (Union[bool, str]) – Whether SSL certificates should be validated. If the value is a string, it is the path to a CA file used for certificate validation.
+
+        timeout (Optional[float]) – Timeout to use for requests to the GitLab server.
+
+        http_username (Optional[str]) – Username for HTTP authentication
+
+        http_password (Optional[str]) – Password for HTTP authentication
+
+        api_version (str) – Gitlab API version to use (support for 4 only)
+
+        pagination (Optional[str]) – Can be set to ‘keyset’ to use keyset pagination
+
+        order_by (Optional[str]) – Set order_by globally
+
+        user_agent (str) – A custom user agent to use for making HTTP requests.
+
+        retry_transient_errors (bool) – Whether to retry after 500, 502, 503, 504 or 52x responses. Defaults to False.
+
+        keep_base_url (bool) – keep user-provided base URL for pagination if it differs from response headers
+
+        session (requests.Session) – HTTP Requests Session
+
+        backend (RequestsBackend) – Backend that will be used to make http requests
+
+        per_page (Optional[int]) –
+
+        kwargs (Any) –
+
+property api_url: str
+
+    The computed API base URL.
+
+property api_version: str
+
+    The API version used (4 only).
+
+appearance
+
+    See ApplicationAppearanceManager
+
+applications
+
+    See ApplicationManager
+
+audit_events
+
+    See AuditEventManager
+
+auth() → None
+
+    Performs an authentication using private token. Warns the user if a potentially misconfigured URL is detected on the client or server side.
+
+    The user attribute will hold a gitlab.objects.CurrentUser object on success.
+
+    Return type
+
+        None
+
+broadcastmessages
+
+    See BroadcastMessageManager
+
+bulk_import_entities
+
+    See BulkImportAllEntityManager
+
+bulk_imports
+
+    See BulkImportManager
+
+ci_lint
+
+    See CiLintManager
+
+deploykeys
+
+    See DeployKeyManager
+
+deploytokens
+
+    See DeployTokenManager
+
+dockerfiles
+
+    See DockerfileManager
+
+static enable_debug() → None
+
+    Return type
+
+        None
+
+events
+
+    See EventManager
+
+features
+
+    See FeatureManager
+
+classmethod from_config(gitlab_id: Optional[str] = None, config_files: Optional[List[str]] = None, **kwargs: Any) → Gitlab
+
+    Create a Gitlab connection from configuration files.
+
+    Parameters
+
+            gitlab_id (Optional[str]) – ID of the configuration section.
+
+            list[str] (config_files) – List of paths to configuration files.
+
+            config_files (Optional[List[str]]) –
+
+            kwargs (Any) –
+
+    Return type
+
+        Gitlab
+
+    kwargs:
+
+        session requests.Session: Custom requests Session
+
+    Returns
+
+        A Gitlab connection.
+    Raises
+
+        gitlab.config.GitlabDataError – If the configuration is not correct.
+    Parameters
+
+            gitlab_id (Optional[str]) –
+
+            config_files (Optional[List[str]]) –
+
+            kwargs (Any) –
+
+    Return type
+
+        Gitlab
+
+geonodes
+
+    See GeoNodeManager
+
+get_license(**kwargs: Any) → Dict[str, Union[str, Dict[str, str]]]
+
+    Retrieve information about the current license.
+
+    Parameters
+
+        **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabGetError – If the server cannot perform the request
+
+    Returns
+
+        The current license information
+    Return type
+
+        Dict[str, Union[str, Dict[str, str]]]
+
+gitignores
+
+    See GitignoreManager
+
+gitlabciymls
+
+    See GitlabciymlManager
+
+groups
+
+    See GroupManager
+
+headers
+
+    Headers that will be used in request to GitLab
+
+hooks
+
+    See HookManager
+
+http_delete(path: str, **kwargs: Any) → Response
+
+    Make a DELETE request to the Gitlab server.
+
+    Parameters
+
+            path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Returns
+
+        The requests object.
+    Raises
+
+        GitlabHttpError – When the return code is not 2xx
+    Return type
+
+        Response
+
+http_get(path: str, query_data: Optional[Dict[str, Any]] = None, streamed: bool = False, raw: bool = False, **kwargs: Any) → Union[Dict[str, Any], Response]
+
+    Make a GET request to the Gitlab server.
+
+    Parameters
+
+            path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+            query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+            streamed (bool) – Whether the data should be streamed
+
+            raw (bool) – If True do not try to parse the output as json
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Returns
+
+        A requests result object is streamed is True or the content type is not json. The parsed json data otherwise.
+    Raises
+
+            GitlabHttpError – When the return code is not 2xx
+
+            GitlabParsingError – If the json data could not be parsed
+
+    Return type
+
+        Union[Dict[str, Any], Response]
+
+http_head(path: str, query_data: Optional[Dict[str, Any]] = None, **kwargs: Any) → requests.structures.CaseInsensitiveDict[Any]
+
+    Make a HEAD request to the Gitlab server.
+
+    Parameters
+
+            path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+            query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo, page, per_page)
+
+    Returns
+
+        A requests.header object
+    Raises
+
+        GitlabHttpError – When the return code is not 2xx
+    Return type
+
+        requests.structures.CaseInsensitiveDict[Any]
+
+http_list(path: str, query_data: Optional[Dict[str, Any]] = None, *, as_list: Optional[bool] = None, iterator: Optional[bool] = None, **kwargs: Any) → Union[GitlabList, List[Dict[str, Any]]]
+
+    Make a GET request to the Gitlab server for list-oriented queries.
+
+    Parameters
+
+            path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projects’)
+
+            query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+            iterator (Optional[bool]) – Indicate if should return a generator (True)
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo, page, per_page)
+
+            as_list (Optional[bool]) –
+
+    Returns
+
+        A list of the objects returned by the server. If iterator is True and no pagination-related arguments (page, per_page, get_all) are defined then a GitlabList object (generator) is returned instead. This object will make API calls when needed to fetch the next items from the server.
+    Raises
+
+            GitlabHttpError – When the return code is not 2xx
+
+            GitlabParsingError – If the json data could not be parsed
+
+    Return type
+
+        Union[GitlabList, List[Dict[str, Any]]]
+
+http_post(path: str, query_data: Optional[Dict[str, Any]] = None, post_data: Optional[Dict[str, Any]] = None, raw: bool = False, files: Optional[Dict[str, Any]] = None, **kwargs: Any) → Union[Dict[str, Any], Response]
+
+    Make a POST request to the Gitlab server.
+
+    Parameters
+
+            path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+            query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+            post_data (Optional[Dict[str, Any]]) – Data to send in the body (will be converted to json by default)
+
+            raw (bool) – If True, do not convert post_data to json
+
+            files (Optional[Dict[str, Any]]) – The files to send to the server
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Returns
+
+        The parsed json returned by the server if json is return, else the raw content
+    Raises
+
+            GitlabHttpError – When the return code is not 2xx
+
+            GitlabParsingError – If the json data could not be parsed
+
+    Return type
+
+        Union[Dict[str, Any], Response]
+
+http_put(path: str, query_data: Optional[Dict[str, Any]] = None, post_data: Optional[Union[Dict[str, Any], bytes]] = None, raw: bool = False, files: Optional[Dict[str, Any]] = None, **kwargs: Any) → Union[Dict[str, Any], Response]
+
+    Make a PUT request to the Gitlab server.
+
+    Parameters
+
+            path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+            query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+            post_data (Optional[Union[Dict[str, Any], bytes]]) – Data to send in the body (will be converted to json by default)
+
+            raw (bool) – If True, do not convert post_data to json
+
+            files (Optional[Dict[str, Any]]) – The files to send to the server
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Returns
+
+        The parsed json returned by the server.
+    Raises
+
+            GitlabHttpError – When the return code is not 2xx
+
+            GitlabParsingError – If the json data could not be parsed
+
+    Return type
+
+        Union[Dict[str, Any], Response]
+
+http_request(verb: str, path: str, query_data: Optional[Dict[str, Any]] = None, post_data: Optional[Union[Dict[str, Any], bytes]] = None, raw: bool = False, streamed: bool = False, files: Optional[Dict[str, Any]] = None, timeout: Optional[float] = None, obey_rate_limit: bool = True, retry_transient_errors: Optional[bool] = None, max_retries: int = 10, **kwargs: Any) → Response
+
+    Make an HTTP request to the Gitlab server.
+
+    Parameters
+
+            verb (str) – The HTTP method to call (‘get’, ‘post’, ‘put’, ‘delete’)
+
+            path (str) – Path or full URL to query (‘/projects’ or ‘http://whatever/v4/api/projecs’)
+
+            query_data (Optional[Dict[str, Any]]) – Data to send as query parameters
+
+            post_data (Optional[Union[Dict[str, Any], bytes]]) – Data to send in the body (will be converted to json by default)
+
+            raw (bool) – If True, do not convert post_data to json
+
+            streamed (bool) – Whether the data should be streamed
+
+            files (Optional[Dict[str, Any]]) – The files to send to the server
+
+            timeout (Optional[float]) – The timeout, in seconds, for the request
+
+            obey_rate_limit (bool) – Whether to obey 429 Too Many Request responses. Defaults to True.
+
+            retry_transient_errors (Optional[bool]) – Whether to retry after 500, 502, 503, 504 or 52x responses. Defaults to False.
+
+            max_retries (int) – Max retries after 429 or transient errors, set to -1 to retry forever. Defaults to 10.
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Returns
+
+        A requests result object.
+    Raises
+
+        GitlabHttpError – When the return code is not 2xx
+    Return type
+
+        Response
+
+issues
+
+    See IssueManager
+
+issues_statistics
+
+    See IssuesStatisticsManager
+
+keys
+
+    See KeyManager
+
+ldapgroups
+
+    See LDAPGroupManager
+
+licenses
+
+    See LicenseManager
+
+lint(content: str, **kwargs: Any) → Tuple[bool, List[str]]
+
+    Validate a gitlab CI configuration.
+
+    Parameters
+
+            content (str) – The .gitlab-ci.yml content
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabVerifyError – If the validation could not be done
+
+    Returns
+
+        (True, []) if the file is valid, (False, errors(list)) otherwise
+    Return type
+
+        Tuple[bool, List[str]]
+
+markdown(text: str, gfm: bool = False, project: Optional[str] = None, **kwargs: Any) → str
+
+    Render an arbitrary Markdown document.
+
+    Parameters
+
+            text (str) – The markdown text to render
+
+            gfm (bool) – Render text using GitLab Flavored Markdown. Default is False
+
+            project (Optional[str]) – Full path of a project used a context when gfm is True
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabMarkdownError – If the server cannot perform the request
+
+    Returns
+
+        The HTML rendering of the markdown text.
+    Return type
+
+        str
+
+classmethod merge_config(options: Dict[str, Any], gitlab_id: Optional[str] = None, config_files: Optional[List[str]] = None) → Gitlab
+
+    Create a Gitlab connection by merging configuration with the following precedence:
+
+        Explicitly provided CLI arguments,
+
+        Environment variables,
+
+        Configuration files:
+
+                explicitly defined config files:
+
+                        via the –config-file CLI argument,
+
+                        via the PYTHON_GITLAB_CFG environment variable,
+
+                user-specific config file,
+
+                system-level config file,
+
+        Environment variables always present in CI (CI_SERVER_URL, CI_JOB_TOKEN).
+
+    Parameters
+
+            options (Dict[str, Any]) – A dictionary of explicitly provided key-value options.
+
+            gitlab_id (Optional[str]) – ID of the configuration section.
+
+            config_files (Optional[List[str]]) – List of paths to configuration files.
+
+    Returns
+
+        A Gitlab connection.
+    Return type
+
+        (gitlab.Gitlab)
+    Raises
+
+        gitlab.config.GitlabDataError – If the configuration is not correct.
+
+mergerequests
+
+    See MergeRequestManager
+
+namespaces
+
+    See NamespaceManager
+
+notificationsettings
+
+    See NotificationSettingsManager
+
+pagesdomains
+
+    See PagesDomainManager
+
+personal_access_tokens
+
+    See PersonalAccessTokenManager
+
+projects
+
+    See ProjectManager
+
+registry_repositories
+
+    See RegistryRepositoryManager
+
+runners
+
+    See RunnerManager
+
+runners_all
+
+    See RunnerManager
+
+search(scope: str, search: str, **kwargs: Any) → Union[GitlabList, List[Dict[str, Any]]]
+
+    Search GitLab resources matching the provided string.’
+
+    Parameters
+
+            scope (str) – Scope of the search
+
+            search (str) – Search string
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabSearchError – If the server failed to perform the request
+
+    Returns
+
+        A list of dicts describing the resources found.
+    Return type
+
+        Union[GitlabList, List[Dict[str, Any]]]
+
+set_license(license: str, **kwargs: Any) → Dict[str, Any]
+
+    Add a new license.
+
+    Parameters
+
+            license (str) – The license string
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabPostError – If the server cannot perform the request
+
+    Returns
+
+        The new license information
+    Return type
+
+        Dict[str, Any]
+
+settings
+
+    See ApplicationSettingsManager
+
+sidekiq
+
+    See SidekiqManager
+
+snippets
+
+    See SnippetManager
+
+ssl_verify
+
+    Whether SSL certificates should be validated
+
+statistics
+
+    See ApplicationStatisticsManager
+
+timeout
+
+    Timeout to use for requests to gitlab server
+
+todos
+
+    See TodoManager
+
+topics
+
+    See TopicManager
+
+property url: str
+
+    The user-provided server URL.
+
+user: Optional[objects.CurrentUser]
+
+user_activities
+
+    See UserActivitiesManager
+
+users
+
+    See UserManager
+
+variables
+
+    See VariableManager
+
+version() → Tuple[str, str]
+
+        Returns the version and revision of the gitlab server.
+
+        Note that self.version and self.revision will be set on the gitlab object.
+
+        Returns
+
+            The server version and server revision.
+
+                (‘unknown’, ‘unknown’) if the server doesn’t perform as expected.
+
+        Return type
+
+            Tuple[str, str]
+
+class gitlab.GitlabList(gl: Gitlab, url: str, query_data: Dict[str, Any], get_next: bool = True, **kwargs: Any)
+
+Bases: object
+
+Generator representing a list of remote objects.
+
+The object handles the links returned by a query to the API, and will call the API again when needed.
+
+Parameters
+
+        gl (Gitlab) –
+
+        url (str) –
+
+        query_data (Dict[str, Any]) –
+
+        get_next (bool) –
+
+        kwargs (Any) –
+
+property current_page: int
+
+    The current page number.
+
+next() → Dict[str, Any]
+
+    Return type
+
+        Dict[str, Any]
+
+property next_page: Optional[int]
+
+    The next page number.
+
+    If None, the current page is the last.
+
+property per_page: Optional[int]
+
+    The number of items per page.
+
+property prev_page: Optional[int]
+
+    The previous page number.
+
+    If None, the current page is the first.
+
+property total: Optional[int]
+
+    The total number of items.
+
+property total_pages: Optional[int]
+
+        The total number of pages.
+
+Subpackages
+
+    gitlab.v4 package
+        Submodules
+        gitlab.v4.objects module
+        Module contents
+
+Submodules
+gitlab.base module
+class gitlab.base.RESTManager(gl: Gitlab, parent: Optional[RESTObject] = None)
+
+Bases: object
+
+Base class for CRUD operations on objects.
+
+Derived class must define _path and _obj_cls.
+
+_path: Base URL path on which requests will be sent (e.g. ‘/projects’) _obj_cls: The class of objects that will be created
+
+Parameters
+
+        gl (Gitlab) –
+
+        parent (Optional[RESTObject]) –
+
+gitlab: Gitlab
+
+property parent_attrs: Optional[Dict[str, Any]]
+
+property path: Optional[str]
+
+class gitlab.base.RESTObject(manager: RESTManager, attrs: Dict[str, Any], *, created_from_list: bool = False, lazy: bool = False)
+
+Bases: object
+
+Represents an object built from server data.
+
+It holds the attributes know from the server, and the updated attributes in another. This allows smart updates, if the object allows it.
+
+You can redefine _id_attr in child classes to specify which attribute must be used as the unique ID. None means that the object can be updated without ID in the url.
+
+Likewise, you can define a _repr_attr in subclasses to specify which attribute should be added as a human-readable identifier when called in the object’s __repr__() method.
+
+Parameters
+
+        manager (RESTManager) –
+
+        attrs (Dict[str, Any]) –
+
+        created_from_list (bool) –
+
+        lazy (bool) –
+
+asdict(*, with_parent_attrs: bool = False) → Dict[str, Any]
+
+    Parameters
+
+        with_parent_attrs (bool) –
+    Return type
+
+        Dict[str, Any]
+
+property attributes: Dict[str, Any]
+
+property encoded_id: Optional[Union[int, str]]
+
+    Ensure that the ID is url-encoded so that it can be safely used in a URL path
+
+get_id() → Optional[Union[int, str]]
+
+    Returns the id of the resource.
+
+    Return type
+
+        Optional[Union[int, str]]
+
+manager: RESTManager
+
+pformat() → str
+
+    Return type
+
+        str
+
+pprint() → None
+
+    Return type
+
+        None
+
+to_json(*, with_parent_attrs: bool = False, **kwargs: Any) → str
+
+        Parameters
+
+                with_parent_attrs (bool) –
+
+                kwargs (Any) –
+
+        Return type
+
+            str
+
+class gitlab.base.RESTObjectList(manager: RESTManager, obj_cls: Type[RESTObject], _list: GitlabList)
+
+Bases: object
+
+Generator object representing a list of RESTObject’s.
+
+This generator uses the Gitlab pagination system to fetch new data when required.
+
+Note: you should not instantiate such objects, they are returned by calls to RESTManager.list()
+
+Parameters
+
+        manager (RESTManager) – Manager to attach to the created objects
+
+        obj_cls (Type[RESTObject]) – Type of objects to create from the json data
+
+        _list (GitlabList) – A GitlabList object
+
+property current_page: int
+
+    The current page number.
+
+next() → RESTObject
+
+    Return type
+
+        RESTObject
+
+property next_page: Optional[int]
+
+    The next page number.
+
+    If None, the current page is the last.
+
+property per_page: Optional[int]
+
+    The number of items per page.
+
+property prev_page: Optional[int]
+
+    The previous page number.
+
+    If None, the current page is the first.
+
+property total: Optional[int]
+
+    The total number of items.
+
+property total_pages: Optional[int]
+
+        The total number of pages.
+
+gitlab.cli module
+class gitlab.cli.VerticalHelpFormatter(prog, indent_increment=2, max_help_position=24, width=None)
+
+Bases: HelpFormatter
+
+format_help() → str
+
+        Return type
+
+            str
+
+gitlab.cli.cls_to_gitlab_resource(cls: RESTObject) → str
+
+    Parameters
+
+        cls (RESTObject) –
+    Return type
+
+        str
+
+gitlab.cli.die(msg: str, e: Optional[Exception] = None) → None
+
+    Parameters
+
+            msg (str) –
+
+            e (Optional[Exception]) –
+
+    Return type
+
+        None
+
+gitlab.cli.docs() → ArgumentParser
+
+    Provide a statically generated parser for sphinx only, so we don’t need to provide dummy gitlab config for readthedocs.
+
+    Return type
+
+        ArgumentParser
+
+gitlab.cli.gitlab_resource_to_cls(gitlab_resource: str, namespace: module) → Type[RESTObject]
+
+    Parameters
+
+            gitlab_resource (str) –
+
+            namespace (module) –
+
+    Return type
+
+        Type[RESTObject]
+
+gitlab.cli.main() → None
+
+    Return type
+
+        None
+
+gitlab.cli.register_custom_action(cls_names: Union[str, Tuple[str, ...]], mandatory: Tuple[str, ...] = (), optional: Tuple[str, ...] = (), custom_action: Optional[str] = None) → Callable[[__F], __F]
+
+    Parameters
+
+            cls_names (Union[str, Tuple[str, ...]]) –
+
+            mandatory (Tuple[str, ...]) –
+
+            optional (Tuple[str, ...]) –
+
+            custom_action (Optional[str]) –
+
+    Return type
+
+        Callable[[__F], __F]
+
+gitlab.config module
+exception gitlab.config.ConfigError
+
+    Bases: Exception
+
+exception gitlab.config.GitlabConfigHelperError
+
+    Bases: ConfigError
+
+exception gitlab.config.GitlabConfigMissingError
+
+    Bases: ConfigError
+
+class gitlab.config.GitlabConfigParser(gitlab_id: Optional[str] = None, config_files: Optional[List[str]] = None)
+
+    Bases: object
+
+    Parameters
+
+            gitlab_id (Optional[str]) –
+
+            config_files (Optional[List[str]]) –
+
+exception gitlab.config.GitlabDataError
+
+    Bases: ConfigError
+
+exception gitlab.config.GitlabIDError
+
+    Bases: ConfigError
+
+gitlab.const module
+class gitlab.const.AccessLevel(value)
+
+Bases: IntEnum
+
+An enumeration.
+
+ADMIN: int = 60
+
+DEVELOPER: int = 30
+
+GUEST: int = 10
+
+MAINTAINER: int = 40
+
+MINIMAL_ACCESS: int = 5
+
+NO_ACCESS: int = 0
+
+OWNER: int = 50
+
+REPORTER: int = 20
+
+class gitlab.const.NotificationLevel(value)
+
+Bases: GitlabEnum
+
+An enumeration.
+
+CUSTOM: str = 'custom'
+
+DISABLED: str = 'disabled'
+
+GLOBAL: str = 'global'
+
+MENTION: str = 'mention'
+
+PARTICIPATING: str = 'participating'
+
+WATCH: str = 'watch'
+
+class gitlab.const.SearchScope(value)
+
+Bases: GitlabEnum
+
+An enumeration.
+
+BLOBS: str = 'blobs'
+
+COMMITS: str = 'commits'
+
+GLOBAL_SNIPPET_TITLES: str = 'snippet_titles'
+
+ISSUES: str = 'issues'
+
+MERGE_REQUESTS: str = 'merge_requests'
+
+MILESTONES: str = 'milestones'
+
+PROJECTS: str = 'projects'
+
+PROJECT_NOTES: str = 'notes'
+
+USERS: str = 'users'
+
+WIKI_BLOBS: str = 'wiki_blobs'
+
+class gitlab.const.Visibility(value)
+
+Bases: GitlabEnum
+
+An enumeration.
+
+INTERNAL: str = 'internal'
+
+PRIVATE: str = 'private'
+
+PUBLIC: str = 'public'
+
+gitlab.exceptions module
+exception gitlab.exceptions.GitlabActivateError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabAttachFileError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabAuthenticationError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabBanError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabBlockError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabBuildCancelError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabCancelError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabBuildEraseError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabBuildPlayError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabBuildRetryError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabCancelError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabCherryPickError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabCiLintError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabConnectionError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabCreateError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabDeactivateError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabDeleteError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabDeploymentApprovalError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: Exception
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabFollowError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabGetError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabGroupTransferError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabHeadError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabHousekeepingError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabHttpError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabImportError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabInvitationError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabJobCancelError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabCancelError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabJobEraseError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabJobPlayError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabJobRetryError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabLicenseError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabListError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabMRApprovalError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabMRClosedError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabMRForbiddenError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabMROnBuildSuccessError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabMRRebaseError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabMRResetApprovalError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabMarkdownError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabOperationError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabOwnershipError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabParsingError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabPipelineCancelError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabCancelError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabPipelinePlayError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabPipelineRetryError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabRetryError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabProjectDeployKeyError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabPromoteError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabProtectError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabRenderError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabRepairError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabRestoreError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabRetryError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabRevertError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabSearchError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabSetError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabStopError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabSubscribeError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabTimeTrackingError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabTodoError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabTopicMergeError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabTransferProjectError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabUnbanError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabUnblockError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabUnfollowError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabUnsubscribeError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabUpdateError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabUploadError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabUserApproveError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabUserRejectError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.GitlabVerifyError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabOperationError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+exception gitlab.exceptions.RedirectError(error_message: Union[str, bytes] = '', response_code: Optional[int] = None, response_body: Optional[bytes] = None)
+
+    Bases: GitlabError
+
+    Parameters
+
+            error_message (Union[str, bytes]) –
+
+            response_code (Optional[int]) –
+
+            response_body (Optional[bytes]) –
+
+    Return type
+
+        None
+
+gitlab.mixins module
+class gitlab.mixins.AccessRequestMixin
+
+Bases: object
+
+approve(access_level: int = 30, **kwargs: Any) → None
+
+    Approve an access request.
+
+    Parameters
+
+            access_level (int) – The access level for the user
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabUpdateError – If the server fails to perform the request
+
+    Return type
+
+        None
+
+manager: RESTManager
+
+class gitlab.mixins.BadgeRenderMixin
+
+Bases: object
+
+render(link_url: str, image_url: str, **kwargs: Any) → Dict[str, Any]
+
+        Preview link_url and image_url after interpolation.
+
+        Parameters
+
+                link_url (str) – URL of the badge link
+
+                image_url (str) – URL of the badge image
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabRenderError – If the rendering failed
+
+        Returns
+
+            The rendering properties
+        Return type
+
+            Dict[str, Any]
+
+class gitlab.mixins.CRUDMixin
+
+Bases: GetMixin, ListMixin, CreateMixin, UpdateMixin, DeleteMixin
+
+gitlab: Gitlab
+
+class gitlab.mixins.CreateMixin
+
+Bases: object
+
+create(data: Optional[Dict[str, Any]] = None, **kwargs: Any) → RESTObject
+
+    Create a new object.
+
+    Parameters
+
+            data (Optional[Dict[str, Any]]) – parameters to send to the server to create the resource
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Returns
+
+        A new instance of the managed object class built with
+
+            the data sent by the server
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabCreateError – If the server cannot perform the request
+
+    Return type
+
+        RESTObject
+
+gitlab: Gitlab
+
+class gitlab.mixins.DeleteMixin
+
+Bases: object
+
+delete(id: Optional[Union[int, str]] = None, **kwargs: Any) → None
+
+    Delete an object on the server.
+
+    Parameters
+
+            id (Optional[Union[int, str]]) – ID of the object to delete
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabDeleteError – If the server cannot perform the request
+
+    Return type
+
+        None
+
+gitlab: Gitlab
+
+class gitlab.mixins.DownloadMixin
+
+Bases: object
+
+download(streamed: bool = False, action: Optional[Callable[[bytes], None]] = None, chunk_size: int = 1024, *, iterator: bool = False, **kwargs: Any) → Optional[Union[bytes, Iterator[Any]]]
+
+    Download the archive of a resource export.
+
+    Parameters
+
+            streamed (bool) – If True the data will be processed by chunks of chunk_size and each chunk is passed to action for treatment
+
+            iterator (bool) – If True directly return the underlying response iterator
+
+            action (Optional[Callable[[bytes], None]]) – Callable responsible of dealing with chunk of data
+
+            chunk_size (int) – Size of each chunk
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabGetError – If the server failed to perform the request
+
+    Returns
+
+        The blob content if streamed is False, None otherwise
+    Return type
+
+        Optional[Union[bytes, Iterator[Any]]]
+
+manager: RESTManager
+
+class gitlab.mixins.GetMixin
+
+Bases: HeadMixin, object
+
+get(id: Union[str, int], lazy: bool = False, **kwargs: Any) → RESTObject
+
+    Retrieve a single object.
+
+    Parameters
+
+            id (Union[str, int]) – ID of the object to retrieve
+
+            lazy (bool) – If True, don’t request the server, but create a shallow object giving access to the managers. This is useful if you want to avoid useless calls to the API.
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Returns
+
+        The generated RESTObject.
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabGetError – If the server cannot perform the request
+
+    Return type
+
+        RESTObject
+
+gitlab: Gitlab
+
+class gitlab.mixins.GetWithoutIdMixin
+
+Bases: HeadMixin, object
+
+get(**kwargs: Any) → RESTObject
+
+    Retrieve a single object.
+
+    Parameters
+
+        **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+    Returns
+
+        The generated RESTObject
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabGetError – If the server cannot perform the request
+
+    Return type
+
+        RESTObject
+
+gitlab: Gitlab
+
+class gitlab.mixins.ListMixin
+
+Bases: HeadMixin, object
+
+gitlab: Gitlab
+
+list(**kwargs: Any) → Union[RESTObjectList, List[RESTObject]]
+
+        Retrieve a list of objects.
+
+        Parameters
+
+                all – If True, return all the items, without pagination
+
+                per_page – Number of items to retrieve per request
+
+                page – ID of the page to return (starts with page 1)
+
+                iterator – If set to True and no pagination option is defined, return a generator instead of a list
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Returns
+
+            The list of objects, or a generator if iterator is True
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabListError – If the server cannot perform the request
+
+        Return type
+
+            Union[RESTObjectList, List[RESTObject]]
+
+class gitlab.mixins.NoUpdateMixin
+
+Bases: GetMixin, ListMixin, CreateMixin, DeleteMixin
+
+gitlab: Gitlab
+
+class gitlab.mixins.ObjectDeleteMixin
+
+Bases: object
+
+Mixin for RESTObject’s that can be deleted.
+
+delete(**kwargs: Any) → None
+
+    Delete the object from the server.
+
+    Parameters
+
+        **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabDeleteError – If the server cannot perform the request
+
+    Return type
+
+        None
+
+manager: RESTManager
+
+class gitlab.mixins.ParticipantsMixin
+
+Bases: object
+
+manager: RESTManager
+
+participants(**kwargs: Any) → Dict[str, Any]
+
+        List the participants.
+
+        Parameters
+
+                all – If True, return all the items, without pagination
+
+                per_page – Number of items to retrieve per request
+
+                page – ID of the page to return (starts with page 1)
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabListError – If the list could not be retrieved
+
+        Returns
+
+            The list of participants
+        Return type
+
+            Dict[str, Any]
+
+class gitlab.mixins.RefreshMixin
+
+Bases: object
+
+manager: RESTManager
+
+refresh(**kwargs: Any) → None
+
+        Refresh a single object from server.
+
+        Parameters
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+        Return type
+
+            None
+
+        Returns None (updates the object)
+
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabGetError – If the server cannot perform the request
+
+        Parameters
+
+            kwargs (Any) –
+        Return type
+
+            None
+
+class gitlab.mixins.RetrieveMixin
+
+Bases: ListMixin, GetMixin
+
+gitlab: Gitlab
+
+class gitlab.mixins.SaveMixin
+
+Bases: object
+
+Mixin for RESTObject’s that can be updated.
+
+manager: RESTManager
+
+save(**kwargs: Any) → Optional[Dict[str, Any]]
+
+        Save the changes made to the object to the server.
+
+        The object is updated to match what the server returns.
+
+        Parameters
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+        Returns
+
+            The new object data (not a RESTObject)
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabUpdateError – If the server cannot perform the request
+
+        Return type
+
+            Optional[Dict[str, Any]]
+
+class gitlab.mixins.SetMixin
+
+Bases: object
+
+gitlab: Gitlab
+
+set(key: str, value: str, **kwargs: Any) → RESTObject
+
+        Create or update the object.
+
+        Parameters
+
+                key (str) – The key of the object to create/update
+
+                value (str) – The value to set for the object
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabSetError – If an error occurred
+
+        Returns
+
+            The created/updated attribute
+        Return type
+
+            RESTObject
+
+class gitlab.mixins.SubscribableMixin
+
+Bases: object
+
+manager: RESTManager
+
+subscribe(**kwargs: Any) → None
+
+    Subscribe to the object notifications.
+
+    Parameters
+
+        **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabSubscribeError – If the subscription cannot be done
+
+    Return type
+
+        None
+
+unsubscribe(**kwargs: Any) → None
+
+        Unsubscribe from the object notifications.
+
+        Parameters
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabUnsubscribeError – If the unsubscription cannot be done
+
+        Return type
+
+            None
+
+class gitlab.mixins.TimeTrackingMixin
+
+Bases: object
+
+add_spent_time(duration: str, **kwargs: Any) → Dict[str, Any]
+
+    Add time spent working on the object.
+
+    Parameters
+
+            duration (str) – Duration in human format (e.g. 3h30)
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabTimeTrackingError – If the time tracking update cannot be done
+
+    Return type
+
+        Dict[str, Any]
+
+manager: RESTManager
+
+reset_spent_time(**kwargs: Any) → Dict[str, Any]
+
+    Resets the time spent working on the object.
+
+    Parameters
+
+        **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabTimeTrackingError – If the time tracking update cannot be done
+
+    Return type
+
+        Dict[str, Any]
+
+reset_time_estimate(**kwargs: Any) → Dict[str, Any]
+
+    Resets estimated time for the object to 0 seconds.
+
+    Parameters
+
+        **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabTimeTrackingError – If the time tracking update cannot be done
+
+    Return type
+
+        Dict[str, Any]
+
+time_estimate(duration: str, **kwargs: Any) → Dict[str, Any]
+
+    Set an estimated time of work for the object.
+
+    Parameters
+
+            duration (str) – Duration in human format (e.g. 3h30)
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+    Raises
+
+            GitlabAuthenticationError – If authentication is not correct
+
+            GitlabTimeTrackingError – If the time tracking update cannot be done
+
+    Return type
+
+        Dict[str, Any]
+
+time_stats(**kwargs: Any) → Dict[str, Any]
+
+        Get time stats for the object.
+
+        Parameters
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabTimeTrackingError – If the time tracking update cannot be done
+
+        Return type
+
+            Dict[str, Any]
+
+class gitlab.mixins.TodoMixin
+
+Bases: object
+
+manager: RESTManager
+
+todo(**kwargs: Any) → None
+
+        Create a todo associated to the object.
+
+        Parameters
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabTodoError – If the todo cannot be set
+
+        Return type
+
+            None
+
+class gitlab.mixins.UpdateMixin
+
+Bases: object
+
+gitlab: Gitlab
+
+update(id: Optional[Union[int, str]] = None, new_data: Optional[Dict[str, Any]] = None, **kwargs: Any) → Dict[str, Any]
+
+        Update an object on the server.
+
+        Parameters
+
+                id (Optional[Union[int, str]]) – ID of the object to update (can be None if not required)
+
+                new_data (Optional[Dict[str, Any]]) – the update data for the object
+
+                **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+
+        Returns
+
+            The new object data (not a RESTObject)
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabUpdateError – If the server cannot perform the request
+
+        Return type
+
+            Dict[str, Any]
+
+class gitlab.mixins.UserAgentDetailMixin
+
+Bases: object
+
+manager: RESTManager
+
+user_agent_detail(**kwargs: Any) → Dict[str, Any]
+
+        Get the user agent detail.
+
+        Parameters
+
+            **kwargs (Any) – Extra options to send to the server (e.g. sudo)
+        Raises
+
+                GitlabAuthenticationError – If authentication is not correct
+
+                GitlabGetError – If the server cannot perform the request
+
+        Return type
+
+            Dict[str, Any]
+
+gitlab.utils module
+class gitlab.utils.EncodedId(value: Union[str, int, EncodedId])
+
+    Bases: str
+
+    A custom str class that will return the URL-encoded value of the string.
+
+            Using it recursively will only url-encode the value once.
+
+            Can accept either str or int as input value.
+
+            Can be used in an f-string and output the URL-encoded string.
+
+    Reference to documentation on why this is necessary.
+
+    See:
+
+    https://docs.gitlab.com/ee/api/index.html#namespaced-path-encoding
+    https://docs.gitlab.com/ee/api/index.html#path-parameters
+
+    Parameters
+
+        value (Union[str, int, EncodedId]) –
+    Return type
+
+        EncodedId
+
+gitlab.utils.copy_dict(*, src: Dict[str, Any], dest: Dict[str, Any]) → None
+
+    Parameters
+
+            src (Dict[str, Any]) –
+
+            dest (Dict[str, Any]) –
+
+    Return type
+
+        None
+
+gitlab.utils.remove_none_from_dict(data: Dict[str, Any]) → Dict[str, Any]
+
+    Parameters
+
+        data (Dict[str, Any]) –
+    Return type
+
+        Dict[str, Any]
+
+gitlab.utils.response_content(response: Response, streamed: bool, action: Optional[Callable[[bytes], None]], chunk_size: int, *, iterator: bool) → Optional[Union[bytes, Iterator[Any]]]
+
+    Parameters
+
+            response (Response) –
+
+            streamed (bool) –
+
+            action (Optional[Callable[[bytes], None]]) –
+
+            chunk_size (int) –
+
+            iterator (bool) –
+
+    Return type
+
+        Optional[Union[bytes, Iterator[Any]]]
+
+gitlab.utils.warn(message: str, *, category: Optional[Type[Warning]] = None, source: Optional[Any] = None) → None
+
+    This warnings.warn wrapper function attempts to show the location causing the warning in the user code that called the library.
+
+    It does this by walking up the stack trace to find the first frame located outside the gitlab/ directory. This is helpful to users as it shows them their code that is causing the warning.
+
+    Parameters
+
+            message (str) –
+
+            category (Optional[Type[Warning]]) –
+
+            source (Optional[Any]) –
+
+    Return type
+
+        None
+

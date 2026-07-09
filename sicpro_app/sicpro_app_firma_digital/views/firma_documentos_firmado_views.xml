@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_firma_documentos_firmado_search">
+        <field name="name">sicpro.app.firma.documentos.search</field>
+        <field name="model">sicpro.app.firma.documentos</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Nombre"/>
+                <filter string="Mis Documentos" name="user_id" domain="[('user_id', '=', uid)]"/>
+                <separator/>
+                <filter name="favorito" string="Mis favorito" domain="[('favorito', '=', True)]"/>
+                <separator/>
+                <filter name="inactive" string="Archivados" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Estados" name="estados" context="{'group_by': 'estados'}"/>
+                    <separator/>
+                    <filter string="Fecha de Firma" name="fecha_firmado" domain="[]"
+                            context="{'group_by': 'fecha_firmado'}"/>
+                </group>
+                <searchpanel>
+                    <field name="estados" select="multi" icon="fa-star" enable_counters="1"/>
+                    <field name="etiquetas" select="multi" icon="fa-tag" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_firma_documentos_firmado_tree">
+        <field name="name">sicpro.app.firma.documentos.tree</field>
+        <field name="model">sicpro.app.firma.documentos</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <tree string="Documentos" class="o_mass_mailing_mailing_tree" js_class="firma_subir_pdf_tree" sample="1">
+                <field name="name"/>
+                <field name="create_date" string="Fecha de creación" widget="datetime"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="estados" decoration-info="estados == 'preparacion'"
+                       decoration-warning="estados == 'gestion_firma'" decoration-success="estados == 'firmado'"
+                       widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_firma_documentos_firmado_form">
+        <field name="name">sicpro.app.firma.documentos.form</field>
+        <field name="model">sicpro.app.firma.documentos</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <form string="Firma de Documentos" class="o_form_view_nosheet" js_class="firma_botones_control"
+                  create="false" sample="1">
+                <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"/>
+                <field name="active" invisible="1"/>
+                <field name="pdf_num_paginas" invisible="1"/>
+                <field name="id" class="ocultar_btn_form_controller js_firma_id"/>
+                <field name="estados" class="ocultar_btn_form_controller js_firma_estados"/>
+                <div name="btn_control">
+                    <div class="o_sign_template_header_wrapper px-4 py-3-top d-flex">
+                        <div class="d-flex mx-sign-2">
+                            <field name="favorito" widget="boolean_favorite" nolabel="1"/>
+                        </div>
+                        <div class="o_sign_template_header_document_name align-items-center d-flex mx-sign-5">
+                            <span class="fa fa-pencil mr-2" role="img"></span>
+                            <field name="name" string="Nombre" placeholder="Nombre del documento"
+                                   attrs="{'readonly': [('estados', '!=', 'borrador')]}"/>
+                        </div>
+                        <div class="o_sign_template_privacy_and_save d-flex mx-sign-10">
+                            <label for="user_id" string='Responsable:' class="p-0 m-0 mr-2"/>
+                            <field name="user_id" readonly="1"/>
+                            <div class="m-0 ml-2"></div>
+                        </div>
+                        <div class="o_sign_template_group_id_and_save d-flex mx-sign-10">
+                            <label for="create_date" string='Creado:' class="p-0 m-0 mr-2"/>
+                            <field name="create_date" readonly="1"/>
+                            <div class="m-0 ml-2"></div>
+                        </div>
+                        <div class="o_sign_template_tags_and_save d-flex mx-sign-10">
+                            <label for="etiquetas" string='Etiquetas:' class="p-0 m-0 mr-2"/>
+                            <field name="etiquetas" widget="many2many_tags"
+                                   options="{'color_field': 'color', 'no_create_edit': True}"
+                                   placeholder="Seleccione las categorías…"/>
+                            <div class="m-0 ml-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <field name="pdf_original" widget="many2many_binary" nolabel="1"
+                       attrs="{'invisible': [('estados', '!=', 'borrador')]}"/>
+
+                <field name="pdf_original_viewer" widget="pdf_cropper_viewer" nolabel="1"
+                       attrs="{'invisible': [('estados', 'in', ('borrador', 'rechazado', 'firmado'))]}"/>
+
+                <field name="pdf_firmado" widget="pdf_cropper_viewer" nolabel="1"
+                       attrs="{'invisible': [('estados', '!=', 'firmado')]}"/>
+
+                <notebook invisible="1">
+                    <page name="imagenes_wizard" string="Imágenes">
+                        <group>
+                            <div class="row">
+                                <div class="col-lg-12 d-flex">
+                                    <field name="doc_imagenes_ids" mode="tree" nolabel="1"
+                                           context="{'default_name': id,}">
+                                        <tree editable="bottom" sample="1">
+                                            <field name="name"/>
+                                            <field name="doc_ancho"/>
+                                            <field name="doc_alto"/>
+                                            <field name="doc_num_page"/>
+                                            <field name="doc_crop_izq"/>
+                                            <field name="doc_crop_der"/>
+                                            <field name="doc_crop_ancho"/>
+                                            <field name="doc_crop_alto"/>
+                                            <field name="doc_firmar"/>
+                                            <field name="doc_imagen" widget="image" class="oe_avatar"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </div>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_firma_documentos_firmado_kanban">
+        <field name="name">sicpro.app.firma.documentos.kanban</field>
+        <field name="model">sicpro.app.firma.documentos</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <kanban quick_create="false" class="o_sign_template_kanban" default_order="create_date desc"
+                    js_class="firma_subir_pdf_kanban" sample="1">
+                <field name="active"/>
+                <field name="name"/>
+                <field name="color"/>
+                <field name="create_date"/>
+                <field name="favorito"/>
+                <field name="create_uid"/>
+                <field name='color'/>
+                <field name='user_id'/>
+                <field name='name'/>
+                <field name='active'/>
+                <templates>
+                    <div t-name="kanban-box"
+                         t-attf-class="o_sign_sticky_bottom oe_kanban_global_click {{kanban_color(record.color.raw_value)}}">
+                        <div class="oe_kanban_main">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <div class="o_kanban_record_title">
+                                        <field name="favorito" widget="boolean_favorite" nolabel="1"/>
+                                        <span class="pl-2"><field name="name"/></span>
+                                    </div>
+                                </div>
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a role="button" class="o_kanban_manage_toggle_button o_left o-no-caret btn"
+                                       data-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                        <a role="menuitem" type="object" name="toggle_active" class="dropdown-item">
+                                            <t t-if="!record.active.raw_value">Restaurar</t>
+                                            <t t-if="record.active.raw_value">Archivar</t>
+                                        </a>
+                                        <ul role="menu" class="oe_kanban_colorpicker menu-item" data-field="color"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <field name="etiquetas" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                <div class="o_signers container-fluid mt-2">
+<!--                                    <div t-foreach="record.request_item_infos.raw_value" t-as="request_item_info" t-att-class="(request_item_info.state === 'completed')? 'o_sign_completed text-success row' : 'o_sign_waiting row'">-->
+<!--                                        <input t-att-checked="(request_item_info.state === 'completed') ? 'checked' : undefined" class="mt-1 mr-1" type="checkbox" disabled="True"/>-->
+<!--                                        <span>-->
+<!--                                            <t t-esc="request_item_info.partner_name"/><t t-if="request_item_info.signing_date" class="ml-1" t-esc="' ' + request_item_info.signing_date"/>-->
+<!--                                        </span>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <em><field name="write_date" widget="date"/></em>
+                                    <div class="o_kanban_inline_block">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="create_uid" widget="many2one_avatar_user"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="firma_documentos_firmado_view_calendar">
+        <field name="name">sicpro.app.firma.documentos.calendar</field>
+        <field name="model">sicpro.app.firma.documentos</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <calendar date_start="create_date" string="Creado" hide_time="true" mode="month" color="estados"
+                      quick_add="False">
+                <field name="user_id" string="Responsable" options="{'no_open': True}"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="firma_documentos_firmado_action">
+        <field name="name">Documentos Firmados</field>
+        <field name="res_model">sicpro.app.firma.documentos</field>
+        <field name="view_mode">kanban,tree,form,calendar</field>
+        <field name="view_id" ref="view_firma_documentos_firmado_kanban"/>
+        <field name="search_view_id" ref="view_firma_documentos_firmado_search"/>
+        <field name="domain">[('estados','=','firmado')]</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/mass_editing</OriginalElement>
+  <nodes>
+    <node x="1960.0838815789473" y="282.5">typing.Sequence</node>
+    <node x="1001.2631578947367" y="7517.0">mass_editing.tests.test_mass_editing.TestMassEditing</node>
+    <node x="2517.6381578947367" y="348.5">typing.Sized</node>
+    <node x="2668.6381578947367" y="304.0">odoo.models.MetaModel</node>
+    <node x="0.0" y="2370.0">unittest.case.TestCase</node>
+    <node x="2940.6381578947367" y="337.5">typing.Iterator</node>
+    <node x="1078.7631578947367" y="7234.5">odoo.tests.common.SavepointCase</node>
+    <node x="3112.6381578947367" y="348.5">typing.Iterable</node>
+    <node x="2547.690789473684" y="6294.5">odoo.models.Model</node>
+    <node x="2771.875" y="6753.0">mass_editing.models.ir_actions_server.IrActionsServer</node>
+    <node x="1071.7631578947367" y="6753.0">odoo.tests.common.TransactionCase</node>
+    <node x="1033.2631578947367" y="6030.0">odoo.tests.common.BaseCase</node>
+    <node x="2267.875" y="7058.0">mass_editing.wizard.mass_editing_wizard.MassEditingWizard</node>
+    <node x="2406.875" y="6775.0">odoo.models.TransientModel</node>
+    <node x="3285.6381578947367" y="348.5">typing.Container</node>
+    <node x="1725.0838815789473" y="6731.0">mass_editing.models.mass_editing_line.MassEditingLine</node>
+    <node x="1699.9999999999998" y="3272.0">odoo.tests.common.MetaCase</node>
+    <node x="1305.3536184210525" y="0.0">typing.Hashable</node>
+    <node x="702.4999999999998" y="106.0">object</node>
+    <node x="2072.190789473684" y="709.0">odoo.models.BaseModel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="2579.375" y="6574.0" />
+      <point x="2643.691" y="6574.0" />
+      <point x="2.1052631564089097E-4" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="571.5" y="-15.0" />
+      <point x="3398.1381578947367" y="3329.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="mass_editing.models.ir_actions_server.IrActionsServer" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-116.5" />
+      <point x="3006.375" y="6574.0" />
+      <point x="2643.691" y="6574.0" />
+      <point x="2.1052631564089097E-4" y="61.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.50000000000023" y="217.0" />
+      <point x="2119.5" y="593.5" />
+      <point x="2119.5" y="574.0" />
+      <point x="1386.854" y="574.0" />
+      <point x="3.8157894755386224E-4" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="22.447368421052488" y="-2635.5" />
+      <point x="2666.1381578947367" y="466.5" />
+      <point x="169.0" y="90.0" />
+    </edge>
+    <edge source="unittest.case.TestCase" target="object" relationship="REALIZATION">
+      <point x="0.0" y="-974.5" />
+      <point x="2.2737367544323206E-13" y="270.5" />
+    </edge>
+    <edge source="mass_editing.tests.test_mass_editing.TestMassEditing" target="odoo.tests.common.SavepointCase" relationship="REALIZATION">
+      <point x="0.0" y="-237.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="2.1052631564089097E-4" y="-2635.5" />
+      <point x="2643.691" y="574.0" />
+      <point x="1386.854" y="574.0" />
+      <point x="3.8157894755386224E-4" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="372.9473684210525" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="150.9473684210525" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="mass_editing.wizard.mass_editing_wizard.MassEditingWizard" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-204.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="545.4473684210525" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.tests.common.SavepointCase" target="odoo.tests.common.TransactionCase" relationship="REALIZATION">
+      <point x="0.0" y="-28.0" />
+      <point x="0.0" y="116.5" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="odoo.tests.common.BaseCase" target="odoo.tests.common.MetaCase" relationship="INSTANCEOF">
+      <point x="201.5" y="0.0" />
+      <point x="1837.4999999999998" y="6355.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="mass_editing.models.mass_editing_line.MassEditingLine" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="1.1842105277537485E-4" y="-138.5" />
+      <point x="1965.084" y="6574.0" />
+      <point x="2643.691" y="6574.0" />
+      <point x="2.1052631564089097E-4" y="61.0" />
+    </edge>
+    <edge source="odoo.tests.common.TransactionCase" target="odoo.tests.common.BaseCase" relationship="REALIZATION">
+      <point x="0.0" y="-116.5" />
+      <point x="0.0" y="325.5" />
+    </edge>
+    <edge source="odoo.tests.common.BaseCase" target="unittest.case.TestCase" relationship="REALIZATION">
+      <point x="0.0" y="-325.5" />
+      <point x="394.76315789473665" y="974.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="3528.1381578947367" y="3344.5" />
+      <point x="3528.1381578947367" y="265.0" />
+      <point x="2583.1381578947367" y="265.0" />
+      <point x="0.0" y="-28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="-14.999789473684359" y="-2635.5" />
+      <point x="2628.691" y="678.0" />
+      <point x="840.0" y="678.0" />
+      <point x="2.2737367544323206E-13" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.3999999999999999" showDependencies="false" x="1850.7500000000005" y="807.5000000000002" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

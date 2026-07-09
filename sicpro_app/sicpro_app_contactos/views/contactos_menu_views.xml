@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+     <!-- Cambio los permisos del menu original-->
+    <menuitem name="Contacts" id="contacts.menu_contacts" sequence="20"
+        web_icon="contacts,static/description/icon.png"
+        groups="sicpro_app_administracion.grupo_app_administracion_obsoletos"/>
+
+    <menuitem name="Contactos" id="menu_contactos" sequence="20"
+              web_icon="sicpro_app_contactos,static/description/icon.png"
+              groups="base.group_user,base.group_partner_manager"/>
+
+
+    <!--Inicio: Menu Dashboard-->
+    <record id="menu_contactos_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">sicpro_dashboard_view</field>
+        <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.contactos'}</field>
+    </record>
+    <menuitem id="menu_contactos_dashboard" name="Dashboard"
+              parent="menu_contactos" action="menu_contactos_dashboard_action" sequence="1"
+              groups="base.group_user"/>
+    <!--Fin: Menu Dashboard-->
+
+    <!--    <menuitem id="menu_contactos_datos" name="Contactos"-->
+    <!--        action="action_contactos" parent="menu_contactos" sequence="2"/>-->
+
+    <menuitem id="menu_contactos_trabajadores" name="Contactos"
+              action="action_contactos_trabajadores" parent="menu_contactos" sequence="2"/>
+
+
+    <menuitem id="contactos_menu_config" name="Configuración"
+              parent="menu_contactos" groups="base.group_system" sequence="7"/>
+    <menuitem id="menu_contactos_configuracion" name="Contactos"
+              parent="sicpro_app_contactos.contactos_menu_config" sequence="1"/>
+    <menuitem id="menu_partner_category_form" name="Etiquetas de Contactos"
+              parent="menu_contactos_configuracion" action="base.action_partner_category_form" sequence="1"/>
+    <menuitem id="menu_partner_title_contact" name="Títulos de Contactos"
+              parent="menu_contactos_configuracion" action="base.action_partner_title_contact" sequence="2"/>
+
+
+</odoo>

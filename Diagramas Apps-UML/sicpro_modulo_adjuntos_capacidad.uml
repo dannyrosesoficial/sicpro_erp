@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_adjuntos_capacidad</OriginalElement>
+  <nodes>
+    <node x="1309.0" y="282.5">typing.Sequence</node>
+    <node x="1158.0" y="348.5">typing.Sized</node>
+    <node x="886.0" y="304.0">odoo.models.MetaModel</node>
+    <node x="714.0" y="337.5">typing.Iterator</node>
+    <node x="383.74999999999994" y="6192.0">sicpro_modulo_adjuntos_capacidad.models.ir_attachment.IrAttachment</node>
+    <node x="468.99999999999994" y="348.5">typing.Container</node>
+    <node x="295.99999999999994" y="348.5">typing.Iterable</node>
+    <node x="589.75" y="6020.0">odoo.models.Model</node>
+    <node x="103.47826086956513" y="0.0">typing.Hashable</node>
+    <node x="114.25" y="699.0">odoo.models.BaseModel</node>
+    <node x="0.0" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="-71.4375" y="-2635.5" />
+      <point x="614.3125" y="678.0" />
+      <point x="581.5" y="678.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_modulo_adjuntos_capacidad.models.ir_attachment.IrAttachment" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-50.5" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="500.0625" y="-2635.5" />
+      <point x="1185.8125" y="678.0" />
+      <point x="1478.0" y="678.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="0.0" y="-270.5" />
+      <point x="137.5" y="81.0" />
+      <point x="184.97826086956513" y="81.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="-357.1875" y="-2635.5" />
+      <point x="328.5625" y="678.0" />
+      <point x="285.49999999999994" y="678.0" />
+      <point x="285.49999999999994" y="81.0" />
+      <point x="184.97826086956513" y="81.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="71.4375" y="-2635.5" />
+      <point x="757.1875" y="678.0" />
+      <point x="790.0" y="678.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="214.3125" y="-2635.5" />
+      <point x="900.0625" y="678.0" />
+      <point x="1012.0" y="678.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="-214.3125" y="-2635.5" />
+      <point x="471.4375" y="678.0" />
+      <point x="372.49999999999994" y="678.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="-500.0625" y="-2635.5" />
+      <point x="185.6875" y="678.0" />
+      <point x="137.5" y="678.0" />
+      <point x="0.0" y="270.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="357.1875" y="-2635.5" />
+      <point x="1042.9375" y="668.0" />
+      <point x="1223.5" y="668.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5499999999999999" showDependencies="false" x="837.5000000000009" y="520.0000000000001" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

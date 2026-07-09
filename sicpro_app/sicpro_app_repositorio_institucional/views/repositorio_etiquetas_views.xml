@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista de Árbol (Tree) para Etiquetas (Palabras Clave) -->
+        <record id="view_repositorio_institucional_etiquetas_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.repo.etiquetas.tree</field>
+            <field name="model">sicpro.app.repo.etiquetas</field>
+            <field name="arch" type="xml">
+                <tree string="Palabras Clave" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="repositorios_ids" invisible="1"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acción de Ventana (Action Window) para Etiquetas -->
+        <record id="action_view_repositorio_institucional_etiquetas" model="ir.actions.act_window">
+            <field name="name">Palabras Clave</field>
+            <field name="res_model">sicpro.app.repo.etiquetas</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

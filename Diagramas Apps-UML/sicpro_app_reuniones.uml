@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_reuniones</OriginalElement>
+  <nodes>
+    <node x="5116.249999999999" y="348.5">typing.Sized</node>
+    <node x="5267.249999999999" y="304.0">odoo.models.MetaModel</node>
+    <node x="5976.249999999999" y="6422.0">sicpro_app_reuniones.models.sicpro_app_reuniones_decisiones.ReunionesDecisiones</node>
+    <node x="9202.25" y="6774.0">sicpro_app_reuniones.models.sicpro_app_reuniones_despachos_comentarios.ReunionesDespachosComentarios</node>
+    <node x="5539.249999999999" y="337.5">typing.Iterator</node>
+    <node x="6706.249999999999" y="6774.5">sicpro_app_reuniones.models.sicpro_app_reuniones_estados.ReunionesEstados</node>
+    <node x="2192.999999999999" y="7607.0">sicpro_app_reuniones.models.sicpro_app_reuniones_acuerdos.AcuerdosRechazados</node>
+    <node x="5711.249999999999" y="348.5">typing.Iterable</node>
+    <node x="8254.25" y="6763.0">sicpro_app_reuniones.models.sicpro_app_reuniones_despachos_participantes.ReunionesDespachosParticipantes</node>
+    <node x="5881.249999999999" y="6030.0">odoo.models.Model</node>
+    <node x="2443.249999999999" y="6763.0">sicpro_app_reuniones.models.sicpro_app_reuniones_etiquetas.ReunionesEtiquetas</node>
+    <node x="4003.249999999999" y="6587.0">sicpro_app_reuniones.models.sicpro_app_reuniones_despachos.ReunionesDespachos</node>
+    <node x="1272.25" y="6785.0">odoo.models.TransientModel</node>
+    <node x="6617.249999999999" y="0.0">typing.Hashable</node>
+    <node x="5405.749999999999" y="709.0">odoo.models.BaseModel</node>
+    <node x="5884.249999999999" y="282.5">typing.Sequence</node>
+    <node x="10142.25" y="6532.0">sicpro_app_reuniones.models.sicpro_app_reuniones_participantes.ReunionesParticipantes</node>
+    <node x="718.0" y="7607.0">sicpro_app_reuniones.models.sicpro_app_reuniones_decisiones.DecisionesCanceladas</node>
+    <node x="7394.249999999999" y="6796.0">sicpro_app_reuniones.models.sicpro_app_reuniones_despachos_agenda.ReunionesDespachosAgenda</node>
+    <node x="1453.9999999999995" y="7607.0">sicpro_app_reuniones.models.sicpro_app_reuniones_decisiones.DecisionesRechazadas</node>
+    <node x="1637.249999999999" y="6796.5">sicpro_app_reuniones.models.sicpro_app_reuniones_categorias.ReunionesEtiquetasCategorias</node>
+    <node x="0.0" y="7607.0">sicpro_app_reuniones.models.sicpro_app_reuniones_acuerdos.AcuerdosCancelados</node>
+    <node x="6242.249999999999" y="348.5">typing.Container</node>
+    <node x="4735.249999999999" y="6202.0">sicpro_app_reuniones.models.sicpro_app_reuniones.Reuniones</node>
+    <node x="5290.249999999999" y="6785.5">sicpro_app_reuniones.models.sicpro_app_reuniones_lugares.ReunionesLugares</node>
+    <node x="10913.25" y="6433.0">sicpro_app_reuniones.models.sicpro_app_reuniones_acuerdos.ReunionesAcuerdos</node>
+    <node x="6487.249999999999" y="106.0">object</node>
+    <node x="3157.249999999999" y="6840.5">sicpro_app_reuniones.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_despachos.ReunionesDespachos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="-292.5" />
+      <point x="4359.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_decisiones.ReunionesDecisiones" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="-457.5" />
+      <point x="6331.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-362.0" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-564.0" y="-2635.5" />
+      <point x="20.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="-189.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_participantes.ReunionesParticipantes" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-347.5" />
+      <point x="10517.75" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones.Reuniones" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="-677.5" />
+      <point x="5002.75" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_categorias.ReunionesEtiquetasCategorias" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="-83.0" />
+      <point x="2030.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-571.5" y="0.0" />
+      <point x="5181.749999999999" y="3344.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="1444.75" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="377.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="76.0" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5000000000009" y="0.0" />
+      <point x="6787.0" y="376.5" />
+      <point x="6787.0" y="88.5" />
+      <point x="6698.75" y="88.5" />
+      <point x="9.094947017729282E-13" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5000000000009" y="0.0" />
+      <point x="6787.0" y="3344.5" />
+      <point x="6787.0" y="88.5" />
+      <point x="6698.75" y="88.5" />
+      <point x="9.094947017729282E-13" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_acuerdos.ReunionesAcuerdos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-446.5" />
+      <point x="11258.75" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_acuerdos.AcuerdosRechazados" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="61.5" />
+      <point x="2543.5" y="7753.0" />
+      <point x="-17.5" y="7753.0" />
+      <point x="-17.5" y="6879.5" />
+      <point x="-172.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_despachos_agenda.ReunionesDespachosAgenda" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="-83.5" />
+      <point x="7814.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="-39.0" />
+      <point x="3570.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_lugares.ReunionesLugares" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="-94.0" />
+      <point x="5623.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_despachos_comentarios.ReunionesDespachosComentarios" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-105.5" />
+      <point x="9662.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_estados.ReunionesEstados" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="-105.0" />
+      <point x="7040.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_acuerdos.AcuerdosCancelados" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="61.5" />
+      <point x="349.0" y="7753.0" />
+      <point x="-17.5" y="7753.0" />
+      <point x="-17.5" y="6879.5" />
+      <point x="-172.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_etiquetas.ReunionesEtiquetas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="9.094947017729282E-13" y="-116.5" />
+      <point x="2790.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_decisiones.DecisionesCanceladas" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="61.5" />
+      <point x="1076.0" y="7753.0" />
+      <point x="-17.5" y="7753.0" />
+      <point x="-17.5" y="6879.5" />
+      <point x="-172.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_decisiones.DecisionesRechazadas" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="4.547473508864641E-13" y="61.5" />
+      <point x="1813.5" y="7753.0" />
+      <point x="-17.5" y="7753.0" />
+      <point x="-17.5" y="6879.5" />
+      <point x="-172.5" y="0.0" />
+    </edge>
+    <edge source="sicpro_app_reuniones.models.sicpro_app_reuniones_despachos_participantes.ReunionesDespachosParticipantes" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-116.5" />
+      <point x="8718.25" y="6177.0" />
+      <point x="5977.25" y="6177.0" />
+      <point x="9.094947017729282E-13" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-83.5" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.07896774193548387" showDependencies="false" x="5802.5" y="3865.0000000000005" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

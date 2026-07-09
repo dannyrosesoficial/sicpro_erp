@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Heredo la vista de formulario del conector rest api -->
+    <record id="gitlab_backup_conector_rest_api_inherit" model="ir.ui.view">
+    <field name="name">gitlab.backup.conector.rest.api.form</field>
+    <field name="model">sicpro.modulo.api.conector</field>
+    <field name="inherit_id" ref="sicpro_modulo_api_conector.conector_rest_api_view_form" />
+    <field name="arch" type="xml">
+        <!-- botón de test de conexión -->
+        <xpath expr="//button[@name='conector_api_test']" position="before">
+            <button name="conector_api_test_sicpro_api_gitlab_backup" string=" Test de Conexión" type="object"
+                    icon="fa-television" attrs="{'invisible': [('name', '!=', 'sicpro.api.gitlab.backup')]}"/>
+        </xpath>
+    </field>
+  </record>
+
+
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+     <!--vista formulario-->
+    <record id="nomenclador_locales_form_view" model="ir.ui.view">
+        <field name="name">nomenclador.locales.form.view</field>
+        <field name="model">sicpro.nomenclador.locales</field>
+        <field name="arch" type="xml">
+            <form string="Locales de centros de Costo">
+                <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                     <group>
+                         <field name="name"/>
+                         <field name="descripcion"/>
+                         <field name="centro_costo"
+                                options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                         <field name="company_id" />
+                         <field name="active" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <!--vista arbol-->
+    <record id="nomenclador_locales_tree_view" model="ir.ui.view">
+        <field name="name">nomenclador.locales.tree.view</field>
+        <field name="model">sicpro.nomenclador.locales</field>
+        <field name="arch" type="xml">
+            <tree string="Locales de centros de Costo" editable="bottom">
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="centro_costo" />
+                <field name="company_id" />
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="nomenclador_locales_filter_view" model="ir.ui.view">
+       <field name="name">Buscar locales de centros de Costo</field>
+       <field name="model">sicpro.nomenclador.locales</field>
+        <field name="arch" type="xml">
+            <search string="Buscar locales de centros de Costo">
+            <field name="name" string="Nombre"/>
+            <field string="Proceso" name="company_id" />
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+            <group expand="0" string="Agrupar por">
+                <filter string="Proceso" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_nomenclador_locales" model="ir.actions.act_window">
+        <field name="name">Locales de centros de Costos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.locales</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="odoo_fullscreen.systray.SystrayFullscreenMenu">
+        <div class="o_fullscreen_systray_item">
+            <a class="o_systray_fullscreen_btn o_fullscreen_toggle expand_screen_action" title="Expand Screen" href="#" role="button">
+                 <i class="fa fa-expand" role="img" aria-label="Expandir Pantalla"/>
+            </a>
+            <a class="o_systray_fullscreen_btn o_fullscreen_toggle compress_screen_action o_hide_fullscreen_action" title="Compress Screen" href="#" role="button">
+                 <i class="fa fa-compress" role="img" aria-label="Minimizar Pantalla"/>
+            </a>
+        </div>
+    </t>
+</templates>

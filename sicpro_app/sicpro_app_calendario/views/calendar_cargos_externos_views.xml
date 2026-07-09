@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="calendario_cargos_externos_search_view">
+            <field name="name">calendar.cargos.externos.search</field>
+            <field name="model">calendar.cargos.externos</field>
+            <field name="arch" type="xml">
+                <search string="Buscar">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="calendario_cargos_externos_tree_view">
+            <field name="name">calendar.cargos.externos.tree</field>
+            <field name="model">calendar.cargos.externos</field>
+            <field name="arch" type="xml">
+                <tree string="Cargos Externos" editable="bottom">
+                    <field name="name"/>
+                    <field name="active" invisible="1"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="calendario_cargos_externos_action" model="ir.actions.act_window">
+            <field name="name">Cargos Externos</field>
+            <field name="res_model">calendar.cargos.externos</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear un nuevo cargo externo
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

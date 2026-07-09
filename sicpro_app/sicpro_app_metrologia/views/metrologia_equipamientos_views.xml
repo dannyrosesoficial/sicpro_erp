@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="metrologia_equipamiento_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.metrologia.equipos.form</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <form string="Equipamiento">
+                <header>
+                    <field name="estado_id" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <field name="readonly_admin" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" string="Nombre" placeholder="Nombre del Equipo"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="company_id" attrs="{'readonly': [('readonly_admin', '!=', True)]}"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="trabajador_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="centro_costo"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="local" domain="[('centro_costo', '=', centro_costo)]"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="equipo_mantenimiento_id" required="True"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                   attrs="{'required': [('frecuencia_mtto', '!=', 0)]}"
+                                   context="{'default_company_id':company_id}"/>
+                            <field name="gestores_procesos" invisible="1"/>
+                            <field name="gestor_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="fecha_alta"/>
+                            <field name="fecha_baja"/>
+                            <field name="area" string="Usado en el Área"/>
+                            <field name="transferencia_pendiente" invisible="1"/>
+                            <field name="aviso_mtto" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Descripción">
+                            <field name="notas"/>
+                        </page>
+                        <page string="Información del Equipo">
+                            <group string="Indentificadores del equipo">
+                                <group>
+                                    <field name="tarjeta"/>
+                                    <field name="inventario"/>
+                                    <field name="inmovilizado"/>
+                                </group>
+                                <group>
+                                    <field name="marca"/>
+                                    <field name="model"/>
+                                    <field name="serial_no"/>
+                                    <field name="pais_equipo"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                                <group string="Detalles">
+                                    <field name="magnitud"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="presicion"/>
+                                    <field name="medicion"/>
+                                    <field name="unidad_medida"/>
+                                </group>
+                                <group string="Otros">
+                                    <field name="fecha_ultimo_mtto"/>
+                                    <field name="company_currency" invisible="1"/>
+                                    <field name="costo_equipo"/>
+                                    <field name="fecha_expiracion_garantia"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Mantenimiento">
+                            <group>
+                                <group>
+                                    <field name="tipo" widget="radio" options="{'horizontal': true}" required="1"/>
+                                    <field name="centro_calibracion"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="estado_id" string="Estado Técnico"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                                <group name="maintenance">
+                                    <field name="fecha_siguiente_mtto" class="oe_read_only"/>
+                                    <label for="frecuencia_mtto"/>
+                                    <div class="o_row">
+                                        <field name="frecuencia_mtto"/> Años
+                                    </div>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Imagenes">
+                            <group>
+                                <group string="Anterior">
+                                    <field name="image_1_1920" widget="image" class="oe_avatar"
+                                           options="{&quot;preview_image&quot;: &quot;image_1_256&quot;}"/>
+                                </group>
+                                <group string="Posterior">
+                                    <field name="image_2_1920" widget="image" class="oe_avatar"
+                                           options="{&quot;preview_image&quot;: &quot;image_2_128&quot;}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Transferencia">
+                            <group string="Detalles de las Transferencias de Pago">
+                                <field name="transferencias_ids" mode="tree,kanban"
+                                       context="{'default_name': name, 'default_tipo_moneda': company_currency}">
+                                    <tree editable="bottom" string="Transferencias">
+                                        <field name="anio" invisible="1"/>
+                                        <field name="name" invisible="1"/>
+                                        <field name="centro_calibracion"/>
+                                        <field name="transferencia_numero"/>
+                                        <field name="fecha_recogida_laboratorio"/>
+                                        <field name="fecha_entrega_economia"/>
+                                        <field name="fecha_recogida_economia"/>
+                                        <field name="fecha_entrega_laboratorio"/>
+                                        <field name="monto"/>
+                                        <field name="anio"/>
+                                        <field name="tipo_moneda" invisible="1"/>
+                                        <field name="pendiente" invisible="1"/>
+                                    </tree>
+                                    <form string="Transferencias">
+                                        <sheet>
+                                            <group>
+                                                <field name="anio" invisible="1"/>
+                                                <field name="name" invisible="1"/>
+                                                <field name="centro_calibracion"/>
+                                                <field name="transferencia_numero"/>
+                                                <field name="fecha_recogida_laboratorio"/>
+                                                <field name="fecha_entrega_economia"/>
+                                                <field name="fecha_recogida_economia"/>
+                                                <field name="fecha_entrega_laboratorio"/>
+                                                <field name="monto"/>
+                                                <field name="tipo_moneda" invisible="1"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'open_attachments': True}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="metrologia_equipamiento_view_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.metrologia.equipos.kanban</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="estado_id" group_create="false" group_delete="false" group_edit="false">
+                <field name="estado_id"/>
+                <field name="name"/>
+                <field name="color"/>
+                <field name="gestor_id"/>
+                <field name="trabajador_id"/>
+                <field name="serial_no"/>
+                <field name="model"/>
+                <field name="fecha_siguiente_mtto"/>
+                <field name="gestor_id"/>
+                <field name="usuario_gestor"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-tooltip">
+                        <ul class="oe_kanban_tooltip">
+                            <li t-if="record.serial_no.raw_value"><b>Número de Serie:</b>
+                                <t t-esc="record.serial_no.value"/></li>
+                            <li t-if="record.model.raw_value"><b>Número del Modelo:</b>
+                                <t t-esc="record.model.value"/></li>
+                        </ul>
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click">
+                            <div class="o_dropdown_kanban dropdown" t-if="!selection_mode">
+
+                                <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                                   data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <t t-if="widget.editable"><a role="menuitem" type="edit"
+                                                                 class="dropdown-item">Editar</a></t>
+                                    <t t-if="widget.deletable"><a role="menuitem" type="delete"
+                                                                  class="dropdown-item">Eliminar</a></t>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <div role="separator" class="dropdown-header">Color</div>
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_content" tooltip="kanban-tooltip">
+                                <div class="o_kanban_record_top">
+                                    <b class="o_kanban_record_title">
+                                        <span class="font-weight-bold">
+                                            <field name="name"/>
+                                        </span>
+                                        <small>
+                                            <span t-if="record.model.raw_value"> (<field name="model"/>)</span>
+                                        </small></b>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div t-if="record.serial_no.raw_value">No.Serie: <field name="serial_no"/></div>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div t-if="record.trabajador_id.raw_value">
+                                        <span class="font-weight-bold">
+                                            <field name="trabajador_id"/></span></div>
+
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div t-if="record.tarjeta.raw_value">
+                                        <span class="font-weight-bold text-danger">Tarjeta:
+                                            <field name="tarjeta"/>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <div class="badge badge-secondary"
+                                             t-if="record.fecha_siguiente_mtto.raw_value"> Siguiente Mtto:
+                                            <field name="fecha_siguiente_mtto"/>
+                                        </div>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <div class="o_kanban_inline_block" t-if="!selection_mode">
+                                            <field name="activity_ids" widget="kanban_activity"/>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field name="usuario_gestor" widget="many2one_avatar_user"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_clear"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="metrologia_equipamiento_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.metrologia.equipos.tree</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <tree string="Assign To User" decoration-bf="message_needaction==True">
+                <field name="message_needaction" invisible="1"/>
+                <field name="tarjeta"/>
+                <field name="name"/>
+                <!-- <field name="active" invisible="1"/> -->
+                <field name="trabajador_id"/>
+                <field name="fecha_alta" groups="base.group_no_one"/>
+                <field name="serial_no"/>
+                <field name="gestor_id"/>
+                <field name="company_id"/>
+                <field name="activity_exception_decoration" widget="activity_exception"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="metrologia_equipamiento_view_search" model="ir.ui.view">
+        <field name="name">sicpro.app.metrologia.equipos.search</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field string="Equipos" name="name" filter_domain="[
+                    '|', '|',
+                    ('name', 'ilike', self), ('model', 'ilike', self), ('serial_no', 'ilike', self)]"/>
+                <field name="trabajador_id"/>
+                <field name="area"/>
+                <field name="tarjeta"/>
+                <filter string="Mis equipos" name="my" domain="[('trabajador_id', '=', uid)]"/>
+                <filter string="Trabajador Asignado" name="assigned" domain="[('trabajador_id', '!=', False)]"/>
+                <filter string="Trabajador no Asignado" name="available" domain="[('trabajador_id', '=', False)]"/>
+                <separator/>
+                <filter string="Planificado" name="aviso_mtto" domain="[('aviso_mtto', '=', True)]"/>
+                <filter string="En Laboratorio" name="estado_laboratorio" domain="[('estado_laboratorio', '=', True)]"/>
+                <filter string="Sin Calibrar" name="estado_sin_calibrar" domain="[('estado_sin_calibrar', '=', True)]"/>
+                <filter string="Pendiente por Economía" name="transferencia_pendiente"
+                        domain="[('transferencia_pendiente', '=', True)]"/>
+                <separator/>
+                <filter string="Mensajes sin leer" name="message_needaction"
+                        domain="[('message_needaction','=',True)]"/>
+                <separator/>
+                <filter invisible="1" string="Late Activities" name="activities_overdue"
+                        domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
+                <filter invisible="1" string="Today Activities" name="activities_today"
+                        domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                        domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <group expand='0' string='Group by...'>
+                    <filter string='Gestor de Equipos' name="technicians" domain="[]"
+                            context="{'group_by': 'gestor_id'}"/>
+                    <filter string='Área' name="area" domain="[]" context="{'group_by': 'area'}"/>
+                    <filter string='Magnitud' name="magnitud" domain="[]" context="{'group_by': 'magnitud'}"/>
+                    <filter string='Trabajador' name="trabajador_id" domain="[]"
+                            context="{'group_by': 'trabajador_id'}"/>
+                    <filter string='Centro de Calibración' name="centro_calibracion" domain="[]"
+                            context="{'group_by': 'centro_calibracion'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="metrologia_equipamiento_view_graph" model="ir.ui.view">
+        <field name="name">sicpro.app.metrologia.equipos.graph</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <graph string="Solicitud de Mantenimiento">
+                <field name="gestor_id"/>
+                <field name="estado_id"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="metrologia_equipamiento_view_pivot" model="ir.ui.view">
+        <field name="name">sicpro.app.metrologia.equipos.pivot</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <pivot string="Solicitud de Mantenimiento">
+                <field name="gestor_id" type="row"/>
+                <field name="estado_id"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="metrologia_equipamiento_calendar" model="ir.ui.view">
+        <field name="name">sicpro.app.metrologia.equipos.calendar</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="arch" type="xml">
+            <calendar date_start="fecha_siguiente_mtto" color="gestor_id" event_limit="5">
+                <field name="gestor_id"/>
+                <field name="estado_id"/>
+                <field name="company_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="metrologia_equipamiento_action" model="ir.actions.act_window">
+        <field name="name">Equipos</field>
+        <field name="res_model">sicpro.app.metrologia.equipos</field>
+        <field name="view_mode">kanban,tree,form,pivot,graph,calendar</field>
+        <field name="context">{'default_equipo_mantenimiento_id': active_id, }</field>
+        <field name="domain">[('equipo_mantenimiento_id', '=', active_id), ]</field>
+        <field name="view_id" ref="metrologia_equipamiento_view_kanban"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar nuevo Equipo
+            </p>
+            <p>
+                Agregue los equipos y sus características para lograr un mejor control de los mismos.
+            </p>
+        </field>
+    </record>
+
+    <!-- Pantalla para ver calendario de equipamiento -->
+    <record id="metrologia_equipamiento_action_cal" model="ir.actions.act_window">
+        <field name="name">Equipamiento</field>
+        <field name="res_model">sicpro.app.metrologia.equipos</field>
+        <field name="view_mode">calendar,kanban,tree,form,pivot,graph</field>
+        <field name="view_id" ref="metrologia_equipamiento_calendar"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar Equipos
+            </p>
+        </field>
+    </record>
+
+    <!-- Pantalla para ver informes de equipamiento -->
+    <record id="metrologia_equipamiento_action_reports" model="ir.actions.act_window">
+        <field name="name">Reportes de Equipamiento</field>
+        <field name="res_model">sicpro.app.metrologia.equipos</field>
+        <field name="view_mode">graph,pivot,kanban,tree,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Ver Equipamiento
+            </p>
+        </field>
+    </record>
+
+
+    <!-- equiment : actions -->
+    <record id="hr_equipment_action_from_category_form" model="ir.actions.act_window">
+        <field name="name">Equipments</field>
+        <field name="res_model">sicpro.app.metrologia.equipos</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="metrologia_equipamiento_view_search"/>
+        <field name="view_id" ref="metrologia_equipamiento_view_kanban"/>
+        <field name="context">{'search_default_category_id': [active_id], 'default_category_id': active_id, }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new equipment
+            </p>
+            <p>
+                Track equipments and link it to an employee or department.
+                You will be able to manage allocations, issues and maintenance of your equipment.
+            </p>
+        </field>
+    </record>
+
+</odoo>

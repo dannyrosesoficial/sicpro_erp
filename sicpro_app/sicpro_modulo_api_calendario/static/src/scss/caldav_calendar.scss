@@ -1,0 +1,16 @@
+.o_calendar_sidebar {
+    .badge-primary {
+        background-color: $o-enterprise-primary-color;
+    }
+    .o_caldav_sync_button {
+        padding: 0;
+        cursor: pointer;
+        font-size: 0.9em;
+        color: white;
+        height: 2em;
+    }
+    .o_caldav_sync_button:hover {
+        background-color: #4c3668;
+        color: antiquewhite;
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Marketing / Contactos
+    <menuitem id="contacts.menu_contacts" parent="sicpro_app_administracion.sicpro_otros_menu"
+			   groups="base.group_user,base.group_partner_manager" sequence="1"/>
+ -->
+
+    <!-- Marketing / Rastreo de Enlaces
+	<menuitem id="utm.menu_link_tracker_root" parent="sicpro_app_administracion.sicpro_otros_menu"
+			   groups="base.group_no_one" sequence="2"/>
+
+	<menuitem id="menu_link_tracker_root_marketing" parent="sicpro_app_administracion.sicpro_otros_menu"
+			   groups="base.group_no_one" sequence="2" name="UTM-1"/>
+
+
+	    <menuitem id="menu_utm_campaign_act_marketing"
+        action="utm.utm_campaign_action" parent="menu_link_tracker_root_marketing"
+        sequence="1" groups="base.group_no_one"/>
+
+	    <menuitem id="menu_utm_medium_marketing"
+        action="utm.utm_medium_action" parent="menu_link_tracker_root_marketing"
+        sequence="5" groups="base.group_no_one"/>
+
+	    <menuitem id="menu_utm_source_marketing"
+        action="utm.utm_source_action" parent="menu_link_tracker_root_marketing"
+        sequence="10" groups="base.group_no_one"/>
+ -->
+</odoo>

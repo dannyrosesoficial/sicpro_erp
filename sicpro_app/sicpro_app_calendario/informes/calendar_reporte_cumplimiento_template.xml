@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="formato_papel_horizontal_calendario_cumplimiento" model="report.paperformat">
+            <field name="name">Papel Horizontal Calendario Cumplimiento</field>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+        </record>
+
+        <record id="calendar_plan_trabajo_cumplimiento_report_action" model="ir.actions.report">
+            <field name="name">Reporte de Cumplimiento del Plan de Trabajo</field>
+            <field name="model">calendar.cumplimiento.reporte</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="paperformat_id" ref="formato_papel_horizontal_calendario_cumplimiento"/>
+            <field name="report_name">sicpro_app_calendario.reporte_calendar_plan_trabajo_cumplimiento</field>
+            <field name="report_file">sicpro_app_calendario.reporte_calendar_plan_trabajo_cumplimiento</field>
+            <field name="print_report_name">'Reporte de Cumplimiento del Plan de Trabajo'</field>
+            <field name="binding_model_id" ref="model_calendar_cumplimiento_reporte"/>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+        <template id="reporte_calendar_plan_trabajo_cumplimiento">
+            <t t-call="web.html_container">
+
+                <!-- sección del header -->
+                <div t-attf-class="header" t-att-style="report_header_style">
+                    <div class="row">
+                        <div class="col-3 mb4">
+                            <img src="sicpro_app_calendario/static/src/img/etecsaId_300_8.png" style="max-height: 55px;"
+                                 alt="Logo"/>
+                        </div>
+                    </div>
+                    <div class="row zero_min_height">
+                        <div class="col-12">
+                            <div style="border-bottom: 1px solid black;"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <small> División de Proyectos y Ejecución de Obras</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- sección de los datos  -->
+                <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+
+                        <table cellspacing="0" border="0">
+                            <colgroup width="4"></colgroup>
+                            <colgroup width="194"></colgroup>
+                            <colgroup
+                                    width="106" span="2"></colgroup>
+                            <colgroup width="60"></colgroup>
+                            <colgroup
+                                    width="106"></colgroup>
+                            <colgroup width="4"></colgroup>
+                            <colgroup width="106"></colgroup>
+                            <colgroup width="60"></colgroup>
+                            <colgroup width="106" span="2"></colgroup>
+                            <colgroup width="60"></colgroup>
+                            <colgroup width="194"></colgroup>
+                            <tbody>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="10" valign="middle" height="18" align="center">
+                                        <b>
+                                            <font face="Arial">INFORME
+                                                DEL CUMPLIMIENTO DEL PLAN DE TRABAJO INDIVIDUAL DEL MES DE:
+                                            </font>
+                                        </b>
+                                    </td>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="3" valign="middle" align="center">
+                                        <b>
+                                            <font face="Arial"><span t-field="inf.mes"/> /
+                                                <span t-field="inf.anio"/>
+                                            </font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="13" valign="middle" height="18" align="center">
+                                        <b>RESUMEN CUANTITATIVO:
+                                        </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="13" valign="middle" height="18" align="center">
+                                        <br></br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #CCFFFF; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="2" valign="middle" height="42" align="center">
+                                        <b>
+                                            <font
+                                                    face="Arial">TOTAL TAREAS PLANIFICADAS
+                                            </font>
+                                        </b>
+                                    </td>
+                                    <td style="background-color: #CCFFFF; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="10" valign="middle" align="center">
+                                        <b>
+                                            <font
+                                                    face="Arial">DE ELLAS
+                                            </font>
+                                        </b>
+                                    </td>
+                                    <td style="background-color: #CCFFFF; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        valign="middle" align="center">
+                                        <b>
+                                            <font face="Arial">NUEVAS</font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <t t-set="tareas" t-value="inf.compute_cuenta_tareas()"/>
+                                <t t-foreach='tareas' t-as='evento'>
+                                    <tr>
+                                        <td style="background-color: #CCFFFF; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                            colspan="2" sdval="30" sdnum="9226;" valign="middle" height="27"
+                                            align="center">
+                                            <b>
+                                                <font face="Arial">
+                                                    <t t-out="evento['planificadas']"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                            colspan="2" valign="middle" align="center">
+                                            <b>
+                                                <font
+                                                        face="Arial">CUMPLIDAS:
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                            sdval="5" sdnum="9226;" valign="middle" align="center">
+                                            <b>
+                                                <font face="Arial">
+                                                    <t t-out="evento['cumplidas']"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                            colspan="3" valign="middle" align="center">
+                                            <b>
+                                                <font
+                                                        face="Arial">INCUMPLIDAS:
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                            sdval="76" sdnum="9226;" valign="middle" align="center">
+                                            <b>
+                                                <font face="Arial">
+                                                    <t t-out="evento['incumplidas']"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                            colspan="2" valign="middle" align="center">
+                                            <b>
+                                                <font
+                                                        face="Arial">MODIFICADAS:
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                            sdval="8" sdnum="9226;" valign="middle" align="center">
+                                            <b>
+                                                <font face="Arial">
+                                                    <t t-out="evento['modificadas']"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                        <td style="background-color: #CCFFFF; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                            sdval="10" sdnum="9226;" valign="middle" align="center">
+                                            <b>
+                                                <font face="Arial">
+                                                    <t t-out="evento['nuevas']"/>
+                                                </font>
+                                            </b>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td style="background-color: #CCFFFF; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="13" valign="middle" height="24" align="center">
+                                        <b>
+                                            <font
+                                                    face="Arial">TAREAS INCUMPLIDAS, MODIFICADAS Y NUEVAS.
+                                            </font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="6" valign="middle" height="18" align="center">
+                                        <b>
+                                            <font face="Arial">INCUMPLIDAS</font>
+                                        </b>
+                                    </td>
+                                    <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="7" valign="middle" align="center">
+                                        <b>
+                                            <font face="Arial">CAUSAS</font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <t t-set="actividades" t-value="inf.report_busca_actividades()"/>
+                                <t t-foreach='actividades' t-as='actividad'>
+                                    <t t-if="actividad['tipo'] == 'incumplidas'">
+                                        <tr>
+                                            <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" height="18" align="left">
+                                                <br></br>
+                                            </td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" colspan="5" valign="middle"
+                                                align="left">
+                                                <t t-out="actividad['evento']"/>
+                                            </td>
+                                            <td style="border-bottom: 1px solid #000000" align="left">
+                                                <br></br>
+                                            </td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" colspan="6" valign="middle"
+                                                align="left">
+                                                <t t-out="actividad['causa']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+                                <tr>
+                                    <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="6" valign="middle" height="18" align="center">
+                                        <b>
+                                            <font face="Arial">MODIFICADAS</font>
+                                        </b>
+                                    </td>
+                                    <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="7" valign="middle" align="center">
+                                        <b>
+                                            <font
+                                                    face="Arial">QUIEN LAS MODIFICO
+                                            </font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <t t-foreach='actividades' t-as='actividad'>
+                                    <t t-if="actividad['tipo'] == 'modificadas'">
+                                        <tr>
+                                            <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" height="18" align="left">
+                                                <br></br>
+                                            </td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" colspan="5" valign="middle"
+                                                align="left">
+                                                <t t-out="actividad['evento']"/>
+                                            </td>
+                                            <td style="border-bottom: 1px solid #000000" align="left">
+                                                <br></br>
+                                            </td>
+                                            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" colspan="6" valign="middle"
+                                                align="left">
+                                                <t t-foreach="actividad['usuarios']" t-as="usuarios">
+                                                    <span t-field="usuarios.name"/>
+                                                    <br></br>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+
+
+                                <tr>
+                                    <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="6" valign="middle" height="18" align="center">
+                                        <b>
+                                            <font
+                                                    face="Arial">NUEVAS
+                                            </font>
+                                        </b>
+                                    </td>
+                                    <td style="background-color: #FFFF99; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="7" valign="middle" align="center">
+                                        <b>
+                                            <font
+                                                    face="Arial">QUIEN LAS ORIGINO
+                                            </font>
+                                        </b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000"
+                                        height="18" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="5" valign="middle" align="left">Tareas nuevas (PENDIENTES)
+                                    </td>
+                                    <td style="border-bottom: 1px solid #000000" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="6" valign="middle" align="left">Origino (PENDIENTES)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000"
+                                        height="18" align="left">
+                                        <br></br>
+                                    </td>
+                                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000"
+                                        colspan="12" valign="middle" align="left">
+                                        <span t-field="inf.descripcion_cumplimiento"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+                <t t-out="0"/>
+
+                <!-- sección del footer -->
+                <div t-attf-class="footer o_standard_footer">
+                    <span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana,
+                        Cuba.
+                    </span>
+                    <div style="border-top: 1px solid black;">
+                        <ul class="list-inline mb4">
+                            <span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal
+                                10300,
+                                <i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu
+                            </span>
+                            <br/>
+                            <span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de
+                                Justicia de la República de Cuba.
+                                Tomo II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.
+                            </span>
+                        </ul>
+                        <div t-if="report_type == 'pdf'" class="text-center text-muted">
+                            Página:
+                            <span class="page"/>
+                            /
+                            <span class="topage"/>
+                        </div>
+                    </div>
+                </div>
+
+            </t>
+        </template>
+    </data>
+</openerp>

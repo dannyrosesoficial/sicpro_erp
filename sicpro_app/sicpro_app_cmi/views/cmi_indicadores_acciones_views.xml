@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="cmi_indicador_acciones_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.cmi.acciones.tree</field>
+        <field name="model">sicpro.app.cmi.acciones</field>
+        <field name="arch" type="xml">
+            <tree string="Acciones" default_order="id desc" editable="bottom" create="false" edit="false">
+                <field name="estado_terminado" invisible="1"/>
+                <field name="indicador_id"/>
+                <field name="name"/>
+                <field name="responsable_id" widget="many2one_avatar_user"/>
+                <field name="fecha_inicio" string="Inicio"/>
+                <field name="fecha_fin" string="Cumplimiento"/>
+                <field name="controla_id" widget="many2one_avatar_user" optional="hide"/>
+                <field name="modo_control" optional="hide"/>
+                <field name="participantes_ids" widget="many2many_tags" optional="hide"
+                       options="{'color_field': 'color', 'no_create_edit': True}"/>
+                <field name="estado_id" class="font-weight-bold"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="cmi_indicador_acciones_view_filter" model="ir.ui.view">
+       <field name="name">sicpro.app.cmi.acciones.filter</field>
+       <field name="model">sicpro.app.cmi.acciones</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Acciones">
+                <field name="name"/>
+                <field name="indicador_id"/>
+                <field name="estado_id"/>
+                <field name="anio"/>
+                <separator />
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                    <filter string="Año" name="anio" context="{'group_by':'anio'}"/>
+                    <filter string="Indicador" name="indicador_id" context="{'group_by':'indicador_id'}"/>
+                    <filter string="Estado" name="estado_id" context="{'group_by':'estado_id'}"/>
+                    <filter string="Fecha de Inicio" name="fecha_inicio" context="{'group_by':'fecha_inicio'}"/>
+                    <filter string="Fecha Fin" name="fecha_fin" context="{'group_by':'fecha_fin'}"/>
+                    <filter string="Responsables" name="responsable_id" context="{'group_by':'responsable_id'}"/>
+                </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="cmi_indicador_acciones_action" model="ir.actions.act_window">
+        <field name="name">Registro de Acciones de los Indicadores</field>
+        <field name="res_model">sicpro.app.cmi.acciones</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="cmi_indicador_acciones_view_filter"/>
+        <field name="view_id" ref="cmi_indicador_acciones_view_tree"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+            id="transferencias_menu_root" name="Transferencias"
+            web_icon="sicpro_app_transferencias_gastos,static/description/icon.png" sequence="6"
+            groups="grupo_transferencias_visualizar"/>
+
+    <!--Inicio: Menu Dashboard-->
+    <record id="menu_transferencias_dashboard_action" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">sicpro_dashboard_view</field>
+        <field name="context">{'nombre_modelo_dashboard': 'sicpro.app.transferencias'}</field>
+    </record>
+    <menuitem id="menu_transferencias_dashboard" name="Dashboard"
+              parent="transferencias_menu_root" action="menu_transferencias_dashboard_action" sequence="1"/>
+    <!--Fin: Menu Dashboard-->
+
+
+    <menuitem id="transferencias_menu_operaciones" name="Operaciones" parent="transferencias_menu_root" sequence="2"/>
+
+    <menuitem id="menu_transferencias_sincronizar" name="Plantilla CJ74 SAP" parent="transferencias_menu_operaciones"
+              action="transferencias_gastos_importar_action" sequence="1"
+              groups="grupo_transferencias_economia,grupo_transferencias_admin"/>
+
+    <menuitem id="menu_transferencias_sap" name="Gastos para Transferencias" parent="transferencias_menu_operaciones"
+              action="transferencias_gastos_action" sequence="2"/>
+
+
+    <menuitem id="transferencias_menu_ordenes" name="Ordenes" parent="transferencias_menu_root" sequence="2"/>
+
+    <menuitem id="menu_transferencias_ordenes_ejecutoras" name="Gastos de Órdenes" parent="transferencias_menu_ordenes"
+              action="transferencias_ordenes_gastos_action" sequence="1"/>
+
+
+    <menuitem id="trasferencias_menu_report" name="Informes" parent="transferencias_menu_root" sequence="6"/>
+
+    <menuitem id="menu_transferencias_historial_ajustes" name="Historial de Ajuste de Gastos" sequence="1"
+              parent="trasferencias_menu_report" action="transferencias_ajustes_cj74_historial_action"/>
+
+    <menuitem id="menu_transferencias_reporte_clase_coste_periodos" name="Análisis de Clases de Coste por Periodos"
+              sequence="2" parent="trasferencias_menu_report"
+              action="transferencias_periodos_clase_coste_views_action"/>
+
+    <menuitem id="menu_transferencias_reporte_contabilizado_periodos" name="Análisis de Gastos Contabilizados por Procesos"
+              sequence="3" parent="trasferencias_menu_report"
+              action="transferencias_contabilizado_views_action"/>
+
+    <menuitem id="menu_transferencias_reporte_pendiente_contabilizar" name="Análisis de Gastos Pendientes por Contabilizar"
+              sequence="4" parent="trasferencias_menu_report"
+              action="transferencias_pendiente_contabilizar_views_action"/>
+
+        <menuitem id="menu_transferencias_reporte_pendiente_procesos" name="Análisis de Gastos Pendientes por los Procesos"
+              sequence="4" parent="trasferencias_menu_report"
+              action="transferencias_pendiente_procesos_views_action"/>
+
+
+    <menuitem id="transferencias_menu_config" name="Configuración"
+              parent="transferencias_menu_root" sequence="25" groups="grupo_transferencias_responsable"/>
+
+    <menuitem id="menu_transferencias_estados" name="Estados de Gastos Órdenes" sequence="1"
+              action="transferencias_ordenes_estados_action" parent="transferencias_menu_config"
+              groups="grupo_transferencias_admin"/>
+
+    <menuitem id="menu_transferencias_cuentas" name="Cuentas de Gastos" sequence="2"
+              action="transferencias_cuentas_gastos_action" parent="transferencias_menu_config"/>
+
+        <menuitem id="menu_transferencias_morosidad" name="Periodo de gestión de Gastos" sequence="3"
+              action="transferencias_ordenes_morosidad_action" parent="transferencias_menu_config"/>
+
+
+
+</odoo>

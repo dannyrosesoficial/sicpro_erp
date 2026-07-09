@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model='ir.ui.view' id='plantilla_documentos_form_view'>
+        <field name="name">sicpro.app.trabajadores.documentos.plantillas.form</field>
+        <field name="model">sicpro.app.trabajadores.documentos.plantillas</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="attach_id" widget="many2many_binary" class="oe_inline"/>
+                        </group>
+                        <group>
+                            <field name="notas"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model='ir.ui.view' id='plantilla_documentos_tree_view'>
+        <field name="name">sicpro.app.trabajadores.documentos.plantillas.tree</field>
+        <field name="model">sicpro.app.trabajadores.documentos.plantillas</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="notas" string="Note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="plantilla_documentos_action" model="ir.actions.act_window">
+        <field name="name">Plantillas de Documentos</field>
+        <field name="res_model">sicpro.app.trabajadores.documentos.plantillas</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Crear una nuena plantilla documental
+            </p>
+        </field>
+    </record>
+
+</odoo>

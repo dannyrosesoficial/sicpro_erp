@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_timeout</OriginalElement>
+  <nodes>
+    <node x="729.8530092592594" y="282.5">typing.Sequence</node>
+    <node x="1090.582175925926" y="348.5">typing.Sized</node>
+    <node x="1241.582175925926" y="304.0">odoo.models.MetaModel</node>
+    <node x="964.8321759259261" y="6051.5">sicpro_modulo_timeout.models.ir_http.IrHttp</node>
+    <node x="1513.582175925926" y="337.5">typing.Iterator</node>
+    <node x="479.83564814814827" y="3329.0">AbstractModel</node>
+    <node x="1685.582175925926" y="348.5">typing.Iterable</node>
+    <node x="625.0000000000001" y="6202.0">sicpro_modulo_timeout.models.res_users.ResUsers</node>
+    <node x="508.83564814814827" y="6030.0">odoo.models.Model</node>
+    <node x="1858.582175925926" y="348.5">typing.Container</node>
+    <node x="549.3356481481483" y="0.0">typing.Hashable</node>
+    <node x="0.0" y="6213.0">sicpro_modulo_timeout.models.ir_config_parameter.IrConfigParameter</node>
+    <node x="690.3321759259261" y="709.0">odoo.models.BaseModel</node>
+    <node x="419.33564814814827" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="1971.082175925926" y="3344.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.50035185185175" y="0.0" />
+      <point x="713.0" y="376.5" />
+      <point x="713.0" y="88.5" />
+      <point x="630.836" y="88.5" />
+      <point x="3.518518517466873E-4" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-362.97916666666674" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="-1.759259259870305E-4" y="-2635.5" />
+      <point x="1261.832" y="488.0" />
+      <point x="713.0" y="488.0" />
+      <point x="713.0" y="88.5" />
+      <point x="630.836" y="88.5" />
+      <point x="3.518518517466873E-4" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="327.75" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="105.75" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="500.25" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_timeout.models.ir_config_parameter.IrConfigParameter" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-61.5" />
+      <point x="302.5" y="6177.0" />
+      <point x="604.836" y="6177.0" />
+      <point x="3.518518517466873E-4" y="61.0" />
+    </edge>
+    <edge source="AbstractModel" target="object" relationship="REALIZATION">
+      <point x="77.00035185185175" y="0.0" />
+      <point x="663.0" y="3344.5" />
+      <point x="663.0" y="3311.5" />
+      <point x="556.836" y="3311.5" />
+      <point x="3.518518517466873E-4" y="270.5" />
+    </edge>
+    <edge source="sicpro_modulo_timeout.models.ir_http.IrHttp" target="AbstractModel" relationship="REALIZATION">
+      <point x="-1.759259259870305E-4" y="-39.5" />
+      <point x="1162.832" y="6005.0" />
+      <point x="556.836" y="6005.0" />
+      <point x="3.518518517466873E-4" y="15.5" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="96.00035185185175" y="0.0" />
+      <point x="833.0" y="6091.0" />
+      <point x="833.0" y="6034.0" />
+      <point x="1261.832" y="6034.0" />
+      <point x="-1.759259259870305E-4" y="2635.5" />
+    </edge>
+    <edge source="sicpro_modulo_timeout.models.res_users.ResUsers" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-1.1368683772161603E-13" y="-72.5" />
+      <point x="847.5" y="6177.0" />
+      <point x="604.836" y="6177.0" />
+      <point x="3.518518517466873E-4" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_timeout.models.ir_http.IrHttp" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="-198.0001759259261" y="0.0" />
+      <point x="833.0" y="6091.0" />
+      <point x="833.0" y="6034.0" />
+      <point x="1261.832" y="6034.0" />
+      <point x="-1.759259259870305E-4" y="2635.5" />
+    </edge>
+    <edge source="odoo.models.Model" target="AbstractModel" relationship="REALIZATION">
+      <point x="3.518518517466873E-4" y="-61.0" />
+      <point x="604.836" y="6005.0" />
+      <point x="556.836" y="6005.0" />
+      <point x="3.518518517466873E-4" y="15.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-105.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="-571.5001759259261" y="0.0" />
+      <point x="663.0" y="3344.5" />
+      <point x="663.0" y="3311.5" />
+      <point x="556.836" y="3311.5" />
+      <point x="3.518518517466873E-4" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.13271556463012407" showDependencies="false" x="1042.0" y="3173.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

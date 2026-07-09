@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_auditorias</OriginalElement>
+  <nodes>
+    <node x="967.5625" y="282.5">typing.Sequence</node>
+    <node x="1325.5625" y="348.5">typing.Sized</node>
+    <node x="1476.5625" y="304.0">odoo.models.MetaModel</node>
+    <node x="930.5" y="6202.0">sicpro_modulo_auditorias.models.rule.AuditlogRule</node>
+    <node x="1748.5625" y="337.5">typing.Iterator</node>
+    <node x="2415.46875" y="3217.0">sicpro_modulo_auditorias.models.rule.DictDiffer</node>
+    <node x="3124.5" y="6466.0">sicpro_modulo_auditorias.models.log.AuditlogLogLine</node>
+    <node x="1920.5625" y="348.5">typing.Iterable</node>
+    <node x="479.5" y="6422.0">sicpro_modulo_auditorias.models.log.AuditlogLog</node>
+    <node x="2513.5" y="6455.0">sicpro_modulo_auditorias.models.http_request.AuditlogHTTPRequest</node>
+    <node x="1708.25" y="6030.0">odoo.models.Model</node>
+    <node x="0.0" y="7079.0">sicpro_modulo_auditorias.models.autovacuum.AuditlogAutovacuum</node>
+    <node x="1906.5" y="6488.0">sicpro_modulo_auditorias.models.http_session.AuditlogtHTTPSession</node>
+    <node x="114.5" y="6521.0">odoo.models.TransientModel</node>
+    <node x="2093.5625" y="348.5">typing.Container</node>
+    <node x="2469.46875" y="0.0">typing.Hashable</node>
+    <node x="1232.75" y="709.0">odoo.models.BaseModel</node>
+    <node x="2487.46875" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.5" />
+      <point x="287.0" y="6177.0" />
+      <point x="1804.25" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="214.3125" y="-2635.5" />
+      <point x="2018.5625" y="668.0" />
+      <point x="2206.0625" y="668.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="-500.0625" y="-2635.5" />
+      <point x="1304.1875" y="688.0" />
+      <point x="1136.5625" y="688.0" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="0.0" y="-270.5" />
+      <point x="2624.96875" y="81.0" />
+      <point x="2550.96875" y="81.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="357.1875" y="-2635.5" />
+      <point x="2161.4375" y="678.0" />
+      <point x="2329.0625" y="678.0" />
+      <point x="2329.0625" y="81.0" />
+      <point x="2550.96875" y="81.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-71.4375" y="-2635.5" />
+      <point x="1732.8125" y="688.0" />
+      <point x="1824.5625" y="688.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="sicpro_modulo_auditorias.models.http_session.AuditlogtHTTPSession" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-127.5" />
+      <point x="2200.0" y="6177.0" />
+      <point x="1804.25" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-214.3125" y="-2635.5" />
+      <point x="1589.9375" y="688.0" />
+      <point x="1602.5625" y="688.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="71.4375" y="-2635.5" />
+      <point x="1875.6875" y="688.0" />
+      <point x="1997.0625" y="688.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_auditorias.models.autovacuum.AuditlogAutovacuum" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-50.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="sicpro_modulo_auditorias.models.log.AuditlogLog" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-193.5" />
+      <point x="695.0" y="6177.0" />
+      <point x="1804.25" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_auditorias.models.http_request.AuditlogHTTPRequest" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-160.5" />
+      <point x="2809.0" y="6177.0" />
+      <point x="1804.25" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_modulo_auditorias.models.rule.DictDiffer" target="object" relationship="REALIZATION">
+      <point x="0.0" y="-127.5" />
+      <point x="0.0" y="270.5" />
+    </edge>
+    <edge source="sicpro_modulo_auditorias.models.rule.AuditlogRule" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-413.5" />
+      <point x="1408.5" y="6177.0" />
+      <point x="1804.25" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_auditorias.models.log.AuditlogLogLine" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-149.5" />
+      <point x="3356.5" y="6177.0" />
+      <point x="1804.25" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-357.1875" y="-2635.5" />
+      <point x="1447.0625" y="688.0" />
+      <point x="1391.0625" y="688.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="500.0625" y="-2635.5" />
+      <point x="2304.3125" y="688.0" />
+      <point x="2624.96875" y="688.0" />
+      <point x="0.0" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.0825" showDependencies="false" x="1794.5" y="3590.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

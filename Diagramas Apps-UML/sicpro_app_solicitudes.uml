@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_app_solicitudes</OriginalElement>
+  <nodes>
+    <node x="7061.5" y="7720.5">sicpro_app_solicitudes.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador</node>
+    <node x="3782.0000000000005" y="348.5">typing.Sized</node>
+    <node x="3933.0000000000005" y="304.0">odoo.models.MetaModel</node>
+    <node x="4205.0" y="337.5">typing.Iterator</node>
+    <node x="4377.0" y="348.5">typing.Iterable</node>
+    <node x="4547.0" y="6030.0">odoo.models.Model</node>
+    <node x="3931.5000000000005" y="7610.5">sicpro_app_solicitudes.models.sicpro_app_solicitudes_estado.SolicitudesEstados</node>
+    <node x="2353.5000000000005" y="7665.0">odoo.models.TransientModel</node>
+    <node x="4623.5" y="6202.0">sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.SolicitudesOportunidades</node>
+    <node x="6159.5" y="6851.5">sicpro_app_solicitudes.models.sicpro_app_solicitudes_tabla_oportunidades.SolicitudesTablaOportunidades</node>
+    <node x="5283.0" y="0.0">typing.Hashable</node>
+    <node x="4071.5000000000005" y="709.0">odoo.models.BaseModel</node>
+    <node x="4550.0" y="282.5">typing.Sequence</node>
+    <node x="3201.5000000000005" y="7698.5">sicpro_app_solicitudes.models.sicpro_app_solicitudes_rechazo.SolicitudesRechazadas</node>
+    <node x="2718.5000000000005" y="7709.5">sicpro_app_solicitudes.models.res_company.Company</node>
+    <node x="3636.0000000000005" y="9400.0">sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.CanceladasT2</node>
+    <node x="4351.0" y="9400.0">sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.CanceladasT3</node>
+    <node x="4908.0" y="348.5">typing.Container</node>
+    <node x="1459.0000000000005" y="9400.0">sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.RechazadasT3</node>
+    <node x="2895.0000000000005" y="9367.0">sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.GrupoEjecutorT4</node>
+    <node x="2177.0000000000005" y="9400.0">sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.RechazadasT5</node>
+    <node x="741.0000000000005" y="9400.0">sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.RechazadasT4</node>
+    <node x="0.0" y="9389.0">sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.GrupoEjecutorT5</node>
+    <node x="5433.5" y="7687.5">sicpro_app_solicitudes.models.sicpro_app_solicitudes_etiquetas.SolicitudesEtiquetas</node>
+    <node x="5153.0" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-362.0" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="-563.9999999999995" y="-2635.5" />
+      <point x="20.0" y="72.5" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.RechazadasT3" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-61.5" />
+      <point x="1808.0" y="9342.0" />
+      <point x="2526.0" y="9342.0" />
+      <point x="-4.547473508864641E-13" y="94.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="-189.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_tabla_oportunidades.SolicitudesTablaOportunidades" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-908.0" />
+      <point x="6600.5" y="6177.0" />
+      <point x="4643.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.GrupoEjecutorT4" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-94.5" />
+      <point x="3255.5" y="9342.0" />
+      <point x="2526.0" y="9342.0" />
+      <point x="-4.547473508864641E-13" y="94.5" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.SolicitudesOportunidades" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-1557.5" />
+      <point x="5018.5" y="6177.0" />
+      <point x="4643.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.RechazadasT5" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-61.5" />
+      <point x="-4.547473508864641E-13" y="94.5" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.GrupoEjecutorT5" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-72.5" />
+      <point x="360.5" y="9342.0" />
+      <point x="2526.0" y="9342.0" />
+      <point x="-4.547473508864641E-13" y="94.5" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.RechazadasT4" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-61.5" />
+      <point x="1090.0" y="9342.0" />
+      <point x="2526.0" y="9342.0" />
+      <point x="-4.547473508864641E-13" y="94.5" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_estado.SolicitudesEstados" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-149.0" />
+      <point x="4267.5" y="6892.0" />
+      <point x="3465.5" y="6892.0" />
+      <point x="3465.5" y="6177.0" />
+      <point x="4643.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.dashboard_extendido_identificador.DashboardExtendidoIdentificador" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="7477.0" y="6177.0" />
+      <point x="4643.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="-571.4999999999995" y="0.0" />
+      <point x="3847.5000000000005" y="3344.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.TransientModel" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-94.5" />
+      <point x="2526.0" y="6892.0" />
+      <point x="3465.5" y="6892.0" />
+      <point x="3465.5" y="6177.0" />
+      <point x="4643.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="377.5" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="76.0" y="-2635.5" />
+      <point x="0.0" y="94.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="0.0" />
+      <point x="5452.0" y="376.5" />
+      <point x="5452.0" y="88.5" />
+      <point x="5364.5" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="5452.0" y="3344.5" />
+      <point x="5452.0" y="88.5" />
+      <point x="5364.5" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_etiquetas.SolicitudesEtiquetas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="5786.5" y="6177.0" />
+      <point x="4643.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.CanceladasT2" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-61.5" />
+      <point x="3983.5" y="9342.0" />
+      <point x="2526.0" y="9342.0" />
+      <point x="-4.547473508864641E-13" y="94.5" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.res_company.Company" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-4.547473508864641E-13" y="-50.0" />
+      <point x="2950.0" y="6892.0" />
+      <point x="3465.5" y="6892.0" />
+      <point x="3465.5" y="6177.0" />
+      <point x="4643.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_oportunidades.CanceladasT3" target="odoo.models.TransientModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.5" />
+      <point x="4698.5" y="9342.0" />
+      <point x="2526.0" y="9342.0" />
+      <point x="-4.547473508864641E-13" y="94.5" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_app_solicitudes.models.sicpro_app_solicitudes_rechazo.SolicitudesRechazadas" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="-106.00000000000045" y="-61.0" />
+      <point x="3450.5" y="6892.0" />
+      <point x="3465.5" y="6892.0" />
+      <point x="3465.5" y="6177.0" />
+      <point x="4643.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="564.0" y="-2635.5" />
+      <point x="-83.5" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.06390977443609022" showDependencies="false" x="3946.5" y="4778.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+

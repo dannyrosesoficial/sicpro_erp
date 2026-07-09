@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="web_mantenimiento_tree_view">
+            <field name="name">sicpro.modulo.web.mantenimiento.tree</field>
+            <field name="model">sicpro.modulo.web.mantenimiento</field>
+            <field name="arch" type="xml">
+                <tree string="Versión" editable="bottom">
+                    <field name="name"/>
+                    <field name="activar_mantenimiento" widget="boolean_toggle"/>
+                    <field name="fecha_activacion" required="1"/>
+                    <field name="servidor_ldap" required="1"/>
+                    <field name="servidor_correo_entrante" required="1"/>
+                    <field name="servidor_correo_saliente" required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="web_mantenimiento_action" model="ir.actions.act_window">
+            <field name="name">Modo de Mantenimiento</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.modulo.web.mantenimiento</field>
+            <field name="view_id" ref="web_mantenimiento_tree_view"/>
+            <field name="view_mode">tree</field>
+        </record>
+
+    </data>
+</odoo>

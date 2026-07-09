@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<record id="informe_credencial_pvc_action" model="ir.actions.report">
+		<field name="name">Credencial PVC</field>
+		<field name="model">sicpro.app.credenciales</field>
+		<field name="report_type">qweb-pdf</field>
+		<field name="report_name">sicpro_app_credenciales.informe_credencial_pvc</field>
+		<field name="report_file">sicpro_app_credenciales.informe_credencial_pvc</field>
+		<field name="print_report_name">'Credencial pvc'</field>
+		<field name="binding_model_id" ref="model_sicpro_app_credenciales"/>
+		<field name="binding_type">report</field>
+	</record>
+
+
+	<template id="informe_credencial_pvc">
+		<!-- Página credencial pvc -->
+		<t t-call="web.html_container">
+			<div t-attf-class="article">
+				<div class="pase-contenedor">
+					<t t-set="i" t-value="0"/>
+					<t t-foreach="docs" t-as="inf">
+						<t t-set="i" t-value="i+1"/>
+						<t t-call="sicpro_app_credenciales.credencial_pvc_front"/>
+						<script>
+							if(document.getElementsByClassName("pase-contenedor")[0]){
+							document.body.parentElement.className=(document.body.parentElement.className + " pase-body")
+							document.body.className=(document.body.className + " pase-body")
+							}
+						</script>
+						<t t-if="i == 1">
+							<t t-set="i" t-value="0"/>
+							<div style="page-break-before: always;"/>
+						</t>
+						<t t-set="i" t-value="i+1"/>
+						<t t-call="sicpro_app_credenciales.credencial_pvc_back"/>
+						<t t-if="i == 1">
+							<t t-set="i" t-value="0"/>
+							<div style="page-break-before: always;"/>
+						</t>
+					</t> 
+				</div>	
+			</div>
+		</t>
+	</template>
+
+	<template id="credencial_pvc_front">
+		<div class="pase-front-back">
+			<!-- 455px -->
+			<div t-attf-class="pase-base pase-front pase-color-bordes-{{ 'permanente' if 'PERMANENTE' in inf.tipo_credencial.name else 'constructor' if 'CONSTRUCTOR' in inf.tipo_credencial.name else 'especial' if 'ESPECIAL' in inf.tipo_credencial.name else 'provisional' }}">
+
+				<div class="pase-lateral-tipo-credencial">
+					<b><h1 class="pase-tipo-credencial-data" t-field="inf.tipo_credencial"/></b>
+				</div>
+				<div class="pase-front-upper-seccion">
+					<div class="pase-imagen-contenedor">
+						<span t-field="inf.credencial_image_1920" t-options='{"widget": "image", "style": "min-height: 505.26px; min-width: 524.38px; max-height: 505.26px; max-width: 524.38px"}' class="pase-imagen"/>
+					</div>
+					<div class="pase-logo-etecsa-contenedor">
+						<img alt="Logo" src="sicpro_app_credenciales/static/src/img/etecsaId_300_8.png" width="606.32px" height="205.26px"/>
+					</div>
+					<div class="pase-numero-credencial-contenedor">
+						<t t-if="'PERMANENTE' in inf.tipo_credencial.name">
+							<h1 class="pase-numero-credencial-data" t-field="inf.no_credencial_permanente"/>
+						</t>
+						<t t-if="'CONSTRUCTOR' in inf.tipo_credencial.name">
+							<h1 class="pase-numero-credencial-data" t-field="inf.no_credencial_constructores"/>
+						</t>
+						<t t-if="'ESPECIAL' in inf.tipo_credencial.name">
+							<h1 class="pase-numero-credencial-data" t-field="inf.no_credencial_especial"/>
+						</t>
+						<t t-if="'PROVISIONAL' in inf.tipo_credencial.name">
+							<h1 class="pase-numero-credencial-data" t-field="inf.no_credencial_provisional"/>
+						</t>
+					</div>
+				</div>
+				<div class="pase-front-lower-seccion">
+					<div class="pase-front-lower-first-seccion">
+						<div class="pase-front-nombre-contenedor"><h1 class="pase-front-nombre-data" t-field="inf.name_corto"/></div>
+						<div class="pase-front-nombre-label-contenedor"><p class="pase-front-nombre-label-data">NOMBRES Y APELLIDOS</p></div>
+					</div>
+					<div class="pase-front-lower-last-seccion">
+						<div class="pase-front-lower-last-seccion-left">
+							<t t-if="inf.personal_externo==True">
+								<div class="pase-front-lower-last-seccion-left-up"><h3 class="pase-front-carnet-data"
+																					   t-field="inf.especial_identification_id"/></div>
+							</t>
+							<t t-else="">
+								<div class="pase-front-lower-last-seccion-left-up"><h3 class="pase-front-carnet-data"
+																					   t-field="inf.identification_id"/></div>
+							</t>
+							<div class="pase-front-lower-last-seccion-left-down"><p class="pase-front-carnet-label">
+								NUMERO CARNET DE IDENTIDAD</p></div>
+						</div>
+						<div class="pase-front-lower-last-seccion-right">
+							<div t-attf-class="pase-front-alcance-bordes pase-color-bordes-{{ 'permanente' if 'PERMANENTE' in inf.tipo_credencial.name else 'constructor' if 'CONSTRUCTOR' in inf.tipo_credencial.name else 'especial' if 'ESPECIAL' in inf.tipo_credencial.name else 'provisional' }}"><h1 class="pase-front-alcance-data" t-field="inf.alcance_credencial"/></div>
+							<div t-attf-class="pase-front-siglas-bordes pase-color-bordes-{{ 'permanente' if 'PERMANENTE' in inf.tipo_credencial.name else 'constructor' if 'CONSTRUCTOR' in inf.tipo_credencial.name else 'especial' if 'ESPECIAL' in inf.tipo_credencial.name else 'provisional' }}"><h1 class="pase-front-siglas-data" t-field="inf.siglas_credencial"/></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="credencial_pvc_back">
+		<div class="pase-front-back">
+			<div t-attf-class="pase-base pase-color-bordes-{{ 'permanente' if 'PERMANENTE' in inf.tipo_credencial.name else 'constructor' if 'CONSTRUCTOR' in inf.tipo_credencial.name else 'especial' if 'ESPECIAL' in inf.tipo_credencial.name else 'provisional' }}">
+				<t t-set="colores_triangulo_back" t-value="'provisional'"/>
+				<t t-if="'PERMANENTE' in inf.tipo_credencial.name">
+					<t t-set="colores_triangulo_back" t-value="'permanente'"/>
+				</t>
+				<t t-if="'CONSTRUCTORES' in inf.tipo_credencial.name">
+					<t t-set="colores_triangulo_back" t-value="'CONSTRUCTOR'"/>
+				</t>
+				<t t-if="'ESPECIAL' in inf.tipo_credencial.name">
+					<t t-set="colores_triangulo_back" t-value="'especial'"/>
+				</t>
+				<img alt="triángulo transparente" t-attf-src="sicpro_app_credenciales/static/src/img/{{ colores_triangulo_back }}-triangulo-derecha.png" class ="triangulo-derecha "/>
+				<h6 class="accesos">ACCESOS:</h6>
+				<div class="accesos-contenedor">
+					<u><h1 class="accesos-data" t-field="inf.accesos_credencial"/></u>
+				</div>
+				<div class="firma-contenedor">
+					<p class="firma-data">FIRMA AUTORIZADA</p>
+				</div>
+				<div class="valido-contenedor">
+					<t t-if="'PERMANENTE' not in inf.tipo_credencial.name and 'CONSTRUCTOR' not in inf.tipo_credencial.name">
+						<div class="valido-label"><p class="valido-label-data">VÁLIDO HASTA:</p></div>
+						<div class="valido-data-contendor"><p class="valido-data" t-field="inf.fecha_valida"/></div>
+					</t>
+				</div>
+			</div>
+		</div>
+	</template>
+</odoo>

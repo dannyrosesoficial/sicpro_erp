@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="vivienda_proveedor_search" model="ir.ui.view">
+        <field name="name">sicpro.app.vivienda.proveedor.search</field>
+        <field name="model">sicpro.app.vivienda.proveedor</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="vivienda_proveedor_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.vivienda.proveedor.tree</field>
+        <field name="model">sicpro.app.vivienda.proveedor</field>
+        <field name="arch" type="xml">
+            <tree string="Proveedor" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="vivienda_proveedor_action" model="ir.actions.act_window">
+        <field name="name">Proveedores</field>
+        <field name="res_model">sicpro.app.vivienda.proveedor</field>
+        <field name="view_id" ref="vivienda_proveedor_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo proveedor
+            </p>
+        </field>
+    </record>
+
+</odoo>

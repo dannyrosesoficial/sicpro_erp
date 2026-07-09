@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/home/daniel.borrero/SICPROERP/MESA_DE_LUZ/Odoo15/sicpro-erp/apps/sicpro_modulo_nomencladores</OriginalElement>
+  <nodes>
+    <node x="5875.25" y="282.5">typing.Sequence</node>
+    <node x="0.0" y="6246.0">sicpro_modulo_nomencladores.models.res_municipality.Municipality</node>
+    <node x="4621.0" y="6257.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_territorios.EstadosTerritorios</node>
+    <node x="5724.25" y="348.5">typing.Sized</node>
+    <node x="5452.25" y="304.0">odoo.models.MetaModel</node>
+    <node x="9545.0" y="6312.0">sicpro_modulo_nomencladores.models.res_partner.Partner</node>
+    <node x="6135.0" y="6279.0">sicpro_modulo_nomencladores.models.sicpro_nomeclador_problemas_ejecucion.EstadosProblemasEjecucion</node>
+    <node x="3121.9999999999995" y="6290.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_anios.NomencladorAnios</node>
+    <node x="7761.0" y="6257.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_departamento.NomencladorDepartamentos</node>
+    <node x="5280.25" y="337.5">typing.Iterator</node>
+    <node x="10073.0" y="6301.0">sicpro_modulo_nomencladores.models.res_state.State</node>
+    <node x="5107.25" y="348.5">typing.Iterable</node>
+    <node x="5390.0" y="6246.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_local.NomencladorLocales</node>
+    <node x="2293.9999999999995" y="6268.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_tipos_ordenes.EstadosTiposOrdenes</node>
+    <node x="5278.0" y="6030.0">odoo.models.Model</node>
+    <node x="3855.9999999999995" y="6279.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_trimestre.EstadosTrimestres</node>
+    <node x="597.0" y="6257.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_centro_costo.NomencladorCentroCosto</node>
+    <node x="7055.0" y="6279.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_meses.EstadosMeses</node>
+    <node x="1450.9999999999995" y="6202.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_especialidad.NomencladorEspecialidad</node>
+    <node x="4862.25" y="348.5">typing.Container</node>
+    <node x="4696.25" y="0.0">typing.Hashable</node>
+    <node x="8648.0" y="6279.0">sicpro_modulo_nomencladores.models.sicpro_nomenclador_cuentas_contables.EstadosCuentasContables</node>
+    <node x="4802.5" y="709.0">odoo.models.BaseModel</node>
+    <node x="4566.25" y="106.0">object</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="odoo.models.BaseModel" target="typing.Container" relationship="INTERFACE">
+      <point x="-399.25" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_meses.EstadosMeses" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="7398.0" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="object" target="typing.Hashable" relationship="INTERFACE">
+      <point x="137.5" y="-174.5" />
+      <point x="4866.0" y="202.0" />
+      <point x="4866.0" y="88.5" />
+      <point x="4777.75" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sequence" relationship="INTERFACE">
+      <point x="564.0" y="-2635.5" />
+      <point x="-106.25" y="94.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Hashable" relationship="INTERFACE">
+      <point x="571.5" y="0.0" />
+      <point x="6600.0" y="3344.5" />
+      <point x="6600.0" y="202.0" />
+      <point x="4866.0" y="202.0" />
+      <point x="4866.0" y="88.5" />
+      <point x="4777.75" y="88.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterator" relationship="INTERFACE">
+      <point x="-17.75" y="-2635.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_cuentas_contables.EstadosCuentasContables" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="9086.5" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="odoo.models.MetaModel" relationship="INSTANCEOF">
+      <point x="204.25" y="-2635.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Iterable" relationship="INTERFACE">
+      <point x="-190.25" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_especialidad.NomencladorEspecialidad" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.547473508864641E-13" y="-149.0" />
+      <point x="1862.5" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_territorios.EstadosTerritorios" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.0" />
+      <point x="4995.5" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_departamento.NomencladorDepartamentos" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.0" />
+      <point x="8194.5" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_trimestre.EstadosTrimestres" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="4228.5" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.Model" target="odoo.models.BaseModel" relationship="REALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="2635.5" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.res_municipality.Municipality" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-105.0" />
+      <point x="288.5" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_tipos_ordenes.EstadosTiposOrdenes" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.547473508864641E-13" y="-83.0" />
+      <point x="2698.0" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_local.NomencladorLocales" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-105.0" />
+      <point x="5752.5" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomeclador_problemas_ejecucion.EstadosProblemasEjecucion" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="6585.0" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.res_state.State" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-50.0" />
+      <point x="10308.0" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_centro_costo.NomencladorCentroCosto" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-94.0" />
+      <point x="1014.0" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.sicpro_nomenclador_anios.NomencladorAnios" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="4.547473508864641E-13" y="-61.0" />
+      <point x="3479.0" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="sicpro_modulo_nomencladores.models.res_partner.Partner" target="odoo.models.Model" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="9799.0" y="6177.0" />
+      <point x="5374.0" y="6177.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="typing.Sized" relationship="INTERFACE">
+      <point x="415.75" y="-2635.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="odoo.models.BaseModel" target="object" relationship="REALIZATION">
+      <point x="-564.0" y="-2635.5" />
+      <point x="106.25" y="270.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.12960122699386503" showDependencies="false" x="5271.5" y="3250.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+</Diagram>
+
