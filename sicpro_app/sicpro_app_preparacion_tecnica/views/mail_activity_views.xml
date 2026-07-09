@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="preparacion_tecnica_tipo_actividades_action" model="ir.actions.act_window">
+        <field name="name">Tipo de Actividades</field>
+        <field name="res_model">mail.activity.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|', ('res_model_id', '=', False), ('res_model_id.model', '=', 'sicpro.app.preparacion.tecnica.preparaciones')]</field>
+        <field name="context">{'default_res_model': 'sicpro.app.preparacion.tecnica.preparaciones'}</field>
+    </record>
+
+    <menuitem id="project_menu_config_activity_type"
+              action="preparacion_tecnica_tipo_actividades_action"
+              name="Tipo de Actividades"
+              parent="preparacion_tecnica_menu_config"
+              sequence="20" groups="grupo_app_preparacion_tecnica_admin"/>
+</odoo>

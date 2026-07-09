@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+     <!-- Creo la categoria de permisos Partes de horas -->
+         <record id="module_category_partes_horas" model="ir.module.category">
+            <field name="name">Partes de Horas</field>
+             <field name="description">Módulo para el control de las horas de trabajo..</field>
+            <field name="sequence" >16</field>
+        </record>
+
+        <record id="grupo_app_partes_horas_usuario" model="res.groups">
+            <field name="name">Usuarios</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_partes_horas"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_app_partes_horas_ejecutor" model="res.groups">
+            <field name="name">Ejecutor</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="module_category_partes_horas"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_partes_horas_usuario'))]"/>
+        </record>
+
+         <record id="grupo_app_partes_horas_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="module_category_partes_horas"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_partes_horas_ejecutor'))]"/>
+        </record>
+
+
+<data noupdate="0">
+
+    <record id="partes_horas_rule" model="ir.rule">
+        <field name="name">Partes de horas Procesos</field>
+        <field ref="model_sicpro_app_partes_horas" name="model_id"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_partes_horas_usuario'))]"/>
+    </record>
+
+</data>
+
+    <data noupdate="0">
+             <!-- Creo la categoria de permisos de Todos los partes de horas -->
+         <record id="module_category_todos_partes_horas" model="ir.module.category">
+            <field name="name">Todos los Partes de Horas</field>
+             <field name="description">Módulo para el control de todas las horas de trabajo..</field>
+            <field name="sequence" >17</field>
+        </record>
+
+        <record id="grupo_app_partes_horas_todos_usuario" model="res.groups">
+            <field name="name">Todos los partes de horas</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_todos_partes_horas"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+</data>
+
+    </odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="contratos_tipo_search_view">
+            <field name="name">sicpro.app.contratos.tipo.search</field>
+            <field name="model">sicpro.app.contratos.tipo</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Tipo">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_tipo_form_view">
+            <field name="name">sicpro.app.contratos.tipo.form</field>
+            <field name="model">sicpro.app.contratos.tipo</field>
+            <field name="arch" type="xml">
+                <form string="Tipo de Contrato">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_tipo_tree_view">
+            <field name="name">sicpro.app.contratos.tipo.tree</field>
+            <field name="model">sicpro.app.contratos.tipo</field>
+            <field name="arch" type="xml">
+                <tree string="Tipo de Contrato" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="contratos_tipo_action" model="ir.actions.act_window">
+            <field name="name">Tipo de Contrato</field>
+            <field name="res_model">sicpro.app.contratos.tipo</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear nuevo Tipo de Contrato...
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

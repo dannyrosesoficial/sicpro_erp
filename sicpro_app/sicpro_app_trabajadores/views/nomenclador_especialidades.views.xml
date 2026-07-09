@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="nomenclador_especialidad_form" model="ir.ui.view">
+    <field name="name">sicpro.nomenclador.especialidad.form</field>
+    <field name="model">sicpro.nomenclador.especialidad</field>
+    <field name="inherit_id" ref="sicpro_modulo_nomencladores.nomenclador_especialidad_form_view" />
+    <field name="arch" type="xml">
+      <field name="company_id" position="after">
+        <field string="Departamento" name="departamento"
+               domain="['&amp;', ('tipo_registro', '=', 'departamento'), ('company_id', '=', company_id)]"/>
+      </field>
+    </field>
+  </record>
+
+  <record id="nomenclador_especialidad_tree" model="ir.ui.view">
+    <field name="name">sicpro.nomenclador.especialidad.tree</field>
+    <field name="model">sicpro.nomenclador.especialidad</field>
+    <field name="inherit_id" ref="sicpro_modulo_nomencladores.nomenclador_especialida_tree_view" />
+    <field name="arch" type="xml">
+      <field name="company_id" position="after">
+        <field string="Departamento" name="departamento"/>
+      </field>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+<data>
+         <!-- Creo la categoría de permisos Grupos -->
+    <record id="module_category_solicitud_grupos" model="ir.module.category">
+        <field name="name">Grupos</field>
+        <field name="description">Módulo para el control del Negocio de trabajo de los inversionistas.</field>
+        <field name="sequence" >11</field>
+    </record>
+
+    <record id="grupo_app_grupos_usuario" model="res.groups">
+        <field name="name">Usuarios</field>
+        <field name="comment">Permisos de lectura</field>
+        <field name="category_id" ref="module_category_solicitud_grupos"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="grupo_app_grupos_ejecutor" model="res.groups">
+        <field name="name">Ejecutor</field>
+        <field name="comment">Permisos de lectura/Escritura</field>
+        <field name="category_id" ref="module_category_solicitud_grupos"/>
+        <field name="implied_ids" eval="[(4, ref('grupo_app_grupos_usuario'))]"/>
+    </record>
+
+    <record id="grupo_app_grupos_responsable" model="res.groups">
+        <field name="name">Responsable</field>
+        <field name="comment">Permisos de lectura/Escritura</field>
+        <field name="category_id" ref="module_category_solicitud_grupos"/>
+        <field name="implied_ids" eval="[(4, ref('grupo_app_grupos_ejecutor'))]"/>
+    </record>
+
+    <record id="grupo_app_grupos_admin" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="comment">Permisos Completos</field>
+        <field name="category_id" ref="module_category_solicitud_grupos"/>
+        <field name="implied_ids" eval="[(4, ref('grupo_app_grupos_responsable'))]"/>
+    </record>
+</data>
+
+<data noupdate="0">
+    <!-- REVISAR -->
+    <record id="grupos_rule_grupos_1" model="ir.rule">
+        <field name="name">Regla Grupos Procesos</field>
+        <field ref="sicpro_app_solicitudes_t1.model_sicpro_app_solicitudes_oportunidades" name="model_id"/>
+        <field name="domain_force">['|', ('jefe_grupo', '=', user.trabajador.id),
+            ('especialista_ejecutor', '=', user.trabajador.id)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_grupos_usuario'))]"/>
+    </record>
+
+    <record id="grupos_rule_grupos_2" model="ir.rule">
+        <field name="name">Regla Grupos Ejecutor Estados</field>
+        <field ref="sicpro_app_solicitudes_t1.model_sicpro_app_solicitudes_estados" name="model_id"/>
+        <field name="domain_force">[('is_inicial', '=', False)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_grupos_ejecutor'))]"/>
+    </record>
+
+        <record id="grupos_rule_grupos_3" model="ir.rule">
+        <field name="name">Regla Grupos Responsable Estados</field>
+        <field ref="sicpro_app_solicitudes_t1.model_sicpro_app_solicitudes_estados" name="model_id"/>
+        <field name="domain_force">['|', ('is_inicial', '=', False), ('is_inicial', '=', True)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_grupos_responsable'))]"/>
+    </record>
+
+</data>
+
+</odoo>

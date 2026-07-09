@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <!-- Creo la categoría de permisos Contratos General -->
+         <record id="module_category_contratos" model="ir.module.category">
+            <field name="name">Contratos</field>
+            <field name="description">Módulo para la gestión de los contratos generados en la division y su contabilidad.</field>
+            <field name="sequence" >20</field>
+         </record>
+
+        <record id="grupo_app_contratos_usuario" model="res.groups">
+            <field name="name">Usuarios</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_contratos"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_app_contratos_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="module_category_contratos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_contratos_usuario'))]"/>
+        </record>
+
+         <record id="grupo_app_contratos_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="module_category_contratos"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_contratos_responsable'))]"/>
+        </record>
+</data>
+
+<data>
+     <!-- Creo la categoría de permisos del Proveedor -->
+        <record id="module_category_contratos_proveedor" model="ir.module.category">
+            <field name="name">Contratos / Proveedores</field>
+             <field name="description">Módulo para la gestión de los contratos generados en la division y su contabilidad.</field>
+            <field name="sequence" >20</field>
+         </record>
+
+        <record id="grupo_app_contratos_visual" model="res.groups">
+            <field name="name">Visualizar Gestión</field>
+            <field name="comment">Permisos para visualizar la gestión de proveedores</field>
+            <field name="category_id" ref="module_category_contratos_proveedor"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="grupo_app_contratos_gestor" model="res.groups">
+            <field name="name">Gestor del Proveedor</field>
+            <field name="comment">Permisos para crear proveedores y gestionar el contrato</field>
+            <field name="category_id" ref="module_category_contratos_proveedor"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_contratos_visual'))]"/>
+        </record>
+        <record id="grupo_app_contratos_proveedor_validar" model="res.groups">
+            <field name="name">Validar Proveedor</field>
+            <field name="comment">Permisos para la gestión de validación del proveedor</field>
+            <field name="category_id" ref="module_category_contratos_proveedor"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_contratos_gestor'))]"/>
+        </record>
+
+         <!-- Creo la categoría de permisos del Contrato -->
+        <record id="module_category_contratos_validacion" model="ir.module.category">
+            <field name="name">Configuración técnica de contratos</field>
+             <field name="description">Módulo para la gestión de los contratos generados en la division y su contabilidad.</field>
+            <field name="sequence" >20</field>
+        </record>
+
+        <record id="grupo_app_contratos_validar_gestor" model="res.groups">
+            <field name="name">1. Gestor del Contrato</field>
+            <field name="comment">Permisos validación del contrato por el Gestor</field>
+            <field name="category_id" ref="module_category_contratos_validacion"/>
+        </record>
+        <record id="grupo_app_contratos_validar_comite_contratacion" model="res.groups">
+            <field name="name">2. Comité de Contratación</field>
+            <field name="comment">Permisos validación del Comité de Contratación</field>
+            <field name="category_id" ref="module_category_contratos_validacion"/>
+        </record>
+        <record id="grupo_app_contratos_validar_area" model="res.groups">
+            <field name="name">3. Revisión del Área</field>
+            <field name="comment">Permisos validación del contrato por Área</field>
+            <field name="category_id" ref="module_category_contratos_validacion"/>
+        </record>
+        <record id="grupo_app_contratos_validar_legal" model="res.groups">
+            <field name="name">4. Revisión Legal</field>
+            <field name="comment">Permisos validación del contrato por Legal</field>
+            <field name="category_id" ref="module_category_contratos_validacion"/>
+        </record>
+        <record id="grupo_app_contratos_validar_economica" model="res.groups">
+            <field name="name">5. Revisión Económica</field>
+            <field name="comment">Permisos validación del contrato por Económica</field>
+            <field name="category_id" ref="module_category_contratos_validacion"/>
+       </record>
+        <record id="grupo_app_contratos_all" model="res.groups">
+            <field name="name">Visualizar todas los estados</field>
+            <field name="comment">Permisos validación de todos los registros</field>
+            <field name="category_id" ref="module_category_contratos_validacion"/>
+       </record>
+</data>
+
+    <data noupdate="0">
+
+        <!-- Regla de visualizacion de los gestores de proveedores-->
+    <record id="proveedor_rule_estado_gestor" model="ir.rule">
+        <field name="name">Regla de gestor del proveedor</field>
+        <field ref="sicpro_app_contratos.model_sicpro_app_contratos_proveedores" name="model_id"/>
+        <field name="domain_force">[('user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_contratos_gestor'))]"/>
+    </record>
+        <!-- Regla de visualizacion de la validación de proveedores-->
+    <record id="proveedor_rule_estado_validar" model="ir.rule">
+        <field name="name">Regla de validación del proveedor</field>
+        <field ref="sicpro_app_contratos.model_sicpro_app_contratos_proveedores" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_contratos_proveedor_validar'))]"/>
+    </record>
+
+          <!-- Regla de visualizacion de los gestores de contratos-->
+    <record id="contratos_rule_estado_gestor" model="ir.rule">
+        <field name="name">Regla de gestor del contrato</field>
+        <field ref="sicpro_app_contratos.model_sicpro_app_contratos" name="model_id"/>
+        <field name="domain_force">[('user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_contratos_validar_gestor'))]"/>
+    </record>
+        <!-- Regla de visualizacion del comite de contratacion sobre contratos-->
+    <record id="contratos_rule_estado_comite_contratacion" model="ir.rule">
+        <field name="name">Regla de validación del Comité de Contratación</field>
+        <field ref="sicpro_app_contratos.model_sicpro_app_contratos" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_contratos_validar_comite_contratacion'))]"/>
+    </record>
+        <!-- Regla de visualizacion del area sobre contratos-->
+    <record id="contratos_rule_estado_validar_area" model="ir.rule">
+        <field name="name">Regla de validación del Área</field>
+        <field ref="sicpro_app_contratos.model_sicpro_app_contratos" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_contratos_validar_area'))]"/>
+    </record>
+        <!-- Regla de visualizacion del legal sobre contratos-->
+    <record id="contratos_rule_estado_legal" model="ir.rule">
+        <field name="name">Regla de validación del Legal</field>
+        <field ref="sicpro_app_contratos.model_sicpro_app_contratos" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_contratos_validar_legal'))]"/>
+    </record>
+        <!-- Regla de visualizacion de la economica sobre contratos-->
+    <record id="contratos_rule_estado_economica" model="ir.rule">
+        <field name="name">Regla de validación de economía</field>
+        <field ref="sicpro_app_contratos.model_sicpro_app_contratos" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_contratos_validar_economica'))]"/>
+    </record>
+        <!-- Regla de visualizacion del permiso de visualizacion sobre contratos-->
+    <record id="contratos_rule_estado_visualizacion" model="ir.rule">
+        <field name="name">Regla de validación de visualizacion</field>
+        <field ref="sicpro_app_contratos.model_sicpro_app_contratos" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_contratos_all'))]"/>
+    </record>
+
+</data>
+
+</odoo>

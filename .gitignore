@@ -1,0 +1,43 @@
+# ==========================================
+# REGLAS DE EXCLUSIÓN PARA SICPRO ERP ETECSA
+# ==========================================
+
+# 1. Ignorar el core de Odoo (En caso de existir en otras versiones)
+odoo/
+Odoo/
+
+# 2. Ignorar configuraciones sensibles y credenciales (PostgreSQL/Entorno)
+config/
+*.conf
+.env
+
+# 3. Ignorar logs (Evitar peso muerto y fugas de datos de ETECSA)
+log/
+logs/
+*.log
+
+# 4. Ignorar datos pesados, backups y dependencias de SO
+data/
+Paketes Necesarios/
+Paketes\ Necesarios/
+.local/
+filestore/
+sessions/
+backups/
+
+# 5. Archivos compilados de Python nativo (Python 3.11)
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.pytest_cache/
+
+# 6. Configuraciones de IDEs (PyCharm)
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 7. Archivos basura del Sistema Operativo
+.DS_Store
+Thumbs.db

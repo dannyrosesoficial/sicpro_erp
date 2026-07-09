@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- SUB-ACTIVIDADES -->
+        <record id="sicpro_app_preparacion_tecnica_subactividades_view_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.preparacion.tecnica.subactividades_tree</field>
+            <field name="model">sicpro.app.preparacion.tecnica.subactividades</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree string="SubActividades" create="false" edit="false" delete="false">
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <field name="normas_tiempo" widget="float_time"/>
+                    <field name="actividad_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sicpro_app_preparacion_tecnica_subactividades_view_form" model="ir.ui.view">
+            <field name="name">sicpro.app.preparacion.tecnica.subactividades_form</field>
+            <field name="model">sicpro.app.preparacion.tecnica.subactividades</field>
+            <field name="arch" type="xml">
+                <form string="Actividad" create="false" edit="false" delete="false">
+                    <sheet>
+                        <group>
+                            <field name="actividad_id" invisible="1"/>
+                            <field name="name"/>
+                            <field name="tipo"/>
+                            <field name="normas_tiempo" widget="float_time"/>
+                            <field name="especialidad"/>
+                            <field name="clasificacion"/>
+                            <field name="departamento"/>
+                            <field name="company_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="sicpro_app_preparacion_tecnica_subactividades_action">
+            <field name="name">Subactividades</field>
+            <field name="res_model">sicpro.app.preparacion.tecnica.subactividades</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sicpro_app_preparacion_tecnica.sicpro_app_preparacion_tecnica_subactividades_view_tree"/>
+            <field name="domain">[('actividad_id', '=', active_ids)]</field>
+        </record>
+
+
+        <!-- ACTIVIDADES -->
+        <record id="sicpro_app_preparacion_tecnica_actividades_view_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.preparacion.tecnica.actividades.kanban</field>
+        <field name="model">sicpro.app.preparacion.tecnica.actividades</field>
+        <field name="priority">110</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban">
+                <field name="name"/>
+                <field name="especialidad"/>
+                <field name="clasificacion"/>
+                <field name="departamento"/>
+                <field name="company_id"/>
+                <field name="color"/>
+                <field name="favorito"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary col-12">
+                                        <span><t t-esc="record.name.value"/></span>
+                                    </div>
+                                    <field name="favorito" widget="boolean_favorite" nolabel="1"/>
+                                    <div class="o_secondary o_job_alias">
+                                        <small>
+                                            <i class="fa fa-ellipsis-v" role="img" aria-label="Departamento" title="Departamento">
+                                            </i> <field name="departamento"/>
+                                            <br/>
+                                            <i class="fa fa-ellipsis-v" role="img" aria-label="Proceso" title="Proceso">
+                                            </i> <field name="company_id"/>
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#">
+                                        <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <t>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button class="btn btn-primary" name="%(sicpro_app_preparacion_tecnica_subactividades_action)d" type="action">
+                                             <!--   <field name="application_count"/>--> Actividades
+                                            </button>
+                                        </div>
+                                        <div class="col-6">
+                                            <field name="especialidad"/>
+                                            <br/>
+                                            <field name="clasificacion"/>
+                                        </div>
+                                    </div>
+                                </t>
+                               <div name="kanban_boxes" class="row o_recruitment_kanban_boxes">
+                                    <div class="o_recruitment_kanban_box o_kanban_primary_bottom bottom_block" style="padding-left:8px;">
+                                        <div class="col-6"></div>
+                                        <div class="col-6">
+                                            <a type="object" name="actividades_action">Ver Actividad</a>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                <div class="o_kanban_card_manage_section">
+                                    <div role="menuitem">
+                                        <a t-if="widget.editable" name="editar_actividad" type="edit">Editar</a>
+                                    </div>
+                                </div>
+                                <div role="menuitem" aria-haspopup="true">
+                                    <ul class="oe_kanban_colorpicker" data-field="color" role="menu"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+        <record id="sicpro_app_preparacion_tecnica_actividades_view_form" model="ir.ui.view">
+            <field name="name">sicpro_app_preparacion_tecnica_actividades_view_form</field>
+            <field name="model">sicpro.app.preparacion.tecnica.actividades</field>
+            <field name="priority">110</field>
+            <field name="arch" type="xml">
+                <form string="Actividad" class="o_form_project_tasks">
+                    <sheet string="Actividad">
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title pr-0">
+                        <h1 class="d-flex flex-row justify-content-between">
+                            <field name="name" class="o_task_name text-truncate" placeholder="Nombre de la actividad..."/>
+                            <field name="favorito" widget="boolean_favorite" nolabel="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="especialidad"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="active" invisible="1"/>
+                            <field name="clasificacion"/>
+                        </group>
+                        <group>
+                            <field name="departamento"/>
+                            <field name="company_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="descripcion_page" string="Descripción">
+                            <field name="descripcion" type="html"/>
+                            <div class="oe_clear"/>
+                        </page>
+                        <page string="Actividades" id="actividades_tab">
+                            <field name="actividades_ids" mode="tree,kanban"
+                                   attrs="{'invisible': [('active', '=', False)]}"
+                                   context="{'default_especialidad': especialidad, 'default_company_id': company_id,
+                                    'default_clasificacion': clasificacion, 'default_departamento': departamento,}">
+                                <tree editable="bottom" string="Actividades" default_order="id">
+                                    <field name="actividad_id" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="tipo"/>
+                                    <field name="normas_tiempo" widget="float_time"/>
+                                    <field name="especialidad" invisible="1"/>
+                                    <field name="clasificacion" invisible="1"/>
+                                    <field name="departamento" invisible="1"/>
+                                    <field name="company_id" invisible="1"/>
+                                </tree>
+                                <form string="Actividades">
+                                    <sheet>
+                                        <group>
+                                            <field name="actividad_id" invisible="1"/>
+                                            <field name="name"/>
+                                            <field name="tipo"/>
+                                            <field name="normas_tiempo" widget="float_time"/>
+                                            <field name="especialidad"/>
+                                            <field name="clasificacion"/>
+                                            <field name="departamento"/>
+                                            <field name="company_id"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                            <group>
+                                <group class="oe_subtotal_footer oe_right" name="project_hours">
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="sicpro_app_preparacion_tecnica_actividades_action">
+        <field name="name">Gestor de Actividades</field>
+        <field name="res_model">sicpro.app.preparacion.tecnica.actividades</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="view_id" ref="sicpro_app_preparacion_tecnica.sicpro_app_preparacion_tecnica_actividades_view_kanban"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+                Crear nuevas actividades...
+          </p>
+        </field>
+        </record>
+
+        <record id="sicpro_app_preparacion_tecnica_actividades_search" model="ir.ui.view">
+            <field name="name">sicpro.app.preparacion.tecnica.actividades.search</field>
+            <field name="model">sicpro.app.preparacion.tecnica.actividades</field>
+            <field name="arch" type="xml">
+               <search string="Actividades">
+                    <field name="name" string="Actividad"/>
+                    <field name="especialidad"/>
+                    <field name="clasificacion"/>
+                    <field name="departamento"/>
+                    <separator/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Departamento" name="departamento" context="{'group_by': 'departamento'}"/>
+                        <filter string="Proceso" name="proceso" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

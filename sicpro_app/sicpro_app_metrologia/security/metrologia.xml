@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <!-- Creo la categoria de permisos Metrologia -->
+         <record id="module_category_metrologia" model="ir.module.category">
+            <field name="name">Metrología</field>
+             <field name="description">Módulo para el control de los equipos de medición.</field>
+            <field name="sequence" >15</field>
+        </record>
+
+        <record id="grupo_app_metrologia_usuario" model="res.groups">
+            <field name="name">Usuarios</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_metrologia"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_app_metrologia_solicitante" model="res.groups">
+            <field name="name">Solicitante de calibración</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="module_category_metrologia"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_metrologia_usuario'))]"/>
+        </record>
+
+        <record id="grupo_app_metrologia_ejecutor" model="res.groups">
+            <field name="name">Ejecutor</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="module_category_metrologia"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_metrologia_solicitante'))]"/>
+        </record>
+
+         <record id="grupo_app_metrologia_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="module_category_metrologia"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_metrologia_ejecutor'))]"/>
+        </record>
+
+         <record id="grupo_app_metrologia_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="module_category_metrologia"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_metrologia_responsable'))]"/>
+        </record>
+
+
+    </data>
+
+    <data noupdate="0">
+        <!-- Creo una regla para que se vean los datos del proceso especifico-->
+        <record id="metrologia_equipos_multi_comp_rule" model="ir.rule">
+         <field name="name">Regla de Metrologia Equipos Multicompañia</field>
+         <field name="model_id" ref="model_sicpro_app_metrologia_equipos"/>
+         <field name="global" eval="True"/>
+         <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+        </record>
+
+        <record id="metrologia_calibracion_multi_comp_rule" model="ir.rule">
+         <field name="name">Regla de Metrologia Calibración Multicompañia</field>
+         <field name="model_id" ref="model_sicpro_app_metrologia_solicitud_calibracion"/>
+         <field name="global" eval="True"/>
+         <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+        </record>
+
+        <record id="metrologia_direcciones_multi_comp_rule" model="ir.rule">
+         <field name="name">Regla de Metrologia Direcciones Multicompañia</field>
+         <field name="model_id" ref="model_sicpro_app_metrologia_direcciones"/>
+         <field name="global" eval="True"/>
+         <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+        </record>
+
+        <record id="metrologia_categorias_multi_comp_rule" model="ir.rule">
+         <field name="name">Regla de Metrologia Categorías Multicompañia</field>
+         <field name="model_id" ref="model_sicpro_app_metrologia_categoria"/>
+         <field name="global" eval="True"/>
+         <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+        </record>
+
+        <record id="metrologia_centro_calibracion_multi_comp_rule" model="ir.rule">
+         <field name="name">Regla de Metrologia Centro Calibración Multicompañia</field>
+         <field name="model_id" ref="model_sicpro_app_metrologia_centro_calibracion"/>
+         <field name="global" eval="True"/>
+         <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+        </record>
+
+    </data>
+</odoo>

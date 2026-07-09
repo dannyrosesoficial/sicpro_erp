@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="preparacion_tecnica_anexoe_search_view">
+            <field name="name">sicpro.app.preparacion.tecnica.anexoe.search</field>
+            <field name="model">sicpro.app.preparacion.tecnica.nomenclador.anexoe</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Anexo">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="preparacion_tecnica_anexoe_form_view">
+            <field name="name">sicpro.app.preparacion.tecnica.anexoe.form</field>
+            <field name="model">sicpro.app.preparacion.tecnica.nomenclador.anexoe</field>
+            <field name="arch" type="xml">
+                <form string="Anexo E">
+                    <sheet>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="name"/>
+                            <field name="company_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="descripcion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="preparacion_tecnica_anexoe_tree_view">
+            <field name="name">sicpro.app.preparacion.tecnica.anexoe.tree</field>
+            <field name="model">sicpro.app.preparacion.tecnica.nomenclador.anexoe</field>
+            <field name="arch" type="xml">
+                <tree string="Anexo E" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="company_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    <field name="descripcion"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="preparacion_tecnica_anexoe_action" model="ir.actions.act_window">
+            <field name="name">Anexo E</field>
+            <field name="res_model">sicpro.app.preparacion.tecnica.nomenclador.anexoe</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear nueva categoría del Anexo: E
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

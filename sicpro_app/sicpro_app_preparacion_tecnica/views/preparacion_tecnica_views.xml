@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <menuitem name="Preparación Técnica"
+                  id="preparacion_tecnica_menu_root"
+                  groups="grupo_app_preparacion_tecnica_usuario"
+                  web_icon="sicpro_app_preparacion_tecnica,static/description/icon.png"
+                  sequence="50"/>
+
+        <menuitem id="preparacion_tecnica_menu_operaciones" name="Operaciones"
+                  parent="preparacion_tecnica_menu_root"
+                  sequence="1"/>
+
+        <menuitem action="preparacion_tecnica_ejecutor_action" id="preparacion_tecnica_menu_ejecutores"
+                  name="Cartera de Especialistas" parent="preparacion_tecnica_menu_operaciones"
+                  sequence="1"/>
+
+        <menuitem action="sicpro_app_preparacion_tecnica_actividades_action" id="preparacion_tecnica_menu_actividades"
+                  name="Gestor de Actividades" parent="preparacion_tecnica_menu_operaciones"
+                  sequence="2"/>
+
+        <menuitem id="preparacion_tecnica_menu_config" name="Configuración"
+                  parent="preparacion_tecnica_menu_root"
+                  sequence="100"/>
+
+        <menuitem action="preparacion_tecnica_estados_action" id="preparacion_tecnica_menu_estados"
+                  name="Estados" parent="preparacion_tecnica_menu_config"
+                  sequence="3" groups="grupo_app_preparacion_tecnica_admin"/>
+
+        <menuitem action="preparacion_tecnica_ejecutor_config_action" id="preparacion_tecnica_menu_config_ejecutores"
+                  name="Especialistas" parent="preparacion_tecnica_menu_config"
+                  sequence="10" groups="grupo_app_preparacion_tecnica_responsable"/>
+
+        <menuitem action="preparacion_tecnica_clasificacion_action" id="preparacion_tecnica_menu_clasificacion"
+                  name="Clasificación" parent="preparacion_tecnica_menu_config"
+                  sequence="11" groups="grupo_app_preparacion_tecnica_responsable"/>
+
+        <menuitem action="preparacion_tecnica_etiquetas_action" id="preparacion_tecnica_menu_etiquetas"
+                  name="Etiquetas" parent="preparacion_tecnica_menu_config"
+                  sequence="12" groups="grupo_app_preparacion_tecnica_responsable"/>
+
+        <menuitem action="preparacion_tecnica_anexoe_action" id="preparacion_tecnica_menu_anexoe"
+                  name="Anexo: E" parent="preparacion_tecnica_menu_config"
+                  sequence="13" groups="grupo_app_preparacion_tecnica_responsable"/>
+
+        <menuitem id="menu_tasks_config" name="GTD" parent="preparacion_tecnica_menu_config" sequence="2"/>
+
+
+<!-- Reporting menus
+        <menuitem id="menu_project_report" name="Reporting"
+            parent="preparacion_tecnica_menu_root" sequence="99"/>
+
+        <menuitem id="menu_project_report_task_analysis"
+            name="Tasks Analysis"
+            action="sicpro_app_preparacion_tecnica.action_project_task_user_tree"
+            parent="menu_project_report"
+            sequence="10"/>
+
+        <menuitem id="rating_rating_menu_project"
+            action="rating_rating_action_project_report"
+            parent="menu_project_report"
+            sequence="40"/>
+-->
+
+
+</odoo>

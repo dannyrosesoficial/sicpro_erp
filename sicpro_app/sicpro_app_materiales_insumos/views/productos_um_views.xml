@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<odoo>
+
+        <record id="productos_um_form" model="ir.ui.view">
+            <field name="name">sicpro.app.materiales.insumos.um.form</field>
+            <field name="model">sicpro.app.materiales.insumos.um</field>
+            <field name="arch" type="xml">
+                <form string="UM">
+                    <sheet>
+                        <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name"/>
+                            </div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="productos_um_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.materiales.insumos.um.tree</field>
+            <field name="model">sicpro.app.materiales.insumos.um</field>
+            <field name="arch" type="xml">
+                <tree string="UM" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="productos_um_action" model="ir.actions.act_window">
+            <field name="name">UM</field>
+            <field name="res_model">sicpro.app.materiales.insumos.um</field>
+            <field name="view_id" ref="productos_um_tree"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear UM para los productos
+              </p><p>
+                Aquí puede crear nuevas UM para sus productos.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_productos_um" name="UM" action="productos_um_action"
+            parent="productos_menu_config" groups="grupo_app_materiales_insumos_responsable" sequence="1"/>
+
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- Acceso a la apps de clientes -->
+         <menuitem id="menu_solicitudes_cliente_menu" name="Clientes"
+                   parent="sicpro_app_solicitudes_t1.solicitudes_menu_operaciones"
+                   action="sicpro_app_clientes.action_clientes"
+                   groups="grupo_app_solicitud_usuario" sequence="20"/>
+
+</odoo>

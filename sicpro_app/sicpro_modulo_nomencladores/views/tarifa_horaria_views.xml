@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record id="tarifa_horaria_form_view" model="ir.ui.view">
+        <field name="name">sicpro.nomenclador.tarifa.horaria.form</field>
+        <field name="model">sicpro.nomenclador.tarifa.horaria</field>
+        <field name="arch" type="xml">
+            <form string="Nomenclador de Tarifa Horaria">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="descripcion"/>
+                        <field name="company_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tarifa_horaria_tree_view" model="ir.ui.view">
+        <field name="name">sicpro.nomenclador.tarifa.horaria.tree</field>
+        <field name="model">sicpro.nomenclador.tarifa.horaria</field>
+        <field name="arch" type="xml">
+            <tree string="Nomenclador de Tarifa Horaria" editable="bottom">
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="company_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="tarifa_horaria_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Acuerdo de Servicios</field>
+       <field name="model">sicpro.nomenclador.tarifa.horaria</field>
+        <field name="arch" type="xml">
+            <search string="Tarifa Horaria">
+            <field name="name"/>
+            <field name="company_id"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+            <group expand="0" string="Group By">
+                <filter string="Proceso" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_tarifa_horaria" model="ir.actions.act_window">
+        <field name="name">Tarifa Horaria</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.tarifa.horaria</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    </data>
+</odoo>

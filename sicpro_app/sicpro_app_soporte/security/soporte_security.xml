@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="0">
+
+    <record model="ir.module.category" id="app_soporte_category">
+      <field name="name">Soporte Técnico</field>
+      <field name="description">Sistema de soporte a la aplicación.</field>
+      <field name="sequence">20</field>
+    </record>
+
+    <record id="group_soporte_usuarios" model="res.groups">
+        <field name="name">Usuario: Tickets Personal</field>
+        <field name="category_id" ref="app_soporte_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_soporte_ejecutor" model="res.groups">
+        <field name="name">Ejecutor</field>
+        <field name="category_id" ref="app_soporte_category"/>
+        <field name="implied_ids" eval="[(4, ref('group_soporte_usuarios'))]"/>
+    </record>
+
+    <record id="group_soporte_admin" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="category_id" ref="app_soporte_category"/>
+        <field name="implied_ids" eval="[(4, ref('group_soporte_ejecutor'))]"/>
+    </record>
+
+</data>
+
+<data noupdate="1">
+
+
+    <record id="helpesk_ticket_personal_rule" model="ir.rule">
+        <field name="name">Tickets Personal</field>
+        <field ref="model_sicpro_app_soporte" name="model_id"/>
+        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_soporte_usuarios'))]"/>
+    </record>
+
+    <record id="helpdesk_ticket_user_rule" model="ir.rule">
+        <field name="name">Todos los Tickets</field>
+        <field ref="model_sicpro_app_soporte" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('group_soporte_ejecutor'))]"/>
+    </record>
+    
+    <!-- Reglas del proceso -->
+    <record id="helpdesk_ticket_comp_rule" model="ir.rule">
+        <field name="name">Regla de soporte del proceso</field>
+        <field name="model_id" ref="model_sicpro_app_soporte"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="helpdesk_ticket_category_comp_rule" model="ir.rule">
+        <field name="name">Regla de las categorías</field>
+        <field name="model_id" ref="model_sicpro_app_soporte_categoria"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="helpdesk_ticket_channel_comp_rule" model="ir.rule">
+        <field name="name">Regla de los canales</field>
+        <field name="model_id" ref="model_sicpro_app_soporte_canales"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="helpdesk_ticket_stage_comp_rule" model="ir.rule">
+        <field name="name">Regla de los estados</field>
+        <field name="model_id" ref="model_sicpro_app_soporte_estados"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="helpdesk_ticket_tag_comp_rule" model="ir.rule">
+        <field name="name">Regla de las etiquetas</field>
+        <field name="model_id" ref="model_sicpro_app_soporte_etiquetas"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="helpdesk_ticket_team_comp_rule" model="ir.rule">
+        <field name="name">Helpdesk Team Company Rule</field>
+        <field name="model_id" ref="model_sicpro_app_soporte_equipos"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+</data>
+</odoo>

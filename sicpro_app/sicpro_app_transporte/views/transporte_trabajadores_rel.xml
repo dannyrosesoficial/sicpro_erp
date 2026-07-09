@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sicpro_app_trabajadores_general_transporte" model="ir.ui.view">
+        <field name="name">sicpro.app.trabajadores.general.transporte.form</field>
+        <field name="model">sicpro.app.trabajadores.general</field>
+        <field name="inherit_id" ref="sicpro_app_trabajadores.view_employee_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="%(fleet_vehicle_action)d"
+                    context="{'search_default_driver_id': id, 'default_driver_id': id}"
+                    groups="sicpro_app_transporte.grupo_app_transporte_usuario"
+                    class="o_stat_button"
+                    icon="fa-car"
+                    type="action">
+                    <field name="transporte_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="contratos_areas_search_view">
+            <field name="name">sicpro.app.contratos.areas.search</field>
+            <field name="model">sicpro.app.contratos.areas</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Área">
+                    <field name="name"/>
+                    <field name="unidad"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_areas_form_view">
+            <field name="name">sicpro.app.contratos.areas.form</field>
+            <field name="model">sicpro.app.contratos.areas</field>
+            <field name="arch" type="xml">
+                <form string="Área">
+                    <sheet>
+                        <group>
+                            <field name="unidad"/>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_areas_tree_view">
+            <field name="name">sicpro.app.contratos.areas.tree</field>
+            <field name="model">sicpro.app.contratos.areas</field>
+            <field name="arch" type="xml">
+                <tree string="Área" editable="bottom">
+                    <field name="unidad"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="contratos_areas_action" model="ir.actions.act_window">
+            <field name="name">Áreas ejecutoras del contrato</field>
+            <field name="res_model">sicpro.app.contratos.areas</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear una nueva Área para la gestión del contrato...
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-extend="res_config_edition">
+        <t t-jquery=".user-heading h3" t-operation="replace">
+            <!--Forzada a la version 14
+            <h3>
+                SICPRO ERP V1.0.2  Core:<t t-esc="widget.server_version"/>
+                (Propiedad Intelectual de Daniel Barrero Reyes 2019-2021)
+            </h3>-->
+            <h3>
+                SICPRO ERP V3.1.0  Core: 14.0.1
+                (Propiedad Intelectual de Daniel Barrero Reyes 2019-2021)
+            </h3>
+        </t>
+    </t>
+</templates>

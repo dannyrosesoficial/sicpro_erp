@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<odoo>
+
+        <record id="crm_lead_tag_form" model="ir.ui.view">
+            <field name="name">sicpro.app.solicitudes.etiquetas.form</field>
+            <field name="model">sicpro.app.solicitudes.etiquetas</field>
+            <field name="arch" type="xml">
+                <form string="Etiquetas">
+                    <sheet>
+                        <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name"/>
+                            </div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="color" required="True"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="crm_lead_tag_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.solicitudes.etiquetas.tree</field>
+            <field name="model">sicpro.app.solicitudes.etiquetas</field>
+            <field name="arch" type="xml">
+                <tree string="Etiquetas" editable="bottom">
+                    <field name="name"/>
+                    <field name="color"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="solicitudes_etiquetas_incrementar" model="ir.sequence">
+            <field name="name">Etiquetas</field>
+            <field name="code">solicitudes_etiquetas_incrementar</field>
+            <field name="padding">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="crm_lead_tag_action" model="ir.actions.act_window">
+            <field name="name">Etiquetas</field>
+            <field name="res_model">sicpro.app.solicitudes.etiquetas</field>
+            <field name="view_id" ref="crm_lead_tag_tree"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear etiquetas para las oportunidades
+              </p><p>
+                Aquí puede crear nuevas etiquetas para definir sus oportunidades.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_solicitudes_etiquetas" name="Etiquetas"
+            action="crm_lead_tag_action" parent="solicitudes_menu_config"
+            groups="grupo_app_solicitud_responsable" sequence="1"/>
+
+</odoo>

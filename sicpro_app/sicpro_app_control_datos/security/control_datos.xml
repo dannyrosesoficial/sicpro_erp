@@ -1,0 +1,197 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <!-- Creo la categoria de permisos Transporte -->
+    <record id="module_category_transporte" model="ir.module.category">
+            <field name="name">Transporte</field>
+            <field name="sequence" >16</field>
+    </record>
+
+    <record id="grupo_transporte_admin" model="res.groups">
+            <field name="name">0. Administración Módulo Transporte</field>
+            <field name="comment">Permisos total a la app</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_general" model="res.groups">
+            <field name="name">1. Transporte General</field>
+            <field name="comment">Permisos a transporte general</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_contratos" model="res.groups">
+            <field name="name">2. Contratos</field>
+            <field name="comment">Permisos a Contratos</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_servicios" model="res.groups">
+            <field name="name">3. Servicios de Transporte</field>
+            <field name="comment">Permisos a servicios de transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_combustible" model="res.groups">
+            <field name="name">4. Combustible</field>
+            <field name="comment">Permisos al combustible del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_historial" model="res.groups">
+            <field name="name">5. Historial de uso</field>
+            <field name="comment">Permisos al historial del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_costo" model="res.groups">
+            <field name="name">6. Calculos de Costos</field>
+            <field name="comment">Permisos a los costos del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_odometro" model="res.groups">
+            <field name="name">7. Odometro</field>
+            <field name="comment">Permisos al odometro del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_tipo_servicios" model="res.groups">
+            <field name="name">8. Tipo de Servicios</field>
+            <field name="comment">Permisos a los tipos de servicios del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_modelo" model="res.groups">
+            <field name="name">9. Config-Modelos</field>
+            <field name="comment">Permisos a los modelos del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_etiqueta" model="res.groups">
+            <field name="name">10. config-Etiquetas</field>
+            <field name="comment">Permisos a las etiquetas del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_estado" model="res.groups">
+            <field name="name">11. Config-Estados</field>
+            <field name="comment">Permisos a los estados del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_modelo_brand" model="res.groups">
+            <field name="name">12. Config-Modelos Brand</field>
+            <field name="comment">Permisos a los modelos Brand del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+    <record id="grupo_transporte_tipo_actividad" model="res.groups">
+            <field name="name">13. Config-Tipos de actividades</field>
+            <field name="comment">Permisos a los tipos de actividades del transporte</field>
+            <field name="category_id" ref="module_category_transporte"/>
+    </record>
+
+
+    <data noupdate="1">
+<!--
+        <record id="transporte_rule_contract_visibility_user" model="ir.rule">
+            <field name="name">Losusuarios solo pueden ver sus contratos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_contratos"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_cost_visibility_user" model="ir.rule">
+            <field name="name">Los usuarios solo pueden ver sus costos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_costo"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_service_visibility_user" model="ir.rule">
+            <field name="name">los usuarios solo pueden ver los servicios de sus vehiculos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_servicios"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_odometer_visibility_user" model="ir.rule">
+            <field name="name">Los usuarios solo pueden ver los odometros de sus vehiculos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_servicios"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="domain_force">[('vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_fuel_log_visibility_user" model="ir.rule">
+            <field name="name">los usuarios solo pueden ver el combustible de sus vehiculos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_combustible"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_vehicle_visibility_user" model="ir.rule">
+            <field name="name">los usuarios solo pueden ver sus vehiculos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_general"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>
+        </record>
+-->
+<!--
+        <record id="fleet_rule_contract_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's contracts</field>
+            <field name="model_id" ref="model_fleet_vehicle_log_contract"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_cost_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's costs</field>
+            <field name="model_id" ref="model_fleet_vehicle_cost"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_service_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's services</field>
+            <field name="model_id" ref="model_fleet_vehicle_log_services"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_odometer_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's vehicle's odometer</field>
+            <field name="model_id" ref="model_fleet_vehicle_odometer"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_fuel_log_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's fuel log</field>
+            <field name="model_id" ref="model_fleet_vehicle_log_fuel"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_vehicle_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle</field>
+            <field name="model_id" ref="model_fleet_vehicle"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+-->
+
+        <record id="transporte_rule_multicompañia" model="ir.rule">
+            <field name="name">Transporte Multi Company</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_general"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

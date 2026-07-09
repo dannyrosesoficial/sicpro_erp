@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_partes_horas_root"
+                  name="Partes de horas"
+                  sequence="55"
+                  groups="grupo_app_partes_horas_usuario"
+                  web_icon="sicpro_app_partes_horas,static/description/icon_timesheet.png"/>
+
+        <menuitem id="menu_partes_horas_operaciones"
+                  name="Partes de horas"
+                  parent="menu_partes_horas_root"
+                  sequence="5"/>
+
+        <menuitem id="menu_partes_horas_mios"
+                  name="Mis Partes de horas"
+                  parent="menu_partes_horas_operaciones"
+                  action="partes_horas_line_action"/>
+
+        <menuitem id="menu_partes_horas_todos"
+                  name="Todos los Partes"
+                  parent="menu_partes_horas_operaciones"
+                  action="partes_horas_all_action"
+                  groups="grupo_app_partes_horas_todos_usuario"/>
+
+
+    </data>
+</odoo>

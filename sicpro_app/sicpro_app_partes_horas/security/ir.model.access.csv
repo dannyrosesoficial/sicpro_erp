@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+partes_horas_usuario,Partes horas usuarios,model_sicpro_app_partes_horas,grupo_app_partes_horas_usuario,1,0,0,0
+
+partes_horas_todos_usuario,Partes horas todos los usuarios,model_sicpro_app_partes_horas,grupo_app_partes_horas_todos_usuario,1,0,0,0
+
+partes_horas_ejecutor,Partes horas ejecutor,model_sicpro_app_partes_horas,grupo_app_partes_horas_ejecutor,1,1,1,0
+
+partes_horas_admin,Partes horas  admin,model_sicpro_app_partes_horas,grupo_app_partes_horas_admin,1,1,1,1

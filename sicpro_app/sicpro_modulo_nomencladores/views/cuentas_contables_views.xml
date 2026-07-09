@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+     <!--vista formulario-->
+    <record id="cuentas_contables_form_view" model="ir.ui.view">
+        <field name="name">cuentas.contables.form.view</field>
+        <field name="model">sicpro.nomenclador.cuentas.contables</field>
+        <field name="arch" type="xml">
+            <form string="Cuentas Contables">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="descripcion" />
+                        <field name="active" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="cuentas_contables_tree_view" model="ir.ui.view">
+        <field name="name">cuentas.contables.tree.view</field>
+        <field name="model">sicpro.nomenclador.cuentas.contables</field>
+        <field name="arch" type="xml">
+            <tree string="Cuentas Contables">
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="cuentas_contables_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Cuentas</field>
+       <field name="model">sicpro.nomenclador.cuentas.contables</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Cuentas">
+            <field name="name" string="Cuenta"/>
+            <field name="descripcion" string="Descripción"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_cuentas_contables" model="ir.actions.act_window">
+        <field name="name">Cuentas Contbles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.cuentas.contables</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+    </data>
+</odoo>

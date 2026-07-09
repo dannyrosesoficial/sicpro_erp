@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <template id="reporte_preparacion">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <br />
+                        <br />
+                        <center>
+                            <h2>Obra: <span t-field="o.name" /></h2>
+                        </center>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Asignado a</th>
+                                <td>
+                                    <span t-field="o.especialista_ejecutor_id.name" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Fecha de inicio</th>
+                                <td>
+                                    <span t-esc="o.fecha_inicio" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Especialidad</th>
+                                <td>
+                                    <span t-field="o.especialidad" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>No.SAP</th>
+                                <td>
+                                    <span t-field="o.pep" />
+                                </td>
+                            </tr>
+                            <tr t-if="o.cliente">
+                                <th>Cliente</th>
+                                <td>
+                                    <span t-field="o.cliente" />
+                                </td>
+                            </tr>
+                            <tr t-if="o.etiquetas">
+                                <th>Tags</th>
+                                <td>
+                                    <span>| </span>
+                                    <t t-foreach="o.etiquetas" t-as="tag">
+                                        <span t-field="tag.name" />
+                                        <span>| </span>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <t t-if="o.description">
+                            <center>
+                                <h3>Descripción</h3>
+                            </center>
+                            <span t-field="o.description" />
+                        </t>
+                        <br />
+                        <t t-if="o.partes_horas_ids">
+                            <table class="table table-bordered">
+                                <center>
+                                    <h3>Parte de horas</h3>
+                                </center>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Trabajador</th>
+                                    <th>Descripción</th>
+                                    <th>Duración (Horas)</th>
+                                </tr>
+                                <t t-foreach="o.partes_horas_ids" t-as="partes_horas">
+                                    <tr>
+                                        <td>
+                                <span t-field="partes_horas.fecha" />
+                                        </td>
+                                        <td>
+                                <span t-field="partes_horas.trabajador" />
+                                        </td>
+                                        <td>
+                                            <span t-field="partes_horas.name" />
+                                        </td>
+                                        <td>
+                                            <span
+                                                    t-esc="partes_horas.duracion"
+                                                    t-options="{'widget': 'float_time'}"
+                                            />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="informe_preparacion_general_action"
+        model="sicpro.app.preparacion.tecnica.preparaciones"
+        name="sicpro_app_preparacion_tecnica.reporte_preparacion"
+        string="Imprimir Reporte"
+        report_type="qweb-pdf"
+        multi="False"
+    />
+</odoo>

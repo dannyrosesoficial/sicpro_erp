@@ -1,0 +1,153 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <!-- Creo la categoria de permisos Transporte -->
+    <record id="module_category_transporte" model="ir.module.category">
+            <field name="name">Transporte</field>
+            <field name="description">Módulo para el control del parque automotor.</field>
+            <field name="sequence" >16</field>
+    </record>
+
+    <record id="grupo_app_transporte_usuario" model="res.groups">
+            <field name="name">Usuarios</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="category_id" ref="module_category_transporte"/>
+           <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="grupo_app_transporte_ejecutor" model="res.groups">
+            <field name="name">Ejecutor</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="module_category_transporte"/>
+           <field name="implied_ids" eval="[(4, ref('grupo_app_transporte_usuario'))]"/>
+    </record>
+
+    <record id="grupo_app_transporte_gestor" model="res.groups">
+            <field name="name">Gestor</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="category_id" ref="module_category_transporte"/>
+           <field name="implied_ids" eval="[(4, ref('grupo_app_transporte_ejecutor'))]"/>
+    </record>
+
+    <record id="grupo_app_transporte_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="category_id" ref="module_category_transporte"/>
+           <field name="implied_ids" eval="[(4, ref('grupo_app_transporte_gestor'))]"/>
+    </record>
+
+    <record id="grupo_app_transporte_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="category_id" ref="module_category_transporte"/>
+           <field name="implied_ids" eval="[(4, ref('grupo_app_transporte_responsable'))]"/>
+    </record>
+
+
+
+
+
+
+    <data noupdate="0">
+<!--
+        <record id="transporte_rule_contract_visibility_user" model="ir.rule">
+            <field name="name">Losusuarios solo pueden ver sus contratos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_contratos"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_cost_visibility_user" model="ir.rule">
+            <field name="name">Los usuarios solo pueden ver sus costos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_costo"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_service_visibility_user" model="ir.rule">
+            <field name="name">los usuarios solo pueden ver los servicios de sus vehiculos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_servicios"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_odometer_visibility_user" model="ir.rule">
+            <field name="name">Los usuarios solo pueden ver los odometros de sus vehiculos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_servicios"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="domain_force">[('vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_fuel_log_visibility_user" model="ir.rule">
+            <field name="name">los usuarios solo pueden ver el combustible de sus vehiculos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_combustible"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="transporte_rule_vehicle_visibility_user" model="ir.rule">
+            <field name="name">los usuarios solo pueden ver sus vehiculos</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_general"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>
+        </record>
+-->
+<!--
+        <record id="fleet_rule_contract_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's contracts</field>
+            <field name="model_id" ref="model_fleet_vehicle_log_contract"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_cost_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's costs</field>
+            <field name="model_id" ref="model_fleet_vehicle_cost"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_service_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's services</field>
+            <field name="model_id" ref="model_fleet_vehicle_log_services"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_odometer_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's vehicle's odometer</field>
+            <field name="model_id" ref="model_fleet_vehicle_odometer"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_fuel_log_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle's fuel log</field>
+            <field name="model_id" ref="model_fleet_vehicle_log_fuel"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+        <record id="fleet_rule_vehicle_visibility_manager" model="ir.rule">
+            <field name="name">Administrator has all rights on vehicle</field>
+            <field name="model_id" ref="model_fleet_vehicle"/>
+            <field name="groups" eval="[(4, ref('fleet_group_manager'))]"/>
+        </record>
+-->
+
+        <record id="transporte_rule_multicompañia" model="ir.rule">
+            <field name="name">Transporte Multi Company</field>
+            <field name="model_id" ref="model_sicpro_app_transporte_general"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

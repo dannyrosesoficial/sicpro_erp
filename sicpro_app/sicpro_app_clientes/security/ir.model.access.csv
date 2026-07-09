@@ -1,0 +1,10 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+clientes_general_usuario,Clientes,model_sicpro_app_clientes,grupo_app_clientes_usuario,1,0,0,0
+clientes_etiquetas_usuario,Etiquetas,model_sicpro_app_clientes_etiquetas,grupo_app_clientes_usuario,1,0,0,0
+
+clientes_general_ejecutor,Clientes,model_sicpro_app_clientes,grupo_app_clientes_ejecutor,1,1,1,0
+
+clientes_etiquetas_responsable,Etiquetas,model_sicpro_app_clientes_etiquetas,grupo_app_clientes_responsable,1,1,1,0
+
+clientes_general_admin,Clientes,model_sicpro_app_clientes,grupo_app_clientes_admin,1,1,1,1
+clientes_etiquetas_admin,Etiquetas,model_sicpro_app_clientes_etiquetas,grupo_app_clientes_admin,1,1,1,1

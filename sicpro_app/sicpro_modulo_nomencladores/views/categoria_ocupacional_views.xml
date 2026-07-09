@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record id="categoria_ocupacional_form_view" model="ir.ui.view">
+        <field name="name">sicpro.nomenclador.categoria.ocupacional.form</field>
+        <field name="model">sicpro.nomenclador.categoria.ocupacional</field>
+        <field name="arch" type="xml">
+            <form string="Nomenclador de Categoría Ocupacional">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_currency_id" invisible="1" />
+                            <field name="salario" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                            <field name="alimentacion" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                        </group>
+                    </group>
+                    <div>
+                        <label for="descripcion"/>
+                        <field name="descripcion"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="categoria_ocupacional_tree_view" model="ir.ui.view">
+        <field name="name">sicpro.nomenclador.categoria.ocupacional.tree</field>
+        <field name="model">sicpro.nomenclador.categoria.ocupacional</field>
+        <field name="arch" type="xml">
+            <tree string="Nomenclador de Categoría Ocupacional" editable="bottom">
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="company_currency_id" invisible="1" />
+                <field name="salario" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                <field name="alimentacion" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="categoria_ocupacional_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Acuerdo de Servicios</field>
+       <field name="model">sicpro.nomenclador.categoria.ocupacional</field>
+        <field name="arch" type="xml">
+            <search string="Categoría Ocupacional">
+            <field name="name"/>
+            <field name="company_id"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+            <group expand="0" string="Group By">
+                <filter string="Proceso" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_categoria_ocupacional" model="ir.actions.act_window">
+        <field name="name">Categoría Ocupacional</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.categoria.ocupacional</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    </data>
+</odoo>

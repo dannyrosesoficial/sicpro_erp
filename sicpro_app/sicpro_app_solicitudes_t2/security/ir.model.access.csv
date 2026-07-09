@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+iniciativas_oportunidades_usuario,iniciativas y Oportunidades usuario,sicpro_app_solicitudes_t1.model_sicpro_app_solicitudes_oportunidades,grupo_app_iniciativas_usuario,1,0,0,0
+iniciativas_oportunidades_ejecutor,iniciativas y Oportunidades ejecutor,sicpro_app_solicitudes_t1.model_sicpro_app_solicitudes_oportunidades,grupo_app_iniciativas_ejecutor,1,1,1,0
+iniciativas_oportunidades_admin,iniciativas y Oportunidades admin,sicpro_app_solicitudes_t1.model_sicpro_app_solicitudes_oportunidades,grupo_app_iniciativas_admin,1,1,1,1
+

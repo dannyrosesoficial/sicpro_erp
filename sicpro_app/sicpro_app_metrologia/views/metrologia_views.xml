@@ -1,0 +1,1261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- equiment.request : views -->
+    <record id="hr_equipment_request_view_search" model="ir.ui.view">
+        <field name="name">equipment.request.search</field>
+        <field name="model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="arch" type="xml">
+            <search string="Maintenance Request Search">
+                <field name="name" string="Request"/>
+                <field name="category_id"/>
+                <field name="user_id"/>
+                <field name="equipment_id"/>
+                <field name="owner_user_id"/>
+                <field name="stage_id"/>
+                <field name="maintenance_team_id"/>
+                <filter string="Mis Mantenimientos" name="my_maintenances" domain="[('user_id', '=', uid)]"/>
+                <separator/>
+                <filter string="Por hacer" name="todo" domain="[('stage_id.done', '=', False)]"/>
+                <separator/>
+                <filter string="Bloqueada" name="kanban_state_block" domain="[('kanban_state', '=', 'blocked')]"/>
+                <filter string="Preparado" name="done" domain="[('kanban_state', '=', 'done')]"/>
+                <separator/>
+                <filter string="Alta Prioridad" name="high_priority" domain="[('priority', '=', '3')]"/>
+                <separator/>
+                <filter string="No Programado" name="unscheduled" domain="[('schedule_date', '=', False)]"/>
+                <separator/>
+                <filter string="Mensajes sin leer" name="message_needaction"
+                        domain="[('message_needaction', '=', True)]"/>
+                <separator/>
+                <filter invisible="1" string="Late Activities" name="activities_overdue"
+                    domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                    help="Show all records which has next action date is before today"/>
+                <filter invisible="1" string="Today Activities" name="activities_today"
+                    domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                    domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('archive', '=', True)]"/>
+                <group  expand='0' string='Group by...'>
+                    <filter string='Asignada a' name="assigned" domain="[]" context="{'group_by': 'user_id'}"/>
+                    <filter string='Categoría' name="category" domain="[]" context="{'group_by' : 'category_id'}"/>
+                    <filter string='Etapa' name="stages" domain="[]" context="{'group_by' : 'stage_id'}"/>
+                    <filter string='Creado por' name='created_by' domain="[]" context="{'group_by': 'owner_user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_equipment_request_view_form" model="ir.ui.view">
+        <field name="name">equipment.request.form</field>
+        <field name="model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="arch" type="xml">
+            <form string="Solicitud de Mantenimiento">
+                <header>
+                    <button string="Cancelar" name="archive_equipment_request" type="object"
+                            attrs="{'invisible': [('archive', '=', True)]}"/>
+                    <button string="Reabrir Solicitud" name="reset_equipment_request" type="object"
+                            attrs="{'invisible': [('archive', '=', False)]}"/>
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1'}"
+                           attrs="{'invisible': [('archive', '=', True)]}"/>
+                </header>
+                <sheet>
+                    <div attrs="{'invisible': [('archive', '=', False)]}">
+                        <span class="badge badge-warning float-right">Cancelado</span>
+                    </div>
+                    <div class="oe_right">
+                        <field name="kanban_state" class="oe_inline" widget="state_selection"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Titulo"/>
+                        <h1>
+                            <field name="name" placeholder="Solicitud de Mantenimiento"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="owner_user_id" string="Solicitado por" invisible="1"/>
+                            <field name="equipment_id"
+                                   context="{'default_company_id':company_id, 'default_category_id':category_id}"/>
+                            <field name="category_id"  context="{'default_company_id':company_id}"
+                                   attrs="{'invisible': [('equipment_id', '=', False)]}"/>
+                            <field name="request_date" readonly="True"/>
+                            <field name="done" invisible="1"/>
+                            <field name="close_date" attrs="{'invisible': [('done', '!=', True)]}" readonly="True"/>
+                            <field name="archive" invisible="1"/>
+                            <field name="maintenance_type" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="maintenance_team_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="user_id" string="Responsable"/>
+                            <field name="schedule_date"/>
+                            <label for="duration"/>
+                            <div>
+                                <field name="duration"
+                                       widget="float_time"
+                                       class="oe_inline"/> <span class="ml8">horas</span>
+                            </div>
+                            <field name="priority" widget="priority"/>
+                            <field name="email_cc" string="Correo electrónico cc" groups="base.group_no_one"/>
+                            <field name="company_id" readonly="1"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <field name='description' placeholder="Internal Note ......."/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_equipment_request_view_kanban" model="ir.ui.view">
+        <field name="name">equipment.request.kanban</field>
+        <field name="model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id">
+                <field name="stage_id"/>
+                <field name="color"/>
+                <field name="priority"/>
+                <field name="equipment_id"/>
+                <field name="user_id"/>
+                <field name="owner_user_id"/>
+                <field name="category_id"/>
+                <field name="kanban_state"/>
+                <field name="message_needaction_counter"/>
+                <field name="activity_ids" />
+                <field name="activity_state" />
+                <progressbar field="kanban_state" colors='{"done": "success", "blocked": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-tooltip">
+                       <ul class="oe_kanban_tooltip">
+                          <li t-if="record.category_id.raw_value"><b>Category:</b>
+                              <t t-esc="record.category_id.value"/></li>
+                          <li t-if="record.user_id.raw_value"><b>Request to:</b>
+                              <t t-esc="record.user_id.value"/></li>
+                       </ul>
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click oe_semantic_html_override">
+                            <div class="o_dropdown_kanban dropdown">
+
+                                <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                                   data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <t t-if="widget.editable"><a role="menuitem" type="edit"
+                                                                 class="dropdown-item">Editar</a></t>
+                                    <t t-if="widget.deletable"><a role="menuitem" type="delete"
+                                                                  class="dropdown-item">Eliminar</a></t>
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_content" tooltip="kanban-tooltip">
+                                <div class="o_kanban_record_top">
+                                    <b class="o_kanban_record_title"><field name="name"/></b>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <span name="owner_user_id" t-if="record.owner_user_id.raw_value">Requested by :
+                                        <field name="owner_user_id"/><br/></span>
+                                    <span class="oe_grey" t-if="record.equipment_id.raw_value">
+                                        <field name="equipment_id"/><br/></span>
+                                    <span t-if="record.category_id.raw_value"><field name="category_id"/></span>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="priority" widget="priority"/>
+                                        <t t-if="record.message_needaction_counter.raw_value">
+                                            <span role="alert" class='oe_kanban_mail_new' title='Unread Messages'>
+                                                <i class='fa fa-comments' role="img" aria-label="Unread Messages"/>
+                                                <t t-raw="record.message_needaction_counter.raw_value"/></span>
+                                        </t>
+                                        <div class="o_kanban_inline_block ml4 mr4">
+                                            <field name="activity_ids" widget="kanban_activity" />
+                                        </div>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="kanban_state" widget="state_selection"/>
+                                        <img t-att-src="kanban_image('res.users', 'image_128', record.user_id.raw_value)"
+                                             t-att-title="record.user_id.value" t-att-alt="record.user_id.value"
+                                             class="oe_kanban_avatar float-right"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_clear"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="hr_equipment_request_view_tree" model="ir.ui.view">
+        <field name="name">equipment.request.tree</field>
+        <field name="model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="arch" type="xml">
+            <tree string="Solicitud de Mantenimiento" multi_edit="1" decoration-bf="message_needaction==True">
+                <field name="message_needaction" invisible="1"/>
+                <field name="name"/>
+                <field name="request_date" groups="base.group_no_one"/>
+                <field name="owner_user_id"/>
+                <field name="user_id"/>
+                <field name="category_id" readonly="1" />
+                <field name="stage_id"/>
+                <field name="company_id" readonly="1"/>
+                <field name="activity_exception_decoration" widget="activity_exception"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_equipment_request_view_graph" model="ir.ui.view">
+        <field name="name">equipment.request.graph</field>
+        <field name="model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="arch" type="xml">
+            <graph string="Solicitud de Mantenimiento">
+                <field name="user_id"/>
+                <field name="stage_id"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="hr_equipment_request_view_pivot" model="ir.ui.view">
+        <field name="name">equipment.request.pivot</field>
+        <field name="model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="arch" type="xml">
+            <pivot string="Solicitud de Mantenimiento">
+                <field name="user_id"/>
+                <field name="stage_id"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="hr_equipment_view_calendar" model="ir.ui.view">
+        <field name="name">equipment.request.calendar</field>
+        <field name="model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="arch" type="xml">
+            <calendar date_start="schedule_date" date_delay="duration" color="user_id" event_limit="5">
+                <field name="user_id"/>
+                <field name="priority"/>
+                <field name="maintenance_type"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Pantalla para la solicitud de mantenimiento -->
+    <record id="hr_equipment_request_action" model="ir.actions.act_window">
+        <field name="name">Solicitud de Mantenimiento</field>
+        <field name="res_model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="view_mode">kanban,tree,form,pivot,graph,calendar</field>
+        <field name="view_id" ref="hr_equipment_request_view_kanban"/>
+        <field name="context">{'default_user_id': uid}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar solicitudes de mantenimiento
+            </p><p>
+                Agregue todas las solicitudes de mantenimiento de los equipos de medición.
+            </p>
+        </field>
+    </record>
+    
+    <record id="hr_equipment_request_action_link" model="ir.actions.act_window">
+        <field name="name">Maintenance Requests45</field>
+        <field name="res_model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="view_mode">kanban,tree,form,pivot,graph,calendar</field>
+        <field name="search_view_id" ref="hr_equipment_request_view_search"/>
+        <field name="view_id" ref="hr_equipment_request_view_kanban"/>
+        <field name="context">{
+            'search_default_category_id': [active_id],
+            'default_category_id': active_id,
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar nueva Solicitud de Mantenimiento
+            </p><p>
+               Aquí puede agregar todas las solicitudes de mantenimientos de los equipos de medición.
+            </p>
+        </field>
+    </record>
+
+    <record id="hr_equipment_request_action_from_equipment" model="ir.actions.act_window">
+        <field name="name">Maintenance Requests23</field>
+        <field name="res_model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="binding_model_id" ref="sicpro_app_metrologia.model_sicpro_app_metrologia_equipos"/>
+        <field name="view_mode">kanban,tree,form,pivot,graph,calendar</field>
+        <field name="context">{
+            'default_equipment_id': active_id,
+        }</field>
+        <field name="domain">[('equipment_id', '=', active_id)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar Solicitud de Mantenimiento
+            </p><p>
+                Aquí puede agregar todas las solicitudes de manteniiento de los equipos de medición.
+            </p>
+        </field>
+    </record>
+
+    <record id="hr_equipment_todo_request_action_from_dashboard" model="ir.actions.act_window">
+        <field name="name">Maintenance Requests33</field>
+        <field name="res_model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="view_mode">kanban,tree,form,pivot,graph,calendar</field>
+        <field name="context">{
+            'default_maintenance_team_id': active_id,
+        }</field>
+        <field name="domain">[('maintenance_team_id', '=', active_id),
+                              ('maintenance_type', 'in', context.get('maintenance_type',
+                                                                     ['preventivo', 'correctivo']))]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar Solicitud de Mantenimiento
+            </p><p>
+                Aquí puede agregar todas las solicitudes de mantenimiento de los equipos de medición.
+            </p>
+        </field>
+    </record>
+
+    <record id="hr_equipment_request_action_cal" model="ir.actions.act_window">
+        <field name="name">Solicitud de Mantenimiento</field>
+        <field name="res_model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="view_mode">calendar,kanban,tree,form,pivot,graph</field>
+        <field name="view_id" ref="hr_equipment_view_calendar"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar solicitudes de mantenimiento
+            </p><p>
+                Aquí puede agregar nuevas solicitudes de mantenimiento a los equipos de medición.
+            </p>
+        </field>
+    </record>
+
+    <!-- Pantalla para ver informes de solicitud de mantenimientos -->
+    <record id="maintenance_request_action_reports" model="ir.actions.act_window">
+        <field name="name">Reportes de Solicitudes para Mantenimiento</field>
+        <field name="res_model">sicpro.app.metrologia.solicitud.calibracion</field>
+        <field name="view_mode">graph,pivot,kanban,tree,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Ver solicitudes de Mantenimiento
+            </p><p>
+                Visualizar el estado de los reportes de mantenimiento.
+            </p>
+        </field>
+    </record>
+
+    <!-- equiment : views -->
+    <record id="hr_equipment_view_form" model="ir.ui.view">
+        <field name="name">equipment.form</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="arch" type="xml">
+            <form string="Equipments">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(hr_equipment_request_action_from_equipment)d"
+                            type="action"
+                            class="oe_stat_button"
+                            context="{'default_company_id': company_id}"
+                            icon="fa-wrench">
+                            <field string="Mantenimiento" name="maintenance_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" string="Nombre" placeholder="Nombre del Equipo"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="category_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="company_id" readonly="1"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="owner_user_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="centro_costo"/>
+                            <field name="local"/>
+                        </group>
+                        <group>
+                            <field name="maintenance_team_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                   attrs="{'required': [('period', '!=', 0)]}"
+                                   context="{'default_company_id':company_id}"/>
+                            <field name="technician_user_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="assign_date" groups="base.group_no_one"/>
+                            <field name="scrap_date" groups="base.group_no_one"/>
+                            <field name="area" string="Usado en el Área"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Descripción">
+                            <field name="note"/>
+                        </page>
+                        <page string="Información del Equipo">
+                            <group string="Indentificadores del equipo">
+                                <group>
+                                    <field name="inventario"/>
+                                    <field name="inmovilizado"/>
+                                    <field name="tarjeta"/>
+                                </group>
+                                <group>
+                                    <field name="marca"/>
+                                    <field name="model"/>
+                                    <field name="serial_no"/>
+                                    <field name="pais_equipo"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                                 <group string="Detalles">
+                                    <field name="presicion"/>
+                                    <field name="medicion"/>
+                                    <field name="magnitud"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="unidad_medida"/>
+                                 </group>
+                                <group string="Otros">
+                                    <field name="effective_date"/>
+                                    <field name="cost" />
+                                    <field name="warranty_date"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Mantenimiento">
+                            <group>
+                                <group>
+                                    <field name="centro_calibracion"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="estado_tecnico"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                                <group name="maintenance">
+                                    <field name="next_action_date" class="oe_read_only"
+                                           string="Siguiente mantenimiento"/>
+                                    <label for="period" string="Frecuencia del mantenimiento"/>
+                                    <div class="o_row">
+                                        <field name="period"/> días
+                                    </div>
+                                    <label for="maintenance_duration" string="Duración de mantenimiento"/>
+                                    <div class="o_row">
+                                        <field name="maintenance_duration"/> horas
+                                    </div>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Imagenes">
+                            <group>
+                                <group string="Imagen 1">
+                                    <field name="image_1_1920" widget="image" class="oe_avatar"
+                                           options="{&quot;preview_image&quot;: &quot;image_1_256&quot;}"/>
+                                </group>
+                                <group string="Imagen 2">
+                                    <field name="image_2_1920" widget="image" class="oe_avatar"
+                                           options="{&quot;preview_image&quot;: &quot;image_2_128&quot;}"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_equipment_view_kanban" model="ir.ui.view">
+        <field name="name">equipment.kanban</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="color"/>
+                <field name="technician_user_id"/>
+                <field name="owner_user_id"/>
+                <field name="category_id"/>
+                <field name="serial_no"/>
+                <field name="model"/>
+                <field name="maintenance_ids"/>
+                <field name="maintenance_open_count"/>
+                <field name="next_action_date"/>
+                <field name="technician_user_id"/>
+                <field name="activity_ids" />
+                <field name="activity_state" />
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-tooltip">
+                        <ul class="oe_kanban_tooltip">
+                            <li t-if="record.serial_no.raw_value"><b>Serial Number:</b>
+                                <t t-esc="record.serial_no.value"/></li>
+                            <li t-if="record.model.raw_value"><b>Model Number:</b>
+                                <t t-esc="record.model.value"/></li>
+                        </ul>
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click">
+                            <div class="o_dropdown_kanban dropdown" t-if="!selection_mode">
+
+                                <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown"
+                                   data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <t t-if="widget.editable"><a role="menuitem" type="edit"
+                                                                 class="dropdown-item">Editar</a></t>
+                                    <t t-if="widget.deletable"><a role="menuitem" type="delete"
+                                                                  class="dropdown-item">Eliminar</a></t>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <div role="separator" class="dropdown-header">Record Colour</div>
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_content" tooltip="kanban-tooltip">
+                                <div class="o_kanban_record_top">
+                                    <b class="o_kanban_record_title"><field name="name"/><small>
+                                        <span t-if="record.model.raw_value"> (<field name="model"/>)</span></small></b>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div t-if="record.serial_no.raw_value"><field name="serial_no"/></div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <div class="badge badge-danger"
+                                             t-if="!selection_mode and record.maintenance_open_count.raw_value" >
+                                            <t t-raw="record.maintenance_open_count.raw_value"/> Request
+                                        </div>
+                                        <div class="badge badge-secondary"
+                                             t-if="!selection_mode and record.next_action_date.raw_value" >
+                                            <t t-raw="moment(record.next_action_date.raw_value).format('MMMM Do')"/>
+                                        </div>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <div class="o_kanban_inline_block" t-if="!selection_mode">
+                                            <field name="activity_ids" widget="kanban_activity" />
+                                        </div>
+                                        <img t-att-src="kanban_image('res.users', 'image_128', record.owner_user_id.raw_value)"
+                                             t-att-title="record.owner_user_id.value" t-att-alt="record.owner_user_id.value"
+                                             class="oe_kanban_avatar"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_clear"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="hr_equipment_view_tree" model="ir.ui.view">
+        <field name="name">equipment.tree</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="arch" type="xml">
+            <tree string="Assign To User"  decoration-bf="message_needaction==True">
+                <field name="message_needaction" invisible="1"/>
+                <field name="name"/>
+                <!-- <field name="active" invisible="1"/> -->
+                <field name="owner_user_id" string="Owner"/>
+                <field name="assign_date" groups="base.group_no_one"/>
+                <field name="serial_no"/>
+                <field name="technician_user_id"/>
+                <field name="category_id"/>
+                <field name="company_id"/>
+                <field name="activity_exception_decoration" widget="activity_exception"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_equipment_view_search" model="ir.ui.view">
+        <field name="name">equipment.search</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field string="Equipos" name="name" filter_domain="[
+                    '|', '|', '|',
+                    ('name', 'ilike', self), ('model', 'ilike', self), ('serial_no', 'ilike', self)]"/>
+                <field string="Category" name="category_id"/>
+                <field name="owner_user_id"/>
+                <filter string="Mis equipos" name="my" domain="[('owner_user_id', '=', uid)]"/>
+                <filter string="Asignado" name="assigned" domain="[('owner_user_id', '!=', False)]"/>
+                <filter string="No asignado" name="available" domain="[('owner_user_id', '=', False)]"/>
+                <separator/>
+                <filter string="En mantenimiento" name="under_maintenance"
+                        domain="[('maintenance_open_count', '&gt;', 0)]"/>
+                <separator/>
+                <filter string="Mensajes sin leer" name="message_needaction"
+                        domain="[('message_needaction','=',True)]"/>
+                <separator/>
+                <filter invisible="1" string="Late Activities" name="activities_overdue"
+                    domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                    help="Show all records which has next action date is before today"/>
+                <filter invisible="1" string="Today Activities" name="activities_today"
+                    domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                    domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <group  expand='0' string='Group by...'>
+                    <filter string='Gestor de Equipos' name="technicians" domain="[]"
+                            context="{'group_by': 'technician_user_id'}"/>
+                    <filter string='Categoria' name="category" domain="[]" context="{'group_by': 'category_id'}"/>
+                    <filter string='Trabajador' name="owner" domain="[]" context="{'group_by': 'owner_user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pantalla para agregar los equipos -->
+    <record id="hr_equipment_action" model="ir.actions.act_window">
+        <field name="name">Equipos</field>
+        <field name="res_model">sicpro.app.metrologia.equipos</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="hr_equipment_view_kanban"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar nuevo Equipo
+            </p><p>
+                Agregue los equipos y sus caracteristicas para lograr un mejor control de los mismos.
+            </p>
+        </field>
+    </record>
+
+    <!-- equiment : actions -->
+    <record id="hr_equipment_action_from_category_form" model="ir.actions.act_window">
+        <field name="name">Equipments</field>
+        <field name="res_model">sicpro.app.metrologia.equipos</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="hr_equipment_view_search"/>
+        <field name="view_id" ref="hr_equipment_view_kanban"/>
+        <field name="context">{
+            'search_default_category_id': [active_id],
+            'default_category_id': active_id,
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new equipment
+            </p><p>
+                Track equipments and link it to an employee or department.
+                You will be able to manage allocations, issues and maintenance of your equipment.
+            </p>
+        </field>
+    </record>
+
+    <!-- formulario de categorias -->
+    <record id="hr_equipment_category_view_form" model="ir.ui.view">
+        <field name="name">equipment.category.form</field>
+        <field name="model">sicpro.app.metrologia.categoria</field>
+        <field name="arch" type="xml">
+            <form string="Categoría de Equipos">
+                <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button name="%(hr_equipment_action_from_category_form)d"
+                        class="oe_stat_button"
+                        icon="fa-cubes"
+                        type="action">
+                        <field string="Equipamiento" name="equipment_count" widget="statinfo"/>
+                    </button>
+                    <button name="%(hr_equipment_request_action_link)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-wrench">
+                        <field string="Mantenimiento" name="maintenance_count" widget="statinfo"/>
+                    </button>
+                </div>
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only" string="Nombre de la Categoría"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <field name="technician_user_id" class="oe_inline"/>
+                    <field name="company_id" options="{'no_create': True}" class="oe_inline"/>
+                </group>
+                <group name="group_alias" attrs="{'invisible': [('alias_domain', '=', False)]}"
+                       groups="base.group_no_one">
+                    <label for="alias_name" string="Email Alias"/>
+                    <div name="alias_def">
+                        <field name="alias_id" class="oe_read_only oe_inline" string="Email Alias" required="0"/>
+                        <div class="oe_edit_only oe_inline" name="edit_alias" style="display: inline;">
+                            <field name="alias_name" class="oe_inline"/>@
+                            <field name="alias_domain" class="oe_inline" readonly="1"/>
+                        </div>
+                    </div>
+                </group>
+                <field name="note" nolabel="1"/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pantalla de lista de categoria de equipos -->
+    <record id="hr_equipment_category_view_tree" model="ir.ui.view">
+        <field name="name">equipment.category.tree</field>
+        <field name="model">sicpro.app.metrologia.categoria</field>
+        <field name="arch" type="xml">
+            <tree string="Assign To User">
+                <field name="name" string="Equipo"/>
+                <field name="technician_user_id"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_equipment_category_view_search" model="ir.ui.view">
+        <field name="name">equipment.category.search</field>
+        <field name="model">sicpro.app.metrologia.categoria</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="name" string="Category Name" filter_domain="[('name','ilike',self)]"/>
+                <group  expand='0' string='Group by...'>
+                    <filter string='Responsable' name="responsable" domain="[]"
+                            context="{'group_by' : 'technician_user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_maintenance_equipment_category_kanban" model="ir.ui.view">
+        <field name="name">metrologia.categoria.kanban</field>
+        <field name="model">sicpro.app.metrologia.categoria</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="technician_user_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="mb4">
+                                <strong><field name="name"/></strong>
+                                <img t-att-src="kanban_image('res.users', 'image_128', record.technician_user_id.raw_value)"
+                                     t-att-title="record.technician_user_id.value" t-att-alt="record.technician_user_id.value"
+                                     class="oe_kanban_avatar o_image_24_cover float-right"/>
+                            </div>
+                            <div class="row mt4">
+                                <div class="col-6">
+                                    <span class="badge badge-pill">
+                                        <strong>Equipamiento:</strong> <field name="equipment_count"/>
+                                    </span>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <span class="badge badge-pill">
+                                        <strong>Mantenimiento:</strong> <field name="maintenance_count"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Pantalla de categoria de equipos -->
+    <record id="hr_equipment_category_action" model="ir.actions.act_window">
+        <field name="name">Categoría de Equipos</field>
+        <field name="res_model">sicpro.app.metrologia.categoria</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="hr_equipment_category_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Agregar una Categoría de equipamiento
+            </p>
+        </field>
+    </record>
+
+    <!-- equipment.stage : views -->
+    <record id="hr_equipment_stage_view_search" model="ir.ui.view">
+        <field name="name">equipment.stage.search</field>
+        <field name="model">sicpro.app.metrologia.estado</field>
+        <field name="arch" type="xml">
+            <search string="Maintenance Request Stages">
+               <field name="name" string="Maintenance Request Stages"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_equipment_stage_view_tree" model="ir.ui.view">
+        <field name="name">equipment.stage.tree</field>
+        <field name="model">sicpro.app.metrologia.estado</field>
+        <field name="arch" type="xml">
+            <tree string="Maintenance Request Stage" editable="top">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="fold"/>
+                <field name="done"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_equipment_stage_view_kanban" model="ir.ui.view">
+        <field name="name">equipment.stage.kanban</field>
+        <field name="model">sicpro.app.metrologia.estado</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <strong><field name="name"/></strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Pantalla de estados de mantenimiento -->
+    <record id="hr_equipment_stage_action" model="ir.actions.act_window">
+        <field name="name">Estados</field>
+        <field name="res_model">sicpro.app.metrologia.estado</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Agregar estados de mantenimiento
+          </p>
+        </field>
+    </record>
+
+    <!-- metrologia direcciones: views -->
+    <record id="maintenance_team_view_form" model="ir.ui.view">
+        <field name="name">metrologia.direcciones.form</field>
+        <field name="model">sicpro.app.metrologia.direcciones</field>
+        <field name="arch" type="xml">
+            <form string="Proceso de Mantenimiento">
+                <sheet>
+                <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"/>
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only" string="Nombre del Proceso"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="active" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="company_id" options="{'no_create': True}"/>
+                    </group>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="maintenance_team_view_tree" model="ir.ui.view">
+        <field name="name">metrologia.direcciones.tree</field>
+        <field name="model">sicpro.app.metrologia.direcciones</field>
+        <field name="arch" type="xml">
+            <tree string="Maintenance Team" editable="bottom">
+                <field name="name"/>
+               <field name="company_id" options="{'no_create': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="maintenance_team_view_kanban" model="ir.ui.view">
+        <field name="name">metrologia.direcciones.kanban</field>
+        <field name="model">sicpro.app.metrologia.direcciones</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <strong><field name="name"/></strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Modal de configuracion de la pantalla del tablero -->
+    <record id="maintenance_team_kanban" model="ir.ui.view">
+        <field name="name">metrologia.direcciones.kanban</field>
+        <field name="model">sicpro.app.metrologia.direcciones</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_maintenance_team_kanban" create="0">
+                <field name="name"/>
+                <field name="color"/>
+                <field name="todo_request_ids"/>
+                <field name="todo_request_count"/>
+                <field name="todo_request_count_date"/>
+                <field name="todo_request_count_high_priority"/>
+                <field name="todo_request_count_block"/>
+                <field name="todo_request_count_unscheduled"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <a name="%(hr_equipment_todo_request_action_from_dashboard)d" type="action">
+                                            <field name="name"/>
+                                        </a></div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#">
+                                        <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/></a>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="row">
+                                    <div class="col-6 o_kanban_primary_left">
+                                        <button class="btn btn-primary"
+                                                name="%(hr_equipment_todo_request_action_from_dashboard)d"
+                                                type="action" context="{'search_default_todo': 1}">
+                                            <t t-esc="record.todo_request_count.value"/> Por hacer
+                                        </button>
+                                    </div>
+                                    <div class="col-6 o_kanban_primary_right">
+                                        <div class="row">
+                                            <div class="col-9">
+                                                <a name="%(hr_equipment_request_action_cal)d" type="action">
+                                                    Planificado
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+                                                <t t-esc="record.todo_request_count_date.value"/>
+                                            </div>
+                                            <div class="col-9">
+                                                <a name="%(hr_equipment_todo_request_action_from_dashboard)d"
+                                                   type="action" context="{'search_default_top_priority': 1}">
+                                                    Principales prioridades
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+                                                <t t-esc="record.todo_request_count_high_priority.value"/>
+                                            </div>
+                                            <div class="col-9">
+                                                <a name="%(hr_equipment_todo_request_action_from_dashboard)d"
+                                                   type="action" context="{'search_default_kanban_state_block': 1}">
+                                                    Bloqueada
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+                                                <t t-esc="record.todo_request_count_block.value"/>
+                                            </div>
+                                            <div class="col-9">
+                                                <a name="%(hr_equipment_todo_request_action_from_dashboard)d"
+                                                   type="action" context="{'search_default_unscheduled': 1}">
+                                                    No programado
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+                                                <t t-esc="record.todo_request_count_unscheduled.value"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><div class="container o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                <div class="row">
+                                    <div class="col-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                        <div role="menuitem" class="o_kanban_card_manage_title">
+                                            <span>Ver</span>
+                                        </div>
+                                        <div role="menuitem">
+                                            <a name="%(hr_equipment_todo_request_action_from_dashboard)d" type="action">
+                                                Todos
+                                            </a>
+                                        </div>
+                                        <div role="menuitem">
+                                            <a name="%(hr_equipment_todo_request_action_from_dashboard)d"
+                                               type="action" context="{'search_default_todo': 1}">
+                                                Por hacer
+                                            </a>
+                                        </div>
+                                        <div role="menuitem">
+                                            <a name="%(hr_equipment_todo_request_action_from_dashboard)d"
+                                               type="action" context="{'search_default_progress': 1}">
+                                                En Progreso
+                                            </a>
+                                        </div>
+                                        <div role="menuitem">
+                                            <a name="%(hr_equipment_todo_request_action_from_dashboard)d"
+                                               type="action" context="{'search_default_done': 1}">
+                                                Hecho
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 o_kanban_card_manage_section o_kanban_manage_new">
+                                        <div role="menuitem" class="o_kanban_card_manage_title">
+                                            <span>Informes</span>
+                                        </div>
+                                        <div role="menuitem">
+                                            <a name="%(maintenance_request_action_reports)d" type="action"
+                                               context="{'search_default_maintenance_team_id': active_id}">
+                                            Solicitudes de mantenimiento
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                    <div class="col-8" role="menuitem" aria-haspopup="true">
+                                        <ul role="menu" class="oe_kanban_colorpicker" data-field="color"/>
+                                    </div>
+                                    <div role="menuitem" class="col-4 text-right">
+                                        <a type="edit">Ajustes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="maintenance_team_view_search" model="ir.ui.view">
+        <field name="name">metrologia.direcciones.search</field>
+        <field name="model">sicpro.app.metrologia.direcciones</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field string="Team" name="name"/>
+                <filter string="Archivado" domain="[('active', '=', False)]" name="inactive"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pantalla para las direcciones o equipos de mantenimiento -->
+    <record id="maintenance_team_action_settings" model="ir.actions.act_window">
+        <field name="name">Equipos de Mantenimiento</field>
+        <field name="res_model">sicpro.app.metrologia.direcciones</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="maintenance_team_view_search"/>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('maintenance_team_view_tree')}),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('maintenance_team_view_kanban')})]"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Agregar una dirección de proceso para mantenimiento
+          </p>
+        </field>
+    </record>
+
+    <!-- pantalla principal con el resumen de matenimiento-->
+    <record id="maintenance_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Tablero de Mantenimiento</field>
+        <field name="res_model">sicpro.app.metrologia.direcciones</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="view_id" ref="maintenance_team_kanban"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Agregar nuevas solicitudes de mantenimiento
+          </p>
+        </field>
+    </record>
+
+    <!-- pantalla de centro de magnitudes-->
+    <record id="metrologia_magnitudes_view_tree" model="ir.ui.view">
+        <field name="name">metrologia.magnitudes.tree</field>
+        <field name="model">sicpro.app.metrologia.magnitud</field>
+        <field name="arch" type="xml">
+            <tree string="Magnitudes" editable="bottom">
+                <field name="name"/>
+               <field name="magnitud_corta"/>
+               <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="metrologia_magnitudes_view_search" model="ir.ui.view">
+        <field name="name">metrologia.magnitudes.search</field>
+        <field name="model">sicpro.app.metrologia.magnitud</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field string="Magnitud" name="name"/>
+                <filter string="Archivado" domain="[('active', '=', False)]" name="active"/>
+            </search>
+        </field>
+    </record>
+
+     <record id="metrologia_magnitudes_action" model="ir.actions.act_window">
+        <field name="name">Magnitudes</field>
+        <field name="res_model">sicpro.app.metrologia.magnitud</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="metrologia_magnitudes_view_tree"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Agregar magnitudes para el control de los equipos
+          </p>
+        </field>
+    </record>
+
+    <!-- pantalla de centro de estado tecnico-->
+    <record id="metrologia_estado_tecnico_view_tree" model="ir.ui.view">
+        <field name="name">metrologia.estado.tecnico.tree</field>
+        <field name="model">sicpro.app.metrologia.estado.tecnico</field>
+        <field name="arch" type="xml">
+            <tree string="Estado Técnico" editable="bottom">
+                <field name="name"/>
+               <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="metrologia_estado_tecnico_view_search" model="ir.ui.view">
+        <field name="name">metrologia.estado.tecnico.search</field>
+        <field name="model">sicpro.app.metrologia.estado.tecnico</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field string="Estado" name="name"/>
+                <filter string="Archivado" domain="[('active', '=', False)]" name="active"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="metrologia_estado_tecnico_action" model="ir.actions.act_window">
+        <field name="name">Estado Técnico</field>
+        <field name="res_model">sicpro.app.metrologia.estado.tecnico</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="metrologia_estado_tecnico_view_tree"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Agregar los estados del equipo
+          </p>
+        </field>
+    </record>
+
+    <!-- pantalla de centro de calibracion-->
+    <record id="metrologia_centro_calibracion_view_tree" model="ir.ui.view">
+        <field name="name">metrologia.centro.calibracion.tree</field>
+        <field name="model">sicpro.app.metrologia.centro.calibracion</field>
+        <field name="arch" type="xml">
+            <tree string="Centro de Calibración" editable="bottom">
+                <field name="name"/>
+               <field name="company_id" options="{'no_create': True}"/>
+               <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="metrologia_centro_calibracion_view_search" model="ir.ui.view">
+        <field name="name">metrologia.centro.calibracion.search</field>
+        <field name="model">sicpro.app.metrologia.centro.calibracion</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field string="Centro de Calibración" name="name"/>
+                <filter string="Archivado" domain="[('active', '=', False)]" name="active"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="metrologia_centro_calibracion_action" model="ir.actions.act_window">
+        <field name="name">Centro de Calibración</field>
+        <field name="res_model">sicpro.app.metrologia.centro.calibracion</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="metrologia_centro_calibracion_view_tree"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Agregar los centros donde se calibran los equipos
+          </p>
+        </field>
+    </record>
+
+
+    <!-- Menu Metrología Usuarios-->
+    <menuitem
+        id="menu_principal_metrologia" name="Metrología"
+        web_icon="sicpro_app_metrologia,static/description/icon.png"
+        sequence="110"/>
+
+    <menuitem
+        id="menu_tablero" name="Tablero" parent="menu_principal_metrologia"
+        groups="grupo_app_metrologia_usuario" action="maintenance_dashboard_action"
+        sequence="0"/>
+
+    <menuitem
+        id="menu_mantenimientos" name="Mantenimiento" parent="menu_principal_metrologia"
+        sequence="1"/>
+
+    <menuitem
+        id="menu_solicitud_mantenimiento" name="Solicitudes de Mantenimiento"
+        parent="menu_mantenimientos" action="hr_equipment_request_action"
+        groups="grupo_app_metrologia_solicitante" sequence="1"/>
+
+    <menuitem
+        id="menu_calendario_mantenimiento" name="Calendario de Mantenimientos" parent="menu_mantenimientos"
+        action="hr_equipment_request_action_cal" groups="grupo_app_metrologia_solicitante" sequence="2"/>
+
+    <menuitem
+        id="menu_equipamiento" name="Equipos"
+        parent="menu_principal_metrologia" action="hr_equipment_action"
+        groups="grupo_app_metrologia_usuario" sequence="2"/>
+
+    <!-- Menu Metrología Pendiente
+    <menuitem
+        id="menu_mantenimiento_reportes" name="Reportes"
+        parent="menu_principal_metrologia"
+        sequence="3"/>
+    <menuitem
+        id="menu_reportes_mantenimiento" name="Peticiones de Mantenimiento"
+        parent="menu_mantenimiento_reportes" sequence="1"/>
+    <menuitem
+        id="menu_reportes_plan" name="Plan de calibración"
+        parent="menu_mantenimiento_reportes" sequence="1"/>
+    <menuitem
+        id="menu_m_reports_losses" name="Losses Analysis" parent="menu_mantenimiento_reportes"
+        sequence="2"/>
+        -->
+
+    <menuitem
+        id="maintenance_reporting" name="Informes" parent="menu_principal_metrologia"
+        sequence="20"/>
+
+    <menuitem
+        id="maintenance_request_reporting" action="maintenance_request_action_reports"
+        parent="maintenance_reporting" groups="grupo_app_metrologia_ejecutor"/>
+
+    <menuitem
+        id="menu_maintenance_configuration"
+        name="Configuración" parent="menu_principal_metrologia" sequence="100"/>
+
+    <menuitem
+        id="menu_maintenance_teams" name="Equipos de Mantenimiento"
+        parent="menu_maintenance_configuration" action="maintenance_team_action_settings"
+        groups="grupo_app_metrologia_responsable" sequence="1"/>
+
+    <menuitem
+        id="menu_maintenance_cat" name="Categoría de Equipos"
+        parent="menu_maintenance_configuration" action="hr_equipment_category_action"
+        groups="grupo_app_metrologia_responsable" sequence="2"/>
+
+    <menuitem
+        id="menu_maintenance_stage_configuration" name="Estados de Mantenimiento"
+        parent="menu_maintenance_configuration" action="hr_equipment_stage_action"
+        groups="grupo_app_metrologia_admin" sequence="3" />
+
+    <menuitem
+        id="menu_maintenance_magnitud_configuration" name="Magnitudes de los Equipos"
+        parent="menu_maintenance_configuration" action="metrologia_magnitudes_action"
+        groups="grupo_app_metrologia_responsable" sequence="4" />
+
+    <menuitem
+        id="menu_maintenance_estado_tecnico_configuration"
+        name="Estado Técnico" parent="menu_maintenance_configuration"
+        action="metrologia_estado_tecnico_action" groups="grupo_app_metrologia_admin"
+        sequence="5" />
+
+    <menuitem
+        id="menu_maintenance_centro_calibracion_configuration"
+        name="Centros de Calibración" parent="menu_maintenance_configuration"
+        action="metrologia_centro_calibracion_action"
+        groups="grupo_app_metrologia_responsable"
+        sequence="6" />
+</odoo>

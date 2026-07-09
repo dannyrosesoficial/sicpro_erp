@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- Top menu item -->
+        <!--
+            This menu item's purpose is to overwrite another one defined in
+            the base module in order to set new groups.
+        -->
+        <menuitem
+            id="solicitudes_menu_root"
+            name="Solicitudes"
+            web_icon="sicpro_app_solicitudes_t1,static/description/icon.png"
+            sequence="6"
+            groups="grupo_app_solicitud_usuario"/>
+
+        <menuitem
+            id="solicitudes_menu_operaciones"
+            name="Operaciones"
+            parent="solicitudes_menu_root"
+            sequence="1"
+            groups="grupo_app_solicitud_usuario"/>
+
+        <menuitem
+            id="solicitudes_menu_iniciativas"
+            name="Iniciativas"
+            parent="solicitudes_menu_root"
+            sequence="5"
+            groups="grupo_app_solicitud_usuario" />
+
+        <menuitem id="solicitudes_menu_report"
+                  name="Informes"
+                  parent="solicitudes_menu_root"
+                  sequence="6"
+                  groups="grupo_app_solicitud_usuario"/>
+
+        <menuitem
+            id="solicitudes_menu_config"
+            name="Configuración"
+            parent="solicitudes_menu_root"
+            sequence="25" groups="grupo_app_solicitud_responsable"/>
+
+        <menuitem id="solicitudes_menu_activity_types"
+            name="Tipo de Actividades"
+            parent="solicitudes_menu_config"
+            action="mail.mail_activity_type_action"
+            sequence="10"/>
+
+
+</odoo>

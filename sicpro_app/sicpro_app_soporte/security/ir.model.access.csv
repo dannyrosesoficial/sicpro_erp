@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+soporte_stage_user,soporte estados usuario,model_sicpro_app_soporte_estados,base.group_user,1,0,0,0
+soporte_tag_user,soporte etiquetas usuario,model_sicpro_app_soporte_etiquetas,base.group_user,1,0,0,0
+soporte_team_user,soporte equipos usuario,model_sicpro_app_soporte_equipos,base.group_user,1,1,0,0
+soporte_channel_user,soporte canales usuario,model_sicpro_app_soporte_canales,base.group_user,1,0,0,0
+soporte_category_user,soporte categoria usuario,model_sicpro_app_soporte_categoria,base.group_user,1,0,0,0
+
+soporte_ejecutor,soporte ejecutor,model_sicpro_app_soporte,group_soporte_ejecutor,1,1,1,0
+soporte_ejecutor_personal,soporte ejecutor personal,model_sicpro_app_soporte,group_soporte_usuarios,1,1,1,0
+
+soporte_manager,soporte admin,model_sicpro_app_soporte,group_soporte_admin,1,1,1,1
+soporte_stage_manager,soporte estados.admin,model_sicpro_app_soporte_estados,group_soporte_admin,1,1,1,1
+soporte_tag_manager,soporte etiquetas.admin,model_sicpro_app_soporte_etiquetas,group_soporte_admin,1,1,1,1
+soporte_team_manager,soporte equipos.admin,model_sicpro_app_soporte_equipos,group_soporte_admin,1,1,1,1
+soporte_channel_manager,soporte canales.admin,model_sicpro_app_soporte_canales,group_soporte_admin,1,1,1,1
+soporte_category_manager,soporte categoria.admin,model_sicpro_app_soporte_categoria,group_soporte_admin,1,1,1,1

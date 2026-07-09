@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- MENU DE USUARIO -->
+        <menuitem
+            id="menu_hr_root" name="Trabajadores"
+            groups="grupo_app_trabajadores_usuario"
+            web_icon="sicpro_app_trabajadores,static/description/icon.png"
+            sequence="75"/>
+
+        <menuitem
+            id="menu_hr_employee_payroll" name="Trabajadores"
+            parent="menu_hr_root"
+            groups="grupo_app_trabajadores_ejecutor"
+            sequence="3"/>
+
+            <menuitem
+                id="menu_trabajadores_user" name="Trabajadores"
+                action="open_view_employee_list_my"
+                parent="menu_hr_employee_payroll"
+                groups="grupo_app_trabajadores_ejecutor"
+                sequence="1"/>
+
+        <menuitem
+            id="menu_hr_employee" name="Directorio de Trabajadores"
+            action="open_view_employee_list_my"
+            parent="menu_hr_root"
+            groups="grupo_app_trabajadores_usuario"
+            sequence="4"/>
+
+        <menuitem
+            id="menu_human_resources_configuration" name="Configuración"
+            parent="menu_hr_root"
+            sequence="100"/>
+
+            <menuitem
+                id="menu_view_hr_job" name="Categoría ocupacional"
+                action="action_trabajadores_trabajo"
+                parent="menu_human_resources_configuration"
+                groups="grupo_app_trabajadores_responsable"
+                sequence="2"/>
+
+            <menuitem
+                id="menu_view_employee_category_form" name="Etiquetas"
+                action="open_view_categ_form"
+                groups="grupo_app_trabajadores_responsable"
+                parent="menu_human_resources_configuration"
+                sequence="3"/>
+
+            <menuitem
+                id="menu_hr_department_tree" name="Departamentos"
+                action="open_module_tree_department"
+                groups="grupo_app_trabajadores_responsable"
+                parent="menu_human_resources_configuration"
+                sequence="1"/>
+
+
+
+
+         </data>
+</odoo>

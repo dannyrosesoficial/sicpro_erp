@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hr</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Trabajadores" string="Trabajadores" data-key="hr" >
+                    <h2>Trabajadores</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="module_hr_skills"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_hr_skills"/>
+                                <div class="text-muted">
+                                        Enrich employee profiles with skills and resumes
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="col-12 col-lg-6 o_setting_box" title="Show organizational chart on employee form">
+                            <div class="o_setting_left_pane">
+                                <field name="module_hr_org_chart"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_hr_org_chart"/>
+                                <div class="text-muted">
+                                    Show organizational chart on employee form
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+
+    </record>
+
+    <menuitem id="hr_menu_configuration"
+        name="Settings"
+        parent="menu_human_resources_configuration"
+        sequence="0"
+        action="hr_config_settings_action"
+        groups="base.group_system"/>
+</odoo>

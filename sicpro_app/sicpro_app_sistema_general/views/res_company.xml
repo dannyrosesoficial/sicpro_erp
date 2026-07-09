@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="identificador_company_form" model="ir.ui.view">
+    <field name="name">res.company.identificador.form</field>
+    <field name="model">res.company</field>
+    <field name="inherit_id" ref="base.view_company_form" />
+    <field name="arch" type="xml">
+      <field name="name" position="after">
+        <br/>
+        <label for="id" string="Identificador del Proceso" />
+        <h2><field name="id" readonly="1" /></h2>
+      </field>
+      <field name="company_registry" position="after">
+        <field name="ejecuta_proceso"/>
+        <field name="identificador_corto"/>
+      </field>
+        <field name="currency_id" position="after">
+      </field>
+    </field>
+  </record>
+
+  <record id="identificador_company_tree" model="ir.ui.view">
+    <field name="name">res.users.inversionista.identificador.tree</field>
+    <field name="model">res.company</field>
+    <field name="inherit_id" ref="base.view_company_tree" />
+    <field name="arch" type="xml">
+      <field name="partner_id" position="after">
+        <field name="id"/>
+        <field name="identificador_corto" />
+      </field>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- inicio Vista del modal para el rechazo del contrato-->
+    <record id="contrato_rechazado_form" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.rechazado.form</field>
+            <field name="model">sicpro.app.contratos.rechazado</field>
+            <field name="priority">110</field>
+            <field name="arch" type="xml">
+                <form string="Motivo del Rechazo">
+                    <group class="oe_title">
+                        <field name="lost_reason_id"/>
+                    </group>
+                    <footer>
+                        <button name="action_motivo_rechazo" string="Enviar" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    <record id="contrato_rechazado_action" model="ir.actions.act_window">
+            <field name="name">Motivo de Rechazo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.contratos.rechazado</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="contrato_rechazado_form"/>
+            <field name="target">new</field>
+        </record>
+    <!-- Fin Vista del modal para el rechazo del contrato-->
+
+    <!-- inicio Vista del modal para cancelar el contrato-->
+    <record id="contrato_cancelado_form" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.cancelado.form</field>
+            <field name="model">sicpro.app.contratos.cancelado</field>
+            <field name="priority">120</field>
+            <field name="arch" type="xml">
+                <form string="Motivo del Rechazo">
+                    <group class="oe_title">
+                        <field name="lost_reason_id"/>
+                    </group>
+                    <footer>
+                        <button name="action_motivo_cancelado" string="Enviar" type="object" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    <record id="contrato_cancelado_action" model="ir.actions.act_window">
+            <field name="name">Motivo de Cancelación</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.contratos.cancelado</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="contrato_cancelado_form"/>
+            <field name="target">new</field>
+        </record>
+    <!-- Fin Vista del modal para cancelar el contrato-->
+
+    <record id="contratos_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.contratos.tree</field>
+        <field name="model">sicpro.app.contratos</field>
+        <field name="priority">220</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="sequence_consecutivo"/>
+                <field name="name"/>
+                <field name="consecutivo"/>
+                <field name="cuenta"/>
+                <field name="proveedor"/>
+                <field name="presupuesto_cup"/>
+                <field name="vigencia_contrato_anios"/>
+                <field name="dias_desfasados"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="contratos_form" model="ir.ui.view">
+        <field name="name">sicpro.app.contratos.form</field>
+        <field name="model">sicpro.app.contratos</field>
+        <field name="arch" type="xml">
+            <form string="Proveedores">
+                <header>
+                    <button name="action_liberar_contrato" string="Liberar Contrato" type="object" class="oe_highlight"
+                            groups="sicpro_app_contratos.grupo_app_contratos_validar_gestor"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'nuevo')]}"/>
+
+                    <button name="action_contratacion_contrato" string="Validar Contratación" type="object"
+                            class="oe_highlight" groups="sicpro_app_contratos.grupo_app_contratos_validar_comite_contratacion"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'liberado')]}"/>
+
+                    <button name="action_revision_contrato" string="Aprobar Revisión" type="object"
+                            class="oe_highlight" groups="sicpro_app_contratos.grupo_app_contratos_validar_area"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'contratacion')]}"/>
+
+                    <button name="action_legal_contrato" string="Aprobación Legal" type="object"
+                            class="oe_highlight" groups="sicpro_app_contratos.grupo_app_contratos_validar_legal"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'revisado')]}"/>
+
+                    <button name="action_economia_contrato" string="Validar Económicamente" type="object"
+                            class="oe_highlight"  groups="sicpro_app_contratos.grupo_app_contratos_validar_economica"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'legal')]}"/>
+
+                    <button name="action_economia_dc_contrato" string="Validar DC. Economía" type="object"
+                            class="oe_highlight"  groups="sicpro_app_contratos.grupo_app_contratos_validar_legal"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'economia')]}"/>
+
+                    <button name="action_firma_director_contrato" string="Firmar Director" type="object"
+                            class="oe_highlight"  groups="sicpro_app_contratos.grupo_app_contratos_validar_legal"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'economia_dc')]}"/>
+
+                    <button name="action_firma_proveedor_contrato" string="Firmar Proveedor" type="object"
+                            class="oe_highlight" groups="sicpro_app_contratos.grupo_app_contratos_validar_legal"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'firma_director')]}"/>
+
+                    <button name="%(contrato_rechazado_action)d" string="Rechazar Contrato" type="action"
+                            groups="sicpro_app_contratos.grupo_app_contratos_validar_comite_contratacion,sicpro_app_contratos.grupo_app_contratos_validar_legal,sicpro_app_contratos.grupo_app_contratos_validar_area,sicpro_app_contratos.grupo_app_contratos_validar_economica"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', 'in', ['nuevo', 'cancelado', 'devuelto', 'terminado', 'activo'])]}"/>
+
+                    <button name="%(contrato_cancelado_action)d" string="Cancelar Contrato" type="action"
+                            groups="sicpro_app_contratos.grupo_app_contratos_validar_comite_contratacion,sicpro_app_contratos.grupo_app_contratos_validar_legal,sicpro_app_contratos.grupo_app_contratos_validar_area,sicpro_app_contratos.grupo_app_contratos_validar_economica"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', 'in', ['nuevo', 'cancelado', 'terminado'])]}"/>
+
+                    <button name="action_terminar_contrato" string="Terminar Contrato" type="object"
+                            class="oe_highlight" groups="sicpro_app_contratos.grupo_app_contratos_validar_legal"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'activo')]}"/>
+
+                    <button name="action_reiniciar_contrato" string="Reiniciar Contrato" type="object" class="oe_highlight"
+                            groups="sicpro_app_contratos.grupo_app_contratos_validar_gestor"
+                            attrs="{'invisible': ['|', ('active', '=', False),
+                            ('estado_interno', 'not in', ['devuelto', 'cancelado'])]}"/>
+
+
+                    <field name="estado_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"
+                           readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                         <button class="oe_stat_button" name="contratos_docs_view_action" type="object"
+                                  icon="fa-file-text-o">
+                                <field string="Documentos" name="doc_count" widget="statinfo"/>
+                            </button>
+                     </div>
+                    <div class="oe_button_box" name="button_box"/>
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+
+                    <div class="oe_title">
+                        <field name="sequence_id" invisible="1"/>
+                        <field name="company_currency" invisible="1"/>
+                        <field name="active" invisible="1"/>
+                        <field name="estado_interno" invisible="1"/>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Titulo del contrato"
+                                   attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}" />
+                        </h1>
+                        <h4>
+                        <field name="tipo_contrato" attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </h4>
+                    </div>
+                    <div class="oe_title pr-0">
+                        <h2 class="d-flex flex-row justify-content-between">
+                            <field name="sequence_consecutivo" class="o_task_name text-truncate"/>
+                        </h2>
+                    </div>
+                  <group name="group_top">
+                    <group name="group_left">
+                          <field name="proveedor" attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}"
+                                 options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                          <field name="cuenta" attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}"/>
+                          <field name="pep" string="Código PEP"
+                                 attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}"/>
+                          <field name="presupuesto_cup" attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}"/>
+                          <field name="vigencia_contrato_anios"
+                                 attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}"/>
+                    </group>
+                    <group name="group_right">
+                            <field name="area_contrato" attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="uodc" readonly="0" attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="prioridad" widget="priority"/>
+                            <field name="etiquetas" widget="many2many_tags"
+                                   attrs="{'readonly': ['|', ('estado_interno', '!=', 'nuevo')]}"
+                                   options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Etiquetas"/>
+                        <field name="dias_desfasados" readonly="1" />
+                    </group>
+                  </group>
+
+                    <group>
+                        <group>
+                            <field name="fecha_inicio_contrato" readonly="1"/>
+                            </group>
+                        <group>
+                            <field name="fecha_fin_contrato" readonly="1" />
+                        </group>
+                    </group>
+
+                    <group string="Detalles de la Solicitud">
+                        <group>
+                            <field name="solicitud_persona_solicita" readonly="1"/>
+                            <field name="company_id" readonly="1"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="solicitud_fecha_inicial" readonly="1"/>
+                            <field name="solicitud_fecha_fin" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Detalles del Contrato">
+                        <field name="observaciones" placeholder=" Notas generales del contrato..."/>
+                    </group>
+                    <group string="Motivo de Devolución" attrs="{'invisible': ['|',('active', '=', False), ('esta_rechazada', '=', False)]}">
+                        <field name="esta_rechazada" invisible="1"/>
+                        <group>
+                            <field name="devuelto_persona_devuelve" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="fecha_rechazo" readonly="1"/>
+                            <field name="fecha_devolucion_fin" readonly="1"/>
+                        </group>
+                        <field name="rechazar" placeholder=" Notas generales..."/>
+                    </group>
+                    <group string="Motivo de Cancelación" attrs="{'invisible': ['|',('active', '=', False),('esta_cancelado', '=', False)]}">
+                        <field name="esta_cancelado" invisible="1"/>
+                        <group>
+                            <field name="cancelado_persona_cancelado" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="fecha_cancelado" readonly="1"/>
+                        </group>
+                        <field name="cancelar" placeholder=" Notas generales..."/>
+                    </group>
+
+                    <notebook colspan="4">
+                        <page name="comite_contratacion" string="Comité de Contratación"
+                              groups="sicpro_app_contratos.grupo_app_contratos_validar_comite_contratacion,sicpro_app_contratos.grupo_app_contratos_all">
+                                <group>
+                                    <group>
+                                        <field name="acta"/>
+                                    </group>
+                                    <group>
+                                        <field name="fecha_comite_contratacion"/>
+                                    </group>
+                                </group>
+                            <group>
+                                <group>
+                                    <field name="contratacion_persona_contratacion" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="contratacion_fecha_inicial" readonly="1"/>
+                                    <field name="contratacion_fecha_fin" readonly="1"/>
+                                </group>
+                                </group>
+                                <group string="Detalles de los Acuerdos">
+                                    <field name="acuerdo_comite_contratacion"
+                                               placeholder=" Notas generales..."/>
+                                </group>
+                            </page>
+                        <page name="revision_contrato" string="Revisión del Contrato"
+                              groups="sicpro_app_contratos.grupo_app_contratos_validar_area,sicpro_app_contratos.grupo_app_contratos_all">
+                            <group>
+                                <group>
+                                    <field name="revisado_persona_revisa" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="revisado_fecha_inicial" readonly="1"/>
+                                    <field name="revisado_fecha_fin" readonly="1"/>
+                                </group>
+                                </group>
+                            <group string="Detalles del Contrato">
+                                <field name="revisado_detalles_contrato" placeholder=" Notas generales..."/>
+                            </group>
+                        </page>
+                        <page name="revision_legal" string="Revisión Legal"
+                              groups="sicpro_app_contratos.grupo_app_contratos_validar_legal,sicpro_app_contratos.grupo_app_contratos_all">
+                            <group>
+                                <group>
+                                    <field name="legal_persona_legal" readonly="1"/>
+                                    <field name="consecutivo"/>
+                                </group>
+                                <group>
+                                    <field name="legal_fecha_inicial" readonly="1"/>
+                                    <field name="legal_fecha_fin" readonly="1"/>
+                                </group>
+                                </group>
+                            <group string="Detalles del Contrato">
+                                <field name="legal_detalles_contrato" placeholder=" Notas generales..."/>
+                            </group>
+                        </page>
+                        <page name="revision_economia" string="Revisión Económica"
+                              groups="sicpro_app_contratos.grupo_app_contratos_validar_economica,sicpro_app_contratos.grupo_app_contratos_all">
+                            <group>
+                                <group>
+                                    <field name="economia_persona_economia" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="economia_fecha_inicial" readonly="1"/>
+                                    <field name="economia_fecha_fin" readonly="1"/>
+                                </group>
+                                </group>
+                            <group string="Detalles del Contrato">
+                                <field name="economia_detalles_contrato" placeholder=" Notas generales..."/>
+                            </group>
+                        </page>
+                        <page name="revision_economia_dc" string="Revisión DC. Economía"
+                              groups="sicpro_app_contratos.grupo_app_contratos_validar_legal,sicpro_app_contratos.grupo_app_contratos_all">
+                            <group>
+                                <group>
+                                    <field name="economia_dc_persona_economia" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="economia_dc_fecha_inicial" readonly="1"/>
+                                    <field name="economia_dc_fecha_fin" readonly="1"/>
+                                </group>
+                                </group>
+                            <group string="Detalles del Contrato">
+                                <field name="economia_dc_detalles_contrato" placeholder=" Notas generales..."/>
+                            </group>
+                        </page>
+                        <page name="revision_director" string="Revisión del Director"
+                              groups="sicpro_app_contratos.grupo_app_contratos_validar_legal,sicpro_app_contratos.grupo_app_contratos_all">
+                            <group>
+                                <group>
+                                    <field name="firma_director_persona" readonly="1"/>
+                                    <field name="fecha_firmado_director"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_firma_director_inicial" readonly="1"/>
+                                    <field name="fecha_firma_director_fin" readonly="1"/>
+                                </group>
+                                </group>
+                            <group string="Detalles del Contrato">
+                                <field name="observaciones_firma_director" placeholder=" Notas generales..."/>
+                            </group>
+                        </page>
+                        <page name="revision_proveedor" string="Revisión del Proveedor"
+                              groups="sicpro_app_contratos.grupo_app_contratos_validar_legal,sicpro_app_contratos.grupo_app_contratos_all">
+                            <group>
+                                <group>
+                                    <field name="firma_proveedor_persona" readonly="1"/>
+                                    <field name="fecha_firmado_proveedor"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_firma_proveedor_inicial" readonly="1"/>
+                                    <field name="fecha_firma_proveedor_fin" readonly="1"/>
+                                </group>
+                                </group>
+                            <group string="Detalles del Contrato">
+                                <field name="observaciones_firma_proovedor" placeholder=" Notas generales..."/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="contratos_filter" model="ir.ui.view">
+       <field name="name">Buscar Contrato</field>
+       <field name="model">sicpro.app.contratos</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Contrato">
+                <field name="name"/>
+                <field name="consecutivo"/>
+                <field name="cuenta"/>
+                <field name="proveedor"/>
+                <field name="vigencia_contrato_anios"/>
+                <field name="pep"/>
+                <field name="etiquetas"/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                        <filter string="Proveedor" name="proveedor" context="{'group_by':'proveedor'}"/>
+                        <filter string="Tipo Contrato" name="tipo_contrato" context="{'group_by':'tipo_contrato'}"/>
+                        <filter name="user_id" string="Gestor del Contrato" context="{'group_by': 'user_id'}"/>
+                        <filter string="Área del Contrato" name="area_contrato" context="{'group_by':'area_contrato'}" />
+                        <filter string="Vigencia (Años)" name="vigencia_contrato_anios"
+                                context="{'group_by':'vigencia_contrato_anios'}"/>
+                    <separator orientation="vertical" />
+                        <filter string="Inicio de contrato" context="{'group_by':'fecha_inicio_contrato:month'}"
+                                name="month"/>
+                        <filter string="Fin de contrato" context="{'group_by':'fecha_fin_contrato:month'}" name="month"/>
+                        <filter string="Año" context="{'group_by':'anio'}" name="month"/>
+                        </group>
+            </search>
+       </field>
+    </record>
+
+    <record id="contratos_kanban" model="ir.ui.view">
+     <field name="name">sicpro.app.contratos.kanban</field>
+      <field name="model">sicpro.app.contratos</field>
+        <field name="priority">230</field>
+     <field name="arch" type="xml">
+        <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="consecutivo"/>
+                <field name="tipo_contrato"/>
+                <field name="cuenta"/>
+                <field name="proveedor"/>
+                <field name="presupuesto_cup"/>
+                <field name="vigencia_contrato_anios"/>
+                <field name="etiquetas"/>
+                <field name="company_currency"/>
+                <field name="active" invisible="1"/>
+                <field name="pep" invisible="1"/>
+           <templates>
+             <t t-name="kanban-box">
+                   <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                  <div class="oe_kanban_details">
+                      <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                      <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                      <ul>
+                          <li t-if="record.etiquetas.raw_value"><field name="etiquetas" widget="many2many_tags" options="{'color_field': 'color'}"/></li>
+                          <li t-if="record.tipo_contrato.raw_value"><field name="tipo_contrato"/></li>
+                          <li t-if="record.proveedor.raw_value"><field name="proveedor"/></li>
+                          <li t-if="record.cuenta.raw_value"><field name="cuenta"/></li>
+                          <li t-if="record.presupuesto_cup.raw_value and record.pep.raw_value" class="o_text_overflow">
+                             <field name="pep"/>, <field name="presupuesto_cup" widget='monetary'
+                                                         options="{'currency_field': 'company_currency'}"/></li>
+                      </ul>
+                      <div class="oe_kanban_partner_links"/>
+                  </div>
+               </div>
+             </t>
+           </templates>
+        </kanban>
+     </field>
+    </record>
+
+    <record id="contratos_action" model="ir.actions.act_window">
+        <field name="name">Listado de Contratos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.contratos</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="contratos_kanban"/>
+        <field name="domain">[('estado_id.is_won', '=', True)]</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Agregar un nuevo proveedor en tu cartera
+          </p><p>
+            SICPRO ERP lo ayuda a rastrear fácilmente todas las actividades
+            relacionadas con los proveedores.
+          </p>
+        </field>
+    </record>
+
+      <!-- Vista del kanban para la gestion de contratos-->
+    <record id="contratos_gestion_kanban" model="ir.ui.view">
+      <field name="name">sicpro.app.contratos.gestion.kanban</field>
+      <field name="model">sicpro.app.contratos</field>
+      <field name="priority">240</field>
+      <field name="arch" type="xml">
+      <kanban default_group_by="estado_id" class="o_kanban_small_column o_kanban_project_tasks"
+                        archivable="false" >
+                <field name="id"/>
+                <field name="name"/>
+                <field name="consecutivo"/>
+                <field name="tipo_contrato"/>
+                <field name="cuenta"/>
+                <field name="proveedor"/>
+                <field name="presupuesto_cup"/>
+                <field name="vigencia_contrato_anios"/>
+                <field name="etiquetas"/>
+                <field name="company_currency"/>
+                <field name="active" invisible="1"/>
+                <field name="pep" invisible="1"/>
+                <field name="estado_id" readonly="1" />
+                <field name="dias_desfasados"/>
+                <progressbar field="kanban_state" colors='{"done": "success", "blocked": "danger", "normal": "warning"}'/>
+            <templates>
+             <t t-name="kanban-box">
+                   <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                  <div class="oe_kanban_details">
+                      <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                      <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                      <ul>
+                          <li t-if="record.etiquetas.raw_value"><field name="etiquetas" widget="many2many_tags" options="{'color_field': 'color'}"/></li>
+                          <li t-if="record.tipo_contrato.raw_value"><field name="tipo_contrato"/></li>
+                          <li t-if="record.proveedor.raw_value"><field name="proveedor"/></li>
+                          <li t-if="record.cuenta.raw_value"><field name="cuenta"/></li>
+                          <li t-if="record.presupuesto_cup.raw_value and record.pep.raw_value" class="o_text_overflow">
+                             <field name="pep"/>, <field name="presupuesto_cup" widget='monetary'
+                                                         options="{'currency_field': 'company_currency'}"/></li>
+                          <strong><li t-if="record.dias_desfasados.raw_value"><field name="dias_desfasados"/></li></strong>
+                      </ul>
+                      <div class="oe_kanban_partner_links"/>
+                  </div>
+               </div>
+             </t>
+           </templates>
+        </kanban>
+     </field>
+    </record>
+
+        <!-- action del kanban para la gestion de contratos-->
+    <record id="contratos_gestion_action" model="ir.actions.act_window">
+            <field name="name">Gestión de Contratos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.contratos</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="view_id" ref="contratos_gestion_kanban"/>
+    </record>
+        <!-- Fin Vista del kanban para la gestion de contratos-->
+
+
+</odoo>

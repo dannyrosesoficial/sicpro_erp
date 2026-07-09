@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="preparacion_tecnica_estados_search" model="ir.ui.view">
+            <field name="name">sicpro.app.preparacion.tecnica.estados.search</field>
+            <field name="model">sicpro.app.preparacion.tecnica.estados</field>
+            <field name="arch" type="xml">
+                <search string="Estados">
+                   <field name="name" string="Estados"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="preparacion_tecnica_estados_form" model="ir.ui.view">
+            <field name="name">sicpro.app.preparacion.tecnica.estados.form</field>
+            <field name="model">sicpro.app.preparacion.tecnica.estados</field>
+            <field name="arch" type="xml">
+                <form string="Estados">
+                <sheet>
+                    <div class="oe_title">
+                        <div class="oe_edit_only">
+                            <label for="name"/>
+                        </div>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="is_inicial"/>
+                            <field name="is_won"/>
+                            <field name="is_rechazada"/>
+                            <field name="is_aprobada"/>
+                            <field name="fold"/>
+                        </group>
+                    </group>
+                    <separator string="Requerimientos"/>
+                    <field name="description" nolabel="1" placeholder="Dale a tu equipo los requerimientos para mover una oportunidad a una face"/>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <record id="preparacion_tecnica_estados_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.preparacion.tecnica.estados.tree</field>
+            <field name="model">sicpro.app.preparacion.tecnica.estados</field>
+            <field name="arch" type="xml">
+                <tree string="Estados">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="is_inicial"/>
+                    <field name="is_won"/>
+                    <field name="is_rechazada"/>
+                    <field name="is_aprobada"/>
+            </tree>
+            </field>
+        </record>
+
+        <record id="preparacion_tecnica_estados_action" model="ir.actions.act_window">
+            <field name="name">Estados</field>
+            <field name="res_model">sicpro.app.preparacion.tecnica.estados</field>
+            <field name="view_id" ref="preparacion_tecnica_estados_tree"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear los estados para la Preparación Técnica
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

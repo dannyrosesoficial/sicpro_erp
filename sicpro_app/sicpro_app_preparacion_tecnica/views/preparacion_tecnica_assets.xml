@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="assets_backend" name="Preparacion tecnica assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/sicpro_app_preparacion_tecnica/static/src/css/project.css"/>
+                <script type="text/javascript" src="/sicpro_app_preparacion_tecnica/static/src/js/project.js"></script>
+                <script type="text/javascript" src="/sicpro_app_preparacion_tecnica/static/src/js/project_task_kanban_examples.js"></script>
+                <script type="text/javascript" src="/sicpro_app_preparacion_tecnica/static/src/js/tours/project.js"></script>
+                <link rel="stylesheet" type="text/scss" href="/sicpro_app_preparacion_tecnica/static/src/scss/project_dashboard.scss"/>
+                <link rel="stylesheet" type="text/scss" href="/sicpro_app_preparacion_tecnica/static/src/scss/actividades.scss"/>
+            </xpath>
+        </template>
+
+        <template id="assets_frontend" inherit_id="web.assets_frontend" name="Rating Project Assets">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/sicpro_app_preparacion_tecnica/static/src/scss/portal_rating.scss"/>
+                <script type="text/javascript" src="/sicpro_app_preparacion_tecnica/static/src/js/portal_rating.js"/>
+            </xpath>
+        </template>
+</odoo>

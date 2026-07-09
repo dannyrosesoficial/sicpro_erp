@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <!-- Creo la categoria de permisos Trabajadores -->
+         <record id="module_category_trabajadores" model="ir.module.category">
+            <field name="name">Trabajadores</field>
+             <field name="description">Módulo principal de los trabajadores.</field>
+            <field name="sequence" >6</field>
+        </record>
+
+        <record id="grupo_app_trabajadores_usuario" model="res.groups">
+            <field name="name">Usuarios</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="module_category_trabajadores"/>
+        </record>
+
+        <record id="grupo_app_trabajadores_ejecutor" model="res.groups">
+            <field name="name">Ejecutor</field>
+            <field name="comment">Permisos de Lectura/Escritura</field>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajadores_usuario'))]"/>
+            <field name="category_id" ref="module_category_trabajadores"/>
+        </record>
+
+        <record id="grupo_app_trabajadores_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="comment">Permisos de Lectura/Escritura/Config</field>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajadores_ejecutor'))]"/>
+            <field name="category_id" ref="module_category_trabajadores"/>
+        </record>
+
+        <record id="grupo_app_trabajadores_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="comment">Permisos Completos</field>
+            <field name="implied_ids" eval="[(4, ref('grupo_app_trabajadores_responsable'))]"/>
+            <field name="category_id" ref="module_category_trabajadores"/>
+        </record>
+
+    </data>
+
+<data noupdate="0">
+    <record id="trabajadores_departamentos_rule" model="ir.rule">
+        <field name="name">Regla de Departamentos multicompañias</field>
+        <field name="model_id" ref="model_sicpro_app_trabajadores_departmentos"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_trabajadores_usuario'))]"/>
+    </record>
+
+    <record id="trabajadores_general_rule" model="ir.rule">
+        <field name="name">Regla de Trabajadores Multicompañia</field>
+        <field name="model_id" ref="model_sicpro_app_trabajadores_general"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record id="trabajadores_puestos_rule" model="ir.rule">
+        <field name="name">Regla de Puestos de Trabajadores multicompañias</field>
+        <field name="model_id" ref="model_sicpro_app_trabajadores_trabajos"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_trabajadores_usuario'))]"/>
+    </record>
+
+    <record id="nomencladores_especialidad_rule" model="ir.rule">
+        <field name="name">Regla Departamentos Ampliada</field>
+        <field ref="model_sicpro_app_trabajadores_departmentos" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('sicpro_modulo_nomencladores.grupo_sicpro_nomencladores_responsable'))]"/>
+    </record>
+
+
+<!-- Revisar
+-->
+
+</data>
+</odoo>

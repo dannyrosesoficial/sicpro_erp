@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="mail_activity_type_action_config_fleet" model="ir.actions.act_window">
+        <field name="name">Tipos de actividad</field>
+        <field name="res_model">mail.activity.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|', ('res_model_id', '=', False),
+                              ('res_model_id.model', '=', 'sicpro.app.transporte.contratos')]</field>
+        <field name="context">{'default_res_model': 'sicpro.app.transporte.contratos'}</field>
+    </record>
+
+
+    <menuitem name="Tipos de actividad" id="fleet_menu_config_activity_type"
+              action="mail_activity_type_action_config_fleet"
+        parent="fleet_configuration" sequence="99" groups="grupo_app_transporte_admin"/>
+</odoo>

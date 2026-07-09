@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+       <!--Menus principal Nomencladores-->
+    <menuitem id="menu__nomencladores_root" name="Nomencladores"
+              parent="base.menu_administration"
+              sequence="10"
+              groups="grupo_sicpro_nomencladores_usuario"/>
+
+    <menuitem id="menu_nomenclador_centro_costo" name="Centros de Costos"
+              parent="menu__nomencladores_root"
+              action="action_nomenclador_centro_costo"
+              sequence="8" />
+
+    <menuitem id="menu_claves_hl" name="Claves Horas Labor"
+              parent="menu__nomencladores_root"
+              action="action_claves_hl"
+              sequence="10" />
+
+    <menuitem id="menu_cuentas_contables" name="Cuentas Contables"
+              parent="menu__nomencladores_root"
+              action="action_cuentas_contables"
+              sequence="9" />
+
+    <menuitem id="menu_nomenclador_especialida" name="Especialidades"
+              parent="menu__nomencladores_root"
+              action="action_nomenclador_especialida"
+              sequence="8" />
+
+    <menuitem id="menu_nomenclador_locales" name="Locales de CC"
+              parent="menu__nomencladores_root"
+              action="action_nomenclador_locales"
+              sequence="8" />
+
+    <menuitem id="menu_nomenclador_meses" name="Meses"
+              parent="menu__nomencladores_root"
+              action="action_nomenclador_meses"
+              sequence="1" />
+
+     <!--Menus del sistema monedas-->
+    <menuitem id="menu_monedas" name="Monedas"
+              parent="menu__nomencladores_root"
+              action="base.action_currency_form"
+              sequence="30" />
+
+    <!--Menus del sistema Tiempos de Trabajo-->
+    <menuitem id="menu_tiempo_trabajo" name="Tiempos de Trabajo"
+              parent="menu__nomencladores_root"
+              action="resource.action_resource_calendar_form"
+              sequence="35" />
+
+    <menuitem id="menu_municipios" name="Municipios"
+              parent="menu__nomencladores_root"
+              action="action_municipios"
+              sequence="4" />
+
+    <menuitem id="menu_Provincia" name="Provincias"
+              parent="menu__nomencladores_root"
+              action="action_Provincia"
+              sequence="3" />
+
+    <menuitem id="menu_tarifa_horaria" name="Tarifa Horaria"
+              parent="menu__nomencladores_root"
+              action="action_tarifa_horaria"
+              sequence="12" />
+
+    <menuitem id="menu_categoria_ocupacional" name="Categoría Ocupacional"
+              parent="menu__nomencladores_root"
+              action="action_categoria_ocupacional"
+              sequence="13" />
+
+    <menuitem id="menu_variable_estadistica" name="Variables Estadísticas"
+              parent="menu__nomencladores_root"
+              action="variable_estadistica_action"
+              sequence="14" />
+
+    <menuitem id="menu_pasaje" name="Pasajes"
+              parent="menu__nomencladores_root"
+              action="action_nomenclador_pasaje"
+              sequence="15" />
+
+    <menuitem id="menu_hospedaje" name="Hospedajes"
+              parent="menu__nomencladores_root"
+              action="action_nomenclador_hospedaje"
+              sequence="16" />
+
+    <menuitem id="menu_nomenclador_territorio" name="Territorios"
+              parent="menu__nomencladores_root"
+              action="action_nomenclador_territorio"
+              sequence="2" />
+
+    <menuitem id="menu_trimestre" name="Trimestres"
+              parent="menu__nomencladores_root"
+              action="action_trimestre"
+              sequence="5" />
+
+    <menuitem id="menu_municipios" name="Municipios"
+              parent="menu__nomencladores_root"
+              action="action_municipios"
+              sequence="4" />
+
+        <menuitem id="menu_dieta" name="Dieta"
+              parent="menu__nomencladores_root"
+              action="action_nomenclador_dieta"
+              sequence="6" />
+
+
+
+
+    <!-- PENDIENTES A CREAR EL MODULO DE ORDENES -->
+    <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <menuitem id="menu_tipo_ordenes" name="Tipo de Orden" parent="menu__nomencladores_root"
+              action="action_tipo_ordenes" sequence="50" />
+
+    <menuitem id="menu_problemas_ejecucion" name="Problemas de Ejecución" parent="menu__nomencladores_root"
+              action="action_problemas_ejecucion" sequence="50" />
+    <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+</odoo>

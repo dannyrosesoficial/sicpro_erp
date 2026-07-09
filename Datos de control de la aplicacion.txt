@@ -1,0 +1,150 @@
+··· DATOS para documentar el desarrollo de la aplicación ···
+
+*** CAMBIOS EN LA VERSION 3.0 ***
+se actualizó la version del nucleo del framework de odoo a la V14.1.0
+se actualizó la version del módulo base del sistema
+Se eliminó el modelo de Moneda Convertible
+Se eliminó el generador de moneda CUC
+Se actualizó el módulo sicpro_app_sistema_general al nucleo V14.1.0
+Se actualizó la app sicpro_app_materiales_insumos al nucleo V14.1.0
+Se actualizó la app sicpro_app_proyectos al nucleo V14.1.0
+Se actualizó el módulo smile_log al nucleo V14.1.0
+Se actualizó el módulo web_notify al nucleo V14.1.0
+Se actualizó el módulo sicpro_modulo_detalles_usuarios al nucleo V14.1.0
+Se actualizó el app sicpro_app_clientes al nucleo V14.1.0
+Se actualizó el app sicpro_app_trabajadores al nucleo V14.1.0
+Se actualizó el app sicpro_app_metrologia al nucleo V14.1.0
+Se actualizó el app sicpro_app_solicitudes al nucleo V14.1.0
+Se actualizó el módulo sicpro_app_solicitudes_t1 al nucleo V14.1.0
+Se actualizó el módulo sicpro_app_solicitudes_t2 al nucleo V14.1.0
+Se actualizó el módulo sicpro_app_solicitudes_t3 al nucleo V14.1.0
+Se actualizó el módulo sicpro_app_solicitudes_t4 al nucleo V14.1.0
+Se actualizó el módulo sicpro_app_solicitudes_t5 al nucleo V14.1.0
+Se actualizó el módulo sicpro_app_solicitudes_t6 al nucleo V14.1.0
+Se actualizó el app sicpro_app_transporte al nucleo V14.1.0
+Se actualizó el módulo sicpro_modulo_autonumeracion_tree al nucleo V14.1.0
+Se actualizó el módulo sicpro_modulo_web_login al nucleo V14.1.0
+Se actualizó el módulo sicpro_modulo_historial al nucleo V14.1.0
+Se actualizó el app sicpro_app_preparacion_tecnica al nucleo V14.1.0
+Se actualizó el app sicpro_app_partes_horas al nucleo V14.1.0
+El módulo auditlog fue deshabilitado por no ser compatible el servicio con el nucleo V14.1.0
+El módulo mass_editing fue deshabilitado por no ser compatible el servicio con el nucleo V14.1.0
+Se actualizó el módulo smile_base_automation al nucleo V14.1.0
+El módulo sicpro_modulo_detalles_usuarios fue deshabilitado por no ser compatible el servicio con el nucleo V14.1.0
+El módulo sicpro_modulo_plantillasmail_multicompañias fue eliminado por no ser compatible el servicio con el nucleo V14.1.0
+Se estandarizó los nombres de los modelos de app y módulo para futuras migraciones
+Se estandarizó los nombres de los modelos relacionales para futuras migraciones
+Se agregó al módulo sicpro_app_sistema_general las plantillas de los procesos del sistema
+Se actualizó el módulo sicpro_modulo_temavisual al nucleo V14.1.0
+Se actualizó el módulo app_odoo_customize al nucleo V14.1.0
+El módulo auditlog fue habilitado se rescribió el servicio para el nucleo V14.1.0
+El módulo mass_editing fue habilitado se rescribió el servicio para el nucleo V14.1.0
+El módulo sicpro_modulo_detalles_usuarios fue habilitado se rescribió el servicio para el nucleo V14.1.0
+Se corrigió la opción de listar los directorios en la web
+Se realizó la exportación de todas las configuraciones independientes de nomencladores, pendientes las que se encuentran en desarrollo
+Se crearon nuevas reglas de auditoria al más bajo nivel (Reglas, Registros, Sesiones de usuarios, Peticiones http)
+Se agregó la vinculación de la cantidad de contratos en la vista del proveedor
+
+*** CAMBIOS EN LA VERSION 2.0 ***
+Se creó el app de partes de horas para agregar la distribución del tiempo en la preparación técnica
+se creó el app de preparación técnicas
+se agregó acceso a la app de trabajadores para ver las preparaciones técnicas desde botón inteligente
+se incorporó un control de actividad en la app de trabajadores permitiendo ver si el trabajador está conectado a la plataforma
+se agregó campo a la app de trabajadores para introducir el valor de precio de la hora por trabajador individual
+se modificó la configuración de categoría en la app de transporte para convertirlo en etiquetas
+se modificaron la opción de prevision en los puestos de trabajo de la app trabajadores
+se agrega la opción de salario a la categoría ocupacional del trabajador para vincularse con el registro de trabajadores
+se modifica la vista principal de los trabajadores, ofreciendo más información
+se incorpora la función de salario extra que es adicionado a salario de la categoría ocupacional
+Se agregó el costo de la alimentación a la categoría ocupacional en la app de trabajadores
+Se optimizó la carga del modelo de los permisos de acceso de la aplicación
+se eliminó el tipo de pasaje de la app nomencladores
+se agrega a la app de nomencladores las variables de % de estimulación, reserva de vacaciones, seguridad social, gastos indirectos
+se actualizaron las vistas de administración de la app nomencladores
+se automatizó la generación de colores en las etiquetas de la app clientes
+se automatizó la generación de colores en las etiquetas de la app materiales e insumos
+se automatizó la generación de colores en las etiquetas de la app solicitudes de trabajo
+se automatizó la generación de colores en las etiquetas de la app trabajadores
+se automatizó la generación de colores en las etiquetas de la app transporte
+se agregó las horas y tiempos de trabajo por procesos a la app de nomencladores
+se agregó el nomenclador de dieta a la app nomencladores
+se unificaron las 6 app de solicitudes en un solo instalador
+se agregó campo de jefe del territorio que es quien firma el AS
+se creó un módulo de estructuras de Secuencias para la generación de consecutivos de la app de solicitudes, preparación técnica, ordenes, etc.
+se agrega a la app de nomencladores las variables de % de imprevistos para las actividades de la preparación técnica
+se agregó el nomenclador de pasaje por tipo y provincia a la app nomencladores
+se agregó el nomenclador de hospedaje por cadena y provincia a la app nomencladores
+
+
+
+*** CAMBIOS EN LA VERSION 1.0 ***
+Insertar colores en las etiquetas de categorías del módulo trabajadores.--OK
+Poner campo "odometer_unit" del modelo "sicpro.app.transporte.general" como requerido (da error si se pone en TRUE).--OK
+marcar casilla de inversionista en el formulario usuario cuando se vincule el cliente con un usuario.-- OK
+Crear el nomenclador de centro de costo en el módulo nomencladores.
+Crear el nomenclador de local en el módulo nomencladores.
+Vincular nomenclador de centros de costos con la aplicación de trabajadores
+vincular nomenclador de locales de centros de costos con la aplicación de trabajadores
+modificar el acceso a centros de costos y locales desde la aplicación de trabajadores
+crear las reglas de permisos del módulo de la app de transporte.
+Bloquear campo cliente del formulario iniciativas del módulo solicitudes cuando el cliente sea el mismo usuario
+los campos de presupuesto sap de las especialidades en el módulo solicitudes hay que ocultarlos para el cliente
+al liberar la solicitud el cliente del módulo solicitudes debe enviar notificación al usuario del negocio.
+Permitir visualizar los datos de a quien se le asigna la solicitud en el rol de especialista o ejecutor de la solicitud.
+Arreglar la imagen de la entidad de los clientes en la vista kanban del módulo de clientes
+resolver lentitud de carga del login de la página
+vincular con boton inteligente choferes de la app de transporte con la app de trabajadores
+revisar errores de inspection de la escritura del código
+
+
+
+*** ACTIVIDADES PARA REVISION PENDIENTES ***
+agregar a la app de partes de horas las vistas de (kanban,pivot,graph)
+Insertar chart de organigrama en el formulario del módulo de trabajadores.
+Determinar si el usuario esta conectado en los botones inteligentes del módulo trabajadores.
+Modificar la vista directorio para que nunca tenga permisos a nada en el módulo de trabajadores.
+Crear tabla excel con la relación de los grupos y sus permisos en cada módulo o aplicación.
+Revisar la vista calendario y pivot de las iniciativas del módulo Solicitudes.
+Arreglar botón de calendario de la vista formulario de las oportunidades del módulo solicitud.
+las notificaciones aunque sean del mismo registro deben ser independientes.
+Las notificaciones del cambio de estado en la vista kanban no funcionan del módulo de solicitudes.
+Revisar nuevamente la generación del id de la solicitud del módulo de solicitudes.
+Depurar exceso de código de la app app_odoo_customize
+crear un historial de los vehículos usados por los trabajadores, visualizar desde botón inteligente de la app trabajadores
+unificar módulo de trabajadores_metrologia en app sicpro_app_metrologia
+estandarizar las vistas en la app de nomencladores, revisar los dominios y filtros
+*********************************************************************************************************
+Cambiar el código que genera él id de la solicitud por el de una secuencia del servidor:
+@api.model
+    def create(self, vals):
+        vals['color'] = self.env['ir.sequence'].next_by_code(
+            'preparacion_tecnica_etiquetas_incrementar')
+        res = super(PreparacionTecnicaEtiquetas, self).create(vals)
+        return res
+        <record id="preparacion_tecnica_etiquetas_incrementar" model="ir.sequence">
+                <field name="name">Etiquetas</field>
+                <field name="code">preparacion_tecnica_etiquetas_incrementar</field>
+                <field name="padding">1</field>
+                <field name="company_id" eval="False"/>
+        </record>
+*********************************************************************************************************
+eliminar el campo <field name="id"/> de todas las vistas cambiándolo por el _oringin_id
+agregar Organigrama a la app de trabajadores
+ocultar el campo rechazar en la vista form de la app preparación técnica cuando este técnica y en estado interno "normal"
+modificar la fecha_terminacion_planificada en el xml de la app preparación técnica para que la condicional de colores funciones
+Concatenar campo de departamento con el padre en el formulario de categoría ocupacional de la app trabajadores
+el jefe del departamento debe tener como superior el jefe del departamento padre en la app de trabajadores
+agregar auto numeración a los suplementos de acuerdo de servicio
+crear filtro de dominio a la categoría ocupacional de la pestaña de salario de la app preparación técnica
+filtrar el año por defecto en la preparación
+filtrar el estado de ejecución y aprobación
+crear dominio en securyty x departamento, por especialista, por jefe del especialista
+Mover el campo user_inversionista de la app clientes a la pestaña de usuarios Permisos de acceso del apartado tipo de usuarios
+Agregar a todos los usuarios el permiso de ver nomencladores por defecto (Tipo permiso:usuario)
+convertir módulo de nomencladores en aplicación independiente
+
+configurar acceso al sistema con ldap ssl puerto 636
+acortar la url, evitar inyecciones SQL
+deshabilitar funciones de copia y pega en el campo contraseña del login
+Revision de registro log del sistema
+

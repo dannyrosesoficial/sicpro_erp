@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_department_form" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.departmentos.form</field>
+            <field name="model">sicpro.app.trabajadores.departmentos</field>
+            <field name="arch" type="xml">
+                <form string="Departamento">
+                    <sheet>
+                        <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <div class="oe_title">
+                        <field name="active" invisible="1"/>
+                        <field name="tipo_registro" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                        </div>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="centro_costo_usd"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="parent_id"/>
+                            <field name="centro_costo_cup"/>
+                            <field name="manager_id"/>
+                            <field name="local" mode="tree">
+                              <tree editable="bottom">
+                               <field name="name"/>
+                              </tree>
+                             </field>
+                            <field name="company_id" options="{'no_create': True}"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_department_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.departmentos.tree</field>
+            <field name="model">sicpro.app.trabajadores.departmentos</field>
+            <field name="arch" type="xml">
+                <tree string="Departamentos">
+                    <field name="company_id"/>
+                    <field name="manager_id"/>
+                    <field name="parent_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_department_filter" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.departmentos.search</field>
+            <field name="model">sicpro.app.trabajadores.departmentos</field>
+            <field name="arch" type="xml">
+                <search string="Departamentos">
+                    <field name="name" string="Departmento"/>
+                    <field name="manager_id" />
+                    <separator/>
+                    <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+             </field>
+        </record>
+
+        <record id="trabajadores_departamentos_view_kanban" model="ir.ui.view" >
+            <field name="name">sicpro.app.trabajadores.departmentos.kanban</field>
+            <field name="model">sicpro.app.trabajadores.departmentos</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard o_hr_kanban">
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="manager_id"/>
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                                <div t-attf-class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="o_primary"><field name="name"/></div>
+                                        <div class="o_secondary"><field name="company_id"/></div>
+                                    </div>
+                                    <div class="o_kanban_manage_button_section" t-if="!selection_mode">
+                                        <a class="o_kanban_manage_toggle_button" href="#">
+                                            <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="container o_kanban_card_content" t-if="!selection_mode">
+                                    <div class="row">
+                                        <div class="col-6 o_kanban_primary_left">
+                                            <button class="btn btn-primary" name="%(act_employee_from_department)d"
+                                                    type="action">Trabajadores</button>
+                                        </div>
+                                        <div class="col-6 o_kanban_primary_right">
+                                        </div>
+                                    </div>
+                                </div><div class="container o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                    <div class="row">
+                                        <div role="menuitem" class="col-4 o_kanban_card_manage_section o_kanban_manage_to_do">
+                                            <div class="o_kanban_card_manage_title">
+                                                <span>Hacer</span>
+                                            </div>
+                                        </div>
+                                        <div role="menuitem" class="col-4 o_kanban_card_manage_section o_kanban_manage_to_approve">
+                                            <div class="o_kanban_card_manage_title">
+                                                <span>Por aprovar</span>
+                                            </div>
+                                        </div>
+                                        <div role="menuitem" class="col-4 o_kanban_card_manage_section o_kanban_manage_reports">
+                                            <div class="o_kanban_card_manage_title">
+                                                <span>Informes</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                        <div role="menuitem" aria-haspopup="true" class="col-8">
+                                            <ul class="oe_kanban_colorpicker" data-field="color" role="menu"/>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <a role="menuitem" type="edit">Configurar</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="open_module_tree_department" model="ir.actions.act_window">
+            <field name="name">Departamentos</field>
+            <field name="res_model">sicpro.app.trabajadores.departmentos</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_department_filter"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear nuevo Departamento
+              </p><p>
+                Aquí podra crear y controlar los departamentos de sus procesos.
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

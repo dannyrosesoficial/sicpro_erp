@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="partes_horas_preparacion_action_inherited" model="ir.actions.act_window">
+            <field name="name">Activities</field>
+            <field name="res_model">sicpro.app.partes.horas</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="partes_horas_tree_user"/>
+            <field name="domain">[('especialista_ejecutor_id', '!=', False)]</field>
+            <field name="context">{"default_especialista_ejecutor_id": active_id, "search_default_especialista_ejecutor_id": [active_id]}</field>
+            <field name="search_view_id" ref="partes_horas_line_search"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Agregar nueva actividad
+              </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="partes_horas_preparacion_form_inherited">
+            <field name="name">sicpro.app.preparacion.tecnica.preparaciones.form.inherited</field>
+            <field name="model">sicpro.app.preparacion.tecnica.preparaciones</field>
+            <field name="inherit_id" ref="sicpro_app_preparacion_tecnica.sicpro_app_preparacion_tecnica_preparaciones_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='description_page']" position="after">
+                    <page string="Parte de horas" id="partes_tab">
+                        <group>
+                            <group>
+                                <field name="horas_planificadas" widget="float_time"/>
+                            </group>
+                            <group>
+                                <field name="progreso" widget="progressbar"/>
+                            </group>
+                        </group>
+                    <field name="partes_horas_ids" mode="tree,kanban"
+                           context="{'default_especialista_ejecutor_id': especialista_ejecutor_id, 'default_name':''}">
+                        <tree editable="bottom" string="Parte de actividades" default_order="fecha">
+                            <field name="fecha"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="user_id" invisible="1"/>
+                            <field name="trabajador" required="1"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="name"/>
+                            <field name="duracion" widget="float_time"/>
+                            <field name="especialista_ejecutor_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                        </tree>
+                        <kanban class="o_kanban_mobile">
+                            <field name="fecha"/>
+                            <field name="user_id"/>
+                            <field name="trabajador"/>
+                            <field name="name"/>
+                            <field name="duracion"/>
+                            <field name="especialista_ejecutor_id"/>
+                            <templates>
+                                <t t-name="kanban-box">
+                                    <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <strong><span><t t-esc="record.trabajador.value"/></span></strong>
+                                            </div>
+                                            <div class="col-6 pull-right text-right">
+                                                <strong><t t-esc="record.fecha.value"/></strong>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 text-muted">
+                                                <span><t t-esc="record.name.value"/></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="pull-right text-right">
+                                                    <field name="duracion" widget="float_time"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
+                        <form  string="Parte de actividades">
+                            <sheet>
+                                 <group>
+                                    <field name="fecha"/>
+                                    <field name="user_id" invisible="1"/>
+                                    <field name="trabajador" required="1"/>
+                                    <field name="name"/>
+                                    <field name="duracion" widget="float_time"/>
+                                    <field name="especialista_ejecutor_id" invisible="1"/>
+                                    <field name="company_id" invisible="1"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                    <group>
+                        <group class="oe_subtotal_footer oe_right" name="parte_horas">
+                            <field name="horas_dedicadas" widget="float_time" />
+                            <field name="total_horas" widget="float_time" class="oe_subtotal_footer_separator"/>
+                            <field name="horas_restantes" widget="float_time" class="oe_subtotal_footer_separator" attrs="{'invisible' : [('horas_planificadas', '=', 0.0)]}"/>
+                        </group>
+                    </group>
+                </page>
+                </xpath>
+                <xpath expr="//field[@name='especialista_ejecutor_id']" position="after">
+                <field name="is_start" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/header" position="inside">
+                <button name="start_timer" type="object"  string="Iniciar temporizador"
+                        class="oe_highlight" attrs="{'invisible': [('is_start', '=', True)]}"/>
+                <button name="end_timer" type="object"  string="Finalizar temporizador"
+                        class="oe_highlight" attrs="{'invisible': [('is_start', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//page/field[@name='partes_horas_ids']/tree" position="attributes">
+                <attribute name="create">false</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="partes_horas_preparacion_tree_inherited" model="ir.ui.view">
+            <field name="name">sicpro.app.preparacion.tecnica.preparaciones.tree.inherited</field>
+            <field name="model">sicpro.app.preparacion.tecnica.preparaciones</field>
+            <field name="inherit_id" ref="sicpro_app_preparacion_tecnica.sicpro_app_preparacion_tecnica_preparaciones_tree" />
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='cliente']" position="after">
+                    <field name="horas_planificadas" widget="float_time" sum="Initially Planned Hours" optional="show"/>
+                    <field name="horas_restantes" widget="float_time" sum="Remaining Hours" readonly="1" optional="show"/>
+                    <field name="progreso" widget="progressbar" optional="hide" />
+                    <field name="horas_dedicadas" widget="float_time" sum="Spent Hours" invisible="1"/>
+
+                </xpath>
+            </field>
+        </record>
+
+        <record id="partes_horas_preparacion_kanban_inherited" model="ir.ui.view">
+            <field name="name">sicpro.app.preparacion.tecnica.preparaciones.kanban.inherited.progress</field>
+            <field name="model">sicpro.app.preparacion.tecnica.preparaciones</field>
+            <field name="inherit_id" ref="sicpro_app_preparacion_tecnica.sicpro_app_preparacion_tecnica_preparaciones_kanban"/>
+            <field name="arch" type="xml">
+                <templates position="before">
+                    <field name="progreso" />
+                    <field name="horas_restantes" />
+                </templates>
+                <div class="oe_kanban_bottom_left" position="inside">
+                   <t t-if="record.progreso.raw_value &gt; 80 and record.progreso.raw_value &lt; 100">
+                       <div t-att-class="'oe_kanban_align badge badge-' + (record.progreso.raw_value &gt;= 99 ? 'danger': 'warning')" title="Horas restantes">
+                            <field name="horas_restantes" widget="float_time" />
+                       </div>
+                   </t>
+                </div>
+             </field>
+         </record>
+
+    </data>
+</odoo>

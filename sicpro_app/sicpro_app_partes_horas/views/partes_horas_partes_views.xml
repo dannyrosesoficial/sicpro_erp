@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Mis partes -->
+        <record id="partes_horas_line_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.partes.horas.tree</field>
+            <field name="model">sicpro.app.partes.horas</field>
+            <field name="arch" type="xml">
+                <tree editable="top" string="Partes de horas">
+                    <field name="fecha"/>
+                    <field name="name"/>
+                    <field name="especialista_ejecutor_id" required="1" />
+                    <field name="preparaciones" context="{'default_especialista_ejecutor_id': especialista_ejecutor_id}"
+                           domain="[('especialista_ejecutor_id', '=', especialista_ejecutor_id)]"/>
+                    <field name="duracion" widget="timesheet_uom" sum="Total"/>
+                    <field name="company_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="partes_horas_line_pivot" model="ir.ui.view">
+            <field name="name">sicpro.app.partes.horas.pivot</field>
+            <field name="model">sicpro.app.partes.horas</field>
+            <field name="arch" type="xml">
+                <pivot string="Partes de horas">
+                    <field name="trabajador" type="row"/>
+                    <field name="fecha" interval="month" type="col"/>
+                    <field name="duracion" type="measure" /> <!-- Pendiente: widget="timesheet_uom"-->
+                </pivot>
+            </field>
+        </record>
+
+        <record id="partes_horas_line_graph" model="ir.ui.view">
+            <field name="name">sicpro.app.partes.horas.graph</field>
+            <field name="model">sicpro.app.partes.horas</field>
+            <field name="arch" type="xml">
+                <graph string="Partes de horas">
+                    <field name="preparaciones" type="row"/>
+                    <field name="especialista_ejecutor_id" type="row"/>
+                    <field name="duracion" type="measure" /><!-- Pendiente: widget="timesheet_uom"-->
+                </graph>
+            </field>
+        </record>
+
+        <record id="partes_horas_line_form" model="ir.ui.view">
+            <field name="name">sicpro.app.partes.horas.form</field>
+            <field name="model">sicpro.app.partes.horas</field>
+            <field name="priority">1</field>
+            <field name="inherit_id" eval="False"/>
+            <field name="arch" type="xml">
+                <form string="Partes de horas">
+                    <sheet string="Partes de horas">
+                        <group>
+                            <group>
+                                <field name="fecha"/>
+                                <field name="especialista_ejecutor_id" required="1"/>
+                                <field name="preparaciones"/>
+                                <field name="name"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
+                            <group>
+                                <field name="importe"/>
+                                <field name="duracion" widget="timesheet_uom"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="partes_horas_line_search" model="ir.ui.view">
+            <field name="name">sicpro.app.partes.horas.search</field>
+            <field name="model">sicpro.app.partes.horas</field>
+            <field name="arch" type="xml">
+                <search string="Partes de horas">
+                    <field name="fecha"/>
+                    <field name="trabajador"/>
+                    <field name="especialista_ejecutor_id"/>
+                    <field name="preparaciones"/>
+                    <field name="name"/>
+                    <filter name="mine" string="Mi parte de horas" domain="[('user_id', '=', uid)]"/>
+                    <separator/>
+                    <filter name="month" string="Fecha" date="fecha"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Trabajador" name="groupby_employee" domain="[]" context="{'group_by': 'trabajador'}"/>
+                        <filter string="Especialista" name="groupby_project" domain="[]" context="{'group_by': 'especialista_ejecutor_id'}"/>
+                        <filter string="Preparaciones" name="groupby_task" domain="[]" context="{'group_by': 'preparaciones'}"/>
+                        <filter string="Fecha" name="groupby_date" domain="[]" context="{'group_by': 'fecha'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="partes_horas_line_kanban" model="ir.ui.view">
+            <field name="name">sicpro.app.partes.horas.kanban</field>
+            <field name="model">sicpro.app.partes.horas</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="fecha"/>
+                    <field name="user_id"/>
+                    <field name="name"/>
+                    <field name="especialista_ejecutor_id"/>
+                    <field name="preparaciones" context="{'default_especialista_ejecutor_id': especialista_ejecutor_id}" domain="[('especialista_ejecutor_id', '=', especialista_ejecutor_id)]"/>
+                    <field name="duracion"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img t-att-src="kanban_image('res.users', 'image_128', record.user_id.raw_value)" t-att-title="record.user_id.value" t-att-alt="record.user_id.value" class="oe_kanban_avatar o_image_40_cover float-left"/>
+                                    </div>
+                                    <div class="col-10">
+                                        <div>
+                                            <strong><t t-esc="record.especialista_ejecutor_id.value"/></strong>
+                                        </div>
+                                        <div class="text-muted">
+                                            <span>
+                                                <t t-esc="record.name.value"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="mt4 mb4"/>
+                                <span>
+                                    <i class="fa fa-calendar" role="img" aria-label="Date" title="fecha"></i>
+                                    <t t-esc="record.fecha.value"/>
+                                </span>
+                                <span class="float-right">
+                                    <strong>Duration: </strong><field name="duracion" widget="timesheet_uom"/>
+                                </span>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="partes_horas_line_action" model="ir.actions.act_window">
+            <field name="name">Mi parte de horas </field>
+            <field name="res_model">sicpro.app.partes.horas</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="domain">[('especialista_ejecutor_id', '!=', False), ('user_id', '=', uid)]</field>
+            <field name="context">{"search_default_month": (context_today().strftime('%Y')),}</field>
+            <field name="search_view_id" ref="partes_horas_line_search"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Grabar una nueva actividad
+              </p>
+            </field>
+        </record>
+
+        <record id="act_hr_timesheet_line_view_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="sequence" eval="4"/>
+            <field name="view_id" ref="partes_horas_line_tree"/>
+            <field name="act_window_id" ref="partes_horas_line_action"/>
+        </record>
+
+        <record id="act_hr_timesheet_line_view_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="sequence" eval="5"/>
+            <field name="view_id" ref="partes_horas_line_form"/>
+            <field name="act_window_id" ref="partes_horas_line_action"/>
+        </record>
+
+        <record id="act_hr_timesheet_line_view_kanban" model="ir.actions.act_window.view">
+            <field name="view_mode">kanban</field>
+            <field name="sequence">6</field>
+            <field name="view_id" ref="partes_horas_line_kanban"/>
+            <field name="act_window_id" ref="partes_horas_line_action"/>
+        </record>
+
+
+        <!-- Todos los partes -->
+        <record id="partes_horas_tree_user" model="ir.ui.view">
+            <field name="name">sicpro.app.partes.horas.tree.all</field>
+            <field name="model">sicpro.app.partes.horas</field>
+            <field name="inherit_id" ref="partes_horas_line_tree"/>
+            <field name="mode">primary</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='fecha']" position="after">
+                    <field name="trabajador" required="1" options='{"no_open": True}'/>
+                    <field name="user_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="partes_horas_form_user" model="ir.ui.view">
+            <field name="name">sicpro.app.partes.horas.form.all</field>
+            <field name="model">sicpro.app.partes.horas</field>
+            <field name="inherit_id" ref="sicpro_app_partes_horas.partes_horas_line_form"/>
+            <field name="mode">primary</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="before">
+                    <field name="trabajador" required="1" options='{"no_open": True}'/>
+                    <field name="user_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="partes_horas_all_action" model="ir.actions.act_window">
+            <field name="name">Todos los partes de horas</field>
+            <field name="res_model">sicpro.app.partes.horas</field>
+            <field name="search_view_id" ref="partes_horas_line_search"/>
+            <field name="domain">[('especialista_ejecutor_id', '!=', False)]</field>
+            <field name="context">{
+                "search_default_month": (context_today().strftime('%Y')),
+                'search_default_groupby_employee':1,
+                'search_default_groupby_task':1,
+            }</field>
+        </record>
+
+        <record id="timesheet_action_view_all_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="4"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="partes_horas_tree_user"/>
+            <field name="act_window_id" ref="partes_horas_all_action"/>
+        </record>
+
+        <record id="timesheet_action_view_all_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="partes_horas_form_user"/>
+            <field name="act_window_id" ref="partes_horas_all_action"/>
+        </record>
+    
+    </data>
+</odoo>

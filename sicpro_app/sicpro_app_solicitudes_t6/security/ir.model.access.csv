@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+tablasreportes_oportunidades_usuario,iniciativas y Oportunidades usuario,sicpro_app_solicitudes_t1.model_sicpro_app_solicitudes_oportunidades,grupo_app_tablasreportes_usuario,1,0,0,0

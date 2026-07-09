@@ -1,0 +1,24 @@
+<odoo>
+    <record id="sicpro_app_partes_horas_temporizador_views" model="ir.ui.view">
+        <field name="name">sicpro.app.partes.horas.temporizador</field>
+        <field name="model">sicpro.app.partes.horas.temporizador</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                    <group>
+                        <field name="duration" widget="float_time"/>
+                        <field name="description"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Guardar" class="oe_highlight" type="object" name="save_entry"/>
+                    <button string="Cancelar" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

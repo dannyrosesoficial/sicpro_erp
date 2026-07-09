@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+<data>
+
+     <!-- Creo la categoría de permisos Iniciativas -->
+    <record id="module_category_solicitud_iniciativas" model="ir.module.category">
+        <field name="name">Iniciativas</field>
+        <field name="description">Módulo para el control de las Iniciativas de trabajo de los inversionistas.</field>
+        <field name="sequence" >8</field>
+    </record>
+
+    <record id="grupo_app_iniciativas_usuario" model="res.groups">
+        <field name="name">Usuarios</field>
+        <field name="comment">Permisos de lectura</field>
+        <field name="category_id" ref="module_category_solicitud_iniciativas"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="grupo_app_iniciativas_ejecutor" model="res.groups">
+        <field name="name">Ejecutor</field>
+        <field name="comment">Permisos de lectura/Escritura</field>
+        <field name="category_id" ref="module_category_solicitud_iniciativas"/>
+        <field name="implied_ids" eval="[(4, ref('grupo_app_iniciativas_usuario'))]"/>
+    </record>
+
+    <record id="grupo_app_iniciativas_admin" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="comment">Permisos Completos</field>
+        <field name="category_id" ref="module_category_solicitud_iniciativas"/>
+        <field name="implied_ids" eval="[(4, ref('grupo_app_iniciativas_ejecutor'))]"/>
+    </record>
+
+
+</data>
+
+<data noupdate="0">
+
+    <record id="inversionistas_rule_proceso" model="ir.rule">
+        <field name="name">Regla Procesos Inversionistas</field>
+        <field ref="base.model_res_company" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_iniciativas_ejecutor'))]"/>
+    </record>
+
+    <record id="inversionistas_rule_departamentos" model="ir.rule">
+        <field name="name">Regla Departamentos Inversionistas</field>
+        <field ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores_departmentos" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_iniciativas_ejecutor'))]"/>
+    </record>
+
+    <record id="inversionistas_rule_clientes_1" model="ir.rule">
+        <field name="name">Iniciativas Inversionista</field>
+        <field ref="sicpro_app_solicitudes_t1.model_sicpro_app_solicitudes_oportunidades" name="model_id"/>
+        <field name="domain_force">['&amp;', ('partner_id.user_id','=',user.id), ('estado_interno', 'in', ('nuevo', 'rechazada_dtp', 'cancelada_cliente'))]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_iniciativas_usuario'))]"/>
+    </record>
+
+<!-- Revisar
+-->
+</data>
+
+</odoo>
