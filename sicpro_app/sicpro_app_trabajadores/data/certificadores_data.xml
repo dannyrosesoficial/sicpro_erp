@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+        <record id="trabajadores_certificadores_1" model="sicpro.app.trabajadores.educacion.certificacion">
+            <field name="name">Empresa de Certificación de Sistemas de Seguridad y Protección (ACERPROT)</field>
+            <field name="vigencia">3</field>
+            <field name="dias">1095</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="trabajadores_certificadores_2" model="sicpro.app.trabajadores.educacion.certificacion">
+            <field name="name">Empresa Agencia de Protección contra Incendios, por abreviación (APCI)</field>
+            <field name="vigencia">5</field>
+            <field name="dias">1825</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="trabajadores_certificadores_3" model="sicpro.app.trabajadores.educacion.certificacion">
+            <field name="name">Empresa Central de Equipos (CUBIZA)</field>
+            <field name="vigencia">3</field>
+            <field name="dias">1095</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="trabajadores_certificadores_4" model="sicpro.app.trabajadores.educacion.certificacion">
+            <field name="name">Empresa de Educación Vial y Conducción (TRAMOS): Menor de 60 años</field>
+            <field name="vigencia">2</field>
+            <field name="dias">730</field>
+            <field name="sequence">4</field>
+        </record>
+        <record id="trabajadores_certificadores_5" model="sicpro.app.trabajadores.educacion.certificacion">
+            <field name="name">Empresa de Educación Vial y Conducción (TRAMOS): Mayor de 60 años</field>
+            <field name="vigencia">1</field>
+            <field name="dias">365</field>
+            <field name="sequence">5</field>
+        </record>
+        <record id="trabajadores_certificadores_6" model="sicpro.app.trabajadores.educacion.certificacion">
+            <field name="name">Registro Cubano de Buques (RCB)</field>
+            <field name="vigencia">3</field>
+            <field name="dias">1095</field>
+            <field name="sequence">6</field>
+        </record>
+    </data>
+</odoo>

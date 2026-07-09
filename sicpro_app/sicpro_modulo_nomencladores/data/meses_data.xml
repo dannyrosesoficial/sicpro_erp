@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="sicpro.nomenclador.meses" id="Enero">
+        <field name="name">Enero</field>
+        <field name="codigo_mes">1</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Febrero">
+        <field name="name">Febrero</field>
+        <field name="codigo_mes">2</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Marzo">
+        <field name="name">Marzo</field>
+        <field name="codigo_mes">3</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Abril">
+        <field name="name">Abril</field>
+        <field name="codigo_mes">4</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Mayo">
+        <field name="name">Mayo</field>
+        <field name="codigo_mes">5</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Junio">
+        <field name="name">Junio</field>
+        <field name="codigo_mes">6</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Julio">
+        <field name="name">Julio</field>
+        <field name="codigo_mes">7</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Agosto">
+        <field name="name">Agosto</field>
+        <field name="codigo_mes">8</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Septiembre">
+        <field name="name">Septiembre</field>
+        <field name="codigo_mes">9</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Octubre">
+        <field name="name">Octubre</field>
+        <field name="codigo_mes">10</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Noviembre">
+        <field name="name">Noviembre</field>
+        <field name="codigo_mes">11</field>
+    </record>
+    <record model="sicpro.nomenclador.meses" id="Diciembre">
+        <field name="name">Diciembre</field>
+        <field name="codigo_mes">12</field>
+    </record>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="sicpro.nomenclador.tarifa.horaria" id="Primer">
+        <field name="name">190</field>
+        <field name="descripcion">Horas regulares a trabajar en el mes</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+    </record>
+    <record model="sicpro.nomenclador.tarifa.horaria" id="Segundo">
+        <field name="name">190</field>
+        <field name="descripcion">Horas regulares a trabajar en el mes</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+    </record>
+    <record model="sicpro.nomenclador.tarifa.horaria" id="Tercer">
+        <field name="name">190</field>
+        <field name="descripcion">Horas regulares a trabajar en el mes</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+    </record>
+
+</odoo>

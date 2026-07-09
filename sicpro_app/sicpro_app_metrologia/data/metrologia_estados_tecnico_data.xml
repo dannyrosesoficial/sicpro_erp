@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="metrologia_estado_tecnico_2" model="sicpro.app.metrologia.estado.tecnico">
+            <field name="name">Apto</field>
+            <field name="fold">False</field>
+        </record>
+        <record id="metrologia_estado_tecnico_3" model="sicpro.app.metrologia.estado.tecnico">
+            <field name="name">Baja Técnica</field>
+            <field name="fold">True</field>
+            <field name="baja">True</field>
+        </record>
+        <record id="metrologia_estado_tecnico_4" model="sicpro.app.metrologia.estado.tecnico">
+            <field name="name">Entregado al Departamento</field>
+            <field name="fold">False</field>
+        </record>
+        <record id="metrologia_estado_tecnico_5" model="sicpro.app.metrologia.estado.tecnico">
+            <field name="name">Entregado al Laboratorio</field>
+            <field name="fold">True</field>
+            <field name="laboratorio">True</field>
+        </record>
+        <record id="metrologia_estado_tecnico_6" model="sicpro.app.metrologia.estado.tecnico">
+            <field name="name">Sin Calibrar</field>
+            <field name="fold">False</field>
+            <field name="sin_calibrar">True</field>
+        </record>
+        <record id="metrologia_estado_tecnico_7" model="sicpro.app.metrologia.estado.tecnico">
+            <field name="name">Calibrado</field>
+            <field name="fold">False</field>
+        </record>
+
+</data></odoo>

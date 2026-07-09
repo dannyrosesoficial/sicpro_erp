@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Categorías-->
+        <record id="acuerdos_categorias_view_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.categorias.view.tree</field>
+            <field name="model">sicpro.app.reuniones.categorias</field>
+            <field name="arch" type="xml">
+                <tree string="Categorías">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="etiquetas_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="acuerdos_categorias_view_form" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.categorias.view.form</field>
+            <field name="model">sicpro.app.reuniones.categorias</field>
+            <field name="arch" type="xml">
+                <form string="Categorías">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field nolabel="1" name="name"/></h1>
+                        </div>
+                        <group>
+                            <field name="etiquetas_ids" context="{'default_categoria_id': active_id}">
+                                <tree string="Tags" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="usuarios_ids" widget="many2many_tags"
+                                       options="{'color_field': 'color'}"/>
+                                    <field name="color" widget="color_picker"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="acuerdos_categorias_action_tree" model="ir.actions.act_window" >
+            <field name="name">Categorías y Etiquetas</field>
+            <field name="res_model">sicpro.app.reuniones.categorias</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Etiquetas -->
+        <record id="acuerdos_etiquetas_view_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.etiquetas.view.tree</field>
+            <field name="model">sicpro.app.reuniones.etiquetas</field>
+            <field name="arch" type="xml">
+                <tree string="Etiquetas">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="categoria_id"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="acuerdos_etiquetas_view_form" model="ir.ui.view">
+            <field name="name">sicpro.app.reuniones.etiquetas.view.form</field>
+            <field name="model">sicpro.app.reuniones.etiquetas</field>
+            <field name="arch" type="xml">
+                <form string="Etiquetas">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="categoria_id" widget="many2one"/>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

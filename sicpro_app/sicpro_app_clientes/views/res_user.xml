@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="inversionista_user_form" model="ir.ui.view">
+    <field name="name">res.users.inversionista.form</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form" />
+    <field name="arch" type="xml">
+       <field name="companies_count" position="after">
+        <field name="user_inversionista" readonly="0"/>
+      </field>
+    </field>
+  </record>
+
+  <record id="inversionista_user_tree" model="ir.ui.view">
+    <field name="name">res.users.inversionista.tree</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_tree" />
+    <field name="arch" type="xml">
+      <field name="company_id" position="after">
+        <field name="user_inversionista" />
+      </field>
+    </field>
+  </record>
+
+
+  <record id="inversionistas_user_form" model="ir.ui.view">
+    <field name="name">res.users.departamento.form</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//notebook/page[3]" position="after">
+         <page string="Información del Inversionista" >
+             <group>
+                 <div class="text-danger" >
+                     <strong>ATENCIÓN: </strong>Antes de configurar esta pestaña debe guardar el registro del usuario, esta acción
+                     creara el id del registro del usuario y evitara errores al procesar las funcionalidades
+                     seleccionadas.
+                 </div>
+             </group>
+             <group string="Inversionista">
+                 <group>
+                         <field name="nombre_inversionista"/>
+                     <field name="nombre_inversionista_2" invisible="1"/>
+                       <field name="inversionista_cargo"/>
+                     </group>
+                 <group>
+                     <field name="inversionista_territorio"/>
+                     <field name="inversionista_provincia"/>
+                 </group>
+             </group>
+           <group>
+             <group>
+               <field name="inversionista_etiquetas" widget="many2many_tags"
+                      options="{'color_field': 'color', 'no_create_edit': True}"/>
+             </group>
+             <group>
+               <field name="inversionista_telefono_fijo"/>
+               <field name="inversionista_telefono_movil"/>
+             </group>
+           </group>
+         </page>
+      </xpath>
+    </field>
+  </record>
+
+
+
+</odoo>

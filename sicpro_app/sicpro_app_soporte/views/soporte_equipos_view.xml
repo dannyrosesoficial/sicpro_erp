@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_soporte_equipos_search" model="ir.ui.view">
+        <field name="name">sicpro.app.soporte.equipos.search</field>
+        <field name="model">sicpro.app.soporte.equipos</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Equipos">
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+                <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="user_ids" string="Usuario" filter_domain="[('user_ids', 'ilike', self)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_soporte_equipos_form" model="ir.ui.view">
+        <field name="name">view.soporte.equipos.form</field>
+        <field name="model">sicpro.app.soporte.equipos</field>
+        <field name="arch" type="xml">
+            <form string="Equipos">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" required="1"/></h1>
+                    </div>
+                    <group name="main">
+                        <field name="active" invisible="1"/>
+                        <field name="user_ids" widget="many2many_tags"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_soporte_equipos_tree" model="ir.ui.view">
+        <field name="name">view.soporte.equipos.tree</field>
+        <field name="model">sicpro.app.soporte.equipos</field>
+        <field name="arch" type="xml">
+            <tree string="Equipos">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="soporte_equipos_action" model="ir.actions.act_window">
+        <field name="name">Equipos de Soporte</field>
+        <field name="res_model">sicpro.app.soporte.equipos</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                 Crear un nuevo equipo de soporte
+            </p>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Dashboard de Trabajo</field>
+        <field name="res_model">sicpro.app.soporte.equipos</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                Aquí aparecen los equipos de trabajo
+            </p>
+        </field>
+    </record>
+
+    
+
+</odoo>

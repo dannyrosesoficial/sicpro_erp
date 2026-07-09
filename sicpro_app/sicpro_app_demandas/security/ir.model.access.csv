@@ -1,0 +1,28 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+demandas_demandas_base_user,demandas base.user,model_sicpro_app_demandas_demandas,base.group_user,1,0,0,0
+demandas_catalogo_base_user,catalogo base.user,model_sicpro_app_demandas_catalogo,base.group_user,1,0,0,0
+demandas_etiquetas_base_user,etiquetas base.user,model_sicpro_app_demandas_etiquetas,base.group_user,1,0,0,0
+demandas_clasificacion_base_user,clasificación base.user,model_sicpro_app_demandas_clasificacion,base.group_user,1,0,0,0
+demandas_presupuesto_base_user,presupuesto base.user,model_sicpro_app_demandas_presupuesto,base.group_user,1,0,0,0
+demandas_tipo_base_user,tipo base.user,model_sicpro_app_demandas_tipo,base.group_user,1,0,0,0
+
+demandas_demandas_usuario,demandas usuario,model_sicpro_app_demandas_demandas,grupo_demandas_usuario,1,0,0,0
+demandas_catalogo_usuario,catalogo usuario,model_sicpro_app_demandas_catalogo,grupo_demandas_usuario,1,0,0,0
+
+
+demandas_demandas_ejecutor,demandas ejecutor,model_sicpro_app_demandas_demandas,grupo_demandas_ejecutor,1,1,1,0
+demandas_catalogo_ejecutor,catalogo ejecutor,model_sicpro_app_demandas_catalogo,grupo_demandas_ejecutor,1,1,1,0
+
+
+demandas_etiquetas_responsable,etiquetas responsable,model_sicpro_app_demandas_etiquetas,grupo_demandas_responsable,1,1,1,0
+demandas_clasificacion_responsable,clasificación responsable,model_sicpro_app_demandas_clasificacion,grupo_demandas_responsable,1,1,1,0
+demandas_presupuesto_responsable,presupuesto responsable,model_sicpro_app_demandas_presupuesto,grupo_demandas_responsable,1,1,1,0
+demandas_tipo_responsable,tipo responsable,model_sicpro_app_demandas_tipo,grupo_demandas_responsable,1,1,1,0
+
+
+demandas_etiquetas_admin,etiquetas admin,model_sicpro_app_demandas_etiquetas,grupo_demandas_admin,1,1,1,1
+demandas_demandas_admin,demandas admin,model_sicpro_app_demandas_demandas,grupo_demandas_admin,1,1,1,1
+demandas_catalogo_admin,catalogo admin,model_sicpro_app_demandas_catalogo,grupo_demandas_admin,1,1,1,1
+demandas_clasificacion_admin,clasificación admin,model_sicpro_app_demandas_clasificacion,grupo_demandas_admin,1,1,1,1
+demandas_presupuesto_admine,presupuesto admin,model_sicpro_app_demandas_presupuesto,grupo_demandas_admin,1,1,1,1
+demandas_tipo_admin,tipo admin,model_sicpro_app_demandas_tipo,grupo_demandas_admin,1,1,1,1

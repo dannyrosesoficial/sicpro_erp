@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_backend" name="hr assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/sicpro_app_trabajadores/static/src/scss/hr.scss"/>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/js/chat.js"></script>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/js/language.js"></script>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/js/many2one_avatar_employee.js"></script>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/js/standalone_m2o_avatar_employee.js"></script>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/models/employee/employee.js"/>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/models/messaging/messaging.js"/>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/models/partner/partner.js"/>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/models/user/user.js"/>
+
+            <link rel="stylesheet" type="text/scss" href="/sicpro_app_trabajadores/static/src/scss/trabajadores.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/sicpro_app_trabajadores/static/src/scss/cursos_educacion.scss"/>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/js/resume_widget.js"></script>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/js/grafica_organizacional.js"/>
+            <link rel="stylesheet" type="text/scss" href="/sicpro_app_trabajadores/static/src/scss/grafica_organizacional.scss"/>
+
+
+        <link rel="stylesheet" type="text/scss" href="/sicpro_app_trabajadores/static/src/scss/organigrama_chart.scss"/>
+            <script type="text/javascript" src="/sicpro_app_trabajadores/static/src/js/organigrama_chart.js"></script>
+        </xpath>
+    </template>
+
+    <template id="_assets_primary_variables" inherit_id="web._assets_primary_variables">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/sicpro_app_trabajadores/static/src/scss/variables.scss"/>
+        </xpath>
+    </template>
+
+</odoo>

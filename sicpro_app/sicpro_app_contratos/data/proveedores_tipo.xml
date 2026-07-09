@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="sicpro.app.contratos.proveedores.tipo" id="tipo_cooperativa">
+            <field name="name">Cooperativa</field>
+        </record>
+        <record model="sicpro.app.contratos.proveedores.tipo" id="tipo_cuentapropia">
+            <field name="name">Trabajador por cuenta propia</field>
+        </record>
+        <record model="sicpro.app.contratos.proveedores.tipo" id="tipo_estatal">
+            <field name="name">Estatal</field>
+        </record>
+
+    </data>
+
+
+</odoo>

@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_1">
+            <field name="name">SAC SEPSA-TRASLADO DE VALORES OPERACIONES ESPECIALES LA HABANA</field>
+            <field name="cuenta_beneficiario">0300000005860814</field>
+            <field name="color">1</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_2">
+            <field name="name">ESAH UEB DE FUMIGACIÓN Y JARDINERÍA</field>
+            <field name="cuenta_beneficiario">1232622093880010</field>
+            <field name="color">2</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_3">
+            <field name="name">SAC CORPORACIÓN CIMEX SA SUCURSAL GASTRONOMÍA Y RECREACIÓN</field>
+            <field name="cuenta_beneficiario">0523621018160312</field>
+            <field name="color">3</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_4">
+            <field name="name">EMPRESA DE SANEAMIENTO BASICO DE LA HABANA</field>
+            <field name="cuenta_beneficiario">0531420045300016</field>
+            <field name="color">4</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_5">
+            <field name="name">TCP ERNESTO ORLANDO PANTOJA PÉREZ</field>
+            <field name="cuenta_beneficiario">0598770000035510</field>
+            <field name="color">5</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_6">
+            <field name="name">DIVISIÓN TECNOLÓGICA-CORPORACIÓN CIMEX, S.A-INGRESOS</field>
+            <field name="cuenta_beneficiario">0300000005885612</field>
+            <field name="color">6</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_7">
+            <field name="name">AGUAS DE LA HABANA</field>
+            <field name="cuenta_beneficiario">0530720012170010</field>
+            <field name="color">7</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_8">
+            <field name="name">EES EMP. DE SOLUCIONES MEC. CONST. SOMEC UEB PLANTA DE SOLUC. MEC. HOLG.</field>
+            <field name="cuenta_beneficiario">0669621144160016</field>
+            <field name="color">8</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_9">
+            <field name="name">DIRECCIÓN ESPECIALIZADA DE PROTECCIÓN</field>
+            <field name="cuenta_beneficiario">0524120004762216</field>
+            <field name="color">9</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_10">
+            <field name="name">TCP DAIMEL CUADRA ROJAS</field>
+            <field name="cuenta_beneficiario">0598770000971819</field>
+            <field name="color">10</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_11">
+            <field name="name">TCP JOSE ANTONIO PARADA SARABIA</field>
+            <field name="cuenta_beneficiario">0598770001470410</field>
+            <field name="color">11</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_12">
+            <field name="name">EES SEPCOM</field>
+            <field name="cuenta_beneficiario">0525920031830016</field>
+            <field name="color">1</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_13">
+            <field name="name">COPEXTEL DIVISIÓN TERRITORIAL PLAYA</field>
+            <field name="cuenta_beneficiario">0524820034230510</field>
+            <field name="color">2</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_14">
+            <field name="name">EES EMP. NAC. INVEST. APLICAD. U/ADM. CT</field>
+            <field name="cuenta_beneficiario">0669221192640019</field>
+            <field name="color">3</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_15">
+            <field name="name">EES E. SOL MEC C. UEB SOLUC MECAN HABANA DIESEL</field>
+            <field name="cuenta_beneficiario">0528820035410218</field>
+            <field name="color">4</field>
+            <field name="moneda">70</field>
+        </record>
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_16">
+            <field name="name">SUCURSAL LAS TUNAS AUSA</field>
+            <field name="cuenta_beneficiario">0664621121830014</field> <field name="color">5</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_17">
+            <field name="name">EES EMPRESA DE EQUIPOS Y TALLERES LA HABANA</field>
+            <field name="cuenta_beneficiario">0525220044610010</field>
+            <field name="color">6</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_18">
+            <field name="name">UPR INIMET-Trat. Esp.</field>
+            <field name="cuenta_beneficiario">0525840023420319</field>
+            <field name="color">7</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_19">
+            <field name="name">UEB DIRECCIÓN PROVINCIAL DE SEGURO LA HABANA</field>
+            <field name="cuenta_beneficiario">0524220047170016</field>
+            <field name="color">8</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_20">
+            <field name="name">CORPORACIÓN COPEXTEL S.A</field>
+            <field name="cuenta_beneficiario">0674821287760018</field>
+            <field name="color">9</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_21">
+            <field name="name">TCP LORETA DE LA CARIDAD GARCIA SORA</field>
+            <field name="cuenta_beneficiario">0598770002263610</field>
+            <field name="color">10</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_22">
+            <field name="name">EES AGESP DIRECCIÓN TERRITORIAL SERVICIOS TÉCNICOS</field>
+            <field name="cuenta_beneficiario">0529621045160116</field>
+            <field name="color">11</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_23">
+            <field name="name">UPR DIRECCIÓN MUNICIPAL SERVICIOS COMUNALES CENTRO HABANA</field>
+            <field name="cuenta_beneficiario">0525840012870117</field>
+            <field name="color">1</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_24">
+            <field name="name">SEPSA SAC TRASLADO DE VALORES</field>
+            <field name="cuenta_beneficiario">0524420022640115</field>
+            <field name="color">2</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_25">
+            <field name="name">UPR DIRECCIÓN GENERAL DE TRANSPORTE PROVINCIAL LA HABANA</field>
+            <field name="cuenta_beneficiario">0525041006070013</field>
+            <field name="color">3</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_26">
+            <field name="name">EMPRESA CUBANA DE GAS S.A</field>
+            <field name="cuenta_beneficiario">0407210029590019</field>
+            <field name="color">4</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_27">
+            <field name="name">EES EMP. DE CONST. Y MONTAJE DEL MARIEL CTA.CTE</field>
+            <field name="cuenta_beneficiario">0617421006830017</field>
+            <field name="color">5</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_28">
+            <field name="name">CASTROL CUBA S.A</field>
+            <field name="cuenta_beneficiario">0300000005467212</field>
+            <field name="color">6</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_29">
+            <field name="name">UEB Cent. Rev. Tecn. Aut. Territorio Occidente</field>
+            <field name="cuenta_beneficiario">0532421032830010</field>
+            <field name="color">7</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_30">
+            <field name="name">UNEVOL S.A</field>
+            <field name="cuenta_beneficiario">0300000005969317</field>
+            <field name="color">8</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_31">
+            <field name="name">TCP DAVID EULOGIO RODRIGUEZ HERNÁNDEZ</field>
+            <field name="cuenta_beneficiario">0598770000149619</field>
+            <field name="color">9</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_32">
+            <field name="name">TCP DANIEL PEÑA RIOS</field>
+            <field name="cuenta_beneficiario">1222070001411211</field>
+            <field name="color">10</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_33">
+            <field name="name">EES EMPRESA DE MENSAJERÍA Y CAMBIO INTERNACIONAL</field>
+            <field name="cuenta_beneficiario">0530320046030118</field>
+            <field name="color">11</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_34">
+            <field name="name">UPR CENTRO DE DESARROLLO DE NORMAS Y COSTOS PARA LA CONST. TTO. ESP.</field>
+            <field name="cuenta_beneficiario">0525240047040117</field>
+            <field name="color">1</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_35">
+            <field name="name">EES EMPRESA DE SUMINISTROS MEDICOS</field>
+            <field name="cuenta_beneficiario">0527720012670410</field>
+            <field name="color">2</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_36">
+            <field name="name">DIVISIÓN TRANSPORTE AUTOMOTOR</field>
+            <field name="cuenta_beneficiario">0524120018160712</field>
+            <field name="color">3</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_37">
+            <field name="name">EES EMPRESA DE OBRAS MARITIMAS</field>
+            <field name="cuenta_beneficiario">0525020006220113</field>
+            <field name="color">4</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_38">
+            <field name="name">EES EMPRESA DE CORREOS HABANA CENTRO-PRENSA</field>
+            <field name="cuenta_beneficiario">0530320046090611</field>
+            <field name="color">5</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_39">
+            <field name="name">TCP ENRIQUE RODRIGUEZ ABREU</field>
+            <field name="cuenta_beneficiario">0598770001570410</field>
+            <field name="color">6</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_40">
+            <field name="name">TCP LAZARO SOSA PÉREZ</field>
+            <field name="cuenta_beneficiario">0598770001591019</field>
+            <field name="color">7</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_41">
+            <field name="name">EES COMETAL OFICINA CENTRAL</field>
+            <field name="cuenta_beneficiario">0533420024720216</field>
+            <field name="color">8</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_42">
+            <field name="name">EMP. PROY. CONST. Y SERV. NAVALES. CEPRONA</field>
+            <field name="cuenta_beneficiario">0525020033410216</field>
+            <field name="color">9</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_43">
+            <field name="name">CUBATEL S.A</field>
+            <field name="cuenta_beneficiario">0524220031080010</field>
+            <field name="color">10</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_44">
+            <field name="name">EES Emp. Contingente Blas Roca Calderio</field>
+            <field name="cuenta_beneficiario">0532020013900010</field>
+            <field name="color">11</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_45">
+            <field name="name">RADIOCUBA</field>
+            <field name="cuenta_beneficiario">0526620007390318</field>
+            <field name="color">1</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_46">
+            <field name="name">EES AGESP</field>
+            <field name="cuenta_beneficiario">0524420007613614</field>
+            <field name="color">2</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_47">
+            <field name="name">UPTE INSTITUTO DE METEOROLOGÍA SEDE</field>
+            <field name="cuenta_beneficiario">0527040031090310</field>
+            <field name="color">3</field> <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_48">
+            <field name="name">Casa de la Musica Miramar</field>
+            <field name="cuenta_beneficiario">0523620025730214</field>
+            <field name="color">4</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_49">
+            <field name="name">EMPRESA GEOCUBA GEODESIA</field>
+            <field name="cuenta_beneficiario">0525220008950019</field>
+            <field name="color">5</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_50">
+            <field name="name">"Filial de CH del Fondo de Bienes CU-EES"</field>
+            <field name="cuenta_beneficiario">0524220017440110</field>
+            <field name="color">6</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_51">
+            <field name="name">SERVICIOS AUTOMOTORES S.A. LA PALMA</field>
+            <field name="cuenta_beneficiario">0533420027290014</field>
+            <field name="color">7</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_52">
+            <field name="name">CNA COOPERATIVA RECONSTRUCTORA DE VEHICULOS</field>
+            <field name="cuenta_beneficiario">0530101000009410</field>
+            <field name="color">8</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_53">
+            <field name="name">ANIR Provincial</field>
+            <field name="cuenta_beneficiario">0526420028830111</field>
+            <field name="color">9</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_54">
+            <field name="name">CCS 27 DE DICIEMBRE</field>
+            <field name="cuenta_beneficiario">0533820024860016</field>
+            <field name="color">10</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_55">
+            <field name="name">TCP NAPHIL EDUARDO PEREZ MORAN</field>
+            <field name="cuenta_beneficiario">0598770000981119</field>
+            <field name="color">11</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_56">
+            <field name="name">CNA KB-BLOQUIN</field>
+            <field name="cuenta_beneficiario">0531401000014018</field>
+            <field name="color">1</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_57">
+            <field name="name">TCP GREISY ESCOBAR RODRIGUEZ</field>
+            <field name="cuenta_beneficiario">0598770001536426</field>
+            <field name="color">2</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_58">
+            <field name="name">TCP DARYL SILVA RODRIGUEZ</field>
+            <field name="cuenta_beneficiario">0598770000913415</field>
+            <field name="color">3</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_59">
+            <field name="name">EES TECNOMATICA</field>
+            <field name="cuenta_beneficiario">0626921001730014</field>
+            <field name="color">4</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_60">
+            <field name="name">SASA LA PALMA-INGRESOS</field>
+            <field name="cuenta_beneficiario">0300000005687417</field>
+            <field name="color">5</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_61">
+            <field name="name">SASA CHAPISTERIA-INGRESOS</field>
+            <field name="cuenta_beneficiario">0300000005723018</field>
+            <field name="color">6</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_62">
+            <field name="name">SASA AGENCIA PUERTO HABANA-INGRESO</field>
+            <field name="cuenta_beneficiario">0300000005497616</field>
+            <field name="color">7</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_63">
+            <field name="name">SASA PEUGEOT-INGRESOS</field>
+            <field name="cuenta_beneficiario">0300000005841111</field>
+            <field name="color">8</field>
+            <field name="moneda">70</field>
+        </record>
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_64">
+            <field name="name">SASA MULTIMARCAS-INGRESOS</field>
+            <field name="cuenta_beneficiario">0300000005665816</field>
+            <field name="color">9</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_65">
+            <field name="name">EES EMP. ELECTROQUIMICA SAGUA</field>
+            <field name="cuenta_beneficiario">0300000005842313</field>
+            <field name="color">10</field>
+            <field name="moneda">70</field>
+        </record>
+
+        <record model="sicpro.app.contratos.beneficiarios" id="beneficiario_66">
+            <field name="name">DIVISIÓN IMÁGENES CORPORACIÓN CIMEX, S.A-INGRESOS</field>
+            <field name="cuenta_beneficiario">0300000005609010</field>
+            <field name="color">11</field>
+            <field name="moneda">70</field>
+        </record>
+
+
+    </data>
+
+
+</odoo>

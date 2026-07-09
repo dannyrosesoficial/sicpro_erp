@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_1">
+            <field name="name">Novia</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_2">
+            <field name="name">Novio</field>
+            <field name="color">2</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_3">
+            <field name="name">Esposa</field>
+            <field name="color">3</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_4">
+            <field name="name">Esposo</field>
+            <field name="color">4</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_5">
+            <field name="name">Suegra</field>
+            <field name="color">5</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_6">
+            <field name="name">Suegro</field>
+            <field name="color">6</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_7">
+            <field name="name">Cuñada</field>
+            <field name="color">7</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_8">
+            <field name="name">Cuñado</field>
+            <field name="color">8</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_9">
+            <field name="name">Nuera</field>
+            <field name="color">9</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_10">
+            <field name="name">Yerno</field>
+            <field name="color">10</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_11">
+            <field name="name">Hija</field>
+            <field name="color">11</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_12">
+            <field name="name">Hijo</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_13">
+            <field name="name">Hermana</field>
+            <field name="color">2</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_14">
+            <field name="name">Hermano</field>
+            <field name="color">3</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_15">
+            <field name="name">Sobrina</field>
+            <field name="color">4</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_16">
+            <field name="name">Sobrino</field>
+            <field name="color">5</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_17">
+            <field name="name">Prima</field>
+            <field name="color">6</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_18">
+            <field name="name">Primo</field>
+            <field name="color">7</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_19">
+            <field name="name">Nieta</field>
+            <field name="color">8</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_20">
+            <field name="name">Nieto</field>
+            <field name="color">9</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_21">
+            <field name="name">Madre</field>
+            <field name="color">10</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_22">
+            <field name="name">Padre</field>
+            <field name="color">11</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_23">
+            <field name="name">Madrastra</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_24">
+            <field name="name">Padrastro</field>
+            <field name="color">2</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_25">
+            <field name="name">Hijastra</field>
+            <field name="color">3</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_26">
+            <field name="name">Hijastro</field>
+            <field name="color">4</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_27">
+            <field name="name">Tía</field>
+            <field name="color">5</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_28">
+            <field name="name">Tío</field>
+            <field name="color">6</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_29">
+            <field name="name">Abuela</field>
+            <field name="color">7</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_30">
+            <field name="name">Abuelo</field>
+            <field name="color">8</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_31">
+            <field name="name">Bisnieta</field>
+            <field name="color">9</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_32">
+            <field name="name">Bisnieto</field>
+            <field name="color">10</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_33">
+            <field name="name">Tataranieta</field>
+            <field name="color">11</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_34">
+            <field name="name">Tataranieto</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_35">
+            <field name="name">Bisabuela</field>
+            <field name="color">2</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_36">
+            <field name="name">Bisabuelo</field>
+            <field name="color">3</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_37">
+            <field name="name">Tatarabuela</field>
+            <field name="color">4</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_38">
+            <field name="name">Tatarabuelo</field>
+            <field name="color">5</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_39">
+            <field name="name">Suegrastros</field>
+            <field name="color">6</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_40">
+            <field name="name">Concuñados</field>
+            <field name="color">7</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_41">
+            <field name="name">Consuegros</field>
+            <field name="color">8</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_42">
+            <field name="name">Cuñadastros</field>
+            <field name="color">9</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_43">
+            <field name="name">Yernastros</field>
+            <field name="color">10</field>
+        </record>
+        <record model="sicpro.app.trabajadores.familiar" id="relacion_familiar_44">
+            <field name="name">Nuerastras</field>
+            <field name="color">11</field>
+        </record>
+    </data>
+
+
+</odoo>

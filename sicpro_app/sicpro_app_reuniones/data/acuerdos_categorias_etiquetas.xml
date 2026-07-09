@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+    <!-- categorías -->
+    <record id="reuniones_categoria_direccion" model="sicpro.app.reuniones.categorias">
+        <field name="name">Dirección</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="reuniones_categoria_actividad" model="sicpro.app.reuniones.categorias">
+        <field name="name">Actividad</field>
+        <field name="sequence">2</field>
+    </record>
+    <record id="reuniones_categoria_tipo" model="sicpro.app.reuniones.categorias">
+        <field name="name">Tipo</field>
+        <field name="sequence">3</field>
+    </record>
+
+        <!-- etiquetas -->
+    <record id="reuniones_categoria_direccion_tag_1" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">CD DVPE</field>
+        <field name="sequence">1</field>
+        <field name="categoria_id" ref="reuniones_categoria_direccion"/>
+        <field name="color">1</field>
+    </record>
+    <record id="reuniones_categoria_direccion_tag_2" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">RP</field>
+        <field name="sequence">2</field>
+        <field name="categoria_id" ref="reuniones_categoria_direccion"/>
+        <field name="color">2</field>
+    </record>
+    <record id="reuniones_categoria_direccion_tag_3" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">CPC</field>
+        <field name="sequence">3</field>
+        <field name="categoria_id" ref="reuniones_categoria_direccion"/>
+        <field name="color">3</field>
+    </record>
+    <record id="reuniones_categoria_direccion_tag_4" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">C Econ.</field>
+        <field name="sequence">4</field>
+        <field name="categoria_id" ref="reuniones_categoria_direccion"/>
+        <field name="color">4</field>
+    </record>
+     <record id="reuniones_categoria_direccion_tag_5" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">CCompra</field>
+        <field name="sequence">5</field>
+        <field name="categoria_id" ref="reuniones_categoria_direccion"/>
+        <field name="color">5</field>
+    </record>
+     <record id="reuniones_categoria_direccion_tag_6" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">CCapc.</field>
+        <field name="sequence">6</field>
+        <field name="categoria_id" ref="reuniones_categoria_direccion"/>
+        <field name="color">6</field>
+    </record>
+     <record id="reuniones_categoria_direccion_tag_7" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">CCiber.</field>
+        <field name="sequence">7</field>
+        <field name="categoria_id" ref="reuniones_categoria_direccion"/>
+        <field name="color">7</field>
+    </record>
+     <record id="reuniones_categoria_direccion_tag_8" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">D PC-PA</field>
+        <field name="sequence">8</field>
+        <field name="categoria_id" ref="reuniones_categoria_direccion"/>
+        <field name="color">8</field>
+    </record>
+     <record id="reuniones_categoria_direccion_tag_9" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">Despacho</field>
+        <field name="sequence">9</field>
+        <field name="categoria_id" ref="reuniones_categoria_direccion"/>
+        <field name="color">9</field>
+    </record>
+
+    <record id="reuniones_categoria_actividad_tag_1" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">Cultural</field>
+        <field name="sequence">15</field>
+        <field name="categoria_id" ref="reuniones_categoria_actividad"/>
+        <field name="color">5</field>
+    </record>
+    <record id="reuniones_categoria_actividad_tag_2" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">Musica</field>
+        <field name="sequence">16</field>
+        <field name="categoria_id" ref="reuniones_categoria_actividad"/>
+        <field name="color">6</field>
+    </record>
+    <record id="reuniones_categoria_actividad_tag_3" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">Político</field>
+        <field name="sequence">17</field>
+        <field name="categoria_id" ref="reuniones_categoria_actividad"/>
+        <field name="color">7</field>
+    </record>
+
+    <record id="reuniones_categoria_tipo_tag_1" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">En línea</field>
+        <field name="sequence">20</field>
+        <field name="categoria_id" ref="reuniones_categoria_tipo"/>
+        <field name="color">8</field>
+    </record>
+    <record id="reuniones_categoria_tipo_tag_2" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">Conferencia</field>
+        <field name="sequence">21</field>
+        <field name="categoria_id" ref="reuniones_categoria_tipo"/>
+        <field name="color">9</field>
+    </record>
+        <record id="reuniones_categoria_tipo_tag_3" model="sicpro.app.reuniones.etiquetas">
+        <field name="name">Llamada</field>
+        <field name="sequence">22</field>
+        <field name="categoria_id" ref="reuniones_categoria_tipo"/>
+        <field name="color">10</field>
+    </record>
+
+</data></odoo>

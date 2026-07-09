@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <!-- Categoría de Acciones disciplinarias -->
+        <record id="action_category_noact" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">AMONESTACIÓN</field>
+            <field name="name">Amonestación pública</field>
+            <field name="category_type">action</field>
+            <field name="vigencia">365</field>
+            <field name="description">Un (1) año en los casos de amonestación pública ante el colectivo del infractor; multa hasta el importe del veinticinco (25) por ciento del salario básico de un mes, a partir de la aplicación de la medida</field>
+        </record>
+        <record id="action_category_verb" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">MULTA</field>
+            <field name="name">Multa del salario básico</field>
+            <field name="category_type">action</field>
+            <field name="vigencia">365</field>
+            <field name="description">Un (1) año en los casos de amonestación pública ante el colectivo del infractor; multa hasta el importe del veinticinco (25) por ciento del salario básico de un mes, a partir de la aplicación de la medida</field>
+        </record>
+        <record id="action_category_wrt" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">SUCPENSIÓN</field>
+            <field name="name">Suspensión del vínculo con la entidad</field>
+            <field name="category_type">action</field>
+            <field name="vigencia">730</field>
+            <field name="description">Dos (2) años para las medidas de suspensión del vínculo con la entidad sin retribución, por un término de hasta treinta (30) días naturales y de traslado temporal a otra plaza de menor remuneración o calificación o en condiciones laborales distintas, por el término de hasta un año, con derecho a reintegrarse a su plaza a partir de la aplicación de la medida.</field>
+        </record>
+        <record id="action_category_meet" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">TRASLADO</field>
+            <field name="name">Traslado temporal (puede reintegrarse a su plaza)</field>
+            <field name="category_type">action</field>
+            <field name="vigencia">730</field>
+            <field name="description">Dos (2) años para las medidas de suspensión del vínculo con la entidad sin retribución, por un término de hasta treinta (30) días naturales y de traslado temporal a otra plaza de menor remuneración o calificación o en condiciones laborales distintas, por el término de hasta un año, con derecho a reintegrarse a su plaza a partir de la aplicación de la medida.</field>
+        </record>
+        <record id="action_category_susp" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">TRASLADO</field>
+            <field name="name">Traslado temporal (no puede reintegrarse a su plaza)</field>
+            <field name="name">Suspender al trabajador por una semana</field>
+            <field name="category_type">action</field>
+            <field name="vigencia">1095</field>
+            <field name="description">Tres (3) años para la medida de traslado a otra plaza de menor remuneración o calificación o en condiciones laborales distintas con pérdida de la que ocupaba el trabajador a partir de su incorporación al nuevo cargo .</field>
+        </record>
+        <record id="action_category_separacion_media" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">SEPARACIÓN</field>
+            <field name="name">Separación definitiva de la entidad</field>
+            <field name="category_type">action</field>
+            <field name="vigencia">1460</field>
+            <field name="description">Cuatro (4) años para la medida de separación definitiva de la entidad, contados en este caso, a partir de la nueva vinculación del trabajador</field>
+        </record>
+         <record id="action_category_separacion_final" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">SEPARACIÓN</field>
+            <field name="name">Separación definitiva del sector</field>
+            <field name="category_type">action</field>
+            <field name="vigencia">1825</field>
+            <field name="description">Cinco (5) años para la medida de separación del sector o actividad, a partir de la nueva vinculación del trabajador</field>
+        </record>
+
+
+        <!-- Categoría de tipo de incidencia disciplinarias -->
+        <record id="discipline_category_care" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">INFRACCIÓN</field>
+            <field name="name">Infracción del horario de trabajo o abandono del puesto de trabajo</field>
+            <field name="category_type">disciplinary</field>
+            <field name="vigencia">0</field>
+            <field name="description">Infracción del horario de trabajo o abandono del puesto de trabajo sin autorización del jefe inmediato o desaprovechamiento de la jornada</field>
+        </record>
+        <record id="discipline_category_behave" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">AUSENCIA</field>
+            <field name="name">Ausencia injustificada</field>
+            <field name="category_type">disciplinary</field>
+             <field name="vigencia">0</field>
+            <field name="description">Ausencia injustificada</field>
+        </record>
+        <record id="discipline_category_damage" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">DESOBEDIENCIA</field>
+            <field name="name">Desobediencia a las orientaciones de los superiores</field>
+            <field name="category_type">disciplinary</field>
+             <field name="vigencia">0</field>
+            <field name="description">Desobediencia a las orientaciones de los superiores;
+</field>
+        </record>
+        <record id="discipline_category_instruction" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">RESPETO</field>
+            <field name="name">Falta de respeto a superiores, compañeros de trabajo</field>
+            <field name="category_type">disciplinary</field>
+             <field name="vigencia">0</field>
+            <field name="description">Falta de respeto a superiores, compañeros de trabajo o a otras personas en la entidad o en ocasión del desempeño del trabajo</field>
+        </record>
+        <record id="discipline_category_maltrato" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">MALTRATO</field>
+            <field name="name">Maltrato de obra o de palabra a superiores, compañeros de trabajo</field>
+             <field name="category_type">disciplinary</field>
+              <field name="vigencia">0</field>
+            <field name="description">Maltrato de obra o de palabra a superiores, compañeros de trabajo u otras personas en la entidad o en ocasión del desempeño del trabajo</field>
+        </record>
+        <record id="discipline_category_negligencia" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">NEGLIGENCIA</field>
+            <field name="name">Negligencia en el cumplimiento de sus deberes de trabajo</field>
+             <field name="category_type">disciplinary</field>
+              <field name="vigencia">0</field>
+            <field name="description">Negligencia en el cumplimiento de sus deberes de trabajo</field>
+        </record>
+        <record id="discipline_category_violaciones" model="sicpro.app.trabajadores.disiplinaria.categorias">
+            <field name="code">VIOLACIONES</field>
+            <field name="name">Violaciones de las disposiciones vigentes en la entidad</field>
+             <field name="category_type">disciplinary</field>
+              <field name="vigencia">0</field>
+            <field name="description">Violaciones de las disposiciones vigentes en la entidad sobre la seguridad y protección de la in-formación oficial, el secreto técnico o comercial, la seguridad informática y para la seguridad y protección física.</field>
+        </record>
+    </data>
+</odoo>

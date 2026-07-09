@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+       <record forcecreate="True" id="mail.ir_cron_mail_scheduler_action" model="ir.cron">
+            <field name="name">Correo: Gestor de colas de correos</field>
+            <field name="model_id" ref="mail.model_mail_mail"/>
+            <field name="state">code</field>
+            <field name="code"># agregar al campo Execution Mode el valor: Synchronous
+model.process_email_queue()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">30</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+        </record>
+    </data>
+</odoo>

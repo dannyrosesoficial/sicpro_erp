@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<record id="informe_credencial_laptop_action" model="ir.actions.report">
+        <field name="name">Credencial Laptop</field>
+        <field name="model">sicpro.app.credenciales</field>
+		<field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_credenciales.informe_credencial_laptop</field>
+        <field name="report_file">sicpro_app_credenciales.informe_credencial_laptop</field>
+        <field name="print_report_name">'Aval Económico'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_credenciales"/>
+		<field name="binding_type">report</field>
+    </record>
+
+
+    <template id="informe_credencial_laptop">
+		<!-- Página credencial laptop -->
+        <t t-call="web.html_container">
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0" style="font-size: x-small">
+	<colgroup width="11">
+	</colgroup>
+	<colgroup span="5" width="85">
+	</colgroup>
+	<colgroup width="10">
+	</colgroup>
+	<colgroup width="48">
+	</colgroup>
+	<colgroup width="62">
+	</colgroup>
+	<colgroup span="2" width="11">
+	</colgroup>
+	<colgroup width="85">
+	</colgroup>
+	<colgroup width="10">
+	</colgroup>
+	<colgroup width="98">
+	</colgroup>
+	<colgroup width="62">
+	</colgroup>
+	<colgroup span="2" width="85">
+	</colgroup>
+	<colgroup width="48">
+	</colgroup>
+	<colgroup width="62">
+	</colgroup>
+	<colgroup width="11">
+	</colgroup>
+
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000; border-top: 1px dashed #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000; border-top: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="10" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000; border-top: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000; border-top: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000; border-top: 1px double #000000; border-bottom: 1px double #000000" rowspan="20" align="center" valign="middle" bgcolor="#2F4868">
+			<b><font size="7" color="#FFFFFF" style=" transform: rotate(180deg); writing-mode: vertical-lr">MTCP</font></b></td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-top: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000; border-top: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="10" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="20" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" colspan="4" rowspan="4" align="center" valign="middle" bgcolor="#CC99FE">
+			<b><font size="4">Logo</font></b></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="20" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="22" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">Nombre:</font></b></td>
+			<td colspan="3" align="left" valign="middle" bgcolor="#EEEEEE" style="font-size: x-small">
+			<b><font size="3">EDGAR HABER DIAZ</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="14" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">
+</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">
+</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="22" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">No. CI:</font></b></td>
+			<td colspan="3" align="left" valign="middle" bgcolor="#EEEEEE" sdval="880510322" sdnum="3082;" style="font-size: x-small">
+			<b><font size="3">880510322</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="14" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">
+</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">
+</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="22" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">No. Serie:</font></b></td>
+			<td colspan="3" align="left" valign="middle" bgcolor="#EEEEEE" style="font-size: x-small">
+			<b><font size="3">HHNJKNJ$·$·</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="14" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">
+</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">
+</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="22" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000; border-right: 1px double #000000" colspan="8" rowspan="2" align="center" valign="middle">
+			<b><font size="4">División de Proyectos y Ejecución de Obras</font></b></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">No. Inv:</font></b></td>
+			<td colspan="3" align="left" valign="middle" bgcolor="#EEEEEE" sdval="8,9898988997988E+016" sdnum="3082;" style="font-size: x-small">
+			<b><font size="3">8,9898988997988E+016</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="14" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">
+</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">
+</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="22" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">Folio:</font></b></td>
+			<td align="left" valign="middle" bgcolor="#EEEEEE" sdval="41" sdnum="3082;" style="font-size: x-small">
+			<b><font size="3">41</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="14" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<b><font size="3">
+</font></b></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td align="left" valign="middle" bgcolor="#CC99FE" style="font-size: x-small">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" valign="middle" bgcolor="#CC99FE">
+			<font size="3">
+</font></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000" align="left">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td align="left" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td align="left" bgcolor="#CC99FE" style="font-size: x-small">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000; border-top: 1px solid #000000" colspan="6" align="center" valign="middle" bgcolor="#CC99FE">
+			<b>Director Central División de Proyectos y Ejecución de Obras</b></td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000" height="10" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px double #000000; border-bottom: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000; border-bottom: 1px double #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px double #000000; border-bottom: 1px double #000000" align="left" bgcolor="#CC99FE">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: x-small">
+			<td style="font-size: x-small; border-left: 1px dashed #000000; border-bottom: 1px dashed #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-left: 1px dashed #000000; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+			<td style="font-size: x-small; border-right: 1px dashed #000000; border-bottom: 1px dashed #000000" align="left">
+
+</td>
+		</tr>
+</table>
+					</t>
+
+                    <t t-call="web.address_layout"/>
+                </div>
+                <t t-raw="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+				<span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+                <div style="border-top: 1px solid black;">
+					<ul class="list-inline mb4">
+					<span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+						<i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+						<br/>
+					<span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba.
+						Tomo  II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+					<div t-if="report_type == 'pdf'" class="text-center text-muted">
+						Página: <span class="page"/> / <span class="topage"/>
+					</div>
+				</div>
+			</div>
+		</t>
+    </template>
+
+</odoo>

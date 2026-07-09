@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+    <!-- Acuerdos -->
+	<record id="acuerdos_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.reuniones.acuerdos.view.tree.from.type</field>
+        <field name="model">sicpro.app.reuniones.acuerdos</field>
+        <field name="priority" eval="30"/>
+        <field name="arch" type="xml">
+            <tree string="Acuerdos de Reuniones">
+                <field name="estado"/>
+                <field name="name"/>
+                <field name="responsable_id" readonly="1" widget="many2one_avatar_user"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+                <field name="cumplimiento"/>
+            </tree>
+        </field>
+	</record>
+
+    <record id="acuerdos_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.reuniones.acuerdos.view.form.from.type</field>
+        <field name="model">sicpro.app.reuniones.acuerdos</field>
+        <field name="priority" eval="30"/>
+        <field name="arch" type="xml">
+        <form string="Acuerdos de Reuniones">
+            <header>
+                 <button name="estado_en_proceso" string="Pasar a En Proceso" type="object" class="oe_highlight"
+                         attrs="{'invisible': ['|', ('estado', '!=', 'pendiente'), ('es_responsable', '=', False)]}"/>
+                 <button name="estado_en_revision" string="Enviar a Revisión" type="object" class="oe_highlight"
+                         attrs="{'invisible': [('estado', '!=', 'proceso')]}"/>
+                 <button name="estado_liberar" string="Liberar" type="object" class="oe_highlight"
+                         attrs="{'invisible': ['|', ('estado', '!=', 'revision'), ('es_responsable', '=', False)]}"/>
+
+                <button name="estado_cumplido" string="Cumplido" type="object" class="oe_highlight"
+                        attrs="{'invisible': [('estado', '!=', 'liberar')]}"
+                        groups="sicpro_app_reuniones.group_reuniones_director"/>
+                <button name="estado_pendiente" string="Rechazar" type="object"
+                        attrs="{'invisible': [('estado', '!=', 'liberar')]}"
+                        groups="sicpro_app_reuniones.group_reuniones_director"/>
+                <button name="estado_cancelado" string="Cancelar" type="object"
+                         attrs="{'invisible': [('estado', '!=', 'liberar')]}"
+                         groups="sicpro_app_reuniones.group_reuniones_director"/>
+
+                <field name="estado" widget="statusbar" options="{'clickable': '0'}" readonly="1"/>
+            </header>
+            <sheet>
+                    <div class="oe_title">
+                        <field name="estado_id" invisible="1"/>
+                        <field name="es_responsable" invisible="1"/>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Acuerdos de las reuniones...." readonly="1"/></h1>
+                        <field name="description" readonly="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="reunion" attrs="{'invisible': [('reunion', '=', False)]}" readonly="1"/>
+                            <field name="responsable_id" readonly="1" widget="many2one_avatar_user"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="cargo_responsable"/>
+                        </group>
+                        <group>
+                            <field name="participantes_ids" widget="many2many_tags"
+                                       options="{'color_field': 'color', 'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="cumplimiento"/>
+                            <field name="fecha_inicio" readonly="1"/>
+                            <field name="fecha_fin" readonly="1"/>
+                        </group>
+                    </group>
+                   <group string="Resultados">
+                        <field name="resultado" nolabel="1"/>
+                   </group>
+                    <group string="Documentación">
+                            <field name="attachment_ids" widget="many2many_binary" class="oe_inline"/>
+                </group>
+
+
+                </sheet>
+            <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+        </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_acuerdos_search">
+            <field name="name">sicpro.app.reuniones.acuerdos.search</field>
+            <field name="model">sicpro.app.reuniones.acuerdos</field>
+            <field name="arch" type="xml">
+                <search string="Reuniones">
+                    <field name="name" string="Reunión"/>
+                    <separator/>
+                    <filter string="Próximos/En marcha" name="upcoming"
+                        domain="[('fecha_fin', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0)))]"/>
+                    <separator/>
+                    <filter string="Fecha de Inicio" name="fecha_inicio_1" date="fecha_inicio"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Responsable" name="responsable_id" context="{'group_by': 'responsable_id'}"/>
+                        <filter string="Estado" name="estado" context="{'group_by': 'estado'}"/>
+                        <filter string="Fecha de Inicio" name="fecha_inicio" domain="[]" context="{'group_by': 'fecha_inicio'}"/>
+                        <filter string="Fecha de Cumplimiento" name="fecha_fin" domain="[]" context="{'group_by': 'fecha_fin'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    <record id="acuerdos_view_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.reuniones.acuerdos.kanban</field>
+        <field name="model">sicpro.app.reuniones.acuerdos</field>
+        <field name="priority" eval="30"/>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" default_group_by="estado" default_order="estado_id" create="false">
+                <field name="name"/>
+                <field name="estado"/>
+                <field name="reunion"/>
+                <field name="responsable_id"/>
+                <field name="fecha_fin"/>
+                <field name="fecha_inicio"/>
+                <field name="estado_id"/>
+                <field name="cumplimiento"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong><t t-esc="record.name.value"/></strong>
+                                </div>
+                            </div>
+                            <div><i>
+                            Inicio: <t t-esc="record.fecha_inicio.value"/> Fin: <t t-esc="record.fecha_fin.value"/>
+                            </i></div>
+                            <p >
+                             <strong>Cumplimiento:</strong> <field name="cumplimiento" widget="progressbar"/>
+                                </p>
+                            <div class="oe_kanban_bottom_left">
+                                Responsable: <t t-esc="record.responsable_id.value"/>
+                                <field name="responsable_id" widget="many2one_avatar_user"/>
+                            </div>
+
+                            <div>
+                            Usuarios Ejecutantes:
+                            </div>
+                            <div class="oe_kanban_bottom_right">
+                                <field name="participantes_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_acuerdos_view">
+           <field name="name">Acuerdos</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">sicpro.app.reuniones.acuerdos</field>
+           <field name="view_mode">kanban,tree,form</field>
+           <field name="search_view_id" ref="view_acuerdos_search"/>
+        <field name="context">{
+                'search_default_fecha_inicio_1': (context_today().strftime('%Y')),
+                }</field>
+           <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Agregar Acuerdos
+              </p>
+            </field>
+        </record>
+
+
+</data>
+</odoo>

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- BANCOS DVPE -->
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_dvpe_1">
+            <field name="name">BANCO FINANCIERO INTERNACIONAL, S.A.</field>
+            <field name="tipo_banco">dvpe</field>
+            <field name="calle">Línea y O</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="municipio" ref="sicpro_modulo_nomencladores.PlazadelaRevolucion"/>
+            <field name="codigo_id_bancaria">Sucursal No. 50</field>
+            <field name="filtro_banco">bfi</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_dvpe_2">
+            <field name="name">BANCO METROPOLITANO</field>
+            <field name="tipo_banco">dvpe</field>
+            <field name="calle">Línea y Paseo</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="municipio" ref="sicpro_modulo_nomencladores.PlazadelaRevolucion"/>
+            <field name="codigo_id_bancaria">Agencia No. 250</field>
+            <field name="filtro_banco">metropolitano</field>
+            <field name="color">2</field>
+        </record>
+
+
+        <!-- BANCOS BENEFICIARIOS -->
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_1">
+            <field name="name">BFI</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">Calle 1ra.</field>
+            <field name="calle2">e/ 0 y 2 Edificio Sierra Maestra.</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="municipio" ref="sicpro_modulo_nomencladores.Playa"/>
+            <field name="codigo_id_bancaria">69</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_1')),
+            (4, ref('sicpro_app_contratos.beneficiario_6')),
+            (4, ref('sicpro_app_contratos.beneficiario_28'))]"/>
+            <field name="color">1</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_2">
+            <field name="name">BPA</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">3262</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_2'))]"/>
+            <field name="color">2</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_3">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">314</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_4')),
+            (4, ref('sicpro_app_contratos.beneficiario_31'))]"/>
+            <field name="color">3</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_4">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">280</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_5'))]"/>
+            <field name="color">4</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_5">
+            <field name="name">BFI</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">Calle 1ra.</field>
+            <field name="calle2">e/ 0 y 2 Edificio Sierra Maestra</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="municipio" ref="sicpro_modulo_nomencladores.Playa"/>
+            <field name="codigo_id_bancaria">69 Suc. Sierra  Maestra</field>
+            <field name="color">5</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_6">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">241</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_9'))]"/>
+            <field name="color">6</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_7">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">255</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_10'))]"/>
+            <field name="color">7</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_8">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">338</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_11')),
+            (4, ref('sicpro_app_contratos.beneficiario_40'))]"/>
+            <field name="color">8</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_9">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">259</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_12'))]"/>
+            <field name="color">9</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_10">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">248</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_13'))]"/>
+            <field name="color">10</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_11">
+            <field name="name">BANDEC</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">6921</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_14'))]"/>
+            <field name="color">11</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_12">
+            <field name="name">BFI</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">5ta. Y 92</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="municipio" ref="sicpro_modulo_nomencladores.Playa"/>
+            <field name="codigo_id_bancaria">LA3000</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_64'))]"/>
+            <field name="color">1</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_13">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">288</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_15'))]"/>
+            <field name="color">2</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_14">
+            <field name="name">BANDEC</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle"></field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">6461</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_16'))]"/>
+            <field name="color">3</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_17">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">252</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_17')),
+            (4, ref('sicpro_app_contratos.beneficiario_34'))]"/>
+            <field name="color">6</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_18">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">29 Y 42</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="municipio" ref="sicpro_modulo_nomencladores.Playa"/>
+            <field name="codigo_id_bancaria">242</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_19'))]"/>
+            <field name="color">7</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_19">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">313</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_21'))]"/>
+            <field name="color">8</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_20">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">258</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_23'))]"/>
+            <field name="color">9</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_21">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">244</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_24'))]"/>
+            <field name="color">10</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_22">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">250</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_25')),
+            (4, ref('sicpro_app_contratos.beneficiario_42'))]"/>
+            <field name="color">11</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_23">
+            <field name="name">BICSA</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">072</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_26'))]"/>
+            <field name="color">1</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_24">
+            <field name="name">BANDEC</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.MY"/>
+            <field name="codigo_id_bancaria">Sucursal Mariel 1741</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_27'))]"/>
+            <field name="color">2</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_25">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">324</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_29'))]"/>
+            <field name="color">3</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_26">
+            <field name="name">BFI</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">Ave. 5ta. Y 92</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="municipio" ref="sicpro_modulo_nomencladores.Playa"/>
+            <field name="codigo_id_bancaria">30</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_30'))]"/>
+            <field name="color">4</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_27">
+            <field name="name">BPA</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="municipio" ref="sicpro_modulo_nomencladores.Playa"/>
+            <field name="codigo_id_bancaria">2202</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_32'))]"/>
+            <field name="color">5</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_28">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">303</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_33')),
+            (4, ref('sicpro_app_contratos.beneficiario_38'))]"/>
+            <field name="color">6</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_29">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">277</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_35'))]"/>
+            <field name="color">7</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_30">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">2502</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_37'))]"/>
+            <field name="color">8</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_31">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">327</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_39'))]"/>
+            <field name="color">9</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_32">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">338</field>
+            <field name="color">10</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_33">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">270</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_47'))]"/>
+            <field name="color">11</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_34">
+            <field name="name">SUCURSAL DE CREDITOS</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">252</field>
+            <field name="cuenta_beneficiario" eval="[
+            (4, ref('sicpro_app_contratos.beneficiario_49'))]"/>
+            <field name="color">1</field>
+        </record>
+
+        <record model="sicpro.app.contratos.economia.bancos" id="bancos_beneficiario_35">
+            <field name="name">METROPOLITANO</field>
+            <field name="tipo_banco">beneficiario</field>
+            <field name="calle">-</field>
+            <field name="provincia" ref="sicpro_modulo_nomencladores.LH"/>
+            <field name="codigo_id_bancaria">2421</field>
+            <field name="color">2</field>
+        </record>
+
+
+
+    </data>
+</odoo>

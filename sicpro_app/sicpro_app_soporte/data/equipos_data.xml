@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <record model="sicpro.app.soporte.equipos" id="equipo_1">
+        <field name="name">Equipo de Soporte General</field>
+        <field name="color">1</field>
+    </record>
+    <record model="sicpro.app.soporte.equipos" id="equipo_2">
+        <field name="name">Equipo de Desarrollo General</field>
+        <field name="color">2</field>
+    </record>
+    <record model="sicpro.app.soporte.equipos" id="equipo_3">
+        <field name="name">Equipo de Solicitud de Usuarios</field>
+        <field name="color">3</field>
+    </record>
+    <record model="sicpro.app.soporte.equipos" id="equipo_4">
+        <field name="name">Grupo de Roles y Permisos</field>
+        <field name="color">4</field>
+    </record>
+    <record model="sicpro.app.soporte.equipos" id="equipo_5">
+        <field name="name">Grupo de Base de Datos</field>
+        <field name="color">5</field>
+    </record>
+    <record model="sicpro.app.soporte.equipos" id="equipo_6">
+        <field name="name">Equipo de Ayuda Técnica</field>
+        <field name="color">6</field>
+    </record>
+
+  </data>
+</odoo>

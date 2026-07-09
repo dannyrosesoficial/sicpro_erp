@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <record model="sicpro.app.soporte.estados.aplicaciones" id="estado_aplicaciones_1">
+        <field name="name">Sin Iniciar</field>
+        <field name="closed">False</field>
+        <field name="fold">False</field>
+        <field name="inicial">True</field>
+    </record>
+    <record model="sicpro.app.soporte.estados.aplicaciones" id="estado_aplicaciones_2">
+        <field name="name">En Desarrollo</field>
+        <field name="closed">False</field>
+        <field name="fold">False</field>
+        <field name="inicial">False</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.aplicaciones" id="estado_aplicaciones_3">
+        <field name="name">En Prueba</field>
+        <field name="closed">False</field>
+        <field name="fold">False</field>
+        <field name="inicial">False</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.aplicaciones" id="estado_aplicaciones_4">
+        <field name="name">Detenido</field>
+        <field name="closed">False</field>
+        <field name="fold">True</field>
+        <field name="inicial">False</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.aplicaciones" id="estado_aplicaciones_5">
+        <field name="name">En Producción</field>
+        <field name="closed">True</field>
+        <field name="fold">False</field>
+        <field name="inicial">False</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.aplicaciones" id="estado_aplicaciones_6">
+        <field name="name">Descontinuado</field>
+        <field name="closed">False</field>
+        <field name="fold">True</field>
+        <field name="inicial">False</field>
+    </record>
+
+  </data>
+</odoo>

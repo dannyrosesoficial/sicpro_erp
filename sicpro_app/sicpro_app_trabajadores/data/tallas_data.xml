@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_1">
+            <field name="name">30</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_2">
+            <field name="name">31</field>
+            <field name="color">2</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_3">
+            <field name="name">32</field>
+            <field name="color">3</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_4">
+            <field name="name">33</field>
+            <field name="color">4</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_5">
+            <field name="name">34</field>
+            <field name="color">5</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_6">
+            <field name="name">35</field>
+            <field name="color">6</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_7">
+            <field name="name">36</field>
+            <field name="color">7</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_8">
+            <field name="name">37</field>
+            <field name="color">8</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_9">
+            <field name="name">38</field>
+            <field name="color">9</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_10">
+            <field name="name">39</field>
+            <field name="color">10</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_11">
+            <field name="name">40</field>
+            <field name="color">11</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_12">
+            <field name="name">41</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_13">
+            <field name="name">42</field>
+            <field name="color">2</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_14">
+            <field name="name">43</field>
+            <field name="color">3</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_15">
+            <field name="name">44</field>
+            <field name="color">4</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_16">
+            <field name="name">45</field>
+            <field name="color">5</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_17">
+            <field name="name">46</field>
+            <field name="color">6</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_18">
+            <field name="name">47</field>
+            <field name="color">7</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_19">
+            <field name="name">48</field>
+            <field name="color">8</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_20">
+            <field name="name">S</field>
+            <field name="color">9</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_21">
+            <field name="name">M</field>
+            <field name="color">10</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_22">
+            <field name="name">L</field>
+            <field name="color">11</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_23">
+            <field name="name">XL</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_24">
+            <field name="name">XXL</field>
+            <field name="color">2</field>
+        </record>
+        <record model="sicpro.app.trabajadores.tallas" id="tallas_25">
+            <field name="name">XXXL</field>
+            <field name="color">3</field>
+        </record>
+
+
+    </data>
+
+
+</odoo>

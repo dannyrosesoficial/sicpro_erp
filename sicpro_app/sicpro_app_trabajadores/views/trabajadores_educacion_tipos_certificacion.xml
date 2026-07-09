@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="trabajadores_educacion_certificacion_tree_view" model="ir.ui.view">
+        <field name="name">sicpro.app.trabajadores.educacion.certificacion.tree.view</field>
+        <field name="model">sicpro.app.trabajadores.educacion.certificacion</field>
+        <field name="arch" type="xml">
+            <tree name="Certificadores de Personas" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="vigencia"/>
+                <field name="dias"/>
+            </tree>
+        </field>
+    </record>
+
+        <record id="trabajadores_educacion_certificacion_action" model="ir.actions.act_window">
+        <field name="name">Certificadores de Personas</field>
+        <field name="res_model">sicpro.app.trabajadores.educacion.certificacion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    </data>
+</odoo>

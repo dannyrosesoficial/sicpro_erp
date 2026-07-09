@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_trabajadores_familiar_form" model="ir.ui.view">
+             <field name="name">sicpro.app.trabajadores.familiar.form</field>
+             <field name="model">sicpro.app.trabajadores.familiar</field>
+             <field name="arch" type="xml">
+                 <form string="Relaciones Familiares">
+                    <sheet>
+                        <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name"/>
+                            </div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="color" widget="color_picker"/>
+                            </group>
+                        </group>
+                    </sheet>
+                 </form>
+             </field>
+         </record>
+
+         <record id="view_trabajadores_familiar_list" model="ir.ui.view">
+             <field name="name">ssicpro.app.trabajadores.familiar.list</field>
+             <field name="model">sicpro.app.trabajadores.familiar</field>
+             <field eval="8" name="priority"/>
+             <field name="arch" type="xml">
+                 <tree string="Relaciones Familiares" editable="bottom">
+                     <field name="name"/>
+                     <field name="color" widget="color_picker"/>
+                 </tree>
+             </field>
+         </record>
+
+         <record id="trabajadores_familiar_action" model="ir.actions.act_window">
+             <field name="name">Relaciones Familiares</field>
+             <field name="res_model">sicpro.app.trabajadores.familiar</field>
+             <field name="view_mode">tree,form</field>
+         </record>
+
+     </data>
+ </odoo>

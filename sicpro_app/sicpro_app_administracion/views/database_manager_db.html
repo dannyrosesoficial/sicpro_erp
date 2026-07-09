@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>SICPRO ERP</title>
+        <link rel="shortcut icon" href="/sicpro_app_administracion/static/src/img/favicon.png" type="image/x-icon">
+
+        <link rel="stylesheet" href="/web/static/lib/fontawesome/css/font-awesome.css">
+        <link rel="stylesheet" href="/web/static/lib/bootstrap/css/bootstrap.css">
+
+        <script src="/web/static/lib/jquery/jquery.js" type="text/javascript"></script>
+
+        <script type="text/javascript" src="/web/static/lib/popper/popper.js"></script>
+
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/index.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/util.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/alert.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/button.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/carousel.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/collapse.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/dropdown.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/modal.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/tooltip.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/popover.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/web/static/lib/bootstrap/js/tab.js"></script>
+
+        <script type="text/javascript">
+            $(function() {
+                // Little eye
+                $('body').on('mousedown', '.o_little_eye', function (ev) {
+                    $(ev.target).closest('.input-group').find('.form-control').prop("type",
+                        (i, old) => { return old === "text" ? "password" : "text"; }
+                    );
+                });
+                // db modal
+                $('body').on('click', '.o_database_action', function (ev) {
+                    ev.preventDefault();
+                    var db = $(ev.currentTarget).data('db');
+                    var target = $(ev.currentTarget).data('target');
+                    $(target).find('input[name=name]').val(db);
+                    $(target).modal();
+                });
+                // close modal on submit
+                $('.modal').on('submit', 'form', function (ev) {
+                    var form = $(this).closest('form')[0];
+                    if (form && form.checkValidity && !form.checkValidity()) {
+                        return;
+                    }
+                    var modal = $(this).parentsUntil('body', '.modal');
+                    if (modal.hasClass('o_database_backup')) {
+                        $(modal).modal('hide');
+                        if (!$('.alert-backup-long').length) {
+                            $('.list-group').before("<div class='alert alert-info alert-backup-long'>La copia de seguridad puede tardar algún tiempo antes de estar lista.</div>");
+                        }
+                    }
+                });
+
+                // generar una contraseña maestra aleatoria
+                // eliminado l1O0 para evitar confusiones
+                var charset = "abcdefghijkmnpqrstuvwxyz23456789";
+                var password = "";
+                for (var i = 0, n = charset.length; i < 12; ++i) {
+                    password += charset.charAt(Math.floor(Math.random() * n));
+                    if (i === 3 || i === 7) {
+                        password += "-";
+                    }
+                }
+                var master_pwds = document.getElementsByClassName("generated_master_pwd");
+                for (var i=0, len=master_pwds.length|0; i<len; i=i+1|0) {
+                    master_pwds[i].innerText = password;
+                }
+                var master_pwd_inputs = document.getElementsByClassName("generated_master_pwd_input");
+                for (var i=0, len=master_pwd_inputs.length|0; i<len; i=i+1|0) {
+                    master_pwd_inputs[i].value = password;
+                    master_pwd_inputs[i].setAttribute('autocomplete', 'new-password');
+                }
+            });
+        </script>
+    </head>
+
+    {% macro master_input(set_master_pwd=False) -%}
+
+        {% set input_class = "form-control" %}
+        {% if insecure %}
+            {% if set_master_pwd %}
+                <input type="hidden" name="master_pwd" class="form-control" value="admin"/>
+            {% else %}
+                <div class="alert alert-warning">
+                    <p>Advertencia, su administrador de base de datos de SICPRO ERP no está protegido. Para protegerlo, hemos generado la siguiente contraseña maestra para él:</p>
+                    <p style="text-align: center;"><strong class="generated_master_pwd"></strong></p>
+                    <p>Puede cambiarlo a continuación, pero asegúrese de recordarlo, se le pedirá para futuras operaciones en bases de datos.</p>
+                </div>
+                {% set input_class = "form-control generated_master_pwd_input" %}
+            {% endif %}
+        {% endif %}
+        {% if not insecure or not set_master_pwd %}
+            <div class="form-group row">
+                <label for="master_pwd" class="col-md-4 col-form-label">Contraseña</label>
+                <div class="col-md-8 input-group">
+                    <input name="master_pwd"
+                        class="{{ input_class}}"
+                        required="required"
+                        autofocus="autofocus"
+                        type="password"
+                        autocomplete="current-password" />
+                    <div class="input-group-append">
+                        <span class="fa fa-eye o_little_eye input-group-text" aria-hidden="true" style="cursor: pointer;"></span>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {%- endmacro %}
+
+    {% macro create_form() -%}
+        {{ master_input() }}
+        <div class="form-group row">
+            <label for="name" class="col-md-4 col-form-label">Nombre de la base de datos</label>
+            <div class="col-md-8">
+                <input id="dbname" type="text" name="name" class="form-control" required="required" autocomplete="off" pattern="{{ pattern }}" title="Solo se permiten caracteres alfanuméricos, guiones bajos, guiones y puntos."/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="login" class="col-md-4 col-form-label">Correo electrónico</label>
+            <div class="col-md-8">
+                <input id="login" type="text" name="login" class="form-control" required="required" autocomplete="off"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="password" class="col-md-4 col-form-label">Contraseña</label>
+            <div class="col-md-8 input-group">
+                <input id="password" type="password" name="password" class="form-control" required="required" autocomplete="off"/>
+                <div class="input-group-append">
+                    <span class="fa fa-eye o_little_eye input-group-text" aria-hidden="true" style="cursor: pointer;"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phone" class="col-md-4 col-form-label">Número de teléfono</label>
+            <div class="col-md-8 input-group">
+                <input id="phone" type="tel" name="phone" class="form-control" autocomplete="off"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="lang" class="col-md-4 col-form-label">Idioma</label>
+            <div class="col-md-8">
+                <select id="lang" name="lang" class="form-control" required="required" autocomplete="off">
+                    {% for lang in langs %}
+                        <option {% if lang[0] == "en_US" %}selected="selected" {% endif %}value="{{ lang[0] }}">{{ lang[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="country" class="col-md-4 col-form-label ">País</label>
+            <div class="col-md-8">
+                <select id="country" name="country_code" class="form-control" autocomplete="off">
+                    <option value=""></option>
+                    {% for country in countries %}
+                        <option value="{{ country[0] }}">{{ country[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="demo" class="col-md-4 col-form-label">Datos de demostración</label>
+            <div class="col-md-8">
+                <input type="checkbox" id="load_demo_checkbox" class="form-control-sm" name="demo" value="1">
+            </div>
+        </div>
+    {%- endmacro %}
+
+    <body>
+        <div class="container">
+            <!-- Database List -->
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 o_database_list">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 2.png" class="img-fluid d-block mx-auto"/>
+                    {% if not list_db %}
+                        <div class="alert alert-danger text-center">El administrador de la base de datos ha sido deshabilitado</div>
+                    {% elif insecure and databases %}
+                        <div class="alert alert-warning">
+                            Advertencia, su administrador de base de datos de SICPRO ERP no está protegido.<br/>
+                            Por favor <a href="#" data-toggle="modal" data-target=".o_database_master">establecer una contraseña maestra</a> para asegurarlo.
+                        </div>
+                    {% endif %}
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error }}</div>
+                    {% endif %}
+                    {% if list_db and databases %}
+                        <div class="list-group">
+                            {% for db in databases %}
+                                <div class="list-group-item d-flex align-items-center">
+                                    <a href="/web?db={{ db }}" class="d-block flex-grow-1">
+                                        {% if db in incompatible_databases %}
+                                            <i class="icon fa fa-warning float-right text-warning" title="Es posible que esta base de datos no sea compatible"></i>
+                                        {% endif %}
+                                        {{ db }}
+                                    </a>
+                                    {% if manage %}
+                                        <div class="btn-group btn-group-sm float-right">
+                                            <button type="button" data-db="{{ db }}" data-target=".o_database_backup" class="o_database_action btn btn-primary">
+                                                <i class="fa fa-floppy-o fa-fw"></i> Respaldo
+                                            </button>
+                                            <button type="button" data-db="{{ db }}" data-target=".o_database_duplicate" class="o_database_action btn btn-secondary">
+                                                <i class="fa fa-files-o fa-fw"></i> Duplicar
+                                            </button>
+                                            <button type="button" data-db="{{ db }}" data-target=".o_database_delete" class="o_database_action btn btn-danger">
+                                                <i class="fa fa-trash-o fa-fw"></i> Eliminar
+                                            </button>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% if manage %}
+                            <div class="d-flex mt-2">
+                                <button type="button" data-toggle="modal" data-target=".o_database_create" class="btn btn-primary flex-grow-1">Crear base de datos</button>
+                                <button type="button" data-toggle="modal" data-target=".o_database_restore" class="btn btn-primary flex-grow-1 ml-2">Restaurar base de datos</button>
+                                <button type="button" data-toggle="modal" data-target=".o_database_master" class="btn btn-primary flex-grow-1 ml-2">Establecer contraseña maestra</button>
+                            </div>
+                        {% else %}
+                            <div class="text-center mt-2">
+                                <a href="/web/database/manager">Administrar bases de datos</a>
+                            </div>
+                        {% endif %}
+                    {% elif list_db %}
+                        <form role="form" action="/web/database/create" method="post">
+                            {{ create_form() }}
+                            <input type="submit" value="Create database" class="btn btn-primary float-left"/>
+                        </form>
+                        <a role="button" data-toggle="modal" data-target=".o_database_restore" class="btn btn-link">o restaurar una base de datos</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Create -->
+        <div class="modal fade o_database_create" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form role="form" action="/web/database/create" method="post">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Crear base de datos</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            {{ create_form() }}
+                            <small class="text-muted">
+                                Para mejorar su experiencia, es posible que se envíen algunos datos a los servicios SICPRO ERP.
+                            </small>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Continue" class="btn btn-primary float-right"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restore -->
+        <div class="modal fade o_database_restore" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Restaurar base de datos</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <form id="form_restore_db" role="form" action="/web/database/restore" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            {{ master_input() }}
+                            <div class="form-group row">
+                                <label for="backup_file" class="col-md-4 col-form-label">File</label>
+                                <div class="col-md-8">
+                                    <input id="backup_file" type="file" name="backup_file" class="required"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label">Nombre de la base de datos</label>
+                                <div class="col-md-8">
+                                    <input id="dbname_restore" type="text" name="name" class="form-control" required="required" pattern="{{ pattern }}" title="Only alphanumerical characters, underscore, hyphen and dot are allowed"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="copy">Tsu base de datos podría haber sido movida o copiada.</label>
+                                <p class="form-text">
+                                    Para evitar conflictos entre bases de datos, SICPRO ERP necesita saber si esta base de datos se movió o se copió.<br/>
+                                    Si no lo sabe, responda "Esta base de datos es una copia".
+                                </p>
+                                <div class="custom-control custom-radio">
+                                    <input id="radio_copy_true" name="copy" type="radio" class="custom-control-input" value="true" checked="1">
+                                    <label for="radio_copy_true" class="custom-control-label">Esta base de datos es una copia</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="radio_copy_false" name="copy" type="radio" class="custom-control-input" value="false">
+                                    <label for="radio_copy_false" class="custom-control-label">Esta base de datos fue movida</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Continue" class="btn btn-primary float-right"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Master password -->
+        <div class="modal fade o_database_master" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Establecer contraseña maestra</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <form id="form_change_pwd" role="form" action="/web/database/change_password" method="post">
+                        <div class="modal-body">
+                            <p>Se requiere la contraseña maestra para crear, eliminar, volcar o restaurar bases de datos.</p>
+                            {{ master_input(set_master_pwd=True) }}
+                            <div class="form-group">
+                                <label for="master_pwd_new" class="col-form-label">Nueva contraseña maestra</label>
+                                <div class="input-group">
+                                    <input id="master_pwd_new" type="password" name="master_pwd_new" class="form-control" required="required" autocomplete="new-password"/>
+                                    <div class="input-group-append">
+                                        <span class="fa fa-eye o_little_eye input-group-text" aria-hidden="true" style="cursor: pointer;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Continue" class="btn btn-primary float-right"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Duplicate DB -->
+        <div class="modal fade o_database_duplicate" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Base de datos duplicada</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <form id="form-duplicate-db" role="form" action="/web/database/duplicate" method="post">
+                        <div class="modal-body">
+                            {{ master_input() }}
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Nombre de la base de datos</label>
+                                <input id="dbname_duplicate" type="text" name="name" class="form-control" required="required" readonly="readonly"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="new_name" class="col-form-label">Nuevo nombre</label>
+                                <input id="new_name" type="text" name="new_name" class="form-control" required="required" pattern="{{ pattern }}" title="Solo se permiten caracteres alfanuméricos, guiones bajos, guiones y puntos."/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Continue" class="btn btn-primary float-right"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drop DB -->
+        <div class="modal fade o_database_delete" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Eliminar base de datos</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <form id="form_drop_db" role="form" action="/web/database/drop" method="post">
+                        <div class="modal-body">
+                            {{ master_input() }}
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Base de datos</label>
+                                <input id="dbname_delete" type="text" name="name" class="form-control" required="required" readonly="readonly"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Delete" class="btn btn-primary float-right"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backup DB -->
+        <div class="modal fade o_database_backup" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Base de datos de respaldo</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <form id="form_backup_db" role="form" action="/web/database/backup" method="post">
+                        <div class="modal-body">
+                            {{ master_input() }}
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Nombre de la base de datos</label>
+                                <input id="dbname_backup" type="text" name="name" class="form-control" required="required" readonly="readonly"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="backup_format" class="col-form-label">Formato de copia de seguridad</label>
+                                <select id="backup_format" name="backup_format" class="form-control" required="required">
+                                    <option value="zip">zip (incluye almacén de archivos)</option>
+                                    <option value="dump">pg_dump formato personalizado (sin almacén de archivos)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Backup" class="btn btn-primary float-right"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

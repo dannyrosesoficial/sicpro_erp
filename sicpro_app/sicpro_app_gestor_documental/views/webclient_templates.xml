@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend_documentos" inherit_id="web.assets_backend" name="sicpro_app_gestor_documental assets">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/sicpro_app_gestor_documental/static/src/css/document_management_system.scss"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="sicpro.nomenclador.trimestre" id="Primer">
+        <field name="name">I</field>
+        <field name="descripcion">Primer Trimestre</field>
+    </record>
+    <record model="sicpro.nomenclador.trimestre" id="Segundo">
+        <field name="name">II</field>
+        <field name="descripcion">Segundo Trimestre</field>
+    </record>
+    <record model="sicpro.nomenclador.trimestre" id="Tercer">
+        <field name="name">III</field>
+        <field name="descripcion">Tercer Trimestre</field>
+    </record>
+    <record model="sicpro.nomenclador.trimestre" id="Cuarto">
+        <field name="name">IV</field>
+        <field name="descripcion">Cuarto Trimestre</field>
+    </record>
+
+</odoo>

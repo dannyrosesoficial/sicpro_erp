@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Creo la categoría de permisos para importar y exportar-->
+    <record id="modulo_categoria_importar_exportar" model="ir.module.category">
+            <field name="name">Importar y Exportar</field>
+            <field name="description">Permisos de accesos a importar y exportar.</field>
+            <field name="sequence" >150</field>
+         </record>
+
+    <record id="group_import_csv" model="res.groups">
+            <field name="name">Acceso a Importar datos</field>
+            <field name="comment">Permisos de Importar</field>
+            <field name="category_id" ref="modulo_categoria_importar_exportar"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+    <record id="group_allow_export" model="res.groups">
+            <field name="name">Acceso a Exportar datos (PENDIENTE)</field>
+            <field name="comment">Permisos de Exportar</field>
+            <field name="category_id" ref="modulo_categoria_importar_exportar"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+</odoo>

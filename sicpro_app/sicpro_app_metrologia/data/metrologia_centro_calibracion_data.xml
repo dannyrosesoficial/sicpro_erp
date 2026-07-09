@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+<record id="metrologia_centro_calibracion_1" model="sicpro.app.metrologia.centro.calibracion">
+        <field name="name">TRI</field>
+    </record>
+<record id="metrologia_centro_calibracion_2" model="sicpro.app.metrologia.centro.calibracion">
+        <field name="name">GEOCUBA</field>
+    </record>
+<record id="metrologia_centro_calibracion_3" model="sicpro.app.metrologia.centro.calibracion">
+        <field name="name">INIMET</field>
+    </record>
+<record id="metrologia_centro_calibracion_4" model="sicpro.app.metrologia.centro.calibracion">
+        <field name="name">ENIA</field>
+    </record>
+<record id="metrologia_centro_calibracion_5" model="sicpro.app.metrologia.centro.calibracion">
+        <field name="name">INS METROLOGIA</field>
+    </record>
+
+
+</data></odoo>

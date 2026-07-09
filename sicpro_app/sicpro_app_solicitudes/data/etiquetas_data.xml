@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.solicitudes.etiquetas" id="solicitudes_etiqueta_1">
+            <field name="name">Obra priorizada</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.solicitudes.etiquetas" id="solicitudes_etiqueta_2">
+            <field name="name">Urgente</field>
+            <field name="color">2</field>
+        </record>
+    </data>
+
+
+</odoo>

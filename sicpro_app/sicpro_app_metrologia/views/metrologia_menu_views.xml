@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <!-- Menu Metrología Usuarios-->
+    <menuitem
+        id="menu_principal_metrologia" name="Metrología"
+        web_icon="sicpro_app_metrologia,static/description/icon.png"
+        sequence="110"/>
+
+    <menuitem
+        id="menu_tablero" name="Tablero" parent="menu_principal_metrologia"
+        groups="grupo_app_metrologia_usuario" action="metrologia_equipos_dashboard_action"
+        sequence="0"/>
+
+
+    <menuitem
+        id="maintenance_reporting" name="Informes" parent="menu_principal_metrologia"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_reportes_equipamiento" action="metrologia_equipamiento_action_reports"
+        parent="maintenance_reporting" name="Reportes de Equipamiento"
+        groups="grupo_app_metrologia_ejecutor" sequence="1"/>
+
+   <menuitem
+        id="menu_calendario_calibracion" name="Calendario de Calibración"
+        parent="maintenance_reporting" action="metrologia_equipamiento_action_cal"
+        groups="grupo_app_metrologia_ejecutor" sequence="2"/>
+
+   <menuitem
+        id="menu_plan_calibracion" name="Plan de Calibración"
+        parent="maintenance_reporting" action="metrologia_plan_calibracion_action"
+        groups="grupo_app_metrologia_ejecutor" sequence="3"/>
+
+   <menuitem
+        id="menu_registro_magnitudes" name="Registro de Magnitudes"
+        parent="maintenance_reporting" action="metrologia_registro_magnitudes_action"
+        groups="grupo_app_metrologia_ejecutor" sequence="4"/>
+
+
+   <menuitem
+        id="menu_todo_equipos" name="Todos los Equipos"
+        parent="maintenance_reporting" action="metrologia_todos_equipos_action"
+        groups="grupo_app_metrologia_ejecutor" sequence="5"/>
+
+
+    <menuitem
+        id="menu_maintenance_configuration"
+        name="Configuración" parent="menu_principal_metrologia" sequence="100"/>
+
+    <menuitem
+        id="menu_maintenance_teams" name="Equipos de Mantenimiento"
+        parent="menu_maintenance_configuration" action="metrologia_procesos_equipos_action"
+        groups="grupo_app_metrologia_responsable" sequence="1"/>
+
+    <menuitem
+        id="menu_maintenance_cat" name="Categoría de Equipos"
+        parent="menu_maintenance_configuration" action="metrologia_categorias_action"
+        groups="grupo_app_metrologia_responsable" sequence="2"/>
+
+    <menuitem
+        id="menu_maintenance_magnitud_configuration" name="Magnitudes de los Equipos"
+        parent="menu_maintenance_configuration" action="metrologia_magnitudes_action"
+        groups="grupo_app_metrologia_responsable" sequence="4" />
+
+    <menuitem
+        id="menu_maintenance_estado_tecnico_configuration"
+        name="Estado Técnico" parent="menu_maintenance_configuration"
+        action="metrologia_estado_tecnico_action" groups="grupo_app_metrologia_admin"
+        sequence="5" />
+
+    <menuitem
+        id="menu_maintenance_centro_calibracion_configuration"
+        name="Centros de Calibración" parent="menu_maintenance_configuration"
+        action="metrologia_centro_calibracion_action"
+        groups="grupo_app_metrologia_responsable"
+        sequence="6" />
+
+    <menuitem id="maintenance_menu_config_activity_type"
+        action="mail_activity_type_action_config_maintenance"
+        parent="menu_maintenance_configuration"
+        groups="grupo_app_metrologia_admin"
+        sequence="20"/>
+
+</odoo>

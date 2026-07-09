@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+      
+       <!-- Cron para verificar los acuerdos próximos a vencer -->
+        <record id="reuniones_cron_acuerdos_vencimiento" model="ir.cron">
+            <field name="name">Reuniones: Acuerdos vencimiento</field>
+            <field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+            <field name="state">code</field>
+            <field name="code">model.acuerdos_vencimiento()</field>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall" />
+            <field name="active" eval="True" />
+        </record>
+
+
+    </data>
+</odoo>

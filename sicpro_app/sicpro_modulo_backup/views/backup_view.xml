@@ -1,0 +1,126 @@
+<odoo>
+    <record id="view_backup_config_form" model="ir.ui.view">
+        <field name="name">sicpro.modulo.backup.form</field>
+        <field name="model">sicpro.modulo.backup</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Back-up view">
+                 <header>
+                     <button name="prueba3" type="object" string="prueba3" />
+                         </header>
+                <sheet>
+                    <group col="4" colspan="4">
+                        <separator col="2" string="Configuración de Backup Local"/>
+                    </group>
+                    <group name="configuracion">
+                        <field name="host" colspan="2"/>
+                        <field name="name"/>
+                        <field name="port"/>
+                        <field name="backup_type"/>
+                        <field name="folder"/>
+                        <field name="autoremove"/>
+                        <field name="days_to_keep" attrs="{'invisible': [('autoremove','=',False)]}"/>
+                    </group>
+
+                    <group name="allow_stfp" col="4" colspan="4">
+                        <separator col="2" string="WEBDAV"/>
+                    </group>
+                    <div style="width:50%;border-radius:10px;margin: 10px 0px;padding:15px 10px 15px 10px;
+                        background-repeat: no-repeat;background-position: 10px center;color: #9F6000;
+                        background-color: #FEEFB3;"
+                         attrs="{'invisible': [('webdav_write','=',False)]}">
+                        <b>ATENCIÓN:</b>
+                        Use WEBDAV con precaución! Especifique el directorio del servidor externo donde se escribirán
+                        los archivos.
+                    </div>
+                    <group name="webdav_configuration">
+                        <field name="webdav_write"/>
+                        <field name="webdav_host"
+                               attrs="{'invisible':[('webdav_write', '=', False)],'required':[('webdav_write', '=', True)]}"/>
+                        <field name="webdav_user"
+                               attrs="{'invisible':[('webdav_write', '=', False)], 'required':[('webdav_write', '=', True)]}"/>
+                        <field name="webdav_password"
+                               attrs="{'invisible':[('webdav_write', '=', False)],'required': [('webdav_write', '=', True)]}"
+                               password="True"/>
+                        <field name="webdav_path"
+                               attrs="{'invisible':[('webdav_write', '==', False)],'required':[('webdav_write', '==', True)]}"
+                               placeholder="Ejemplo: /opt/odoo/sicpro_erp/backups/"/>
+                        <field name="webdav_autoremove" attrs="{'invisible':[('webdav_write', '==', False)]}"/>
+                        <field name="webdav_to_keep"
+                               attrs="{'invisible': [('webdav_autoremove', '=', False)], 'required': [('webdav_autoremove', '=', True)]}"/>
+                        <field name="webdav_email_to_notify"
+                               attrs="{'invisible': [('webdav_autoremove', '=', False)], 'required': [('webdav_autoremove', '=', True)]}"
+                               placeholder="Agregar las direcciones de correo separadas por ','"/>
+                        <button name="test_webdav_connection" type="object"
+                                attrs="{'invisible': [('webdav_write','=',False)]}" string="Test de conexión WEBDAV"/>
+                    </group>
+
+
+                    <group name="allow_stfp" col="4" colspan="4">
+                        <separator col="2" string="SFTP"/>
+                    </group>
+                    <div style="width:50%;border-radius:10px;margin: 10px 0px;padding:15px 10px 15px 10px;
+                        background-repeat: no-repeat;background-position: 10px center;color: #9F6000;
+                        background-color: #FEEFB3;"
+                         attrs="{'invisible': [('sftp_write','=',False)]}">
+                        <b>ATENCIÓN:</b>
+                        Use SFTP con precaución! Especifique el directorio del servidor externo donde se escribirán
+                        los archivos.
+                    </div>
+                    <group name="sftp_configuration">
+                        <field name="sftp_write"/>
+                        <field name="sftp_host"
+                               attrs="{'invisible':[('sftp_write', '=', False)],'required':[('sftp_write', '=', True)]}"/>
+                        <field name="sftp_port"
+                               attrs="{'invisible':[('sftp_write', '=', False)],'required':[('sftp_write', '=', True)]}"/>
+                        <field name="sftp_user"
+                               attrs="{'invisible':[('sftp_write', '=', False)], 'required':[('sftp_write', '=', True)]}"/>
+                        <field name="sftp_password"
+                               attrs="{'invisible':[('sftp_write', '=', False)],'required': [('sftp_write', '=', True)]}"
+                               password="True"/>
+                        <field name="sftp_path"
+                               attrs="{'invisible':[('sftp_write', '==', False)],'required':[('sftp_write', '==', True)]}"
+                               placeholder="For example: /odoo/backups/"/>
+                        <field name="days_to_keep_sftp"
+                               attrs="{'invisible': [('sftp_write', '=', False)], 'required': [('sftp_write', '=', True)]}"/>
+                        <field name="send_mail_sftp_fail" attrs="{'invisible': [('sftp_write','=',False)]}"/>
+                        <field name="email_to_notify"
+                               attrs="{'invisible':['|',('send_mail_sftp_fail', '==', False), ('sftp_write', '=', False)], 'required': [('send_mail_sftp_fail', '=', True)]}"/>
+                        <button name="test_sftp_connection" type="object"
+                                attrs="{'invisible': [('sftp_write','=',False)]}" string="Test de conexión SFTP"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_backup_config_tree" model="ir.ui.view">
+        <field name="name">sicpro.modulo.backup.tree</field>
+        <field name="model">sicpro.modulo.backup</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name='host'/>
+                <field name='port'/>
+                <field name='name'/>
+                <field name='folder'/>
+                <field name="autoremove"/>
+                <field name="webdav_host"/>
+                <field name="sftp_host"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_backup" model="ir.actions.act_window">
+        <field name="name">Configuración de Backups</field>
+        <field name="res_model">sicpro.modulo.backup</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_backup_config_tree"/>
+    </record>
+
+
+    <menuitem id="backup_conf_menu" name="Backup SICPRO"
+              parent="sicpro_app_administracion.menu_administracion_1"
+              action="action_backup"
+              sequence="2"/>
+</odoo>

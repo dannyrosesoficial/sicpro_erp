@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id='fleet_vehicle_view_form' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.general.form</field>
+        <field name="model">sicpro.app.transporte.general</field>
+        <field name="arch" type="xml">
+            <form string="Vehículo">
+                <header>
+                    <field name="state_id"  widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <field name="currency_id" invisible="1"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+
+                    <div class="oe_title">
+                        <label for="matricula" class="oe_edit_only"/>
+                        <h2>
+                            <field name="name" class="oe_inline" placeholder="ej. HBA6024"/>
+                        </h2>
+                    </div>
+                    <group string=" Información de la ubicación">
+                        <group>
+                            <field name="unidadNombre"/>
+                            <field name="unidadAcronimo"/>
+                            <field name="matricula" />
+                        </group>
+                        <group>
+                             <field name="areaNombre"/>
+                            <field name="areaIdentificacion"/>
+                            <field name="grupoEquipoNombre"/>
+                        </group>
+                        </group>
+
+                    <group string=" Información del Vehículo">
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="tipoNombre"/>
+                            <field name="marcaNombre"/>
+                            <field name="modeloNombre"/>
+                            <field name="color"/>
+                            <field name="fechaRecibo"/>
+                            <field name="annoFabricacion"/>
+                        </group>
+                        <group>
+                            <field name="especialidadNombre"/>
+                            <field name="actividadNombre"/>
+                             <field name="actividadFundamentalNombre"/>
+                            <field name="estadoTecnicoNombre"/>
+                            <field name="combustibleNombre"/>
+                        </group>
+                        </group>
+                    <group>
+                            <group string="Identificación">
+                            <field name="capacidadCargaNombre"/>
+                            <field name="codigoEquipo"/>
+                            <field name="numeroCirculacion"/>
+                            <field name="numeroInventario"/>
+                        </group>
+                             <group string="Odometro">
+                            <field name="tieneOdometro"/>
+                            <field name="odometroOk"/>
+                            <field name="tieneHorametro"/>
+                            <field name="horametroOk"/>
+                        </group>
+                        </group>
+                    <notebook>
+                        <page string="Detalles del Chofer">
+                        <group>
+                            <group string="Chofer">
+                                <field name="choferNombre"/>
+                                <field name="choferCi"/>
+                                <field name="choferCargo"/>
+                                <field name="choferDireccion"/>
+                                <field name="choferLicencia"/>
+                                <field name="choferEsChoferProfesional"/>
+                            </group>
+                            <group string="Jefe del Chofer">
+                                <field name="jefeChoferNombre"/>
+                                <field name="jefeChoferCi"/>
+                                <field name="jefeChoferCargo"/>
+                                <field name="jefeChoferDireccion"/>
+                                <field name="jefeChoferLicencia"/>
+                                <field name="jefeChoferEsChoferProfesional"/>
+                            </group>
+                        </group>
+                        </page>
+                        <page string="Observaciones">
+                            <group>
+                             <field name="observacion"/>
+                            </group>
+                        </page>
+                        <page string="Motor y Consumos">
+                        <group>
+                            <group string="Motor">
+                                <field name="vin"/>
+                                <field name="numeroSerie"/>
+                                <field name="numeroMotor"/>
+                                <field name="marcaMotorNombre"/>                            <field name="modeloMotorNombre"/>
+                            </group>
+                            <group string="Consumos">
+                                <field name="indiceConsumoNormado"/>
+                                <field name="indiceConsumoFabrica"/>
+                            </group>
+                        </group>
+                        </page>
+                        <page string="Parqueo">
+                        <group>
+                            <field name="parqueoNombre"/>
+                            <field name="parqueoDireccion"/>
+                            <field name="parqueoTipo"/>
+                            <field name="parqueoProvincia"/>
+                        </group>
+                        </page>
+                        <page string="Estado">
+                        <group>
+                            <group>
+                                <field name="esAlquilado"/>
+                                <field name="esParalizado"/>
+                            </group>
+                            <group>
+                                <field name="estaDefectuoso"/>
+                                <field name="estaActivo"/>
+                            </group>
+                        </group>
+                        </page>
+                        <page string="Otros">
+                            <group>
+                            <field name="visual_fuerzas_medios"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_view_tree' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.general.tree</field>
+        <field name="model">sicpro.app.transporte.general</field>
+        <field name="arch" type="xml">
+            <tree string="Vehículo">
+                <field name="active" invisible="1"/>
+                <field name="matricula"/>
+                <field name="tipoNombre"/>
+                <field name="marcaNombre"/>
+                <field name="modeloNombre"/>
+                <field name="actividadFundamentalNombre"/>
+                <field name="choferNombre"/>
+                <field name="areaIdentificacion"/>
+                <field name="activity_exception_decoration" widget="activity_exception"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_view_search" model="ir.ui.view">
+        <field name="name">sicpro.app.transporte.general.search</field>
+        <field name="model">sicpro.app.transporte.general</field>
+        <field name="arch" type="xml">
+            <search string="Todos los vehículos">
+                <field string="Vehículo" name="name"
+                       filter_domain="['|', ('name', 'ilike', self), ('matricula', 'ilike', self)]"/>
+                <field string="Chofer" name="choferNombre"/>
+                <field string="Estado" name="state_id"/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Alquilado" name="esAlquilado" domain="[('esAlquilado', '=', 'Sí')]"/>
+                <filter string="Paralizado" name="esParalizado" domain="[('esParalizado', '=', 'Sí')]"/>
+                <filter string="Defectuoso" name="estaDefectuoso" domain="[('estaDefectuoso', '=', 'Sí')]"/>
+                <filter string="Activo" name="estaActivo" domain="[('estaActivo', '=', 'Sí')]"/>
+                <separator/>
+                <filter invisible="1" string="Ultimas actividades" name="activities_overdue"
+                    domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                    help="Show all records which has next action date is before today"/>
+                <filter invisible="1" string="Actividades diarias" name="activities_today"
+                    domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter invisible="1" string="Actividades futuras" name="activities_upcoming_all"
+                    domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Área" name="groupby_status" context="{'group_by': 'areaNombre'}"/>
+                    <filter string="Identificación" name="groupby_status" context="{'group_by': 'areaIdentificacion'}"/>
+                    <filter string="Actividad Fundamental" name="groupby_status" context="{'group_by': 'actividadFundamentalNombre'}"/>
+                </group>
+           </search>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_view_kanban' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.general.kanban</field>
+        <field name="model">sicpro.app.transporte.general</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state_id">
+                <field name="matricula" />
+                <field name="choferNombre" />
+                <field name="state_id" />
+                <field name="id" />
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('sicpro.app.transporte.general', 'image_128', record.id.raw_value)"
+                                     alt="Vehicle"/>
+                            </div>
+                            <div class="oe_kanban_details">
+
+                                <ul>
+                                    <li>
+                                        <t t-if="record.choferNombre.raw_value"><field name="choferNombre"/></t>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="o_kanban_inline_block" t-if="!selection_mode">
+                                <field name="activity_ids" widget="kanban_activity"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_action' model='ir.actions.act_window'>
+        <field name="name">Vehículos</field>
+        <field name="res_model">sicpro.app.transporte.general</field>
+        <field name="view_mode">tree,form,activity</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Crear nuevo vehículo
+          </p>
+        </field>
+    </record>
+
+
+
+    <record id='fleet_vehicle_state_view_tree' model='ir.ui.view'>
+        <field name="name">sicpro.app.transporte.estado.tree</field>
+        <field name="model">sicpro.app.transporte.estado</field>
+        <field name="arch" type="xml">
+            <tree string="State" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_state_action' model='ir.actions.act_window'>
+        <field name="name">Estado del vehículo</field>
+        <field name="res_model">sicpro.app.transporte.estado</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Crear nuevo estado para los vehiculos
+          </p>
+        </field>
+    </record>
+
+</odoo>

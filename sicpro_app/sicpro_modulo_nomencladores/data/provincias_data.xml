@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="sicpro.nomenclador.provincia" id="PR">
+        <field name="name">Pinar del Río</field>
+        <field name="abreviatura">PR</field>
+        <field name="territorio">DTPR</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="AR">
+        <field name="name">Artemisa</field>
+        <field name="abreviatura">AR</field>
+        <field name="territorio">DTAR</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="MY">
+        <field name="name">Mayabeque</field>
+        <field name="abreviatura">MY</field>
+        <field name="territorio">DTMY</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="LH">
+        <field name="name">La Habana</field>
+        <field name="abreviatura">LH</field>
+        <field name="territorio">DVLH</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="MZ">
+        <field name="name">Matanzas</field>
+        <field name="abreviatura">MZ</field>
+        <field name="territorio">DTMZ</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="CF">
+        <field name="name">Cienfuegos</field>
+        <field name="abreviatura">CF</field>
+        <field name="territorio">DTCF</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="VC">
+        <field name="name">Villa Clara</field>
+        <field name="abreviatura">VC</field>
+        <field name="territorio">DTVC</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="SS">
+        <field name="name">Sancti Spíritus</field>
+        <field name="abreviatura">SS</field>
+        <field name="territorio">DTSS</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="CA">
+        <field name="name">Ciego de Ávila</field>
+        <field name="abreviatura">CA</field>
+        <field name="territorio">DTCA</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="CM">
+        <field name="name">Camaguey</field>
+        <field name="abreviatura">CM</field>
+        <field name="territorio">DTCM</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="LT">
+        <field name="name">Las Tunas</field>
+        <field name="abreviatura">LT</field>
+        <field name="territorio">DTLT</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="HO">
+        <field name="name">Holguín</field>
+        <field name="abreviatura">HO</field>
+        <field name="territorio">DTHO</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="GR">
+        <field name="name">Granma</field>
+        <field name="abreviatura">GR</field>
+        <field name="territorio">DTGR</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="SC">
+        <field name="name">Santiago de Cuba</field>
+        <field name="abreviatura">SC</field>
+        <field name="territorio">DTSC</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="GT">
+        <field name="name">Guantánamo</field>
+        <field name="abreviatura">GT</field>
+        <field name="territorio">DTGT</field>
+    </record>
+    <record model="sicpro.nomenclador.provincia" id="IJ">
+        <field name="name">Isla de la Juventud</field>
+        <field name="abreviatura">IJ</field>
+        <field name="territorio">DTIJ</field>
+    </record>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.solicitudes.estados" id="solicitudes_estados_2">
+            <field name="sequence">2</field>
+            <field name="name">Asignado</field>
+            <field name="is_inicial">True</field>
+            <field name="is_won">False</field>
+        </record>
+        <record model="sicpro.app.solicitudes.estados" id="solicitudes_estados_3">
+            <field name="sequence">3</field>
+            <field name="name">En proceso</field>
+            <field name="is_inicial">False</field>
+            <field name="is_won">False</field>
+        </record>
+        <record model="sicpro.app.solicitudes.estados" id="solicitudes_estados_4">
+            <field name="sequence">4</field>
+            <field name="name">Detenido</field>
+            <field name="is_inicial">False</field>
+            <field name="is_won">False</field>
+        </record>
+        <record model="sicpro.app.solicitudes.estados" id="solicitudes_estados_5">
+            <field name="sequence">5</field>
+            <field name="name">Terminado</field>
+            <field name="is_inicial">False</field>
+            <field name="is_won">True</field>
+        </record>
+        <record model="sicpro.app.solicitudes.estados" id="solicitudes_estados_6">
+            <field name="sequence">6</field>
+            <field name="name">Cancelado</field>
+            <field name="is_inicial">False</field>
+            <field name="is_won">False</field>
+        </record>
+
+    </data>
+
+
+</odoo>

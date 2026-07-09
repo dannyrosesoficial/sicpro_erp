@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="sicpro.nomenclador.anios" id="anios_1">
+        <field name="name">2021</field>
+    </record>
+    <record model="sicpro.nomenclador.anios" id="anios_2">
+        <field name="name">2022</field>
+    </record>
+    <record model="sicpro.nomenclador.anios" id="anios_3">
+        <field name="name">2023</field>
+    </record>
+    <record model="sicpro.nomenclador.anios" id="anios_4">
+        <field name="name">2024</field>
+    </record>
+    <record model="sicpro.nomenclador.anios" id="anios_5">
+        <field name="name">2025</field>
+    </record>
+    <record model="sicpro.nomenclador.anios" id="anios_6">
+        <field name="name">2026</field>
+    </record>
+    <record model="sicpro.nomenclador.anios" id="anios_7">
+        <field name="name">2027</field>
+    </record>
+    <record model="sicpro.nomenclador.anios" id="anios_8">
+        <field name="name">2028</field>
+    </record>
+    <record model="sicpro.nomenclador.anios" id="anios_9">
+        <field name="name">2029</field>
+    </record>
+    <record model="sicpro.nomenclador.anios" id="anios_10">
+        <field name="name">2030</field>
+    </record>
+
+</odoo>

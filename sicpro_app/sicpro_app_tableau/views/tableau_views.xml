@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="tableau_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.tableau.view.tree</field>
+        <field name="model">sicpro.app.tableau</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tableau_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.tableau.view.form</field>
+        <field name="model">sicpro.app.tableau</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="prueba" string="Prueba" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            </group>
+                        <group>
+                        </group>
+                    </group>
+                    <group>
+                    </group>
+                    <group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tableau_rest_api_action" model="ir.actions.act_window">
+        <field name="name">Configuración RestApi</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.tableau</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

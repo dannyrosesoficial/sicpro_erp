@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="contratos_economia_estados_search" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.economia.estados.search</field>
+            <field name="model">sicpro.app.contratos.economia.estados</field>
+            <field name="arch" type="xml">
+                <search string="Estados de Economía">
+                   <field name="name" string="Estados"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="contratos_economia_estados_form" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.economia.estados.form</field>
+            <field name="model">sicpro.app.contratos.economia.estados</field>
+            <field name="arch" type="xml">
+                <form string="Estados de Economía">
+                <sheet>
+                    <div class="oe_title">
+                        <div class="oe_edit_only">
+                            <label for="name"/>
+                        </div>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="is_inicial"/>
+                            <field name="is_emision"/>
+                            <field name="is_instrumento"/>
+                            <field name="transito"/>
+                            <field name="is_final"/>
+                            <field name="fold"/>
+                        </group>
+                    </group>
+                    <separator string="Requerimientos"/>
+                    <field name="description" nolabel="1" placeholder="Dale a tu equipo los requerimientos para mover una oportunidad a una face"/>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <record id="contratos_economia_estados_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.contratos.economia.estados.tree</field>
+            <field name="model">sicpro.app.contratos.economia.estados</field>
+            <field name="arch" type="xml">
+                <tree string="Estados de Economía">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="is_inicial"/>
+                    <field name="is_emision"/>
+                    <field name="is_instrumento"/>
+                    <field name="transito"/>
+                    <field name="is_final"/>
+            </tree>
+            </field>
+        </record>
+
+        <record id="contratos_economia_estados_action" model="ir.actions.act_window">
+            <field name="name">Estados de Economía</field>
+            <field name="res_model">sicpro.app.contratos.economia.estados</field>
+            <field name="view_id" ref="contratos_economia_estados_tree"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear los estados para las operaciones de economía
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

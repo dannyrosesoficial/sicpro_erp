@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_tree_sicpro_app_video_conferencias" model="ir.ui.view">
+            <field name="name">sicpro_app_video_conferencias.view.tree</field>
+            <field name="model">sicpro.app.videoconferencias</field>
+            <field name="arch" type="xml">
+                <tree decoration-muted="closed==True">
+                    <field name="name"/>
+                    <field name="closed" invisible="1"/>
+                    <field name="date"/>
+                    <field name="date_delay" widget="float_time"/>
+                    <field name="participants" widget="many2many_tags"/>
+                    <field name="external_participants" widget="many2many_tags"/>
+                    <field name="url" string="Compartir Link"/>
+                    <button name="open" type="object" string="Unirse a la Video" class="oe_highlight" attrs="{'invisible':[('closed','=',True)]}"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Nueva vista de formulario servidores -->
+        <record id="view_form_sicpro_app_video_conferencias" model="ir.ui.view">
+            <field name="name">sicpro_app_video_conferencias.view.form</field>
+            <field name="model">sicpro.app.videoconferencias</field>
+            <field name="arch" type="xml">
+                <form string="VideoConferencia">
+                    <header>
+                        <field name="current_user" invisible="1"/>
+                        <field name="create_uid" invisible="1"/>
+                        <field name="closed" invisible="1"/>
+                        <button name="open" type="object" string="Unirse a la Sala" class="oe_highlight" attrs="{'invisible':['|',('closed','=',True),('create_uid','=',False)]}"/>
+                        <button name="action_close_meeting" string="Cerrar Sala" type="object" groups="base.group_user"  attrs="{'invisible':['|',('closed','=',True),('create_uid','=',False)]}"/>
+                        <button name="action_reopen_meeting" string="Reabrir Sala" type="object" groups="base.group_user" attrs="{'invisible':['|',('closed','!=',True),('create_uid','=',False)]}"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="name" placeholder="Nombre de la Sala"/>
+                        </h1>
+                        <group name="info">
+                            <group>
+                                <field name="date"/>
+                                <field name="date_delay" widget="float_time"/>
+                                <field name="participants" widget="many2many_tags"/>
+                                <field name="url" string="Compartir Link"/>
+                                <field name="external_participants" context="{'default_meet': active_id}">
+                                    <tree editable="bottom">
+                                        <field name="usuario"/>
+                                        <field name="name"/>
+                                        <field name="meet" invisible="1"/>
+                                        <field name="send_mail"/>
+                                        <field name="mail_sent"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action avisos -->
+        <act_window
+                id="action_meeting"
+                name="Video Conferencias"
+                res_model="sicpro.app.videoconferencias"
+                view_mode="tree,calendar,form"
+                domain="[]" />
+
+        <menuitem
+            name="Video Conferencias"
+            id="menu_meeting"
+            web_icon="sicpro_app_video_conferencias,static/description/icon.png"
+            sequence="99"
+            action="action_meeting"/>
+
+        <record model='ir.ui.menu' id='menu_meeting'>
+
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]"/>
+        </record>
+
+    </data>
+</odoo>

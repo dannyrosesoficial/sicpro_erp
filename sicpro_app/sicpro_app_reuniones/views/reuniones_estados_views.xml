@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<odoo>
+<data>
+    <record id="acuerdos_estados_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.reuniones.estados.view.form</field>
+        <field name="model">sicpro.app.reuniones.estados</field>
+        <field name="arch" type="xml">
+            <form string="Estados">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="pipe_end"/>
+                        </group>
+                        <group>
+                            <field name="fold"/>
+                            <field name="sequence"/>
+                        </group>
+                    </group>
+                    <group string="Descripción de la tarea">
+                        <field name="description" placeholder="Agregar descripción..." nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="acuerdos_estados_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.reuniones.estados.view.tree</field>
+        <field name="model">sicpro.app.reuniones.estados</field>
+        <field name="arch" type="xml">
+            <tree string="Estados">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="acuerdos_estados_action" model="ir.actions.act_window">
+        <field name="name">Estados</field>
+        <field name="res_model">sicpro.app.reuniones.estados</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</data>
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_1">
+            <field name="name">Indeterminado</field>
+            <field name="color">1</field>
+            <field name="tipo">contrato</field>
+        </record>
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_2">
+            <field name="name">Determinado x S.Soc.</field>
+            <field name="color">2</field>
+            <field name="tipo">contrato</field>
+        </record>
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_3">
+            <field name="name">Determinado x ETO.</field>
+            <field name="color">3</field>
+            <field name="tipo">contrato</field>
+        </record>
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_4">
+            <field name="name">Determinado x P Prueba</field>
+            <field name="color">4</field>
+            <field name="tipo">contrato</field>
+        </record>
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_5">
+            <field name="name">Determinado x ETE.</field>
+            <field name="color">5</field>
+            <field name="tipo">contrato</field>
+        </record>
+
+
+
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_6">
+            <field name="name">Operario</field>
+            <field name="color">6</field>
+            <field name="tipo">ocupacional</field>
+        </record>
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_7">
+            <field name="name">Técnico</field>
+            <field name="color">7</field>
+            <field name="tipo">ocupacional</field>
+        </record>
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_8">
+            <field name="name">Servicios</field>
+            <field name="color">8</field>
+            <field name="tipo">ocupacional</field>
+        </record>
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_9">
+            <field name="name">Cuadros</field>
+            <field name="color">89</field>
+            <field name="tipo">ocupacional</field>
+        </record>
+        <record model="sicpro.app.trabajadores.categorias" id="trabajadores_etiqueta_10">
+            <field name="name">Administrativo</field>
+            <field name="color">10</field>
+            <field name="tipo">ocupacional</field>
+        </record>
+
+
+    </data>
+
+
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="mail.channel" id="canal_staff">
+            <field name="name">STAFF</field>
+            <field name="description">Canal privado para los trabajadores de la STAFF.</field>
+            <field name="public">private</field>
+            <field name="group_ids" eval="[(4, ref('grupo_canal_staff'))]"/>
+        </record>
+        <record model="mail.channel" id="canal_doit">
+            <field name="name">DEOIT</field>
+            <field name="description">Canal privado para los trabajadores de la DEOIT.</field>
+            <field name="public">private</field>
+            <field name="group_ids" eval="[(4, ref('grupo_canal_deoit'))]"/>
+        </record>
+        <record model="mail.channel" id="canal_deoct">
+            <field name="name">DEOCT</field>
+            <field name="description">Canal privado para los trabajadores de la DEOCT.</field>
+            <field name="public">private</field>
+            <field name="group_ids" eval="[(4, ref('grupo_canal_deoct'))]"/>
+        </record>
+        <record model="mail.channel" id="canal_proyecto">
+            <field name="name">PROYECTO</field>
+            <field name="description">Canal privado para los trabajadores de Proyectos.</field>
+            <field name="public">private</field>
+            <field name="group_ids" eval="[(4, ref('grupo_canal_proyectos'))]"/>
+        </record>
+
+        <record model="mail.channel" id="canal_soporte">
+            <field name="name">SOPORTE TÉCNICO</field>
+            <field name="description">Canal publicó para las solicitudes de soporte técnico.</field>
+            <field name="public">public</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record model="mail.channel" id="mail.channel_all_employees">
+            <field name="name">Comunidad DVPE</field>
+            <field name="description">Canal publico para los trabajadores de la DVPE.</field>
+        </record>
+
+
+
+    </data>
+
+
+</odoo>

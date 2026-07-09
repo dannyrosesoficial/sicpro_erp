@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="sicpro.nomenclador.especialidad" id="A">
+        <field name="codigo">2</field>
+        <field name="letra">A</field>
+        <field name="name">Clima</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Clima.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="B">
+        <field name="codigo">2</field>
+        <field name="letra">B</field>
+        <field name="name">Energía</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Energia.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="C">
+        <field name="codigo">6</field>
+        <field name="letra">C</field>
+        <field name="name">Conmutación</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Conmutacion.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="D">
+        <field name="codigo">6</field>
+        <field name="letra">D</field>
+        <field name="name">Transmisión de Datos</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Datos.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="F">
+        <field name="codigo">4</field>
+        <field name="letra">F</field>
+        <field name="name">Fibra Óptica</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Fibra.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="L">
+        <field name="codigo">4</field>
+        <field name="letra">L</field>
+        <field name="name">Torres</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Torres.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="M">
+        <field name="codigo">6</field>
+        <field name="letra">M</field>
+        <field name="name">Móvil</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Movil.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="P">
+        <field name="codigo">4</field>
+        <field name="letra">P</field>
+        <field name="name">Cobre</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Planta_exterior.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="X">
+        <field name="codigo">5</field>
+        <field name="letra">X</field>
+        <field name="name">Transmisión</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Transmision.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="J">
+        <field name="codigo">7</field>
+        <field name="letra">J</field>
+        <field name="name">Cableado Estructurado</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Cableado.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="I">
+        <field name="codigo">8</field>
+        <field name="letra">I</field>
+        <field name="name">Sistemas de Protección Integral</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Sistema_proteccion.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="W">
+        <field name="codigo">6</field>
+        <field name="letra">W</field>
+        <field name="name">Wifi</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Wifi.png"/>
+    </record>
+
+    <record model="sicpro.nomenclador.especialidad" id="E">
+        <field name="codigo">2</field>
+        <field name="letra">E</field>
+        <field name="name">Instalación Eléctrica</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Intalacion_electrica.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="G">
+        <field name="codigo">2</field>
+        <field name="letra">G</field>
+        <field name="name">Grupo Electrógeno</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Grupo_electrogeno.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="H">
+        <field name="codigo">1</field>
+        <field name="letra">H</field>
+        <field name="name">Talleres</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Talleres.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="N">
+        <field name="codigo">4</field>
+        <field name="letra">N</field>
+        <field name="name">Fibra Óptica</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/fibra_deoct.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="R">
+        <field name="codigo">1</field>
+        <field name="letra">R</field>
+        <field name="name">Remodelación</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Remodelacion.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="S">
+        <field name="codigo">1</field>
+        <field name="letra">S</field>
+        <field name="name">Soterrado</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Soterrado.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="T">
+        <field name="codigo">4</field>
+        <field name="letra">T</field>
+        <field name="name">Sistemas de Tierra</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Sistema_tierra.png"/>
+    </record>
+
+    <record model="sicpro.nomenclador.especialidad" id="11">
+        <field name="codigo">1</field>
+        <field name="letra">11</field>
+        <field name="name">Arquitectura</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Arquitectura.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="21">
+        <field name="codigo">2</field>
+        <field name="letra">21</field>
+        <field name="name">Energética</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Energética.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="22">
+        <field name="codigo">2</field>
+        <field name="letra">22</field>
+        <field name="name">Mecánica</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Mecánica.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="31">
+        <field name="codigo">6</field>
+        <field name="letra">31</field>
+        <field name="name">Conmutación</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Conmutacion_proyecto.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="41">
+        <field name="codigo">4</field>
+        <field name="letra">41</field>
+        <field name="name">Cobre</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Cobre.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="42">
+        <field name="codigo">4</field>
+        <field name="letra">42</field>
+        <field name="name">Fibra Óptica</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Fibra_proyecto.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="43">
+        <field name="codigo">7</field>
+        <field name="letra">43</field>
+        <field name="name">Cableado Estructurado</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Cableado_proyecto.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="71">
+        <field name="codigo">1</field>
+        <field name="letra">71</field>
+        <field name="name">Soterrado</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Soterrado_proyecto.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="53">
+        <field name="codigo">5</field>
+        <field name="letra">53</field>
+        <field name="name">Transmisión</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Transmision_proyecto.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="61">
+        <field name="codigo">1</field>
+        <field name="letra">61</field>
+        <field name="name">Grupo Granma (Civil)</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Granma_Civil.png"/>
+    </record>
+    <record model="sicpro.nomenclador.especialidad" id="62">
+        <field name="codigo">2</field>
+        <field name="letra">62</field>
+        <field name="name">Grupo Granma (Energética)</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+        <field name="image_1920" type="base64" file="sicpro_modulo_nomencladores/static/src/img/Granma_Energetica.png"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,14 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+transporte_general_base.user,General base.user,model_sicpro_app_transporte_general,base.group_user,1,0,0,0
+transporte_estado_base.user,Estados base.user,model_sicpro_app_transporte_estado,base.group_user,1,0,0,0
+transporte_marca_base.user,Marca base.user,model_sicpro_app_transporte_modelo_brand,base.group_user,1,0,0,0
+
+transporte_general_usuario,General,model_sicpro_app_transporte_general,grupo_app_transporte_usuario,1,0,0,0
+transporte_estado_usuario,Estados,model_sicpro_app_transporte_estado,grupo_app_transporte_usuario,1,0,0,0
+transporte_marca_usuario,Marca,model_sicpro_app_transporte_modelo_brand,grupo_app_transporte_usuario,1,0,0,0
+
+
+transporte_general_admin,General,model_sicpro_app_transporte_general,grupo_app_transporte_admin,1,1,1,1
+transporte_estado_admin,Estados,model_sicpro_app_transporte_estado,grupo_app_transporte_admin,1,1,1,1
+transporte_marca_admino,Marca,model_sicpro_app_transporte_modelo_brand,grupo_app_transporte_admin,1,1,1,1
+transporte_config_rest_api_admin,Rest Api,model_sicpro_app_transporte_api,grupo_app_transporte_admin,1,1,1,1

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Heredo vista form de res.user y le agrego campos -->
+    <record id="user_email_form333" model="ir.ui.view">
+    <field name="name">res.users.views.form</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form" />
+    <field name="arch" type="xml">
+
+        <xpath expr="//label[@for='login']" position="after">
+
+            <button name="api_conexion_nube_etecsa" string="nube" type="object" class="btn-primary"/>
+
+        </xpath>
+
+    </field>
+  </record>
+
+
+</odoo>

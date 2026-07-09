@@ -1,0 +1,16 @@
+[Unit]
+Description=SICPRO ERP
+Requires=postgresql.service
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+SyslogIdentifier=sicpro
+PermissionsStartOnly=true
+User=odoo
+Group=odoo
+ExecStart=/usr/bin/python3 /opt/odoo/sicpro_erp/odoo/odoo-bin -c /opt/odoo/sicpro_erp/config/odoo/sicpro.conf
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_1">
+            <field name="name">Titulo</field>
+        </record>
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_2">
+            <field name="name">Licencia de Conducción</field>
+        </record>
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_3">
+            <field name="name">Tarjeta de Identificación</field>
+        </record>
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_4">
+            <field name="name">Pasaporte</field>
+        </record>
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_5">
+            <field name="name">Contrato</field>
+        </record>
+
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_6">
+            <field name="name">NOTIFICACION DE VACAC. LICENC. Y SUBSIDIOS </field>
+        </record>
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_7">
+            <field name="name">Reporte de Horas Extras</field>
+        </record>
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_8">
+            <field name="name">MODIFICACIÓN DEL PLAN DE VACACIONES</field>
+        </record>
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_9">
+            <field name="name">RESUMEN DE ASISTENCIA TELETRABAJO</field>
+        </record>
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_10">
+            <field name="name">Modelo para la aprobación de Traslados o Bajas</field>
+        </record>
+        <record model="sicpro.app.trabajadores.documentos.tipos" id="trabajadores_tipos_documentos_11">
+            <field name="name">HOJAS DE FIRMAS</field>
+        </record>
+    </data>
+
+
+</odoo>

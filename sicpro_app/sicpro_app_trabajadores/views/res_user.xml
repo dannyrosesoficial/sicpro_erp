@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="departamento_user_form" model="ir.ui.view">
+    <field name="name">res.users.departamento.form</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//notebook/page[2]" position="after">
+         <page string="Información del Trabajo" >
+             <group>
+                 <div class="text-danger" >
+                     <strong>ATENCIÓN: </strong>Antes de configurar esta pestaña debe guardar el registro del usuario, esta acción
+                     creara el id del registro del usuario y evitara errores al procesar las funcionalidades
+                     seleccionadas.
+                 </div>
+             </group>
+             <group>
+                 <group string="Trabajador" >
+                     <field name="seguridad" widget="boolean_toggle"/>
+                     <field name="tipo" widget="radio" options="{'horizontal': true}" attrs="{'readonly': [('seguridad', '=', True)]}"/>
+                     <field name="bloquear" invisible="1"/>
+                     <label for="trabajador"/>
+                     <div class="o_row">
+                         <field name="trabajador"
+                                attrs="{'invisible': [('tipo', '=', 'externo')],
+                                'required': [('tipo', '=', 'interno')], 'readonly': [('seguridad', '=', True)]}"/>
+                         <button type="object" name="liberar_trabajador"
+                                 class="btn-lg btn-link mb4 fa fa-exclamation-triangle text-danger oe_edit_only"
+                                 aria-label="Liberar trabajador" title="Liberar"
+                         attrs="{'invisible':[('bloquear', '=', False)]}"/>
+                     </div>
+                     </group>
+                 <group string="Ubicación"  readonly="1">
+                     <field name="fecha_incorporacion"/>
+                     <field name="inicio_contrato"/>
+                     <field name="ubicacion_laboral"/>
+                 </group>
+             </group>
+           <group string="Datos del usuario">
+             <group readonly="1">
+               <field name="plaza_id"/>
+               <field name="identification_id"/>
+               <field name="ocupacion_id"/>
+             </group>
+             <group readonly="1">
+               <field name="jefe_id"/>
+               <field name="telefono_trabajo"/>
+               <field name="movil_trabajo"/>
+               <field name="departamento"/>
+             </group>
+           </group>
+           <group>
+               <field name="notas"/>
+             </group>
+         </page>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="res_users_view_form" model="ir.ui.view">
+        <field name="name">res.user.preferences.educacion</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[1]" position="before">
+                <page name="trabajo" string="Información del trabajo">
+                    <group>
+                        <group string="Trabajador" readonly="1">
+                     <field name="tipo" widget="radio" options="{'horizontal': true}" readonly="1"/>
+                     <field name="bloquear" invisible="1"/>
+                         <field name="trabajador" attrs="{'invisible':[('bloquear', '=', False)]}"/>
+                     </group>
+                        <group string="Ubicación"  readonly="1">
+                     <field name="fecha_incorporacion"/>
+                     <field name="inicio_contrato"/>
+                     <field name="ubicacion_laboral"/>
+                 </group>
+                     </group>
+                        <group string="Datos del usuario">
+             <group readonly="1">
+               <field name="plaza_id"/>
+               <field name="identification_id"/>
+               <field name="ocupacion_id"/>
+             </group>
+             <group readonly="1">
+               <field name="jefe_id"/>
+               <field name="telefono_trabajo"/>
+               <field name="movil_trabajo"/>
+               <field name="departamento"/>
+             </group>
+           </group>
+                </page>
+            </xpath>
+            <xpath expr="//notebook/page[2]" position="before">
+                <page name="educacion" string="Cursos y Educación">
+                    <div class="row">
+                        <div class="o_hr_skills_group o_group_resume col-lg-7 d-flex">
+                          <field mode="tree" nolabel="1" name="resume_line_ids" widget="hr_resume" readonly="1">
+                                <tree>
+                                    <field name="line_type_id"/>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="display_type" invisible="1"/>
+                                </tree>
+                            </field>
+                        </div>
+                        <div class="o_hr_skills_group o_group_skills col-lg-5 d-flex flex-column">
+                            <separator string="Cursos"/>
+                            <field mode="tree" nolabel="1" name="employee_skill_ids"
+                                   widget="hr_skills" readonly="1">
+                                <tree>
+                                    <field name="skill_type_id" invisible="1"/>
+                                    <field name="skill_id"/>
+                                    <field name="skill_level_id"/>
+                                    <field name="level_progress" widget="progressbar"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

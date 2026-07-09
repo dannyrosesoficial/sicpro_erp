@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Plantilla de nuevo participante -->
+        <record id="reunion_nuevo_participante" model="mail.template">
+			<field name="name">Reuniones: Nuevo participante</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_participantes"/>
+			<field name="email_from">"SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: ${object.create_uid.name} le ha invitado a una reunión.</field>
+            <field name="body_html" type="html">
+                <table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        ${object.name.name}
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding: 0px; margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO --><tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a ${object.name.name},<br></br><br></br> Ha sido invitado/a por ${object.create_uid.name} de ${object.company_id.name} para participar en una nueva reunión planificada, los datos son los siguientes:<br></br><br></br><b>Reunión: </b>${object.reunion_id.name} <br></br><br></br><b>Tipo: </b>${object.tipo_reunion}<br></br><br></br><b>Fecha Invitación: </b>${object.fecha_invitacion_formated}
+<b><br></br>Inicio de la reunión: </b>${object.fecha_inicio_reunion_formated}
+<br></br><b>Fin de la reunión: </b>${object.fecha_fin_reunion_formated}
+<br></br><br></br><b>NOTA</b>: <u>Para la gestión del sistema es importante que se logue y acepte o rechaze la invitación.</u><br></br>
+<div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+    <br></br><br></br>
+                        <br></br>
+                        --<br></br>El equipo de administración de SICPRO ERP </div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size: 10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size: 10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+            </field>
+        </record>
+
+        <!-- Plantilla de confirmación del participante -->
+        <record id="reunion_confirmado_participante" model="mail.template">
+			<field name="name">Reuniones: Confirmar participante</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_participantes"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: ${object.name.name} a confirmado la participación en la reunión.</field>
+            <field name="body_html" type="html">
+                <table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        ${object.name.name}
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding: 0px; margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO --><tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br>El usuario ${object.name.name} a confirmado su participación en la reunión ${object.reunion_id.name} que e efectuara el ${object.fecha_inicio_reunion_formated}.<br></br><br></br><br></br>
+<div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+    <br></br><br></br>
+                        <br></br>
+                        --<br></br>El equipo de administración de SICPRO ERP </div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+                <!-- POWERED BY -->
+                <tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size: 10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size: 10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+            </field>
+        </record>
+
+        <!-- Plantilla de cancelación del participante -->
+        <record id="reunion_cancelado_participante" model="mail.template">
+			<field name="name">Reuniones: Cancelación participante</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_participantes"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: ${object.name.name} a cancelado la participación en la reunión.</field>
+            <field name="body_html" type="html">
+                <table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        ${object.name.name}
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding: 0px; margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO --><tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br>El usuario ${object.name.name} a cancelado su participación en la reunión ${object.reunion_id.name} que e efectuara el ${object.fecha_inicio_reunion_formated}
+.<br></br><br></br><br></br>
+<div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+    <br></br><br></br>
+                        <br></br>
+                        --<br></br>El equipo de administración de SICPRO ERP </div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size: 10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size: 10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+            </field>
+        </record>
+
+        <!-- Plantilla de nuevo acuerdo -->
+        <record id="reunion_nuevo_acuerdo" model="mail.template">
+			<field name="name">Reuniones: Nuevo acuerdo</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: Se le ha asignado un nuevo acuerdo en la reunión ${object.reunion.name}.</field>
+            <field name="body_html" type="html">
+<table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        ${object.responsable_id.name}
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br><div>Se le ha asignado como responsable de la <b>${object.reunion.name}</b>, a continuación se relacionan todos los datos:<br></br><br></br><b>Acuerdo: </b><i><font style="font-size:14px;">${object.name} </font></i><br></br><br></br><b>Responsable: </b>${object.responsable_id.name}<br></br><b>Cargo: </b>${object.cargo_responsable.name.name}<b><br></br></b><b><br></br></b><b>Fecha de Inicio: </b>${object.fecha_inicio_formated}
+<br></br><b>Fecha Final: </b>${object.fecha_fin_formated}
+<b><br></br></b><br></br><b>Descripción:</b> ${object.description}<br></br><br></br><br></br>
+        <div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+        <br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div></div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+
+            </field>
+        </record>
+
+        <!-- Plantilla de acuerdo en proceso asignado -->
+        <record id="reunion_nuevo_acuerdo_proceso" model="mail.template">
+			<field name="name">Reuniones: Acuerdo en Proceso</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: Se le ha asignado un nuevo acuerdo de la ${object.reunion.name}.</field>
+            <field name="body_html" type="html">
+<table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Acuerdo Asignado
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br><div>Se le ha asignado como ejecutante de un acuerdo de la <b>${object.reunion.name}</b>, a continuación se relacionan todos los datos:<br></br><br></br><b>Acuerdo: </b><i><font style="font-size:14px;">${object.name} </font></i><br></br><br></br><b>Responsable: </b>${object.responsable_id.name}<br></br><b>Cargo: </b>${object.cargo_responsable.name.name}<b><br></br></b><b><br></br></b><b>Fecha de Inicio: </b>${object.fecha_inicio_formated}
+<br></br><b>Fecha Final: </b>${object.fecha_fin_formated}
+<b><br></br></b><br></br><b>Descripción:</b> ${object.description}<br></br><br></br><br></br>
+        <div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+        <br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div></div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+
+            </field>
+        </record>
+
+        <!-- Plantilla de acuerdo en revisión -->
+        <record id="reunion_nuevo_acuerdo_revision" model="mail.template">
+			<field name="name">Reuniones: Acuerdo en Revisión</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: Se ha solicitado la revisión de un acuerdo de la ${object.reunion.name}.</field>
+            <field name="body_html" type="html">
+<table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Acuerdo a Revisión
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br><div>Se ha solicitado la revisión de un acuerdo de la <b>${object.reunion.name}</b>, a continuación se relacionan todos los datos:<br></br><br></br><b>Acuerdo: </b><i><font style="font-size:14px;">${object.name} </font></i><br></br><br></br><b>Responsable: </b>${object.responsable_id.name}<br></br><b>Cargo: </b>${object.cargo_responsable.name.name}<b><br></br></b><b><br></br></b><b>Fecha de Inicio: </b>${object.fecha_inicio_formated}
+<br></br><b>Fecha Final: </b>${object.fecha_fin_formated}
+<b><br></br></b><br></br><b>Descripción:</b> ${object.description}<br></br><br></br><br></br>
+        <div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+        <br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div></div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+
+            </field>
+        </record>
+
+        <!-- Plantilla de acuerdo en liberar -->
+        <record id="reunion_nuevo_acuerdo_liberar" model="mail.template">
+			<field name="name">Reuniones: Acuerdo en Liberar</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: Se ha Liberado la revisión de un acuerdo de la ${object.reunion.name}.</field>
+            <field name="body_html" type="html">
+<table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Acuerdo Liberado
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br><div>Se ha liberado la revisión de un acuerdo de la <b>${object.reunion.name}</b>, a continuación se relacionan todos los datos:<br></br><br></br><b>Acuerdo: </b><i><font style="font-size:14px;">${object.name} </font></i><br></br><br></br><b>Responsable: </b>${object.responsable_id.name}<br></br><b>Cargo: </b>${object.cargo_responsable.name.name}<b><br></br></b><b><br></br></b><b>Fecha de Inicio: </b>${object.fecha_inicio_formated}
+<br></br><b>Fecha Final: </b>${object.fecha_fin_formated}
+<b><br></br></b><br></br><b>Descripción:</b> ${object.description}<br></br><br></br><br></br>
+        <div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+        <br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div></div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+
+            </field>
+        </record>
+
+        <!-- Plantilla de acuerdo en cumpido -->
+        <record id="reunion_nuevo_acuerdo_cumplido" model="mail.template">
+			<field name="name">Reuniones: Acuerdo Cumplido</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: Ha sido cumplido el acuerdo de la ${object.reunion.name}.</field>
+            <field name="body_html" type="html">
+<table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Acuerdo Cumplido
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br><div>Se ha dado por cumplido un acuerdo de la <b>${object.reunion.name}</b>, a continuación se relacionan todos los datos:<br></br><br></br><b>Acuerdo: </b><i><font style="font-size:14px;">${object.name} </font></i><br></br><br></br><b>Responsable: </b>${object.responsable_id.name}<br></br><b>Cargo: </b>${object.cargo_responsable.name.name}<b><br></br></b><b><br></br></b><b>Fecha de Inicio: </b>${object.fecha_inicio_formated}
+<br></br><b>Fecha Final: </b>${object.fecha_fin_formated}
+<b><br></br></b><br></br><b>Descripción:</b> ${object.description}<br></br><br></br><br></br>
+        <div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+        <br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div></div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+
+            </field>
+        </record>
+
+        <!-- Plantilla de acuerdo en rechazado -->
+        <record id="reunion_nuevo_acuerdo_rechazado" model="mail.template">
+			<field name="name">Reuniones: Acuerdo Rechazado</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: Ha sido rechazado el acuerdo de la ${object.reunion.name}.</field>
+            <field name="body_html" type="html">
+<table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Acuerdo Rechazado
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br><div>Se ha rechazado la respuesta un acuerdo de la <b>${object.reunion.name}</b>, a continuación se relacionan todos los datos:<br></br><br></br><b>Acuerdo: </b><i><font style="font-size:14px;">${object.name} </font></i><br></br><br></br><b>Responsable: </b>${object.responsable_id.name}<br></br><b>Cargo: </b>${object.cargo_responsable.name.name}<b><br></br></b><b><br></br></b><b>Fecha de Inicio: </b>${object.fecha_inicio_formated}
+<br></br><b>Fecha Final: </b>${object.fecha_fin_formated}
+<b><br></br></b><br></br><b>Descripción:</b> ${object.description}<br></br><br></br><br></br>
+        <div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+        <br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div></div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+
+            </field>
+        </record>
+
+        <!-- Plantilla de acuerdo en cancelado -->
+        <record id="reunion_nuevo_acuerdo_cancelado" model="mail.template">
+			<field name="name">Reuniones: Acuerdo Cancelado</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: Ha sido cancelado el acuerdo de la ${object.reunion.name}.</field>
+            <field name="body_html" type="html">
+<table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Acuerdo Cancelado
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br><div>Se ha cancelado un acuerdo de la <b>${object.reunion.name}</b>, a continuación se relacionan todos los datos:<br></br><br></br><b>Acuerdo: </b><i><font style="font-size:14px;">${object.name} </font></i><br></br><br></br><b>Responsable: </b>${object.responsable_id.name}<br></br><b>Cargo: </b>${object.cargo_responsable.name.name}<b><br></br></b><b><br></br></b><b>Fecha de Inicio: </b>${object.fecha_inicio_formated}
+<br></br><b>Fecha Final: </b>${object.fecha_fin_formated}
+<b><br></br></b><br></br><b>Descripción:</b> ${object.description}<br></br><br></br><br></br>
+        <div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+        <br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div></div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+
+            </field>
+        </record>
+
+        <!-- Plantilla de acuerdo próximo a vencer -->
+        <record id="reunion_nuevo_acuerdo_proximo_vencer" model="mail.template">
+			<field name="name">Reuniones: Acuerdo próximo vencer</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: El acuerdo de la ${object.reunion.name} esta proximo a vencer.</field>
+            <field name="body_html" type="html">
+<table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Acuerdo Próximo a vencer
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br><div>Se encentra próximo a vencer un acuerdo de la <b>${object.reunion.name}</b>, a continuación se relacionan todos los datos:<br></br><br></br><b>Acuerdo: </b><i><font style="font-size:14px;">${object.name} </font></i><br></br><br></br><b>Responsable: </b>${object.responsable_id.name}<br></br><b>Cargo: </b>${object.cargo_responsable.name.name}<b><br></br></b><b><br></br></b><b>Fecha de Inicio: </b>${object.fecha_inicio_formated}
+<br></br><b>Fecha Final: </b>${object.fecha_fin_formated}
+<b><br></br></b><br></br><b>Descripción:</b> ${object.description}<br></br><br></br><br></br>
+        <div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+        <br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div></div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+
+            </field>
+        </record>
+
+        <!-- Plantilla de acuerdo vencido -->
+        <record id="reunion_nuevo_acuerdo_vencido" model="mail.template">
+			<field name="name">Reuniones: Acuerdo vencido</field>
+			<field name="model_id" ref="sicpro_app_reuniones.model_sicpro_app_reuniones_acuerdos"/>
+			<field name="email_from">"SICPRO ERP" "SICPRO ERP" ${(object.company_id.email or user.email) | safe}</field>
+            <field name="email_to">${object.correo_seguidores | safe}</field>
+            <field name="auto_delete" eval="False"/>
+			<field name="subject">•SICPRO ERP: El Acuerdo de la ${object.reunion.name} esta vencido.</field>
+            <field name="body_html" type="html">
+<table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Acuerdo Vencido
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr><td style="min-width:590px;" align="center"><table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td style="font-size:13px;" valign="top"><div>Estimado/a,<br></br><br></br><div>Se encuentra vencido el plazo de un acuerdo de la <b>${object.reunion.name}</b>, a continuación se relacionan todos los datos:<br></br><br></br><b>Acuerdo: </b><i><font style="font-size:14px;">${object.name} </font></i><br></br><br></br><b>Responsable: </b>${object.responsable_id.name}<br></br><b>Cargo: </b>${object.cargo_responsable.name.name}<b><br></br></b><b><br></br></b><b>Fecha de Inicio: </b>${object.fecha_inicio_formated}
+<br></br><b>Fecha Final: </b>${object.fecha_fin_formated}
+<b><br></br></b><br></br><b>Descripción:</b> ${object.description}<br></br><br></br><br></br>
+        <div style="margin:16px 0px 16px 0px;">
+% set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url')
+<a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+Iniciar Sesión
+</a>
+</div>
+        <br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div></div></td></tr><tr><td style="text-align:center;"><hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/></td></tr></tbody></table></td></tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+
+            </field>
+        </record>
+        
+
+    </data>
+</odoo>

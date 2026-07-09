@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.solicitudes.rechazadas" id="solicitudes_rechazadas_1">
+            <field name="name">Rechazo por presupuesto</field>
+        </record>
+        <record model="sicpro.app.solicitudes.rechazadas" id="solicitudes_rechazadas_2">
+            <field name="name">Rechazo por error de la especialidad</field>
+        </record>
+        <record model="sicpro.app.solicitudes.rechazadas" id="solicitudes_rechazadas_3">
+            <field name="name">Rechazo por falta de fuerza</field>
+        </record>
+        <record model="sicpro.app.solicitudes.rechazadas" id="solicitudes_rechazadas_4">
+            <field name="name">Rechazo por documentación</field>
+        </record>
+
+    </data>
+
+
+</odoo>

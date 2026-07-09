@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="view_trabajadores_seguridad_trabajador_tree" model="ir.ui.view">
+             <field name="name">sicpro.app.trabajadores.seguridad.trabajador.tree</field>
+             <field name="model">sicpro.app.trabajadores.seguridad.trabajador</field>
+             <field name="arch" type="xml">
+                 <tree string="Seguridad y Protección" editable="bottom" create="false" edit="false" delete="false">
+                     <field name="codigo"/>
+                     <field name="name"/>
+                     <field name="talla" class="text-center text-warning"/>
+                     <field name="vida_util"/>
+                     <field name="company_currency_id" invisible="1" />
+                     <field name="precio" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                     <field name="unida_medida"/>
+                     <field name="trabajador_id"/>
+                     <field name="demanda"/>
+                     <field name="entregado"/>
+                     <field name="departamento" invisible="1"/>
+                     <field name="company_id" invisible="1"/>
+                     <field name="anio"/>
+                     <field name="cargo" invisible="1"/>
+                 </tree>
+             </field>
+         </record>
+
+        <record id="view_trabajadores_seguridad_trabajador_pivot" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.seguridad.trabajador.pivot</field>
+            <field name="model">sicpro.app.trabajadores.seguridad.trabajador</field>
+            <field name="arch" type="xml">
+                <pivot string="Seguridad y Protección" sample="1" >
+                    <field name="anio" type="row"/>
+                    <field name="company_id" type="row"/>
+                    <field name="name" type="row"/>
+                    <field name="talla" type="col"/>
+                    <field name="company_currency_id" invisible="1" />
+                    <field name="demanda" type="measure"/>
+                    <field name="precio" widget="monetary" type="measure"
+                            options="{'currency_field': 'company_currency_id'}"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="trabajadores_seguridad_trabajador_view_filtro" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.seguridad.trabajador.search</field>
+            <field name="model">sicpro.app.trabajadores.seguridad.trabajador</field>
+            <field name="arch" type="xml">
+                <search string="Trabajadores">
+                    <field name="name" string="Módulo" filter_domain="['|', ('codigo', 'ilike', self), ('name', 'ilike', self)]"/>
+                    <field name="anio"/>
+                    <field name="vida_util"/>
+                    <field name="company_id"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="anio" string="Año" context="{'group_by': 'anio'}"/>
+                        <filter name="company_id" string="Proceso" context="{'group_by': 'company_id'}"/>
+                        <filter name="departmento" string="Área" context="{'group_by': 'departamento'}"/>
+                        <filter name="name" string="Módulo" context="{'group_by': 'name'}"/>
+                    </group>
+                </search>
+             </field>
+        </record>
+
+         <record id="trabajadores_seguridad_trabajador_view_action" model="ir.actions.act_window">
+             <field name="name">Demanda de Seguridad y Protección</field>
+             <field name="res_model">sicpro.app.trabajadores.seguridad.trabajador</field>
+             <field name="view_mode">pivot,tree</field>
+         </record>
+
+     </data>
+ </odoo>

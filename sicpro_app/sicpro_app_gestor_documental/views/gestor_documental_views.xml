@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_document_search" model="ir.ui.view">
+            <field name="name">sicpro.app.gestor.documental.search</field>
+            <field name="model">sicpro.app.gestor.documental</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                    <filter name="filter_is_root" string="Directorios" domain="[('parent_id', '=', False)]"/>
+                    <group>
+                        <filter name="group_by_parent_id" string="Carpeta" context="{'group_by': 'parent_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_document_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.gestor.documental.tree</field>
+            <field name="model">sicpro.app.gestor.documental</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="parent_full_name" invisible="'default_parent_id' in context"/>
+                    <field name="child_count"/>
+                    <field name="create_uid"/>
+                    <field name="create_date"/>
+                    <field name="write_uid"/>
+                    <field name="write_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_document_kanban" model="ir.ui.view">
+            <field name="name">sicpro.app.gestor.documental.kanban</field>
+            <field name="model">sicpro.app.gestor.documental</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_document">
+                    <field name="id"/>
+                    <field name="color"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="write_date"/>
+                    <field name="child_count"/><field name="id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <a role="menuitem" type="open" class="dropdown-item">Abrir</a>
+                                        <a t-if="widget.editable" role="menuitem" type="edit" class="dropdown-item">Editar</a>
+                                        <a t-if="widget.deletable" role="menuitem" type="delete" class="dropdown-item">Eliminar</a>
+                                        <div role="separator" class="dropdown-divider"/>
+                                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                    </div>
+                                </div>
+                                <div t-attf-class="oe_kanban_content">
+                                    <div class="o_kanban_image">
+                                        <a type="object" name="action" t-attf-data-context="{'module_action_id':
+                                        'sicpro_app_gestor_documental.documental_carpetas_view_action', 'search_default_parent_id':
+                                         {{record.id.raw_value}}, 'default_parent_id': {{record.id.raw_value}}}"
+                                           title="Entrar" role="button">
+                                            <span class="badge badge-dark"><t t-esc="record.child_count.raw_value || ''"/></span>
+                                            <img src="/sicpro_app_gestor_documental/static/description/document.png" alt="icon"/>
+                                        </a>
+                                    </div>
+                                    <div class="oe_kanban_details">
+                                        <ul>
+                                            <li>
+                                                <a type="open" t-att-title="record.name.value">
+                                                    <strong><t t-esc="record.name.value"/></strong>
+                                                </a>
+                                            </li>
+                                            <li t-if="record.description.value">
+                                                <t t-esc="record.description.value" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_document_form" model="ir.ui.view">
+            <field name="name">sicpro.app.gestor.documental.form</field>
+            <field name="model">sicpro.app.gestor.documental</field>
+            <field name="arch" type="xml">
+                <form class="o_form_document">
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Ej. Carpeta de..."/>
+                            </h1>
+                        </div>
+                        <label for="description" class="oe_edit_only"/>
+                        <field name="description"/>
+                        <separator/>
+                        <label for="content" class="oe_edit_only"/>
+                        <field name="content"/>
+                        <group string="Documentación Digítal">
+                            <group>
+                                <field name="attachment_ids_1" widget="many2many_binary" class="oe_inline"/>
+                            </group>
+                        </group>
+                        <separator/>
+                        <group string="Directorio de Carpetas">
+                            <label for="child_ids" class="oe_edit_only"/>
+                            <field name="child_ids" context="{'default_parent_id': id}">
+                            <tree string="Acuerdos de Reuniones">
+                                <field name="sequence" widget='handle'/>
+                                <field name="name"/>
+                                <field name="parent_full_name"/>
+                                <field name="child_count"/>
+                                <field name="create_uid" string="Creada por:"/>
+                                 <field name="create_date" string="Fecha Creada"/>
+                                <field name="write_uid" string="Actualizada por"/>
+                                <field name="write_date" string="Fecha Actualizada"/>
+                            </tree>
+                        </field>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="parent_id" options="{'no_create': True}" domain="[('id', '!=', id)]"
+                                       context="{'display_full_name': True}"/>
+                            </group>
+                            <group>
+                                <field name="parent_full_name"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="create_uid" string="Creada por:" readonly="1"/>
+                                <field name="write_uid" string="Actualizada por" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="create_date" string="Fecha Creada" readonly="1"/>
+                                <field name="write_date" string="Fecha Actualizada" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="documental_inicio_view_action" model="ir.actions.act_window">
+            <field name="name">Sistema de Gestión</field>
+            <field name="res_model">sicpro.app.gestor.documental</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context" eval="{'search_default_filter_is_root':1}"/>
+        </record>
+
+
+        <record id="documental_carpetas_view_action" model="ir.actions.act_window">
+            <field name="name">Documentos</field>
+            <field name="res_model">sicpro.app.gestor.documental</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[]</field>
+        </record>
+
+
+        <menuitem id="menu_documents" sequence="4" groups="group_document_user"
+                  action="documental_inicio_view_action"
+                  web_icon="sicpro_app_gestor_documental,static/description/icon.png"/>
+
+    </data>
+</odoo>

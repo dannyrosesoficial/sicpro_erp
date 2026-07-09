@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+    <menuitem name="Gestor de Reuniones"
+        id="menu_reuniones_root"
+        sequence="10" groups="group_reuniones_usuario"
+        web_icon="sicpro_app_reuniones,static/description/icon.png"/>
+
+
+    <menuitem name="Reuniones"
+        id="menu_reuniones"
+        sequence="1"
+        parent="menu_reuniones_root"
+        action="action_event_view"/>
+
+    <menuitem name="Acuerdos"
+        id="menu_acuerdos"
+        sequence="5"
+        parent="menu_reuniones_root"
+        action="action_acuerdos_view"/>
+
+
+    <menuitem name="Informes"
+        id="menu_reuniones_informes"
+        sequence="50"
+        parent="menu_reuniones_root"/>
+
+        <menuitem name="Participantes"
+            id="menu_action_registration"
+            parent="menu_reuniones_informes"
+            sequence="4"
+            action="action_registration"/>
+
+        <menuitem name="Reuniones"
+            id="event_event_menu_pivot_report"
+            action="event_event_action_pivot"
+            sequence="3"
+            parent="menu_reuniones_informes"/>
+
+
+    <menuitem name="Configuración"
+        id="menu_reuniones_configuracion"
+        sequence="99"
+        parent="menu_reuniones_root"
+        groups="group_reuniones_responsable,group_reuniones_secretaria"/>
+
+        <menuitem name="Estados Reuniones"
+        id="menu_reuniones_estados_reuniones"
+        sequence="1" parent="menu_reuniones_configuracion"
+        action="acuerdos_estados_action"
+        groups="group_reuniones_responsable"/>
+
+        <menuitem name="Categorías y Etiquetas"
+        id="menu_reuniones_categorias" sequence="3"
+        parent="menu_reuniones_configuracion"
+        action="acuerdos_categorias_action_tree"
+        groups="group_reuniones_responsable,group_reuniones_secretaria"/>
+
+        <menuitem name="Lugares de Reunión"
+        id="menu_reuniones_lugares" sequence="4"
+        parent="menu_reuniones_configuracion"
+        action="reuniones_lugares_action"
+        groups="group_reuniones_responsable,group_reuniones_secretaria"/>
+
+
+        <menuitem name="Mail Schedulers"
+        id="menu_event_mail_schedulers"
+        sequence="10"
+        parent="menu_reuniones_configuracion"/>
+
+
+
+</data></odoo>

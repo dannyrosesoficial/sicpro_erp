@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+registro_usuarios_admin,Registro de usuarios admin,model_sicpro_modulo_registro_usuarios,sicpro_app_administracion.grupo_app_administracion_admin,1,1,1,1
+registro_usuarios_ips,Registro de ips admin,model_sicpro_modulo_registro_usuarios_ip,base.group_user,1,1,1,1

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- plantilla del unico registro del mantenimiento -->
+        <record id="administracion_unique_id" model="sicpro.app.administracion.mantenimiento">
+            <field name="name">MODO MANTENIMIENTO</field>
+        </record>
+
+    </data>
+</odoo>

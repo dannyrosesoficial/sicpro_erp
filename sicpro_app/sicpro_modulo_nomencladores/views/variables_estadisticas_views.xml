@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="variable_estadistica_search" model="ir.ui.view">
+            <field name="name">sicpro.nomenclador.variables.estadisticas.search</field>
+            <field name="model">sicpro.nomenclador.variables</field>
+            <field name="arch" type="xml">
+                <search string="Variables Estadísticas">
+                   <field name="name"/>
+                    <group expand="0" string="Group By">
+                        <filter string= "Variable" name="name" context="{'group_by': 'name'}"/>
+                        <filter string= "Proceso" name="company" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="variable_estadistica_form" model="ir.ui.view">
+            <field name="name">sicpro.nomenclador.variables.estadisticas.form</field>
+            <field name="model">sicpro.nomenclador.variables</field>
+            <field name="arch" type="xml">
+                <form string="Variables Estadísticas">
+                <sheet>
+                    <group>
+                       <field name="name"/>
+                        <field name="valor"/>
+                        <field name="porciento"/>
+                        <field name="descripcion"/>
+                    </group>
+                 </sheet>
+            </form>
+            </field>
+        </record>
+
+        <record id="variable_estadistica_tree" model="ir.ui.view">
+            <field name="name">sicpro.nomenclador.variables.estadisticas.tree</field>
+            <field name="model">sicpro.nomenclador.variables</field>
+            <field name="arch" type="xml">
+                <tree string="Variables Estadísticas" editable="bottom">
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                    <field name="valor"/>
+                    <field name="porciento"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="variable_estadistica_action" model="ir.actions.act_window">
+            <field name="name">Variables Estadísticas</field>
+            <field name="res_model">sicpro.nomenclador.variables</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Agregar las variables estadísticas en % que utilizara el sistema
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

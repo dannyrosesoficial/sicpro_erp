@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+	<record id="informe_solicitud_instrumento_pago_action" model="ir.actions.report">
+        <field name="name">Solicitud de Instrumento de Pago</field>
+        <field name="model">sicpro.app.contratos.economia</field>
+		<field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_contratos.informe_solicitud_instrumento_pago</field>
+        <field name="report_file">sicpro_app_contratos.informe_solicitud_instrumento_pago</field>
+        <field name="print_report_name">'Solicitud de Instrumento de Pago'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_contratos_economia"/>
+		<field name="groups_id" eval="[(4, ref('sicpro_app_contratos.grupo_app_contratos_economia_operaciones_sip'))]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="informe_solicitud_instrumento_pago">
+		<!-- Página Solicitud de Instrumento de Pago -->
+        <t t-call="web.html_container">
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+						<table cellspacing="0" border="0" style="font-size: medium">
+							<colgroup width="19"></colgroup>
+							<colgroup width="85"></colgroup>
+							<colgroup width="19"></colgroup>
+							<colgroup width="85"></colgroup>
+							<colgroup width="95"></colgroup>
+							<colgroup width="19"></colgroup>
+							<colgroup width="122"></colgroup>
+							<colgroup width="19"></colgroup>
+							<colgroup width="116"></colgroup>
+							<colgroup width="19"></colgroup>
+							<colgroup width="97"></colgroup>
+							<colgroup width="46"></colgroup>
+							<colgroup width="19"></colgroup>
+							<colgroup width="152"></colgroup>
+							<colgroup width="19"></colgroup>
+							<colgroup width="105"></colgroup>
+							<colgroup width="15"></colgroup>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid
+								#000000" height="17" align="left"></td>
+								<td style="font-size: x-large; border-right: 1px solid #000000; border-top: 1px solid
+								#000000" colspan="16" align="center" valign="middle"><b>SOLICITUD DE INSTRUMENTO DE PAGO</b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="16"
+									align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="27" align="left"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="4" align="center">
+									<b>Área Solicitante:</b></td>
+								<td align="left" style="font-size: medium"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="11" align="left"
+									valign="middle"><b>División de Proyecto y Ejecución de Obras</b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="15" align="center" valign="middle" style="font-size: medium"><b></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="10" align="center" valign="middle" style="font-size: medium"></td>
+								<td colspan="3" align="right" valign="middle" style="font-size: medium">No. Solicitud:</td>
+								<td colspan="2" align="center" valign="middle" bgcolor="#FFFFFF" style="font-size: medium">
+									<span t-field="inf.sip_sequence_consecutivo"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="center"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="10" align="center" valign="middle" style="font-size: medium"></td>
+								<td colspan="3" align="right" valign="middle" style="font-size: medium">Fecha:</td>
+								<td colspan="2" align="center" valign="middle" sdval="43563" sdnum="3082;0;DD/MM/AA"
+									style="font-size: medium"><span t-field="inf.sip_fecha_emision"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="center"
+									sdnum="3082;0;DD/MM/AA"><b></b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td align="center" valign="middle" style="font-size: medium"></td>
+								<td style="font-size: small; border: 1px solid #000000" align="center" valign="middle">
+									<b>
+										<t t-if="inf.forma_pago.name=='Transferencia'">X</t>
+									</b>
+								</td>
+								<td colspan="2" align="left" valign="middle" style="font-size: small">TRANSFERENCIA</td>
+								<td style="font-size: small; border: 1px solid #000000" align="center">
+									<b>
+										<t t-if="inf.forma_pago.name=='Cheque'">X</t>
+									</b>
+								</td>
+								<td align="left" valign="middle" style="font-size: small">CHEQUE</td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+									<b></b>
+								</td>
+								<td align="left" style="font-size: small">LETRA</td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center">
+									<b></b>
+								</td>
+								<td align="left" style="font-size: small">PAGARE</td>
+								<td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="16"
+									align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="3" align="left" valign="middle" style="font-size: medium"><b>PÁGUESE A:</b></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="9" align="left"
+									valign="middle"><b><span t-field="inf.sip_beneficiario"/></b></td>
+								<td align="right" style="font-size: medium">IMPORTE:</td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="2"
+									align="center" valign="middle"><b><span t-field="inf.monto_facturado"/></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="center"><b></b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="3" align="left" valign="middle" style="font-size: medium"><b>PROVEEDOR:</b></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="9" align="left"
+									valign="middle"><b><span t-field="inf.proveedor"/></b></td>
+								<td align="right" style="font-size: medium">MONEDA:</td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="2"
+									align="center" valign="middle"><b><span t-field="inf.moneda"/></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="center"><b></b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="15" align="center" valign="middle" style="font-size: medium"><b></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="center"><b></b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="22" align="left"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="16" align="left"
+									valign="middle">CONCEPTO DEL PAGO:</td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="15"
+									align="left" valign="middle"><b><span t-field="inf.sol_pago_concepto"/></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="16"
+									align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="6" align="center" valign="middle" style="font-size: small">
+									INDICADOR DEL PRESUPUESTO QUE AFECTA:</td>
+								<td colspan="9" align="left" valign="middle" style="font-size: medium"><b>Ver Anexo</b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="16"
+									align="center" valign="middle"><b></b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="4" align="right" style="font-size: medium">DESTINO DEL PAGO:</td>
+								<td align="left" style="font-size: medium"></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="7" align="left"
+									valign="middle">División de Proyectos y Ejecución de Obras</td>
+								<td align="right" style="font-size: medium">CONTRATO:</td>
+								<td colspan="2" align="center" valign="middle" sdval="43929" sdnum="3082;0;DD/MM/AA"
+									style="font-size: medium"><b><span t-field="inf.sequence_consecutivo_contratos"/></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="center"
+									sdnum="3082;0;DD/MM/AA"><b></b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="15" align="left" valign="middle" style="font-size: medium">
+									<b>DOCUMENTOS REQUERIDOS PARA EL PAGO:</b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center"
+									valign="middle"></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="5" rowspan="2"
+									align="center" valign="middle"><b>Factura </b></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="2" rowspan="2"
+									align="center" valign="middle"><b>Importe</b></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="2" rowspan="2"
+									align="center" valign="middle"><b>Moneda</b></td>
+								<td style="font-size: medium; border: 1px solid #000000" rowspan="2"
+									align="center" valign="middle"><b>Contabilizado</b></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="5" align="center"
+									valign="middle"><b>Inf. Recepción o Certific. De Obra</b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="2" align="center"
+									valign="middle"><b>No.</b></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center"><b>Importe</b></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="2" align="center"
+									valign="middle"><b>MONEDA</b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="center"><b></b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center"
+									valign="middle"><b></b></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="5" align="center"
+									valign="middle"><b>Ver Anexo</b></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="2" align="center"
+									valign="middle"><b><span t-field="inf.monto_facturado"/></b></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="2" align="center"
+									valign="middle"><b><span t-field="inf.moneda"/></b></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="left"><b></b></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="2" align="center"
+									valign="middle"></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="left"></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="2" align="center"
+									valign="middle"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="17" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="16" align="left"
+									valign="middle"><b><u>Cumplimiento del Cronograma de entrega, según:</u></b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td align="center" style="font-size: medium"></td>
+								<td style="font-size: small; border: 1px solid #000000" align="center">
+									<b>
+										<t t-if="inf.sol_pago_cumplimiento_cronograma=='bl_aw'">X</t>
+									</b>
+								</td>
+								<td colspan="2" align="left" valign="middle" style="font-size: small">B/L ó A/W</td>
+								<td style="font-size: small; border: 1px solid #000000" align="center">
+									<b>
+										<t t-if="inf.sol_pago_cumplimiento_cronograma=='ir'">X</t>
+									</b>
+								</td>
+								<td align="left" style="font-size: small">I.R</td>
+								<td style="font-size: small; border: 1px solid #000000" align="center">
+									<b>
+										<t t-if="inf.sol_pago_cumplimiento_cronograma=='recibo_almacen'">X</t>
+									</b>
+								</td>
+								<td colspan="4" align="left" valign="middle" style="font-size: small">Recibo en Almacén</td>
+								<td style="font-size: small; border: 1px solid #000000" align="center" valign="middle">
+									<b>
+										<t t-if="inf.sol_pago_cumplimiento_cronograma=='acta_aceptacion'">X</t>
+									</b>
+								</td>
+								<td align="left" valign="middle" style="font-size: small">Acta Aceptación</td>
+								<td style="font-size: small; border: 1px solid #000000" align="center" valign="middle">
+									<b>
+										<t t-if="inf.sol_pago_cumplimiento_cronograma=='otros'">X</t>
+									</b>
+								</td>
+								<td align="left" style="font-size: small">Otros</td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="17" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="4" align="center">
+									Fecha de Entrega D/M/A</td>
+								<td colspan="11" align="center" valign="middle" style="font-size: medium"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="23" align="left"></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="3" align="center"
+									valign="middle"><b>S/contrato</b></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+									<b>Real</b></td>
+								<td colspan="4" align="center" valign="middle" style="font-size: medium"><b></b></td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="7" align="center"
+									valign="middle"><b>DATOS BANCARIOS: (SOLO PARA TRANSFERENCIAS)</b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="40" align="left"></td>
+								<td colspan="4" rowspan="2" align="center" valign="bottom" style="font-size: medium">
+									Aplicación de Penalidades</td>
+								<td colspan="4" align="center" valign="middle" style="font-size: medium"></td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-bottom: 1px solid #000000" colspan="7" rowspan="2" align="center"
+									valign="middle"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center"><b></b></td>
+								<td align="left" valign="middle" style="font-size: small">Procede</td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+									<b></b></td>
+								<td align="left" valign="middle" style="font-size: small">No Procede</td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="17" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="16" align="left"
+									valign="middle"><b>Fundamentación de la aplicación de las penalidades :</b></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center"
+									valign="middle"></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="15"
+									align="center" valign="middle"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="3" align="right" valign="middle" style="font-size: small">
+									<b>Reclamaciones:</b></td>
+								<td align="left" style="font-size: medium"></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center"><b></b></td>
+								<td align="left" style="font-size: small"><b>SI</b></td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center"><b></b></td>
+								<td align="left" style="font-size: small"><b>NO</b></td>
+								<td colspan="7" align="center" valign="middle" style="font-size: medium"><b></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="15" align="center" valign="middle" style="font-size: medium"><b><u></u></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="15" align="left" valign="middle" style="font-size: medium">
+									<b><u>Observaciones:</u></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="15" rowspan="2" align="left" valign="middle" style="font-size: medium">
+									<span t-field="inf.sip_observaciones"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="17" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td style="font-size: medium; border-top: 1px solid #000000" colspan="8" align="left"
+									valign="middle"><b><u>Solicitado por:</u></b></td>
+								<td style="font-size: medium; border-top: 1px solid #000000" colspan="7" align="left"
+									valign="middle"><b><u>Aprobado por:</u></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="8" align="left" valign="middle" style="font-size: medium"><b></b></td>
+								<td colspan="7" align="left" valign="middle" style="font-size: medium"><b></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="8" align="left" valign="middle" style="font-size: medium"><b></b></td>
+								<td colspan="7" align="left" valign="middle" style="font-size: medium"><b></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-bottom: 1px solid #000000" colspan="17" height="17" align="center"
+									valign="middle"></td>
+							</tr>
+						</table>
+					</t>
+
+                    <t t-call="web.address_layout"/>
+                </div>
+                <t t-raw="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+				<span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+                <div style="border-top: 1px solid black;">
+					<ul class="list-inline mb4">
+					<span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+						<i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+						<br/>
+					<span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba.
+						Tomo  II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+					<div t-if="report_type == 'pdf'" class="text-center text-muted">
+						Página: <span class="page"/> / <span class="topage"/>
+					</div>
+				</div>
+			</div>
+		</t>
+
+		<!-- Página Ejecución por Dependencia del Presupuesto de Gastos M.N. -->
+		<t t-call="web.html_container">
+            <!-- sección del header -->
+            <div t-attf-class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3 mb4">
+                        <img src="sicpro_app_contratos/static/src/img/etecsaId_300_8.png" style="max-height: 55px;" alt="Logo"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                       <small> División de Proyectos y Ejecución de Obras</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+						<table cellspacing="0" border="0" style="font-size: medium">
+	<colgroup width="22">
+	</colgroup>
+	<colgroup span="2" width="85">
+	</colgroup>
+	<colgroup width="11">
+	</colgroup>
+	<colgroup width="67">
+	</colgroup>
+	<colgroup width="11">
+	</colgroup>
+	<colgroup width="85">
+	</colgroup>
+	<colgroup width="184">
+	</colgroup>
+	<colgroup width="152">
+	</colgroup>
+	<colgroup width="85">
+	</colgroup>
+	<colgroup width="22">
+	</colgroup>
+	<colgroup width="152">
+	</colgroup>
+	<colgroup width="115">
+	</colgroup>
+	<colgroup width="21">
+	</colgroup>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid #000000" height="22" align="left">
+
+</td>
+			<td style="font-size: x-large; border-right: 1px solid #000000; border-top: 1px solid #000000" colspan="13" align="center" valign="middle">
+			<b>Ejecución por Dependencia del Presupuesto de Gastos M.N.</b></td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" colspan="13" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="26" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" colspan="4" align="center">
+			<b>
+			Área Solicitante:</b></td>
+			<td align="left" style="font-size: medium">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" colspan="8" align="left" valign="middle">
+			<b>División de Proyecto y Ejecución de
+			Obras</b></td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" colspan="13" align="center" valign="middle">
+			<b>
+</b></td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td colspan="9" rowspan="2" align="center" valign="middle" style="font-size: medium">
+
+</td>
+			<td colspan="2" align="right" valign="middle" style="font-size: medium">
+			No. Solicitud:</td>
+			<td align="center" style="font-size: medium">
+			<span t-field="inf.sip_sequence_consecutivo"/></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="center">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td colspan="2" align="right" valign="middle" style="font-size: medium">
+			Fecha:</td>
+			<td style="font-size: medium; border-bottom: 1px solid #000000" align="center" sdval="43563" sdnum="3082;0;DD/MM/AA">
+			<b><span t-field="inf.sip_fecha_emision"/></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="center" sdnum="3082;0;DD/MM/AA">
+			<b>
+</b></td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" colspan="13" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td colspan="2" align="right" valign="middle" style="font-size: medium">
+			<b>INDICADOR:</b></td>
+			<td align="right" style="font-size: medium">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: medium">
+			<span t-field="inf.sip_indicador"/></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td colspan="2" align="right" valign="middle" style="font-size: medium">
+			<b>ACÁPITE:</b></td>
+			<td align="right" style="font-size: medium">
+
+</td>
+			<td colspan="9" align="left" valign="middle" style="font-size: medium">
+			<span t-field="inf.sip_acapite"/></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="14" height="17" align="center" valign="middle">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center" valign="middle">
+
+</td>
+			<td style="font-size: medium; border: 1px solid #000000" colspan="10" align="center" valign="middle">
+			<b>NO – FACTURA</b></td>
+			<td style="font-size: medium; border: 1px solid #000000" colspan="2" align="center" valign="middle">
+			<b>IMPORTE</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="center">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center" valign="middle">
+
+</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="12" align="left" valign="middle">
+			<b>Dependencia:</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="center">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center" valign="middle">
+
+</td>
+			<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="12" align="left" valign="middle">
+			<b>División de Proyecto y Ejecución de
+			Obras</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="center">
+
+</td>
+		</tr>
+	<t t-foreach="inf.facturas_ids" t-as="facturas">
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center" valign="middle">
+
+</td>
+			<td style="font-size: medium; border: 1px solid #000000" colspan="10" align="center" valign="middle">
+			<span t-field="facturas.factura_numero"/></td>
+			<td style="font-size: medium; border: 1px solid #000000" colspan="2" align="center" valign="middle" sdval="8888" sdnum="3082;">
+			<span t-field="facturas.factura_monto"/></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="center">
+
+</td>
+		</tr>
+		</t>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center" valign="middle">
+
+</td>
+			<td colspan="12" align="center" valign="middle" style="font-size: medium">
+			<b>
+</b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="center">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center" valign="middle">
+
+</td>
+			<td style="font-size: medium; border: 1px solid #000000" colspan="10" align="center" valign="middle">
+			<b>Total General por Solicitud <span t-field="inf.sip_sequence_consecutivo"/>
+										(<span t-field="inf.facturas_count"/> <span t-field="inf.tipo_facturacion"/>)</b></td>
+			<td style="font-size: medium; border: 1px solid #000000" colspan="2" align="center" valign="middle" sdval="34434" sdnum="3082;">
+			<b><span t-field="inf.monto_facturado"/></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="center">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center" valign="middle">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" colspan="13" align="center" valign="middle">
+			<b>
+</b></td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td colspan="12" align="left" valign="middle" style="font-size: medium">
+			<b><u>Observaciones:</u></b></td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+
+
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+			<td colspan="12" rowspan="2" align="left" valign="middle" style="font-size: medium">
+				<span t-field="inf.sip_observaciones"/>
+			</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+		</tr>
+
+
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000" align="left">
+
+</td>
+		</tr>
+		<tr style="font-size: medium">
+			<td style="font-size: medium; border-left: 1px solid #000000; border-bottom: 1px solid #000000" height="17" align="left">
+
+</td>
+			<td style="font-size: medium; border-right: 1px solid #000000; border-bottom: 1px solid #000000" colspan="13" align="center" valign="middle">
+
+</td>
+		</tr>
+</table>
+					</t>
+
+                    <t t-call="web.address_layout"/>
+                </div>
+                <t t-raw="0"/>
+
+            <!-- sección del footer -->
+            <div t-attf-class="footer o_standard_footer">
+				<span style="font-size: 8pt">Ave. Salvador Allende # 508 Esq. Belascoaín. Centro Habana. La Habana, Cuba.</span>
+                <div style="border-top: 1px solid black;">
+					<ul class="list-inline mb4">
+					<span style="font-size: 8pt"><i class="fa fa-phone"/>Teléfono: +5352183663, Código Postal 10300,
+						<i class="fa fa-globe"/>Correo Electrónico: sicproerp@etecsa.cu</span>
+						<br/>
+					<span style="font-size: 8pt">Inscrita en el Registro Mercantil Central del Ministerio de Justicia de la República de Cuba.
+						Tomo  II-Folio 043-047 del 28-6-94 del Libro de Empresas Mixtas.</span>
+                    </ul>
+					<div t-if="report_type == 'pdf'" class="text-center text-muted">
+						Página: <span class="page"/> / <span class="topage"/>
+					</div>
+				</div>
+			</div>
+		</t>
+    </template>
+
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem name="Transporte" id="menu_root" sequence="115" web_icon="sicpro_app_transporte,static/description/icon.png"/>
+
+    <menuitem name="Vehiculos" parent="menu_root" id="fleet_vehicles" sequence="2"/>
+
+    <menuitem id="fleet_vehicle_menu" name="Vehiculos" action="fleet_vehicle_action"
+              parent="fleet_vehicles" groups="grupo_app_transporte_usuario"/>
+
+
+    <menuitem name="Informes" parent="menu_root" id="menu_fleet_reporting" sequence="99"/>
+
+
+    <menuitem name="Configuración" parent="menu_root" id="fleet_configuration"
+              groups="grupo_app_transporte_responsable" sequence="100" />
+
+    <menuitem name="Configuración RestApi" action="transporte_rest_api_action"
+              parent="fleet_configuration" id="menu_rest_api_config"
+              groups="grupo_app_transporte_admin" sequence="1"/>
+
+    <menuitem name="Fabricantes de automóviles" action="fleet_vehicle_model_brand_action"
+              groups="grupo_app_transporte_responsable" parent="fleet_configuration" id="fleet_vehicle_model_brand_menu"
+              sequence="2"/>
+
+    <menuitem name="Estado del vehiculo" action="fleet_vehicle_state_action" parent="fleet_configuration"
+              id="fleet_vehicle_state_menu" groups="grupo_app_transporte_admin" sequence="3"/>
+
+
+</odoo>

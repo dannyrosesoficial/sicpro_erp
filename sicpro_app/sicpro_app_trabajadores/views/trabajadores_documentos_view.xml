@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model='ir.ui.view' id='documentos_trabajador_form_view'>
+        <field name="name">hr.employee.document.form</field>
+        <field name="model">sicpro.app.trabajadores.documentos</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="name"/>
+                            <field name="trabajadores_id"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="tipo_documento"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <field name="doc_attachment_id" widget="many2many_binary" class="oe_inline"/>
+                        </group>
+                        <group>
+                            <field name="fecha_agregado"/>
+                            <field name="fecha_expira"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Descripción">
+                            <field name="descripcion"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model='ir.ui.view' id='documentos_trabajador_tree_view'>
+        <field name="name">hr.employee.document.tree</field>
+        <field name="model">sicpro.app.trabajadores.documentos</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="trabajadores_id" string="Employee"/>
+                <field name="tipo_documento"/>
+                <field name="fecha_expira"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="search_documentos_trabajador" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.documentos.search</field>
+            <field name="model">sicpro.app.trabajadores.documentos</field>
+            <field name="arch" type="xml">
+                <search string="Documentos del Trabajador">
+                    <field name="name"/>
+                    <field name="trabajadores_id"/>
+                    <field name="tipo_documento"/>
+                    <separator/>
+                    <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="trabajador" string="Trabajador" context="{'group_by':'trabajadores_id'}"/>
+                        <filter string="Fecha Expiración" name="fecha_expira" context="{'group_by': 'fecha_expira'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    <record id="documentos_trabajador_action" model="ir.actions.act_window">
+        <field name="name">Documentos del Trabajador</field>
+        <field name="res_model">sicpro.app.trabajadores.documentos</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="documentos_trabajador_tree_view"/>
+        <field name="context">{'search_default_Employee': 1}</field>
+    </record>
+
+</odoo>

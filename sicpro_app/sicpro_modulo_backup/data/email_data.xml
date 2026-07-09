@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Plantilla de nuevo backup -->
+        <record id="backup_nuevo_backup" model="mail.template">
+			<field name="name">Backup: Ejecutar Salva</field>
+			<field name="model_id" ref="sicpro_modulo_backup.model_sicpro_modulo_backup"/>
+			<field name="email_from">"SICPRO ERP" &lt;${(object.company_id.email or user.email) | safe}&gt;</field>
+            <field name="email_to">${object.webdav_email_to_notify | safe}</field>
+			<field name="subject">•SICPRO ERP: Nuevo backup creado: ${object.create_date} - ${object.bkp_file}</field>
+            <field name="body_html" type="html">
+             <ul></ul><ul></ul><ul></ul><table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Backup Exitoso!!
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td style="font-size:13px;" valign="top">
+                    <div>Estimado/a <br></br><br></br>El sistema <b>SICPRO ERP</b> a realizado una nueva salva automática correctamente, siguiendo los parametros establecidos en la configración de la administración.
+<br></br><br></br>A continuación se muestran partes de los registros como método informativo:<br></br><br></br>
+<b>Fecha realizada: </b><i><font style="font-size:14px;">${object.create_date} </font></i><br></br>
+
+<b>Archivo: </b>${object.archivo}<br></br><b><font style="color:rgb(49, 24, 115);font-size: 12px;">_____________________________________________________________________</font></b><br></br><br></br><i><b><font style="color:rgb(49, 24, 115);font-size: 24px;">Local:</font></b></i><br></br><b>Directorio local: </b>${object.folder}/${object.archivo}
+<b><br></br>Capacidad disponible: </b>${object.capacidad_local}<br></br><b>Días disponible:</b> ${object.days_to_keep}
+<br></br><br></br><i><b><font style="color:rgb(49, 24, 115);font-size: 24px;">Remoto:
+</font></b></i><br></br><b>Tipo de servidor: </b>WebDav
+<br></br><b>Directorio remoto: </b>${object.webdav_host}/${object.artchivo}
+<br></br><b>Capacidad disponible: </b>${object.capacidad_remoto} MB
+<br></br><b>Días disponible:</b> ${object.webdav_to_keep}
+<br></br><br></br>
+<div style="margin:16px 0px 16px 0px;"> % set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url') <a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;"> Iniciar Sesión </a></div><br></br><br></br><br></br>Esta configuración viene prestablecidad por las acciones planificadas del Script Cron.<br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div>
+                </td></tr>
+                <tr><td style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+            
+            </field>
+        </record>
+
+        <!-- Plantilla de backups eliminado -->
+         <record id="backup_eliminado_backup" model="mail.template">
+			<field name="name">Backup: Eliminar Salva</field>
+			<field name="model_id" ref="sicpro_modulo_backup.model_sicpro_modulo_backup"/>
+			<field name="email_from">"SICPRO ERP" &lt;${(object.company_id.email or user.email) | safe}&gt;</field>
+            <field name="email_to">${object.webdav_email_to_notify | safe}</field>
+			<field name="subject">•SICPRO ERP: Salva remota eliminada: ${object.bkp_file}</field>
+            <field name="body_html" type="html">
+             <ul></ul><ul></ul><ul></ul><table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td align="center">
+<table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+    <!-- ENCABEZADO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle">
+                    <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br></br>
+                    <span style="font-size:20px;font-weight: bold;">
+                        Backup Eliminado
+                    </span>
+                </td><td valign="middle" align="right">
+                    <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                </td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+    <!-- CONTENIDO -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td style="font-size:13px;" valign="top">
+                    <div>Estimado/a <br></br><br></br>El sistema <b>SICPRO ERP</b> a realizado una aliminación de salva automática correctamente, siguiendo los parametros establecidos en la configración de la administración. <br></br><br></br>A continuación se muestran partes de los registros como método informativo:<br></br><br></br>
+<b>Fecha realizada: </b><i><font style="font-size:14px;">${object.create_date} </font></i><br></br>
+
+<b>Archivo: </b>${object.archivo}<br></br><b><font style="color:rgb(49, 24, 115);font-size: 12px;">_____________________________________________________________________</font></b><br></br><br></br><i><b><font style="color:rgb(49, 24, 115);font-size: 24px;">Local:</font></b></i><br></br><b>Directorio local: </b>${object.folder}/${object.archivo}
+<b><br></br>Capacidad disponible: </b>${object.capacidad_local} MB
+<br></br><b>Días disponible:</b> ${object.days_to_keep}
+<br></br><br></br><i><b><font style="color:rgb(49, 24, 115);font-size: 24px;">Remoto:
+</font></b></i><br></br><b>Tipo de servidor: </b>WebDav
+<br></br><b>Directorio remoto: </b>${object.webdav_host}/${object.artchivo}
+<br></br><b>Capacidad disponible: </b>${object.capacidad_remoto} MB
+<br></br><b>Días disponible:</b> ${object.webdav_to_keep}
+<br></br><br></br>
+<div style="margin:16px 0px 16px 0px;"> % set website_url = object.env['ir.config_parameter'].sudo().get_param('web.base.url') <a href="${website_url}" style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;"> Iniciar Sesión </a></div><br></br><br></br><br></br>Esta configuración viene prestablecidad por las acciones planificadas del Script Cron.<br></br><br></br><br></br> --<br></br>El equipo de administración de SICPRO ERP </div>
+                </td></tr>
+                <tr><td style="text-align:center;">
+                  <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+     <!-- PIE -->
+    <tr>
+        <td style="min-width:590px;" align="center">
+            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr><td valign="middle" align="left">
+                    ${object.company_id.name}
+                </td></tr>
+                <tr><td style="opacity:0.7;" valign="middle" align="left">
+                    ${object.company_id.phone}
+                    % if object.company_id.email
+                        | <a href="'mailto:%s' % ${object.company_id.email}" style="color:#454748;">${object.company_id.email}</a>
+                    % endif
+                    % if website_url
+                        | <a href="'%s' % ${website_url}" style="color:#454748;">
+                        ${website_url}
+                    </a>
+                    % endif
+                </td></tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td style="min-width:590px;" align="center">
+    <br></br><table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td style="text-align:center;font-size: 13px;">
+        Recibes notificaciones con la tecnología de <b><a target="_blank" style="color:#875A7B;"><font style="color:rgb(7, 140, 7);">SICPRO</font></a><font style="color:rgb(7, 140, 7);"> <br></br></font></b></td>
+
+</tr><tr><td style="text-align:center;font-size: 13px;"><p><font style="font-size:10px;" class="text-600">© 2021 División de Proyectos y Ejecución, DVPE.</font><br></br><font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.</font></p></td>
+
+</tr></tbody></table></td></tr></tbody></table>
+
+            
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

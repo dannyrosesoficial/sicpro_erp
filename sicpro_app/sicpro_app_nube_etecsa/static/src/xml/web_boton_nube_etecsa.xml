@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+       
+<templates id="template" xml:space="preserve">
+     <t t-name="NUBE_ETECSA">
+        <li class="o_mail_navbar_item o_no_notification ">
+            <a class="oe_link_nube_etecsa oe_right label" title="Nube ETECSA" href="https://nube.etecsa.cu/">
+                <img src="sicpro_app_nube_etecsa/static/src/img/logo.png" style="max-height: 20px;" alt="Logo"/>
+            </a>          
+        </li>
+    </t>
+</templates>

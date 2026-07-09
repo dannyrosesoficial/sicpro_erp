@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem name="Tableau" id="menu_root" sequence="200" web_icon="sicpro_app_tableau,static/description/icon.png"/>
+
+   <menuitem name="Tableau" action="tableau_rest_api_action"
+              parent="menu_root" id="menu_rest_api_config"
+              sequence="30"/>
+
+
+</odoo>

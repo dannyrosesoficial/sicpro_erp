@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="contratos_economia_pago_search_view">
+            <field name="name">sicpro.app.contratos.economia.pago.search</field>
+            <field name="model">sicpro.app.contratos.economia.pago</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Pago">
+                    <field name="name"/>
+                    <field name="is_genera"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_economia_pago_form_view">
+            <field name="name">sicpro.app.contratos.economia.pago.form</field>
+            <field name="model">sicpro.app.contratos.economia.pago</field>
+            <field name="arch" type="xml">
+                <form string="Pagos de Economía">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="is_genera"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_economia_pago_tree_view">
+            <field name="name">sicpro.app.contratos.economia.pago.tree</field>
+            <field name="model">sicpro.app.contratos.economia.pago</field>
+            <field name="arch" type="xml">
+                <tree string="Pagos de economía" editable="bottom">
+                    <field name="name"/>
+                    <field name="is_genera"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="contratos_economia_pago_action" model="ir.actions.act_window">
+            <field name="name">Tipos de Pagos</field>
+            <field name="res_model">sicpro.app.contratos.economia.pago</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo tipo de pago...
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

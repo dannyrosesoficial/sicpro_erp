@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+     <!--vista formulario-->
+    <record id="municipio_form_view" model="ir.ui.view">
+        <field name="name">municipio.form.view</field>
+        <field name="model">sicpro.nomenclador.municipio</field>
+        <field name="arch" type="xml">
+            <form string="Municipio">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="provincia"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="municipio_tree_view" model="ir.ui.view">
+        <field name="name">municipio.tree.view</field>
+        <field name="model">sicpro.nomenclador.municipio</field>
+        <field name="arch" type="xml">
+            <tree string="Municipio" editable="bottom">
+                <field name="name" width="20"/>
+                   <field name="provincia"/>
+                   <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="municipio_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Municipios</field>
+       <field name="model">sicpro.nomenclador.municipio</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Municipios">
+            <field name="name" string="Municipio"/>
+            <field name="provincia" string="Provincia"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_municipios" model="ir.actions.act_window">
+        <field name="name">Municipios</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.municipio</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+ </data>
+</odoo>

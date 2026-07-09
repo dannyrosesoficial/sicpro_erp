@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <record model="sicpro.app.soporte.estados.paquetes" id="estadov_1">
+        <field name="name">Borrador</field>
+        <field name="closed">False</field>
+        <field name="fold">False</field>
+        <field name="inicial">True</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.paquetes" id="estado_paquetes_2">
+        <field name="name">En Prueba</field>
+        <field name="closed">False</field>
+        <field name="fold">False</field>
+        <field name="inicial">False</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.paquetes" id="estado_paquetes_5">
+        <field name="name">En Producción</field>
+        <field name="closed">True</field>
+        <field name="fold">False</field>
+        <field name="inicial">False</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.paquetes" id="estado_paquetes_6">
+        <field name="name">No Procede</field>
+        <field name="closed">False</field>
+        <field name="fold">True</field>
+        <field name="inicial">False</field>
+    </record>
+
+  </data>
+</odoo>

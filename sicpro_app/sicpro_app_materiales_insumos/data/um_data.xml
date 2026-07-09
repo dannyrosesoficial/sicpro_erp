@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.materiales.insumos.um" id="um_1">
+            <field name="name">U</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_2">
+            <field name="name">CAJ</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_3">
+            <field name="name">ROL</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_4">
+            <field name="name">M2</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_5">
+            <field name="name">M</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_6">
+            <field name="name">KG</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_7">
+            <field name="name">C/U</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_8">
+            <field name="name">UMB</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_9">
+            <field name="name">JGO</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_10">
+            <field name="name">UM</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_11">
+            <field name="name">L</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_12">
+            <field name="name">M3</field>
+        </record>
+        <record model="sicpro.app.materiales.insumos.um" id="um_13">
+            <field name="name">BOL</field>
+        </record>
+    </data>
+
+
+</odoo>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- MENU DE USUARIO -->
+        <menuitem
+            id="menu_trabajadores_root" name="Trabajadores"
+            web_icon="sicpro_app_trabajadores,static/description/icon.png"
+            sequence="75" groups="grupo_app_trabajador_usuario_proceso,grupo_app_trabajador_ejecutor"/>
+
+        <menuitem
+            id="menu_trabajadores" name="Trabajadores"
+            parent="menu_trabajadores_root" sequence="3"
+            groups="grupo_app_trabajador_usuario_proceso,grupo_app_trabajador_ejecutor"/>
+            <menuitem
+                id="menu_trabajadores_user" name="Trabajadores"
+                action="menu_view_trabajadores"
+                parent="menu_trabajadores" sequence="1"
+                groups="grupo_app_trabajador_usuario_proceso,grupo_app_trabajador_ejecutor"/>
+            <menuitem
+                id="menu_hr_employee_organizational_chart"
+                name="Gráfica Organizacional"
+                action="action_organizational_chart"
+                parent="menu_trabajadores" sequence="3"/>
+            <menuitem id="menu_documentos_trabajadores" name="Documentos"
+                parent="menu_trabajadores" sequence="5"
+                action="documentos_trabajador_action"
+                groups="grupo_app_trabajador_ejecutor"/>
+
+
+        <menuitem id="menu_equipo_tecnico" name="Equipo Técnico"
+                  parent="menu_trabajadores_root" sequence="4"
+                  groups="grupo_app_trabajador_equipos_usuario"/>
+            <menuitem
+                id="menu_equipo_tecnico_equipo" name="Equipo Técnico"
+                action="trabajadores_equipo_tecnico_action"
+                parent="menu_equipo_tecnico"
+                sequence="1"/>
+
+        <menuitem id="menu_disciplinaria" name="Medidas"
+                  parent="menu_trabajadores_root" sequence="10"
+                  groups="grupo_app_trabajador_disciplina_jefe"/>
+             <menuitem
+                     id="menu_disciplinaria_action" action="disciplinaria_acciones_action"
+                     name="Medidas Disciplinarias" parent="menu_disciplinaria"
+                     groups="grupo_app_trabajador_disciplina_jefe" sequence="1"/>
+             <menuitem
+                     id="menu_disciplinaria_category" action="disciplinaria_categorias_action"
+                     name="Categorías Disciplinarias" parent="menu_disciplinaria"
+                     groups="grupo_app_trabajador_disciplina_responsable" sequence="3"/>
+
+        <menuitem id="menu_plantilla_documentos"
+              name="Plantillas"
+              parent="menu_trabajadores_root" sequence="15"
+              action="plantilla_documentos_action"
+              groups="grupo_app_trabajador_ejecutor"/>
+
+        <menuitem
+            id="menu_trabajadores_informes" name="Informes"
+            parent="menu_trabajadores_root" sequence="19"
+            groups="grupo_app_trabajador_usuario_proceso,grupo_app_trabajador_ejecutor"/>
+            <menuitem
+                id="menu_informe_trabajador" name="Informes del Trabajador"
+                action="action_informes_trabajador"
+                parent="menu_trabajadores_informes"
+                sequence="1"/>
+            <menuitem id="menu_seguridad_proteccion_trabajador" name="Seguridad y Protección"
+                parent="menu_trabajadores_informes" sequence="2"
+                action="trabajadores_seguridad_trabajador_view_action"
+                groups="grupo_app_trabajador_ejecutor"/>
+
+        <menuitem
+            id="menu_trabajadores_configuration" name="Configuración"
+            parent="menu_trabajadores_root"
+            groups="grupo_app_trabajador_responsable,grupo_app_trabajador_capacitacion_responsable,grupo_app_trabajador_seguridad_salud_responsable"
+            sequence="20"/>
+
+            <menuitem
+                id="menu_departamentos_trabajador" name="Departamentos (ext.)"
+                action="sicpro_modulo_nomencladores.action_nomenclador_departamentos"
+                parent="menu_trabajadores_configuration"
+                groups="grupo_app_trabajador_responsable" sequence="1"/>
+
+            <menuitem
+                id="menu_cargo_trabajador" name="Cargo del Trabajador"
+                action="action_trabajadores_cargo_trabajador"
+                parent="menu_trabajadores_configuration"
+                groups="grupo_app_trabajador_responsable" sequence="2"/>
+
+            <menuitem
+                id="menu_hr_department_tree" name="Áreas de Trabajo"
+                action="open_module_tree_department"
+                parent="menu_trabajadores_configuration"
+                groups="grupo_app_trabajador_responsable" sequence="3"/>
+
+            <menuitem
+                id="menu_view_hr_job" name="Categoría Ocupacional"
+                action="action_trabajadores_trabajo"
+                parent="menu_trabajadores_configuration"
+                groups="grupo_app_trabajador_responsable" sequence="4"/>
+
+            <menuitem
+                id="menu_trabajadores_claves_horas" name="Claves de Horas"
+                action="action_trabajadores_claves_hl"
+                parent="menu_trabajadores_configuration"
+                groups="grupo_app_trabajador_responsable" sequence="5"/>
+
+            <menuitem
+                id="menu_relaciones_familiares" name="Nexos Familiares"
+                action="trabajadores_familiar_action"
+                parent="menu_trabajadores_configuration"
+                groups="grupo_app_trabajador_responsable" sequence="6"/>
+
+            <menuitem id="document_types_menuitem"
+              name="Tipos de Documentos"
+              parent="menu_trabajadores_configuration"
+              sequence="7"
+              groups="grupo_app_trabajador_responsable" action="trabajadores_tipo_documento_action"/>
+
+        <menuitem
+                id="menu_view_employee_category_form" name="Clases y Categorías"
+                action="open_view_categ_form"
+                parent="menu_trabajadores_configuration"
+                groups="grupo_app_trabajador_responsable" sequence="8"/>
+
+        <menuitem id="menu_capacitacion" name="Capacitación"
+              parent="menu_trabajadores_configuration"
+              sequence="9" groups="grupo_app_trabajador_responsable,grupo_app_trabajador_capacitacion_responsable"/>
+
+            <menuitem id="menu_educacion_tipos" name="Líneas de Educación"
+              action="trabajadores_educacion_tipo_action"
+              parent="menu_capacitacion" sequence="1"
+              groups="grupo_app_trabajador_responsable,grupo_app_trabajador_capacitacion_responsable"/>
+
+            <menuitem id="menu_trabajadores_habilidades" name="Cursos/Habilidades"
+              action="trabajadores_cursos_habilidades_action"
+              parent="menu_capacitacion" sequence="2"
+              groups="grupo_app_trabajador_responsable,grupo_app_trabajador_capacitacion_responsable"/>
+
+            <menuitem id="menu_trabajadores_certificadores" name="Certificadores de Personas"
+              action="trabajadores_educacion_certificacion_action"
+              parent="menu_capacitacion" sequence="3"
+              groups="grupo_app_trabajador_responsable,grupo_app_trabajador_capacitacion_responsable"/>
+
+
+        <menuitem id="menu_seguridad_salud" name="Seguridad y Salud"
+              parent="menu_trabajadores_configuration"
+              sequence="10" groups="grupo_app_trabajador_responsable,grupo_app_trabajador_seguridad_salud_responsable"/>
+
+            <menuitem id="menu_vacunacion" name="Registro de Vacunación"
+              action="trabajadores_vacunacion_view_action"
+              parent="menu_seguridad_salud" sequence="1"
+              groups="grupo_app_trabajador_responsable,grupo_app_trabajador_seguridad_salud_responsable"/>
+
+            <menuitem id="menu_instrucciones" name="Registro de Instrucciones"
+              action="trabajadores_instrucciones_view_action"
+              parent="menu_seguridad_salud" sequence="2"
+              groups="grupo_app_trabajador_responsable,grupo_app_trabajador_seguridad_salud_responsable"/>
+
+         <menuitem id="menu_seguridad_proteccion" name="Seguridad y Protección"
+              parent="menu_trabajadores_configuration"
+              sequence="11" groups="grupo_app_trabajador_responsable,grupo_app_trabajador_seguridad_salud_responsable"/>
+
+            <menuitem id="menu_seguridad_proteccion_modulos" name="Módulos de Seguridad y Protección"
+              action="trabajadores_seguridad_proteccion_view_action"
+              parent="menu_seguridad_proteccion" sequence="1"
+              groups="grupo_app_trabajador_responsable,grupo_app_trabajador_seguridad_salud_responsable"/>
+
+            <menuitem id="menu_tallas_modulos" name="Tallas de los Trabajadores"
+              action="view_trabajadores_tallas_actions"
+              parent="menu_seguridad_proteccion" sequence="2"
+              groups="grupo_app_trabajador_responsable,grupo_app_trabajador_seguridad_salud_responsable"/>
+
+
+         </data>
+</odoo>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+    	<record id="login_form_version" model="sicpro.app.administracion.cambios">
+            <field name="name">Version:</field>
+        </record>
+    </data>
+</odoo>

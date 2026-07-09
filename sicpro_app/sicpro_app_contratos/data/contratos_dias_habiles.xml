@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.contratos.dias" id="contrato_dias_solicitante">
+            <field name="name">solicitante</field>
+            <field name="valor">5</field>
+        </record>
+        <record model="sicpro.app.contratos.dias" id="contrato_dias_contratacion">
+            <field name="name">contratacion</field>
+            <field name="valor">3</field>
+        </record>
+        <record model="sicpro.app.contratos.dias" id="contrato_dias_revision">
+            <field name="name">revision</field>
+            <field name="valor">5</field>
+        </record>
+        <record model="sicpro.app.contratos.dias" id="contrato_dias_legal">
+            <field name="name">legal</field>
+            <field name="valor">10</field>
+        </record>
+        <record model="sicpro.app.contratos.dias" id="contrato_dias_economia">
+            <field name="name">economia</field>
+            <field name="valor">5</field>
+        </record>
+        <record model="sicpro.app.contratos.dias" id="contrato_dias_director_central">
+            <field name="name">director_central</field>
+            <field name="valor">3</field>
+        </record>
+        <record model="sicpro.app.contratos.dias" id="contrato_dias_proveedor">
+            <field name="name">proveedor</field>
+            <field name="valor">7</field>
+        </record>
+        <record model="sicpro.app.contratos.dias" id="contrato_dias_economia_dc">
+            <field name="name">economia_dc</field>
+            <field name="valor">5</field>
+        </record>
+        <record model="sicpro.app.contratos.dias" id="contrato_dias_devolucion">
+            <field name="name">devolucion</field>
+            <field name="valor">10</field>
+        </record>
+    </data>
+</odoo>

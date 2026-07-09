@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_image_importer_wizard,access_image_importer_wizard,model_image_importer_wizard,base.group_user,1,1,1,1
+administacion_admin,Administracion Admin,sicpro_app_administracion.model_sicpro_app_administracion,grupo_app_administracion_admin,1,1,1,1
+administracion_cambio_versiones_usuario,Cambios de Versiones Usuario,model_sicpro_app_administracion_cambios,base.group_user,1,0,0,0
+administracion_cambio_versiones_admin,Cambios de Versiones Admin,model_sicpro_app_administracion_cambios,base.group_system,1,1,1,0
+administacion_nube_sync,Nube Sync Admin,sicpro_app_administracion.model_sicpro_app_administracion_nube_aplicaciones,grupo_app_administracion_admin,1,1,1,1
+administacion_mantenimiento_admin,Mantenimiento Admin,sicpro_app_administracion.model_sicpro_app_administracion_mantenimiento,grupo_app_administracion_admin,1,1,1,1
+administacion_notificaciones,notificaciones administrativas,sicpro_app_administracion.model_sicpro_app_administracion,grupo_app_administracion_notificaciones,0,0,0,0
+
+canal_staff,Canal Staff,mail.model_mail_channel,grupo_canal_staff,1,0,1,0
+canal_deoit,Canal DEOIT,mail.model_mail_channel,grupo_canal_deoit,1,0,1,0
+canal_deoct,Canal DEOCT,mail.model_mail_channel,grupo_canal_deoct,1,0,1,0
+canal_proyecto,Canal Proyectos,mail.model_mail_channel,grupo_canal_proyectos,1,0,1,0
+
+
+
+

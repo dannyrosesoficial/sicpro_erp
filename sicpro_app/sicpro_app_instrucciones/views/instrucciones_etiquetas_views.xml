@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="instrucciones_etiquetas_search_view">
+            <field name="name">sicpro.app.instrucciones.etiquetas.search</field>
+            <field name="model">sicpro.app.instrucciones.etiquetas</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Etiquetas">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="instrucciones_etiquetas_tree_view">
+            <field name="name">sicpro.app.instrucciones.etiquetas.tree</field>
+            <field name="model">sicpro.app.instrucciones.etiquetas</field>
+            <field name="arch" type="xml">
+                <tree string="Etiquetas de las Instrucciones" editable="bottom">
+                    <field name="name"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="instrucciones_etiquetas_action" model="ir.actions.act_window">
+            <field name="name">Etiquetas de las Instrucciones</field>
+            <field name="res_model">sicpro.app.instrucciones.etiquetas</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear nueva etiqueta...
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.credenciales.tipo" id="credencial_tipo_1">
+            <field name="name">PERMANENTE</field>
+            <field name="color">1</field>
+        </record>
+        <record model="sicpro.app.credenciales.tipo" id="credencial_tipo_2">
+            <field name="name">PROVISIONAL</field>
+            <field name="color">2</field>
+        </record>
+        <record model="sicpro.app.credenciales.tipo" id="credencial_tipo_3">
+            <field name="name">ESPECIAL</field>
+            <field name="color">3</field>
+        </record>
+        <record model="sicpro.app.credenciales.tipo" id="credencial_tipo_4">
+            <field name="name">CONSTRUCTORES</field>
+            <field name="color">4</field>
+        </record>
+    </data>
+</odoo>

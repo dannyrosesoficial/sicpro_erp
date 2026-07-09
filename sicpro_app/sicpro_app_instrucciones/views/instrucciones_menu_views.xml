@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <!-- Menu Instrucciones Usuarios-->
+    <menuitem
+        id="menu_principal_instrucciones" name="Instrucciones Laborales"
+        web_icon="sicpro_app_instrucciones,static/description/icon.png"
+        groups="grupo_app_instruciones_usuario"
+        sequence="76"/>
+
+    <menuitem
+        id="menu_instrucciones_tablero" name="Operaciones" parent="menu_principal_instrucciones"
+        groups="grupo_app_instruciones_usuario" sequence="0"/>
+
+    <menuitem
+        id="menu_instrucciones_tablero_instrucion" name="Tablero de Instrucciones"
+        parent="menu_instrucciones_tablero" action="instrucciones_dashboard_action"
+        groups="grupo_app_instruciones_usuario" sequence="1"/>
+
+
+
+    <menuitem
+        id="menu_instrucciones_informes" name="Informes" parent="menu_principal_instrucciones"
+        groups="grupo_app_instruciones_responsable"
+        sequence="20"/>
+   <menuitem
+        id="menu_instrucciones_informes_trabajadores" name="Reportes de Instrucciones"
+        parent="menu_instrucciones_informes" action="instrucciones_trabajadores_action_reports"
+        groups="grupo_app_instruciones_responsable" sequence="1"/>
+    <menuitem
+        id="menu_instrucciones_informes_tarjeta_control" name="Tarjeta de Control"
+        parent="menu_instrucciones_informes" action="instrucciones_trabajadores_action_control"
+        groups="grupo_app_instruciones_responsable" sequence="1"/>
+
+
+
+
+    <menuitem
+        id="menu_instrucciones_configuracion"
+        name="Configuración" parent="menu_principal_instrucciones"
+        groups="grupo_app_instruciones_responsable"
+        sequence="100"/>
+    <menuitem
+        id="menu_instrucciones_registro_instrucion" name="Registro de Instrucciones"
+        parent="menu_instrucciones_configuracion" action="instrucciones_instruccion_action"
+        groups="grupo_app_instruciones_responsable" sequence="1"/>
+    <menuitem
+        id="menu_instrucciones_tipos" name="Tipos de Instrucciones"
+        parent="menu_instrucciones_configuracion" action="instrucciones_tipos_action"
+        groups="grupo_app_instruciones_responsable" sequence="2"/>
+    <menuitem
+        id="menu_instrucciones_etiqueta" name="Etiquetas"
+        parent="menu_instrucciones_configuracion" action="instrucciones_etiquetas_action"
+        groups="grupo_app_instruciones_responsable" sequence="3"/>
+
+
+</odoo>

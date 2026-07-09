@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- MENU DE USUARIO -->
+        <menuitem
+            id="menu_credenciales_root" name="Credenciales"
+            web_icon="sicpro_app_credenciales,static/description/icon.png"
+            groups="grupo_app_credenciales_ejecutor" sequence="75" />
+
+        <menuitem
+                id="menu_credenciales" name="Credenciales"
+                action="credenciales_views_actions"
+                parent="menu_credenciales_root"
+                sequence="1"/>
+
+
+        <menuitem
+            id="menu_credenciales_configuration" name="Configuración"
+            parent="menu_credenciales_root"
+            groups="grupo_app_credenciales_responsable" sequence="20"/>
+
+            <menuitem
+                id="menu_credenciales_tipo" name="Tipo de Credencial"
+                action="credenciales_tipo_action"
+                parent="menu_credenciales_configuration"
+                sequence="1"/>
+            <menuitem
+                id="menu_credenciales_accesos" name="Tipos de Accesos"
+                action="credenciales_tipo_accesos_action"
+                parent="menu_credenciales_configuration"
+                sequence="1"/>
+            <menuitem
+                id="menu_credenciales_siglas" name="Siglas"
+                action="credenciales_siglas_action"
+                parent="menu_credenciales_configuration"
+                sequence="1"/>
+        <menuitem
+                id="menu_credenciales_alcance" name="Alcance"
+                action="credenciales_tipo_alcance_action"
+                parent="menu_credenciales_configuration"
+                sequence="1"/>
+
+
+         </data>
+</odoo>

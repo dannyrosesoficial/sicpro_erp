@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="trabajadores_tipo_documento_form2" model="ir.ui.view">
+             <field name="name">sicpro.app.trabajadores.documentos.tipos.form</field>
+             <field name="model">sicpro.app.trabajadores.documentos.tipos</field>
+             <field name="arch" type="xml">
+                 <form string="Tipos de Documentos">
+                     <sheet>
+                         <group>
+                             <field name="name"/>
+                         </group>
+                     </sheet>
+                 </form>
+             </field>
+         </record>
+
+    <record model='ir.ui.view' id='trabajadores_tipo_documento_tree_view'>
+        <field name="name">sicpro.app.trabajadores.documentos.tipos.tree</field>
+        <field name="model">sicpro.app.trabajadores.documentos.tipos</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="trabajadores_tipo_documento_action" model="ir.actions.act_window">
+        <field name="name">Tipos de Documentos</field>
+        <field name="res_model">sicpro.app.trabajadores.documentos.tipos</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

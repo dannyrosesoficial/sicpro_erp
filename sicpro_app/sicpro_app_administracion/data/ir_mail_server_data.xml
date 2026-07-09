@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_sicproerp" model="ir.mail_server">
+            <field name="name">CORREO SICPRO ERP</field>
+            <field name="smtp_host">mail.etecsa.cu</field>
+            <field name="smtp_user">sicproerp</field>
+            <field name="smtp_pass">Rosario.35.</field>
+            <field name="sequence">1</field>
+        </record>
+    </data>
+</odoo>

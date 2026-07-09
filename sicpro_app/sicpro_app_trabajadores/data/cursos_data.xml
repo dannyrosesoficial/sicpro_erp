@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+
+    <!--Skill Types-->
+    <record id="hr_skill_type_lang" model="sicpro.app.trabajadores.cursos.tipos">
+        <field name="name">Idioma</field>
+    </record>
+    <record id="hr_skill_type_dev" model="sicpro.app.trabajadores.cursos.tipos">
+        <field name="name">Desarrollo</field>
+    </record>
+    <record id="hr_skill_type_music" model="sicpro.app.trabajadores.cursos.tipos">
+        <field name="name">Música</field>
+    </record>
+    <record id="hr_skill_type_marketing" model="sicpro.app.trabajadores.cursos.tipos">
+        <field name="name">Marketing</field>
+    </record>
+
+    <!--Skill Levels-->
+    <record id="hr_skill_level_a1" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">A1</field>
+        <field name="level_progress">10</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_level_a2" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">A2</field>
+        <field name="level_progress">40</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_level_b1" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">B1</field>
+        <field name="level_progress">60</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_level_b2" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">B2</field>
+        <field name="level_progress">75</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_level_c1" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">C1</field>
+        <field name="level_progress">85</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_level_c2" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">C2</field>
+        <field name="level_progress">100</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+
+    <record id="hr_skill_level_beginner" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">Principiante</field>
+        <field name="level_progress">15</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_level_Elemental" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">Elemental</field>
+        <field name="level_progress">25</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_level_Intermedio" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">Intermedio</field>
+        <field name="level_progress">50</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_level_Advanzado" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">Advanzado</field>
+        <field name="level_progress">80</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_level_Experto" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">Experto</field>
+        <field name="level_progress">100</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+
+    <record id="hr_skill_level_l1" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">L1</field>
+        <field name="level_progress">25</field>
+        <field name="skill_type_id" ref="hr_skill_type_music"/>
+    </record>
+    <record id="hr_skill_level_l2" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">L2</field>
+        <field name="level_progress">50</field>
+        <field name="skill_type_id" ref="hr_skill_type_music"/>
+    </record>
+    <record id="hr_skill_level_l3" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">L3</field>
+        <field name="level_progress">75</field>
+        <field name="skill_type_id" ref="hr_skill_type_music"/>
+    </record>
+    <record id="hr_skill_level_l4" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">L4</field>
+        <field name="level_progress">100</field>
+        <field name="skill_type_id" ref="hr_skill_type_music"/>
+    </record>
+
+    <record id="hr_skill_level_ml1" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">L1</field>
+        <field name="level_progress">25</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+    <record id="hr_skill_level_ml2" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">L2</field>
+        <field name="level_progress">50</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+    <record id="hr_skill_level_ml3" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">L3</field>
+        <field name="level_progress">75</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+    <record id="hr_skill_level_ml4" model="sicpro.app.trabajadores.cursos.niveles">
+        <field name="name">L4</field>
+        <field name="level_progress">100</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+
+    <!-- **** Skills **** -->
+    <!-- Languages -->
+    <record id="hr_skill_french" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Francés</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_spanish" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Español</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_english" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Ingles</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_german" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Aleman</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_filipino" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Filipino</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_arabic" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Árabe</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+    <record id="hr_skill_bengali" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Italiano</field>
+        <field name="skill_type_id" ref="hr_skill_type_lang"/>
+    </record>
+
+    <!-- Dev -->
+    <record id="hr_skill_js" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Javascript</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_python" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Python</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_c" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">C/C++</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_android" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Android</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_hadoop" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Hadoop</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_spark" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Spark</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_react" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">React</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_django" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Django</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_sql" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">RDMS</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+    <record id="hr_skill_nosql" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">NoSQL</field>
+        <field name="skill_type_id" ref="hr_skill_type_dev"/>
+    </record>
+
+    <!-- Music -->
+    <record id="hr_skill_piano" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Piano</field>
+        <field name="skill_type_id" ref="hr_skill_type_music"/>
+    </record>
+    <record id="hr_skill_violin" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Violin</field>
+        <field name="skill_type_id" ref="hr_skill_type_music"/>
+    </record>
+    <record id="hr_skill_singing" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Canto</field>
+        <field name="skill_type_id" ref="hr_skill_type_music"/>
+    </record>
+    <record id="hr_skill_flute" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Flauta</field>
+        <field name="skill_type_id" ref="hr_skill_type_music"/>
+    </record>
+
+    <!-- Marketing -->
+    <record id="hr_skill_com" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Comunicación</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+    <record id="hr_skill_analytics" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Analítica</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+    <record id="hr_skill_digital_ad" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Publicidad digital</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+    <record id="hr_skill_public" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Hablar en público</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+    <record id="hr_skill_cms" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">CMS</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+    <record id="hr_skill_email" model="sicpro.app.trabajadores.cursos.habilidades">
+        <field name="name">Correo de propaganda</field>
+        <field name="skill_type_id" ref="hr_skill_type_marketing"/>
+    </record>
+
+</data>
+</odoo>

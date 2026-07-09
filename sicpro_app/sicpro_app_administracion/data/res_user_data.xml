@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- usuario root del sistema -->
+        <record id="base.user_root" model="res.users">
+            <field name="display_name">SICPRO ERP</field>
+            <field name="name">SICPRO ERP</field>
+            <field name="email">sicproerp@sicproerp.cu</field>
+        </record>
+
+        <!-- plantilla usuario por defecto -->
+        <record id="base.default_user" model="res.users">
+            <field name="name">Plantilla Usuario por Defecto</field>
+            <field name="login">default</field>
+            <field name="notification_type">inbox</field>
+            <field name="active" eval="False"/>
+        </record>
+    </data>
+</odoo>

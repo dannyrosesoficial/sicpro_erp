@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="sicpro_modulo_administracion_cambios_form_view">
+            <field name="name">sicpro.app.administracion.cambios.form</field>
+            <field name="model">sicpro.app.administracion.cambios</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <form string="Cambios de la Aplicación">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sicpro_modulo_administracion_cambios_tree_view">
+            <field name="name">sicpro.app.administracion.cambios.tree</field>
+            <field name="model">sicpro.app.administracion.cambios</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree string="Cambios de la Aplicación" editable="bottom" create="false">
+                    <field name="name"/>
+                    <field name="id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sicpro_modulo_administracion_cambios_action" model="ir.actions.act_window">
+            <field name="name">Cambios en SICPRO ERP</field>
+            <field name="res_model">sicpro.app.administracion.cambios</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

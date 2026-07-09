@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+    <menuitem name="Demandas"
+        id="menu_demandas_root"
+        sequence="10" groups="grupo_demandas_usuario"
+        web_icon="sicpro_app_demandas,static/description/icon.png"/>
+
+
+    <menuitem name="Operaciones"
+        id="menu_demandas_operaciones"
+        sequence="1"
+        parent="menu_demandas_root"/>
+
+
+    <menuitem name="Responsable"
+        id="menu_demandas_responsables"
+        sequence="5"
+        parent="menu_demandas_root"
+        groups="grupo_demandas_responsable"/>
+   <menuitem name="Catálogo"
+        id="menu_demandas_catalogo"
+        sequence="1" action="demandas_catalogo_action"
+        parent="menu_demandas_responsables"/>
+
+
+    <menuitem name="Informes"
+        id="menu_demandas_informes"
+        sequence="50"
+        parent="menu_demandas_root"/>
+
+
+
+
+    <menuitem name="Configuración"
+        id="menu_demandas_configuracion"
+        sequence="99"
+        parent="menu_demandas_root"
+        groups="grupo_demandas_responsable"/>
+
+        <menuitem name="Etiquetas"
+        id="menu_demandas_etiquetas"
+        sequence="1" parent="menu_demandas_configuracion"
+        action="demandas_etiquetas_action"/>
+
+
+
+
+
+</data></odoo>

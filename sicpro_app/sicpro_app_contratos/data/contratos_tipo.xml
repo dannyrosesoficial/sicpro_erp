@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="sicpro.app.contratos.tipo" id="contrato_tipo_suministros">
+            <field name="name">Suministros</field>
+        </record>
+        <record model="sicpro.app.contratos.tipo" id="contrato_tipo_compraventa">
+            <field name="name">Compra-Venta</field>
+        </record>
+        <record model="sicpro.app.contratos.tipo" id="contrato_tipo_servicios">
+            <field name="name">Servicios</field>
+        </record>
+        <record model="sicpro.app.contratos.tipo" id="contrato_tipo_verbal">
+            <field name="name">Contrato Verbal</field>
+        </record>
+        <record model="sicpro.app.contratos.tipo" id="contrato_tipo_arrendamiento">
+            <field name="name">Contratos de Arrendamientos</field>
+        </record>
+
+
+    </data>
+
+
+</odoo>

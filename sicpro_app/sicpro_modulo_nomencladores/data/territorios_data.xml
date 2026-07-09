@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="sicpro.nomenclador.territorios" id="DTPR">
+        <field name="codigo">1</field>
+        <field name="abreviatura">DTPR</field>
+        <field name="name">División Territorial Pinar del Río</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTAR">
+        <field name="codigo">57</field>
+        <field name="abreviatura">DTAR</field>
+        <field name="name">División Territorial Artemisa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTNO">
+        <field name="codigo">3</field>
+        <field name="abreviatura">DTNO</field>
+        <field name="name">División Territorial Norte</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTSR">
+        <field name="codigo">4</field>
+        <field name="abreviatura">DTSR</field>
+        <field name="name">División Territorial Sur</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTES">
+        <field name="codigo">5</field>
+        <field name="abreviatura">DTES</field>
+        <field name="name">División Territorial Este</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTOE">
+        <field name="codigo">6</field>
+        <field name="abreviatura">DTOE</field>
+        <field name="name">División Territorial Oeste</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="AG5">
+        <field name="codigo">50</field>
+        <field name="abreviatura">AG5</field>
+        <field name="name">Área 5</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="AG6">
+        <field name="codigo">51</field>
+        <field name="abreviatura">AG6</field>
+        <field name="name">Área 6</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="VPIV">
+        <field name="codigo">28</field>
+        <field name="abreviatura">VPIV</field>
+        <field name="name">Vicepresidencia de Inversiones</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DVLH">
+        <field name="codigo">35</field>
+        <field name="abreviatura">DVLH</field>
+        <field name="name">División La Habana</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DVSM">
+        <field name="codigo">53</field>
+        <field name="abreviatura">DVSM</field>
+        <field name="name">División de Servicios Móviles</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DVSF">
+        <field name="codigo">21</field>
+        <field name="abreviatura">DVSF</field>
+        <field name="name">División de Servicios Fijos</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DVSI">
+        <field name="codigo">27</field>
+        <field name="abreviatura">DVSI</field>
+        <field name="name">División de Servicios Internacionales</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTMY">
+        <field name="codigo">56</field>
+        <field name="abreviatura">DTMY</field>
+        <field name="name">División Territorial Mayabeque</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTMZ">
+        <field name="codigo">8</field>
+        <field name="abreviatura">DTMZ</field>
+        <field name="name">División Territorial Matanzas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTCF">
+        <field name="codigo">10</field>
+        <field name="abreviatura">DTCF</field>
+        <field name="name">División Territorial Cienfuegos</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CF" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTVC">
+        <field name="codigo">9</field>
+        <field name="abreviatura">DTVC</field>
+        <field name="name">División Territorial Villa Clara</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTSS">
+        <field name="codigo">11</field>
+        <field name="abreviatura">DTSS</field>
+        <field name="name">División Territorial Sancti Spíritus</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SS" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTCA">
+        <field name="codigo">12</field>
+        <field name="abreviatura">DTCA</field>
+        <field name="name">División Territorial Ciego de Avila</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTCM">
+        <field name="codigo">13</field>
+        <field name="abreviatura">DTCM</field>
+        <field name="name">División Territorial Camaguey</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTLT">
+        <field name="codigo">14</field>
+        <field name="abreviatura">DTLT</field>
+        <field name="name">División Territorial Las Tunas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTHO">
+        <field name="codigo">15</field>
+        <field name="abreviatura">DTHO</field>
+        <field name="name">División Territorial Holguín</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTGR">
+        <field name="codigo">16</field>
+        <field name="abreviatura">DTGR</field>
+        <field name="name">División Territorial Granma</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTSC">
+        <field name="codigo">17</field>
+        <field name="abreviatura">DTSC</field>
+        <field name="name">División Territorial Santiago de Cuba</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="DTGT">
+        <field name="codigo">18</field>
+        <field name="abreviatura">DTGT</field>
+        <field name="name">División Territorial Guantánamo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.territorios" id="PR">
+        <field name="codigo">19</field>
+        <field name="abreviatura">DTIJ</field>
+        <field name="name">División Territorial Isla de la Juventud</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.IJ" />
+    </record>
+
+</odoo>

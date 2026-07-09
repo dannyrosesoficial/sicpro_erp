@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="instrucciones_views_kanban" model="ir.ui.view">
+        <field name="name">sicpro.app.instrucciones.instruccion.kanban</field>
+        <field name="model">sicpro.app.instrucciones.instruccion</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban" create="false"
+                    on_create="sicpro_app_instrucciones.create_job_simple" sample="1">
+                <field name="name"/>
+                <field name="color"/>
+                <field name="es_favorito"/>
+                <field name="user_id"/>
+                <field name="correo"/>
+                <field name="todo_request_count"/>
+                <field name="todo_request_count_aprobados"/>
+                <field name="todo_request_count_suspensos"/>
+                <field name="encuesta_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary col-12">
+                                        <span><t t-esc="record.name.value"/></span>
+                                    </div>
+                                    <div class="o_kanban_record_subtitle col-12 text-muted">
+                                        <field name="user_id" />
+                                    </div>
+                                    <field name="es_favorito" widget="boolean_favorite" nolabel="1"/>
+                                    <div class="o_secondary o_job_alias">
+                                        <small> <i class="fa fa-envelope-o" role="img" aria-label="Alias" title="Alias"></i> <field name="correo"/></small>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#"><i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/></a>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <t>
+                                    <div class="row" groups="sicpro_app_instrucciones.grupo_app_instruciones_responsable">
+                                        <div class="col-6">
+                                            <button class="btn btn-primary" name="%(instrucciones_trabajadores_action)d"
+                                                    type="action">
+                                               <field name="todo_request_count"/> Encuestados
+                                            </button>
+                                        </div>
+                                        <div class="col-6 o_kanban_primary_right">
+                                            <strong><field name="todo_request_count_aprobados"/></strong>
+                                            <a name="%(instrucciones_trabajadores_action)d" type="action"
+                                               context="{'search_default_aprobados': 1}"> Trabajadores Aprobados</a>
+                                            <br/>
+                                            <span class="text-danger"><field name="todo_request_count_suspensos"/></span>
+                                            <a name="%(instrucciones_trabajadores_action)d" type="action"
+                                               context="{'search_default_suspensos': 1}"> Trabajadores Suspensos</a>
+                                        </div>
+                                    </div>
+                                </t>
+                                <div name="kanban_boxes" class="row o_recruitment_kanban_boxes">
+                                    <div class="o_recruitment_kanban_box o_kanban_primary_bottom bottom_block" style="padding-left:8px;">
+                                        <div class="col-5 o_link_trackers">
+                                        </div>
+                                        <div class="col-7 o_link_trackers">
+                                            <button class="btn btn-link" name="%(instrucciones_trabajadores_action_crear)d" type="action"
+                                            context="{'default_instrucciones_id': active_id}">
+                                                VER INSTRUCCIÓN
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                <div class="o_kanban_card_manage_section">
+                                    <div role="menuitem"><a t-if="widget.editable" name="edit_job" type="edit">Editar</a></div>
+                                </div>
+                                <div role="menuitem" aria-haspopup="true">
+                                    <ul class="oe_kanban_colorpicker" data-field="color" role="menu"/>
+                                </div>
+                            </div>
+                            <div class="o_hr_job_boxes">
+                                <a class="o_hr_job_box" />
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="instrucciones_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Tablero de Instrucciones</field>
+        <field name="res_model">sicpro.app.instrucciones.instruccion</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="view_id" ref="instrucciones_views_kanban"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Agregar nuevas Instrucciones
+          </p>
+        </field>
+    </record>
+</odoo>

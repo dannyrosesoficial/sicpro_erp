@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="contratos_unidades_search_view">
+            <field name="name">sicpro.app.contratos.unidades.search</field>
+            <field name="model">sicpro.app.contratos.unidades</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Unidad">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_unidades_form_view">
+            <field name="name">sicpro.app.contratos.unidades.form</field>
+            <field name="model">sicpro.app.contratos.unidades</field>
+            <field name="arch" type="xml">
+                <form string="Unidad">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_unidades_tree_view">
+            <field name="name">sicpro.app.contratos.unidades.tree</field>
+            <field name="model">sicpro.app.contratos.unidades</field>
+            <field name="arch" type="xml">
+                <tree string="Unidad" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="contratos_unidades_action" model="ir.actions.act_window">
+            <field name="name">Unidades ejecutoras del contrato</field>
+            <field name="res_model">sicpro.app.contratos.unidades</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear una nueva unidad para la gestión del contrato...
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

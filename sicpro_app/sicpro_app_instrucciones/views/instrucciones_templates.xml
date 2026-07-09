@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="instrucciones assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/sicpro_app_instrucciones/static/src/scss/instrucciones.scss"/>
+             </xpath>
+        </template>
+        <template id="assets_tests" name="Instrucciones Assets Tests" inherit_id="web.assets_tests">
+            <xpath expr="." position="inside">
+            </xpath>
+        </template>
+    </data>
+</odoo>

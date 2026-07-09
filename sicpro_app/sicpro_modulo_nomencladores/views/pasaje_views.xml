@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+     <!--vista formulario-->
+    <record id="nomenclador_pasaje_form_view" model="ir.ui.view">
+        <field name="name">nomenclador.pasaje.form.view</field>
+        <field name="model">sicpro.nomenclador.pasaje</field>
+        <field name="arch" type="xml">
+            <form string="Pasaje">
+                <sheet>
+                    <group>
+                        <field name="active" invisible="1"/>
+                        <field name="company_currency" invisible="1"/>
+                        <field name="name"/>
+                        <field name="provincia"/>
+                        <field name="valor" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="nomenclador_pasaje_tree_view" model="ir.ui.view">
+        <field name="name">nomenclador.pasaje.tree.view</field>
+        <field name="model">sicpro.nomenclador.pasaje</field>
+        <field name="arch" type="xml">
+            <tree string="Pasaje" editable="bottom">
+                <field name="active" invisible="1"/>
+                <field name="company_currency" invisible="1"/>
+                <field name="name"/>
+                <field name="provincia"/>
+                <field name="valor" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--Busqueda-->
+    <record id="nomenclador_pasaje_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Pasaje</field>
+       <field name="model">sicpro.nomenclador.pasaje</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Pasaje">
+                <field name="name"/>
+                <field name="provincia"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_nomenclador_pasaje" model="ir.actions.act_window">
+        <field name="name">Pasajes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.pasaje</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    </data>
+</odoo>

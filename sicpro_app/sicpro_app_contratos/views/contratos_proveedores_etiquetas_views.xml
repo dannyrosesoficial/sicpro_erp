@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="contratos_proveedores_etiquetas_search_view">
+            <field name="name">sicpro.app.contratos.proveedores.etiquetas.search</field>
+            <field name="model">sicpro.app.contratos.proveedores.etiquetas</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Etiquetas">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_proveedores_etiquetas_form_view">
+            <field name="name">sicpro.app.contratos.proveedores.etiquetas.form</field>
+            <field name="model">sicpro.app.contratos.proveedores.etiquetas</field>
+            <field name="arch" type="xml">
+                <form string="Etiquetas del Proveedor">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contratos_proveedores_etiquetas_tree_view">
+            <field name="name">sicpro.app.contratos.proveedores.etiquetas.tree</field>
+            <field name="model">sicpro.app.contratos.proveedores.etiquetas</field>
+            <field name="arch" type="xml">
+                <tree string="Etiquetas del Proveedor" editable="bottom">
+                    <field name="name"/>
+                    <field name="color" widget="color_picker"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="contratos_proveedores_etiquetas_action" model="ir.actions.act_window">
+            <field name="name">Etiquetas del Proveedor</field>
+            <field name="res_model">sicpro.app.contratos.proveedores.etiquetas</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Crear nueva etiqueta...
+              </p>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

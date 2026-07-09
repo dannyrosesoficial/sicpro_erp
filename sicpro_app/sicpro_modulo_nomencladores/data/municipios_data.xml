@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+    <record model="sicpro.nomenclador.municipio" id="ConsolacióndelSur">
+        <field name="name">Consolación del Sur</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Guane">
+        <field name="name">Guane</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="LaPalma">
+        <field name="name">La Palma</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="LosPalacios">
+        <field name="name">Los Palacios</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Mantua">
+        <field name="name">Mantua</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="MinasdeMatahambre">
+        <field name="name">Minas de Matahambre</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="PinardelRio">
+        <field name="name">Pinar del Río</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanJuanyMartinez">
+        <field name="name">San Juan y Martínez</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanLuis1">
+        <field name="name">San Luis</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Sandino">
+        <field name="name">Sandino</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Vinales">
+        <field name="name">Viñales</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.PR" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Alquizar">
+        <field name="name">Alquízar</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Artemisa">
+        <field name="name">Artemisa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Bauta">
+        <field name="name">Bauta</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Caimito">
+        <field name="name">Caimito</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Guanajay">
+        <field name="name">Guanajay</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="GuiradeMelena">
+        <field name="name">Güira de Melena</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Mariel">
+        <field name="name">Mariel</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanAntoniodelosBaños">
+        <field name="name">San Antonio de los Baños</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Candelaria">
+        <field name="name">Candelaria</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanCristóbal">
+        <field name="name">San Cristóbal</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanBahiaHonda">
+        <field name="name">Bahía Honda</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.AR" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="ArroyoNaranjo">
+        <field name="name">Arroyo Naranjo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Boyeros">
+        <field name="name">Boyeros</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="CentroHabana">
+        <field name="name">Centro Habana</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Cerro">
+        <field name="name">Cerro</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Cotorro">
+        <field name="name">Cotorro</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="DiezdeOctubre">
+        <field name="name">Diez de Octubre</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Guanabacoa">
+        <field name="name">Guanabacoa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="LaHabanadelEste">
+        <field name="name">La Habana del Este</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="LaHabanaVieja">
+        <field name="name">La Habana Vieja</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="LaLisa">
+        <field name="name">La Lisa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Marianao">
+        <field name="name">Marianao</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Playa">
+        <field name="name">Playa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="PlazadelaRevolucion">
+        <field name="name">Plaza de la Revolución</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Regla">
+        <field name="name">Regla</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanMigueldelPadron">
+        <field name="name">San Miguel del Padrón</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LH" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Batabano">
+        <field name="name">Batabanó</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Bejucal">
+        <field name="name">Bejucal</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Guines">
+        <field name="name">Güines</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Jaruco">
+        <field name="name">Jaruco</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Madruga">
+        <field name="name">Madruga</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="MelenadelSur">
+        <field name="name">Melena del Sur</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="NuevaPaz">
+        <field name="name">Nueva Paz</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Quivican">
+        <field name="name">Quivicán</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanJosedelasLajas">
+        <field name="name">San José de las Lajas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanNicolas">
+        <field name="name">San Nicolás</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SantaCruzdelNorte">
+        <field name="name">Santa Cruz del Norte</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MY" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Calimete">
+        <field name="name">Calimete</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Cardenas">
+        <field name="name">Cárdenas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="CienagadeZapata">
+        <field name="name">Ciénaga de Zapata</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Colon">
+        <field name="name">Colón</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="JagueyGrande">
+        <field name="name">Jagüey Grande</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Jovellanos">
+        <field name="name">Jovellanos</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Limonar">
+        <field name="name">Limonar</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="LosArabos">
+        <field name="name">Los Arabos</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Marti">
+        <field name="name">Martí</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Matanzas">
+        <field name="name">Matanzas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="PedroBetancourt">
+        <field name="name">Pedro Betancourt</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Perico">
+        <field name="name">Perico</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="UniondeReyes">
+        <field name="name">Unión de Reyes</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Varadero">
+        <field name="name">Varadero</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.MZ" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Abreus">
+        <field name="name">Abreus</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CF" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="AguadadePasajeros">
+        <field name="name">Aguada de Pasajeros</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CF" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Cienfuegos">
+        <field name="name">Cienfuegos</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CF" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Cruces">
+        <field name="name">Cruces</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CF" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Cumanayagua">
+        <field name="name">Cumanayagua</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CF" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Lajas">
+        <field name="name">Lajas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CF" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Palmira">
+        <field name="name">Palmira</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CF" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Rodas">
+        <field name="name">Rodas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CF" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Caibarien">
+        <field name="name">Caibarién</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Camajuani">
+        <field name="name">Camajuaní</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Cifuentes">
+        <field name="name">Cifuentes</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Corralillo">
+        <field name="name">Corralillo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Encrucijada">
+        <field name="name">Encrucijada</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Manicaragua">
+        <field name="name">Manicaragua</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Placetas">
+        <field name="name">Placetas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="QuemadodeGuines">
+        <field name="name">Quemado de Güines</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Ranchuelo">
+        <field name="name">Ranchuelo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanJuandelosRemedios">
+        <field name="name">San Juan de los Remedios</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SagualaGrande">
+        <field name="name">Sagua la Grande</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SantaClara">
+        <field name="name">Santa Clara</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SantoDomingo">
+        <field name="name">Santo Domingo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.VC" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Cabaiguan">
+        <field name="name">Cabaiguán</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SS" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Fomento">
+        <field name="name">Fomento</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SS" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Jatibonico">
+        <field name="name">Jatibonico</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SS" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="LaSierpe">
+        <field name="name">La Sierpe</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SS" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanctiSpiritus">
+        <field name="name">Sancti Spíritus</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SS" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Taguasco">
+        <field name="name">Taguasco</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SS" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Trinidad">
+        <field name="name">Trinidad</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SS" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Yaguajay">
+        <field name="name">Yaguajay</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SS" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Baragua">
+        <field name="name">Baraguá</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Bolivia">
+        <field name="name">Bolivia</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Chambas">
+        <field name="name">Chambas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Ciegodeavila">
+        <field name="name">Ciego de Ávila</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="CiroRedondo">
+        <field name="name">Ciro Redondo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Florencia">
+        <field name="name">Florencia</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Majagua">
+        <field name="name">Majagua</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Moron">
+        <field name="name">Morón</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="PrimerodeEnero">
+        <field name="name">Primero de Enero</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Venezuela">
+        <field name="name">Venezuela</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CA" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Camaguey">
+        <field name="name">Camagüey</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="CarlosMdeCéspedes">
+        <field name="name">Carlos M. de Céspedes</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Esmeralda">
+        <field name="name">Esmeralda</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Florida">
+        <field name="name">Florida</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Guaimaro">
+        <field name="name">Guáimaro</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Jimaguayu">
+        <field name="name">Jimaguayú</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Minas">
+        <field name="name">Minas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Najasa">
+        <field name="name">Najasa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Nuevitas">
+        <field name="name">Nuevitas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SantaCruzdelSur">
+        <field name="name">Santa Cruz del Sur</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Sibanicu">
+        <field name="name">Sibanicú</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SierradeCubitas">
+        <field name="name">Sierra de Cubitas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.CM" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Vertientes">
+        <field name="name">Vertientes</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Amancio">
+        <field name="name">Amancio</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Colombia">
+        <field name="name">Colombia</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="JesusMenéndez">
+        <field name="name">Jesús Menéndez</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Jobabo">
+        <field name="name">Jobabo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Majibacoa">
+        <field name="name">Majibacoa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Manati">
+        <field name="name">Manatí</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="PuertoPadre">
+        <field name="name">Puerto Padre</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="LasTunas">
+        <field name="name">Las Tunas</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.LT" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Antilla">
+        <field name="name">Antilla</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Baguanos">
+        <field name="name">Báguanos</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Banes">
+        <field name="name">Banes</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Cacocum">
+        <field name="name">Cacocum</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="CalixtoGarcia">
+        <field name="name">Calixto García</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Cueto">
+        <field name="name">Cueto</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="FrankPais">
+        <field name="name">Frank País</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Gibara">
+        <field name="name">Gibara</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Holguin">
+        <field name="name">Holguín</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Mayari">
+        <field name="name">Mayarí</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Moa">
+        <field name="name">Moa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="RafaelFreyre">
+        <field name="name">Rafael Freyre</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SaguadeTanamo">
+        <field name="name">Sagua de Tánamo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="UrbanoNoris">
+        <field name="name">Urbano Noris</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.HO" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="BartolomeMaso">
+        <field name="name">Bartolomé Masó</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Bayamo">
+        <field name="name">Bayamo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="BueyArriba">
+        <field name="name">Buey Arriba</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Campechuela">
+        <field name="name">Campechuela</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="CautoCristo">
+        <field name="name">Cauto Cristo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Guisa">
+        <field name="name">Guisa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Jiguani">
+        <field name="name">Jiguaní</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Manzanillo">
+        <field name="name">Manzanillo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="MediaLuna">
+        <field name="name">Media Luna</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Niquero">
+        <field name="name">Niquero</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Pilon">
+        <field name="name">Pilón</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="RioCauto">
+        <field name="name">Río Cauto</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Yara">
+        <field name="name">Yara</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GR" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Contramaestre">
+        <field name="name">Contramaestre</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Guama">
+        <field name="name">Guamá</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Mella">
+        <field name="name">Mella</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="PalmaSoriano">
+        <field name="name">Palma Soriano</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanLuis">
+        <field name="name">San Luis</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SantiagodeCuba">
+        <field name="name">Santiago de Cuba</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SegundoFrente">
+        <field name="name">Segundo Frente</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SongoLaMaya">
+        <field name="name">Songo-La Maya</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="TercerFrente">
+        <field name="name">Tercer Frente</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.SC" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="Baracoa">
+        <field name="name">Baracoa</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Caimanera">
+        <field name="name">Caimanera</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="ElSalvador">
+        <field name="name">El Salvador</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Guantánamo">
+        <field name="name">Guantánamo</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Imias">
+        <field name="name">Imías</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Maisi">
+        <field name="name">Maisí</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="ManuelTames">
+        <field name="name">Manuel Tames</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="NicetoPérez">
+        <field name="name">Niceto Pérez</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="SanAntoniodelSur">
+        <field name="name">San Antonio del Sur</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+    <record model="sicpro.nomenclador.municipio" id="Yateras">
+        <field name="name">Yateras</field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.GT" />
+    </record>
+
+    <record model="sicpro.nomenclador.municipio" id="NuevaGerona2">
+        <field name="name">Nueva Gerona </field>
+        <field name="provincia" ref="sicpro_modulo_nomencladores.IJ" />
+    </record>
+
+</odoo>

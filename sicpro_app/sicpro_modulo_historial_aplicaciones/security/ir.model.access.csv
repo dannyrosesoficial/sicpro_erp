@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+historial_aplicaciones_admin,Historial aplicaciones Admin,model_sicpro_modulo_historial_aplicaciones,sicpro_app_administracion.grupo_app_administracion_admin,1,1,1,1

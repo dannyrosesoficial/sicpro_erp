@@ -1,0 +1,19 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+
+credenciales_tipo_base_user,tipo base.user,model_sicpro_app_credenciales_tipo,base.group_user,1,0,0,0
+credenciales_siglas_base_user,siglas base.user,model_sicpro_app_credenciales_siglas,base.group_user,1,0,0,0
+credenciales_accesos_base_user,accesos base.user,model_sicpro_app_credenciales_accesos,base.group_user,1,0,0,0
+credenciales_alcance_base_user,alcance base.user,model_sicpro_app_credenciales_alcance,base.group_user,1,0,0,0
+
+credenciales_credenciales_base_user,credenciales base.user,model_sicpro_app_credenciales,grupo_app_credenciales_ejecutor,1,1,1,0
+
+credenciales_tipo_responsable,tipo responsable,model_sicpro_app_credenciales_tipo,grupo_app_credenciales_responsable,1,1,1,0
+credenciales_siglas_responsable,siglas responsable,model_sicpro_app_credenciales_siglas,grupo_app_credenciales_responsable,1,1,1,0
+credenciales_accesos_responsable,accesos responsable,model_sicpro_app_credenciales_accesos,grupo_app_credenciales_responsable,1,1,1,0
+credenciales_alcance_responsable,alcance responsable,model_sicpro_app_credenciales_alcance,grupo_app_credenciales_responsable,1,1,1,0
+
+credenciales_tipo_admin,tipo admin,model_sicpro_app_credenciales_tipo,grupo_app_credenciales_admin,1,1,1,1
+credenciales_siglas_admin,siglas admin,model_sicpro_app_credenciales_siglas,grupo_app_credenciales_admin,1,1,1,1
+credenciales_accesos_admin,accesos admin,model_sicpro_app_credenciales_accesos,grupo_app_credenciales_admin,1,1,1,1
+credenciales_alcance_admin,alcance admin,model_sicpro_app_credenciales_alcance,grupo_app_credenciales_admin,1,1,1,1
+credenciales_credenciales_admin,credenciales admin,model_sicpro_app_credenciales,grupo_app_credenciales_admin,1,1,1,1

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+        <menuitem name="Administración"
+            id="menu_administracion"
+            web_icon="sicpro_app_administracion,static/description/icon.png"
+            sequence="10"
+                  groups="grupo_app_administracion_admin"/>
+
+        <menuitem action="sicpro_app_administracion_action"
+                  id="menu_administracion_1"
+                  name="Administración" parent="menu_administracion"
+                  sequence="1"/>
+
+            <menuitem action="sicpro_app_administracion_database_action"
+                  id="menu_administracion_database"
+                  name="Gestor de BaseDatos" parent="menu_administracion_1"
+                  sequence="2"/>
+
+            <menuitem action="base.grant_menu_access"
+                  id="menu_administracion_elementos_menu"
+                  name="Elementos del menu" parent="menu_administracion_1"
+                  sequence="3"/>
+
+            <menuitem action="mail.action_view_mail_message"
+                  id="menu_administracion_mensaje"
+                  name="Mensajes" parent="menu_administracion_1"
+                  sequence="5"/>
+
+            <menuitem action="mail.mail_notification_action"
+                  id="menu_administracion_notificaciones"
+                  name="Notificaciones" parent="menu_administracion_1"
+                  sequence="6"/>
+
+            <menuitem action="mail.mail_channel_action_view"
+                  id="menu_administracion_canales"
+                  name="Canales" parent="menu_administracion_1"
+                  sequence="7"/>
+
+        <menuitem action="base.action_ir_mail_server_list"
+                  id="menu_administracion_correo_servidor"
+                  name="Servidor de correo saliente" parent="menu_administracion_1"
+                  sequence="8"/>
+
+        <menuitem action="mail.action_email_template_tree_all"
+                  id="menu_administracion_correo_plantillas"
+                  name="Plantillas de Correo" parent="menu_administracion_1"
+                  sequence="9"/>
+
+        <menuitem action="mail.action_view_mail_mail"
+                  id="menu_administracion_correos"
+                  name="Correos electrónicos" parent="menu_administracion_1"
+                  sequence="10"/>
+
+            <menuitem action="base.ir_config_list_action"
+                  id="menu_administracion_parametros"
+                  name="Parámetros del sistema" parent="menu_administracion_1"
+                  sequence="12"/>
+
+            <menuitem id="menu_imagen_importar" name="Importar Imágenes Masivo"
+                      action="image_importer_wizard_action"
+                      parent="menu_administracion_1" sequence="13"/>
+
+            <menuitem action="sicpro_modulo_administracion_cambios_action"
+                id="menu_avanzado_cambios_version"
+                name="Cambios de Versiones" parent="menu_administracion_1"
+                sequence="195" groups="base.group_system"/>
+
+            <menuitem
+                id="menu_modo_mantenimiento"
+                name="Modo Mantenimiento"
+                parent="menu_administracion_1"
+                sequence="198"
+                action="mantenimiento_action"
+                groups="base.group_system"/>
+
+
+        <menuitem id="menu_administracion_3"
+                  name="Auditorías" parent="menu_administracion"
+                  sequence="90"/>
+
+        <menuitem id="menu_administracion_logs"
+                  name="Logs" parent="menu_administracion_3"
+                  sequence="30"/>
+            <menuitem action="smile_log.act_smile_log"
+                  id="menu_administracion_log"
+                  name="Log de las Aplicaciones" parent="menu_administracion_logs"
+                  sequence="1"/>
+
+
+        <menuitem id="menu_administracion_2"
+                  name="Automatización" parent="menu_administracion"
+                  sequence="90"/>
+
+        <menuitem action="base_automation.base_automation_act"
+                  id="menu_administracion_automatizaciones"
+                  name="Acciones automáticas" parent="menu_administracion_2"
+                  sequence="1"/>
+
+        <menuitem action="base.ir_cron_act"
+                  id="menu_administracion_planificadas"
+                  name="Acciones planificadas" parent="menu_administracion_2"
+                  sequence="2"/>
+
+        <menuitem id="menu_administracion_4"
+                  name="Usuarios y Procesos" parent="menu_administracion"
+                  sequence="90"/>
+            <menuitem action="base.action_res_users"
+                  id="menu_administracion_usuarios"
+                  name="Usuarios" parent="menu_administracion_4"
+                  sequence="1"/>
+            <menuitem action="sicpro_modulo_roles.action_res_users_role_tree"
+                  id="menu_administracion_roles"
+                  name="Roles" parent="menu_administracion_4"
+                  sequence="2"/>
+            <menuitem action="base.action_res_groups"
+                  id="menu_administracion_grupos"
+                  name="Grupos" parent="menu_administracion_4"
+                  sequence="3"/>
+            <menuitem action="base.action_res_company_form"
+                  id="menu_administracion_procesos"
+                  name="Gestión de Procesos" parent="menu_administracion_4"
+                  sequence="5"/>
+
+        <menuitem id="base.menu_custom" name="Técnico" parent="menu_administracion"
+                  sequence="110" groups="base.group_system"/>
+
+
+    </data>
+</odoo>

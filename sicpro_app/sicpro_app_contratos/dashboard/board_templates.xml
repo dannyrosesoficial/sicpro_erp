@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="assets_backend_contratos" name="board assets contratos" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/sicpro_app_contratos/static/src/scss/dashboard.scss"/>
+                <script type="text/javascript" src="/sicpro_app_contratos/static/src/js/action_manager_board_action.js"></script>
+                <script type="text/javascript" src="/sicpro_app_contratos/static/src/js/board_view.js"></script>
+                <script type="text/javascript" src="/sicpro_app_contratos/static/src/js/add_to_board_menu.js"></script>
+            </xpath>
+        </template>
+
+</odoo>

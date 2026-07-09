@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+     <!-- Creo la categoría de permisos Iniciativas -->
+      <record id="module_category_solicitud" model="ir.module.category">
+        <field name="name">Solicitudes</field>
+        <field name="description">Módulo para el control de los metadata de la solicitudes de trabajo.</field>
+           <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_solicitudes_obras"/>
+          <field name="sequence" >2</field>
+      </record>
+
+      <record id="grupo_app_solicitud_usuario" model="res.groups">
+        <field name="name">Usuarios</field>
+        <field name="comment">Permisos de lectura</field>
+        <field name="category_id" ref="module_category_solicitud"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+      </record>
+
+      <record id="grupo_app_solicitud_visualizar_todo" model="res.groups">
+        <field name="name">Usuarios Visualizar Todo</field>
+        <field name="comment">Permisos de lectura</field>
+        <field name="category_id" ref="module_category_solicitud"/>
+        <field name="implied_ids" eval="[(4, ref('grupo_app_solicitud_usuario'))]"/>
+      </record>
+
+      <record id="grupo_app_solicitud_responsable" model="res.groups">
+        <field name="name">Responsable</field>
+        <field name="comment">Permisos de lectura/Escritura</field>
+        <field name="category_id" ref="module_category_solicitud"/>
+        <field name="implied_ids" eval="[(4, ref('grupo_app_solicitud_visualizar_todo'))]"/>
+      </record>
+
+      <record id="grupo_app_solicitud_admin" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="comment">Permisos Completos</field>
+        <field name="category_id" ref="module_category_solicitud"/>
+        <field name="implied_ids" eval="[(4, ref('grupo_app_solicitud_responsable'))]"/>
+      </record>
+    </data>
+<data noupdate="0">
+    <record id="solicitudes_rule_usuario_proceso" model="ir.rule">
+        <field name="name">Visualizar el proceso</field>
+        <field ref="model_sicpro_app_solicitudes_tabla_oportunidades" name="model_id"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_solicitud_usuario'))]"/>
+    </record>
+
+    <record id="solicitudes_rule_usuario_visualizar_todo" model="ir.rule">
+        <field name="name">Visualizar Todo Solicitudes</field>
+        <field ref="model_sicpro_app_solicitudes_tabla_oportunidades" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_solicitud_visualizar_todo'))]"/>
+    </record>
+
+    <record id="iniciativas_rule_proceso" model="ir.rule">
+        <field name="name">Vista de procesos iniciativas</field>
+        <field ref="base.model_res_company" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_solicitud_responsable'))]"/>
+    </record>
+</data>
+
+<!-- inversionistas -->
+    <data>
+     <!-- Creo la categoría de permisos Iniciativas -->
+    <record id="module_category_solicitud_iniciativas" model="ir.module.category">
+        <field name="name">Inversionistas</field>
+        <field name="description">Módulo para el control de las Iniciativas de trabajo de los inversionistas.</field>
+         <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_solicitudes_obras"/>
+        <field name="sequence" >3</field>
+    </record>
+    <record id="grupo_app_iniciativas_ejecutor" model="res.groups">
+        <field name="name">Ejecutor</field>
+        <field name="comment">Permisos de lectura/Escritura</field>
+        <field name="category_id" ref="module_category_solicitud_iniciativas"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</data>
+<data noupdate="0">
+    <record id="inversionistas_rule_proceso" model="ir.rule">
+        <field name="name">Regla Procesos Inversionistas</field>
+        <field ref="base.model_res_company" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_iniciativas_ejecutor'))]"/>
+    </record>
+    <record id="inversionistas_rule_clientes" model="ir.rule">
+        <field name="name">Iniciativas Inversionista Ejecutor</field>
+        <field ref="model_sicpro_app_solicitudes_oportunidades" name="model_id"/>
+        <field name="domain_force">[('partner_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_iniciativas_ejecutor'))]"/>
+    </record>
+</data>
+
+<!-- negociación -->
+    <data>
+         <!-- Creo la categoría de permisos Negocio -->
+    <record id="module_category_solicitud_negocio" model="ir.module.category">
+        <field name="name">Negociación</field>
+        <field name="description">Módulo para el control del Negocio de trabajo de los inversionistas.</field>
+        <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_solicitudes_obras"/>
+        <field name="sequence" >4</field>
+    </record>
+        <record id="grupo_app_negocio_ejecutor" model="res.groups">
+        <field name="name">Ejecutor</field>
+        <field name="comment">Permisos de lectura/Escritura</field>
+        <field name="category_id" ref="module_category_solicitud_negocio"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</data>
+<data noupdate="0">
+    <record id="negocio_rule_clientes" model="ir.rule">
+        <field name="name">Iniciativas Negocio Procesos</field>
+        <field ref="model_sicpro_app_solicitudes_oportunidades" name="model_id"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_negocio_ejecutor'))]"/>
+    </record>
+</data>
+
+
+    <!-- Revisión del negocio -->
+    <data>
+         <!-- Creo la categoría de permisos Revisión del Negocio -->
+    <record id="module_category_solicitud_negocio_pg" model="ir.module.category">
+        <field name="name">Revisión del Negocio</field>
+        <field name="description">Módulo para el control del Negocio de trabajo de los inversionistas.</field>
+        <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_solicitudes_obras"/>
+        <field name="sequence" >5</field>
+    </record>
+        <record id="grupo_app_negocio_pg_ejecutor" model="res.groups">
+        <field name="name">Ejecutor</field>
+        <field name="comment">Permisos de lectura/Escritura</field>
+        <field name="category_id" ref="module_category_solicitud_negocio_pg"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</data>
+<data noupdate="0">
+    <record id="negocio_pg_rule_clientes" model="ir.rule">
+        <field name="name">Iniciativas Revisión del Negocio Procesos</field>
+        <field ref="model_sicpro_app_solicitudes_oportunidades" name="model_id"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_negocio_pg_ejecutor'))]"/>
+    </record>
+</data>
+
+<!-- ejecutores -->
+    <data>
+         <!-- Creo la categoría de permisos Ejecutor -->
+    <record id="module_category_solicitud_ejecutor" model="ir.module.category">
+        <field name="name">Distribuidores</field>
+        <field name="description">Módulo para el control del Negocio de trabajo de los inversionistas.</field>
+        <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_solicitudes_obras"/>
+        <field name="sequence" >6</field>
+    </record>
+    <record id="grupo_app_ejecutor_ejecutor" model="res.groups">
+        <field name="name">Ejecutor</field>
+        <field name="comment">Permisos de lectura/Escritura</field>
+        <field name="category_id" ref="module_category_solicitud_ejecutor"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</data>
+<data noupdate="0">
+    <record id="ejecutor_rule_clientes" model="ir.rule">
+        <field name="name">Regla Iniciativas Ejecutor Procesos</field>
+        <field ref="model_sicpro_app_solicitudes_oportunidades" name="model_id"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_ejecutor_ejecutor'))]"/>
+    </record>
+</data>
+
+<!-- grupos -->
+    <data>
+         <!-- Creo la categoría de permisos Grupos -->
+    <record id="module_category_solicitud_grupos" model="ir.module.category">
+        <field name="name">Especialista Ejecutor</field>
+        <field name="description">Módulo para el control del Negocio de trabajo de los inversionistas.</field>
+        <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_solicitudes_obras"/>
+        <field name="sequence" >7</field>
+    </record>
+    <record id="grupo_app_grupos_ejecutor" model="res.groups">
+        <field name="name">Ejecutor</field>
+        <field name="comment">Permisos de lectura/Escritura</field>
+        <field name="category_id" ref="module_category_solicitud_grupos"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</data>
+<data noupdate="0">
+    <record id="grupos_rule_grupos_ejecucion_ejecutor" model="ir.rule">
+        <field name="name">Regla especialista ejecutor</field>
+        <field ref="model_sicpro_app_solicitudes_oportunidades" name="model_id"/>
+        <field name="domain_force">['&amp;', ('company_id', 'in', company_ids),
+                                    ('especialista_ejecutor', '=', user.trabajador.id)]</field>
+        <field name="groups" eval="[(4, ref('grupo_app_grupos_ejecutor'))]"/>
+    </record>
+</data>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="select_pg_catalog_pg_table" model="tipsqueries">
+        <field name="name">SELECT * FROM pg_catalog.pg_tables;</field>
+        <field name="description">Display all the tables inside that database</field>
+    </record>
+
+    <record id="select_datname_pg_database" model="tipsqueries">
+        <field name="name">SELECT datname FROM pg_database;</field>
+        <field name="description">List of all the databases inside that postgresQL</field>
+    </record>
+
+    <record id="select_pg_user" model="tipsqueries">
+        <field name="name">SELECT * FROM pg_user;</field>
+        <field name="description">List of all the users using that postgresQL</field>
+    </record>
+
+    <record id="select_versions" model="tipsqueries">
+        <field name="name">SELECT version();</field>
+        <field name="description">The version of that Postgresql</field>
+    </record>
+</odoo>

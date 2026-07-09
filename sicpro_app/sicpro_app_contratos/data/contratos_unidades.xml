@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="sicpro.app.contratos.unidades" id="unidades_direcciones">
+            <field name="name">Direcciones</field>
+        </record>
+        <record model="sicpro.app.contratos.unidades" id="unidades_capitalhumano">
+            <field name="name">Capital Humano</field>
+        </record>
+        <record model="sicpro.app.contratos.unidades" id="uniddes_logistica">
+            <field name="name">Logística y Servicios</field>
+        </record>
+        <record model="sicpro.app.contratos.unidades" id="unidades_informatica">
+            <field name="name">Sistemas Informáticos</field>
+        </record>
+        <record model="sicpro.app.contratos.unidades" id="unidades_economia">
+            <field name="name">Economía</field>
+        </record>
+
+    </data>
+
+
+</odoo>

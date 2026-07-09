@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <menuitem name="Salón de Clases"
+                  id="salon_clases_menu_root"
+                  groups="base.group_user"
+                  web_icon="sicpro_app_salon_clases,static/description/icon.png"
+                  sequence="50"/>
+
+        <menuitem id="salon_clases_menu_clases" name="Estudio"
+                  parent="salon_clases_menu_root"
+                  sequence="1"/>
+
+             <menuitem action="salon_clases_temas_kanban_action" id="salon_clases_menu_tematicas"
+                  name="Temáticas" parent="salon_clases_menu_clases"
+                  sequence="1"/>
+
+
+        <menuitem id="salon_clases_menu_config" name="Configuración"
+                  parent="salon_clases_menu_root"
+                  groups="grupo_app_salon_clases_responsable"
+                  sequence="100"/>
+
+             <menuitem action="salon_clases_temas_action" id="salon_clases_menu_temas"
+                  name="Temáticas" parent="salon_clases_menu_config"
+                  sequence="1"/>
+
+             <menuitem action="salon_clases_tipos_action" id="salon_clases_menu_temas_tipos"
+                  name="Tipos de Temáticas" parent="salon_clases_menu_config"
+                  sequence="1"/>
+
+             <menuitem action="salon_clases_etiquetas_action" id="salon_clases_menu_etiquetas"
+                  name="Etiquetas" parent="salon_clases_menu_config"
+                  sequence="3"/>
+
+
+</odoo>

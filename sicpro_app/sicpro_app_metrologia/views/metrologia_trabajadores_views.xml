@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sicpro_app_trabajadores_general_metrologia" model="ir.ui.view">
+        <field name="name">sicpro.app.trabajadores.metrologia.form</field>
+        <field name="model">sicpro.app.trabajadores</field>
+        <field name="inherit_id" ref="sicpro_app_trabajadores.view_trabajadores_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="%(metrologia_equipamiento_action)d"
+                    context="{'search_default_trabajador_id': id, 'default_trabajador_id': id}"
+                    class="o_stat_button" icon="fa-cubes" type="action">
+                    <field name="equipment_count" widget="statinfo" string="Metrología"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+
+</odoo>

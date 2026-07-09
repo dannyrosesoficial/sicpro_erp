@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record model="ir.module.category" id="module_category_demandas">
+            <field name="name">Demanda de Artículos</field>
+            <field name="parent_id" ref="sicpro_app_administracion.modulo_categoria_activos_herramientas"/>
+            <field name="sequence" >2</field>
+        </record>
+
+        <record id="grupo_demandas_usuario" model="res.groups">
+            <field name="name">Usuario</field>
+            <field name="category_id" ref="module_category_demandas"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grupo_demandas_ejecutor" model="res.groups">
+            <field name="name">Ejecutor</field>
+            <field name="category_id" ref="module_category_demandas"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_demandas_usuario'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+        <record id="grupo_demandas_responsable" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="category_id" ref="module_category_demandas"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_demandas_ejecutor'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+        <record id="grupo_demandas_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="category_id" ref="module_category_demandas"/>
+            <field name="implied_ids" eval="[(4, ref('grupo_demandas_responsable'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+    </data>
+</odoo>

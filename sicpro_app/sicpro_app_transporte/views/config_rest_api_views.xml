@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="transporte_rest_api_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.transporte.api.view.tree</field>
+        <field name="model">sicpro.app.transporte.api</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="web"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="transporte_rest_api_view_form" model="ir.ui.view">
+        <field name="name">sicpro.app.transporte.api.view.form</field>
+        <field name="model">sicpro.app.transporte.api</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="cron_ejecutar_sipetc" string="Ejecutar Cron" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="usuario"/>
+                            <field name="password" password="True"/>
+                            </group>
+                        <group>
+                            <field name="web"/>
+                            <field name="url_login"/>
+                            <field name="url_data"/>
+                            <field name="url_cierre"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="descripcion"/>
+                    </group>
+                    <group>
+                        <button name="test_conexion_sipetc" string="Test de Conexión" type="object"
+                                    class="oe_highlight"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="transporte_rest_api_view_filter" model="ir.ui.view">
+       <field name="name">esicpro.app.transporte.api.view.filter</field>
+       <field name="model">sicpro.app.transporte.api</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name" string="Aplicación"/>
+        </search>
+       </field>
+    </record>
+
+    <record id="transporte_rest_api_action" model="ir.actions.act_window">
+        <field name="name">Configuración RestApi</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.transporte.api</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+</odoo>

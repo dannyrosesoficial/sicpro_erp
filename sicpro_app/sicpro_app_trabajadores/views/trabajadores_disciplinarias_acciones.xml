@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+         <record id="disciplinaria_acciones_search_view" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.disiplinaria.acciones.search</field>
+            <field name="model">sicpro.app.trabajadores.disiplinaria.acciones</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Información">
+                    <field name="trabajador_id"/>
+                    <field name="departamento"/>
+                    <field name="fecha_incorporacion"/>
+                    <field name="motivo"/>
+                    <separator/>
+                    <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                    <filter string="Borrador" name="borrador" domain="[('estado','=','borrador')]"/>
+                    <filter string="Esperando explicación trabajador" name="explicacion" domain="[('estado','=','explicacion')]"/>
+                    <filter string="Esperando acción" name="espera_accion" domain="[('estado','=','espera_accion')]"/>
+                    <filter string="Acción validada" name="action" domain="[('estado','=','action')]"/>
+                    <filter string="Cancelado" name="cancelado" domain="[('estado','=','cancelado')]"/>
+                    <separator/>
+                    <group expand="1" string="Group By">
+                        <filter string="Estado" name="estado" context="{'group_by': 'estado'}"/>
+                        <filter string="Departmento" name="departamento" context="{'group_by':'departamento'}"/>
+                        <filter string="Fecha Incorporación" name="fecha_incorporacion" context="{'group_by': 'fecha_incorporacion'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="disciplinaria_acciones_tree" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.disiplinaria.acciones.tree</field>
+            <field name="model">sicpro.app.trabajadores.disiplinaria.acciones</field>
+            <field name="arch" type="xml">
+                <tree string="Medidas Disciplinarias">
+                    <field name="name"/>
+                    <field name="trabajador_id"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="disciplinaria_acciones_form" model="ir.ui.view">
+            <field name="name">sicpro.app.trabajadores.disiplinaria.acciones.form</field>
+            <field name="model">sicpro.app.trabajadores.disiplinaria.acciones</field>
+            <field name="arch" type="xml">
+                <form string="Medidas Disciplinarias">
+                    <header>
+                        <button name="assign_function" type="object" string="Proceder" class="oe_highlight"
+                                attrs="{'invisible' :[('estado','!=','borrador')]}"
+                                groups="sicpro_app_trabajadores.grupo_app_trabajador_disciplina_jefe"/>
+                        <button name="cancel_function" type="object" string="Cancelar"
+                                attrs="{'invisible' :[('estado','not in',('borrador'))]}"
+                                groups="sicpro_app_trabajadores.grupo_app_trabajador_disciplina_jefe"/>
+                        <button name="set_to_function" type="object" string="Enviar a borrador"
+                                attrs="{'invisible' :[('estado','!=','cancelado')]}"
+                                groups="sicpro_app_trabajadores.grupo_app_trabajador_disciplina_jefe"/>
+
+                        <button name="action_function" type="object" string="Validar solicitud" class="oe_highlight"
+                                attrs="{'invisible' :[('estado','!=','espera_accion')]}"
+                                groups="sicpro_app_trabajadores.grupo_app_trabajador_disciplina_legal"/>
+                        <button name="cancel_function" type="object" string="Cancelar"
+                                attrs="{'invisible' :[('estado','not in',('espera_accion'))]}"
+                                groups="sicpro_app_trabajadores.grupo_app_trabajador_disciplina_legal"/>
+
+
+                        <field name="estado" widget="statusbar" statusbar_visible="borrador,espera_accion,action"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <h2>
+                            <group colspan="4" attrs="{'readonly' :[('estado','=','borrador')]}">
+                                <field name="active" invisible="1"/>
+                                <field name="correo_seguidores" invisible="1"/>
+                                <field name="trabajador_id" required="True" attrs="{'readonly' :[('estado','!=','borrador')]}"
+                                       options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                <field name="cargo"/>
+                            </group>
+                        </h2>
+                        <group>
+                            <group>
+                                <field name="company_id" invisible="1"/>
+                                <field name="categoria_ocupacional"/>
+                                <field name="departamento"/>
+                                <field name="fecha_incorporacion"/>
+                                <field name="fecha_contrato"/>
+                                <field name="equipo_tecnico"/>
+                            </group>
+                            <group>
+                                <field name="solicita_medida" readonly="1"/>
+                                <field name="cargo_solicitante"/>
+                                <field name="departamento_solicitante"/>
+                            </group>
+                            <group>
+                                <field name="solicitante_fecha_conocimiento" attrs="{'readonly' :[('estado','!=','borrador')]}"/>
+                                <field name="solicitante_via_conocimiento" attrs="{'readonly' :[('estado','!=','borrador')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="solicitud_disciplinaria" string="Solicitud disciplinaria">
+                                <group colspan="4">
+                                    <group>
+                                        <field name="motivo" required="True" attrs="{'readonly' :[('estado','!=','borrador')]}"
+                                               domain="[('category_type','=','disciplinary')]"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                        <field  class="text-danger" name="motivo_description" string=""/>
+                                    </group>
+                                    <group>
+                                        <field name="fecha_solicitud" attrs="{'readonly' :[('estado','!=','borrador')]}"/>
+                                        <field name="fecha_infraccion" attrs="{'readonly' :[('estado','!=','borrador')]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="attachment_ids" widget="many2many_binary" class="oe_inline"
+                                               attrs="{'invisible' :[('estado','=','borrador')],'readonly': [('estado','=','action')]}"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="note" attrs="{'readonly': [('estado','=','action')]}"/>
+                                </group>
+                            </page>
+                            <page name="action_information" estados="espera_accion,action" groups="sicpro_app_trabajadores.grupo_app_trabajador_disciplina_legal"
+                                  string="Información de acción" attrs="{'invisible': [('estado','not in',['espera_accion','action'])]}">
+                                <group>
+                                    <group>
+                                        <field name="action" domain="[('category_type','=','action')]"
+                                                attrs="{'readonly': [('estado','=','action')]}"
+                                               options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                        <field name="accion_description" class="text-danger" string=""/>
+                                    </group>
+                                    <group>
+                                        <field name="fecha_emision" attrs="{'invisible': [('action','=', False)]}"/>
+                                        <field name="fecha_notificacion" attrs="{'invisible': [('action','=', False)]}"/>
+                                        <field name="fecha_expiracion" attrs="{'invisible': [('action','=', False)], 'readonly': [('estado','=','action')]}"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="acciones_detalles" attrs="{'readonly': [('estado','=','action')]}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="disciplinaria_acciones_action" model="ir.actions.act_window">
+            <field name="name">Medidas Disciplinarias</field>
+            <field name="res_model">sicpro.app.trabajadores.disiplinaria.acciones</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('estado','in',('borrador','explicacion','espera_accion','action','cancelado'))]</field>
+        </record>
+
+        <record id="disciplinaria_acciones_details_view" model="ir.actions.act_window">
+            <field name="name">Detalles Disciplinarios</field>
+            <field name="res_model">sicpro.app.trabajadores.disiplinaria.acciones</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('estado','!=','borrador')]</field>
+        </record>
+
+        <record id="sequencia_disciplinaria_action" model="ir.sequence">
+            <field name="name">Trabajadores: Consecutivo medidas disciplinarias</field>
+            <field name="code">medidas_disciplinarias</field>
+            <field name="prefix">DIS/%(range_year)s/</field>
+            <field name="padding">3</field>
+            <field name="number_increment">1</field>
+            <field name="use_date_range">True</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

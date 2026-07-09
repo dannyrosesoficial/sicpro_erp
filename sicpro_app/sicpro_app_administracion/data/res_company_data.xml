@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="base.main_company" model="res.company">
+        <field name="name">División de Proyecto y Ejecución de Obras</field>
+        <field name="identificador_corto">DVPE</field>
+        <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+        <field name="street2">Edificio Masónico</field>
+        <field name="city">Centro Habana</field>
+        <field name="zip">10400</field>
+        <field name="phone">+53 52183663</field>
+        <field name="email">daniel.borrero@etecsa.cu</field>
+        <field name="website">https://www.dvpe.etecsa.cu</field>
+        <field name="ejecuta_proceso">False</field>
+        <field name="country_id">51</field>
+        <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+        <field name="favicon" type="base64" file="sicpro_app_administracion/static/src/img/favicon.png"/>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record model="res.company" id="proceso_staff">
+        <field name="name">STAFF</field>
+        <field name="identificador_corto">STAFF</field>
+        <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+        <field name="street2">Edificio Masónico</field>
+        <field name="city">Centro Habana</field>
+        <field name="zip">10400</field>
+        <field name="phone">+53 52183663</field>
+        <field name="email">daniel.borrero@etecsa.cu</field>
+        <field name="website">https://www.dvpe.etecsa.cu</field>
+        <field name="ejecuta_proceso">False</field>
+        <field name="country_id">51</field>
+        <field name="parent_id">1</field>
+        <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+        <field name="favicon" type="base64" file="sicpro_app_administracion/static/src/img/favicon.png"/>
+        <field name="sequence">2</field>
+    </record>
+
+        <record model="res.company" id="proceso_proyecto">
+        <field name="name">Dirección de Ejecución de Proyectos de Telecomunicaciones</field>
+        <field name="identificador_corto">PROYECTOS</field>
+        <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+        <field name="street2">Edificio Masónico</field>
+        <field name="city">Centro Habana</field>
+        <field name="zip">10400</field>
+        <field name="phone">+53 52183663</field>
+        <field name="email">daniel.borrero@etecsa.cu</field>
+        <field name="website">https://www.dvpe.etecsa.cu</field>
+        <field name="ejecuta_proceso">True</field>
+        <field name="country_id">51</field>
+        <field name="parent_id">1</field>
+        <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+        <field name="favicon" type="base64" file="sicpro_app_administracion/static/src/img/favicon.png"/>
+        <field name="sequence">3</field>
+    </record>
+
+        <record model="res.company" id="proceso_deoct">
+        <field name="name">Dirección de Ejecución de Obras Civiles</field>
+        <field name="identificador_corto">DEOCT</field>
+        <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+        <field name="street2">Edificio Masónico</field>
+        <field name="city">Centro Habana</field>
+        <field name="zip">10400</field>
+        <field name="phone">+53 52183663</field>
+        <field name="email">daniel.borrero@etecsa.cu</field>
+        <field name="website">https://www.dvpe.etecsa.cu</field>
+        <field name="ejecuta_proceso">True</field>
+        <field name="country_id">51</field>
+        <field name="parent_id">1</field>
+        <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+        <field name="favicon" type="base64" file="sicpro_app_administracion/static/src/img/favicon.png"/>
+        <field name="sequence">4</field>
+    </record>
+
+
+        <record model="res.company" id="proceso_talleres">
+        <field name="name">Talleres Especializados (DEOCT)</field>
+        <field name="identificador_corto">TALLERES</field>
+        <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+        <field name="street2">Edificio Masónico</field>
+        <field name="city">Centro Habana</field>
+        <field name="zip">10400</field>
+        <field name="phone">+53 52183663</field>
+        <field name="email">daniel.borrero@etecsa.cu</field>
+        <field name="website">https://www.dvpe.etecsa.cu</field>
+        <field name="ejecuta_proceso">True</field>
+        <field name="country_id">51</field>
+        <field name="parent_id">4</field>
+        <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+        <field name="favicon" type="base64" file="sicpro_app_administracion/static/src/img/favicon.png"/>
+        <field name="sequence">5</field>
+    </record>
+
+        <record model="res.company" id="proceso_deoit">
+        <field name="name">Dirección de Ejecución de Obras de Instalaciones Tecnológicas</field>
+        <field name="identificador_corto">DEOIT</field>
+        <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+        <field name="street2">Edificio Masónico</field>
+        <field name="city">Centro Habana</field>
+        <field name="zip">10400</field>
+        <field name="phone">+53 52183663</field>
+        <field name="email">daniel.borrero@etecsa.cu</field>
+        <field name="website">https://www.dvpe.etecsa.cu</field>
+        <field name="ejecuta_proceso">True</field>
+        <field name="country_id">51</field>
+        <field name="parent_id">1</field>
+        <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+        <field name="favicon" type="base64" file="sicpro_app_administracion/static/src/img/favicon.png"/>
+        <field name="sequence">6</field>
+    </record>
+
+        <record model="res.company" id="proceso_inversiones">
+        <field name="name">Vicepresidencia de Inversiones</field>
+        <field name="identificador_corto">VPIV</field>
+        <field name="street">Ave 3ra / Calle 72 y Calle 76</field>
+        <field name="street2">Miramar Trade Center</field>
+        <field name="city">Playa</field>
+        <field name="zip">10400</field>
+        <field name="phone">+53 52183663</field>
+        <field name="email">daniel.borrero@etecsa.cu</field>
+        <field name="website">https://www.dvpe.etecsa.cu</field>
+        <field name="country_id">51</field>
+        <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+        <field name="favicon" type="base64" file="sicpro_app_administracion/static/src/img/favicon.png"/>
+        <field name="sequence">12</field>
+    </record>
+
+    </data>
+
+
+</odoo>

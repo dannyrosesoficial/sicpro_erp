@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="metrologia_plan_calibracion_view_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.metrologia.equipos.tree</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="tarjeta"/>
+                <field name="name"/>
+                <field name="model"/>
+                <field name="serial_no"/>
+                <field name="mes_enero" string="E"/>
+                <field name="mes_febrero" string="F"/>
+                <field name="mes_marzo" string="M"/>
+                <field name="mes_abril" string="A"/>
+                <field name="mes_mayo" string="M"/>
+                <field name="mes_junio" string="J"/>
+                <field name="mes_julio" string="J"/>
+                <field name="mes_agosto" string="A"/>
+                <field name="mes_septiembre" string="S"/>
+                <field name="mes_octubre" string="O"/>
+                <field name="mes_noviembre" string="N"/>
+                <field name="mes_diciembre" string="D"/>
+                <field name="area"/>
+                <field name="inventario"/>
+                <field name="trabajador_id"/>
+                <field name="centro_calibracion"/>
+                <field name="company_id" optional="hide"/>
+                <field name="anio_mtto" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="metrologia_plan_calibracion_view_search" model="ir.ui.view">
+        <field name="name">sicpro.app.metrologia.equipos.search</field>
+        <field name="model">sicpro.app.metrologia.equipos</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field string="Equipos" name="name" filter_domain="[
+                    '|', '|', '|',
+                    ('name', 'ilike', self), ('model', 'ilike', self), ('serial_no', 'ilike', self)]"/>
+                <field string="Category" name="categoria_id"/>
+                <field name="trabajador_id"/>
+                <separator/>
+                <filter string="Planificado" name="aviso_mtto" domain="[('aviso_mtto', '=', True)]"/>
+                <filter string="En Laboratorio" name="estado_laboratorio" domain="[('estado_laboratorio', '=', True)]"/>
+                <filter string="Sin Calibrar" name="estado_sin_calibrar" domain="[('estado_sin_calibrar', '=', True)]"/>
+                <filter string="Pendiente por Economía" name="transferencia_pendiente"
+                        domain="[('transferencia_pendiente', '=', True)]"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <group  expand='0' string='Group by...'>
+                    <filter string='Equipos de Mantenimiento' name="equipos" domain="[]"
+                            context="{'group_by': 'equipo_mantenimiento_id'}"/>
+                    <filter string='Magnitud' name="magnitud" domain="[]" context="{'group_by': 'magnitud'}"/>
+                    <filter string='Gestor de Equipos' name="gestores" domain="[]" context="{'group_by': 'gestor_id'}"/>
+                    <filter string='Categoria' name="categoria" domain="[]" context="{'group_by': 'categoria_id'}"/>
+                    <filter string='Centro de Calibración' name="centro_calibracion" domain="[]"
+                            context="{'group_by': 'centro_calibracion'}"/>
+                    <filter string='Año' name="anio" domain="[]" context="{'group_by': 'anio_mtto'}"/>
+                    <filter string='Proceso' name="proceso" domain="[]" context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="metrologia_plan_calibracion_action" model="ir.actions.act_window">
+        <field name="name">Plan de Calibración</field>
+        <field name="res_model">sicpro.app.metrologia.equipos</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="metrologia_plan_calibracion_view_tree"/>
+        <field name="search_view_id" ref="metrologia_plan_calibracion_view_search"/>
+    </record>
+
+
+</odoo>

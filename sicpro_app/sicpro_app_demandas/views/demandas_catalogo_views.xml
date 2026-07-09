@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="demandas_catalogo_tree_view" model="ir.ui.view">
+        <field name="name">sicpro.app.demandas.catalogo.tree</field>
+        <field name="model">sicpro.app.demandas.catalogo</field>
+        <field name="arch" type="xml">
+            <tree string="Catálogo" multi_edit="1">
+                <field name="codigo"/>
+                <field name="name"/>
+                <field name="marca"/>
+                <field name="especificaciones"/>
+                <field name="modelo"/>
+                <field name="company_id" invisible="1"/>
+                <field name="company_currency" invisible="1"/>
+                <field name="precio" class="oe_inline" widget='monetary'
+                       options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                <field name="tipo"/>
+                <field name="clasificacion"/>
+                <field name="presupuesto"/>
+                <field name="tipo" attrs="{'invisible': [('tipo', '=', 'insumo')]}"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="demandas_catalogo_form_view" model="ir.ui.view">
+        <field name="name">sicpro.app.demandas.catalogo.form</field>
+        <field name="model">sicpro.app.demandas.catalogo</field>
+        <field name="arch" type="xml">
+            <form string="Producto">
+                <sheet>
+                    <div class="oe_button_box" name="button_box"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="Nombre del producto"/>
+                        <h1><field name="name" placeholder="Nombre del producto"/></h1>
+                        <field name="etiquetas" widget="many2many_tags"
+                               options="{'color_field': 'color', 'no_create_edit': True}"/>
+                    </div>
+                    <notebook>
+                        <page string="Información General" name="general_information">
+                            <group>
+                                <group>
+                                    <field name="codigo"/>
+                                    <field name="active" invisible="1"/>
+                                    <field name="tipo" options="{'tipo': 'material'}"/>
+                                    <field name="marca"/>
+                                    <field name="modelo"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                                <group>
+                                    <field name="company_currency" invisible="1"/>
+                                    <field name="precio" class="oe_inline" widget='monetary'
+                                           options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                                    <field name="clasificacion"/>
+                                    <field name="presupuesto"/>
+                                    <field name="anio"/>
+                                </group>
+                            </group>
+                            <group string="Especificaciones">
+                                <field name="especificaciones" nolabel="1" placeholder="Solo para notas internas."/>
+                            </group>
+                        </page>
+                     </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="demandas_catalogo_kanban_view" model="ir.ui.view">
+        <field name="name">sicpro.app.demandas.catalogo.kanban</field>
+        <field name="model">sicpro.app.demandas.catalogo</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="codigo"/>
+                <field name="tipo"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('sicpro.app.demandas.catalogo', 'image_128',
+                                record.id.raw_value)" alt="Catálogo" class="o_image_64_contain"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                    <small t-if="record.codigo.value">[<field name="codigo"/>]</small>
+                                </strong>
+                                <div name="tags"/>
+                                <ul>
+                                    <li>Precio: $<field name="precio" widget="monetary"></field></li>
+                                </ul>
+                                <div name="tags"/>
+                                <ul>
+                                <small t-if="record.etiquetas.value">
+                                    <field name="etiquetas" widget="many2many_tags"
+                                           options="{'color_field': 'color', 'no_create_edit': True}"/></small>
+                                </ul>
+                                <div name="tags"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="demandas_catalogo_search_view" model="ir.ui.view">
+        <field name="name">sicpro.app.demandas.catalogo.search</field>
+        <field name="model">sicpro.app.demandas.catalogo</field>
+        <field name="arch" type="xml">
+            <search string="Catálogo">
+                <field name="name"/>
+                <field name="marca"/>
+                <field name="modelo"/>
+                <field name="anio"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+                <separator/>
+               <group expand="1" string="Group By">
+                    <filter string="Tipo de producto" name="tipo" context="{'group_by':'tipo'}"/>
+                   <filter string="Año" context="{'group_by':'anio'}" name="month"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="demandas_catalogo_action" model="ir.actions.act_window">
+        <field name="name">Catálogos</field>
+        <field name="res_model">sicpro.app.demandas.catalogo</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="demandas_catalogo_kanban_view"/>
+        <field name="search_view_id" ref="demandas_catalogo_search_view"/>
+        <field name="context">{ 'search_default_anio': (context_today().strftime('%Y'))}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo artículo
+            </p>
+        </field>
+    </record>
+</odoo>

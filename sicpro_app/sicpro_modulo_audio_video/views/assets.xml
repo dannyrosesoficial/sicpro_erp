@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="assets_common" inherit_id="web.assets_common" name="editor web audio y video">
+    <xpath expr="script[last()]" position="after">
+        <script type="text/javascript" src="/sicpro_modulo_audio_video/static/src/js/summernote.js"/>
+    </xpath>
+</template>
+
+<template id="assets_wysiwyg_video" inherit_id="web_editor.assets_wysiwyg">
+    <xpath expr="script[last()]" position="after">
+        <script type="text/javascript" src="/sicpro_modulo_audio_video/static/src/js/video_dialog.js"/>
+        <script type="text/javascript" src="/sicpro_modulo_audio_video/static/src/js/audio_dialog.js"/>
+        <script type="text/javascript" src="/sicpro_modulo_audio_video/static/src/js/wysiwyg.js"/>
+    </xpath>
+</template>
+</odoo>

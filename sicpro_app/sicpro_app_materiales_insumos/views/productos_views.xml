@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <menuitem
+            id="productos_menu_root"
+            name="Materiales e Insumos"
+            web_icon="sicpro_app_materiales_insumos,static/description/icon.png"
+            sequence="8"/>
+
+        <menuitem
+            id="productos_menu_productos"
+            name="Operaciones"
+            parent="productos_menu_root"
+            sequence="1"
+            groups="grupo_app_materiales_insumos_usuario"/>
+
+        <menuitem id="productos_menu_report"
+            name="Informes"
+            parent="productos_menu_root"
+            sequence="20"
+            groups="grupo_app_materiales_insumos_usuario"/>
+
+       <menuitem
+            id="productos_menu_config"
+            name="Configuración"
+            parent="productos_menu_root"
+            sequence="25" groups="grupo_app_materiales_insumos_responsable"/>
+
+</odoo>

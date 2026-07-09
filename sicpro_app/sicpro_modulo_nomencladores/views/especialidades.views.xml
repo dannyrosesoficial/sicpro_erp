@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+     <!--vista formulario-->
+    <record id="nomenclador_especialidad_form_view" model="ir.ui.view">
+        <field name="name">nomenclador.especialida.form.view</field>
+        <field name="model">sicpro.nomenclador.especialidad</field>
+        <field name="arch" type="xml">
+            <form string="Especialidad">
+                <sheet>
+                        <div class="oe_button_box" name="button_box"/>
+                        <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <field name="image_1920" widget="image" class="oe_avatar"
+                               options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+                    <group>
+                        <field name="codigo"/>
+                        <field name="letra"/>
+                        <field name="name"/>
+                        <field name="company_id" />
+                        <field name="active" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+     <!--vista arbol-->
+    <record id="nomenclador_especialida_tree_view" model="ir.ui.view">
+        <field name="name">nomenclador.especialida.tree.view</field>
+        <field name="model">sicpro.nomenclador.especialidad</field>
+        <field name="arch" type="xml">
+            <tree string="Especialidades">
+                <field name="codigo"/>
+                <field name="letra"/>
+                <field name="name"/>
+                <field name="company_id" />
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="nomenclador_especialida_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Especialidad</field>
+       <field name="model">sicpro.nomenclador.especialidad</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Especialidad">
+            <field name="name" string="Especialidad"/>
+            <field string="Proceso" name="company_id" />
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+            <group expand="0" string="Group By">
+                <filter string="Proceso" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+            </group>
+        </search>
+       </field>
+    </record>
+
+    <record id="action_nomenclador_especialida" model="ir.actions.act_window">
+        <field name="name">Especialidades de Ejecución</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.especialidad</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    </data>
+</odoo>

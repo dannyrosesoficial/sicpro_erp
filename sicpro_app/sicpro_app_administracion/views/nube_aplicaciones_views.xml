@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="nube_app_sync_form" model="ir.ui.view">
+            <field name="name">sicpro.app.administracion.nube.aplicaciones.form</field>
+            <field name="model">sicpro.app.administracion.nube.aplicaciones</field>
+            <field name="priority">110</field>
+            <field name="arch" type="xml">
+                <form string="Sincronizar Aplicación">
+                    <header>
+                        <button name="verifica_zip_remoto" string="Verificar Zip Remoto" type="object" class="btn-warning"/>
+                        <button name="verifica_zip_local" string="Verificar Zip Local" type="object" class="btn-warning"/>
+                        <button name="sincronizar" string="Sincronizar Aplicaciones" type="object" class="btn-danger"/>
+                    </header>
+                    <sheet>
+                        <group class="oe_title">
+                        <field name="name"/>
+                    </group>
+                        <group>
+                        <group>
+                            <field name="directorio_remoto"/>
+                            <field name="directorio_local"/>
+                        </group>
+                        <group>
+                            <field name="host"/>
+                            <field name="usuario"/>
+                            <field name="password"/>
+                        </group>
+                    </group>
+                        <group>
+                        <button name="test_webdav_connection" string="Probar Conexión" type="object"/>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="nube_app_sync_tree">
+            <field name="name">sicpro.app.administracion.nube.aplicaciones.tree</field>
+            <field name="model">sicpro.app.administracion.nube.aplicaciones</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree string="Sincronizar aplicaciones">
+                    <field name="host"/>
+                    <field name="usuario"/>
+                    <field name="directorio_remoto"/>
+                    <field name="directorio_local"/>
+                </tree>
+            </field>
+        </record>
+
+    <record id="nube_app_sync_search" model="ir.ui.view">
+       <field name="name">sicpro.app.administracion.nube.aplicaciones.search</field>
+       <field name="model">sicpro.app.administracion.nube.aplicaciones</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Host">
+          <field name="host"/>
+        </search>
+       </field>
+    </record>
+
+
+    <record id="nube_app_sync_action" model="ir.actions.act_window">
+            <field name="name">Sincronizar Aplicaciones</field>
+            <field name="res_model">sicpro.app.administracion.nube.aplicaciones</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="nube_app_sync_tree"/>
+        </record>
+
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+     <!--vista arbol-->
+    <record id="anios_tree_view" model="ir.ui.view">
+        <field name="name">trimestre.tree.view</field>
+        <field name="model">sicpro.nomenclador.anios</field>
+        <field name="arch" type="xml">
+            <tree string="Años" editable="bottom">
+                <field name="name"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Busqueda-->
+    <record id="anios_filter_view" model="ir.ui.view">
+       <field name="name">Buscar Año</field>
+       <field name="model">sicpro.nomenclador.anios</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Año">
+            <field name="name" string="Trimestre"/>
+            <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+        </search>
+       </field>
+    </record>
+
+    <!--Acción-->
+    <record id="action_anios" model="ir.actions.act_window">
+        <field name="name">Años</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.nomenclador.anios</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    </data>
+</odoo>

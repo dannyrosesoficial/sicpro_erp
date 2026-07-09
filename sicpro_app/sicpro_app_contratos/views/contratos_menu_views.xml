@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+        <menuitem name="Contratos"
+            id="menu_contratos"
+            web_icon="sicpro_app_contratos,static/description/icon.png"
+            sequence="40"/>
+
+
+        <!--Menu Dashboard-->
+        <menuitem
+            id="menu_contratos_dashboard" name="Dashboard"
+            parent="menu_contratos" action="contratos_dashboard_action" sequence="1"
+            groups="grupo_app_contratos_dashboard_usuario,grupo_app_contratos_dashboard_admin"/>
+
+        <menuitem id="menu_contratos_general" name="Contratos" parent="menu_contratos" sequence="5"/>
+           <menuitem action="contratos_action"
+                  id="menu_contratos1"
+                  name="Listado de Contratos" parent="menu_contratos_general"
+                  sequence="6" groups="grupo_app_contratos_usuario"/>
+           <menuitem action="contratos_gestion_action"
+                  id="menu_contratos2"
+                  name="Gestión de Contratos" parent="menu_contratos_general"
+                  sequence="8" groups="grupo_app_contratos_validar_gestor,grupo_app_contratos_validar_comite_contratacion,grupo_app_contratos_validar_area,grupo_app_contratos_validar_legal,grupo_app_contratos_validar_economica,grupo_app_contratos_all"/>
+
+        <menuitem id="menu_proveedores" name="Proveedores" parent="menu_contratos" sequence="11"/>
+           <menuitem action="contratos_proveedores_action"
+                  id="menu_proveedores_cartera"
+                  name="Cartera de Proveedores" parent="menu_proveedores"
+                  sequence="10"
+                  groups="grupo_app_contratos_usuario"/>
+           <menuitem action="contratos_proveedores_gestion_action"
+                  id="menu_proveedores_gestion"
+                  name="Gestión de Proveedores" parent="menu_proveedores"
+                  sequence="12"
+                  groups="grupo_app_contratos_visual"/>
+
+
+        <menuitem id="menu_operar_contrato" name="Operaciones" parent="menu_contratos" sequence="12"/>
+              <menuitem action="contratos_economia_action"
+                  id="menu_operar_contrato1"
+                  name="Listado de Operaciones" parent="menu_operar_contrato"
+                  sequence="13" groups="grupo_app_contratos_usuario"/>
+              <menuitem action="contratos_economia_gestion_action"
+                  id="menu_operar_contrato2" sequence="14"
+                  name="Operaciones de Pago" parent="menu_operar_contrato"
+                  groups="grupo_app_contratos_economia_visual,grupo_app_contratos_economia_operaciones_sp,grupo_app_contratos_economia_operaciones_sip,grupo_app_contratos_economia_operaciones_ip"/>
+
+
+         <menuitem id="menu_informes_contrato" name="Informes" parent="menu_contratos" sequence="15"/>
+              <menuitem action="action_informes_proveedores_informes"
+                  id="menu_informes_proveedores"
+                  name="Informes del Proveedor" parent="menu_informes_contrato"
+                  sequence="1" groups="grupo_app_contratos_usuario"/>
+              <menuitem action="action_informes_contratos_informes"
+                  id="menu_informes_contratos"
+                  name="Informes del Contrato" parent="menu_informes_contrato"
+                  sequence="2" groups="grupo_app_contratos_usuario"/>
+              <menuitem action="action_informes_economia_informes"
+                  id="menu_informes_economicos"
+                  name="Informes Económico" parent="menu_informes_contrato"
+                  sequence="3" groups="grupo_app_contratos_usuario"/>
+
+
+
+        <menuitem id="menu_contratos_configuracion" name="Configuración"
+                  parent="menu_contratos" sequence="35"
+                  groups="grupo_app_contratos_responsable"/>
+
+           <menuitem action="contratos_unidades_action"
+                  id="contratos_menu_unidades"
+                  name="Unidades" parent="menu_contratos_configuracion"
+                  sequence="1"/>
+           <menuitem action="contratos_areas_action"
+                  id="contratos_menu_areas"
+                  name="Áreas" parent="menu_contratos_configuracion"
+                  sequence="2"/>
+
+           <menuitem id="contratos_menu" name="Contratos"
+                      parent="menu_contratos_configuracion" sequence="10" />
+              <menuitem action="contratos_estados_action"
+                  id="contratos_menu_estados"
+                  name="Estados" parent="contratos_menu"
+                  groups="grupo_app_contratos_admin" sequence="11"/>
+              <menuitem action="contratos_beneficiarios_action"
+                  id="contratos_menu_beneficiarios"
+                  name="Beneficiarios" parent="contratos_menu"
+                  sequence="12"/>
+              <menuitem action="contratos_tipo_action"
+                  id="contratos_menu_tipo"
+                  name="Tipo" parent="contratos_menu"
+                  sequence="13"/>
+              <menuitem action="contratos_dias_action"
+                  id="contratos_menu_dias"
+                  name="Dias hábiles" parent="contratos_menu"
+                  groups="grupo_app_contratos_admin" sequence="14"/>
+              <menuitem action="contratos_etiquetas_action"
+                  id="contratos_menu_etiquetas"
+                  name="Etiquetas" parent="contratos_menu"
+                  sequence="15"/>
+
+           <menuitem id="contratos_proveedores_menu" name="Proveedores"
+                      parent="menu_contratos_configuracion" sequence="20" />
+              <menuitem action="contratos_proveedores_estados_action"
+                  id="contratos_proveedores_menu_estados"
+                  name="Estados" parent="contratos_proveedores_menu"
+                  groups="grupo_app_contratos_admin" sequence="11"/>
+              <menuitem action="contratos_proveedores_tipo_action"
+                  id="contratos_proveedores_menu_tipo"
+                  name="Tipo" parent="contratos_proveedores_menu"
+                  sequence="12"/>
+              <menuitem action="contratos_proveedores_etiquetas_action"
+                  id="contratos_proveedores_menu_etiquetas"
+                  name="Etiquetas" parent="contratos_proveedores_menu"
+                  sequence="13"/>
+
+           <menuitem id="contratos_economia_menu" name="Economía"
+                      parent="menu_contratos_configuracion" sequence="30" />
+             <menuitem action="contratos_cuentas_dvpe_action"
+                  id="contratos_economia_menu_cuentas_dvpe"
+                  name="Cuentas DVPE" parent="contratos_economia_menu"
+                  sequence="13"/>
+              <menuitem action="contratos_bancos_action"
+                  id="contratos_economia_menu_bancos"
+                  name="Bancos" parent="contratos_economia_menu"
+                  sequence="14"/>
+              <menuitem action="contratos_economia_estados_action"
+                  id="contratos_economia_menu_estados"
+                  name="Estados" parent="contratos_economia_menu"
+                  groups="grupo_app_contratos_admin" sequence="15"/>
+              <menuitem action="contratos_economia_etiquetas_action"
+                  id="contratos_economia_menu_etiquetas"
+                  name="Etiquetas" parent="contratos_economia_menu"
+                  sequence="16"/>
+              <menuitem action="contratos_economia_pago_action"
+                  id="contratos_economia_menu_pago"
+                  name="Tipos de Pagos" parent="contratos_economia_menu"
+                  sequence="17"/>
+              <menuitem action="contratos_economia_indicador_action"
+                  id="contratos_economia_menu_indicador"
+                  name="Indicador de Pagos" parent="contratos_economia_menu"
+                  sequence="18"/>
+              <menuitem action="contratos_economia_acapite_action"
+                  id="contratos_economia_menu_acapite"
+                  name="Acápite de Pagos" parent="contratos_economia_menu"
+                  sequence="19"/>
+
+
+    </data>
+
+
+</odoo>

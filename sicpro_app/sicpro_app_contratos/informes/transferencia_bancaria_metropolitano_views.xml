@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo><!-- se deshabilito del botón imprimir y pasa a los botones del registro-->
+    <record id="informe_transferencia_bancaria-metropolitano_action" model="ir.actions.report">
+        <field name="name">Transferencia Bancaria Metropolitano</field>
+        <field name="model">sicpro.app.contratos.economia</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sicpro_app_contratos.reporte_transferencia_bancaria_metropolitano</field>
+        <field name="report_file">sicpro_app_contratos.reporte_transferencia_bancaria_metropolitano</field>
+        <field name="print_report_name">'Transferencia Bancaria Metropolitano'</field>
+        <field name="binding_model_id" ref="model_sicpro_app_contratos_economia"/>
+		<field name="groups_id" eval="[(4, ref('sicpro_app_contratos.grupo_app_contratos_admin'))]"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="reporte_transferencia_bancaria_metropolitano">
+		<!-- Página Transferencia Bancaria Metropolitano-->
+        <t t-call="web.html_container">
+            <!-- sección del header (No tiene a petición del usuario final) -->
+
+            <!-- sección del datos -->
+            <div t-attf-class="article">
+                    <!-- sección del page -->
+                    <t t-foreach="docs" t-as="inf">
+                        <table cellspacing="0" border="0" style="font-size: medium">
+							<colgroup width="16"></colgroup>
+							<colgroup width="124"></colgroup>
+							<colgroup width="85"></colgroup>
+							<colgroup width="53"></colgroup>
+							<colgroup width="24"></colgroup>
+							<colgroup width="85"></colgroup>
+							<colgroup width="26"></colgroup>
+							<colgroup width="24"></colgroup>
+							<colgroup width="127"></colgroup>
+							<colgroup width="10"></colgroup>
+							<colgroup width="24"></colgroup>
+							<colgroup width="330"></colgroup>
+							<colgroup width="17"></colgroup>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border: 1px solid #000000" colspan="2" rowspan="5"
+									height="88" align="center" valign="middle">
+									<img src="sicpro_app_contratos/static/src/img/logo_metropolitano.jpg"
+										 style="max-height: 90px;"/>
+								</td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-top: 1px solid #000000" colspan="6" rowspan="3" align="center"
+									valign="middle"><b>SOLICITUD DE PAGO</b></td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-top: 1px solid
+								#000000" colspan="4" align="center" valign="middle"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000; border-top: 1px solid
+								#000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" colspan="3" align="center"
+									valign="middle">Modelo 111-253</td>
+								<td align="left" style="font-size: medium"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border: 1px solid #000000" colspan="3" align="center"
+									valign="middle">Fecha</td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle"
+									sdval="43407" sdnum="3082;0;DD/MM/AA"><span t-field="inf.sip_fecha_emision"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: small; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-bottom: 1px solid #000000" colspan="6" rowspan="2" align="center"
+									valign="middle">(Un modelo para cada tipo de moneda y tipo de operación)</td>
+								<td style="font-size: medium; border: 1px solid #000000" colspan="3" align="center"
+									valign="middle">Moneda</td>
+								<td style="font-size: medium; border: 1px solid #000000" align="center" valign="middle">
+									<b><span t-field="inf.moneda"/></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-right: 1px solid #000000; border-bottom: 1px solid
+								 #000000" colspan="4" align="center" valign="middle"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="13" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="33" align="left"></td>
+								<td colspan="2" align="left" style="font-size: medium"><b>Titular(es) de la cuenta:</b></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="9"
+									align="center" valign="middle"><span t-field="inf.cuenta_dvpe"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="2" align="left" style="font-size: medium"><b>Numero de cuenta:</b></td>
+								<td colspan="9" align="left" valign="middle" sdval="525020007610017" sdnum="3082;"
+									style="font-size: medium"><b><span t-field="inf.numero_cuenta_dvpe"/></b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="13" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="25" align="left"
+									valign="middle"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="3"
+									align="center" valign="middle"><b>Sírvase debitar mi cuenta y:</b></td>
+								<td style="font-size: small; border: 1px solid #000000" align="center" valign="middle">
+									<b>
+										<t t-if="inf.emision_debitar=='transferir'">X</t>
+									</b></td>
+								<td colspan="2" align="left" valign="middle" style="font-size: small"><b>Transferir</b></td>
+								<td style="font-size: small; border: 1px solid #000000" align="center" valign="middle">
+									<b>
+										<t t-if="inf.emision_debitar=='efectivo'">X</t>
+									</b></td>
+								<td colspan="2" align="left" valign="middle" style="font-size: small"><b>Pagar en efectivo</b></td>
+								<td style="font-size: small; border: 1px solid #000000" align="center" valign="middle">
+									<b>
+										<t t-if="inf.emision_debitar=='cheque'">X</t>
+									</b></td>
+								<td align="left" valign="middle" style="font-size: small"><b>Emitir Cheque de Gerencia</b></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="13" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="center"
+									valign="middle"></td>
+								<td style="font-size: small; border-bottom: 1px solid #000000" colspan="8"
+									align="center" valign="middle"><b><span t-field="inf.monto_texto"/></b></td>
+								<td colspan="2" rowspan="2" align="center" valign="middle" style="font-size: medium"></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" align="center"
+									sdval="343242" sdnum="3082;"><span t-field="inf.monto_facturado"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="8" align="center" valign="middle" style="font-size: medium">(Importe en letras)</td>
+								<td align="center" style="font-size: medium">(Importe en números)</td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="13" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="2" align="left" style="font-size: medium"><b>Por concepto de:</b></td>
+								<td style="font-size: small; border-bottom: 1px solid #000000" colspan="9" align="center">
+									<span t-field="inf.sol_pago_concepto"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-bottom: 1px solid #000000" colspan="13" height="17" align="center"
+									valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-top: 1px solid #000000" colspan="13" height="17" align="center"
+									valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="2" align="left" style="font-size: medium"><b>Nombre del beneficiario:</b></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="9" align="left"
+									valign="middle"><span t-field="inf.sip_beneficiario"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-bottom: 1px solid #000000" colspan="13" height="17" align="center"
+									valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-top: 1px solid #000000" colspan="13" height="17" align="center"
+									valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td align="left" style="font-size: medium"><b>No de Cuenta:</b></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="6" align="left"
+									valign="middle" sdval="676122269100019" sdnum="3082;"><span t-field="inf.sip_beneficiario_cuenta"/></td>
+								<td colspan="2" align="right" valign="middle" style="font-size: medium"><b>Banco:</b></td>
+								<td align="right" style="font-size: medium"><b></b></td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-top: 1px solid #000000" align="left"><span t-field="inf.banco_beneficiario"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="10" align="center" valign="middle" style="font-size: medium"><b></b></td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" align="left"><span t-field="inf.banco_beneficiario.codigo_id_bancaria"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="10" align="center" valign="middle" style="font-size: medium"><b></b></td>
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000; border-bottom: 1px solid #000000" align="left">
+									<span t-field="inf.banco_beneficiario.calle"/> /<span t-field="inf.banco_beneficiario.calle2"/>.
+								<span t-field="inf.banco_beneficiario.municipio"/> <span t-field="inf.banco_beneficiario.provincia"/></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="13" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="17" align="left"></td>
+								<td colspan="3" align="right" style="font-size: medium"><b>Numero de Autorización (NA) :</b></td>
+								<td align="left" style="font-size: medium"></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="6" align="left"
+									valign="middle" sdval="78867676" sdnum="3082;"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" colspan="2" align="center"
+									valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="13" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" height="25" align="center"
+									valign="middle"></td>
+								<td colspan="5" align="center" valign="middle" style="font-size: medium"></td>
+								<td style="font-size: medium; border-bottom: 1px solid #000000" colspan="6" align="center"
+									valign="middle"></td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000" colspan="6" height="17"
+									align="center" valign="middle"></td>
+								<td colspan="6" align="center" style="font-size: medium">Firma (s) del/de los titulares</td>
+								<td style="font-size: medium; border-right: 1px solid #000000" align="left"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="13" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-right: 1px solid
+								#000000" colspan="13" height="17" align="center" valign="middle"></td>
+							</tr>
+							<tr style="font-size: medium">
+								<td style="font-size: medium; border-left: 1px solid #000000; border-bottom: 1px solid
+								#000000" height="17" align="center" valign="middle"></td>
+								<td style="font-size: small; border-right: 1px solid #000000; border-bottom: 1px solid
+								#000000" colspan="12" align="left" valign="middle">
+									* Los gastos corren a la cuenta ( <span t-field="inf.numero_cuenta_dvpe"/> - <span t-field="inf.cuenta_dvpe"/> )</td>
+							</tr>
+						</table>
+					</t>
+                    <t t-call="web.address_layout"/>
+            </div>
+                <t t-raw="0"/>
+
+            <!-- sección del footer (No tiene a petición del usuario final) -->
+		</t>
+    </template>
+
+</odoo>

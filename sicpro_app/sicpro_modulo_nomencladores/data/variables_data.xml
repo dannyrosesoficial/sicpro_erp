@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="sicpro.nomenclador.variables" id="Estimulacion_deoit">
+        <field name="name">estimulacion</field>
+        <field name="valor">0.4</field>
+        <field name="porciento">40%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="Estimulacion_deoct">
+        <field name="name">estimulacion</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.4</field>
+        <field name="porciento">40%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="Estimulacion_proyecto">
+        <field name="name">estimulacion</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.4</field>
+        <field name="porciento">40%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+    </record>
+
+    <record model="sicpro.nomenclador.variables" id="Reserva_deoit">
+        <field name="name">vacaciones</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.0909</field>
+        <field name="porciento">9%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="Reserva_deoct">
+        <field name="name">vacaciones</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.0909</field>
+        <field name="porciento">9%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="Reserva_proyecto">
+        <field name="name">vacaciones</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.0909</field>
+        <field name="porciento">9%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+    </record>
+
+    <record model="sicpro.nomenclador.variables" id="Social_deoit">
+        <field name="name">seguridad_social</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.125</field>
+        <field name="porciento">12,5%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="Social_deoct">
+        <field name="name">seguridad_social</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.125</field>
+        <field name="porciento">12,5%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="Social_proyecto">
+        <field name="name">seguridad_social</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.125</field>
+        <field name="porciento">12,5%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+    </record>
+
+    <record model="sicpro.nomenclador.variables" id="Indirectos_deoit">
+        <field name="name">gastos_indirectos</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.01</field>
+        <field name="porciento">1%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="Indirectos_deoct">
+        <field name="name">gastos_indirectos</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.01</field>
+        <field name="porciento">1%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="Indirectos_proyecto">
+        <field name="name">gastos_indirectos</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.01</field>
+        <field name="porciento">1%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+    </record>
+
+    <record model="sicpro.nomenclador.variables" id="imprevistas_deoit">
+        <field name="name">imprevisto</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.2</field>
+        <field name="porciento">20%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoit" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="imprevistas_deoct">
+        <field name="name">imprevisto</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.2</field>
+        <field name="porciento">20%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_deoct" />
+    </record>
+    <record model="sicpro.nomenclador.variables" id="imprevistas_proyecto">
+        <field name="name">imprevisto</field>
+        <field name="descripcion"></field>
+        <field name="valor">0.2</field>
+        <field name="porciento">20%</field>
+        <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto" />
+    </record>
+
+</odoo>

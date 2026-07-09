@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_materiales_tree_view" model="ir.ui.view">
+        <field name="name">sicpro.app.materiales.insumos.tree</field>
+        <field name="model">sicpro.app.materiales.insumos</field>
+        <field name="arch" type="xml">
+            <tree string="Producto" multi_edit="1">
+                <field name="name"/>
+                <field name="material_insumo"/>
+                <field name="um" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                <field name="precio" class="oe_inline" widget='monetary'
+                       options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                <field name="ce"/>
+                <field name="fecha_actualizado_sap"/>
+                <field name="fecha_importado"/>
+                <field name="tipo" attrs="{'invisible': [('tipo', '=', 'insumo')]}"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_materiales_form_view" model="ir.ui.view">
+        <field name="name">sicpro.app.materiales.insumos.form</field>
+        <field name="model">sicpro.app.materiales.insumos</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <form string="Producto">
+                <sheet>
+                    <div class="oe_button_box" name="button_box"/>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="id" invisible="True"/>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="Nombre del producto"/>
+                        <h1><field name="name" placeholder="Nombre del producto"/></h1>
+                        <field name="tag_ids" widget="many2many_tags"
+                               options="{'color_field': 'color', 'no_create_edit': True}"/>
+                    </div>
+                    <notebook>
+                        <page string="Información General" name="general_information">
+                            <group>
+                                <group name="group_general">
+                                    <field name="active" invisible="1"/>
+                                    <field name="tipo" options="{'tipo': 'material'}"/>
+                                    <field name="material_insumo"/>
+                                    <field name="um"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                                <group name="group_standard_price">
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="precio" class="oe_inline" widget='monetary'
+                                           options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                                    <field name="ce"/>
+                                    <field name="fecha_actualizado_sap"/>
+                                    <field name="fecha_importado"/>
+                                </group>
+                            </group>
+                            <group string="Notas internas">
+                                <field name="notas" nolabel="1" placeholder="Solo para notas internas."/>
+                            </group>
+                        </page>
+                     </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                    </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_materiales_kanban_view" model="ir.ui.view">
+        <field name="name">sicpro.app.materiales.insumos.kanban</field>
+        <field name="model">sicpro.app.materiales.insumos</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="material_insumo"/>
+                <field name="tipo"/>
+                <field name="image_tipo"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('sicpro.app.materiales.insumos', 'image_128',
+                                record.id.raw_value)" alt="Producto" class="o_image_64_contain"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                    <small t-if="record.material_insumo.value">[<field name="material_insumo"/>]</small>
+                                </strong>
+                                <div name="tags"/>
+                                <ul>
+                                    <li>Precio: $<field name="precio" widget="monetary"></field></li>
+                                </ul>
+                                <div name="tags"/>
+                                <ul>
+                                <small t-if="record.tag_ids.value">
+                                    <field name="tag_ids" widget="many2many_tags"
+                                           options="{'color_field': 'color', 'no_create_edit': True}"/></small>
+                                </ul>
+                                <div name="tags"/>
+                                <t t-if="record.tipo.raw_value == 'material'">
+                                    <strong class="o_kanban_image_fill_left">MATERIAL</strong>
+                                </t>
+                                <t t-else="">
+                                    <strong class="o_kanban_image_fill_left">INSUMO</strong>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="product_materiales_search_view" model="ir.ui.view">
+        <field name="name">sicpro.app.materiales.insumos.search</field>
+        <field name="model">sicpro.app.materiales.insumos</field>
+        <field name="arch" type="xml">
+            <search string="Productos">
+                <field name="name" string="Producto"/>
+                <separator/>
+                <filter string="Materiales" name="tipo" domain="[('tipo','=','material')]"/>
+                <filter string="Insumos" name="tipo" domain="[('tipo','=','insumo')]"/>
+                <separator/>
+                <filter string="Archivado" name="inactive" domain="[('active','=',False)]"/>
+               <group expand="1" string="Group By">
+                    <filter string="Tipo de producto" name="tipo" context="{'group_by':'tipo'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="product_materiales_action" model="ir.actions.act_window">
+        <field name="name">Productos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.materiales.insumos</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="product_materiales_kanban_view"/>
+        <field name="search_view_id" ref="product_materiales_search_view"/>
+        <field name="context">{"search_default_filter_to_sell":1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo Material
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+            id="menu_productos_materiales" name="Productos" action="product_materiales_action"
+            parent="productos_menu_productos" groups="grupo_app_materiales_insumos_usuario" sequence="1"/>
+
+</odoo>

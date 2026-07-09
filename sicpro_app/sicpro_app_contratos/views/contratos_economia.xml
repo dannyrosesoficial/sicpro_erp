@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="contratos_economia_tree" model="ir.ui.view">
+        <field name="name">sicpro.app.contratos.economia.tree</field>
+        <field name="model">sicpro.app.contratos.economia</field>
+        <field name="priority">320</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="sequence_consecutivo"/>
+                <field name="name"/>
+                <field name="sol_pago_cuenta_gasto"/>
+                <field name="proveedor"/>
+                <field name="presupuesto_cup"/>
+                <field name="vigencia_contrato_anios"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="contratos_economia_form" model="ir.ui.view">
+        <field name="name">sicpro.app.contratos.economia.form</field>
+        <field name="model">sicpro.app.contratos.economia</field>
+        <field name="arch" type="xml">
+            <form string="Operaciones">
+                <header>
+                    <button name="action_sip" string="Solicitar Instrumento de Pago" type="object" class="oe_highlight"
+                            groups="sicpro_app_contratos.grupo_app_contratos_economia_operaciones_sp"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'nuevo')]}"/>
+
+                    <button name="action_emision" string="Emitir Pago" type="object" class="oe_highlight"
+                            groups="sicpro_app_contratos.grupo_app_contratos_economia_operaciones_sip"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'sip')]}"/>
+
+                    <button name="action_transito" string="Pasar a Aceptada o Entregado" type="object" class="oe_highlight"
+                            groups="sicpro_app_contratos.grupo_app_contratos_economia_operaciones_ip"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'emision')]}"/>
+
+                    <button name="action_terminado" string="Terminar Solicitud de Pago" type="object"
+                            groups="sicpro_app_contratos.grupo_app_contratos_economia_operaciones_ip"
+                            attrs="{'invisible': ['|', ('active', '=', False), ('estado_interno', '!=', 'transito')]}"/>
+
+                    <button name="emitir_transferencia_banco_metropolitano" class="oe_highlight"
+                            string="Emitir Transferencia Banco Metropolitano" type="object"
+                            groups="sicpro_app_contratos.grupo_app_contratos_economia_operaciones_ip"
+                            attrs="{'invisible': [('tipo_banco_dvpe','in', [False, 'bfi'])]}"/>
+
+                    <button name="emitir_transferencia_banco_bfi" class="oe_highlight"
+                            string="Emitir Transferencia Banco BFI" type="object"
+                            groups="sicpro_app_contratos.grupo_app_contratos_economia_operaciones_ip"
+                            attrs="{'invisible': [('tipo_banco_dvpe','in', [False, 'metropolitano'])]}"/>
+
+
+                    <field name="estado_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"
+                           readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-dollar">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="company_currency" invisible="1"/>
+                                    <field name="monto_facturado" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                </span>
+                                <span class="o_stat_text">Presupuesto</span>
+                            </div>
+                        </button>
+                        <button  class="oe_stat_button" icon="fa-clipboard">
+                                <field string="Facturas" name="facturas_count" widget="statinfo"/>
+                            </button>
+                        <button class="oe_stat_button" icon="fa-file-text-o">
+                                <field string="Documentos" name="doc_count" widget="statinfo"/>
+                            </button>
+                     </div>
+                    <div name="button_box"/>
+                    <widget name="web_ribbon" text="Archivado" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" text="Terminado" bg_color="bg-success"
+                            attrs="{'invisible': [('estado_interno', '!=', 'terminado')]}"/>
+
+                    <div class="oe_title">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="active" invisible="1"/>
+                        <field name="estado_interno" invisible="1"/>
+                        <h1>
+                            <field name="name" placeholder="Seleccione el titulo del contrato"
+                                   attrs="{'readonly': [('estado_interno', '!=', 'nuevo')]}"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </h1>
+                    </div>
+                    <div class="oe_title pr-0">
+                        <h3 class="d-flex flex-row justify-content-between">
+                            <field name="sequence_consecutivo" class="o_task_name text-truncate"/>
+                        </h3>
+                    </div>
+                    <group name="group_top">
+                    <group name="group_left">
+                          <field name="proveedor" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <label for="sol_pago_cuenta_gasto"/>
+                        <div>
+                            <field name="sol_pago_cuenta_gasto" style="width: 40% !important" class="oe_inline"
+                                    options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                            <span class="o_form_label" style="width: 2% !important">   </span>
+                            <field name="sol_pago_cuenta_gasto_name" style="width: 58% !important;" class="oe_inline"
+                                           attrs="{'invisible': [('sol_pago_cuenta_gasto', '=', False)],
+                                           'required': [('sol_pago_cuenta_gasto', '!=', False)]}"/>
+                        </div>
+                        <field name="sol_pago_centro_costo"  attrs="{'readonly': [('estado_interno', '!=', 'nuevo')]}"
+                                 options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        <field name="sol_pago_orden_trabajo" attrs="{'readonly': [('estado_interno', '!=', 'nuevo')]}"/>
+                        <field name="sol_pago_fecha_emision" attrs="{'readonly': [('estado_interno', '!=', 'nuevo')]}"/>
+                    </group>
+                    <group name="group_right">
+                            <field name="sol_pago_area"/>
+                            <field name="sol_pago_division" attrs="{'readonly': [('estado_interno', '!=', 'nuevo')]}" />
+                            <field name="prioridad" widget="priority"/>
+                            <field name="etiquetas" widget="many2many_tags" attrs="{'readonly': [('estado_interno', '!=', 'nuevo')]}"
+                                   options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Etiquetas"/>
+                        <field name="sp_fecha_solicitud"/>
+                        <field name="terminado_fecha"/>
+                    </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="tipo_facturacion" attrs="{'readonly': [('estado_interno', '!=', 'nuevo')]}"/>
+                        </group>
+                        <group>
+                            <field name="plazo_pago" string="Plazo de Pago (días)" readonly="1"/>
+                            <field name="sol_pago_cumplimiento_cronograma"
+                                   attrs="{'readonly': [('estado_interno', '!=', 'nuevo')]}"
+                                   options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <group string="Transito" attrs="{'invisible': [('estado_interno', 'in', ['nuevo', 'sip','emision'])]}">
+                        <group>
+                            <field name="transito_cancelado" attrs="{'readonly': [('estado_interno', '!=', 'transito')]}"/>
+                        </group>
+                        <group>
+                            <field name="transito_estado_cuenta" attrs="{'readonly': [('estado_interno', '!=', 'transito')]}"/>
+                        </group>
+                    </group>
+                    <group string="Detalles de la Solicitud">
+                        <field name="sol_pago_concepto" placeholder=" Concepto de Pago..."/>
+
+                        <field name="sol_pago_observaciones" placeholder=" Notas generales..."
+                         attrs="{'readonly': [('estado_interno', '!=', 'nuevo')]}"/>
+                    </group>
+
+                    <notebook colspan="4">
+                        <page name="page_facturas" string="Facturación">
+                            <group>
+                                <field name="moneda" invisible="1"/>
+                                <field name="facturas_ids" mode="tree,kanban"
+                                           context="{'default_name': name,'default_tipo': tipo_facturacion,
+                                                 'default_factura_Proveedor': proveedor,
+                                                 'default_factura_tipo_moneda': moneda}">
+                                        <tree editable="bottom" string="Facturaciones" >
+                                            <field name="economia" invisible="1"/>
+                                            <field name="name" invisible="1"/>
+                                            <field name="factura_Proveedor" invisible="1"/>
+                                            <field name="tipo" invisible="1"/>
+                                            <field name="factura_numero"/>
+                                            <field name="factura_fecha_emision"/>
+                                            <field name="factura_fecha_recogida"/>
+                                            <field name="factura_monto"/>
+                                            <field name="factura_tipo_moneda" invisible="1"/>
+                                        </tree>
+                                        <form  string="Facturaciones">
+                            <sheet>
+                                 <group>
+                                    <field name="tipo"/>
+                            <field name="factura_numero"/>
+                            <field name="factura_Proveedor"/>
+                            <field name="factura_fecha_emision"/>
+                            <field name="factura_fecha_recogida"/>
+                            <field name="name"/>
+                            <field name="factura_tipo_moneda"/>
+                            <field name="factura_monto"/>
+                                </group>
+                            </sheet>
+                        </form>
+                                    </field>
+                                <field name="monto_texto" string="" class="text-muted"/>
+                            </group>
+
+                        </page>
+                        <page name="sip" string="Instrumento de Pago"
+                              groups="sicpro_app_contratos.grupo_app_contratos_economia_operaciones_sip"
+                              attrs="{'invisible': [('estado_interno', '=', 'nuevo')]}">
+                            <group>
+                                <group>
+                                    <h4 class="d-flex flex-row justify-content-between">
+                                        <field name="sip_sequence_consecutivo" class="o_task_name text-truncate"/>
+                                    </h4>
+                                </group>
+                            </group>
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="sip_beneficiario" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="forma_pago" attrs="{'readonly': [('estado_interno', '!=', 'sip')]}"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="sip_indicador" attrs="{'readonly': [('estado_interno', '!=', 'sip')]}"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="digito_1_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_2_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_3_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_4_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_5_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_6_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_7_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_8_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_9_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_10_cuenta_beneficiario" invisible="1"/>
+                                <field name="digito_11_cuenta_beneficiario" invisible="1"/>
+
+                                </group>
+                                <group name="group_right">
+                                    <field name="sip_beneficiario_cuenta" readonly="1"/>
+                                    <field name="sip_fecha_emision" attrs="{'readonly': [('estado_interno', '!=', 'sip')]}"/>
+                                    <field name="sip_acapite" attrs="{'readonly': [('estado_interno', '!=', 'sip')]}"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="moneda"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </group>
+                            </group>
+                            <group string="Detalles del Instrumento de pago">
+                                <field name="sip_observaciones"/>
+                            </group>
+                        </page>
+                        <page name="emision" string="Emisión de Pago"
+                              groups="sicpro_app_contratos.grupo_app_contratos_economia_operaciones_ip"
+                              attrs="{'invisible': [('estado_interno', 'in', ['nuevo', 'sip'])]}">
+                            <group string="Tipo de Emisión">
+                                  <h4 class="d-flex flex-row justify-content-between">
+                                    <field name="forma_pago" attrs="{'readonly': [('estado_interno', '!=', 'sip')]}"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                </h4>
+                                    <div attrs="{'invisible': ['|', ('forma_pago_genera_consecutivo', '=', False),
+                                    ('emision_cancelada_accion', '!=', 'emitir')]}">
+                                        <button name="action_reemitir_emision" string="Volver a Emitir" type="object"
+                                                class="oe_highlight"
+                                                attrs="{'readonly': [('estado_interno', '!=', 'emision')]}"/>
+                                        <div>
+                                        <p class="text-muted">
+                                            Utilice el botón 'Volver a Emitir' para generar el nuevo consecutivo
+                                            de emisión y re-emitir la documentación para la transacción bancaria.
+                                        </p>
+                                        </div>
+                                    </div>
+
+                                </group>
+                            <group string="Emisión de Pago">
+                                <group>
+                                    <field name="forma_pago_genera_consecutivo" invisible="1"/>
+                                     <h4 class="d-flex flex-row justify-content-between">
+                                         <field name="emision_sequence_consecutivo" class="o_task_name text-truncate"
+                                         attrs="{'readonly': [('forma_pago_genera_consecutivo', '!=', False)]}"/>
+                                     </h4>
+                                    <field name="emision_fecha"/>
+                                    <field name="emision_aceptada_fecha"
+                                           attrs="{'invisible': [('estado_interno','!=', 'transito')]}"/>
+                                </group>
+                               <group>
+                                   <field name="forma_pago" string="Documento de:"
+                                          attrs="{'readonly': [('estado_interno', '!=', 'sip')]}"
+                                           options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                    <field name="emision_cancelada_fecha"
+                                           attrs="{'invisible': ['|', ('estado_interno','!=', 'transito'),
+                                           ('emision_aceptada_fecha', '!=', False)]}"/>
+                                   <field name="emision_cancelada_accion" placeholder="Seleccione la acción al cancelar"
+                                    attrs="{'invisible': [('emision_cancelada_fecha', '=', False)]}"/>
+                                </group>
+                           </group>
+                            <group>
+                                    <field name="emision_motivo_cancelacion"
+                                           attrs="{'invisible': [('emision_cancelada_fecha', '=', False)]}"/>
+                                </group>
+                            <group>
+                                  <group string="Banco DVPE">
+                                      <field name="banco_dvpe"
+                                             options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                             attrs="{'readonly': [('estado_interno', '!=', 'emision')]}"/>
+                                      <field name="cuentas_banco_dvpe" invisible="1"/>
+                                      <field name="cuenta_dvpe"
+                                             options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                             attrs="{'readonly': [('estado_interno', '!=', 'emision')]}"/>
+                                      <field name="numero_cuenta_dvpe"/>
+                                      <field name="tipo_banco_dvpe" invisible="1"/>
+                                      <field name="digito_1_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_2_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_3_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_4_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_5_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_6_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_7_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_8_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_9_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_10_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_11_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_12_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_13_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_14_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_15_cuenta_dvpe" invisible="1"/>
+                                      <field name="digito_16_cuenta_dvpe" invisible="1"/>
+
+                                  </group>
+                                 <group string="Banco del Beneficiario">
+                                     <field name="banco_beneficiario" readonly="1"
+                                             options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                             attrs="{'readonly': [('estado_interno', '!=', 'emision')]}"/>
+                                       <!-- desahbilitado por duplicidad
+                                     <field name="cuentas_banco_beneficiario" invisible="1"/>
+                                      <field name="cuenta_beneficiario"
+                                             options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"
+                                             attrs="{'readonly': [('estado_interno', '!=', 'emision')]}"/>
+                                     <field name="numero_cuenta_beneficiario"/>-->
+                                     <field name="sip_beneficiario" readonly="1"
+                                            options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                                     <field name="sip_beneficiario_cuenta" readonly="1"/>
+                                     <p class="text-muted">
+                                         Este número de cuenta es solo informativa, la cuenta utilizada en los
+                                         informes es la de SIP.
+                                     </p>
+                                  </group>
+                             </group>
+
+                            <group string="Otras Informaciones del Banco"
+                                   attrs="{'invisible': [('tipo_banco_dvpe','=', False)]}">
+                                <group string="Metropolitano"
+                                       attrs="{'invisible': [('tipo_banco_dvpe','=', 'bfi')]}">
+                                    <field name="emision_debitar"/>
+                                </group>
+                                <group string="Financiero Internacional"
+                                       attrs="{'invisible': [('tipo_banco_dvpe','=', 'metropolitano')]}">
+                                    <field name="emision_pago_bfi"/>
+                                    <field name="emision_beneficiario_bfi"/>
+                                    <field name="emision_id_bfi"/>
+                                </group>
+                            </group>
+
+                            <group string="Detalles de la Emisión de Pago">
+                                <field name="emision_observaciones"/>
+                            </group>
+                        </page>
+                        <page name="page_contratos" string="Resumen del Contrato">
+                            <group>
+                                <group>
+                                    <field name="tipo_contrato" readonly="1"/>
+                                </group>
+                                <group name="group_top">
+                                    <field name="sequence_consecutivo_contratos" class="o_task_name text-truncate" readonly="1"/>
+                                </group>
+                            </group>
+                            <group name="group_top">
+                                <group name="group_left">
+                                    <field name="forma_pago_contratos" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"  readonly="1"/>
+                                    <field name="pep" readonly="1"/>
+                                    <field name="presupuesto_cup" readonly="1"/>
+                                    <field name="vigencia_contrato_anios" readonly="1"/>
+                                </group>
+                                <group name="group_right">
+                                    <field name="area_contrato" readonly="1"/>
+                                    <field name="uodc" readonly="1"/>
+                                    <field name="prioridad_contrato" widget="priority" readonly="1"/>
+                                    <field name="solicitud_fecha_inicial" readonly="1"/>
+                                    <field name="solicitud_fecha_fin" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="solicitud_persona_solicita" readonly="1"/>
+                                    <field name="acta" readonly="1"/>
+                                    <field name="fecha_comite_contratacion" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="fecha_inicio_contrato" readonly="1"/>
+                                    <field name="fecha_fin_contrato" readonly="1" />
+                                </group>
+                            </group>
+                            <group string="Detalles del Contrato">
+                                <field name="observaciones" readonly="1"/>
+                    </group>
+                        </page>
+                        <page name="page_proveedores" string="Resumen del Proveedor">
+                            <group>
+                                <group>
+                                    <field name="proveedor" readonly="1"/>
+                                    <field name="domicilio_social" readonly="1"/>
+                                    <field name="nombre_directivo" readonly="1"/>
+                                    <field name="cargo_directivo" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="telefono_fijo" readonly="1"/>
+                                    <field name="telefono_movil" readonly="1"/>
+                                    <field name="correo" readonly="1"/>
+                                    <field name="fecha_agregado" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="servicio_comercializable" readonly="1"/>
+                                    <field name="pep_proveedor" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="tipo" readonly="1"/>
+                                    <field name="codigo_reeup" readonly="1"/>
+                               </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'open_attachments': True}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="contratos_economia_filter" model="ir.ui.view">
+       <field name="name">Buscar Operaciones</field>
+       <field name="model">sicpro.app.contratos.economia</field>
+        <field name="arch" type="xml">
+            <search string="Buscar">
+                <field name="name"/>
+                <field name="sol_pago_cuenta_gasto"/>
+                <field name="proveedor"/>
+                <field name="vigencia_contrato_anios"/>
+                <field name="pep"/>
+                <field name="etiquetas"/>
+                <filter string="Archivado" name="active" domain="[('active', '=',False)]"/>
+                <separator />
+                <group expand="0" string="Agrupar por">
+                        <filter string="Estado" name="estado_id" context="{'group_by':'estado_id'}"/>
+                        <filter string="Proveedor" name="proveedor" context="{'group_by':'proveedor'}"/>
+                        <filter string="Tipo Contrato" name="tipo_contrato" context="{'group_by':'tipo_contrato'}"/>
+                        <filter name="user_id" string="Gestor del Contrato" context="{'group_by': 'user_id'}"/>
+                        <filter string="Área del Contrato" name="area_contrato" context="{'group_by':'area_contrato'}" />
+                        <filter string="Vigencia (Años)" name="vigencia_contrato_anios"
+                                context="{'group_by':'vigencia_contrato_anios'}"/>
+                        <filter string="Método de Pago" name="forma_pago" context="{'group_by':'forma_pago'}"/>
+                    <separator orientation="vertical" />
+                        <filter string="Inicio de contrato" context="{'group_by':'fecha_inicio_contrato:month'}"
+                                name="month"/>
+                        <filter string="Fin de contrato" context="{'group_by':'fecha_fin_contrato:month'}" name="month"/>
+                        <filter string="Año" context="{'group_by':'anio'}" name="month"/>
+                        </group>
+            </search>
+       </field>
+    </record>
+
+    <record id="contratos_economia_kanban" model="ir.ui.view">
+     <field name="name">sicpro.app.contratos.economia.kanban</field>
+      <field name="model">sicpro.app.contratos.economia</field>
+        <field name="priority">330</field>
+     <field name="arch" type="xml">
+        <kanban create="false" edit="false" delete="false">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="tipo_contrato"/>
+                <field name="sol_pago_cuenta_gasto"/>
+                <field name="proveedor"/>
+                <field name="presupuesto_cup"/>
+                <field name="vigencia_contrato_anios"/>
+                <field name="etiquetas"/>
+                <field name="company_currency"/>
+                <field name="active" invisible="1"/>
+                <field name="pep" invisible="1"/>
+                <field name="estado_id" readonly="1" />
+                <progressbar field="kanban_state" colors='{"done": "success", "blocked": "danger", "normal": "warning"}'/>
+            <templates>
+             <t t-name="kanban-box">
+                   <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                  <div class="oe_kanban_details">
+                      <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                      <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                      <ul>
+                          <li t-if="record.etiquetas.raw_value"><field name="etiquetas" widget="many2many_tags" options="{'color_field': 'color'}"/></li>
+                          <li t-if="record.tipo_contrato.raw_value"><field name="tipo_contrato"/></li>
+                          <li t-if="record.proveedor.raw_value"><field name="proveedor"/></li>
+                          <li t-if="record.sol_pago_cuenta_gasto.raw_value"><field name="sol_pago_cuenta_gasto"/></li>
+                          <li t-if="record.presupuesto_cup.raw_value and record.pep.raw_value" class="o_text_overflow">
+                             <field name="pep"/>, <field name="presupuesto_cup" widget='monetary'
+                                                         options="{'currency_field': 'company_currency'}"/></li>
+                          <strong> </strong>
+                      </ul>
+                      <div class="oe_kanban_partner_links"/>
+                  </div>
+               </div>
+             </t>
+           </templates>
+        </kanban>
+     </field>
+    </record>
+
+    <record id="contratos_economia_action" model="ir.actions.act_window">
+        <field name="name">Listado de Operaciones</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sicpro.app.contratos.economia</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="contratos_economia_kanban"/>
+        <field name="domain">[('estado_id.is_final', '=', True)]</field>
+        <field name="help" type="html">
+          <p>
+            SICPRO ERP lo ayuda a rastrear fácilmente todas las operaciones
+            relacionadas con los contratos.
+          </p>
+        </field>
+    </record>
+
+    <record id="contratos_economia_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Contratos: Consecutivo de las operaciones de Solicitud de Pago</field>
+            <field name="code">contratos_economia_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">SP/%(range_year)s/</field>
+            <field name="number_increment">1</field>
+            <field name="use_date_range">True</field>
+            <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="contratos_economia_instrumento_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Contratos: Consecutivo de las operaciones del Instrumento de Pago</field>
+            <field name="code">contratos_economia_instrumento_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">SIP-%(range_year)s/</field>
+            <field name="number_increment">1</field>
+            <field name="use_date_range">True</field>
+            <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="contratos_economia_emision_consecutivo_incrementar" model="ir.sequence">
+            <field name="name">Contratos: Consecutivo de la Emisión de Pago</field>
+            <field name="code">contratos_economia_emision_consecutivo_incrementar</field>
+            <field name="padding">4</field>
+            <field name="prefix">Transf-</field>
+            <field name="number_increment">1</field>
+            <field name="use_date_range">True</field>
+            <field name="company_id" eval="False"/>
+    </record>
+
+      <!-- Vista del kanban para la gestion de contratos-->
+    <record id="contratos_economia_gestion_kanban" model="ir.ui.view">
+      <field name="name">sicpro.app.contratos.economia.gestion.kanban</field>
+      <field name="model">sicpro.app.contratos.economia</field>
+      <field name="priority">340</field>
+      <field name="arch" type="xml">
+      <kanban default_group_by="estado_id" class="o_kanban_small_column o_kanban_project_tasks"
+                        archivable="false" >
+                <field name="id"/>
+                <field name="name"/>
+                <field name="tipo_contrato"/>
+                <field name="sol_pago_cuenta_gasto"/>
+                <field name="proveedor"/>
+                <field name="presupuesto_cup"/>
+                <field name="vigencia_contrato_anios"/>
+                <field name="etiquetas"/>
+                <field name="company_currency"/>
+                <field name="active" invisible="1"/>
+                <field name="pep" invisible="1"/>
+                <field name="estado_id" readonly="1" />
+                <progressbar field="kanban_state" colors='{"done": "success", "blocked": "danger", "normal": "warning"}'/>
+            <templates>
+             <t t-name="kanban-box">
+                   <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                  <div class="oe_kanban_details">
+                      <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                      <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                      <ul>
+                          <li t-if="record.etiquetas.raw_value"><field name="etiquetas" widget="many2many_tags" options="{'color_field': 'color'}"/></li>
+                          <li t-if="record.tipo_contrato.raw_value"><field name="tipo_contrato"/></li>
+                          <li t-if="record.proveedor.raw_value"><field name="proveedor"/></li>
+                          <li t-if="record.sol_pago_cuenta_gasto.raw_value"><field name="sol_pago_cuenta_gasto"/></li>
+                          <li t-if="record.presupuesto_cup.raw_value and record.pep.raw_value" class="o_text_overflow">
+                             <field name="pep"/>, <field name="presupuesto_cup" widget='monetary'
+                                                         options="{'currency_field': 'company_currency'}"/></li>
+                          <strong> </strong>
+                      </ul>
+                      <div class="oe_kanban_partner_links"/>
+                  </div>
+               </div>
+             </t>
+           </templates>
+        </kanban>
+     </field>
+    </record>
+
+        <!-- action del kanban para la gestion de contratos-->
+    <record id="contratos_economia_gestion_action" model="ir.actions.act_window">
+            <field name="name">Gestión de Operaciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sicpro.app.contratos.economia</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="view_id" ref="contratos_economia_gestion_kanban"/>
+    </record>
+        <!-- Fin Vista del kanban para la gestion de contratos-->
+
+</odoo>

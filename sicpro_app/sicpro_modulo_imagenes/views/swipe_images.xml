@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 Shurshilov Artem <shurshilov.a@yandex.ru> -->
+<odoo>
+    <data>
+        <!-- BACKEND swipe images -->
+        <template id="assets_backend_imagen" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                    <link rel="stylesheet" href="/sicpro_modulo_imagenes/static/src/libs/jQuery.Brazzers-Carousel.css" />
+                    <script type="text/javascript" src="/sicpro_modulo_imagenes/static/src/libs/jQuery.Brazzers-Carousel.js"/>
+                    <script type="text/javascript" src="/sicpro_modulo_imagenes/static/src/js/swipe_images_backend.js"/>
+            </xpath>
+        </template>
+        <template id="assets_editor" inherit_id="web.assets_backend" name="Form Image Preview Assests">
+        <xpath expr="." position="inside">
+	    <link rel="stylesheet" href="/sicpro_modulo_imagenes/static/src/css/lightbox.css" />
+        <script type="text/javascript" src="/sicpro_modulo_imagenes/static/src/js/form_image_preview.js"></script>
+	   </xpath>
+</template>
+
+    </data>
+</odoo>

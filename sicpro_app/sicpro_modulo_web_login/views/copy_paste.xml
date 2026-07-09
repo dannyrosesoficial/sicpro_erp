@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <script type="text/javascript" src="/sicpro_modulo_web_login/static/js/copy_paste.js"></script>
+     </data>
+</odoo>

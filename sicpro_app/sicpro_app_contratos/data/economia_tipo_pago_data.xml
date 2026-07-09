@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="sicpro.app.contratos.economia.pago" id="tipo_pago_1">
+            <field name="name">Cheque</field>
+            <field name="color">1</field>
+            <field name="is_genera">False</field>
+        </record>
+        <record model="sicpro.app.contratos.economia.pago" id="tipo_pago_2">
+            <field name="name">Transferencia</field>
+            <field name="color">2</field>
+            <field name="is_genera">True</field>
+        </record>
+        <record model="sicpro.app.contratos.economia.pago" id="tipo_pago_3">
+            <field name="name">Efectivo</field>
+            <field name="color">3</field>
+            <field name="is_genera">False</field>
+        </record>
+
+    </data>
+
+
+</odoo>

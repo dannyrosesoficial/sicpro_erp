@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <menuitem
+            id="solicitudes_menu_root"
+            name="Solicitudes"
+            web_icon="sicpro_app_solicitudes,static/description/icon.png"
+            sequence="6"
+            groups="grupo_app_solicitud_usuario,grupo_app_iniciativas_ejecutor,grupo_app_negocio_ejecutor,grupo_app_negocio_pg_ejecutor,grupo_app_ejecutor_ejecutor,grupo_app_grupos_ejecutor"/>
+
+        <menuitem
+            id="solicitudes_menu_operaciones" name="Operaciones"
+            parent="solicitudes_menu_root" sequence="1"
+            groups="grupo_app_solicitud_usuario,grupo_app_iniciativas_ejecutor,grupo_app_negocio_ejecutor,grupo_app_negocio_pg_ejecutor,grupo_app_ejecutor_ejecutor,grupo_app_grupos_ejecutor"/>
+
+        <menuitem id="menu_solicitudes_grupos" name="Flujo de Solicitudes"
+              parent="solicitudes_menu_operaciones"
+              action="solicitudes_grupos_action"
+              groups="grupo_app_grupos_ejecutor" sequence="1"/>
+
+        <menuitem id="menu_solicitudes_tabla_general" name="Tabla de Solicitudes" sequence="2"
+              parent="solicitudes_menu_operaciones" action="solicitudes_tabla_general_action"
+              groups="grupo_app_solicitud_usuario,grupo_app_iniciativas_ejecutor,grupo_app_negocio_ejecutor,grupo_app_negocio_pg_ejecutor,grupo_app_ejecutor_ejecutor,grupo_app_grupos_ejecutor"/>
+
+        <menuitem id="menu_solicitudes_cliente_menu" name="Clientes"
+                   parent="solicitudes_menu_operaciones" sequence="20"
+                   action="sicpro_app_clientes.action_clientes"
+                   groups="grupo_app_solicitud_usuario,grupo_app_iniciativas_ejecutor,grupo_app_negocio_ejecutor,grupo_app_negocio_pg_ejecutor,grupo_app_ejecutor_ejecutor,grupo_app_grupos_ejecutor"/>
+
+        <menuitem
+            id="solicitudes_menu_iniciativas"
+            name="Iniciativas"
+            parent="solicitudes_menu_root"
+            sequence="5"
+            groups="grupo_app_iniciativas_ejecutor,grupo_app_negocio_ejecutor,grupo_app_negocio_pg_ejecutor,grupo_app_ejecutor_ejecutor,grupo_app_grupos_ejecutor"/>
+
+        <menuitem id="menu_solicitudes_inversionista" name="Inversionista"
+              parent="solicitudes_menu_iniciativas" action="solicitudes_inversionista_action"
+              groups="grupo_app_iniciativas_ejecutor" sequence="5"/>
+
+        <menuitem id="menu_solicitudes_negocio" name="Negociación"
+              parent="solicitudes_menu_iniciativas" action="solicitudes_negociacion_action"
+              groups="grupo_app_negocio_ejecutor" sequence="7"/>
+
+        <menuitem id="menu_solicitudes_negocio_pg" name="Revisión del Negocio"
+              parent="solicitudes_menu_iniciativas" action="solicitudes_negociacion_pg_action"
+              groups="grupo_app_negocio_pg_ejecutor" sequence="8"/>
+
+        <menuitem id="menu_solicitudes_ejecutor" name="Distribuidores"
+              parent="solicitudes_menu_iniciativas" action="solicitudes_ejecutor_action"
+              groups="grupo_app_ejecutor_ejecutor" sequence="9"/>
+
+        <menuitem id="solicitudes_menu_report"
+                  name="Informes"
+                  parent="solicitudes_menu_root"
+                  sequence="6"/>
+
+        <menuitem id="solicitudes_menu_config" name="Configuración"
+                  parent="solicitudes_menu_root" sequence="25"
+                  groups="grupo_app_solicitud_responsable"/>
+
+        <menuitem id="menu_solicitudes_estados" name="Estados" sequence="0"
+                  action="solicitudes_estados_action" parent="solicitudes_menu_config"
+                  groups="grupo_app_solicitud_admin"/>
+
+        <menuitem id="menu_solicitudes_etiquetas" name="Etiquetas"
+                  action="solicitudes_etiquetas_action" parent="solicitudes_menu_config"
+                  groups="grupo_app_solicitud_responsable" sequence="1"/>
+
+        <menuitem id="menu_solicitudes_rechazo" action="solicitudes_motivo_rechazo_action"
+                  parent="solicitudes_menu_config" sequence="8"
+                  groups="grupo_app_solicitud_responsable"/>
+
+        <menuitem id="solicitudes_menu_activity_types" name="Tipo de Actividades"
+                  parent="solicitudes_menu_config" action="mail.mail_activity_type_action"
+                  groups="grupo_app_solicitud_admin" sequence="10"/>
+
+
+</odoo>
