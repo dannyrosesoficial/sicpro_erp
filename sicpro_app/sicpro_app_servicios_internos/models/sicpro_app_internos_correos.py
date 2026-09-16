@@ -15,14 +15,14 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ServiciosInternosCorreos(models.Model):
     _name = 'sicpro.app.servicios.internos.correos'
     _description = "Gestión de correos internos"
     _inherit = ['mail.activity.mixin', 'mail.thread']
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string="Cuenta de Correo")
     active = fields.Boolean(default=True, index=True)
@@ -59,7 +59,7 @@ class ServiciosInternosCorreos(models.Model):
     observaciones = fields.Text(string="Observaciones", required=False,
                                 tracking=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     # verífico que no se repita el trabajador en el registro
     @api.constrains('name')

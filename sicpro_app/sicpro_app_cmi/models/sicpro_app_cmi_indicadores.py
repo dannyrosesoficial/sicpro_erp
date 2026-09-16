@@ -13,15 +13,16 @@ from odoo.exceptions import UserError, ValidationError
 from odoo import fields, models, api
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
-def _default_color():
-    return randint(1, 11)
-
 
 class AppCMIIndicadores(models.Model):
     _name = 'sicpro.app.cmi.indicadores'
     _order = "id asc"
     _description = 'Indicadores del CMI'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     def _compute_buscar_anios(self):
         anio_obj = self.env['sicpro.app.cmi.perspectivas.anios'].search(
@@ -49,7 +50,7 @@ class AppCMIIndicadores(models.Model):
                                      index=True, required=True)
     responsable_follower = fields.Many2one('res.users', string='follower')
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string="Activo", default=True, index=True)
     condicion_presupuesto = fields.Boolean(string="Condición de Presupuesto",
                                            default=False, )
@@ -408,6 +409,10 @@ class AppCMIIndicadoresModalCambios(models.TransientModel):
     _description = 'Solicitud de cambios en los indicadores'
     _inherit = ['mail.thread']
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     def _indicador_activo(self):
         active_id = self.env.context.get('default_id')
         return active_id
@@ -415,7 +420,7 @@ class AppCMIIndicadoresModalCambios(models.TransientModel):
     indicadores_ids = fields.Many2one('sicpro.app.cmi.indicadores', string='Indicador', required=False,
                                       default=_indicador_activo)
     user_id = fields.Many2one('res.users', string='Usuario', index=True, default=lambda self: self.env.uid)
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
     active = fields.Boolean(string="Activo", default=True, index=True)
     detalles = fields.Text(string="Detalles", required=True, tracking=True)
     meta_actual = fields.Integer(string='Meta Actual', compute='_cambiar_mes', store=True)

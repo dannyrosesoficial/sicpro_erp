@@ -18,12 +18,11 @@ from odoo.tools.misc import format_date
 import json
 
 
-def _default_color():
-    return randint(1, 11)
-
-
-PRIORIDADES_ACTIVAS = [('0', 'Baja'), ('1', 'Media'), ('2', 'Alta'),
-                       ('3', 'Muy Alta'), ]
+PRIORIDADES_ACTIVAS = [('0', 'Baja'),
+                       ('1', 'Media'),
+                       ('2', 'Alta'),
+                       ('3', 'Muy Alta'),
+                       ]
 
 
 class OrdenesTrabajo(models.Model):
@@ -31,6 +30,10 @@ class OrdenesTrabajo(models.Model):
     _description = "Órdenes de Trabajo"
     _order = 'id asc'
     _inherit = ['mail.thread.cc', 'mail.thread', 'mail.activity.mixin']
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     # agrego el estado por defecto
     def _get_default_stage_id(self):
@@ -95,7 +98,7 @@ class OrdenesTrabajo(models.Model):
     active = fields.Boolean(string='Activo', default=True, tracking=True,
                             index=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     control_active_guardado = fields.Boolean(string='Control Active',
                                              required=False, default=False)
     tipo_orden = fields.Selection(string='Tipo de Orden',

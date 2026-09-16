@@ -13,10 +13,6 @@ from odoo import api, fields, models, SUPERUSER_ID, exceptions
 from odoo.exceptions import UserError, ValidationError
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
-def _default_color():
-    return randint(1, 11)
-
-
 _logger = logging.getLogger(__name__)
 
 
@@ -29,6 +25,10 @@ class RepositorioInstitucional(models.Model):
     _order = 'parent_id,sequence,id'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     # --- Valores por defecto ---
     def _get_default_stage_id(self):
         return self.env['sicpro.app.repo.estados'].search([], limit=1)
@@ -40,7 +40,7 @@ class RepositorioInstitucional(models.Model):
     parent_path = fields.Char(index=True)
     active = fields.Boolean(string='Activo', default=True, index=True)
     sequence = fields.Integer(string='Secuencia', default=1, index=True)
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
 
     full_name = fields.Char(string='Nombre completo', compute='_compute_full_name', store=True)
     description = fields.Char(string='Descripción de la carpeta')

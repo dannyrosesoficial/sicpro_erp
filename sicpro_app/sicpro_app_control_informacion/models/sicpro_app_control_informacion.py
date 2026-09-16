@@ -9,18 +9,16 @@
 
 from datetime import datetime
 from random import randint
-from odoo import fields, models, api, _
+from odoo import fields, models, api
 from odoo.addons.sicpro_app_administracion.models.constants import \
     MSG_SOPORTE_SICPRO
 from odoo.exceptions import ValidationError, UserError
 
-
-def _default_color():
-    return randint(1, 11)
-
-
-PRIORIDADES_ACTIVAS = [('0', 'Baja'), ('1', 'Media'), ('2', 'Alta'),
-                       ('3', 'Muy Alta'), ]
+PRIORIDADES_ACTIVAS = [('0', 'Baja'),
+                       ('1', 'Media'),
+                       ('2', 'Alta'),
+                       ('3', 'Muy Alta'),
+                       ]
 
 
 class ControlInformacion(models.Model):
@@ -28,6 +26,10 @@ class ControlInformacion(models.Model):
     _description = "Control de Información de la DVPE"
     _order = 'id asc'
     _inherit = ['mail.thread.cc', 'mail.thread', 'mail.activity.mixin']
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Many2one('sicpro.app.control.informacion.actividad',
                            string='Actividad', required=True, index=True,
@@ -38,7 +40,7 @@ class ControlInformacion(models.Model):
                                 required=True)
     active = fields.Boolean(string='Activo', default=True, tracking=True, index=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     user_id = fields.Many2one('res.users', string='Usuario', index=True,
                               tracking=True,
                               default=lambda self: self.env.user)
@@ -87,12 +89,8 @@ class ControlInformacion(models.Model):
     doc_count = fields.Integer(compute='_compute_info_docs_count',
                                string="Cuenta Documentos")
 
-    # control de versiones
-    def action_empaty_version(self):
-        action = None
-
-    # control de documentos
-    def action_empaty_documentos(self):
+    # control acciones sin efecto
+    def action_empaty(self):
         action = None
 
     @api.model

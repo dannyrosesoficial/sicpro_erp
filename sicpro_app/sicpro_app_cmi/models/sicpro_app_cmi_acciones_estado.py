@@ -13,18 +13,18 @@ from odoo import fields, models, api
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppCMIAccionesEstado(models.Model):
     _name = 'sicpro.app.cmi.acciones.estado'
     _order = "id asc"
     _description = 'Estado de las acciones'
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Nombre', required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     inicial = fields.Boolean(string='Inicial', required=False)
     final = fields.Boolean(string='Final', required=False)
     cancelado = fields.Boolean(string='Cancelado', required=False)

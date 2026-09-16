@@ -2,12 +2,7 @@
 
 
 from random import randint
-
 from odoo import api, fields, models
-
-
-def _default_color():
-    return randint(1, 11)
 
 
 class InstruccionesInstruccion(models.Model):
@@ -15,6 +10,10 @@ class InstruccionesInstruccion(models.Model):
     _description = 'Registro de Instrucciones'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = "fecha_inicio desc, name asc"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Instrucción', required=True, tracking=True)
     fecha_creacion = fields.Date(string='Fecha Creado', copy=False,
@@ -57,7 +56,7 @@ class InstruccionesInstruccion(models.Model):
                                        ('EP', 'ESPECIALIZADA'),
                                        ('TC', 'TOMA DE CONCIENCIA'), ], )
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     es_favorito = fields.Boolean()
     attachment_ids = fields.Many2many('ir.attachment',
                                       'instrucciones_documentacion_attachment_rel',

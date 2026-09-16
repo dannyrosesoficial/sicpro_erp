@@ -14,17 +14,17 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class InstruccionesEtiquetas(models.Model):
     _name = 'sicpro.app.instrucciones.etiquetas'
     _description = 'Etiquetas de las Instrucciones'
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Etiqueta', required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string="Activo", default=True, index=True)
 
     @api.constrains('name')

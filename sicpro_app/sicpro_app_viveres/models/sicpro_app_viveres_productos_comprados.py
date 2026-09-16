@@ -12,9 +12,6 @@ from odoo import models, fields, api
 from odoo.exceptions import UserError
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
-def _default_color():
-    return randint(1, 11)
-
 
 class ViveresProductosComprados(models.Model):
     _name = 'sicpro.app.viveres.productos.comprados'
@@ -22,6 +19,10 @@ class ViveresProductosComprados(models.Model):
     _rec_name = 'producto_id'
     _inherit = ['mail.activity.mixin', 'mail.thread']
     _order = "id desc"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     # Es necesario para la inicialización la incorporación del campo id
     id = fields.Id()
@@ -41,7 +42,7 @@ class ViveresProductosComprados(models.Model):
     active = fields.Boolean(string='Activo', default=True, index=True)
     estado = fields.Selection(string="Estado", default='pendiente', compute="_compute_is_completed", store=True,
                               selection=[('entregado', 'Entregado'), ('pendiente', 'Pendiente de entrega')])
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
     is_check = fields.Boolean(string="Check", compute="_compute_is_check", default=True)
     company_id = fields.Many2one('res.company', string='Proceso', required=True, default=lambda self: self.env.company)
     company_currency = fields.Many2one(string='Moneda', readonly=True, related='company_id.currency_id')

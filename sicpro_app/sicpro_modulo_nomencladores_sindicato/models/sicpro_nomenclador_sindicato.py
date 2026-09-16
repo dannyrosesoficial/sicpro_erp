@@ -15,13 +15,13 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class NomencladorSindicato(models.Model):
     _name = "sicpro.nomenclador.sindicato"
     _description = "Áreas sindicales de la DVPE"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Sección Sindical', required=True)
     trabajador_id = fields.Many2one('sicpro.app.trabajadores',
@@ -32,7 +32,7 @@ class NomencladorSindicato(models.Model):
                                 'seccion_sindical_id', string='Áreas',
                                 required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     @api.constrains('name')
     def _check_name_insensitive(self):

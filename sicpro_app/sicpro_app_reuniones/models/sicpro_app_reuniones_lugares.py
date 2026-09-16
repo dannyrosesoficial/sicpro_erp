@@ -14,13 +14,13 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
     MSG_SOPORTE_SICPRO
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ReunionesLugares(models.Model):
     _name = 'sicpro.app.reuniones.lugares'
     _description = 'Lugares de las Reuniones'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     # Crear la secuencia de incremento en el campo color.
 
@@ -29,7 +29,7 @@ class ReunionesLugares(models.Model):
                                  required=False)
     descripcion = fields.Char(string='Descripción', )
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     tipo = fields.Selection(string='Tipo', selection=[('interno', 'Interno'), (
     'externo', 'Externo'), ], required=True, )
 

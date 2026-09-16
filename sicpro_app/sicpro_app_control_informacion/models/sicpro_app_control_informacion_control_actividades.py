@@ -16,14 +16,15 @@ from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
 
-def _default_color():
-    return randint(1, 11)
-
 
 class ControlInformacionControlActividades(models.Model):
     _name = 'sicpro.app.control.informacion.control.actividades'
     _description = 'Control de las actividades de la información'
     _order = 'id desc'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Many2one('sicpro.app.control.informacion.actividad',
                            string='Actividad', required=True, index=True)
@@ -47,7 +48,7 @@ class ControlInformacionControlActividades(models.Model):
                                          ('devuelto', 'Devuelto'), ])
     active = fields.Boolean(string='Activo', default=True, index=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     versiones_control = fields.Char(string='Versiones', required=False)
     versiones_fechas = fields.Char(string='Control de Fechas', required=False,
                                    default='[]')

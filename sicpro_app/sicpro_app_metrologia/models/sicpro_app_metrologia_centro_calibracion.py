@@ -8,18 +8,18 @@
 ##############################################################################
 
 from random import randint
-from odoo import fields, models
-
-
-def _default_color():
-    return randint(1, 11)
+from odoo import fields, models, api
 
 
 class MetrologiaCentroCalibracion(models.Model):
     _name = 'sicpro.app.metrologia.centro.calibracion'
     _description = 'Centro de Calibración Metrología'
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string="Nombre", required=True, )
     active = fields.Boolean(string="Activo", default=True, index=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)

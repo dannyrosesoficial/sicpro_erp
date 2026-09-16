@@ -15,13 +15,13 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ViviendaOfertas(models.Model):
     _name = 'sicpro.app.vivienda.ofertas'
     _description = 'Ofertas para el programa de la vivienda'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Oferta', required=True)
     proveedor_id = fields.Many2one('sicpro.app.vivienda.proveedor',
@@ -33,7 +33,7 @@ class ViviendaOfertas(models.Model):
     fecha = fields.Date(string="Fecha", required=True,
                         default=lambda self: fields.Datetime.now())
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string='Activo', default=True, index=True)
 
     @api.constrains('name')

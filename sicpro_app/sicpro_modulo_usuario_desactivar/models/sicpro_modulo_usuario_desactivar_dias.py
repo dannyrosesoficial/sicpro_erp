@@ -15,18 +15,18 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class DesactivarUsuarioDias(models.Model):
     _name = 'sicpro.app.modulo.usuario.desactivar.dias'
     _description = 'Aviso en días para la desactivación de los usuarios'
     _order = "id asc"
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Integer(string='Días', required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     @api.constrains('name')
     def _check_name_unique(self):

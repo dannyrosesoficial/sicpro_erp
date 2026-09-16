@@ -13,14 +13,14 @@ from odoo import api, Command, fields, models, modules
 from datetime import date
 
 
-def _default_color(self):
-    return randint(1, 11)
-
-
 class AppCMIPerspectivasAnios(models.Model):
     _name = 'sicpro.app.cmi.perspectivas.anios'
     _order = "id asc"
     _description = 'Años de las Perspectivas del CMI'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     def _default_image(self):
         import os

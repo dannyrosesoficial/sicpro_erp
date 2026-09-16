@@ -8,18 +8,17 @@
 ##############################################################################
 
 from random import randint
-
-from odoo import fields, models
-
-
-def _default_color():
-    return randint(1, 11)
+from odoo import fields, models, api
 
 
 class SoporteFragmentosCodigos(models.Model):
     _name = 'sicpro.app.soporte.fragmentos.codigos'
     _description = 'Fragmentos de códigos del desarrollo del sistema'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     DEFAULT_PYTHON_CODE = """# Agregue el fragmento de código:
     # - Aquí puede agregar el fragmento de código que desee recordar
@@ -33,7 +32,7 @@ class SoporteFragmentosCodigos(models.Model):
     company_id = fields.Many2one('res.company', string="Company",
                                  default=lambda self: self.env.company)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     codigo_python = fields.Text(string='Código Python', )
     codigo_xml = fields.Text(string='Código Xml', )
     codigo_otros = fields.Text(string='Otros Códigos', )

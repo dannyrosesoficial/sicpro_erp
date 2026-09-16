@@ -16,15 +16,14 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class SoporteTicket(models.Model):
     _name = 'sicpro.app.soporte'
     _description = 'Soporte de Ayuda'
     _order = 'number desc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    def _default_color(self):
+        return randint(1, 11)
 
     def _get_default_stage_id(self):
         return self.env['sicpro.app.soporte.estados'].search([], limit=1).id
@@ -124,8 +123,8 @@ class SoporteTicket(models.Model):
             else:
                 record.progreso = 0  # acción del botón tareas
 
-    # no hace ninguna función
-    def action_empaty_tareas(self, ):
+    # control acciones sin efecto
+    def action_empaty(self):
         action = None
 
     # calcula el total de días de las tareas y la cantidad de horas

@@ -15,20 +15,20 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ControlInformacionActividades(models.Model):
     _name = 'sicpro.app.control.informacion.actividad'
     _description = 'Actividades para el control de información'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Actividad', required=True)
     descripcion = fields.Char(string="Descripción de la actividad",
                               required=True)
     active = fields.Boolean(string='Activo', default=True, index=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     gestores = fields.Many2many('res.users',
                                 'gestores_control_informacion_rel',
                                 string='Gestores', required=True)

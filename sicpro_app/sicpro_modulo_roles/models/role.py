@@ -20,15 +20,16 @@ from odoo.exceptions import ValidationError
 _logger = logging.getLogger(__name__)
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ResUsersRole(models.Model):
     _name = "res.users.role"
     _inherits = {"res.groups": "group_id"}
     _description = "Rol de usuario"
     _order = "sequence"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
 
     group_id = fields.Many2one(comodel_name="res.groups", required=True,
                                ondelete="cascade", readonly=True,
@@ -59,7 +60,7 @@ class ResUsersRole(models.Model):
     descripcion = fields.Text(string="Descripción del ROL", required=True)
     active = fields.Boolean(string='Activo', default=True, index=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     roles_especiales = fields.Boolean(string='Roles Especiales', default=False)
 
     @api.depends("line_ids.user_id")

@@ -8,17 +8,16 @@
 ##############################################################################
 
 from random import randint
-
-from odoo import fields, models
-
-
-def _default_color():
-    return randint(1, 11)
+from odoo import fields, models, api
 
 
 class ServiciosInternosSolicitudesObservaciones(models.Model):
     _name = 'sicpro.app.servicios.internos.solicitudes.observaciones'
     _description = "Gestión de observaciones de las solicitudes"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     active = fields.Boolean(default=True, index=True)
     name = fields.Text(string='Observaciones', required=True)

@@ -14,23 +14,21 @@ from odoo.exceptions import ValidationError
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppCMIPerspectivas(models.Model):
     _name = 'sicpro.app.cmi.perspectivas'
     _order = "id asc"
     _description = 'Perspectivas del CMI'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Nombre', size=35, required=True)
     user_id = fields.Many2one('res.users', string='Usuario', index=True,
                               tracking=True, default=lambda self: self.env.uid)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string="Activo", default=True, tracking=True, index=True)
     company_id = fields.Many2one('res.company', string='Proceso',
                                  required=True,

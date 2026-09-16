@@ -15,15 +15,15 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class TrabajadoresDepartamentos(models.Model):
     _name = "sicpro.app.trabajadores.areas"
     _description = "Departamento de los trabajadores"
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'departamento_sequence, id'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Área', index=True,
                        compute='_compute_departamento_name', store=True)
@@ -54,7 +54,7 @@ class TrabajadoresDepartamentos(models.Model):
                                string='Jobs')
     note = fields.Text(string='Note')
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     centro_costo = fields.Many2one(required=True, string='Centro Costo',
                                    comodel_name='sicpro.nomenclador.centro.costo',
                                    domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")

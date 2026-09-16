@@ -14,18 +14,18 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ViviendaMaterialesUM(models.Model):
     _name = 'sicpro.app.vivienda.materiales.um'
     _description = 'Unidad de medidas de los materiales'
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='U/M', required=True)
     active = fields.Boolean(string='Activo', default=True, index=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     @api.constrains('name')
     def _check_unique_uom_name(self):

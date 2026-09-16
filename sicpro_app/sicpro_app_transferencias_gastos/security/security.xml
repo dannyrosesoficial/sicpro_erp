@@ -25,15 +25,6 @@ Todos los derechos reservados.
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
         </record>
 
-        <record id="grupo_transferencias_visualizar_proceso" model="res.groups">
-            <field name="name">Visualizar por Procesos</field>
-            <field name="comment">Permisos de lectura</field>
-            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
-            <!-- CORRECCIÓN: Para evitar que el inversionista herede este acceso total, hacemos que este grupo herede del Inversionista -->
-            <!-- <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar'))]"/> -->
-            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_inversionistas'))]"/>
-        </record>
-
         <record id="grupo_transferencias_inversionistas" model="res.groups">
             <field name="name">Gestión del Inversionista</field>
             <field name="comment">Permisos de lectura/Escritura</field>
@@ -41,6 +32,15 @@ Todos los derechos reservados.
             <!-- CORRECCIÓN: Ahora es el eslabón más restrictivo base, heredando directo de la visualización básica -->
             <!-- <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar_proceso'))]"/> -->
             <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar'))]"/>
+        </record>
+
+        <record id="grupo_transferencias_visualizar_proceso" model="res.groups">
+            <field name="name">Visualizar por Procesos</field>
+            <field name="comment">Permisos de lectura</field>
+            <field name="privilege_id" ref="privilege_transferencias_gastos"/>
+            <!-- CORRECCIÓN: Para evitar que el inversionista herede este acceso total, hacemos que este grupo herede del Inversionista -->
+            <!-- <field name="implied_ids" eval="[(4, ref('grupo_transferencias_visualizar'))]"/> -->
+            <field name="implied_ids" eval="[(4, ref('grupo_transferencias_inversionistas'))]"/>
         </record>
 
         <record id="grupo_transferencias_ejecutores_procesos" model="res.groups">

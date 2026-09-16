@@ -129,8 +129,8 @@ class Reuniones(models.Model):
         ('correo', 'Correo electrónico'), ('audio', 'AudioConferencia'),
         ('video', 'VideoConferencia'), ], required=False, )
 
-    # acción del botón Audio, video, Grabación no hace ninguna función
-    def action_empaty_reuniones(self, ):
+    # control acciones sin efecto
+    def action_empaty(self):
         action = None
 
     # calcular la duración de las reuniones

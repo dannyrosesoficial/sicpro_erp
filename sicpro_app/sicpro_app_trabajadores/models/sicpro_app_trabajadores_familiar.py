@@ -15,17 +15,17 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class TrabajadoresFamiliar(models.Model):
     _name = "sicpro.app.trabajadores.familiar"
     _description = "Relaciones de los familiares del trabajador"
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string="Relación", required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     @api.constrains('name')
     def _check_unique_name(self):

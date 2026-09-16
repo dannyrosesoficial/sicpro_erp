@@ -9,15 +9,15 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class InstruccionesTrabajador(models.Model):
     _name = "sicpro.app.instrucciones.trabajador"
     _description = 'Instrucciones Laborales de los Trabajadores'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = "name asc"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     def _trabajador_default(self):
         trabajador = self.env['sicpro.app.trabajadores'].search(
@@ -64,7 +64,7 @@ class InstruccionesTrabajador(models.Model):
                                  related='name.company_id')
     active = fields.Boolean(string="Activo", default=True, index=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     estado_ids = fields.Selection(string='Estado', store=True,
                                   compute="_compute_estado_id",
                                   selection=[('aprobado', 'Aprobado'),

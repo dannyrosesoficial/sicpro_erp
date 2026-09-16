@@ -9,12 +9,7 @@
 
 
 from random import randint
-
-from odoo import fields, models
-
-
-def _default_color():
-    return randint(1, 11)
+from odoo import fields, models, api
 
 
 class SoporteTicketTareas(models.Model):
@@ -23,13 +18,17 @@ class SoporteTicketTareas(models.Model):
     _order = 'id desc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Nombre', required=True)
     user_id = fields.Many2one('res.users', string='Asignado a',
                               default=lambda self: self.env.uid)
     descripcion = fields.Text(string='Descripción', required=True)
     fecha = fields.Date(string='Fecha', default=fields.Date.context_today)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     estado = fields.Selection(
         [('pendiente', 'Pendiente'), ('proceso', 'En Proceso'),
          ('bloqueado', 'Bloqueado'), ('cumplido', 'Cumplido')],

@@ -11,18 +11,19 @@
 from datetime import datetime
 from random import randint
 from dateutil.relativedelta import relativedelta
-from odoo import models, fields
+from odoo import models, fields, api
 import logging
 
 _logger = logging.getLogger(__name__)
-
-def _default_color():
-    return randint(1, 11)
 
 
 class DesactivarUsuario(models.Model):
     _name = 'sicpro.app.modulo.usuario.desactivar'
     _description = 'Desactivación de los usuarios'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Boolean(string='Servicio', default=False)
     dias = fields.Integer(string='Días', required=False, default=0)
@@ -36,7 +37,7 @@ class DesactivarUsuario(models.Model):
                               'sicpro_modulo_desactivar_usuario_dias_rel',
                               string='Días de aviso')
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     # Campo para los usuarios exceptuados de la desactivación
     usuario_excepcion_ids = fields.Many2many('res.users',
         'rel_desactivar_usuarios_excepcion',

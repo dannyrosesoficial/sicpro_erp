@@ -13,18 +13,18 @@ from odoo import fields, models, api
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppCMIAccionesModoControl(models.Model):
     _name = 'sicpro.app.cmi.acciones.modo.control'
     _order = "id asc"
     _description = 'Modo de Control de las acciones'
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Nombre', required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     @api.constrains('name')
     def _check_name_control_unique(self):

@@ -9,12 +9,7 @@
 
 import json
 from random import randint
-
 from odoo import api, fields, models
-
-
-def _default_color():
-    return randint(1, 11)
 
 
 class AdministracionMenus(models.Model):
@@ -22,10 +17,14 @@ class AdministracionMenus(models.Model):
     _description = 'Menus de accesos a la administración'
     _order = "sequence"
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Nombre', required=True)
     active = fields.Boolean(string='Activo', default=True, index=True)
     company_id = fields.Many2one('res.company', string="Proceso", default=lambda self: self.env.company)
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
     sequence = fields.Integer(string='Secuencia', default=1, index=True)
     image_1920 = fields.Image("Image", max_width=1920, max_height=1920)
     # campos redimensionados almacenados (como adjunto) para rendimiento

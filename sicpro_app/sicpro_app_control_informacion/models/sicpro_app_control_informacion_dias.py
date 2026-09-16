@@ -14,17 +14,17 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ControlInformacionDias(models.Model):
     _name = "sicpro.app.control.informacion.dias"
     _description = "Días de aviso para el control de información"
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Integer(string='Día', required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string='Activo', default=True, index=True)
 
     @api.constrains('name')

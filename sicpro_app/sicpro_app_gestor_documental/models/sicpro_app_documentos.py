@@ -12,11 +12,6 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
     MSG_SOPORTE_SICPRO
 from odoo.exceptions import ValidationError
 
-
-def _default_color():
-    return randint(1, 11)
-
-
 _logger = logging.getLogger(__name__)
 
 
@@ -29,11 +24,15 @@ class GestorDocumentos(models.Model):
     _order = 'parent_id,sequence,id'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     parent_path = fields.Char(index=True)
     active = fields.Boolean(default=True, index=True)
     sequence = fields.Integer(string='Secuencia', default=1, index=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     name = fields.Char(string='Nombre', required=True, index=True)
     full_name = fields.Char(string='Nombre completo', compute='_compute_full_name',

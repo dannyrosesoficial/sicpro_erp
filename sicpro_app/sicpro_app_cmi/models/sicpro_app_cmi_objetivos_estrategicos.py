@@ -14,23 +14,21 @@ from odoo import fields, models, api
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppCMIObjetivosEstrategicos(models.Model):
     _name = 'sicpro.app.cmi.objetivos.estrategicos'
     _order = "id asc"
     _description = 'Objetivos Estratégicos del CMI'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Nombre', required=True)
     user_id = fields.Many2one('res.users', string='Usuario', index=True,
                               tracking=True, default=lambda self: self.env.uid)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string="Activo", default=True, tracking=True, index=True)
     perspectivas_id = fields.Many2one('sicpro.app.cmi.perspectivas',
                                       string='Perspectiva', required=True, )

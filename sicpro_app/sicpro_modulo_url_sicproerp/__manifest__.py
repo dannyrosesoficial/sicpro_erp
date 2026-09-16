@@ -26,18 +26,14 @@
         'web',
         'sicpro_app_administracion',
     ],
-    "data": [
-          'data/ir_config_parameter.xml',
-          'views/ir_config_parameter_views.xml'
-      ],
-    "assets": {
-        "web.assets_backend": [
-            "sicpro_modulo_url_sicproerp/static/src/**/*",
-        ],
+    'data': [],
+    'assets': {
+        'web.assets_backend': [
+        'sicpro_modulo_url_sicproerp/static/src/js/router.js',
+    ],
     },
     'installable': True,
     'application': True,
     'auto_install': False,
     'pre_init_hook': 'pre_init_check',
-    'uninstall_hook': '_uninstall_cleanup',
 }

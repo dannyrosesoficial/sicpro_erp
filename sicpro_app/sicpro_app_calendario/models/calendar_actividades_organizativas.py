@@ -15,19 +15,19 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class MeetingActividadesOrganizativas(models.Model):
     _name = 'calendar.actividades.organizativas'
     _description = 'Actividades Organizativas del Calendario'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Actividades', required=True)
     usuarios_ids = fields.Many2many('res.users', string="Usuarios",
                                     readonly=False, store=True, )
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string='Archivado', required=True, default=True, index=True)
 
     @api.constrains('name')

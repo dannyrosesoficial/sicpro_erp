@@ -8,17 +8,16 @@
 ##############################################################################
 
 from random import randint
-
-from odoo import fields, models
-
-
-def _default_color():
-    return randint(1, 11)
+from odoo import fields, models, api
 
 
 class RepositorioInstitucionalFacultad(models.Model):
     _name = 'sicpro.app.repo.facultad'
     _description = 'Facultad o Universidad'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Nombre de la Institución', required=True)
     parent_id = fields.Many2one('sicpro.app.repo.facultad', string='Unidad Superior')

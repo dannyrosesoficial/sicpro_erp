@@ -8,24 +8,23 @@
 ##############################################################################
 
 from random import randint
-
 from odoo import api, fields, models
-
-
-def _default_color():
-    return randint(1, 11)
 
 
 class MetrologiaDirecciones(models.Model):
     _name = 'sicpro.app.metrologia.direcciones'
     _description = 'Direcciones de equipos de Metrología'
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Equipo del Proceso', required=True)
     active = fields.Boolean(string='Activo', default=True, index=True)
     company_id = fields.Many2one('res.company', string='Proceso',
                                  default=lambda self: self.env.company)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     request_ids = fields.One2many(comodel_name="sicpro.app.metrologia.equipos",
                                   inverse_name="equipo_mantenimiento_id",
                                   copy=False)

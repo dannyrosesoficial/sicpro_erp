@@ -15,16 +15,16 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class MetrologiaEquipos(models.Model):
     _name = 'sicpro.app.metrologia.equipos'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Equipos de metrología'
     _order = 'tarjeta asc, id asc'
     _check_company_auto = True
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     def _default_stage(self):
         return self.env['sicpro.app.metrologia.estado.tecnico'].search([],
@@ -121,7 +121,7 @@ class MetrologiaEquipos(models.Model):
     frecuencia_dias_mtto = fields.Integer(string='Días', store=True,
                                           related="magnitud.dias")
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     company_currency = fields.Many2one(string='Moneda', readonly=True,
                                        related='company_id.currency_id')
     costo_equipo = fields.Monetary(string='Costo del Equipo', tracking=True,

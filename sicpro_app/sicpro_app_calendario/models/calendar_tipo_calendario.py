@@ -14,24 +14,26 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
     MSG_SOPORTE_SICPRO
 from odoo.exceptions import ValidationError
 
-
-def _default_color():
-    return randint(1, 11)
-
-
-PRIORIDADES_ACTIVAS = [('0', 'Baja'), ('1', 'Media'), ('2', 'Alta'),
-                       ('3', 'Muy Alta'), ]
+PRIORIDADES_ACTIVAS = [('0', 'Baja'),
+                       ('1', 'Media'),
+                       ('2', 'Alta'),
+                       ('3', 'Muy Alta'),
+                       ]
 
 
 class MeetingTipoCalendario(models.Model):
     _name = 'calendar.tipo.calendario'
     _description = 'Tipo de Calendario'
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Nombre', required=True)
     plantilla_impresion = fields.Boolean(string='Impresión', required=False,
                                          default=False)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     prioridad = fields.Selection(PRIORIDADES_ACTIVAS, string='Prioridad',
                                  index=True, default=PRIORIDADES_ACTIVAS[0][0])
     tipo_defecto = fields.Boolean(string='Por defecto', required=False,

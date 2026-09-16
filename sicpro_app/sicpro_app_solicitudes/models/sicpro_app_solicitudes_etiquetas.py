@@ -14,17 +14,17 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
     MSG_SOPORTE_SICPRO
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class SolicitudesEtiquetas(models.Model):
     _name = "sicpro.app.solicitudes.etiquetas"
     _description = "Etiquetas de las Solicitudes"
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Nombre de la etiqueta', required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     @api.constrains('name')
     def _check_unique_name(self):

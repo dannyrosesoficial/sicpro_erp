@@ -12,14 +12,14 @@ from random import randint
 from odoo import fields, models, api
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppCMIIndicadoresValores(models.Model):
     _name = 'sicpro.app.cmi.indicadores.valores'
     _order = "id asc"
     _description = 'Valores de los Indicadores del CMI'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Many2one('sicpro.app.cmi.indicadores', 'Nombre',
                            required=False, index=True)

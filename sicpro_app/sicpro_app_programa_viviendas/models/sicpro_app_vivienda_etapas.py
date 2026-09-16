@@ -15,13 +15,13 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ViviendaEtapas(models.Model):
     _name = "sicpro.app.vivienda.etapas"
     _description = "Etapas del programa de la vivienda"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Etapa', required=True)
     active = fields.Boolean(string='Activo', default=True, index=True)
@@ -47,7 +47,7 @@ class ViviendaEtapas(models.Model):
                                           required=True)
     fecha_fin = fields.Date(string='Fin de la etapa')
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     estado = fields.Selection(string='Estado', default='activa',
                               compute='_compute_estado',
                               selection=[('activa', 'Activa'),

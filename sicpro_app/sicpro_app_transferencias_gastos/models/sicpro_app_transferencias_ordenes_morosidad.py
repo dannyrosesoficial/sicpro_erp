@@ -14,14 +14,15 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class TransferenciasGastosOrdenesMorosidad(models.Model):
     _name = "sicpro.app.transferencias.gastos.ordenes.morosidad"
     _description = "Periodo de tiempo en que se debe recibir la certificación de gastos"
     _order = "sequence asc"
+
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Integer(string='Periodo (días)', required=True)
     sequence = fields.Integer(string='Secuencia', default=1, index=True)
@@ -33,7 +34,7 @@ class TransferenciasGastosOrdenesMorosidad(models.Model):
     company_abreviatura = fields.Char(string='Abreviatura', required=False,
                                       related='company_id.identificador_corto')
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     @api.constrains('company_id')
     def _check_name_control_unique(self):

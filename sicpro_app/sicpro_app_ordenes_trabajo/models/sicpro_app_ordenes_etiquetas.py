@@ -13,16 +13,16 @@ from odoo.exceptions import ValidationError
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class OrdenesEtiquetas(models.Model):
     _name = "sicpro.app.ordenes.etiquetas"
     _description = "Etiquetas de las órdenes de trabajo"
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Nombre de la etiqueta', required=True)
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
 
     @api.constrains('name')
     def _check_name_control_unique(self):

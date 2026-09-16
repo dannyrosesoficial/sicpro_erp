@@ -15,17 +15,17 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class TrabajadoresCategorias(models.Model):
     _name = "sicpro.app.trabajadores.categorias"
     _description = "Etiquetas de los trabajadores"
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string="Nombre de la etiqueta", required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     tipo = fields.Selection(string='Tipo', required=True,
                             selection=[('contrato', 'Clase de Contrato'), (
                             'ocupacional', 'Categoría Ocupacional'), ], )

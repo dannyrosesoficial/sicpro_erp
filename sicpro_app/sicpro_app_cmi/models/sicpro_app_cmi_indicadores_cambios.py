@@ -13,9 +13,6 @@ from odoo import fields, models, api
 from odoo.exceptions import UserError, ValidationError
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
-def _default_color():
-    return randint(1, 11)
-
 
 class AppCMIIndicadoresCambios(models.Model):
     _name = 'sicpro.app.cmi.indicadores.cambios'
@@ -23,9 +20,13 @@ class AppCMIIndicadoresCambios(models.Model):
     _description = 'Cambios de Indicadores del CMI'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
 
     user_id = fields.Many2one('res.users', string='Usuario', index=True, default=lambda self: self.env.uid)
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
     active = fields.Boolean(string="Activo", default=True, index=True)
     detalles = fields.Text(string="Detalles", required=False)
     observaciones = fields.Text(string="Observaciones", required=False)

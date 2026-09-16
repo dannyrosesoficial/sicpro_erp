@@ -14,15 +14,15 @@ from odoo import fields, models, api
 from odoo.exceptions import UserError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppCMIAcciones(models.Model):
     _name = 'sicpro.app.cmi.acciones'
     _order = "id asc"
     _description = 'Acciones del CMI'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     def _estado_inicial(self):
         estado_id = self.env['sicpro.app.cmi.acciones.estado'].search(
@@ -47,7 +47,7 @@ class AppCMIAcciones(models.Model):
     modo_control = fields.Many2one('sicpro.app.cmi.acciones.modo.control',
                                    string='Modo de control', index=True, )
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string="Activo", default=True, tracking=True, index=True)
     seguir = fields.Boolean(string="Seguimiento", default=False, tracking=True)
     indicador_id = fields.Many2one('sicpro.app.cmi.indicadores', 'Indicadores',

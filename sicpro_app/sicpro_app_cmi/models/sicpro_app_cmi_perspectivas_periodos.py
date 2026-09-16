@@ -14,17 +14,17 @@ from odoo import api, Command, fields, models, modules
 from odoo.exceptions import UserError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppCMIPerspectivasPeriodos(models.Model):
     _name = 'sicpro.app.cmi.perspectivas.periodos'
     _order = "id asc"
     _description = 'Periodos del CMI'
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string="Activo", default=True, index=True)
     name = fields.Selection(
         string='Período', selection=[

@@ -15,15 +15,15 @@ from odoo.addons.sicpro_app_administracion.models.constants import \
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ServiciosInternosLineas(models.Model):
     _name = 'sicpro.app.servicios.internos.lineas'
     _description = "Gestión de líneas"
     _inherit = ['mail.activity.mixin', 'mail.thread']
     _order = "name"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string="No. Teléfono", required=True, tracking=True)
     active = fields.Boolean(default=True, index=True)
@@ -91,7 +91,7 @@ class ServiciosInternosLineas(models.Model):
         string='Carnet de identidad Custodia', store=True,
         related='custodia_trabajador.identification_id')
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     custodia_detalles = fields.Text(string="Detalles", required=False,
                                     tracking=True)
     fecha_recibida = fields.Date(string='Recibida', required=False,

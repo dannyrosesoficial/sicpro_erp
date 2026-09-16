@@ -14,7 +14,7 @@ Todos los derechos reservados.
     <field name="model">sicpro.app.soporte</field>
     <field name="inherit_id" ref="sicpro_app_soporte.ticket_view_form"/>
     <field name="arch" type="xml">
-      <xpath expr="//button[@name='action_empaty_tareas']" position="before">
+      <xpath expr="//button[@name='action_empaty']" position="before">
         <field name="team_id_bitacora" invisible="1"/>
 
         <button name="solicitudes_acceso_view" type="object" class="oe_stat_button text-danger" icon="fa-folder-open"

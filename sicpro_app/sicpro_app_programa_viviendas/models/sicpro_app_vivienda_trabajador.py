@@ -18,12 +18,11 @@ from odoo.exceptions import UserError, ValidationError
 from odoo.tools import format_date
 
 
-def _default_color():
-    return randint(1, 11)
-
-
-PRIORIDADES_ACTIVAS = [('0', 'Baja'), ('1', 'Media'), ('2', 'Alta'),
-                       ('3', 'Muy Alta'), ]
+PRIORIDADES_ACTIVAS = [('0', 'Baja'),
+                       ('1', 'Media'),
+                       ('2', 'Alta'),
+                       ('3', 'Muy Alta'),
+                       ]
 
 
 class ViviendaTrabajador(models.Model):
@@ -32,6 +31,9 @@ class ViviendaTrabajador(models.Model):
     _rec_name = 'trabajador_id'
     _inherit = ['mail.activity.mixin', 'mail.thread']
     _order = "escalafon asc, prioridad asc, trabajador_id asc"
+
+    def _default_color(self):
+        return randint(1, 11)
 
     # Es necesario para la inicialización la incorporación del campo id
     id = fields.Id()

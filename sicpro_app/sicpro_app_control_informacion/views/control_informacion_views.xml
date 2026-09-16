@@ -81,10 +81,10 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="action_empaty_documentos" type="object" class="oe_stat_button" icon="fa-paperclip">
+                        <button name="action_empaty" type="object" class="oe_stat_button" icon="fa-paperclip">
                             <field string="Documentos" name="doc_count" widget="statinfo"/>
                         </button>
-                        <button class="oe_stat_button" icon="fa-history" name="action_empaty_version" type="object">
+                        <button class="oe_stat_button" icon="fa-history" name="action_empaty" type="object">
                             <field name="version" widget="statinfo" string="Versión"/>
                         </button>
                     </div>

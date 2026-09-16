@@ -79,7 +79,7 @@ Todos los derechos reservados.
           <field name="grupo_responsable" invisible="1"/>
           <field name="asignado" invisible="1"/>
           <div class="oe_button_box" name="button_box">
-            <button class="text-danger oe_stat_button" icon="fa-life-ring" name="action_empaty_tareas" type="object">
+            <button class="text-danger oe_stat_button" icon="fa-life-ring" name="action_empaty" type="object">
               <field name="cantidad_tareas" widget="statinfo" string="Tickets"/>
             </button>
           </div>

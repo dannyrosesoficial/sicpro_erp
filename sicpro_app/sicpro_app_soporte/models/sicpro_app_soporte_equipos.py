@@ -8,17 +8,16 @@
 ##############################################################################
 
 from random import randint
-
 from odoo import api, fields, models
-
-
-def _default_color():
-    return randint(1, 11)
 
 
 class SoporteEquipos(models.Model):
     _name = 'sicpro.app.soporte.equipos'
     _description = 'Equipos de Soporte'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Equipos', required=True)
     user_ids = fields.Many2many(comodel_name='res.users', string='Miembros')
@@ -28,7 +27,7 @@ class SoporteEquipos(models.Model):
     company_id = fields.Many2one('res.company', string="Proceso",
                                  default=lambda self: self.env.company)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     ticket_ids = fields.One2many('sicpro.app.soporte', 'team_id',
                                  string="Tickets", copy=False)
     todo_ticket_ids = fields.One2many('sicpro.app.soporte', 'team_id',

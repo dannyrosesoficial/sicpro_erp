@@ -11,13 +11,14 @@ from random import randint
 from odoo import models, fields, api
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
-def _default_color():
-    return randint(1, 11)
-
 
 class ViveresProductos(models.Model):
     _name = 'sicpro.app.viveres.productos'
     _description = "Productos del módulo de víveres"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Producto', required=True)
     active = fields.Boolean(string='Activo', default=True, index=True)
@@ -28,7 +29,7 @@ class ViveresProductos(models.Model):
     image_512 = fields.Image("Image 512", related="image_1920", max_width=512, max_height=512, store=True)
     image_256 = fields.Image("Image 256", related="image_1920", max_width=256, max_height=256, store=True)
     image_128 = fields.Image("Image 128", related="image_1920", max_width=128, max_height=128, store=True)
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
 
     @api.constrains('name')
     def _check_name_control_unique(self):

@@ -8,16 +8,15 @@
 ##############################################################################
 
 from random import randint
-
-from odoo import models, fields
-
-
-def _default_color():
-    return randint(1, 11)
+from odoo import models, fields, api
 
 
 class TrabajadoresGeneral(models.Model):
     _inherit = 'sicpro.app.trabajadores'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     seccion_sindical_id = fields.Many2one("sicpro.nomenclador.sindicato",
                                           string="Sección Sindical",

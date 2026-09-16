@@ -21,12 +21,12 @@ from odoo.tools import format_time
 _logger = logging.getLogger(__name__)
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class Users(models.Model):
     _inherit = 'res.users'
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     status = fields.Selection(
         selection=[('done', 'En Linea'), ('blocked', 'Desconectado'), ],
@@ -39,7 +39,7 @@ class Users(models.Model):
     last_activity_time = fields.Char(compute="_compute_last_activity")
     user_id = fields.Many2one('res.users')
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     @api.depends('im_status')
     def _compute_usuario_state(self):

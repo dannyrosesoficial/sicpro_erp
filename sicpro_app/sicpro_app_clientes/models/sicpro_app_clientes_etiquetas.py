@@ -14,18 +14,18 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppClientesEtiquetas(models.Model):
     _name = 'sicpro.app.clientes.etiquetas'
     _order = "id asc"
     _description = 'Etiquetas para la Aplicación de Clientes'
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string='Etiqueta', required=True)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
 
     @api.constrains('name')
     def _check_name_unique(self):

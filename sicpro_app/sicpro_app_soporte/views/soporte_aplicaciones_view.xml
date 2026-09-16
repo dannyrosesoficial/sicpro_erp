@@ -131,7 +131,7 @@ Todos los derechos reservados.
                                         <field name="name"/>
                                     </strong>
                                     <div class="text-muted small mt-1">
-                                        <i class="fa fa-tag me-1"/> <field name="tipo"/>
+                                      <i class="fa fa-tag me-1" title="Tipo" aria-label="Tipo"/> <field name="tipo"/>
                                     </div>
                                 </div>
                             </div>

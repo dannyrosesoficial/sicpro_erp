@@ -21,15 +21,15 @@ import os
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class Credenciales(models.Model):
     _name = 'sicpro.app.credenciales'
     _description = "Credenciales de los Trabajadores"
     _order = 'trabajador'
     _inherit = ['mail.activity.mixin', 'mail.thread']
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     @api.model
     def imagen_por_defecto(self):
@@ -82,7 +82,7 @@ class Credenciales(models.Model):
     genero = fields.Selection(string="Género", related='trabajador.genero', store=True)
     fecha_nacimiento = fields.Date(string='Fecha de nacimiento', store=True, related='trabajador.fecha_nacimiento')
     user_id = fields.Many2one('res.users', string='Usuario SICPRO ERP', related='trabajador.user_id', store=True)
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
 
     credencial_image_1920 = fields.Image("Image", max_width=1920, max_height=1920, default=_default_image)
     # campos redimensionados almacenados (como adjunto) para rendimiento

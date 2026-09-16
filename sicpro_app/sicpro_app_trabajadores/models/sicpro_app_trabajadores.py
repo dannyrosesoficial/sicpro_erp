@@ -22,16 +22,15 @@ from odoo.tools import format_time
 from odoo.tools.misc import file_open
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class TrabajadoresGeneral(models.Model):
     _name = 'sicpro.app.trabajadores'
     _description = "Trabajadores"
     _order = 'name'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'image.mixin',
                 'resource.mixin']
+
+    def _default_color(self):
+        return randint(1, 11)
 
     @api.model
     def _default_image(self):
@@ -206,8 +205,7 @@ class TrabajadoresGeneral(models.Model):
                                      store=False, compute_sudo=True)
     equipo_tecnico_id = fields.Many2one(
         "sicpro.app.trabajadores.equipo.tecnico", string="equipo_tecnico_id")
-    color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
     equipo_tecnico = fields.Many2one("sicpro.app.trabajadores.equipo.tecnico",
                                      string="Equipo Técnico",
                                      related='area_id.equipo_tecnico_id')

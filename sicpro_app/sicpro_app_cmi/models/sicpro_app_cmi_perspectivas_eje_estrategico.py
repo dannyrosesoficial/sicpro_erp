@@ -14,23 +14,21 @@ from odoo import api, Command, fields, models, modules
 from odoo.exceptions import UserError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppCMIPerspectivasEjeEstrategico(models.Model):
     _name = 'sicpro.app.cmi.perspectivas.eje.estrategico'
     _order = "id asc"
     _description = 'Ejes Estratégicos del CMI'
 
-
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     name = fields.Char(string='Nombre', required=True)
     user_id = fields.Many2one('res.users', string='Usuario', index=True,
                               default=lambda self: self.env.uid)
     descripcion = fields.Char(string="Descripción", required=True, )
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string="Activo", default=True, index=True)
     anio = fields.Char(string="Año", required=True,
                        default=fields.Datetime.now().strftime("%Y"), )

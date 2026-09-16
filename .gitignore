@@ -3,7 +3,7 @@ odoo/
 Odoo/
 
 # 2. Ignorar configuraciones sensibles
-config/
+# config/
 *.conf
 .env
 

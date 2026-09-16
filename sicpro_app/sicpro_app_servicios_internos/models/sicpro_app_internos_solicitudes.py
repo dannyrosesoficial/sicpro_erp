@@ -13,15 +13,15 @@ from odoo import api, fields, models
 from odoo.exceptions import ValidationError, UserError
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class ServiciosInternosSolicitudes(models.Model):
     _name = 'sicpro.app.servicios.internos.solicitudes'
     _description = "Gestión de las Solicitudes de los Servicios internos"
     _inherit = ['mail.activity.mixin', 'mail.thread']
     _order = "fecha_solicitud desc"
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
 
     active = fields.Boolean(string='Activo', default=True, index=True)
@@ -226,7 +226,7 @@ class ServiciosInternosSolicitudes(models.Model):
                 "    <p></p>"
                 "  </body>")
 
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
     doc_count = fields.Integer(compute='_compute_solicitudes_docs_count', string="Documentos")
     tipo_movimiento = fields.Selection(string='Tipo de movimiento', required=False, tracking=True,
                             selection=[('alta', 'Alta'), ('modificacion', 'Modificación'), ('baja', 'Baja'), ])
@@ -365,8 +365,8 @@ class ServiciosInternosSolicitudes(models.Model):
             documentos.doc_count = attachment_obj.search_count(
                 ['&', ('res_model', '=', 'sicpro.app.servicios.internos.solicitudes'), ('res_id', '=', documentos.id)])
 
-    # acción del botón documentos: no hace ninguna función
-    def action_empaty_doc_solicitudes(self, ):
+    # control acciones sin efecto
+    def action_empaty(self):
         action = None
 
 

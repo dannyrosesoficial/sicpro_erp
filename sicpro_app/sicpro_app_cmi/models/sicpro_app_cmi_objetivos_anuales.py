@@ -14,15 +14,15 @@ from odoo.exceptions import ValidationError
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
 
 
-def _default_color():
-    return randint(1, 11)
-
-
 class AppCMIObjetivosAnuales(models.Model):
     _name = 'sicpro.app.cmi.objetivos.anuales'
     _order = "id asc"
     _description = 'Objetivos Anuales del CMI'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
 
     def _compute_buscar_anios(self):
         anio_obj = self.env['sicpro.app.cmi.perspectivas.anios'].search(
@@ -42,7 +42,7 @@ class AppCMIObjetivosAnuales(models.Model):
     user_id = fields.Many2one('res.users', string='Usuario', index=True,
                               tracking=True, default=lambda self: self.env.uid)
     color = fields.Integer(string='Color',
-                           default=lambda self: _default_color())
+                           default=_default_color)
     active = fields.Boolean(string="Activo", default=True, tracking=True, index=True)
     obj_estrategico_id = fields.Many2one(
         'sicpro.app.cmi.objetivos.estrategicos', string='Objetivo Estratégico',

@@ -193,7 +193,7 @@ Todos los derechos reservados.
         <field name="color" widget="color_picker" invisible="1"/>
         <sheet>
           <div class="oe_button_box" name="button_box">
-            <button name="action_empaty_doc_solicitudes" type="object"
+            <button name="action_empaty" type="object"
                     class="oe_stat_button" icon="fa-archive">
               <field string="Documentos" name="doc_count" widget="statinfo"/>
             </button>

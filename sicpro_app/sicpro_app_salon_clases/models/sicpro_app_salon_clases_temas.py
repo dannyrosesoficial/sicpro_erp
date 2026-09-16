@@ -7,14 +7,14 @@
 #    Todos los derechos reservados.
 ##############################################################################
 
-from odoo import fields, models
+from odoo import fields, models, api
 from random import randint
 
-Niveles = [('0', 'Baja'), ('1', 'Media'), ('2', 'Alta'), ('3', 'Muy Alta'), ]
-
-
-def _default_color():
-    return randint(1, 11)
+Niveles = [('0', 'Baja'),
+           ('1', 'Media'),
+           ('2', 'Alta'),
+           ('3', 'Muy Alta'),
+           ]
 
 
 class SalonClasesTemas(models.Model):
@@ -23,12 +23,16 @@ class SalonClasesTemas(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = "name, id"
 
+    @api.model
+    def _default_color(self):
+        return randint(1, 11)
+
     name = fields.Char(string="Temática", index=True, required=True, tracking=True, )
     nivel = fields.Selection(Niveles, string='Nivel', index=True, tracking=True, default=Niveles[0][0])
     active = fields.Boolean(string='Activo', default=True, index=True)
     company_id = fields.Many2one('res.company', string='Proceso', required=True,
                                  default=lambda self: self.env.company)
-    color = fields.Integer(string='Color', default=lambda self: _default_color())
+    color = fields.Integer(string='Color', default=_default_color)
     user_id = fields.Many2one('res.users', string='Organizador', default=lambda self: self.env.uid, index=True,
                               tracking=True)
     tipo = fields.Many2one(comodel_name='sicpro.app.salon.clases.tipo', string='Tipo', required=True)

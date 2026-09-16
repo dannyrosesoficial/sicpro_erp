@@ -36,7 +36,7 @@
         'security/security.xml',
         'views/video_conferencias_views.xml',
         'data/ir_config_parameter.xml',
-        'data/mail_template".xml',
+        'data/mail_template.xml',
     ],
     'assets': {
         'web.assets_backend': [],
