@@ -1,235 +1,239 @@
-6|2167|abel.gonzalez|13|Abel Gonzalez Pulido|abel.gonzalez@etecsa.cu|||85121507009|12|Economía|t|f
-9|2457|adalberto.echazabal|16|Adalberto Felix Echazabal Ramirez|adalberto.echazabal@etecsa.cu|||67012102908|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-10|2350|adalberto.ortega|17|Adalberto Ortega Eguino|adalberto.ortega@etecsa.cu|||95123037189|3|Dirección de Proyectos de Telecomunicaciones|f|f
-16|2189|alberto.cancio|23|Alberto Cancio Rivero|alberto.cancio@etecsa.cu|||67102314601|13|Logística y Servicios|t|f
-17|2367|alberto.galvez|24|Alberto Galvez Arteaga|alberto.galvez@etecsa.cu|||64041831846|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-18|2160|albin.ebanks|25|Albin Ebanks Blanco|albin.ebanks@etecsa.cu|||78101040086|2|STAFF|f|f
-20|2150|alejandro.amartinez|27|Alejandro Alonso Martinez|alejandro.amartinez@etecsa.cu|||82020406820|11|Capital Humano|t|f
-22|2217|alejandro.santana|29|Alejandro Luis Santana Diaz|alejandro.santana@etecsa.cu|||63122620288|13|Logística y Servicios|t|f
-24|2625|alexander.ferrer|31|Alexander Ferrer Cardenas|alexander.ferrer@etecsa.cu|||76112003162|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-25|2360|alexei.perez|32|Alexei Perez de Cespedes|alexei.perez@etecsa.cu|||64092127907|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-26|2642|alexis.sosa|33|Alexis Sosa Alonso|alexis.sosa@etecsa.cu|||75012825166|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-27|2335|alfredo.betancourt|34|Alfredo Betancourt Arango|alfredo.betancourt@etecsa.cu|||55091401862|3|Dirección de Proyectos de Telecomunicaciones|f|f
-29|3152|alicia.rego|36|Alicia Elena Rego Rodriguez|alicia.rego@etecsa.cu|||65102513176|4|Dirección de Ejecución de Obras Civiles|t|f
-30|2130|amada.martinez|37|Amada Martinez Hernandez|amada.martinez@etecsa.cu|||65052901213|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-31|2381|amado.perez|38|Amado Perez Urrutia|amado.perez@etecsa.cu|||52091324380|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-32|2169|amanda.rodriguez|39|Amanda Cristina Rodriguez Riera|amanda.rodriguez@etecsa.cu|||98111106979|12|Economía|t|f
-33|2897|amarilys.campuzano|40|Amarilys Campuzano Nunez|amarilys.campuzano@etecsa.cu|||69042014175|4|Dirección de Ejecución de Obras Civiles|f|f
-34|2467|ana.gonzalez|41|Ana Gonzalez Dominguez|ana.gonzalez@etecsa.cu|||65040626459|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-35|2214|anam.blanco|42|Ana Maria Blanco Gonzalez|anam.blanco@etecsa.cu|||72052828717|2|STAFF|f|f
-36|2459|andres.cabrerapelier|43|Andres Cabrera Pelier|andres.cabrerapelier@etecsa.cu|||63020401784|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-41|2362|aniaska.muniz|48|Aniaska Muniz Castillo|aniaska.muniz@etecsa.cu|||78040731851|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-42|2131|annia.prieto|49|Annia Prieto Vidal|annia.prieto@etecsa.cu|||68102604314|10|Coordinación General|t|f
-45|2849|ariel.gonzalez|52|Ariel Gonzalez Pedroso|ariel.gonzalez@etecsa.cu|||80072504147|4|Dirección de Ejecución de Obras Civiles|f|f
-46|2357|ariel.fleitas|53|Ariel Jesus Fleitas Varela|ariel.fleitas@etecsa.cu|||70020300086|1|División de Proyecto y Ejecución de Obras|t|f
-48|2133|armando.solano|55|Armando Solano Aguilera|armando.solano@etecsa.cu|||63100400507|1|División de Proyecto y Ejecución de Obras|f|f
-51|2136|ayram.oromi|58|Ayram Oromi Fiorenzano|ayram.oromi@etecsa.cu|||71051011261|3|Dirección de Proyectos de Telecomunicaciones|t|f
-52|3154|baleini.machin|59|Baleini Machin Padron|baleini.machin@etecsa.cu|||82051008231|4|Dirección de Ejecución de Obras Civiles|t|f
-54|2127|benigno.sanchez|61|Benigno Victor Sanchez Curbelo|benigno.sanchez@etecsa.cu|||61022214606|10|Coordinación General|t|f
-58|2554|carlos.pulido|65|Carlos Jose Pulido Diaz|carlos.pulido@etecsa.cu|||60012815469|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-59|2726|carlos.cepero|66|Carlos Luis Cepero Santiago|carlos.cepero@etecsa.cu|||62081800421|4|Dirección de Ejecución de Obras Civiles|t|t
-60|2698|carlos.capote|67|Carlos Manuel Capote Rodriguez|carlos.capote@etecsa.cu|||62010205420|4|Dirección de Ejecución de Obras Civiles|f|f
-63|2844|carlos.valles|70|Carlos Miguel Valles Tejeda|carlos.valles@etecsa.cu|||62091515905|4|Dirección de Ejecución de Obras Civiles|t|f
-64|2377|catalina.gonzalez|71|Catalina Gonzalez Miramon|catalina.gonzalez@etecsa.cu|||64091600897|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-65|2291|cesar.diaz|72|Cesar Diaz Cardenas|cesar.diaz@etecsa.cu|||77111907061|3|Dirección de Proyectos de Telecomunicaciones|t|f
-66|2703|claudia.marti|73|Claudia Margarita Marti Aguila|claudia.marti@etecsa.cu|||90102026275|4|Dirección de Ejecución de Obras Civiles|t|f
-69|2162|daily.perez|76|Daily Perez Molano|daily.perez@etecsa.cu|||87111536258|12|Economía|f|f
-71|2145|daisy.hernandez|78|Daisy Hernandez Ramirez|daisy.hernandez@etecsa.cu|||65111719519|1|División de Proyecto y Ejecución de Obras|f|f
-73|2348|dania.medina|80|Dania Mary Medina Pantoja|dania.medina@etecsa.cu|||87120107155|3|Dirección de Proyectos de Telecomunicaciones|t|f
-74|3157|dania.almeida|81|Dania Rosa Almeida Valdes|dania.almeida@etecsa.cu|||71012917616|4|Dirección de Ejecución de Obras Civiles|t|f
-79|2701|david.rivera|86|David Rivera Estopinan|david.rivera@etecsa.cu|||56081000964|4|Dirección de Ejecución de Obras Civiles|f|f
-80|2171|dayana.loredo|87|Dayana Loredo Martinez|dayana.loredo@etecsa.cu|||86102507455|13|Logística y Servicios|t|f
-82|2373|dayane.borges|89|Dayane Borges Castellon|dayane.borges@etecsa.cu|||87081309696|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-83|2855|daylin.parra|90|Daylin Niurka Parra Martinez|daylin.parra@etecsa.cu|||95111230412|4|Dirección de Ejecución de Obras Civiles|f|f
-88|2174|diana.cardenas|95|Diana Cardenas Granados|diana.cardenas@etecsa.cu|||64041214735|2|STAFF|f|f
-89|2368|diego.perez|96|Diego Cesar Perez Hernandez|diego.perez@etecsa.cu|||47070916200|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-91|2839|edgar.haber|98|Edgar Haber Diaz|edgar.haber@etecsa.cu|||74061910422|4|Dirección de Ejecución de Obras Civiles|f|f
-92|2183|edmundo.atherton|99|Edmundo Atherton Barbier|edmundo.atherton@etecsa.cu|||59112010869|13|Logística y Servicios|t|f
-93|2172|eduardo.rangel|100|Eduardo Julio Rangel Gamez|eduardo.rangel@etecsa.cu|||62041200940|12|Economía|t|f
-95|2365|elainy.echazabal|102|Elainy Echazabal Gonzalez|elainy.echazabal@etecsa.cu|||91032430096|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|t
-96|2375|elio.benavides|103|Elio Benavides Gomez|elio.benavides@etecsa.cu|||56010806965|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-98|3155|elizaberht.delahoz|105|Elizaberht de la Hoz Solano|elizaberht.delahoz@etecsa.cu|||82111006876|4|Dirección de Ejecución de Obras Civiles|t|f
-99|2729|emeterio.chacon|106|Emeterio Chacon Torres|emeterio.chacon@etecsa.cu|||61090907469|4|Dirección de Ejecución de Obras Civiles|f|f
-103|2178|erich.fernandez|110|Erich Fernandez Medina|erich.fernandez@etecsa.cu|||74040121929|2|STAFF|f|f
-105|2685|erik.montano|112|Erik Montano Mena|erik.montano@etecsa.cu|||80122203768|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-106|2314|ernesto.acevedo|113|Ernesto Acevedo Nuñez|ernesto.acevedo@etecsa.cu|||73032209625|3|Dirección de Proyectos de Telecomunicaciones|f|f
-107|2180|esperanza.gonzalez|114|Esperanza Gonzalez Salinas|esperanza.gonzalez@etecsa.cu|||72080210833|2|STAFF|f|f
-108|2369|eugenio.mitjans|115|Eugenio Mitjans Garcia|eugenio.mitjans@etecsa.cu|||56122001823|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-111|2331|evelio.samuel|118|Evelio Samuel Martinez|evelio.samuel@etecsa.cu|||64080934461|3|Dirección de Proyectos de Telecomunicaciones|f|f
-113|2328|fidel.granda|120|Fidel Granda Guzman|fidel.granda@etecsa.cu|||62031714484|3|Dirección de Proyectos de Telecomunicaciones|f|f
-117|3165|gaston.marquez|124|Gaston Rafael Marquez Lescaille|gaston.marquez@etecsa.cu|||54112803209|4|Dirección de Ejecución de Obras Civiles|f|f
-118|2690|geanfranco.mata|125|Geanfranco Mata Venegas|geanfranco.mata@etecsa.cu|||90042927143|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-119|2379|genry.avila|126|Genry Avila Merino|genry.avila@etecsa.cu|||73041904868|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-121|2555|german.vazquez|128|German Alfredo Vazquez Rojas|german.vazquez@etecsa.cu|||49112528602|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-122|2846|gisela.rodriguez|129|Gisela Rodriguez Mora|gisela.rodriguez@etecsa.cu|||71041606412|4|Dirección de Ejecución de Obras Civiles|f|f
-125|2842|grethel.rivas|132|Grethel Rivas Bermudez|grethel.rivas@etecsa.cu|||72041108510|4|Dirección de Ejecución de Obras Civiles|f|f
-128|2706|hermes.rojas|135|Hermes Rojas Durades|hermes.rojas@etecsa.cu|||66121417346|4|Dirección de Ejecución de Obras Civiles|t|f
-132|2229|iliana.castellanos|139|Iliana Castellanos Paumier|iliana.castellanos@etecsa.cu|||72120306316|14|Tecnología de la Información|t|f
-133|2165|ines.hernandez|140|Ines Maria Hernandez La Rosa|ines.hernandez@etecsa.cu|||54012100317|2|STAFF|f|f
-134|2713|iraldis.morales|141|Iraldis Morales Martinez|iraldis.morales@etecsa.cu|||68061411256|4|Dirección de Ejecución de Obras Civiles|f|f
-137|3156|yanet.cordoves|144|Janet Maria Cordoves Monsibaez|yanet.cordoves@etecsa.cu|||71061730338|4|Dirección de Ejecución de Obras Civiles|f|f
-138|2135|janete.tamayo|145|Janete Tamayo Puentes|janete.tamayo@etecsa.cu|||70070632077|2|STAFF|f|f
-140|2190|joel.betancourt|147|Joel Betancourt Valiente|joel.betancourt@etecsa.cu|||82021608441|2|STAFF|f|f
-147|2321|jorge.falla|154|Jorge Ramon Falla Lopez|jorge.falla@etecsa.cu|||89012921063|3|Dirección de Proyectos de Telecomunicaciones|t|f
-149|2720|joseenrique.oliva|156|Jose Enrique Oliva Martin|joseenrique.oliva@etecsa.cu|||62030912348|4|Dirección de Ejecución de Obras Civiles|f|f
-150|2705|josemanuel.diaz|157|Jose Manuel Diaz Arauz|josemanuel.diaz@etecsa.cu|||55110300547|4|Dirección de Ejecución de Obras Civiles|f|t
-151|2700|josemanuel.gomez|158|Jose Manuel Gomez Leal|josemanuel.gomez@etecsa.cu|||63061104480|4|Dirección de Ejecución de Obras Civiles|f|t
-152|2346|jose.estrada|159|Jose Miguel Estrada Ramos|jose.estrada@etecsa.cu|||61092906087|3|Dirección de Proyectos de Telecomunicaciones|f|f
-154|2342|rodolfo.ferrer|161|Jose Rodolfo Ferrer Cuesta|rodolfo.ferrer@etecsa.cu|||66112601205|3|Dirección de Proyectos de Telecomunicaciones|f|f
-155|2370|juan.gonzalez|162|Juan Alberto Gonzalez Ramos|juan.gonzalez@etecsa.cu|||52012409462|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-158|2535|juan.torres|165|Juan Virgilio Torres Idavoy|juan.torres@etecsa.cu|||57082800081|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-161|2327|julio.arguelles|168|Julio Arguelles Manresa|julio.arguelles@etecsa.cu|||59061900581|3|Dirección de Proyectos de Telecomunicaciones|t|f
-162|2343|justo.llerena|169|Justo Lazaro Llerena Gonzalez|justo.llerena@etecsa.cu|||83080430684|3|Dirección de Proyectos de Telecomunicaciones|t|f
-165|2886|kenia.pardo|172|Kenia Teresita Pardo Garia|kenia.pardo@etecsa.cu|||80031807756|4|Dirección de Ejecución de Obras Civiles|f|f
-167|2338|lazaro.hernandez|174|Lazaro Hernandez Cardenas|lazaro.hernandez@etecsa.cu|||55082900485|3|Dirección de Proyectos de Telecomunicaciones|f|f
-168|2607|lazaro.menazorrilla|175|Lazaro Luis Mena Zorrilla|lazaro.menazorrilla@etecsa.cu|||60080114625|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-169|2153|lazaror.pereira|176|Lazaro Ruben Pereira Lara|lazaror.pereira@etecsa.cu|||85121725380|11|Capital Humano|f|f
-172|2259|liana.zayas|179|Liana Zayas Secada|liana.zayas@etecsa.cu|||66050212332|3|Dirección de Proyectos de Telecomunicaciones|t|f
-173|2134|lidia.orta|180|Lidia Orta Gener|lidia.orta@etecsa.cu|||62113026614|2|STAFF|f|t
-174|3382|liesly.scull|181|Liesly Scull Sanchez|liesly.scull@etecsa.cu|||83110404745|3|Dirección de Proyectos de Telecomunicaciones|t|f
-175|2847|luis.delacruz|182|Luis Ernesto de la Cruz Hurtado|luis.delacruz@etecsa.cu|||55110712142|4|Dirección de Ejecución de Obras Civiles|f|f
-177|2709|mabel.espino|184|Mabel Espino Suarez|mabel.espino@etecsa.cu|||64031020011|4|Dirección de Ejecución de Obras Civiles|f|f
-178|2147|mabel.saura|185|Mabel Saura Rodriguez|mabel.saura@etecsa.cu|||62102916937|2|STAFF|f|f
-180|2141|madelin.ricardo|187|Madelin Ricardo Leyva|madelin.ricardo@etecsa.cu|||74050616390|10|Coordinación General|t|f
-182|2264|magaly.somohano|189|Magaly Somohano Sanchez|magaly.somohano@etecsa.cu|||67101801273|3|Dirección de Proyectos de Telecomunicaciones|t|f
-185|2146|maite.marin|192|Maite del Carmen Marin Gonzalez|maite.marin@etecsa.cu|||71100301711|11|Capital Humano|t|f
-186|2409|manuel.robaina|193|Manuel Robaina Nunez|manuel.robaina@etecsa.cu|||63010116028|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-187|2420|manuel.ruyol|194|Manuel Ruyol Serrate|manuel.ruyol@etecsa.cu|||53091809923|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-188|2173|maria.alfonso|195|Maria Caridad Alfonso Morejon|maria.alfonso@etecsa.cu|||66062702212|10|Coordinación General|t|f
-189|2132|maria.barba|196|Maria Cristina Barba Filiberto|maria.barba@etecsa.cu|||55070626091|2|STAFF|f|f
-190|2339|dolores.azcuy|197|Maria Dolores Azcuy Castillo|dolores.azcuy@etecsa.cu|||62061801677|3|Dirección de Proyectos de Telecomunicaciones|f|f
-192|2255|mariam.gonzalez|199|Maria Mercedes Gonzalez Palma|mariam.gonzalez@etecsa.cu|||61041913594|3|Dirección de Proyectos de Telecomunicaciones|t|f
-194|2156|maria.santaballa|201|Maria del Carmen Santaballa Marquez|maria.santaballa@etecsa.cu|||80122505259|11|Capital Humano|f|f
-195|2253|mariela.mora|202|Mariela Mora Herrera|mariela.mora@etecsa.cu|||72122024172|3|Dirección de Proyectos de Telecomunicaciones|t|f
-196|2267|mariela.reboledo|203|Mariela Reboledo Flores|mariela.reboledo@etecsa.cu|||68032837491|3|Dirección de Proyectos de Telecomunicaciones|t|f
-199|3149|barbara.hernandez|206|Maxima Barbara Hernandez Huet|barbara.hernandez@etecsa.cu|||60051601336|4|Dirección de Ejecución de Obras Civiles|f|f
-200|2225|maybe.gomez|207|Maybe Caridad Gomez More|maybe.gomez@etecsa.cu|||70060202113|13|Logística y Servicios|t|f
-201|2534|maykel.quintana|208|Maykel Quintana Linares|maykel.quintana@etecsa.cu|||86022306022|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-203|2298|michel.fagundo|210|Michel Jesus Fagundo Heras|michel.fagundo@etecsa.cu|||88091310444|3|Dirección de Proyectos de Telecomunicaciones|f|f
-204|2237|margarita.cuesta|211|Migdalia Margarita Cuesta Viltres|margarita.cuesta@etecsa.cu|||67010902695|3|Dirección de Proyectos de Telecomunicaciones|t|f
-208|2137|mirta.galvez|215|Mirta Galvez Ferro|mirta.galvez@etecsa.cu|||62042501755|1|División de Proyecto y Ejecución de Obras|t|f
-209|2697|mirtha.hechavarria|216|Mirtha de los A. Hechavarria|mirtha.hechavarria@etecsa.cu|||62100202073|4|Dirección de Ejecución de Obras Civiles|f|f
-212|2361|nelson.petrucheli|219|Nelson Lazaro Menendez Petrucheli|nelson.petrucheli@etecsa.cu|||65060514460|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-213|2163|noraima.alfaro|220|Noraima Alfaro Ganganelly|noraima.alfaro@etecsa.cu|||59100800931|12|Economía|t|f
-214|2164|norma.rojas|221|Norma Niurka Rojas Justiz|norma.rojas@etecsa.cu|||79090503312|12|Economía|t|f
-215|2166|odiley.perez|222|Odiley Perez Romero|odiley.perez@etecsa.cu|||95011829139|12|Economía|f|f
-217|2341|olivia.borges|224|Olivia Borges Nodarse|olivia.borges@etecsa.cu|||80112904150|3|Dirección de Proyectos de Telecomunicaciones|f|f
-219|2704|orlando.rodriguez|226|Orlando David Rodriguez Gonzalez|orlando.rodriguez@etecsa.cu|||68123021547|4|Dirección de Ejecución de Obras Civiles|t|f
-221|2423|osmany.diaz|228|Osmani Díaz Mantilla|osmany.diaz@etecsa.cu|||71031901666|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-223|3158|otman.sanz|230|Otman Sabad Sanz Cordero|otman.sanz@etecsa.cu|||67031211643|4|Dirección de Ejecución de Obras Civiles|t|f
-226|2345|ramon.scull|233|Ramon Scull Roque|ramon.scull@etecsa.cu|||65042901384|3|Dirección de Proyectos de Telecomunicaciones|f|f
-233|2224|ricardo.beltran|240|Ricardo Beltran Martinez|ricardo.beltran@etecsa.cu|||56091403766|13|Logística y Servicios|t|f
-235|2702|ricardo.poll|242|Ricardo Poll Quintana|ricardo.poll@etecsa.cu|||73031212489|4|Dirección de Ejecución de Obras Civiles|t|f
-236|2152|roberto.oliva|243|Roberto Oliva Betancourt|roberto.oliva@etecsa.cu|||71082130145|11|Capital Humano|t|f
-240|2635|samuel.vazquez|247|Samuel Vazquez Cedeno|samuel.vazquez@etecsa.cu|||64082003923|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-241|2148|sandra.callis|248|Sandra Callis Caraballoso|sandra.callis@etecsa.cu|||71052813674|11|Capital Humano|t|f
-242|2854|sayuri.cruz|249|Sayuri Cruz Chong|sayuri.cruz@etecsa.cu|||71100208971|4|Dirección de Ejecución de Obras Civiles|t|f
-244|2159|shakira.carmona|251|Shakira Carmona Garcia|shakira.carmona@etecsa.cu|||61067691|2|STAFF|f|f
-247|3180|susana.riveira|254|Susana Riveira Ares|susana.riveira@etecsa.cu|||65021514897|4|Dirección de Ejecución de Obras Civiles|f|f
-249|2265|tania.legon|256|Tania Legon Perez|tania.legon@etecsa.cu|||72041813814|3|Dirección de Proyectos de Telecomunicaciones|f|f
-251|2155|thalia.menendez|258|Thalia Menéndez Vargas|thalia.menendez@etecsa.cu|||99052208330|2|STAFF|f|f
-253|2139|victoria.vazquez|260|Victoria de la Paz Vazquez Ojeda|victoria.vazquez@etecsa.cu|||60070914031|2|STAFF|f|f
-254|2138|vivian.ramos|261|Vivian Cristina Ramos Diaz|vivian.ramos@etecsa.cu|||87082508659|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-257|2176|wenkin.wong|264|Wenkin Wong Chiu|wenkin.wong@etecsa.cu|||93042931709|12|Economía|f|f
-258|2366|yadianys.suarez|265|Yadianys Suarez Ramirez|yadianys.suarez@etecsa.cu|||97042602330|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-259|2895|yahima.mesa|266|Yahima Mesa Jorlen|yahima.mesa@etecsa.cu|||80101304135|7|Vicepresidencia de Inversiones|t|f
-260|2718|yaima.fernandez|267|Yaima Fernandez Canto|yaima.fernandez@etecsa.cu|||86111704810|7|Vicepresidencia de Inversiones|t|f
-262|2717|yalile.rosabal|269|Yalile Rosabal Valdes|yalile.rosabal@etecsa.cu|||77032207459|4|Dirección de Ejecución de Obras Civiles|t|f
-264|2208|yamile.lopez|271|Yamilé López Nuñez|yamile.lopez@etecsa.cu|||77072606198|13|Logística y Servicios|t|f
-265|2436|yannyra.matute|272|Yannyra de Pilar Matute Tejo|yannyra.matute@etecsa.cu|||83090628093|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-266|2371|yohanca.vazquez|273|Yohanka Vazquez Sanchez|yohanca.vazquez@etecsa.cu|||79091006119|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-267|2157|yordan.tonely|274|Yordan Tonely Mena|yordan.tonely@etecsa.cu|||94090229707|2|STAFF|f|f
-268|2890|yosvanys.sosa|275|Yosvanys Alcides Sosa Ramirez|yosvanys.sosa@etecsa.cu|||80053106647|4|Dirección de Ejecución de Obras Civiles|f|f
-269|2142|yukdanys.lobaina|276|Yukdanys Lobaina Gamez|yukdanys.lobaina@etecsa.cu|||75062813452|10|Coordinación General|t|f
-270|2231|yuliet.hernandez|277|Yuliet Hernandez Gainza|yuliet.hernandez@etecsa.cu|||94101330499|2|STAFF|f|f
-272|2363|zuleidy.maique|279|Zuleidy Maique De La Rua|zuleidy.maique@etecsa.cu|||87121807211|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-274|2364|daniel.borrero|282|Daniel Barrero Reyes|daniel.borrero@etecsa.cu|||88050610322|1|División de Proyecto y Ejecución de Obras|t|f
-275|2978|yoel.igarza|283|Yoel Igarza nueva|yoel.igarza@etecsa.cu|||72081806661|4|Dirección de Ejecución de Obras Civiles|t|f
-276|2919|osmany.gama|284|Osmany Gama Díaz|osmany.gama@etecsa.cu|||75082908120|4|Dirección de Ejecución de Obras Civiles|t|f
-277|2509|wilfredo.rosales|285|Wilfredo Rosales Olivet|wilfredo.rosales@etecsa.cu|||66050114966|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-278|2497|yesenia.cervantes|286|Yesenia Cervantes Delgado|yesenia.cervantes@etecsa.cu|||90110537052|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-279|2492|yoandy.cadena|287|Yoandy Cadena Linares|yoandy.cadena@etecsa.cu|||82112016620|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-280|2523|hugo.rodriguez|288|Hugo Rodríguez Vergel|hugo.rodriguez@etecsa.cu|||76030532621|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-281|2502|leonel.figueredo|289|Leonel Figueredo Fernández|leonel.figueredo@etecsa.cu|||86010825468|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-282|3295|irina.rodriguez|290|Irina Rodríguez Silva|irina.rodriguez@etecsa.cu|||77032205732|2|STAFF|f|f
-283|2246|mariselis.milanes|291|Mariselis Milanés Rodríguez|mariselis.milanes@etecsa.cu|||76020733479|3|Dirección de Proyectos de Telecomunicaciones|f|f
-284|2243|yosvany.napoles|292|Yosvany Nápoles Prieto|yosvany.napoles@etecsa.cu|||72081101265|3|Dirección de Proyectos de Telecomunicaciones|t|f
-286|3535|yenimar.villalobos|295|Yenimar Villalobos Ojeda|yenimar.villalobos@etecsa.cu|||71061415433|4|Dirección de Ejecución de Obras Civiles|t|f
-287|2154|teresa.perez|296|Teresa Victoria Perez Pacheco|teresa.perez@etecsa.cu|||79053020519|11|Capital Humano|t|f
-288|3316|danisleydis.hernandez|297|Danisleydis Hernández Rodríguez|danisleydis.hernandez@etecsa.cu|||96101809616|2|STAFF|f|f
-289|3318|yanier.jauregui|298|Yanier Jauregui|yanier.jauregui@etecsa.cu|||98010106585|2|STAFF|f|f
-290|2996|ifrain.naranjo|299|Ifrain Naranjo Naranjo|ifrain.naranjo@etecsa.cu|||67072920528|4|Dirección de Ejecución de Obras Civiles|t|f
-292|3327|laritsa.madan|302|Laritsa Madan Beyris|laritsa.madan@etecsa.cu|||72120513531|2|STAFF|f|f
-293|3294|alejandro.vazquez|305|Alejandro Agustín Vazquez|alejandro.vazquez@etecsa.cu|||59012129544|2|STAFF|f|f
-329|3317|marcos.labaut|341|Marcos Labaut Fonseca|marcos.labaut@etecsa.cu|||71032219842|4|Dirección de Ejecución de Obras Civiles|f|f
-330|3378|dianelys.perdomo|342|Dianelys Perdomo Meneses|dianelys.perdomo@etecsa.cu|||98022407450|2|STAFF|f|f
-353|3383|pedro.castro|365|Pedro Luis Castro Tabera|pedro.castro@etecsa.cu|||64092039984|13|Logística y Servicios|f|f
-370|3389|yeleinis.gonzalez|382|Yeleinis Gonzalez Tamayo|yeleinis.gonzalez@etecsa.cu|||81081417916|1|División de Proyecto y Ejecución de Obras|t|f
-375|3020|alexeis.tornes|387|Alexeis Tornes Gonzalez|alexeis.tornes@etecsa.cu|||79022320863|4|Dirección de Ejecución de Obras Civiles|f|f
-376|2987|zeida.nunez|388|Zeida Tomasa Nunez Gaskin|zeida.nunez@etecsa.cu|||63122108294|4|Dirección de Ejecución de Obras Civiles|f|f
-377|2991|yoel.blanco|389|Felix Yoel Blanco Rodriguez|yoel.blanco@etecsa.cu|||64083008243|4|Dirección de Ejecución de Obras Civiles|f|f
-378|3004|elvio.verdecia|390|Elvio Guillermo Verdecia Pasos|elvio.verdecia@etecsa.cu|||65021007824|4|Dirección de Ejecución de Obras Civiles|f|f
-379|2981|miguel.ramos|391|Miguel Luis Ramos Perez|miguel.ramos@etecsa.cu|||66093044647|4|Dirección de Ejecución de Obras Civiles|t|f
-380|3085|leonardo.fonseca|392|Leonardo Misael Fonseca Gonzalez|leonardo.fonseca@etecsa.cu|||74092913160|4|Dirección de Ejecución de Obras Civiles|f|f
-381|3145|darvis.torres|393|Darvis Torres Diaz|darvis.torres@etecsa.cu|||71080507265|4|Dirección de Ejecución de Obras Civiles|f|f
-382|3058|orlando.aliaga|394|Orlando Mario de Jesus Aliaga Fonseca|orlando.aliaga@etecsa.cu|||83092621665|4|Dirección de Ejecución de Obras Civiles|f|f
-383|3028|yurien.hamilton|395|Yurien Hamilton Mendoza|yurien.hamilton@etecsa.cu|||90092144046|4|Dirección de Ejecución de Obras Civiles|f|f
-384|2980|yordys.fernandez|396|Yordys Daniel Fernandez Jorge|yordys.fernandez@etecsa.cu|||85082723706|4|Dirección de Ejecución de Obras Civiles|f|f
-385|2983|cecilio.alvarez|397|Cecilio Gabriel Alvarez Galardy|cecilio.alvarez@etecsa.cu|||60032406549|4|Dirección de Ejecución de Obras Civiles|f|f
-386|2979|nilva.guerra|398|Nilva Guerra Silvera|nilva.guerra@etecsa.cu|||67050820516|4|Dirección de Ejecución de Obras Civiles|f|f
-387|2985|dolores.vazquez|399|Dolores Gelda Vazquez Garcia|dolores.vazquez@etecsa.cu|||67032106710|4|Dirección de Ejecución de Obras Civiles|t|t
-388|2982|william.martinez|400|Wiliam Martinez Lopez|william.martinez@etecsa.cu|||64071812589|4|Dirección de Ejecución de Obras Civiles|f|f
-389|2984|miguel.perezescalona|401|Miguel Perez Escalona|miguel.perezescalona@etecsa.cu|||75071814423|4|Dirección de Ejecución de Obras Civiles|f|f
-390|2986|eusebio.rodriguez|402|Eusebio Primo Rodriguez Mejias|eusebio.rodriguez@etecsa.cu|||65121508083|4|Dirección de Ejecución de Obras Civiles|f|f
-398|3352|berny.tornes|410|Berny Tornes Chang|berny.tornes@etecsa.cu|||79120104149|4|Dirección de Ejecución de Obras Civiles|t|f
-399|3403|hiram.cabrera|411|Hiram Alberto Cabrera Benitez|hiram.cabrera@etecsa.cu|||66030227008|4|Dirección de Ejecución de Obras Civiles|f|f
-400|2845|miguel.gutierrez|412|Miguel Eduardo Gutierrez Cabaña|miguel.gutierrez@etecsa.cu|||66092901749|4|Dirección de Ejecución de Obras Civiles|f|f
-403|2144|sunhay.triana|415|Sunhay Triana Banos|sunhay.triana@etecsa.cu|||1092168657|2|STAFF|f|f
-406|3315|lourdes.portelles|418|Lourdes Maria Portelles Rodriguez|lourdes.portelles@etecsa.cu|||67031400111|4|Dirección de Ejecución de Obras Civiles|f|f
-407|3406|ariel.guillot|419|Ariel Guillot Montes|ariel.guillot@etecsa.cu|||70092109503|4|Dirección de Ejecución de Obras Civiles|f|f
-408|2894|kenia.langer|420|Kenia Langer Rodriguez|kenia.langer@etecsa.cu|||80072215219|4|Dirección de Ejecución de Obras Civiles|f|f
-409|2565|sergio.estrada|421|Sergio Yudiser Estrada Ortiz|sergio.estrada@etecsa.cu|||94071028508|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-411|2234|adiel.alvarez|423|Adiel Alvarez Alvarez|adiel.alvarez@etecsa.cu|||96070908583|3|Dirección de Proyectos de Telecomunicaciones|f|f
-412|3384|alain.torres|424|Alain Torres Gandara|alain.torres@etecsa.cu|||97112607107|3|Dirección de Proyectos de Telecomunicaciones|f|f
-413|3376|carlos.fine|425|Carlos Reynier Fine de Armas|carlos.fine@etecsa.cu|||94120229021|3|Dirección de Proyectos de Telecomunicaciones|f|f
-414|3386|luismiguel.perez|426|Luis Miguel Perez Fernandez|luismiguel.perez@etecsa.cu|||97100607060|3|Dirección de Proyectos de Telecomunicaciones|f|f
-415|2333|juan.pinon|427|Juan M. Pinon Rodriguez|juan.pinon@etecsa.cu|||63041200981|3|Dirección de Proyectos de Telecomunicaciones|f|f
-416|2330|raul.lopez|428|Raul Eduardo Lopez Serrano|raul.lopez@etecsa.cu|||59101301265|3|Dirección de Proyectos de Telecomunicaciones|t|f
-417|2245|arnaldo.bernal|429|Arnaldo Albino Bernal Delgado|arnaldo.bernal@etecsa.cu|||65091502527|3|Dirección de Proyectos de Telecomunicaciones|f|f
-421|3423|madelaine.dearmas|433|Madelaine de Armas Diaz|madelaine.dearmas@etecsa.cu|||80011913430|3|Dirección de Proyectos de Telecomunicaciones|t|f
-423|2244|vicente.rivera|435|Vicente Manuel Rivera Rodriguez|vicente.rivera@etecsa.cu|||68052115982|3|Dirección de Proyectos de Telecomunicaciones|f|f
-427|3448|mayelin.rvazquez|439|MAYELÍN RODRÍGUEZ VÁZQUEZ|mayelin.rvazquez@etecsa.cu|||72012401070|1|División de Proyecto y Ejecución de Obras|t|f
-428|2695|fabian.regalado|440|FABIÁN REGALADO PÉREZ|fabian.regalado@etecsa.cu|||72062603541|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|t
-431|3424|airelys.campos|443|Airelys Campos Herrera|airelys.campos@etecsa.cu|||79071910796|10|Coordinación General|t|f
-432|3393|lester.marbot|444|Lester Marbot Pino|lester.marbot@etecsa.cu|||78100206867|2|STAFF|f|f
-449|3558|rebeca.valdes|461|Rebeca Maria Valdes Valdes|rebeca.valdes@etecsa.cu|||72112125552|12|Economía|t|f
-455|3471|melba.guerra|467|Melba Guerra Téllez|melba.guerra@etecsa.cu|||80072105236|4|Dirección de Ejecución de Obras Civiles|t|f
-457|3579|niurka.rcobas|469|Niurka Rodriguez Cobas|niurka.rcobas@etecsa.cu|||72091613793|4|Dirección de Ejecución de Obras Civiles|t|f
-461|3554|yusleivi.izaguirre|473|Yusleivi Mercedes Izaguirre Hernandez|yusleivi.izaguirre@etecsa.cu|||82101808632|11|Capital Humano|f|f
-463|3553|olga.vidal|475|Olga Lidia Vidal Noel|olga.vidal@etecsa.cu|||70100528796|10|Coordinación General|t|f
-464|2921|jorge.ramos|476|Jorge Luis Ramos Piloto|jorge.ramos@etecsa.cu|||75053108183|4|Dirección de Ejecución de Obras Civiles|t|f
-465|3562|ingrid.diaz|477|Ingrid Diaz Lopez|ingrid.diaz@etecsa.cu|||79050905257|2|STAFF|f|f
-470|3568|anielys.herrera|482|Anielys Herrera Nuviola|anielys.herrera@etecsa.cu|||87111906615|14|Tecnología de la Información|f|f
-473|3555|esludian.rodriguez|485|Esludian Rodriguez Lorenzo|esludian.rodriguez@etecsa.cu|||81092204130|11|Capital Humano|t|f
-474|2191|alfredo.duarte|486|Alfredo Manuel Duarte Alvarez|alfredo.duarte@etecsa.cu|||63010119903|2|STAFF|f|f
-475|3550|rodney.rodriguez|487|Rodney Rodriguez Despaigne|rodney.rodriguez@etecsa.cu|||98101000105|11|Capital Humano|f|f
-476|3580|miladys.capo|488|Miladys Capo Medina|miladys.capo@etecsa.cu|||72062135352|4|Dirección de Ejecución de Obras Civiles|t|f
-481|3474|millamis.leyva|493|Millamis Celeste Leyva Provance|millamis.leyva@etecsa.cu|||73012205732|4|Dirección de Ejecución de Obras Civiles|t|f
-485|3502|leonel.leon|497|Leonel Antonio Leon Martin|leonel.leon@etecsa.cu|||65092502766|4|Dirección de Ejecución de Obras Civiles|t|f
-486|3515|anaisy.garcia|498|Anaisy Garcia Pulido|anaisy.garcia@etecsa.cu|||85030814519|4|Dirección de Ejecución de Obras Civiles|t|f
-494|2861|mario.gonzalez|506|Nestor Mario Gonzalez Campa|mario.gonzalez@etecsa.cu|||71101911640|4|Dirección de Ejecución de Obras Civiles|t|t
-495|3682|omar.ardanal|507|Omar Martinez Ardanal|omar.ardanal@etecsa.cu|||85072431860|13|Logística y Servicios|t|t
-498|3683|vladimir.abo|515|Vladimir Abo Olivera|vladimir.abo@etecsa.cu|||74091301603|13|Logística y Servicios|t|f
-503|3569|daylee.mompie|520|Daylee Mompie Marti|daylee.mompie@etecsa.cu|||87091431372|14|Tecnología de la Información|t|f
-504|3416|daniel.calderon|521|Daniel Ricardo Calderon Estevez|daniel.calderon@etecsa.cu|||03030866629|14|Tecnología de la Información|t|f
-505|3365|yannick.campos|522|Yannick Campos Mesa|yannick.campos@etecsa.cu|||89101521770|14|Tecnología de la Información|f|f
-506|3612|yamil.diago|523|Yamil Alfonso Diago Bent|yamil.diago@etecsa.cu|||73100424004|11|Capital Humano|t|f
-507|3551|ralkis.benitez|524|Ralkis Ezequiel Benitez Suarez|ralkis.benitez@etecsa.cu|||75012505261|13|Logística y Servicios|t|f
-510|3613|yordan.castillo|527|Jose Yordan Castillo Landa|yordan.castillo@etecsa.cu|||82100127520|11|Capital Humano|t|f
-512|3719|ivon.gonzalez|529|Ivon Gonzalez Acosta|ivon.gonzalez@etecsa.cu|||93082307851|11|Capital Humano|t|f
-515|3394|jorge.sacre|532|Jorge Mario Sacre Izquierdo|jorge.sacre@etecsa.cu|||62082710988|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|t
-516|3527|leodamys.balda|533|Leodamys Balda Sicre|leodamys.balda@etecsa.cu|||93102832291|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
-517|3399|reinier.brocal|534|Reinier Brocal Noblet|reinier.brocal@etecsa.cu|||84042828046|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
-519|3556|tairy.garcia|536|Tairy Garcia Hernandez|tairy.garcia@etecsa.cu|||70090610752|11|Capital Humano|t|f
-525|3771|anibal.andres|542|Anibal Andres Zayas|anibal.andres@etecsa.cu|||67030712785|1|División de Proyecto y Ejecución de Obras|t|f
-526|3388|sheyla.elizondo|543|Sheyla de la Caridad Elizondo Morales|sheyla.elizondo@etecsa.cu|||91061228175|11|Capital Humano|t|f
+ user_id_15 |       login_15        | active_15 | partner_id_15 |            partner_name_15            | trabajador_id_15 |              trabajador_name_15               | identification_15 | company_id_15 
+------------+-----------------------+-----------+---------------+---------------------------------------+------------------+-----------------------------------------------+-------------------+---------------
+          6 | abel.gonzalez         | t         |            13 | Abel Gonzalez Pulido                  |             2167 | ABEL GONZÁLEZ PULIDO                          | 85121507009       |            12
+          9 | adalberto.echazabal   | t         |            16 | Adalberto Felix Echazabal Ramirez     |             2457 | ADALBERTO FELIX ECHAZABAL RAMÍREZ             | 67012102908       |             6
+         10 | adalberto.ortega      | f         |            17 | Adalberto Ortega Eguino               |             2350 | ADALBERTO ORTEGA EGUINO                       | 95123037189       |             3
+         16 | alberto.cancio        | t         |            23 | Alberto Cancio Rivero                 |             2189 | ALBERTO CANCIO RIVERO                         | 67102314601       |            13
+         17 | alberto.galvez        | f         |            24 | Alberto Galvez Arteaga                |             2367 | ALBERTO GÁLVEZ ARTEAGA                        | 64041831846       |             6
+         18 | albin.ebanks          | f         |            25 | Albin Ebanks Blanco                   |             2160 | ALBIN EBANKS BLANCO                           | 78101040086       |             2
+         20 | alejandro.amartinez   | t         |            27 | Alejandro Alonso Martinez             |             2150 | ALEJANDRO ALONSO MARTÍNEZ                     | 82020406820       |            11
+         22 | alejandro.santana     | t         |            29 | Alejandro Luis Santana Diaz           |             2217 | ALEJANDRO LUIS SANTANA DÍAZ                   | 63122620288       |            13
+         24 | alexander.ferrer      | t         |            31 | Alexander Ferrer Cardenas             |             2625 | ALEXANDER FERRER CÁRDENAS                     | 76112003162       |             6
+         25 | alexei.perez          | f         |            32 | Alexei Perez de Cespedes              |             2360 | ALEXEI PEREZ DE CESPEDES                      | 64092127907       |             6
+         26 | alexis.sosa           | t         |            33 | Alexis Sosa Alonso                    |             2642 | ALEXIS SOSA ALONSO                            | 75012825166       |             6
+         27 | alfredo.betancourt    | f         |            34 | Alfredo Betancourt Arango             |             2335 | ALFREDO BETANCOURT ARANGO                     | 55091401862       |             3
+         29 | alicia.rego           | t         |            36 | Alicia Elena Rego Rodriguez           |             3152 | ALICIA ELENA REGO RODRIGUEZ                   | 65102513176       |             4
+         30 | amada.martinez        | f         |            37 | Amada Martinez Hernandez              |             2130 | AMADA MARTINEZ HERNANDEZ                      | 65052901213       |             6
+         31 | amado.perez           | f         |            38 | Amado Perez Urrutia                   |             2381 | AMADO PÉREZ URRUTIA                           | 52091324380       |             6
+         32 | amanda.rodriguez      | t         |            39 | Amanda Cristina Rodriguez Riera       |             2169 | AMANDA CRISTINA RODRIGUEZ RIERA               | 98111106979       |            12
+         33 | amarilys.campuzano    | f         |            40 | Amarilys Campuzano Nunez              |             2897 | AMARILYS CAMPUZANO NUÑEZ                      | 69042014175       |             4
+         34 | ana.gonzalez          | f         |            41 | Ana Gonzalez Dominguez                |             2467 | ANA GONZÁLEZ DOMÍNGUEZ                        | 65040626459       |             6
+         35 | anam.blanco           | f         |            42 | Ana Maria Blanco Gonzalez             |             2214 | ANA MARIA BLANCO GONZALEZ                     | 72052828717       |             2
+         36 | andres.cabrerapelier  | f         |            43 | Andres Cabrera Pelier                 |             2459 | ANDRÉS CABRERA PELIER                         | 63020401784       |             6
+         41 | aniaska.muniz         | t         |            48 | Aniaska Muniz Castillo                |             2362 | ANIASKA MUÑÍZ CASTILLO                        | 78040731851       |             6
+         42 | annia.prieto          | t         |            49 | Annia Prieto Vidal                    |             2131 | ANNIA PRIETO VIDAL                            | 68102604314       |            10
+         45 | ariel.gonzalez        | f         |            52 | Ariel Gonzalez Pedroso                |             2849 | ARIEL GONZÁLEZ PEDROSO                        | 80072504147       |             4
+         46 | ariel.fleitas         | t         |            53 | Ariel Jesus Fleitas Varela            |             2357 | ARIEL JESUS FLEITAS VARELA                    | 70020300086       |             1
+         48 | armando.solano        | f         |            55 | Armando Solano Aguilera               |             2133 | ARMANDO FRANCISCO SOLANO AGUILERA             | 63100400507       |             1
+         51 | ayram.oromi           | t         |            58 | Ayram Oromi Fiorenzano                |             2136 | AYRAM OROMI FIORENZANO                        | 71051011261       |             3
+         52 | baleini.machin        | t         |            59 | Baleini Machin Padron                 |             3154 | BALEINI MACHIN PADRÓN                         | 82051008231       |             4
+         54 | benigno.sanchez       | t         |            61 | Benigno Victor Sanchez Curbelo        |             2127 | BENIGNO VICTOR SÁNCHEZ CURBELO                | 61022214606       |            10
+         58 | carlos.pulido         | t         |            65 | Carlos Jose Pulido Diaz               |             2554 | CARLOS JOSE PULIDO DÍAZ                       | 60012815469       |             6
+         59 | carlos.cepero         | t         |            66 | Carlos Luis Cepero Santiago           |             2726 | CARLOS LUIS CEPERO SANTIAGO                   | 62081800421       |             4
+         60 | carlos.capote         | f         |            67 | Carlos Manuel Capote Rodriguez        |             2698 | CARLOS MANUEL CAPOTE RODRÍGUEZ                | 62010205420       |             4
+         63 | carlos.valles         | t         |            70 | Carlos Miguel Valles Tejeda           |             2844 | CARLOS MIGUEL VALLÉS TEJEDA                   | 62091515905       |             4
+         64 | catalina.gonzalez     | f         |            71 | Catalina Gonzalez Miramon             |             2377 | CATALINA GONZÁLEZ MIRAMÓN                     | 64091600897       |             6
+         65 | cesar.diaz            | t         |            72 | Cesar Diaz Cardenas                   |             2291 | CESAR DÍAZ CÁRDENAS                           | 77111907061       |             3
+         66 | claudia.marti         | t         |            73 | Claudia Margarita Marti Aguila        |             2703 | CLAUDIA MARGARITA MARTI AGUILA                | 90102026275       |             4
+         69 | daily.perez           | f         |            76 | Daily Perez Molano                    |             2162 | DAILY PÉREZ MOLANO                            | 87111536258       |            12
+         71 | daisy.hernandez       | f         |            78 | Daisy Hernandez Ramirez               |             2145 | DAISY HERNANDEZ RAMIREZ                       | 65111719519       |             1
+         73 | dania.medina          | t         |            80 | Dania Mary Medina Pantoja             |             2348 | DANIA MARY MEDINA PANTOJA                     | 87120107155       |             3
+         74 | dania.almeida         | t         |            81 | Dania Rosa Almeida Valdes             |             3157 | DANIA ROSA ALMEIDA VALDÉS                     | 71012917616       |             4
+         79 | david.rivera          | f         |            86 | David Rivera Estopinan                |             2701 | DAVID RIVERA ESTOPIÑAN                        | 56081000964       |             4
+         80 | dayana.loredo         | t         |            87 | Dayana Loredo Martinez                |             2171 | DAYANA LOREDO MARTINEZ                        | 86102507455       |            13
+         82 | dayane.borges         | t         |            89 | Dayane Borges Castellon               |             2373 | DAYANÉ BORGES CASTELLON                       | 87081309696       |             6
+         83 | daylin.parra          | f         |            90 | Daylin Niurka Parra Martinez          |             2855 | DAYLIN NIURKA PARRA MARTÍNEZ                  | 95111230412       |             4
+         88 | diana.cardenas        | f         |            95 | Diana Cardenas Granados               |             2174 | DIANA CÁRDENAS GRANADOS                       | 64041214735       |             2
+         89 | diego.perez           | f         |            96 | Diego Cesar Perez Hernandez           |             2368 | DIEGO CESAR. PEREZ HERNANDEZ                  | 47070916200       |             6
+         91 | edgar.haber           | f         |            98 | Edgar Haber Diaz                      |             2839 | EDGAR HABER DÍAZ                              | 74061910422       |             4
+         92 | edmundo.atherton      | t         |            99 | Edmundo Atherton Barbier              |             2183 | EDMUNDO JOSE ATHERTON BARBIER                 | 59112010869       |            13
+         93 | eduardo.rangel        | t         |           100 | Eduardo Julio Rangel Gamez            |             2172 | EDUARDO JULIO RANGEL GAMEZ                    | 62041200940       |            12
+         95 | elainy.echazabal      | f         |           102 | Elainy Echazabal Gonzalez             |             2365 | ELAINY ECHAZÁBAL GONZÁLEZ                     | 91032430096       |             6
+         96 | elio.benavides        | t         |           103 | Elio Benavides Gomez                  |             2375 | ELIO ELADIO BENAVIDES GÓMEZ                   | 56010806965       |             6
+         98 | elizaberht.delahoz    | t         |           105 | Elizaberht de la Hoz Solano           |             3155 | ELIZABERHT DE LA  HOZ SOLANO                  | 82111006876       |             4
+         99 | emeterio.chacon       | f         |           106 | Emeterio Chacon Torres                |             2729 | EMETERIO CHACON TORRES                        | 61090907469       |             4
+        103 | erich.fernandez       | f         |           110 | Erich Fernandez Medina                |             2178 | ERICH FERNANDEZ MEDINA                        | 74040121929       |             2
+        105 | erik.montano          | t         |           112 | Erik Montano Mena                     |             2685 | ERIK MONTANO MENA                             | 80122203768       |             6
+        106 | ernesto.acevedo       | f         |           113 | Ernesto Acevedo Nuñez                 |             2314 | ERNESTO ACEVEDO NUÑEZ                         | 73032209625       |             3
+        107 | esperanza.gonzalez    | f         |           114 | Esperanza Gonzalez Salinas            |             2180 | ESPERANZA GONZÁLEZ SALINAS                    | 72080210833       |             2
+        108 | eugenio.mitjans       | f         |           115 | Eugenio Mitjans Garcia                |             2369 | EUGENIO MITJANS GARCÍA                        | 56122001823       |             6
+        111 | evelio.samuel         | f         |           118 | Evelio Samuel Martinez                |             2331 | EVELIO SAMUEL MARTÍNEZ                        | 64080934461       |             3
+        113 | fidel.granda          | f         |           120 | Fidel Granda Guzman                   |             2328 | FIDEL GRANDA GUZMÁN                           | 62031714484       |             3
+        117 | gaston.marquez        | f         |           124 | Gaston Rafael Marquez Lescaille       |             3165 | GASTÓN RAFAEL MARQUEZ LESCAILLE               | 54112803209       |             4
+        118 | geanfranco.mata       | t         |           125 | Geanfranco Mata Venegas               |             2690 | GEANFRANCO MATA VENEGAS                       | 90042927143       |             6
+        119 | genry.avila           | f         |           126 | Genry Avila Merino                    |             2379 | GENRY AVILA MERIÑO                            | 73041904868       |             6
+        121 | german.vazquez        | f         |           128 | German Alfredo Vazquez Rojas          |             2555 | GERMÁN ALFREDO VÁZQUEZ ROJAS                  | 49112528602       |             6
+        122 | gisela.rodriguez      | f         |           129 | Gisela Rodriguez Mora                 |             2846 | GISELA RODRÍGUEZ MORA                         | 71041606412       |             4
+        125 | grethel.rivas         | f         |           132 | Grethel Rivas Bermudez                |             2842 | GRETHEL RIVAS BERMÚDEZ                        | 72041108510       |             4
+        128 | hermes.rojas          | t         |           135 | Hermes Rojas Durades                  |             2706 | HERMES ROJAS DURADES                          | 66121417346       |             4
+        132 | iliana.castellanos    | t         |           139 | Iliana Castellanos Paumier            |             2229 | ILIANA CASTELLANOS PAUMIER                    | 72120306316       |            14
+        133 | ines.hernandez        | f         |           140 | Ines Maria Hernandez La Rosa          |             2165 | INES MARÍA HERNÁNDEZ LA ROSA                  | 54012100317       |             2
+        134 | iraldis.morales       | f         |           141 | Iraldis Morales Martinez              |             2713 | IRALDIS MERCEDES MORALES MARTINEZ             | 68061411256       |             4
+        137 | yanet.cordoves        | f         |           144 | Janet Maria Cordoves Monsibaez        |             3156 | JANET MARIA CORDOVÉS MONSIBAEZ                | 71061730338       |             4
+        138 | janete.tamayo         | f         |           145 | Janete Tamayo Puentes                 |             2135 | JANETE TAMAYO PUENTES                         | 70070632077       |             2
+        140 | joel.betancourt       | f         |           147 | Joel Betancourt Valiente              |             2190 | JOEL BETANCOURT VALIENTE                      | 82021608441       |             2
+        147 | jorge.falla           | t         |           154 | Jorge Ramon Falla Lopez               |             2321 | JORGE RAMÓN FALLA LÓPEZ                       | 89012921063       |             3
+        149 | joseenrique.oliva     | f         |           156 | Jose Enrique Oliva Martin             |             2720 | JOSÉ ENRIQUE OLIVA MARTÍN                     | 62030912348       |             4
+        150 | josemanuel.diaz       | f         |           157 | Jose Manuel Diaz Arauz                |             2705 | JOSÉ MANUEL DÍAZ ARAUZ                        | 55110300547       |             4
+        151 | josemanuel.gomez      | f         |           158 | Jose Manuel Gomez Leal                |             2700 | JOSE MANUEL  GÓMEZ LEAL                       | 63061104480       |             4
+        152 | jose.estrada          | f         |           159 | Jose Miguel Estrada Ramos             |             2346 | JOSE MIGUEL ESTRADA RAMOS                     | 61092906087       |             3
+        154 | rodolfo.ferrer        | f         |           161 | Jose Rodolfo Ferrer Cuesta            |             2342 | JOSE R. FERRER CUESTA                         | 66112601205       |             3
+        155 | juan.gonzalez         | f         |           162 | Juan Alberto Gonzalez Ramos           |             2370 | JUAN ALBERTO GONZÁLEZ RAMOS                   | 52012409462       |             6
+        158 | juan.torres           | f         |           165 | Juan Virgilio Torres Idavoy           |             2535 | JUAN VIRGILIO TORRES IDAVOY                   | 57082800081       |             6
+        161 | julio.arguelles       | t         |           168 | Julio Arguelles Manresa               |             2327 | JULIO A. ARGUELLES MANRESA                    | 59061900581       |             3
+        162 | justo.llerena         | t         |           169 | Justo Lazaro Llerena Gonzalez         |             2343 | JUSTO LAZARO LLERENA GONZALEZ                 | 83080430684       |             3
+        165 | kenia.pardo           | f         |           172 | Kenia Teresita Pardo Garia            |             2886 | KENIA TERESITA PARDO GARCÍA                   | 80031807756       |             4
+        167 | lazaro.hernandez      | f         |           174 | Lazaro Hernandez Cardenas             |             2338 | LÁZARO HERNANDEZ CARDENAS                     | 55082900485       |             3
+        168 | lazaro.menazorrilla   | t         |           175 | Lazaro Luis Mena Zorrilla             |             2607 | LÁZARO LUIS MENA ZORRILLA                     | 60080114625       |             6
+        169 | lazaror.pereira       | f         |           176 | Lazaro Ruben Pereira Lara             |             2153 | LAZARO RUBEN PEREIRA LARA                     | 85121725380       |            11
+        172 | liana.zayas           | t         |           179 | Liana Zayas Secada                    |             2259 | LIANA ZAYAS SECADA                            | 66050212332       |             3
+        173 | lidia.orta            | f         |           180 | Lidia Orta Gener                      |             2134 | LIDIA ANDREA ORTA GENER                       | 62113026614       |             2
+        174 | liesly.scull          | t         |           181 | Liesly Scull Sanchez                  |             3382 | LIESLY SCULL SANCHEZ                          | 83110404745       |             3
+        175 | luis.delacruz         | f         |           182 | Luis Ernesto de la Cruz Hurtado       |             2847 | LUIS ERNESTO DE LA CRUZ HURTADO               | 55110712142       |             4
+        177 | mabel.espino          | f         |           184 | Mabel Espino Suarez                   |             2709 | MABEL ESPINO SUÁREZ                           | 64031020011       |             4
+        178 | mabel.saura           | f         |           185 | Mabel Saura Rodriguez                 |             2147 | MABEL SAURA RODRIGUEZ                         | 62102916937       |             2
+        180 | madelin.ricardo       | t         |           187 | Madelin Ricardo Leyva                 |             2141 | MADELIN RICARDO LEYVA                         | 74050616390       |            10
+        182 | magaly.somohano       | t         |           189 | Magaly Somohano Sanchez               |             2264 | MAGALY RAFAELA SOMOHANO SÁNCHEZ               | 67101801273       |             3
+        185 | maite.marin           | t         |           192 | Maite del Carmen Marin Gonzalez       |             2146 | MAITÉ DEL CARMEN MARÍN GONZÁLEZ               | 71100301711       |            11
+        186 | manuel.robaina        | f         |           193 | Manuel Robaina Nunez                  |             2409 | MANUEL ROBAINA NUÑEZ                          | 63010116028       |             6
+        187 | manuel.ruyol          | f         |           194 | Manuel Ruyol Serrate                  |             2420 | MANUEL RUYOL SERRATE                          | 53091809923       |             6
+        188 | maria.alfonso         | t         |           195 | Maria Caridad Alfonso Morejon         |             2173 | MARÍA CARIDAD ALFONSO MOREJÓN                 | 66062702212       |            10
+        189 | maria.barba           | f         |           196 | Maria Cristina Barba Filiberto        |             2132 | MARÍA CRISTINA BARBA FILIBERTO                | 55070626091       |             2
+        190 | dolores.azcuy         | f         |           197 | Maria Dolores Azcuy Castillo          |             2339 | MARIA DOLORES AZCUY CASTILLO                  | 62061801677       |             3
+        192 | mariam.gonzalez       | t         |           199 | Maria Mercedes Gonzalez Palma         |             2255 | MARÍA MERCEDES GONZÁLEZ PALMA                 | 61041913594       |             3
+        194 | maria.santaballa      | f         |           201 | Maria del Carmen Santaballa Marquez   |             2156 | MARIA DEL CARMEN SANTABALLA MÁRQUEZ           | 80122505259       |            11
+        195 | mariela.mora          | t         |           202 | Mariela Mora Herrera                  |             2253 | MARIELA MORA HERRERA                          | 72122024172       |             3
+        196 | mariela.reboledo      | t         |           203 | Mariela Reboledo Flores               |             2267 | MARIELA DE LA CARIDAD REBOLEDO FLORES         | 68032837491       |             3
+        199 | barbara.hernandez     | f         |           206 | Maxima Barbara Hernandez Huet         |             3149 | MÁXIMA BARBARA. HERNANDEZ HUET                | 60051601336       |             4
+        200 | maybe.gomez           | t         |           207 | Maybe Caridad Gomez More              |             2225 | MAYBE CARIDAD GÓMEZ MORÉ                      | 70060202113       |            13
+        201 | maykel.quintana       | f         |           208 | Maykel Quintana Linares               |             2534 | MAYKEL QUINTANA LINARES                       | 86022306022       |             6
+        203 | michel.fagundo        | f         |           210 | Michel Jesus Fagundo Heras            |             2298 | MICHEL JESUS FAGUNDO HERAS                    | 88091310444       |             3
+        204 | margarita.cuesta      | t         |           211 | Migdalia Margarita Cuesta Viltres     |             2237 | MIGDALIA MARGARITA CUESTA VILTRES             | 67010902695       |             3
+        208 | mirta.galvez          | t         |           215 | Mirta Galvez Ferro                    |             2137 | MIRTA GALVEZ FERRO                            | 62042501755       |             1
+        209 | mirtha.hechavarria    | f         |           216 | Mirtha de los A. Hechavarria          |             2697 | MIRTHA  DE LOS A HECHAVARRÍA TÉLLEZ           | 62100202073       |             4
+        212 | nelson.petrucheli     | t         |           219 | Nelson Lazaro Menendez Petrucheli     |             2361 | NÉLSON LAZARO MENÉNDEZ PETRUCHELI             | 65060514460       |             6
+        213 | noraima.alfaro        | t         |           220 | Noraima Alfaro Ganganelly             |             2163 | NORAIMA ALFARO GANGANELLY                     | 59100800931       |            12
+        214 | norma.rojas           | t         |           221 | Norma Niurka Rojas Justiz             |             2164 | NORMA NIURKA ROJAS JUSTIZ                     | 79090503312       |            12
+        215 | odiley.perez          | f         |           222 | Odiley Perez Romero                   |             2166 | ODILEY PÉREZ ROMERO                           | 95011829139       |            12
+        217 | olivia.borges         | f         |           224 | Olivia Borges Nodarse                 |             2341 | OLIVIA BORGES NODARSE                         | 80112904150       |             3
+        219 | orlando.rodriguez     | t         |           226 | Orlando David Rodriguez Gonzalez      |             2704 | ORLANDO DAVID RODRÍGUEZ GONZÁLEZ              | 68123021547       |             4
+        221 | osmany.diaz           | f         |           228 | Osmani Díaz Mantilla                  |             2423 | OSMANI DÍAZ MANTILLA                          | 71031901666       |             6
+        223 | otman.sanz            | t         |           230 | Otman Sabad Sanz Cordero              |             3158 | OTMAN SANZ CORDERO                            | 67031211643       |             4
+        226 | ramon.scull           | f         |           233 | Ramon Scull Roque                     |             2345 | RAMÓN SCULL ROQUE                             | 65042901384       |             3
+        233 | ricardo.beltran       | t         |           240 | Ricardo Beltran Martinez              |             2224 | RICARDO BELTRÁN MARTÍNEZ                      | 56091403766       |            13
+        235 | ricardo.poll          | t         |           242 | Ricardo Poll Quintana                 |             2702 | RICARDO POLL QUINTANA                         | 73031212489       |             4
+        236 | roberto.oliva         | t         |           243 | Roberto Oliva Betancourt              |             2152 | ROBERTO OLIVA BETANCOURT                      | 71082130145       |            11
+        240 | samuel.vazquez        | t         |           247 | Samuel Vazquez Cedeno                 |             2635 | SAMUEL VAZQUEZ CEDEÑO                         | 64082003923       |             6
+        241 | sandra.callis         | t         |           248 | Sandra Callis Caraballoso             |             2148 | SANDRA CALLIS CARABALLOSO                     | 71052813674       |            11
+        242 | sayuri.cruz           | t         |           249 | Sayuri Cruz Chong                     |             2854 | SAYURI CRUZ CHONG                             | 71100208971       |             4
+        244 | shakira.carmona       | f         |           251 | Shakira Carmona Garcia                |             2159 | SHAKIRA CARMONA GARCIA                        | 61067691          |             2
+        247 | susana.riveira        | f         |           254 | Susana Riveira Ares                   |             3180 | SUSANA RIVEIRA ARES                           | 65021514897       |             4
+        249 | tania.legon           | f         |           256 | Tania Legon Perez                     |             2265 | TANIA LEGON PEREZ                             | 72041813814       |             3
+        251 | thalia.menendez       | f         |           258 | Thalia Menéndez Vargas                |             2155 | THALIA MENÉNDEZ VARGAS                        | 99052208330       |             2
+        253 | victoria.vazquez      | f         |           260 | Victoria de la Paz Vazquez Ojeda      |             2139 | VICTORIA DE LA PAZ VAZQUEZ OJEDA              | 60070914031       |             2
+        254 | vivian.ramos          | t         |           261 | Vivian Cristina Ramos Diaz            |             2138 | VIVIAN CRISTINA RAMOS DIAZ                    | 87082508659       |             6
+        257 | wenkin.wong           | f         |           264 | Wenkin Wong Chiu                      |             2176 | WENKIN WONG CHIU                              | 93042931709       |            12
+        258 | yadianys.suarez       | f         |           265 | Yadianys Suarez Ramirez               |             2366 | YADIANYS SUÀREZ RAMÌREZ                       | 97042602330       |             6
+        259 | yahima.mesa           | t         |           266 | Yahima Mesa Jorlen                    |             2895 | YAHIMA MESA JORLEN                            | 80101304135       |             7
+        260 | yaima.fernandez       | t         |           267 | Yaima Fernandez Canto                 |             2718 | YAIMA FERNÁNDEZ CANTO                         | 86111704810       |             7
+        262 | yalile.rosabal        | t         |           269 | Yalile Rosabal Valdes                 |             2717 | YALILE ROSABAL VALDÉS                         | 77032207459       |             4
+        264 | yamile.lopez          | t         |           271 | Yamilé López Nuñez                    |             2208 | YAMILE LOPEZ NÚÑEZ                            | 77072606198       |            13
+        265 | yannyra.matute        | t         |           272 | Yannyra de Pilar Matute Tejo          |             2436 | YANNYRA DEL PILAR MATUTE TEJO                 | 83090628093       |             6
+        266 | yohanca.vazquez       | f         |           273 | Yohanka Vazquez Sanchez               |             2371 | YOHANKA VÁZQUEZ SÁNCHEZ                       | 79091006119       |             6
+        267 | yordan.tonely         | f         |           274 | Yordan Tonely Mena                    |             2157 | YORDAN TONELY MENA                            | 94090229707       |             2
+        268 | yosvanys.sosa         | f         |           275 | Yosvanys Alcides Sosa Ramirez         |             2890 | YOSVANYS ALCIDES SOSA RAMIREZ                 | 80053106647       |             4
+        269 | yukdanys.lobaina      | t         |           276 | Yukdanys Lobaina Gamez                |             2142 | YUKDANYS LOBAINA GAMEZ                        | 75062813452       |            10
+        270 | yuliet.hernandez      | f         |           277 | Yuliet Hernandez Gainza               |             2231 | YULIET HERNANDEZ GAINZA                       | 94101330499       |             2
+        272 | zuleidy.maique        | t         |           279 | Zuleidy Maique De La Rua              |             2363 | ZULEIDY MAIQUE DE LA RUA                      | 87121807211       |             6
+        274 | daniel.borrero        | t         |           282 | Daniel Barrero Reyes                  |             2364 | DANIEL BARRERO REYES                          | 88050610322       |             1
+        275 | yoel.igarza           | t         |           283 | Yoel Igarza nueva                     |             2978 | YOEL IGARZA NUEVA                             | 72081806661       |             4
+        276 | osmany.gama           | t         |           284 | Osmany Gama Díaz                      |             2919 | OSMANY GAMA DÍAZ                              | 75082908120       |             4
+        277 | wilfredo.rosales      | f         |           285 | Wilfredo Rosales Olivet               |             2509 | WILFREDO ROSALES OLIVET                       | 66050114966       |             6
+        278 | yesenia.cervantes     | f         |           286 | Yesenia Cervantes Delgado             |             2497 | YESENIA CERVANTES DELGADO                     | 90110537052       |             6
+        279 | yoandy.cadena         | t         |           287 | Yoandy Cadena Linares                 |             2492 | YOANDY CADENAS LINARES                        | 82112016620       |             6
+        280 | hugo.rodriguez        | f         |           288 | Hugo Rodríguez Vergel                 |             2523 | HUGO RODRIGUEZ VERGEL                         | 76030532621       |             6
+        281 | leonel.figueredo      | f         |           289 | Leonel Figueredo Fernández            |             2502 | LEONEL FIGUEREDO FERNÁNDEZ                    | 86010825468       |             6
+        282 | irina.rodriguez       | f         |           290 | Irina Rodríguez Silva                 |             3295 | IRINA RODRÍGUEZ SILVA                         | 77032205732       |             2
+        283 | mariselis.milanes     | f         |           291 | Mariselis Milanés Rodríguez           |             2246 | MARISELIS MILANES RODRIGUEZ                   | 76020733479       |             3
+        284 | yosvany.napoles       | t         |           292 | Yosvany Nápoles Prieto                |             2243 | YOSVANY EDESIO NÁPOLES PRIETO                 | 72081101265       |             3
+        286 | yenimar.villalobos    | t         |           295 | Yenimar Villalobos Ojeda              |             3535 | YENIMAR VILLALOBOS OJEDA                      | 71061415433       |             4
+        287 | teresa.perez          | t         |           296 | Teresa Victoria Perez Pacheco         |             2154 | TERESA VICTORIA PÉREZ PACHECO                 | 79053020519       |            11
+        288 | danisleydis.hernandez | f         |           297 | Danisleydis Hernández Rodríguez       |             3316 | DANISLEYDIS DE LA CARIDAD HERNANDEZ RODRIGUEZ | 96101809616       |             2
+        289 | yanier.jauregui       | f         |           298 | Yanier Jauregui                       |             3318 | YANIER JAUREGUI GONZÁLEZ                      | 98010106585       |             2
+        290 | ifrain.naranjo        | t         |           299 | Ifrain Naranjo Naranjo                |             2996 | IFRAIN NARANJO NARANJO                        | 67072920528       |             4
+        292 | laritsa.madan         | f         |           302 | Laritsa Madan Beyris                  |             3327 | Laritsa Madan Beyris                          | 72120513531       |             2
+        293 | alejandro.vazquez     | f         |           305 | Alejandro Agustín Vazquez             |             3294 | ALEJANDRO AGUSTÍN VÁZQUEZ LINARES             | 59012129544       |             2
+        329 | marcos.labaut         | f         |           341 | Marcos Labaut Fonseca                 |             3317 | MARCOS ISAIAS LABAUT FONSECA                  | 71032219842       |             4
+        330 | dianelys.perdomo      | f         |           342 | Dianelys Perdomo Meneses              |             3378 | DIANELYS PERDOMO MENESES                      | 98022407450       |             2
+        353 | pedro.castro          | f         |           365 | Pedro Luis Castro Tabera              |             3383 | PEDRO LUIS CASTRO TABERA                      | 64092039984       |            13
+        370 | yeleinis.gonzalez     | t         |           382 | Yeleinis Gonzalez Tamayo              |             3389 | YELEINIS GONZÁLEZ TAMAYO                      | 81081417916       |             1
+        375 | alexeis.tornes        | f         |           387 | Alexeis Tornes Gonzalez               |             3020 | ALEXEIS TORNÉS GONZÁLEZ                       | 79022320863       |             4
+        376 | zeida.nunez           | f         |           388 | Zeida Tomasa Nunez Gaskin             |             2987 | ZEIDA TOMASA NUÑEZ GASKIN                     | 63122108294       |             4
+        377 | yoel.blanco           | f         |           389 | Felix Yoel Blanco Rodriguez           |             2991 | FELIX YOEL BLANCO RODRIGUEZ                   | 64083008243       |             4
+        378 | elvio.verdecia        | f         |           390 | Elvio Guillermo Verdecia Pasos        |             3004 | ELVIO GUILLERMO VERDECIA PASOS                | 65021007824       |             4
+        379 | miguel.ramos          | t         |           391 | Miguel Luis Ramos Perez               |             2981 | MIGUEL LUIS RAMOS PÉREZ                       | 66093044647       |             4
+        380 | leonardo.fonseca      | f         |           392 | Leonardo Misael Fonseca Gonzalez      |             3085 | LEONARDO MISAEL FONSECA GONZALEZ              | 74092913160       |             4
+        381 | darvis.torres         | f         |           393 | Darvis Torres Diaz                    |             3145 | DARVIS TORRES DIAZ                            | 71080507265       |             4
+        382 | orlando.aliaga        | f         |           394 | Orlando Mario de Jesus Aliaga Fonseca |             3058 | ORLANDO MARIO DE JESÚS ALIAGA FONSECA         | 83092621665       |             4
+        383 | yurien.hamilton       | f         |           395 | Yurien Hamilton Mendoza               |             3028 | YURIEN HAMILTHON MENDOZA                      | 90092144046       |             4
+        384 | yordys.fernandez      | f         |           396 | Yordys Daniel Fernandez Jorge         |             2980 | YORDYS DANIEL FERNÁNDEZ JORGE                 | 85082723706       |             4
+        385 | cecilio.alvarez       | f         |           397 | Cecilio Gabriel Alvarez Galardy       |             2983 | CECILIO GABRIEL ALVAREZ GALARDY               | 60032406549       |             4
+        386 | nilva.guerra          | f         |           398 | Nilva Guerra Silvera                  |             2979 | NILVA GUERRA SILVERA                          | 67050820516       |             4
+        387 | dolores.vazquez       | t         |           399 | Dolores Gelda Vazquez Garcia          |             2985 | DOLORES GELDA VAZQUEZ GARCIA                  | 67032106710       |             4
+        388 | william.martinez      | f         |           400 | Wiliam Martinez Lopez                 |             2982 | WILIAM MARTINEZ LOPEZ                         | 64071812589       |             4
+        389 | miguel.perezescalona  | f         |           401 | Miguel Perez Escalona                 |             2984 | MIGUEL PEREZ ESCALONA                         | 75071814423       |             4
+        390 | eusebio.rodriguez     | f         |           402 | Eusebio Primo Rodriguez Mejias        |             2986 | EUSEBIO PRIMO RODRIGUEZ MEJIAS                | 65121508083       |             4
+        398 | berny.tornes          | t         |           410 | Berny Tornes Chang                    |             3352 | BERNY TORNES CHANG                            | 79120104149       |             4
+        399 | hiram.cabrera         | f         |           411 | Hiram Alberto Cabrera Benitez         |             3403 | HIRAM ALBERTO CABRERA BENITEZ                 | 66030227008       |             4
+        400 | miguel.gutierrez      | f         |           412 | Miguel Eduardo Gutierrez Cabaña       |             2845 | MIGUEL EDUARDO GUTIERREZ CABAÑAS              | 66092901749       |             4
+        403 | sunhay.triana         | f         |           415 | Sunhay Triana Banos                   |             2144 | SUHAY TRIANA BAÑOS                            | 1092168657        |             2
+        406 | lourdes.portelles     | f         |           418 | Lourdes Maria Portelles Rodriguez     |             3315 | LOURDES MARIA PORTELLES RODRIGUEZ             | 67031400111       |             4
+        407 | ariel.guillot         | f         |           419 | Ariel Guillot Montes                  |             3406 | ARIEL GUILLOT MONTES                          | 70092109503       |             4
+        408 | kenia.langer          | f         |           420 | Kenia Langer Rodriguez                |             2894 | KENIA LANGER RODRIGUEZ                        | 80072215219       |             4
+        409 | sergio.estrada        | f         |           421 | Sergio Yudiser Estrada Ortiz          |             2565 | SERGIO YUDISER ESTRADA ORTIZ                  | 94071028508       |             6
+        411 | adiel.alvarez         | f         |           423 | Adiel Alvarez Alvarez                 |             2234 | ADIEL ALVAREZ ALVAREZ                         | 96070908583       |             3
+        412 | alain.torres          | f         |           424 | Alain Torres Gandara                  |             3384 | ALAIN TORRES GANDARA                          | 97112607107       |             3
+        413 | carlos.fine           | f         |           425 | Carlos Reynier Fine de Armas          |             3376 | CARLOS REYNIER FINE DE ARMAS                  | 94120229021       |             3
+        414 | luismiguel.perez      | f         |           426 | Luis Miguel Perez Fernandez           |             3386 | LUIS MIGUEL PÉREZ FERNÁNDEZ                   | 97100607060       |             3
+        415 | juan.pinon            | f         |           427 | Juan M. Pinon Rodriguez               |             2333 | JUAN M PIÑON RODRÍGUEZ                        | 63041200981       |             3
+        416 | raul.lopez            | t         |           428 | Raul Eduardo Lopez Serrano            |             2330 | RAÚL EDUARDO LÓPEZ SERRANO                    | 59101301265       |             3
+        417 | arnaldo.bernal        | f         |           429 | Arnaldo Albino Bernal Delgado         |             2245 | ARNALDO ALBINO BERNAL DELGADO                 | 65091502527       |             3
+        421 | madelaine.dearmas     | t         |           433 | Madelaine de Armas Diaz               |             3423 | MADELAINE DE ARMAS DÍAZ                       | 80011913430       |             3
+        423 | vicente.rivera        | f         |           435 | Vicente Manuel Rivera Rodriguez       |             2244 | VICENTE MANUEL RIVERA RODRÍGUEZ               | 68052115982       |             3
+        427 | mayelin.rvazquez      | t         |           439 | MAYELÍN RODRÍGUEZ VÁZQUEZ             |             3448 | MAYELÍN RODRÍGUEZ VÁZQUEZ                     | 72012401070       |             1
+        428 | fabian.regalado       | t         |           440 | FABIÁN REGALADO PÉREZ                 |             2695 | FABIÁN ORLANDO REGALADO PÉREZ                 | 72062603541       |             6
+        431 | airelys.campos        | t         |           443 | Airelys Campos Herrera                |             3424 | AIRELYS CAMPO HERRERA                         | 79071910796       |            10
+        432 | lester.marbot         | f         |           444 | Lester Marbot Pino                    |             3393 | LESTER MORBOT PINO                            | 78100206867       |             2
+        449 | rebeca.valdes         | t         |           461 | Rebeca Maria Valdes Valdes            |             3558 | REBECA MARÍA VALDÉS VALDÉS                    | 72112125552       |            12
+        455 | melba.guerra          | t         |           467 | Melba Guerra Téllez                   |             3471 | MELBA GUERRA TELLEZ                           | 80072105236       |             4
+        457 | niurka.rcobas         | t         |           469 | Niurka Rodriguez Cobas                |             3579 | NIURKA RODRÍGUEZ COBAS                        | 72091613793       |             4
+        461 | yusleivi.izaguirre    | f         |           473 | Yusleivi Mercedes Izaguirre Hernandez |             3554 | YUSLEIVI MERCEDES IZAGUIRRE HERNÁNDEZ         | 82101808632       |            11
+        463 | olga.vidal            | t         |           475 | Olga Lidia Vidal Noel                 |             3553 | OLGA LIDIA VIDAL NOEL                         | 70100528796       |            10
+        464 | jorge.ramos           | t         |           476 | Jorge Luis Ramos Piloto               |             2921 | JORGE  LUIS RAMOS PILOTO                      | 75053108183       |             4
+        465 | ingrid.diaz           | f         |           477 | Ingrid Diaz Lopez                     |             3562 | INGRID DIAZ LOPEZ                             | 79050905257       |             2
+        470 | anielys.herrera       | f         |           482 | Anielys Herrera Nuviola               |             3568 | ANIELYS HERRERA NUVIOLA                       | 87111906615       |            14
+        473 | esludian.rodriguez    | t         |           485 | Esludian Rodriguez Lorenzo            |             3555 | ESLUDIAN RODRIGUEZ LORENZO                    | 81092204130       |            11
+        474 | alfredo.duarte        | f         |           486 | Alfredo Manuel Duarte Alvarez         |             2191 | ALFREDO MANUEL DUARTE ALVAREZ                 | 63010119903       |             2
+        475 | rodney.rodriguez      | f         |           487 | Rodney Rodriguez Despaigne            |             3550 | RODNEY RODRÍGUEZ DESPAIGNE                    | 98101000105       |            11
+        476 | miladys.capo          | t         |           488 | Miladys Capo Medina                   |             3580 | MILADYS CAPO MEDINA                           | 72062135352       |             4
+        481 | millamis.leyva        | t         |           493 | Millamis Celeste Leyva Provance       |             3474 | MILLAMIS CELESTE LEYVA PROVANCE               | 73012205732       |             4
+        485 | leonel.leon           | t         |           497 | Leonel Antonio Leon Martin            |             3502 | LEONEL ANTONIO LEÓN MARTÍN                    | 65092502766       |             4
+        486 | anaisy.garcia         | t         |           498 | Anaisy Garcia Pulido                  |             3515 | ANAISY GARCÍA PULIDO                          | 85030814519       |             4
+        494 | mario.gonzalez        | t         |           506 | Nestor Mario Gonzalez Campa           |             2861 | NESTOR MARIO GONZALEZ CAMPA                   | 71101911640       |             4
+        495 | omar.ardanal          | t         |           507 | Omar Martinez Ardanal                 |             3682 | OMAR MARTINEZ ARDANAL                         | 85072431860       |            13
+        498 | vladimir.abo          | t         |           515 | Vladimir Abo Olivera                  |             3683 | VLADIMIR ABÓ OLIVERA                          | 74091301603       |            13
+        503 | daylee.mompie         | t         |           520 | Daylee Mompie Marti                   |             3569 | DAYLEE MOMPIÉ MARTÍ                           | 87091431372       |            14
+        504 | daniel.calderon       | t         |           521 | Daniel Ricardo Calderon Estevez       |             3416 | DANIEL RICARDO CALDERÓN ESTEVEZ               | 03030866629       |            14
+        505 | yannick.campos        | f         |           522 | Yannick Campos Mesa                   |             3365 | YANNICK CAMPOS MESA                           | 89101521770       |            14
+        506 | yamil.diago           | t         |           523 | Yamil Alfonso Diago Bent              |             3612 | YAMIL ALFONSO DIAGO BENT                      | 73100424004       |            11
+        507 | ralkis.benitez        | t         |           524 | Ralkis Ezequiel Benitez Suarez        |             3551 | RALKIS EZEQUIEL BÉNITEZ SUAREZ                | 75012505261       |            13
+        510 | yordan.castillo       | t         |           527 | Jose Yordan Castillo Landa            |             3613 | JOSÉ YORDAN CASTILLO LANDA                    | 82100127520       |            11
+        512 | ivon.gonzalez         | t         |           529 | Ivon Gonzalez Acosta                  |             3719 | IVON GONZALEZ ACOSTA                          | 93082307851       |            11
+        515 | jorge.sacre           | t         |           532 | Jorge Mario Sacre Izquierdo           |             3394 | JORGE MARIO SACRE IZQUIERDO                   | 62082710988       |             6
+        516 | leodamys.balda        | t         |           533 | Leodamys Balda Sicre                  |             3527 | LEODAMYS BALDA SICRE                          | 93102832291       |             6
+        517 | reinier.brocal        | f         |           534 | Reinier Brocal Noblet                 |             3399 | REINIER BROCAL NOBLET                         | 84042828046       |             6
+        519 | tairy.garcia          | t         |           536 | Tairy Garcia Hernandez                |             3556 | TAIRY GARCIA HERNANDEZ                        | 70090610752       |            11
+        525 | anibal.andres         | t         |           542 | Anibal Andres Zayas                   |             3771 | ANIBAL ANDRES ZAYAS                           | 67030712785       |             1
+        526 | sheyla.elizondo       | t         |           543 | Sheyla de la Caridad Elizondo Morales |             3388 | SHEYLA DE LA CARIDAD ELIZONDO MORALES         | 91061228175       |            11
+(235 filas)
+
