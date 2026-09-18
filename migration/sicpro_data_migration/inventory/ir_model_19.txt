@@ -1,0 +1,594 @@
+1|base|{"en_US": "Base", "es_ES": "Base"}|base
+2|_unknown|{"en_US": "Unknown", "es_ES": "Desconocido"}|base
+3|ir.model|{"en_US": "Models", "es_ES": "Modelos"}|base
+4|ir.model.fields|{"en_US": "Fields", "es_ES": "Campos"}|base
+5|ir.model.inherit|{"en_US": "Model Inheritance Tree", "es_ES": "Árbol de la herencia del modelo"}|base
+6|ir.model.fields.selection|{"en_US": "Fields Selection", "es_ES": "Selección de campos"}|base
+7|ir.model.constraint|{"en_US": "Model Constraint", "es_ES": "Restricciones del modelo"}|base
+8|ir.model.relation|{"en_US": "Relation Model", "es_ES": "Modelo de relación"}|base
+9|ir.model.access|{"en_US": "Model Access", "es_ES": "Acceso al modelo"}|base
+10|ir.model.data|{"en_US": "Model Data", "es_ES": "Datos del modelo"}|base
+11|ir.sequence|{"en_US": "Sequence", "es_ES": "Secuencia"}|base
+12|ir.sequence.date_range|{"en_US": "Sequence Date Range", "es_ES": "Rango de fechas de la secuencia"}|base
+13|ir.ui.menu|{"en_US": "Menu", "es_ES": "Menú"}|base
+14|ir.ui.view.custom|{"en_US": "Custom View", "es_ES": "Vista personalizada"}|base
+15|ir.ui.view|{"en_US": "View", "es_ES": "Vista"}|base
+16|reset.view.arch.wizard|{"en_US": "Reset View Architecture Wizard", "es_ES": "Asistente para restablecer la arquitectura de la vista"}|base
+17|ir.asset|{"en_US": "Asset", "es_ES": "Activo"}|base
+18|ir.actions.actions|{"en_US": "Actions", "es_ES": "Acciones"}|base
+19|ir.actions.act_window|{"en_US": "Action Window", "es_ES": "Acción de ventana"}|base
+20|ir.actions.act_window.view|{"en_US": "Action Window View", "es_ES": "Vista de la ventana de acción"}|base
+21|ir.actions.act_window_close|{"en_US": "Action Window Close", "es_ES": "Cierre de acción de ventana"}|base
+22|ir.actions.act_url|{"en_US": "Action URL", "es_ES": "URL de la acción"}|base
+23|server.action.history.wizard|{"en_US": "Server Action History Wizard"}|base
+24|ir.actions.server.history|{"en_US": "Server Action History"}|base
+25|ir.actions.server|{"en_US": "Server Action", "es_ES": "Acción de servidor"}|base
+26|ir.actions.todo|{"en_US": "Configuration Wizards", "es_ES": "Asistentes de configuración"}|base
+27|ir.actions.client|{"en_US": "Client Action", "es_ES": "Acción de cliente"}|base
+28|ir.embedded.actions|{"en_US": "Embedded Actions", "es_ES": "Acciones incrustadas"}|base
+29|ir.actions.report|{"en_US": "Report Action", "es_ES": "Acción de informe"}|base
+30|ir.attachment|{"en_US": "Attachment", "es_ES": "Archivo adjunto"}|base
+31|ir.binary|{"en_US": "File streaming helper model for controllers", "es_ES": "Modelo de ayuda para la transmisión de archivos para controladores"}|base
+32|ir.cron|{"en_US": "Scheduled Actions", "es_ES": "Acciones planificadas"}|base
+33|ir.cron.trigger|{"en_US": "Triggered actions", "es_ES": "Acciones activadas"}|base
+34|ir.cron.progress|{"en_US": "Progress of Scheduled Actions", "es_ES": "Progeso de acciones planificadas"}|base
+35|ir.filters|{"en_US": "Filters", "es_ES": "Filtros"}|base
+36|ir.default|{"en_US": "Default Values", "es_ES": "Valores por defecto"}|base
+37|ir.exports|{"en_US": "Exports", "es_ES": "Exportaciones"}|base
+38|ir.exports.line|{"en_US": "Exports Line", "es_ES": "Línea de exportaciones"}|base
+39|ir.rule|{"en_US": "Record Rule", "es_ES": "Regla"}|base
+40|ir.config_parameter|{"en_US": "System Parameter", "es_ES": "Parámetro del sistema"}|base
+41|ir.autovacuum|{"en_US": "Automatic Vacuum", "es_ES": "Limpieza automática"}|base
+42|ir.mail_server|{"en_US": "Mail Server", "es_ES": "Servidor de correo"}|base
+43|ir.fields.converter|{"en_US": "Fields Converter", "es_ES": "Conversor de campos"}|base
+44|ir.qweb|{"en_US": "Qweb", "es_ES": "Qweb"}|base
+45|ir.qweb.field|{"en_US": "Qweb Field", "es_ES": "Campo Qweb"}|base
+46|ir.qweb.field.integer|{"en_US": "Qweb Field Integer", "es_ES": "Campo Qweb Entero"}|base
+47|ir.qweb.field.float|{"en_US": "Qweb Field Float", "es_ES": "Campo Qweb Flotante"}|base
+48|ir.qweb.field.date|{"en_US": "Qweb Field Date", "es_ES": "Campo Qweb Fecha"}|base
+49|ir.qweb.field.datetime|{"en_US": "Qweb Field Datetime", "es_ES": "Campo Qweb Fecha-Hora"}|base
+50|ir.qweb.field.text|{"en_US": "Qweb Field Text", "es_ES": "Campo Qweb Texto"}|base
+51|ir.qweb.field.selection|{"en_US": "Qweb Field Selection", "es_ES": "Campo Qweb Selección"}|base
+52|ir.qweb.field.many2one|{"en_US": "Qweb Field Many to One", "es_ES": "Campo Qweb Many to One"}|base
+53|ir.qweb.field.many2many|{"en_US": "Qweb field many2many", "es_ES": "Campo Qweb Many2many"}|base
+54|ir.qweb.field.one2many|{"en_US": "Qweb field one2many"}|base
+55|ir.qweb.field.html|{"en_US": "Qweb Field HTML", "es_ES": "Campo Qweb HTML"}|base
+56|ir.qweb.field.image|{"en_US": "Qweb Field Image", "es_ES": "Campo Qweb Imagen"}|base
+57|ir.qweb.field.image_url|{"en_US": "Qweb Field Image", "es_ES": "Campo Qweb Imagen"}|base
+58|ir.qweb.field.monetary|{"en_US": "Qweb Field Monetary", "es_ES": "Campo Qweb Monetario"}|base
+59|ir.qweb.field.float_time|{"en_US": "Qweb Field Float Time", "es_ES": "Campo Qweb Tiempo flotante"}|base
+60|ir.qweb.field.time|{"en_US": "QWeb Field Time", "es_ES": "Tiempo del campo QWeb"}|base
+61|ir.qweb.field.duration|{"en_US": "Qweb Field Duration", "es_ES": "Campo Qweb Duración"}|base
+62|ir.qweb.field.relative|{"en_US": "Qweb Field Relative", "es_ES": "Campo Qweb Relativo"}|base
+63|ir.qweb.field.barcode|{"en_US": "Qweb Field Barcode", "es_ES": "Campo Qweb Código de Barras"}|base
+64|ir.qweb.field.contact|{"en_US": "Qweb Field Contact", "es_ES": "Campo Qweb Contacto"}|base
+65|ir.qweb.field.qweb|{"en_US": "Qweb Field qweb", "es_ES": "Campo Qweb de Qweb"}|base
+66|ir.http|{"en_US": "HTTP Routing", "es_ES": "Enrutamiento HTTP"}|base
+67|ir.logging|{"en_US": "Logging", "es_ES": "Registro"}|base
+68|ir.module.category|{"en_US": "Application", "es_ES": "Aplicación"}|base
+69|ir.module.module|{"en_US": "Module", "es_ES": "Módulo"}|base
+70|ir.module.module.dependency|{"en_US": "Module dependency", "es_ES": "Dependencia del módulo"}|base
+71|ir.module.module.exclusion|{"en_US": "Module exclusion", "es_ES": "Exclusión del módulo"}|base
+72|ir.demo|{"en_US": "Demo", "es_ES": "Demostración"}|base
+73|ir.demo_failure|{"en_US": "Demo failure", "es_ES": "Falla de demostración"}|base
+74|ir.demo_failure.wizard|{"en_US": "Demo Failure wizard", "es_ES": "Asistente para error de datos demo"}|base
+75|properties.base.definition|{"en_US": "Properties Base Definition"}|base
+76|properties.base.definition.mixin|{"en_US": "Properties Base Definition Mixin"}|base
+77|report.layout|{"en_US": "Report Layout", "es_ES": "Diseño del informe"}|base
+78|report.paperformat|{"en_US": "Paper Format Config", "es_ES": "Configuración del formato de papel"}|base
+79|ir.profile|{"en_US": "Profiling results", "es_ES": "Resultados del análisis de rendimiento de software"}|base
+80|base.enable.profiling.wizard|{"en_US": "Enable profiling for some time", "es_ES": "Habilitar análisis de rendimiento por cierto tiempo"}|base
+81|image.mixin|{"en_US": "Image Mixin", "es_ES": "Mixin de imagen"}|base
+82|avatar.mixin|{"en_US": "Avatar Mixin", "es_ES": "Avatar Mixin"}|base
+83|res.country|{"en_US": "Country", "es_ES": "País"}|base
+84|res.country.group|{"en_US": "Country Group", "es_ES": "Grupo de países"}|base
+85|res.country.state|{"en_US": "Country state", "es_ES": "Provincia del país"}|base
+86|res.lang|{"en_US": "Languages", "es_ES": "Idiomas"}|base
+87|format.vat.label.mixin|{"en_US": "Country Specific VAT Label", "es_ES": "Etiqueta de IVA específica del país"}|base
+88|format.address.mixin|{"en_US": "Address Format", "es_ES": "Formato de dirección"}|base
+89|res.partner.category|{"en_US": "Partner Tags", "es_ES": "Etiquetas del contacto"}|base
+90|res.partner|{"en_US": "Contact", "es_ES": "Contacto"}|base
+91|res.partner.industry|{"en_US": "Industry", "es_ES": "Sector"}|base
+92|res.bank|{"en_US": "Bank", "es_ES": "Banco"}|base
+93|res.partner.bank|{"en_US": "Bank Accounts", "es_ES": "Cuentas bancarias"}|base
+94|res.config|{"en_US": "Config", "es_ES": "Configuración"}|base
+95|res.config.settings|{"en_US": "Config Settings", "es_ES": "Ajustes de configuración"}|base
+96|res.currency|{"en_US": "Currency", "es_ES": "Moneda"}|base
+97|res.currency.rate|{"en_US": "Currency Rate", "es_ES": "Tipo de cambio"}|base
+98|res.company|{"en_US": "Companies", "es_ES": "Compañías"}|base
+99|res.groups.privilege|{"en_US": "Privileges", "es_ES": "Privilegios"}|base
+100|res.groups|{"en_US": "Access Groups", "es_ES": "Grupos de acceso"}|base
+101|res.users.log|{"en_US": "Users Log", "es_ES": "Registro de usuarios"}|base
+102|res.users|{"en_US": "User", "es_ES": "Usuario"}|base
+103|res.users.identitycheck|{"en_US": "Password Check Wizard", "es_ES": "Asistente de verificación de contraseñas"}|base
+104|change.password.wizard|{"en_US": "Change Password Wizard", "es_ES": "Asistente de cambio de contraseña"}|base
+105|change.password.user|{"en_US": "User, Change Password Wizard", "es_ES": "Usuario, asistente para cambiar la contraseña"}|base
+106|change.password.own|{"en_US": "User, change own password wizard", "es_ES": "Usuario, asistente para cambiar la propia contraseña"}|base
+107|res.users.apikeys|{"en_US": "Users API Keys", "es_ES": "Claves API de los usuarios"}|base
+108|res.users.apikeys.description|{"en_US": "API Key Description", "es_ES": "Descripción de la clave API"}|base
+109|res.users.apikeys.show|{"en_US": "Show API Key", "es_ES": "Mostrar clave API"}|base
+110|res.users.settings|{"en_US": "User Settings", "es_ES": "Ajustes de usuario"}|base
+111|res.users.deletion|{"en_US": "Users Deletion Request", "es_ES": "Solicitud de eliminación del usario"}|base
+112|res.device.log|{"en_US": "Device Log", "es_ES": "Registro del dispositivo"}|base
+113|res.device|{"en_US": "Devices", "es_ES": "Dispositivos"}|base
+114|decimal.precision|{"en_US": "Decimal Precision", "es_ES": "Precisión decimal"}|base
+115|report.base.report_irmodulereference|{"en_US": "Module Reference Report (base)", "es_ES": "Informe del módulo de referencia (base)"}|base
+116|base.module.update|{"en_US": "Update Module", "es_ES": "Actualizar módulo"}|base
+117|base.language.install|{"en_US": "Install Language", "es_ES": "Instalar idioma"}|base
+118|base.language.import|{"en_US": "Language Import", "es_ES": "Importación de idioma"}|base
+119|base.module.upgrade|{"en_US": "Upgrade Module", "es_ES": "Actualizar módulo"}|base
+120|base.module.uninstall|{"en_US": "Module Uninstall", "es_ES": "Desinstalar módulo"}|base
+121|base.language.export|{"en_US": "Language Export", "es_ES": "Exportación de idioma"}|base
+122|base.partner.merge.line|{"en_US": "Merge Partner Line", "es_ES": "Fusionar línea de contacto"}|base
+123|base.partner.merge.automatic.wizard|{"en_US": "Merge Partner Wizard", "es_ES": "Asistente de fusión de contactos"}|base
+124|wizard.ir.model.menu.create|{"en_US": "Create Menu Wizard", "es_ES": "Asistente para creación de menú"}|base
+126|base.document.layout|{"en_US": "Company Document Layout", "es_ES": "Diseño de documentos de la compañía"}|base
+127|res.users.settings.embedded.action|{"en_US": "User Settings for Embedded Actions"}|base
+128|auth_totp.device|{"en_US": "Authentication Device", "es_ES": "Dispositivo de autenticación"}|base
+129|auth.totp.rate.limit.log|{"en_US": "TOTP rate limit logs", "es_ES": "Cantidad límite de registros de TOTP"}|base
+130|auth_totp.wizard|{"en_US": "2-Factor Setup Wizard", "es_ES": "Asistente de la configuración de la autenticación de dos factores"}|base
+131|base_import.mapping|{"en_US": "Base Import Mapping", "es_ES": "Mapeo de la importación base"}|base
+132|base_import.import|{"en_US": "Base Import", "es_ES": "Importación base"}|base
+133|base.import.module|{"en_US": "Import Module", "es_ES": "Importar módulo"}|base
+134|kpi.provider|{"en_US": "KPI Provider", "es_ES": "Proveedor de KPI"}|base
+135|bus.bus|{"en_US": "Communication Bus", "es_ES": "Bus de comunicación"}|base
+136|bus.listener.mixin|{"en_US": "Can send messages via bus.bus", "es_ES": "Puede enviar mensajes mediante bus.bus"}|base
+137|ir.websocket|{"en_US": "websocket message handling", "es_ES": "gestión de mensajes de WebSocket"}|base
+138|web_tour.tour|{"en_US": "Tours", "es_ES": "Recorridos"}|base
+139|web_tour.tour.step|{"en_US": "Tour's step", "es_ES": "Paso del recorrido"}|base
+140|auth.passkey.key|{"en_US": "Passkey", "es_ES": "Clave de acceso"}|base
+141|auth.passkey.key.create|{"en_US": "Create a Passkey", "es_ES": "Crear una clave de acceso"}|base
+143|html_editor.converter.test|{"en_US": "Html Editor Converter Test"}|base
+144|html_editor.converter.test.sub|{"en_US": "Html Editor Converter Subtest"}|base
+145|html.field.history.mixin|{"en_US": "Field html History", "es_ES": "Historial del campo html"}|base
+146|iap.account|{"en_US": "IAP Account", "es_ES": "Cuenta IAP"}|base
+147|iap.enrich.api|{"en_US": "IAP Lead Enrichment API", "es_ES": "API de enriquecimiento de leads para IAP"}|base
+148|iap.service|{"en_US": "IAP Service", "es_ES": "Servicio IAP"}|base
+149|res.users.role|{"en_US": "Rol de usuario"}|base
+150|res.users.role.line|{"en_US": "Usuarios asociados a un rol"}|base
+151|wizard.create.role.from.user|{"en_US": "Crear rol desde el asistente de usuario"}|base
+152|wizard.groups.into.role|{"en_US": "Agrupar grupos en un rol."}|base
+153|resource.calendar|{"en_US": "Resource Working Time", "es_ES": "Tiempo de trabajo de recursos"}|base
+154|resource.calendar.attendance|{"en_US": "Work Detail", "es_ES": "Detalle del trabajo"}|base
+155|resource.calendar.leaves|{"en_US": "Resource Time Off Detail", "es_ES": "Detalle de las ausencias del recurso"}|base
+156|resource.mixin|{"en_US": "Resource Mixin", "es_ES": "Mixin de recursos"}|base
+157|resource.resource|{"en_US": "Resources", "es_ES": "Recursos"}|base
+158|res.company.ldap|{"en_US": "Company LDAP configuration", "es_ES": "Configuración Compañia LDAP"}|base
+159|mail.alias|{"en_US": "Email Aliases", "es_ES": "Alias de correo electrónico"}|base
+160|mail.alias.domain|{"en_US": "Email Domain", "es_ES": "Dominio de correo electrónico"}|base
+162|mail.activity.mixin|{"en_US": "Activity Mixin", "es_ES": "Mixin de actividad"}|base
+163|mail.alias.mixin.optional|{"en_US": "Email Aliases Mixin (light)", "es_ES": "Mixin de alias de correo electrónico (claro)"}|base
+164|mail.alias.mixin|{"en_US": "Email Aliases Mixin", "es_ES": "Mixin de alias de correo electrónico"}|base
+165|mail.render.mixin|{"en_US": "Mail Render Mixin", "es_ES": "Mixin de renderización de correo"}|base
+166|mail.composer.mixin|{"en_US": "Mail Composer Mixin", "es_ES": "Mixin del redactor de correo"}|base
+167|mail.thread|{"en_US": "Email Thread", "es_ES": "Hilo de correo electrónico"}|base
+168|mail.thread.blacklist|{"en_US": "Mail Blacklist mixin", "es_ES": "Mixin de la lista negra de correos"}|base
+169|mail.thread.cc|{"en_US": "Email CC management", "es_ES": "Gestión del CC del correo electrónico"}|base
+170|mail.thread.main.attachment|{"en_US": "Mail Main Attachment management", "es_ES": "Gestión de los principales archivos adjuntos del correo"}|base
+171|mail.tracking.duration.mixin|{"en_US": "Mixin to compute the time a record has spent in each value a many2one field can take", "es_ES": "Mixin para calcular el tiempo que ha pasado un registro en cada valor que puede tomar un campo many2one"}|base
+172|template.reset.mixin|{"en_US": "Template Reset Mixin", "es_ES": "Mixin de restablecimiento de plantilla"}|base
+173|fetchmail.server|{"en_US": "Incoming Mail Server", "es_ES": "Servidor de correo de entrada"}|base
+174|mail.notification|{"en_US": "Message Notifications", "es_ES": "Notificaciones de mensajes"}|base
+175|mail.activity.type|{"en_US": "Activity Type", "es_ES": "Tipo de actividad"}|base
+176|mail.activity|{"en_US": "Activity", "es_ES": "Actividad"}|base
+177|mail.activity.plan|{"en_US": "Activity Plan", "es_ES": "Plan de actividad"}|base
+178|mail.activity.plan.template|{"en_US": "Activity plan template", "es_ES": "Plantilla del plan de actividad"}|base
+179|mail.blacklist|{"en_US": "Mail Blacklist", "es_ES": "Lista negra de correos"}|base
+180|mail.followers|{"en_US": "Document Followers", "es_ES": "Seguidores del documento"}|base
+181|mail.gateway.allowed|{"en_US": "Mail Gateway Allowed", "es_ES": "Puerta de enlace de correo permitida"}|base
+182|mail.link.preview|{"en_US": "Store link preview data", "es_ES": "Almacenar los datos de la vista previa del enlace"}|base
+183|mail.message.link.preview|{"en_US": "Link between link previews and messages", "es_ES": "Enlace entre las vistas previas de enlaces y mensajes"}|base
+184|mail.message.reaction|{"en_US": "Message Reaction", "es_ES": "Reacción de mensaje"}|base
+185|mail.message.schedule|{"en_US": "Scheduled Messages", "es_ES": "Mensajes programados"}|base
+186|mail.message.subtype|{"en_US": "Message subtypes", "es_ES": "Subtipos de mensaje"}|base
+187|mail.message.translation|{"en_US": "Message Translation", "es_ES": "Traducción del mensaje"}|base
+188|mail.message|{"en_US": "Message", "es_ES": "Mensaje"}|base
+189|mail.mail|{"en_US": "Outgoing Mails", "es_ES": "Correos electrónicos salientes"}|base
+190|mail.presence|{"en_US": "User/Guest Presence", "es_ES": "Conexión del usuario/invitado"}|base
+191|mail.push|{"en_US": "Push Notifications", "es_ES": "Notificaciones push"}|base
+192|mail.push.device|{"en_US": "Push Notification Device", "es_ES": "Dispositivo de notificación push"}|base
+193|mail.scheduled.message|{"en_US": "Scheduled Message", "es_ES": "Mensaje programado"}|base
+194|mail.tracking.value|{"en_US": "Mail Tracking Value", "es_ES": "Valor de seguimiento de correo"}|base
+195|mail.template|{"en_US": "Email Templates", "es_ES": "Plantillas de correo electrónico"}|base
+196|mail.ice.server|{"en_US": "ICE Server"}|base
+197|mail.canned.response|{"en_US": "Canned Response", "es_ES": "Respuesta predefinida"}|base
+199|res.users.settings.volumes|{"en_US": "User Settings Volumes", "es_ES": "Ajustes de volumen del usuario"}|base
+215|res.role|{"en_US": "Represents a role in the system used to categorize users. Each role has a unique name and can be associated with multiple users. Roles can be mentioned in messages to notify all associated users.", "es_ES": "Representa un rol en el sistema utilizado para categorizar a los usuarios. Cada rol tiene un nombre único y puede estar asociado a varios usuarios. Puede mencionar a los roles en los mensajes para notificar a todos los usuarios asociados."}|base
+217|publisher_warranty.contract|{"en_US": "Publisher Warranty Contract", "es_ES": "Contrato de garantía del editor"}|base
+218|discuss.call.history|{"en_US": "Keep the call history", "es_ES": "Mantener el historial de llamadas"}|base
+219|discuss.channel.member|{"en_US": "Channel Member", "es_ES": "Miembro del canal"}|base
+220|discuss.channel.rtc.session|{"en_US": "Mail RTC session", "es_ES": "Sesión de comunicación en tiempo real por correo"}|base
+221|discuss.channel|{"en_US": "Discussion Channel", "es_ES": "Canal de conversaciones"}|base
+222|discuss.gif.favorite|{"en_US": "Save favorite GIF from Tenor API", "es_ES": "Marcar un GIF de Tenor API como favorito"}|base
+223|discuss.voice.metadata|{"en_US": "Metadata for voice attachments", "es_ES": "Metadatos para los archivos adjuntos de voz"}|base
+224|mail.guest|{"en_US": "Guest", "es_ES": "Invitado"}|base
+230|mail.blacklist.remove|{"en_US": "Remove email from blacklist wizard", "es_ES": "Asistente para eliminar correo electrónico de la lista negra"}|base
+231|mail.compose.message|{"en_US": "Email composition wizard", "es_ES": "Asistente de redacción de correo electrónico"}|base
+232|mail.activity.schedule|{"en_US": "Activity schedule plan Wizard", "es_ES": "Asistente para planificar actividades"}|base
+233|mail.activity.schedule.line|{"en_US": "Mail Activity Schedule Line", "es_ES": "Línea del horario de actividades de correo"}|base
+234|mail.template.preview|{"en_US": "Email Template Preview", "es_ES": "Vista previa de la plantilla del correo electrónico"}|base
+235|mail.template.reset|{"en_US": "Mail Template Reset", "es_ES": "Restablecimiento de la plantilla de correo"}|base
+236|mail.followers.edit|{"en_US": "Followers edit wizard", "es_ES": "Asistente para editar seguidores"}|base
+370|base.module.install.request|{"en_US": "Module Activation Request", "es_ES": "Solicitud de activación de módulo"}|base
+371|base.module.install.review|{"en_US": "Module Activation Review", "es_ES": "Revisión de la activación del módulo"}|base
+372|calendar.attendee|{"en_US": "Calendar Attendee Information", "es_ES": "Información del calendario de asistentes"}|base
+373|calendar.recurrence|{"en_US": "Event Recurrence Rule", "es_ES": "Regla de recurrencia de evento"}|base
+374|calendar.event|{"en_US": "Calendar Event", "es_ES": "Evento de calendario"}|base
+375|calendar.alarm|{"en_US": "Event Alarm", "es_ES": "Alerta del evento"}|base
+376|calendar.alarm_manager|{"en_US": "Event Alarm Manager", "es_ES": "Gestor de alertas del calendario"}|base
+377|calendar.filters|{"en_US": "Calendar Filters", "es_ES": "Filtros de calendario"}|base
+378|calendar.event.type|{"en_US": "Event Meeting Type", "es_ES": "Tipo de reunión"}|base
+379|calendar.provider.config|{"en_US": "Calendar Provider Configuration Wizard", "es_ES": "Asistente de configuración de proveedor de calendario"}|base
+380|calendar.popover.delete.wizard|{"en_US": "Calendar Popover Delete Wizard", "es_ES": "Asistente para eliminar ventana emergente del calendario"}|base
+381|google.gmail.mixin|{"en_US": "Google Gmail Mixin", "es_ES": "Mixin de Gmail de Google"}|base
+383|mail.bot|{"en_US": "Mail Bot", "es_ES": "Bot de correo"}|base
+384|microsoft.outlook.mixin|{"en_US": "Microsoft Outlook Mixin", "es_ES": "Mixin de Microsoft Outlook"}|base
+387|phone.blacklist|{"en_US": "Phone Blacklist", "es_ES": "Lista negra del teléfono"}|base
+388|mail.thread.phone|{"en_US": "Phone Blacklist Mixin", "es_ES": "Mixin de lista negra del teléfono"}|base
+390|phone.blacklist.remove|{"en_US": "Remove phone from blacklist", "es_ES": "Eliminar teléfono de la lista negra"}|base
+391|privacy.log|{"en_US": "Privacy Log", "es_ES": "Registro de privacidad"}|base
+392|privacy.lookup.wizard|{"en_US": "Privacy Lookup Wizard", "es_ES": "Asistente de búsqueda de privacidad"}|base
+393|privacy.lookup.wizard.line|{"en_US": "Privacy Lookup Wizard Line", "es_ES": "Línea de asistente de búsqueda de privacidad"}|base
+394|iap.autocomplete.api|{"en_US": "IAP Partner Autocomplete API", "es_ES": "API de autocompletado del contacto de IAP"}|base
+395|portal.mixin|{"en_US": "Portal Mixin", "es_ES": "Mixin del portal"}|base
+396|portal.share|{"en_US": "Portal Sharing", "es_ES": "Compartir portal"}|base
+397|portal.wizard|{"en_US": "Grant Portal Access", "es_ES": "Otorgar acceso al portal"}|base
+398|portal.wizard.user|{"en_US": "Portal User Config", "es_ES": "Configuración del usuario del portal"}|base
+401|sms.sms|{"en_US": "Outgoing SMS", "es_ES": "SMS salientes"}|base
+402|sms.template|{"en_US": "SMS Templates", "es_ES": "Plantillas de SMS"}|base
+403|sms.tracker|{"en_US": "Link SMS to mailing/sms tracking models", "es_ES": "Vincular SMS a los modelos de seguimiento de correo/sms"}|base
+404|sms.account.code|{"en_US": "SMS Account Verification Code Wizard", "es_ES": "Asistente para código de verificación para cuenta de SMS"}|base
+405|sms.account.phone|{"en_US": "SMS Account Registration Phone Number Wizard", "es_ES": "Asistente de registro de número de teléfono para cuenta de SMS"}|base
+406|sms.account.sender|{"en_US": "SMS Account Sender Name Wizard", "es_ES": "Asistente para nombre de remitente para cuenta de SMS"}|base
+407|sms.composer|{"en_US": "Send SMS Wizard", "es_ES": "Asistente de envío de SMS"}|base
+408|sms.template.preview|{"en_US": "SMS Template Preview", "es_ES": "Vista previa de la plantilla de SMS"}|base
+409|sms.template.reset|{"en_US": "SMS Template Reset", "es_ES": "Restablecimiento de la plantilla de SMS"}|base
+410|snailmail.letter|{"en_US": "Snailmail Letter", "es_ES": "Carta de correo postal"}|base
+411|digest.digest|{"en_US": "Digest", "es_ES": "Resumen"}|base
+412|digest.tip|{"en_US": "Digest Tips", "es_ES": "Consejos del resumen"}|base
+413|base.automation|{"en_US": "Automation Rule", "es_ES": "Regla de automatización"}|base
+415|sicpro.app.administracion|{"en_US": "Aplicación para la administración de SICPRO ERP"}|base
+416|sicpro.app.administracion.menus|{"en_US": "Menus de accesos a la administración"}|base
+417|sicpro.app.administracion.menus.accesos|{"en_US": "Accesos de los menus de la administración"}|base
+418|uom.uom|{"en_US": "Product Unit of Measure", "es_ES": "Unidad de medida del producto"}|base
+419|account.analytic.plan|{"en_US": "Analytic Plans", "es_ES": "Planes analíticos:"}|base
+420|account.analytic.applicability|{"en_US": "Analytic Plan's Applicabilities", "es_ES": "Aplicabilidad del plan analítico"}|base
+421|account.analytic.account|{"en_US": "Analytic Account", "es_ES": "Cuenta analítica"}|base
+422|analytic.plan.fields.mixin|{"en_US": "Analytic Plan Fields", "es_ES": "Campos de planes analíticos"}|base
+423|account.analytic.line|{"en_US": "Analytic Line", "es_ES": "Línea analítica"}|base
+424|analytic.mixin|{"en_US": "Analytic Mixin", "es_ES": "Mixin analítico"}|base
+425|account.analytic.distribution.model|{"en_US": "Analytic Distribution Model", "es_ES": "Modelo de distribución analítica"}|base
+426|gamification.badge|{"en_US": "Gamification Badge", "es_ES": "Insignia de ludificación"}|base
+427|gamification.badge.user|{"en_US": "Gamification User Badge", "es_ES": "Insignia de usuario de ludificación"}|base
+428|gamification.challenge|{"en_US": "Gamification Challenge", "es_ES": "Desafío de ludificación"}|base
+429|gamification.challenge.line|{"en_US": "Gamification generic goal for challenge", "es_ES": "Meta genérica de ludificación para el desafío"}|base
+430|gamification.goal|{"en_US": "Gamification Goal", "es_ES": "Meta de ludificación"}|base
+431|gamification.goal.definition|{"en_US": "Gamification Goal Definition", "es_ES": "Definición de meta de ludificación"}|base
+432|gamification.karma.rank|{"en_US": "Rank based on karma", "es_ES": "Rango basado en karma"}|base
+433|gamification.karma.tracking|{"en_US": "Track Karma Changes", "es_ES": "Seguimiento de cambios de karma"}|base
+434|gamification.goal.wizard|{"en_US": "Gamification Goal Wizard", "es_ES": "Asistente de metas de ludificación"}|base
+435|gamification.badge.user.wizard|{"en_US": "Gamification User Badge Wizard", "es_ES": "Asistente de insignia de usuario de ludificación"}|base
+436|rating.rating|{"en_US": "Rating", "es_ES": "Calificación"}|base
+437|rating.mixin|{"en_US": "Rating Mixin", "es_ES": "Mixin de calificación"}|base
+438|rating.parent.mixin|{"en_US": "Rating Parent Mixin", "es_ES": "Mixin de la calificación padre"}|base
+439|survey.question|{"en_US": "Survey Question", "es_ES": "Pregunta de la encuesta"}|base
+440|survey.question.answer|{"en_US": "Survey Label", "es_ES": "Etiqueta de la encuesta"}|base
+441|survey.survey|{"en_US": "Survey", "es_ES": "Encuesta"}|base
+442|survey.user_input|{"en_US": "Survey User Input", "es_ES": "Entrada de usuario de la encuesta"}|base
+443|survey.user_input.line|{"en_US": "Survey User Input Line", "es_ES": "Línea de entrada de usuario de la encuesta"}|base
+444|survey.invite|{"en_US": "Survey Invitation Wizard", "es_ES": "Asistente de invitación a encuestas"}|base
+445|project.project.stage|{"en_US": "Project Stage", "es_ES": "Etapa del proyecto"}|base
+446|project.task.recurrence|{"en_US": "Task Recurrence", "es_ES": "Recurrencia de tareas"}|base
+447|project.task.stage.personal|{"en_US": "Personal Task Stage", "es_ES": "Etapa de la tarea personal"}|base
+448|project.task|{"en_US": "Task", "es_ES": "Tarea"}|base
+449|project.milestone|{"en_US": "Project Milestone", "es_ES": "Hito de proyecto"}|base
+450|project.update|{"en_US": "Project Update", "es_ES": "Actualización del proyecto"}|base
+451|project.project|{"en_US": "Project", "es_ES": "Proyecto"}|base
+452|project.role|{"en_US": "Project Role", "es_ES": "Rol del proyecto"}|base
+453|project.task.type|{"en_US": "Task Stage", "es_ES": "Etapa de la tarea"}|base
+454|project.tags|{"en_US": "Project Tags", "es_ES": "Etiquetas del proyecto"}|base
+455|project.collaborator|{"en_US": "Collaborators in project shared", "es_ES": "Colaboradores en proyectos compartidos"}|base
+457|report.project.task.user|{"en_US": "Tasks Analysis", "es_ES": "Análisis de tareas"}|base
+458|project.task.burndown.chart.report|{"en_US": "Burndown Chart", "es_ES": "Diagrama de quemado"}|base
+459|project.project.stage.delete.wizard|{"en_US": "Project Stage Delete Wizard", "es_ES": "Asistente para eliminar la etapa del proyecto"}|base
+460|task.share.wizard|{"en_US": "Task Sharing"}|base
+461|project.task.type.delete.wizard|{"en_US": "Project Task Stage Delete Wizard", "es_ES": "Asistente para eliminar la etapa de las tareas del proyecto"}|base
+462|project.share.wizard|{"en_US": "Project Sharing", "es_ES": "Compartir proyectos"}|base
+463|project.share.collaborator.wizard|{"en_US": "Project Sharing Collaborator Wizard", "es_ES": "Asistente de colaborador para compartir proyectos"}|base
+464|project.template.create.wizard|{"en_US": "Project Template create Wizard", "es_ES": "Asistente de creación de plantillas de proyecto"}|base
+465|project.template.role.to.users.map|{"en_US": "Project role to users mapping", "es_ES": "Asignación de roles del proyecto a usuarios"}|base
+466|mail.activity.todo.create|{"en_US": "Create activity and todo at the same time", "es_ES": "Crear actividad y actividad pendiente al mismo tiempo"}|base
+467|sicpro.app.gestor.documental|{"en_US": "Gestor Documental"}|base
+468|sicpro.app.salon.clases.etiquetas|{"en_US": "Etiquetas del Salón de clases"}|base
+469|sicpro.app.salon.clases|{"en_US": "Salón de Clases"}|base
+470|sicpro.app.salon.clases.temas|{"en_US": "Temas del Salón de clases"}|base
+471|sicpro.app.salon.clases.tipo|{"en_US": "Tipo de temáticas"}|base
+472|sicpro.app.videoconferencias|{"en_US": "Gestor de VideoConferencias"}|base
+473|sicpro.app.videoconferencias.usuarioexterno|{"en_US": "Participantes externos para la VideoConferencia"}|base
+474|sicpro.modulo.api.conector|{"en_US": "Configura las conexiones con las apis externas"}|base
+475|sicpro.modulo.api.conector.historial|{"en_US": "Historial de conexiones con las apis externas"}|base
+476|auditlog.http.request|{"en_US": "Registro de auditoría: registro de solicitudes HTTP"}|base
+477|auditlog.http.session|{"en_US": "Registro de auditoría: registro de sesión de usuario HTTP"}|base
+478|auditlog.log|{"en_US": "Registro de auditoría - Registro"}|base
+479|auditlog.log.line|{"en_US": "Registro de auditoría: detalles del registro (campos actualizados)"}|base
+480|auditlog.log.line.view|{"en_US": "Registro de auditoría: detalles del registro (campos actualizados)"}|base
+481|auditlog.rule|{"en_US": "Registro de auditoría - Regla"}|base
+482|auditlog.autovacuum|{"en_US": "Registro de auditoría: eliminar registros antiguos"}|base
+483|execute.script|{"en_US": "Ejecutar consultas PostgreSQL o de código Python desde la interfaz de SICPRO ERP"}|base
+484|sicpro.backup.local|{"en_US": "Proceso de copia de seguridad"}|base
+485|sicpro.backup.local.detalles|{"en_US": "Detalles del proceso de copia de seguridad"}|base
+486|sicpro.backup.remote.server|{"en_US": "Servidor remoto de respaldo"}|base
+487|sicpro.backup.eliminacion|{"en_US": "Backup Deletion Confirmation Wizard"}|base
+488|sicpro.backup.mensaje.wizard|{"en_US": "Backup Custom Message Wizard"}|base
+489|sicpro.modulo.certificados.digitales|{"en_US": "Gestión de control de los certificados digitales"}|base
+490|qrcode.generator|{"en_US": "Generador QR"}|base
+491|sicpro.modulo.historial.aplicaciones|{"en_US": "Control de la acciones en las aplicaciones"}|base
+492|ir.cron.history|{"en_US": "Historial de ejecución del Cron"}|base
+493|xml.rpc.log|{"en_US": "Historial de solicitudes xmlrpc"}|base
+494|addon.import.wizard|{"en_US": "Asistente de integración de módulos"}|base
+495|sicpro.menu.marcadores|{"en_US": "Marcadores"}|base
+496|web.environment.ribbon.backend|{"en_US": "Web Environment Ribbon Backend"}|base
+497|ir.module.addons.path|{"en_US": "Module Addons Path"}|base
+498|sicpro.modulo.modelo.vista|{"en_US": "Consulta de vistas de los modelos"}|base
+499|res.municipality|{"en_US": "Municipio"}|base
+500|sicpro.nomenclador.anios|{"en_US": "Nomenclador de Años"}|base
+501|sicpro.nomenclador.areas.empresa|{"en_US": "Nomenclador de Área de Empresa"}|base
+502|sicpro.nomenclador.centro.costo|{"en_US": "Nomenclador de Centros de Costos"}|base
+503|sicpro.nomenclador.centro.planificacion|{"en_US": "Nomenclador de Centros de Planificación (CePl)"}|base
+504|sicpro.nomenclador.cuentas.contables|{"en_US": "Nomenclador Cuentas Contables"}|base
+505|sicpro.nomenclador.departamentos|{"en_US": "Nomenclador Departamentos del Proceso"}|base
+506|sicpro.nomenclador.emplazamientos|{"en_US": "Nomenclador de Emplazamientos"}|base
+507|sicpro.nomenclador.especialidad|{"en_US": "Nomenclador de Especialidades de ejecución"}|base
+508|sicpro.nomenclador.locales|{"en_US": "Nomenclador de Locales de CC"}|base
+509|sicpro.nomenclador.meses|{"en_US": "Nomenclador de Meses"}|base
+510|sicpro.nomenclador.territorios|{"en_US": "Nomenclador de Unidades Organizativa"}|base
+511|sicpro.nomenclador.trimestre|{"en_US": "Nomenclador de Trimestres"}|base
+512|python.paquetes.instalados|{"en_US": "Paquetes Instalados de Python"}|base
+513|querydeluxe|{"en_US": "Consultas aPostgreSQL desde la interfaz de SICPRO ERP"}|base
+514|pdforientation|{"en_US": "Seleccionar la orientación del archivo PDF"}|base
+515|sicpro_modulo_tema_colores.color_assets_editor|{"en_US": "Utilidades de recursos de color"}|base
+516|sicpro.modulo.test|{"en_US": "Módulo para generar funcionalidades"}|base
+517|sicpro.modulo.test.exceptions|{"en_US": "Test Exception Model"}|base
+518|sicpro.modulo.registro.usuarios|{"en_US": "Registro de acceso de usuarios"}|base
+519|sicpro.modulo.registro.usuarios_mac|{"en_US": "Direcciones MAC de los Usuarios"}|base
+520|sicpro.modulo.registro.usuarios_ip|{"en_US": "Direcciones IP de los Usuarios"}|base
+521|sicpro.modulo.registro.usuarios.reporte|{"en_US": "Reportes del Registro de usuarios"}|base
+522|pass.user.backup|{"en_US": "Modelo para visualizar el PassUserBackup"}|base
+523|user.selection|{"en_US": "User Selection"}|base
+524|sicpro.app.cmi.reporte|{"en_US": "Reportes del CMI"}|base
+525|sicpro.app.cmi.acciones|{"en_US": "Acciones del CMI"}|base
+526|sicpro.app.cmi.acciones.estado|{"en_US": "Estado de las acciones"}|base
+527|sicpro.app.cmi.acciones.modo.control|{"en_US": "Modo de Control de las acciones"}|base
+528|sicpro.app.cmi.indicadores|{"en_US": "Indicadores del CMI"}|base
+529|sicpro.app.cmi.indicadores.modal.cambios|{"en_US": "Solicitud de cambios en los indicadores"}|base
+530|sicpro.app.cmi.indicadores.cambios|{"en_US": "Cambios de Indicadores del CMI"}|base
+531|sicpro.app.cmi.indicadores.graficos|{"en_US": "Gráficos de los Indicadores del CMI"}|base
+532|sicpro.app.cmi.indicadores.valores|{"en_US": "Valores de los Indicadores del CMI"}|base
+533|sicpro.app.cmi.objetivos.anuales|{"en_US": "Objetivos Anuales del CMI"}|base
+534|sicpro.app.cmi.objetivos.estrategicos|{"en_US": "Objetivos Estratégicos del CMI"}|base
+535|sicpro.app.cmi.perspectivas|{"en_US": "Perspectivas del CMI"}|base
+536|sicpro.app.cmi.perspectivas.anios|{"en_US": "Años de las Perspectivas del CMI"}|base
+537|sicpro.app.cmi.perspectivas.eje.estrategico|{"en_US": "Ejes Estratégicos del CMI"}|base
+538|sicpro.app.cmi.perspectivas.periodos|{"en_US": "Periodos del CMI"}|base
+539|sicpro.app.materiales.insumos|{"en_US": "Materiales e insumos"}|base
+540|sicpro.app.materiales.insumos.etiquetas|{"en_US": "Etiquetas de los productos"}|base
+541|sicpro.app.materiales.insumos.um|{"en_US": "UM de los productos"}|base
+542|sicpro.app.trabajadores|{"en_US": "Trabajadores"}|base
+543|sicpro.app.trabajadores.categorias|{"en_US": "Etiquetas de los trabajadores"}|base
+544|sicpro.app.trabajadores.areas|{"en_US": "Departamento de los trabajadores"}|base
+545|sicpro.app.trabajadores.ocupacion|{"en_US": "Categoría Ocupacional del trabajador"}|base
+546|sicpro.app.trabajadores.local|{"en_US": "Locales del trabajador"}|base
+547|sicpro.app.trabajadores.familiar|{"en_US": "Relaciones de los familiares del trabajador"}|base
+548|sicpro.app.trabajadores.nexo.familiar|{"en_US": "Nexo Familiar del trabajador"}|base
+549|sicpro.app.trabajadores.documentos|{"en_US": "Documentos de los trabajadores"}|base
+550|sicpro.app.trabajadores.documentos.plantillas|{"en_US": "Plantillas de documentos del trabajador"}|base
+551|sicpro.app.trabajadores.documentos.tipos|{"en_US": "Tipos de documentos del trabajador"}|base
+552|sicpro.app.trabajadores.disiplinaria.acciones|{"en_US": "Medidas disciplinarias"}|base
+553|sicpro.app.trabajadores.disiplinaria.categorias|{"en_US": "Categorías de medidas disciplinarias"}|base
+554|sicpro.app.trabajadores.cursos|{"en_US": "Cursos de los trabajadores"}|base
+555|sicpro.app.trabajadores.cursos.habilidades|{"en_US": "Habilidades de los trabajadores"}|base
+556|sicpro.app.trabajadores.cursos.niveles|{"en_US": "Niveles de los cursos del trabajador"}|base
+557|sicpro.app.trabajadores.cursos.tipos|{"en_US": "Tipos de cursos del trabajador"}|base
+558|sicpro.app.trabajadores.educacion|{"en_US": "Educación de los trabajadores"}|base
+559|sicpro.app.trabajadores.educacion.tipos|{"en_US": "Tipos de educación del trabajador"}|base
+560|sicpro.app.trabajadores.educacion.certificacion|{"en_US": "Certificación y Homologación del trabajador"}|base
+561|sicpro.app.trabajadores.equipo.tecnico|{"en_US": "Técnicos de los trabajadores"}|base
+562|sicpro.app.trabajadores.claves.horas|{"en_US": "Claves de Horas Trabajador"}|base
+563|sicpro.app.trabajadores.cargos|{"en_US": "Cargos del Trabajador"}|base
+564|sicpro.app.trabajadores.vacunacion|{"en_US": "Vacunación de los trabajadores"}|base
+565|sicpro.app.trabajadores.intrucciones|{"en_US": "Instrucciones de los trabajadores"}|base
+566|sicpro.app.trabajadores.seguridad.proteccion|{"en_US": "Tipo de Módulo de Seguridad para los trabajadores"}|base
+567|sicpro.app.trabajadores.seguridad.trabajador|{"en_US": "Módulo de Seguridad para los trabajadores"}|base
+568|sicpro.app.trabajadores.tallas|{"en_US": "Tallas de los trabajadores"}|base
+569|sicpro.app.trabajadores.areas.altas.bajas|{"en_US": "Altas y bajas mensuales por áreas, módulo de trabajadores"}|base
+570|sicpro.app.trabajadores.areas.totales|{"en_US": "Totales mensuales por áreas, módulo de trabajadores"}|base
+571|sicpro.nomenclador.iconos|{"en_US": "Nomenclador de Iconos Font Awesome"}|base
+572|sicpro.app.control.informacion|{"en_US": "Control de Información de la DVPE"}|base
+573|sicpro.app.control.informacion.devueltas|{"en_US": "Motivo de devolución de la información"}|base
+574|sicpro.app.control.informacion.actividad|{"en_US": "Actividades para el control de información"}|base
+575|sicpro.app.control.informacion.areas|{"en_US": "Áreas para el control de información"}|base
+576|sicpro.app.control.informacion.control.actividades|{"en_US": "Control de las actividades de la información"}|base
+577|sicpro.app.control.informacion.dias|{"en_US": "Días de aviso para el control de información"}|base
+578|sicpro.app.control.informacion.etiquetas|{"en_US": "Etiquetas del control de información"}|base
+579|sicpro.app.control.informacion.motivos.devolucion|{"en_US": "Motivos de rechazo del control de información"}|base
+580|sicpro.app.credenciales|{"en_US": "Credenciales de los Trabajadores"}|base
+581|sicpro.app.credenciales.cancelar|{"en_US": "Cancelar Trabajadores"}|base
+582|sicpro.app.credenciales.tipo|{"en_US": "Tipo de Credenciales"}|base
+583|sicpro.app.credenciales.siglas|{"en_US": "Siglas de las Credenciales"}|base
+584|sicpro.app.credenciales.alcance|{"en_US": "Alcance de Credenciales"}|base
+585|sicpro.app.credenciales.accesos|{"en_US": "Accesos de Credenciales"}|base
+586|sicpro.app.credenciales.cancelacion|{"en_US": "Motivo de cancelación de las Credenciales"}|base
+587|sicpro.app.credenciales.modal|{"en_US": "Credenciales - Editar Imagen"}|base
+588|sicpro.app.medios.informaticos|{"en_US": "Inventario Medios Informáticos"}|base
+589|sicpro.app.medios.informaticos.bajas|{"en_US": "Baja de Medios Informáticos"}|base
+590|sicpro.app.medios.informaticos.historial|{"en_US": "Historial de actualizaciones del inventario"}|base
+591|sicpro.app.medios.informaticos.importar|{"en_US": "Sincronizar Medios Informáticos"}|base
+592|sicpro.app.medios.informaticos.pdtes.piezas|{"en_US": "Medios Informáticos Pendiente por Piezas"}|base
+593|sicpro.app.medios.informaticos.taller|{"en_US": "Medios Informáticos Enviados a Taller"}|base
+594|sicpro.app.medios.informaticos.tipo.equipo|{"en_US": "Tipo de Medio Informático"}|base
+595|sicpro.app.medios.informaticos.tramites|{"en_US": "Trámites del taller de Medio Informático"}|base
+596|sicpro.app.medios.informaticos.importar.wizard|{"en_US": "Actualizar Inventario de medios informáticos"}|base
+597|sicpro.app.metrologia.centro.calibracion|{"en_US": "Centro de Calibración Metrología"}|base
+598|sicpro.app.metrologia.equipos|{"en_US": "Equipos de metrología"}|base
+599|sicpro.app.metrologia.equipos.transferencias|{"en_US": "Transferencias de Gastos de los Equipos"}|base
+600|sicpro.app.metrologia.direcciones|{"en_US": "Direcciones de equipos de Metrología"}|base
+601|sicpro.app.metrologia.estado.tecnico|{"en_US": "Estado Técnico Metrología"}|base
+602|sicpro.app.metrologia.magnitud|{"en_US": "Magnitudes de la Metrología"}|base
+603|sicpro.app.repo|{"en_US": "Repositorio Institucional"}|base
+604|sicpro.app.repo.autores|{"en_US": "Autores del repositorio"}|base
+605|sicpro.app.repo.tutor.externo|{"en_US": "Tutores Externos"}|base
+606|sicpro.app.repo.tutor.interno|{"en_US": "Tutores Internos"}|base
+607|sicpro.app.repo.tipo|{"en_US": "Tipos de repositorios"}|base
+608|sicpro.app.repo.etiquetas|{"en_US": "Etiqueta o Palabra Clave"}|base
+609|sicpro.app.repo.licencia|{"en_US": "Licencias de Uso"}|base
+610|sicpro.app.repo.estados|{"en_US": "Estado de los repositorios"}|base
+611|sicpro.app.repo.facultad|{"en_US": "Facultad o Universidad"}|base
+612|sicpro.app.reuniones|{"en_US": "Gestión de Reuniones"}|base
+613|sicpro.app.reuniones.estados|{"en_US": "Estados de las Reuniones"}|base
+614|sicpro.app.reuniones.etiquetas|{"en_US": "Etiqueta de las Reuniones"}|base
+615|sicpro.app.reuniones.categorias|{"en_US": "Categorías de las etiquetas"}|base
+616|sicpro.app.reuniones.lugares|{"en_US": "Lugares de las Reuniones"}|base
+617|sicpro.app.reuniones.participantes|{"en_US": "Participantes de la reunión"}|base
+618|sicpro.app.reuniones.acuerdos|{"en_US": "Acuerdos de las reuniones"}|base
+619|sicpro.app.reuniones.acuerdos.rechazados|{"en_US": "Rechazar decisiones"}|base
+620|sicpro.app.reuniones.acuerdos.cancelados|{"en_US": "Cancelar decisiones"}|base
+621|sicpro.app.reuniones.decisiones|{"en_US": "Decisiones de las reuniones"}|base
+622|sicpro.app.reuniones.decisiones.rechazadas|{"en_US": "Rechazar decisiones"}|base
+623|sicpro.app.reuniones.decisiones.canceladas|{"en_US": "Cancelar decisiones"}|base
+624|sicpro.app.reuniones.despachos|{"en_US": "Gestión de los Despachos"}|base
+625|sicpro.app.reuniones.despachos.participantes|{"en_US": "Participantes de los Despachos"}|base
+626|sicpro.app.reuniones.despachos.comentarios|{"en_US": "Comentarios de los Despachos"}|base
+627|sicpro.app.reuniones.despachos.agenda|{"en_US": "Agenda de los Despachos"}|base
+628|sicpro.app.servicios.internos.correos|{"en_US": "Gestión de correos internos"}|base
+629|sicpro.app.servicios.internos.fijos|{"en_US": "Gestión de fijos"}|base
+630|sicpro.app.servicios.internos.lineas|{"en_US": "Gestión de líneas"}|base
+631|sicpro.app.servicios.internos.nauta|{"en_US": "Gestión de cuentas nautas"}|base
+632|sicpro.app.servicios.internos.solicitudes.observaciones|{"en_US": "Gestión de observaciones de las solicitudes"}|base
+633|sicpro.app.servicios.internos.solicitudes|{"en_US": "Gestión de las Solicitudes de los Servicios internos"}|base
+634|internos.solicitudes.rechazado.revision|{"en_US": "Solicitudes de los Servicios internos Rechazados en la revisión"}|base
+635|internos.solicitudes.rechazado.validacion|{"en_US": "Solicitudes de los Servicios internos Rechazados en la validación"}|base
+636|internos.solicitudes.cancelado|{"en_US": "Solicitudes de los Servicios internos Cancelados"}|base
+637|sicpro.app.soporte|{"en_US": "Soporte de Ayuda"}|base
+638|sicpro.app.soporte.aplicaciones|{"en_US": "Soporte de aplicaciones del sistema"}|base
+639|sicpro.app.soporte.bitacora|{"en_US": "Bitácora de Usuarios SICPRO"}|base
+640|sicpro.app.soporte.canales|{"en_US": "Canales de Solicitud"}|base
+641|sicpro.app.soporte.equipos|{"en_US": "Equipos de Soporte"}|base
+642|sicpro.app.soporte.estados|{"en_US": "Estados del Soporte"}|base
+643|sicpro.app.soporte.estados.aplicaciones|{"en_US": "Estados de las aplicaciones del sistema"}|base
+644|sicpro.app.soporte.estados.paquetes|{"en_US": "Estados de los paquetes del sistema"}|base
+645|sicpro.app.soporte.estados.versiones|{"en_US": "Estados de las versiones del sistema"}|base
+646|sicpro.app.soporte.etiquetas|{"en_US": "Etiquetas del Soporte"}|base
+647|sicpro.app.soporte.fragmentos.codigos|{"en_US": "Fragmentos de códigos del desarrollo del sistema"}|base
+648|sicpro.app.soporte.paquetes|{"en_US": "Soporte de paquetes del sistema"}|base
+649|sicpro.app.soporte.tareas|{"en_US": "Tareas de Soporte de Ayuda"}|base
+650|sicpro.app.soporte.todos|{"en_US": "Todos los Tickets de Soporte de Ayuda"}|base
+651|sicpro.app.soporte.versiones|{"en_US": "Soporte de versiones del sistema"}|base
+652|sicpro.app.transporte.general|{"en_US": "Transporte"}|base
+653|sicpro.app.transporte.piquera|{"en_US": "Gestión de la Piquera de Transporte"}|base
+654|sicpro.app.transporte.piquera.recorridos|{"en_US": "Gestión de recorridos de la Piquera"}|base
+655|sicpro.app.transporte.piquera.rechazadas|{"en_US": "Motivo de Rechazo de la Piquera"}|base
+656|sicpro.app.transporte.piquera.canceladas|{"en_US": "Motivo de Cancelación de la Piquera"}|base
+657|sicpro.app.transporte.estado|{"en_US": "Estados del transporte"}|base
+658|sicpro.app.transporte.distancia|{"en_US": "Cálculo de Distancias para el Transporte"}|base
+659|sicpro.app.transporte.distancia.salida|{"en_US": "Cálculo de Distancias de salida para el Transporte"}|base
+660|sicpro.app.transporte.distancia.recorrido|{"en_US": "Tabla de apoyo para el recorrido"}|base
+661|sicpro.app.transporte.tipo.combustible|{"en_US": "Tipo de Combustible para el Transporte"}|base
+662|sicpro.app.transporte.modelo|{"en_US": "Modelo de Transporte"}|base
+663|sicpro.app.viveres|{"en_US": "Control entrega de víveres"}|base
+664|sicpro.app.viveres.productos|{"en_US": "Productos del módulo de víveres"}|base
+665|sicpro.app.viveres.productos.comprados|{"en_US": "Módulo de víveres, productos comprados para la distribución"}|base
+666|sicpro.app.viveres.cierre|{"en_US": "Cierres mensuales de Capital Humano para módulo víveres"}|base
+667|sicpro.app.viveres.areas.entregas.resumenes|{"en_US": "Resumen entregas por áreas, módulo de víveres"}|base
+668|sicpro.app.viveres.areas.fondo|{"en_US": "Fondo por áreas, módulo de víveres"}|base
+669|sicpro.app.viveres.areas.entregas|{"en_US": "Entregas por áreas, módulo de víveres"}|base
+670|sicpro.app.viveres.trabajadores.entregas|{"en_US": "Entregas a los trabajadores, módulo de víveres"}|base
+671|sicpro.app.viveres.areas.efectivo|{"en_US": "Efectivo entregado por áreas, módulo de víveres"}|base
+672|sicpro.app.viveres.areas.altas.bajas|{"en_US": "Altas y bajas mensuales por áreas, módulo de víveres"}|base
+673|sicpro.app.viveres.areas|{"en_US": "Áreas del módulo de víveres"}|base
+674|sicpro.app.viveres.trabajadores.entrega.wizard|{"en_US": "Entrega de productos a los trabajadores"}|base
+675|sicpro.nomenclador.sindicato|{"en_US": "Áreas sindicales de la DVPE"}|base
+676|calendar.actividades.organizativas|{"en_US": "Actividades Organizativas del Calendario"}|base
+677|calendar.cargos.externos|{"en_US": "Cargo Externos del Calendario"}|base
+678|calendar.cumplimiento.reporte|{"en_US": "Cumplimiento del plan de trabajo"}|base
+680|calendar.pie.firmas|{"en_US": "Pie de Firma del Calendario"}|base
+681|calendar.plan.reporte|{"en_US": "Reportes del plan de trabajo"}|base
+682|calendar.tareas.principales.generales|{"en_US": "Registros de tareas principales y generales"}|base
+683|calendar.tipo.calendario|{"en_US": "Tipo de Calendario"}|base
+684|sicpro.app.clientes|{"en_US": "Aplicación de Clientes"}|base
+685|sicpro.app.clientes.etiquetas|{"en_US": "Etiquetas para la Aplicación de Clientes"}|base
+686|sicpro.app.instrucciones.etiquetas|{"en_US": "Etiquetas de las Instrucciones"}|base
+687|sicpro.app.instrucciones.instruccion|{"en_US": "Registro de Instrucciones"}|base
+688|sicpro.app.instrucciones.trabajador|{"en_US": "Instrucciones Laborales de los Trabajadores"}|base
+689|sicpro.app.vivienda.escalafon|{"en_US": "Escalafón del programa de la vivienda"}|base
+690|sicpro.app.vivienda.etapas|{"en_US": "Etapas del programa de la vivienda"}|base
+691|sicpro.app.vivienda.materiales|{"en_US": "Materiales para el programa de la vivienda"}|base
+692|sicpro.app.vivienda.materiales.um|{"en_US": "Unidad de medidas de los materiales"}|base
+693|sicpro.app.vivienda.proveedor|{"en_US": "Proveedor del programa de la vivienda"}|base
+694|sicpro.app.vivienda.trabajador|{"en_US": "Programa de la vivienda"}|base
+695|sicpro.app.vivienda.trabajador.productos|{"en_US": "Productos del programa de la vivienda"}|base
+696|sicpro.app.vivienda.trabajador.rechazadas|{"en_US": "Motivo de rechazo de la solicitud"}|base
+697|sicpro.app.vivienda.trabajador.canceladas|{"en_US": "Motivo de cancelación de la solicitud"}|base
+698|sicpro.app.vivienda.fondo|{"en_US": "Presupuesto de fondo para el programa de la vivienda"}|base
+699|sicpro.app.vivienda.ofertas|{"en_US": "Ofertas para el programa de la vivienda"}|base
+700|sicpro.app.vivienda.reporte.anexo4|{"en_US": "Reportes de Anexo 4"}|base
+701|sicpro.app.vivienda.reporte.anexo3|{"en_US": "Reportes de Anexo 3"}|base
+702|sicpro.app.vivienda.reporte.estadistica|{"en_US": "Reportes de Estadística RRHH"}|base
+703|sicpro.app.modulo.ldap.historial|{"en_US": "Historial de Registros LDAP"}|base
+704|sicpro.app.modulo.ldap.registros|{"en_US": "Registros del Servicio LDAP"}|base
+705|sicpro.app.solicitudes.estados|{"en_US": "Estado de Solicitudes"}|base
+706|sicpro.app.solicitudes.etiquetas|{"en_US": "Etiquetas de las Solicitudes"}|base
+707|sicpro.app.solicitudes.oportunidades|{"en_US": "Solicitudes y oportunidades"}|base
+708|sicpro.app.grupo.ejecutor.horizontal|{"en_US": "Grupo Ejecutor Solicitudes Horizontales"}|base
+709|sicpro.app.solicitudes.rechazadas|{"en_US": "Motivo de rechazo"}|base
+710|sicpro.app.solicitudes.asignacion.wizard|{"en_US": "Wizard Unificado de Asignación de Oportunidades"}|base
+711|sicpro.app.solicitudes.motivo.wizard|{"en_US": "Wizard Unificado de Rechazo y Cancelación de Solicitudes"}|base
+712|sicpro.app.modulo.usuario.desactivar|{"en_US": "Desactivación de los usuarios"}|base
+713|sicpro.app.modulo.usuario.desactivar.dias|{"en_US": "Aviso en días para la desactivación de los usuarios"}|base
+714|sicpro.app.ordenes.clases.proyecto|{"en_US": "Clase de trabajo para las órdenes de proyecto"}|base
+715|sicpro.app.ordenes.consecutivos|{"en_US": "Programa de Inversiones de las Órdenes de Trabajo"}|base
+716|sicpro.app.ordenes.estados|{"en_US": "Estado de las órdenes de trabajo"}|base
+717|sicpro.app.ordenes.etiquetas|{"en_US": "Etiquetas de las órdenes de trabajo"}|base
+718|sicpro.app.ordenes.paralizacion|{"en_US": "Motivo de la última paralización"}|base
+719|sicpro.app.ordenes.problemas|{"en_US": "Problemas en la ejecución"}|base
+720|sicpro.app.ordenes.programa.inversiones|{"en_US": "Programa de Inversiones de las Órdenes de Trabajo"}|base
+721|sicpro.app.ordenes.trabajo|{"en_US": "Órdenes de Trabajo"}|base
+722|sicpro.app.ordenes.trabajo.trabajadores|{"en_US": "Trabajadores en la ejecución"}|base
+723|sicpro.app.ordenes.trabajo.transporte|{"en_US": "Transporte en la ejecución"}|base
+724|sicpro.app.ordenes.trabajo.equipos.especializados|{"en_US": "Equipos especializados en la ejecución"}|base
+725|sicpro.app.ordenes.trabajo.equipos.complementarios|{"en_US": "Equipos complemtarios en la ejecución"}|base
+726|sicpro.app.ordenes.trabajo.anexo.problemas|{"en_US": "Tabla anexo de los problemas en la ejecución"}|base
+727|sicpro.app.ordenes.trabajo.paralizacion|{"en_US": "Motivo de la paralización de la orden de trabajo"}|base
+728|sicpro.app.ordenes.trabajo.rechazadas|{"en_US": "Motivo de rechazo de la orden de trabajo"}|base
+729|sicpro.app.ordenes.trabajo.canceladas|{"en_US": "Motivo de cancelación de la orden de trabajo"}|base
+730|sicpro.app.ordenes.trabajo.aviso.intension|{"en_US": "Aviso de intensión de la orden de trabajo"}|base
+731|sicpro.app.ordenes.estados.trabajador|{"en_US": "Estado de los trabajadores en las obras"}|base
+732|sicpro.app.ordenes.estados.transporte.equipos|{"en_US": "Estado del transporte y los equipos en las obras"}|base
+733|sicpro.app.ordenes.grupo.transporte|{"en_US": "Grupos del transporte"}|base
+734|sicpro.app.ordenes.grupo.transporte.equipos|{"en_US": "Configuración del transporte y los equipos"}|base
+735|sicpro.app.ordenes.trabajo.anexo3|{"en_US": "Modelo para visualizar el Anexo 3"}|base
+736|sicpro.app.transferencias.gastos.ajustes.historial|{"en_US": "Historial de Ajustes de Gastos de la CJ74"}|base
+737|sicpro.app.transferencias.cuentas.gastos|{"en_US": "Cuentas de Gastos de las transferencias"}|base
+738|sicpro.app.transferencias.gastos|{"en_US": "Transferencias de Gastos"}|base
+739|sicpro.app.transferencias.gastos.importar|{"en_US": "Sincronizar Transferencias de Gastos"}|base
+740|sicpro.app.transferencias.gastos.ordenes.estados|{"en_US": "Estado de los gastos de órdenes de trabajo"}|base
+741|sicpro.app.transferencias.gastos.ordenes|{"en_US": "Órdenes vinculadas a las transferencias de Gastos"}|base
+742|sicpro.app.transferencias.gastos.ordenes.morosidad|{"en_US": "Periodo de tiempo en que se debe recibir la certificación de gastos"}|base
+743|sicpro.app.transferencias.gastos.ajustes|{"en_US": "Ajustar valores de gastos"}|base
+744|sicpro.app.transferencias.gastos.economia.wizard|{"en_US": "Enviar gastos a certificar"}|base
+745|sicpro.app.transferencias.gastos.cj74.wizard|{"en_US": "Enviar gastos a revisión económica"}|base
+746|sicpro.app.transferencias.ordenes.rechazadas.wizard|{"en_US": "Motivo de rechazo de los gastos de las transferencias"}|base
+747|sicpro.app.transferencias.gastos.importar.wizard.ordenes|{"en_US": "Modificar valor de órdenes"}|base
+748|sicpro.modulo.web.equipo|{"en_US": "Equipo de Desarrollo"}|base
+749|sicpro.modulo.web.galeria|{"en_US": "Imágenes de la Galería"}|base
+750|sicpro.modulo.web.manuales|{"en_US": "Manuales de usuarios"}|base
+751|sicpro.modulo.web.version|{"en_US": "Configuración de la Version del Sistema"}|base
+752|sicpro.modulo.web.version.line|{"en_US": "Líneas de Cambio de Versión"}|base
+753|sicpro.modulo.web.evolucion|{"en_US": "Hitos de Evolución SICPRO"}|base
+754|sicpro.modulo.web.preguntas|{"en_US": "Preguntas Frecuentes SICPRO"}|base
+755|sicpro.modulo.web.trabajadores|{"en_US": "Configuración de los contactos RH"}|base
+756|sicpro.modulo.web.aviso.mantenimiento|{"en_US": "Aviso de mantenimiento del Sistema"}|base
+757|sicpro.modulo.web.mantenimiento|{"en_US": "Control de Mantenimiento SICPRO"}|base
+758|sicpro.modulo.solicitud.acceso|{"en_US": "Planilla de Acceso"}|base
+759|sicpro.modulo.solicitud.acceso.rechazar|{"en_US": "Plantilla de acceso rechazada"}|base
+760|sicpro.modulo.solicitud.acceso.roles|{"en_US": "Roles de la solicitud de Acceso"}|base
+761|sicpro.modulo.web.registro.roles|{"en_US": "Roles para el registro de usuarios"}|base

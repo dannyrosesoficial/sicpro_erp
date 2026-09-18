@@ -1,0 +1,15 @@
+1|División de Proyecto y Ejecución de Obras||sicproerp@etecsa.cu|+53 52183663|t|||1|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+2|SICPRO ERP||sicproerp@sicproerp.cu||f|1||2|f|f|contact|es_ES|||||||||||||sicproerp@sicproerp.cu|||
+3|Administrator||||t|1||3|f|f|contact|es_ES|America/Havana|||||||||||||||
+4|Public user||||f|||4|f|t|contact|es_ES||||||||||||||||
+5|Portal User Template||||f|||5|f|t|contact|es_ES||||||||||||||||
+6|STAFF||sicproerp@etecsa.cu|+53 52183663|t|||6|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+7|Dirección de Proyectos de Telecomunicaciones||sicproerp@etecsa.cu|+53 52183663|t|||7|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+8|Dirección de Ejecución de Obras Civiles||sicproerp@etecsa.cu|+53 52183663|t|||8|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+9|Dirección de Ejecución de Obras de Instalaciones Tecnológicas||sicproerp@etecsa.cu|+53 52183663|t|||9|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+10|Coordinación General||sicproerp@etecsa.cu|+53 52183663|t|||10|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+11|Capital Humano||sicproerp@etecsa.cu|+53 52183663|t|||11|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+12|Economía||sicproerp@etecsa.cu|+53 52183663|t|||12|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+13|Logística y Servicios||sicproerp@etecsa.cu|+53 52183663|t|||13|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+14|Tecnología de la Información||sicproerp@etecsa.cu|+53 52183663|t|||14|t|t|contact|es_ES|||||Carlos III / Calle Santiago y Belascoain|Edificio Masónico|10400|Centro Habana|51||||sicproerp@etecsa.cu|+53 52183663||
+15|Vicepresidencia de Inversiones||sicproerp@etecsa.cu|+53 52183663|t|||15|t|t|contact|es_ES|||||Ave 3ra / Calle 72 y Calle 76|Miramar Trade Center|10400|Playa|51||||sicproerp@etecsa.cu|+53 52183663||

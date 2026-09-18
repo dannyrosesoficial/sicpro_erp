@@ -1,0 +1,11 @@
+1|División de Proyecto y Ejecución de Obras|1||70|0|sicproerp@etecsa.cu|+53 52183663|||1|220|DVPE|f|1|t|||2021-12-29 15:57:47.465402|274|2024-04-08 11:48:02.484147
+2|STAFF|7|1|70|1|sicproerp@etecsa.cu|+53 52183663|||1||STAFF|f|4|||1|2021-12-29 15:59:28.045914|274|2024-04-08 11:48:02.484147
+3|Dirección de Proyectos de Telecomunicaciones|8|1|70|7|sicproerp@etecsa.cu|+53 52183663|||1||PROYECTOS|t|5|||1|2021-12-29 15:59:28.045914|274|2024-04-08 11:48:17.745056
+4|Dirección de Ejecución de Obras Civiles|9|1|70|8|sicproerp@etecsa.cu|+53 52183663|||1||DEOCT|t|6|||1|2021-12-29 15:59:28.045914|274|2024-04-08 11:48:17.745056
+6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|11|1|70|9|sicproerp@etecsa.cu|+53 52183663|||1||DEOIT|t|8|||1|2021-12-29 15:59:28.045914|274|2024-04-08 11:48:17.745056
+7|Vicepresidencia de Inversiones|12||70|10|sicproerp@etecsa.cu|+53 52183663|||1||VPIV|f|9|||1|2021-12-29 15:59:28.045914|274|2024-04-08 11:48:17.745056
+10|Coordinación General|508|1|70|2|sicproerp@etecsa.cu|+53 52183663|||1||COORDINACIÓN|f|10|f||274|2024-04-08 11:34:56.908695|274|2024-05-14 20:48:40.456632
+11|Capital Humano|509|1|70|3|sicproerp@etecsa.cu|+53 52183663|||1||RRHH|f|11|f||274|2024-04-08 11:38:43.868659|274|2024-04-08 11:48:07.784463
+12|Economía|510|1|70|4|sicproerp@etecsa.cu|+53 52183663|||1||ECONOMIA|f|12|f||274|2024-04-08 11:41:32.378158|274|2024-04-08 11:48:10.07505
+13|Logística y Servicios|511|1|70|5|sicproerp@etecsa.cu|+53 52183663|||1||LOGISTICA|f|13|f||274|2024-04-08 11:43:43.054927|274|2024-05-14 20:49:08.356724
+14|Tecnología de la Información|512|1|70|6|sicproerp@etecsa.cu|+53 52183663|||1||TI|f|14|f||274|2024-04-08 11:47:17.411441|274|2024-04-08 11:48:17.745056

@@ -1,0 +1,168 @@
+14|Canned Response Administrator|3|Canned Responses|19|Marketing||mail.group_mail_canned_response_admin
+28|User|8|Surveys|19|Marketing||survey.group_survey_user
+29|Administrator|8|Surveys|19|Marketing||survey.group_survey_manager
+30|User|9|Project|28|Services||project.group_project_user
+31|Administrator|9|Project|28|Services||project.group_project_manager
+8|Allowed|1|Export|80|Master Data||base.group_allow_export
+9|Creation|2|Contact|80|Master Data||base.group_partner_manager
+24|Permitido|7|Importar|80|Master Data||sicpro_app_administracion.group_allow_importar
+45|Activar Test|14|Tests de Desarrollo|80|Master Data||sicpro_modulo_test_desarrollo.grupo_test_desarrollo
+17|Administrador|4|Administrar SICPRO|94|Administración SICPRO ERP||sicpro_app_administracion.grupo_app_administracion_admin
+18|Notificaciones Administrativas|5|Notificaciones|94|Administración SICPRO ERP||sicpro_app_administracion.grupo_app_administracion_notificaciones
+19|Canal del STAFF|6|Canales|94|Administración SICPRO ERP||sicpro_app_administracion.grupo_canal_staff
+20|Canal de Proyectos|6|Canales|94|Administración SICPRO ERP||sicpro_app_administracion.grupo_canal_proyectos
+21|Canal de DEOCT|6|Canales|94|Administración SICPRO ERP||sicpro_app_administracion.grupo_canal_deoct
+22|Canal de DEOIT|6|Canales|94|Administración SICPRO ERP||sicpro_app_administracion.grupo_canal_deoit
+23|Canal de Inversiones|6|Canales|94|Administración SICPRO ERP||sicpro_app_administracion.grupo_canal_inversiones
+43|Administrador|13|Nomencladores|94|Administración SICPRO ERP||sicpro_modulo_nomencladores.grupo_sicpro_nomencladores_admin
+54|Usuarios|17|Usuario del Proceso|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_usuario_proceso
+55|Todos los Trabajadores|17|Usuario del Proceso|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_usuario_todos
+56|Técnicos|18|Trabajadores|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_ejecutor
+57|Responsable|18|Trabajadores|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_responsable
+58|Administrador|18|Trabajadores|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_admin
+59|Técnicos|19|Equipo Técnico|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_equipos_usuario
+60|Responsable|19|Equipo Técnico|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_equipos_responsable
+61|Administrador|19|Equipo Técnico|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_equipos_admin
+62|Jefe del Proceso|20|Disciplinarias|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_disciplina_jefe
+63|Técnicos|20|Disciplinarias|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_disciplina_usuario
+64|Acción Legal|20|Disciplinarias|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_disciplina_legal
+65|Responsable|20|Disciplinarias|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_disciplina_responsable
+66|Administrador|20|Disciplinarias|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_disciplina_admin
+67|Capacitador|21|Capacitación|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_capacitacion
+68|Responsable|21|Capacitación|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_capacitacion_responsable
+69|Ejecutor|22|Seguridad y Salud|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_seguridad_salud
+70|Responsable|22|Seguridad y Salud|97|Capital Humano||sicpro_app_trabajadores.grupo_app_trabajador_seguridad_salud_responsable
+77|Técnicos|26|Credenciales|97|Capital Humano||sicpro_app_credenciales.grupo_app_credenciales_ejecutor
+78|Responsable|26|Credenciales|97|Capital Humano||sicpro_app_credenciales.grupo_app_credenciales_responsable
+79|Administrador|26|Credenciales|97|Capital Humano||sicpro_app_credenciales.grupo_app_credenciales_admin
+130|Usuarios|41|Instrucciones|97|Capital Humano||sicpro_app_instrucciones.grupo_app_instruciones_usuario
+131|Instructor|41|Instrucciones|97|Capital Humano||sicpro_app_instrucciones.grupo_app_instruciones_responsable
+132|Administrador|41|Instrucciones|97|Capital Humano||sicpro_app_instrucciones.grupo_app_instruciones_admin
+113|Usuarios|36|Transporte|98|Transportación||sicpro_app_transporte.grupo_app_transporte_usuario
+114|Ejecutor|36|Transporte|98|Transportación||sicpro_app_transporte.grupo_app_transporte_ejecutor
+115|Responsable|36|Transporte|98|Transportación||sicpro_app_transporte.grupo_app_transporte_responsable
+116|Administrador|36|Transporte|98|Transportación||sicpro_app_transporte.grupo_app_transporte_admin
+117|Usuarios|37|Piquera|98|Transportación||sicpro_app_transporte.grupo_app_transporte_piquera_usuario
+118|Ejecutor|37|Piquera|98|Transportación||sicpro_app_transporte.grupo_app_transporte_piquera_ejecutor
+126|Usuarios|40|Clientes|101|Solicitudes de Obras||sicpro_app_clientes.grupo_app_clientes_usuario
+127|Ejecutor|40|Clientes|101|Solicitudes de Obras||sicpro_app_clientes.grupo_app_clientes_ejecutor
+128|Responsable|40|Clientes|101|Solicitudes de Obras||sicpro_app_clientes.grupo_app_clientes_responsable
+129|Administrador|40|Clientes|101|Solicitudes de Obras||sicpro_app_clientes.grupo_app_clientes_admin
+141|Usuarios|44|Solicitudes|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_solicitud_usuario
+142|Administrativos|44|Solicitudes|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_solicitud_usuario_vertodo
+143|Responsable|44|Solicitudes|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_solicitud_responsable
+144|Administrador|44|Solicitudes|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_solicitud_admin
+145|Ejecutor|45|Inversionistas|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_iniciativas_ejecutor
+146|Territorial|45|Inversionistas|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_iniciativas_territorios
+147|Ejecutor|46|Negociación|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_negocio_ejecutor
+148|Ejecutor|47|Revisión del Negocio|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_negocio_pg_ejecutor
+149|Ejecutor|48|Distribuidores|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_ejecutor_ejecutor
+150|Ejecutante|49|Especialista Ejecutor|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_grupos_ejecutante
+151|Responsable|49|Especialista Ejecutor|101|Solicitudes de Obras||sicpro_app_solicitudes.grupo_app_grupos_ejecutor
+50|Usuarios|16|Materiales e Insumos|102|Preparación Técnica||sicpro_app_materiales_insumos.grupo_app_materiales_insumos_usuario
+51|Ejecutor|16|Materiales e Insumos|102|Preparación Técnica||sicpro_app_materiales_insumos.grupo_app_materiales_insumos_ejecutor
+52|Responsable|16|Materiales e Insumos|102|Preparación Técnica||sicpro_app_materiales_insumos.grupo_app_materiales_insumos_responsable
+53|Administrador|16|Materiales e Insumos|102|Preparación Técnica||sicpro_app_materiales_insumos.grupo_app_materiales_insumos_admin
+152|Visualizar órdenes del Proceso|50|Usuarios Internos|103|Órdenes de Trabajo||sicpro_app_ordenes_trabajo.grupo_ordenes_visualizar_proceso
+153|Visualizar Todas las órdenes|50|Usuarios Internos|103|Órdenes de Trabajo||sicpro_app_ordenes_trabajo.grupo_ordenes_visualizar_todo
+154|Responsable|50|Usuarios Internos|103|Órdenes de Trabajo||sicpro_app_ordenes_trabajo.grupo_ordenes_responsable
+155|Administrador|50|Usuarios Internos|103|Órdenes de Trabajo||sicpro_app_ordenes_trabajo.grupo_ordenes_admin
+156|Visualizar órdenes personales|51|Inversionista|103|Órdenes de Trabajo||sicpro_app_ordenes_trabajo.grupo_ordenes_visualizar_inversionista
+157|Visualizar todas las órdenes Inversionistas|51|Inversionista|103|Órdenes de Trabajo||sicpro_app_ordenes_trabajo.grupo_ordenes_visualizar_inversionista_todo
+158|Solicitar Orden|52|Ejecución|103|Órdenes de Trabajo||sicpro_app_ordenes_trabajo.grupo_ordenes_solicitante
+159|Validar Orden|52|Ejecución|103|Órdenes de Trabajo||sicpro_app_ordenes_trabajo.grupo_ordenes_validar
+160|Crear Orden|52|Ejecución|103|Órdenes de Trabajo||sicpro_app_ordenes_trabajo.grupo_ordenes_ejecutor
+161|Visualizar todas las Transferencias|53|Transferencias|104|Gestión de Gastos||sicpro_app_transferencias_gastos.grupo_transferencias_visualizar
+162|Gestión del Inversionista|53|Transferencias|104|Gestión de Gastos||sicpro_app_transferencias_gastos.grupo_transferencias_inversionistas
+163|Visualizar por Procesos|53|Transferencias|104|Gestión de Gastos||sicpro_app_transferencias_gastos.grupo_transferencias_visualizar_proceso
+164|Gestión del Ejecutor|53|Transferencias|104|Gestión de Gastos||sicpro_app_transferencias_gastos.grupo_transferencias_ejecutores_procesos
+165|Gestión del Técnico Productivo|53|Transferencias|104|Gestión de Gastos||sicpro_app_transferencias_gastos.grupo_transferencias_dtp_procesos
+166|Gestión Económica|53|Transferencias|104|Gestión de Gastos||sicpro_app_transferencias_gastos.grupo_transferencias_economia
+167|Responsable|53|Transferencias|104|Gestión de Gastos||sicpro_app_transferencias_gastos.grupo_transferencias_responsable
+168|Administrador|53|Transferencias|104|Gestión de Gastos||sicpro_app_transferencias_gastos.grupo_transferencias_admin
+95|Usuario|31|Reuniones|105|Gestión de Reuniones||sicpro_app_reuniones.group_reuniones_usuario
+96|Secretaria|31|Reuniones|105|Gestión de Reuniones||sicpro_app_reuniones.group_reuniones_secretaria
+97|Director|31|Reuniones|105|Gestión de Reuniones||sicpro_app_reuniones.group_reuniones_director
+98|Responsable|31|Reuniones|105|Gestión de Reuniones||sicpro_app_reuniones.group_reuniones_responsable
+99|Administrator|31|Reuniones|105|Gestión de Reuniones||sicpro_app_reuniones.group_reuniones_admin
+86|Usuarios|29|Metrología|106|Activos y Herramientas||sicpro_app_metrologia.grupo_app_metrologia_usuario
+87|Ejecutor|29|Metrología|106|Activos y Herramientas||sicpro_app_metrologia.grupo_app_metrologia_ejecutor
+88|Responsable|29|Metrología|106|Activos y Herramientas||sicpro_app_metrologia.grupo_app_metrologia_responsable
+89|Administrador|29|Metrología|106|Activos y Herramientas||sicpro_app_metrologia.grupo_app_metrologia_admin
+36|Usuario|10|Gestor Documental|107|Servicios Corporativos||sicpro_app_gestor_documental.group_document_user
+37|Ejecutor|10|Gestor Documental|107|Servicios Corporativos||sicpro_app_gestor_documental.group_document_manager
+38|Usuario|11|Salón de Clases|107|Servicios Corporativos||sicpro_app_salon_clases.grupo_app_salon_clases_usuario
+39|Responsable|11|Salón de Clases|107|Servicios Corporativos||sicpro_app_salon_clases.grupo_app_salon_clases_responsable
+40|Administrador|11|Salón de Clases|107|Servicios Corporativos||sicpro_app_salon_clases.grupo_app_salon_clases_admin
+90|Usuario|30|Repositorio DVPE.|107|Servicios Corporativos||sicpro_app_repositorio_institucional.group_repositorio_institucional_user
+91|Creador|30|Repositorio DVPE.|107|Servicios Corporativos||sicpro_app_repositorio_institucional.group_repositorio_institucional_creador
+92|Validación|30|Repositorio DVPE.|107|Servicios Corporativos||sicpro_app_repositorio_institucional.group_repositorio_institucional_validar
+93|Responsable|30|Repositorio DVPE.|107|Servicios Corporativos||sicpro_app_repositorio_institucional.group_repositorio_institucional_responsable
+94|Administrador|30|Repositorio DVPE.|107|Servicios Corporativos||sicpro_app_repositorio_institucional.group_repositorio_institucional_admin
+100|Usuario|32|Servicios Internos|107|Servicios Corporativos||sicpro_app_servicios_internos.grupo_app_internos_usuario
+101|Ejecutor de Servicios|32|Servicios Internos|107|Servicios Corporativos||sicpro_app_servicios_internos.grupo_app_internos_ejecutor_servicios
+102|Ejecutor Corporativo|32|Servicios Internos|107|Servicios Corporativos||sicpro_app_servicios_internos.grupo_app_internos_ejecutor_interno
+103|Responsable|32|Servicios Internos|107|Servicios Corporativos||sicpro_app_servicios_internos.grupo_app_internos_responsable
+104|Administrador|32|Servicios Internos|107|Servicios Corporativos||sicpro_app_servicios_internos.grupo_app_internos_admin
+105|Usuario|33|Solicitudes de S.I.|107|Servicios Corporativos||sicpro_app_servicios_internos.grupo_app_internos_solicitudes_usuario
+106|Ejecutor de Solicitud|33|Solicitudes de S.I.|107|Servicios Corporativos||sicpro_app_servicios_internos.grupo_app_internos_solicitudes_ejecutor
+107|Revisión de Solicitud|33|Solicitudes de S.I.|107|Servicios Corporativos||sicpro_app_servicios_internos.grupo_app_internos_solicitudes_revision
+108|Validación de Solicitud|33|Solicitudes de S.I.|107|Servicios Corporativos||sicpro_app_servicios_internos.grupo_app_internos_solicitudes_validar
+46|Usuarios|15|CMI|108|Gestión de Producción||sicpro_app_cmi.grupo_app_cmi_usuario
+47|Ejecutor|15|CMI|108|Gestión de Producción||sicpro_app_cmi.grupo_app_cmi_ejecutor
+48|Responsable|15|CMI|108|Gestión de Producción||sicpro_app_cmi.grupo_app_cmi_responsable
+49|Administrador|15|CMI|108|Gestión de Producción||sicpro_app_cmi.grupo_app_cmi_admin
+71|Visualizar Proceso|23|Ejecutor|109|Control de la información||sicpro_app_control_informacion.grupo_control_informacion_visualizar_proceso
+72|Ejecutor|23|Ejecutor|109|Control de la información||sicpro_app_control_informacion.grupo_control_informacion_ejecutor
+73|Revisión|24|Revisión|109|Control de la información||sicpro_app_control_informacion.grupo_control_informacion_revision
+74|Visualizar Todo|25|Control|109|Control de la información||sicpro_app_control_informacion.grupo_control_informacion_visualizar_todo
+75|Responsable|25|Control|109|Control de la información||sicpro_app_control_informacion.grupo_control_informacion_responsable
+76|Administrador|25|Control|109|Control de la información||sicpro_app_control_informacion.grupo_control_informacion_admin
+133|Secretario sindical|42|Sindicato|110|Programa de la Vivienda||sicpro_app_programa_viviendas.grupo_app_vivienda_secretario
+134|Usuario|43|Operaciones|110|Programa de la Vivienda||sicpro_app_programa_viviendas.grupo_app_vivienda_visualizar
+135|Secretario general|43|Operaciones|110|Programa de la Vivienda||sicpro_app_programa_viviendas.grupo_app_vivienda_secretario_general
+136|Validar solicitud|43|Operaciones|110|Programa de la Vivienda||sicpro_app_programa_viviendas.grupo_app_vivienda_validar
+137|Logística|43|Operaciones|110|Programa de la Vivienda||sicpro_app_programa_viviendas.grupo_app_vivienda_logistica
+138|Economía|43|Operaciones|110|Programa de la Vivienda||sicpro_app_programa_viviendas.grupo_app_vivienda_economia
+139|Responsable|43|Operaciones|110|Programa de la Vivienda||sicpro_app_programa_viviendas.grupo_app_vivienda_responsable
+140|Administrador|43|Operaciones|110|Programa de la Vivienda||sicpro_app_programa_viviendas.grupo_app_vivienda_admin
+119|Visualizar|38|Víveres Logística|111|Alimentación||sicpro_app_viveres.grupo_app_viveres_resumen_usuario
+120|Ejecutor|38|Víveres Logística|111|Alimentación||sicpro_app_viveres.grupo_app_viveres_resumen_ejecutor
+121|Responsable|38|Víveres Logística|111|Alimentación||sicpro_app_viveres.grupo_app_viveres_resumen_responsable
+122|Administrador|38|Víveres Logística|111|Alimentación||sicpro_app_viveres.grupo_app_viveres_admin
+123|Visualizar|39|Víveres Áreas|111|Alimentación||sicpro_app_viveres.grupo_app_viveres_areas_usuario
+124|Ejecutor|39|Víveres Áreas|111|Alimentación||sicpro_app_viveres.grupo_app_viveres_areas_ejecutor
+125|Jefe|39|Víveres Áreas|111|Alimentación||sicpro_app_viveres.grupo_app_viveres_areas_responsable
+80|Visualizar|27|Medios Informáticos|112|Informática||sicpro_app_medios_informaticos.grupo_app_medios_informaticos_inventario_usuario
+81|Técnico|27|Medios Informáticos|112|Informática||sicpro_app_medios_informaticos.grupo_app_medios_informaticos_inventario_tecnico
+82|Responsable|27|Medios Informáticos|112|Informática||sicpro_app_medios_informaticos.grupo_app_medios_informaticos_responsable
+83|Administrador|27|Medios Informáticos|112|Informática||sicpro_app_medios_informaticos.grupo_app_medios_informaticos_admin
+84|Visualizar|28|Taller|112|Informática||sicpro_app_medios_informaticos.grupo_app_medios_informaticos_taller_usuario
+85|Técnico|28|Taller|112|Informática||sicpro_app_medios_informaticos.grupo_app_medios_informaticos_taller_tecnico
+109|Ejecutor|34|Soporte|113|Soporte Técnico||sicpro_app_soporte.group_soporte_ejecutor
+110|Responsable|34|Soporte|113|Soporte Técnico||sicpro_app_soporte.group_soporte_responsable
+111|Administrador|34|Soporte|113|Soporte Técnico||sicpro_app_soporte.group_soporte_admin
+112|Visualizar Todos los Tickets de Soporte|35|Ver Todo|113|Soporte Técnico||sicpro_app_soporte.group_soporte_todos
+41|Usuario|12|Registros de auditoría|115|Registro de auditoría||sicpro_modulo_auditorias.group_auditlog_user
+42|Administrador|12|Registros de auditoría|115|Registro de auditoría||sicpro_modulo_auditorias.group_auditlog_manager
+1|Role / User||||||base.group_user
+2|Access Rights||||||base.group_erp_manager
+3|Bypass HTML Field Sanitize||||||base.group_sanitize_override
+4|Role / Administrator||||||base.group_system
+5|Multi Companies||||||base.group_multi_company
+6|Multi Currencies||||||base.group_multi_currency
+7|Technical Features||||||base.group_no_one
+10|Role / Portal||||||base.group_portal
+11|Role / Public||||||base.group_public
+12|Default access for new users||||||base.default_user_group
+13|Technical Documentation||||||api_doc.group_allow_doc
+15|Mail Template Editor||||||mail.group_mail_template_editor
+16|Receive notifications in Odoo||||||mail.group_mail_notification_type_inbox
+25|Menus y Accesos Obsoletos||||||sicpro_app_administracion.grupo_app_administracion_obsoletos
+26|Manage Multiple Units of Measure||||||uom.group_uom
+27|Analytic Accounting||||||analytic.group_analytic_accounting
+32|Use Stages on Project||||||project.group_project_stages
+33|Use Recurring Tasks||||||project.group_project_recurring_tasks
+34|Use Task Dependencies||||||project.group_project_task_dependencies
+35|Use Milestones||||||project.group_project_milestone
+44|Consultas Postgres||||||sicpro_modulo_querydb.group_querydeluxe

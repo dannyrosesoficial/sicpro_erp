@@ -1,0 +1,308 @@
+353|sicpro.app.administracion|Aplicación para la administración de SICPRO ERP|sicpro_app_administracion|0|TABLA_ENCONTRADA
+1073|sicpro.app.administracion.directorio.app|Registro de los directorios de las App|sicpro_app_administracion_directorio_app|4|TABLA_ENCONTRADA
+942|sicpro.app.administracion.menus|Menus de accesos a la administración|sicpro_app_administracion_menus|20|TABLA_ENCONTRADA
+943|sicpro.app.administracion.menus.accesos|Accesos de los menus de la administración|sicpro_app_administracion_menus_accesos|78|TABLA_ENCONTRADA
+445|sicpro.app.clientes|Aplicación de Clientes|sicpro_app_clientes|368|TABLA_ENCONTRADA
+446|sicpro.app.clientes.etiquetas|Etiquetas para la Aplicación de Clientes|sicpro_app_clientes_etiquetas|10|TABLA_ENCONTRADA
+815|sicpro.app.cmi.acciones|Acciones del CMI|sicpro_app_cmi_acciones|5|TABLA_ENCONTRADA
+816|sicpro.app.cmi.acciones.estado|Estado de las acciones|sicpro_app_cmi_acciones_estado|6|TABLA_ENCONTRADA
+817|sicpro.app.cmi.acciones.modo.control|Modo de Control de las acciones|sicpro_app_cmi_acciones_modo_control|3|TABLA_ENCONTRADA
+806|sicpro.app.cmi.indicadores|Indicadores del CMI|sicpro_app_cmi_indicadores|142|TABLA_ENCONTRADA
+809|sicpro.app.cmi.indicadores.cambios|Cambios de Indicadores del CMI|sicpro_app_cmi_indicadores_cambios|1|TABLA_ENCONTRADA
+810|sicpro.app.cmi.indicadores.graficos|Gráficos de los Indicadores del CMI|sicpro_app_cmi_indicadores_graficos|48|TABLA_ENCONTRADA
+807|sicpro.app.cmi.indicadores.modal.cambios|Solicitud de cambios en los indicadores|sicpro_app_cmi_indicadores_modal_cambios|0|TABLA_ENCONTRADA
+808|sicpro.app.cmi.indicadores.valores|Valores de los Indicadores del CMI|sicpro_app_cmi_indicadores_valores|1044|TABLA_ENCONTRADA
+818|sicpro.app.cmi.objetivos.anuales|Objetivos Anuales del CMI|sicpro_app_cmi_objetivos_anuales|64|TABLA_ENCONTRADA
+819|sicpro.app.cmi.objetivos.estrategicos|Objetivos Estratégicos del CMI|sicpro_app_cmi_objetivos_estrategicos|28|TABLA_ENCONTRADA
+811|sicpro.app.cmi.perspectivas|Perspectivas del CMI|sicpro_app_cmi_perspectivas|5|TABLA_ENCONTRADA
+813|sicpro.app.cmi.perspectivas.anios|Años de las Perspectivas del CMI|sicpro_app_cmi_perspectivas_anios|5|TABLA_ENCONTRADA
+812|sicpro.app.cmi.perspectivas.eje.estrategico|Ejes Estratégicos del CMI|sicpro_app_cmi_perspectivas_eje_estrategico|5|TABLA_ENCONTRADA
+814|sicpro.app.cmi.perspectivas.periodos|Periodos del CMI|sicpro_app_cmi_perspectivas_periodos|19|TABLA_ENCONTRADA
+820|sicpro.app.cmi.reporte|Reportes del CMI|sicpro_app_cmi_reporte|0|TABLA_ENCONTRADA
+452|sicpro.app.contratos|Gestión de Contratos|sicpro_app_contratos|226|TABLA_ENCONTRADA
+461|sicpro.app.contratos.areas|Áreas de los contratos|sicpro_app_contratos_areas|12|TABLA_ENCONTRADA
+462|sicpro.app.contratos.beneficiarios|Beneficiarios de los contratos|sicpro_app_contratos_beneficiarios|151|TABLA_ENCONTRADA
+454|sicpro.app.contratos.cancelado|Contratos Cancelados|sicpro_app_contratos_cancelado|0|TABLA_ENCONTRADA
+455|sicpro.app.contratos.cuentas|Cuentas de los contratos|sicpro_app_contratos_cuentas|265|TABLA_ENCONTRADA
+458|sicpro.app.contratos.dias|Días hábiles para los contratos|sicpro_app_contratos_dias|9|TABLA_ENCONTRADA
+463|sicpro.app.contratos.economia|Gestión económica de los contratos|sicpro_app_contratos_economia|0|TABLA_ENCONTRADA
+469|sicpro.app.contratos.economia.acapite|Acápites económicos de los contratos|sicpro_app_contratos_economia_acapite|34|TABLA_ENCONTRADA
+470|sicpro.app.contratos.economia.bancos|Bancos de los contratos|sicpro_app_contratos_economia_bancos|66|TABLA_ENCONTRADA
+471|sicpro.app.contratos.economia.cuentas.dvpe|Registro de cuentas de la DVPE|sicpro_app_contratos_economia_cuentas_dvpe|4|TABLA_ENCONTRADA
+465|sicpro.app.contratos.economia.estados|Estados económicos de los contratos|sicpro_app_contratos_economia_estados|5|TABLA_ENCONTRADA
+466|sicpro.app.contratos.economia.etiquetas|Etiquetas económicas de los contratos|sicpro_app_contratos_economia_etiquetas|0|TABLA_ENCONTRADA
+464|sicpro.app.contratos.economia.facturas|Facturas de los contratos|sicpro_app_contratos_economia_facturas|0|TABLA_ENCONTRADA
+468|sicpro.app.contratos.economia.indicador|Indicadores económicos de los contratos|sicpro_app_contratos_economia_indicador|34|TABLA_ENCONTRADA
+467|sicpro.app.contratos.economia.pago|Forma de pago económico de los contratos|sicpro_app_contratos_economia_pago|4|TABLA_ENCONTRADA
+457|sicpro.app.contratos.estados|Estados de los contratos|sicpro_app_contratos_estados|12|TABLA_ENCONTRADA
+459|sicpro.app.contratos.etiquetas|Etiquetas de los contratos|sicpro_app_contratos_etiquetas|1|TABLA_ENCONTRADA
+447|sicpro.app.contratos.proveedores|Gestión de los proveedores|sicpro_app_contratos_proveedores|250|TABLA_ENCONTRADA
+449|sicpro.app.contratos.proveedores.estados|Estados del proveedor|sicpro_app_contratos_proveedores_estados|5|TABLA_ENCONTRADA
+450|sicpro.app.contratos.proveedores.etiquetas|Etiquetas de proveedores de los contratos|sicpro_app_contratos_proveedores_etiquetas|1|TABLA_ENCONTRADA
+448|sicpro.app.contratos.proveedores.rechazadas|Proveedores Rechazados|sicpro_app_contratos_proveedores_rechazadas|0|TABLA_ENCONTRADA
+451|sicpro.app.contratos.proveedores.tipo|Tipos de proveedores de los contratos|sicpro_app_contratos_proveedores_tipo|3|TABLA_ENCONTRADA
+453|sicpro.app.contratos.rechazado|Contratos Rechazados|sicpro_app_contratos_rechazado|0|TABLA_ENCONTRADA
+456|sicpro.app.contratos.tipo|Tipo de contratos|sicpro_app_contratos_tipo|5|TABLA_ENCONTRADA
+460|sicpro.app.contratos.unidades|Unidades de los contratos|sicpro_app_contratos_unidades|6|TABLA_ENCONTRADA
+800|sicpro.app.credenciales|Credenciales de los Trabajadores|sicpro_app_credenciales|1249|TABLA_ENCONTRADA
+804|sicpro.app.credenciales.accesos|Accesos de Credenciales|sicpro_app_credenciales_accesos|4|TABLA_ENCONTRADA
+803|sicpro.app.credenciales.alcance|Alcance de Credenciales|sicpro_app_credenciales_alcance|1|TABLA_ENCONTRADA
+1254|sicpro.app.credenciales.cancelacion|Motivo de cancelación de las Credenciales|sicpro_app_credenciales_cancelacion|2|TABLA_ENCONTRADA
+1253|sicpro.app.credenciales.cancelar|Cancelar Trabajadores|sicpro_app_credenciales_cancelar|0|TABLA_ENCONTRADA
+805|sicpro.app.credenciales.modal|Credenciales - Modal para recortar Imagen|sicpro_app_credenciales_modal|0|TABLA_ENCONTRADA
+802|sicpro.app.credenciales.siglas|Siglas de las Credenciales|sicpro_app_credenciales_siglas|3|TABLA_ENCONTRADA
+801|sicpro.app.credenciales.tipo|Tipo de Credenciales|sicpro_app_credenciales_tipo|4|TABLA_ENCONTRADA
+422|sicpro.app.gestor.documental|Gestor Documental|sicpro_app_gestor_documental|25|TABLA_ENCONTRADA
+2973|sicpro.app.grupo.ejecutor.horizontal|Grupo Ejecutor Solicitudes Horizontales|sicpro_app_grupo_ejecutor_horizontal|0|TABLA_ENCONTRADA
+523|sicpro.app.grupo.ejecutor.t4|Grupo Ejecutor T4|sicpro_app_grupo_ejecutor_t4|0|TABLA_ENCONTRADA
+525|sicpro.app.grupo.ejecutor.t5|Grupo Ejecutor T5|sicpro_app_grupo_ejecutor_t5|0|TABLA_ENCONTRADA
+3149|sicpro.app.instrucciones.etiquetas|Etiquetas de las Instrucciones|sicpro_app_instrucciones_etiquetas|0|TABLA_ENCONTRADA
+3150|sicpro.app.instrucciones.instruccion|Registro de Instrucciones|sicpro_app_instrucciones_instruccion|12|TABLA_ENCONTRADA
+3151|sicpro.app.instrucciones.trabajador|Instrucciones Laborales de los Trabajadores|sicpro_app_instrucciones_trabajador|14|TABLA_ENCONTRADA
+473|sicpro.app.materiales.insumos|Materiales e insumos|sicpro_app_materiales_insumos|0|TABLA_ENCONTRADA
+474|sicpro.app.materiales.insumos.etiquetas|Etiquetas de los productos|sicpro_app_materiales_insumos_etiquetas|3|TABLA_ENCONTRADA
+475|sicpro.app.materiales.insumos.um|UM de los productos|sicpro_app_materiales_insumos_um|13|TABLA_ENCONTRADA
+3028|sicpro.app.medios.informaticos|Inventario Medios Informáticos|sicpro_app_medios_informaticos|1525|TABLA_ENCONTRADA
+3029|sicpro.app.medios.informaticos.bajas|Baja de Medios Informáticos|sicpro_app_medios_informaticos_bajas|0|TABLA_ENCONTRADA
+3030|sicpro.app.medios.informaticos.historial|Historial de actualizaciones del inventario|sicpro_app_medios_informaticos_historial|15|TABLA_ENCONTRADA
+3031|sicpro.app.medios.informaticos.importar|Sincronizar Medios Informáticos|sicpro_app_medios_informaticos_importar|0|TABLA_ENCONTRADA
+3036|sicpro.app.medios.informaticos.importar.wizard|Actualizar Inventario de medios informáticos|sicpro_app_medios_informaticos_importar_wizard|0|TABLA_ENCONTRADA
+3032|sicpro.app.medios.informaticos.pdtes.piezas|Medios Informáticos Pendiente por Piezas|sicpro_app_medios_informaticos_pdtes_piezas|0|TABLA_ENCONTRADA
+3033|sicpro.app.medios.informaticos.taller|Medios Informáticos Enviados a Taller|sicpro_app_medios_informaticos_taller|0|TABLA_ENCONTRADA
+3034|sicpro.app.medios.informaticos.tipo.equipo|Tipo de Medio Informático|sicpro_app_medios_informaticos_tipo_equipo|15|TABLA_ENCONTRADA
+3035|sicpro.app.medios.informaticos.tramites|Trámites del taller de Medio Informático|sicpro_app_medios_informaticos_tramites|6|TABLA_ENCONTRADA
+508|sicpro.app.metrologia.centro.calibracion|Centro de Calibración Metrología|sicpro_app_metrologia_centro_calibracion|8|TABLA_ENCONTRADA
+504|sicpro.app.metrologia.direcciones|Direcciones de equipos de Metrología|sicpro_app_metrologia_direcciones|9|TABLA_ENCONTRADA
+505|sicpro.app.metrologia.equipos|Equipos de metrología|sicpro_app_metrologia_equipos|580|TABLA_ENCONTRADA
+506|sicpro.app.metrologia.equipos.transferencias|Transferencias de Gastos de los Equipos|sicpro_app_metrologia_equipos_transferencias|0|TABLA_ENCONTRADA
+509|sicpro.app.metrologia.estado.tecnico|Estado Técnico Metrología|sicpro_app_metrologia_estado_tecnico|6|TABLA_ENCONTRADA
+510|sicpro.app.metrologia.magnitud|Magnitudes de la Metrología|sicpro_app_metrologia_magnitud|27|TABLA_ENCONTRADA
+1106|sicpro.app.modulo.ldap.historial|Historial de Registros LDAP|sicpro_app_modulo_ldap_historial|1452|TABLA_ENCONTRADA
+1107|sicpro.app.modulo.ldap.registros|Registros del Servicio LDAP|sicpro_app_modulo_ldap_registros|47510|TABLA_ENCONTRADA
+1109|sicpro.app.modulo.usuario.desactivar|Desactivación de los usuarios|sicpro_app_modulo_usuario_desactivar|3|TABLA_ENCONTRADA
+1697|sicpro.app.modulo.usuario.desactivar.dias|Aviso en días para la desactivación de los usuarios|sicpro_app_modulo_usuario_desactivar_dias|4|TABLA_ENCONTRADA
+1247|sicpro.app.nube.etecsa.token|Token de la Nube Etecsa|sicpro_app_nube_etecsa_token|0|TABLA_ENCONTRADA
+3010|sicpro.app.ordenes.clases.proyecto|Clase de trabajo para las órdenes de proyecto|sicpro_app_ordenes_clases_proyecto|6|TABLA_ENCONTRADA
+3011|sicpro.app.ordenes.consecutivos|Programa de Inversiones de las Órdenes de Trabajo|sicpro_app_ordenes_consecutivos|6|TABLA_ENCONTRADA
+3012|sicpro.app.ordenes.estados|Estado de las órdenes de trabajo|sicpro_app_ordenes_estados|19|TABLA_ENCONTRADA
+3308|sicpro.app.ordenes.estados.trabajador|Estado de los trabajadores en las obras|sicpro_app_ordenes_estados_trabajador|0|TABLA_ENCONTRADA
+3309|sicpro.app.ordenes.estados.transporte.equipos|Estado del transporte y los equipos en las obras|sicpro_app_ordenes_estados_transporte_equipos|0|TABLA_ENCONTRADA
+3013|sicpro.app.ordenes.etiquetas|Etiquetas de las órdenes de trabajo|sicpro_app_ordenes_etiquetas|2|TABLA_ENCONTRADA
+3311|sicpro.app.ordenes.grupo.transporte.equipos|Configuración del transporte y los equipos|sicpro_app_ordenes_grupo_transporte_equipos|0|TABLA_ENCONTRADA
+3014|sicpro.app.ordenes.paralizacion|Motivo de la última paralización|sicpro_app_ordenes_paralizacion|10|TABLA_ENCONTRADA
+3015|sicpro.app.ordenes.problemas|Problemas en la ejecución|sicpro_app_ordenes_problemas|13|TABLA_ENCONTRADA
+3016|sicpro.app.ordenes.programa.inversiones|Programa de Inversiones de las Órdenes de Trabajo|sicpro_app_ordenes_programa_inversiones|45|TABLA_ENCONTRADA
+3017|sicpro.app.ordenes.trabajo|Órdenes de Trabajo|sicpro_app_ordenes_trabajo|0|TABLA_ENCONTRADA
+3018|sicpro.app.ordenes.trabajo.anexo.problemas|Tabla anexo de los problemas en la ejecución|sicpro_app_ordenes_trabajo_anexo_problemas|0|TABLA_ENCONTRADA
+3027|sicpro.app.ordenes.trabajo.anexo3|Modelo para visualizar el Anexo 3|sicpro_app_ordenes_trabajo_anexo3|0|TABLA_ENCONTRADA
+3022|sicpro.app.ordenes.trabajo.aviso.intension|Aviso de intensión de la orden de trabajo|sicpro_app_ordenes_trabajo_aviso_intension|0|TABLA_ENCONTRADA
+3021|sicpro.app.ordenes.trabajo.canceladas|Motivo de cancelación de la orden de trabajo|sicpro_app_ordenes_trabajo_canceladas|0|TABLA_ENCONTRADA
+3307|sicpro.app.ordenes.trabajo.equipos.complementarios|Equipos complemtarios en la ejecución|sicpro_app_ordenes_trabajo_equipos_complementarios|0|TABLA_ENCONTRADA
+3306|sicpro.app.ordenes.trabajo.equipos.especializados|Equipos especializados en la ejecución|sicpro_app_ordenes_trabajo_equipos_especializados|0|TABLA_ENCONTRADA
+3019|sicpro.app.ordenes.trabajo.paralizacion|Motivo de la paralización de la orden de trabajo|sicpro_app_ordenes_trabajo_paralizacion|0|TABLA_ENCONTRADA
+3020|sicpro.app.ordenes.trabajo.rechazadas|Motivo de rechazo de la orden de trabajo|sicpro_app_ordenes_trabajo_rechazadas|0|TABLA_ENCONTRADA
+3304|sicpro.app.ordenes.trabajo.trabajadores|Trabajadores en la ejecución|sicpro_app_ordenes_trabajo_trabajadores|0|TABLA_ENCONTRADA
+3305|sicpro.app.ordenes.trabajo.transporte|Transporte en la ejecución|sicpro_app_ordenes_trabajo_transporte|0|TABLA_ENCONTRADA
+3253|sicpro.app.repo|Repositorio Institucional|sicpro_app_repo|32|TABLA_ENCONTRADA
+3254|sicpro.app.repo.autores|Autores del repositorio|sicpro_app_repo_autores|64|TABLA_ENCONTRADA
+3260|sicpro.app.repo.estados|Estado de los repositorios|sicpro_app_repo_estados|4|TABLA_ENCONTRADA
+3258|sicpro.app.repo.etiquetas|Etiqueta o Palabra Clave|sicpro_app_repo_etiquetas|23|TABLA_ENCONTRADA
+3261|sicpro.app.repo.facultad|Facultad o Universidad|sicpro_app_repo_facultad|6|TABLA_ENCONTRADA
+3259|sicpro.app.repo.licencia|Licencias de Uso|sicpro_app_repo_licencia|3|TABLA_ENCONTRADA
+3257|sicpro.app.repo.tipo|Tipos de repositorios|sicpro_app_repo_tipo|5|TABLA_ENCONTRADA
+3255|sicpro.app.repo.tutor.externo|Tutores Externos|sicpro_app_repo_tutor_externo|0|TABLA_ENCONTRADA
+3256|sicpro.app.repo.tutor.interno|Tutores Internos|sicpro_app_repo_tutor_interno|0|TABLA_ENCONTRADA
+511|sicpro.app.reuniones|Gestión de Reuniones|sicpro_app_reuniones|54|TABLA_ENCONTRADA
+517|sicpro.app.reuniones.acuerdos|Acuerdos de las reuniones|sicpro_app_reuniones_acuerdos|510|TABLA_ENCONTRADA
+1256|sicpro.app.reuniones.acuerdos.cancelados|Cancelar decisiones|sicpro_app_reuniones_acuerdos_cancelados|0|TABLA_ENCONTRADA
+1255|sicpro.app.reuniones.acuerdos.rechazados|Rechazar decisiones|sicpro_app_reuniones_acuerdos_rechazados|0|TABLA_ENCONTRADA
+514|sicpro.app.reuniones.categorias|Categorías de las etiquetas|sicpro_app_reuniones_categorias|3|TABLA_ENCONTRADA
+1257|sicpro.app.reuniones.decisiones|Decisiones de las reuniones|sicpro_app_reuniones_decisiones|4|TABLA_ENCONTRADA
+1259|sicpro.app.reuniones.decisiones.canceladas|Cancelar decisiones|sicpro_app_reuniones_decisiones_canceladas|0|TABLA_ENCONTRADA
+1258|sicpro.app.reuniones.decisiones.rechazadas|Rechazar decisiones|sicpro_app_reuniones_decisiones_rechazadas|0|TABLA_ENCONTRADA
+1260|sicpro.app.reuniones.despachos|Gestión de los Despachos|sicpro_app_reuniones_despachos|2|TABLA_ENCONTRADA
+1263|sicpro.app.reuniones.despachos.agenda|Agenda de los Despachos|sicpro_app_reuniones_despachos_agenda|7|TABLA_ENCONTRADA
+1262|sicpro.app.reuniones.despachos.comentarios|Comentarios de los Despachos|sicpro_app_reuniones_despachos_comentarios|4|TABLA_ENCONTRADA
+1261|sicpro.app.reuniones.despachos.participantes|Participantes de los Despachos|sicpro_app_reuniones_despachos_participantes|6|TABLA_ENCONTRADA
+512|sicpro.app.reuniones.estados|Estados de las Reuniones|sicpro_app_reuniones_estados|5|TABLA_ENCONTRADA
+513|sicpro.app.reuniones.etiquetas|Etiqueta de las Reuniones|sicpro_app_reuniones_etiquetas|15|TABLA_ENCONTRADA
+515|sicpro.app.reuniones.lugares|Lugares de las Reuniones|sicpro_app_reuniones_lugares|72|TABLA_ENCONTRADA
+516|sicpro.app.reuniones.participantes|Participantes de la reunión|sicpro_app_reuniones_participantes|382|TABLA_ENCONTRADA
+424|sicpro.app.salon.clases|Salón de Clases|sicpro_app_salon_clases|22|TABLA_ENCONTRADA
+767|sicpro.app.salon.clases.adjuntos|Documentación del Salón de Clases|sicpro_app_salon_clases_adjuntos|38|TABLA_ENCONTRADA
+423|sicpro.app.salon.clases.etiquetas|Etiquetas del Salón de clases|sicpro_app_salon_clases_etiquetas|2|TABLA_ENCONTRADA
+425|sicpro.app.salon.clases.temas|Temas del Salón de clases|sicpro_app_salon_clases_temas|6|TABLA_ENCONTRADA
+426|sicpro.app.salon.clases.tipo|Tipo de temáticas|sicpro_app_salon_clases_tipo|6|TABLA_ENCONTRADA
+1687|sicpro.app.servicios.internos.correos|Gestión de correos internos|sicpro_app_servicios_internos_correos|639|TABLA_ENCONTRADA
+1334|sicpro.app.servicios.internos.fijos|Gestión de fijos|sicpro_app_servicios_internos_fijos|153|TABLA_ENCONTRADA
+1333|sicpro.app.servicios.internos.lineas|Gestión de líneas|sicpro_app_servicios_internos_lineas|0|TABLA_ENCONTRADA
+1335|sicpro.app.servicios.internos.nauta|Gestión de cuentas nautas|sicpro_app_servicios_internos_nauta|0|TABLA_ENCONTRADA
+3235|sicpro.app.servicios.internos.solicitudes|Gestión de las Solicitudes de los Servicios internos|sicpro_app_servicios_internos_solicitudes|0|TABLA_ENCONTRADA
+3234|sicpro.app.servicios.internos.solicitudes.observaciones|Gestión de observaciones de las solicitudes|sicpro_app_servicios_internos_solicitudes_observaciones|0|TABLA_ENCONTRADA
+519|sicpro.app.solicitudes.canceladas.t2|Canceladas T2|sicpro_app_solicitudes_canceladas_t2|0|TABLA_ENCONTRADA
+521|sicpro.app.solicitudes.canceladas.t3|Canceladas T3|sicpro_app_solicitudes_canceladas_t3|0|TABLA_ENCONTRADA
+527|sicpro.app.solicitudes.estados|Estado de Solicitudes|sicpro_app_solicitudes_estados|5|TABLA_ENCONTRADA
+529|sicpro.app.solicitudes.etiquetas|Etiquetas de las Solicitudes|sicpro_app_solicitudes_etiquetas|2|TABLA_ENCONTRADA
+518|sicpro.app.solicitudes.oportunidades|Solicitudes y oportunidades|sicpro_app_solicitudes_oportunidades|2792|TABLA_ENCONTRADA
+528|sicpro.app.solicitudes.rechazadas|Motivo de rechazo|sicpro_app_solicitudes_rechazadas|34|TABLA_ENCONTRADA
+520|sicpro.app.solicitudes.rechazadas.t3|Rechazadas T3|sicpro_app_solicitudes_rechazadas_t3|0|TABLA_ENCONTRADA
+522|sicpro.app.solicitudes.rechazadas.t4|Rechazadas T4|sicpro_app_solicitudes_rechazadas_t4|0|TABLA_ENCONTRADA
+524|sicpro.app.solicitudes.rechazadas.t5|Rechazadas T5|sicpro_app_solicitudes_rechazadas_t5|0|TABLA_ENCONTRADA
+1696|sicpro.app.solicitudes.rechazadas.t6|Rechazadas T6|sicpro_app_solicitudes_rechazadas_t6|0|TABLA_ENCONTRADA
+526|sicpro.app.solicitudes.tabla.oportunidades|Tabla de Solicitudes y oportunidades|sicpro_app_solicitudes_tabla_oportunidades|2807|TABLA_ENCONTRADA
+400|sicpro.app.soporte|Soporte de Ayuda|sicpro_app_soporte|1224|TABLA_ENCONTRADA
+411|sicpro.app.soporte.aplicaciones|Soporte de aplicaciones del sistema|sicpro_app_soporte_aplicaciones|137|TABLA_ENCONTRADA
+413|sicpro.app.soporte.bitacora|Bitácora de Usuarios SICPRO|sicpro_app_soporte_bitacora|779|TABLA_ENCONTRADA
+404|sicpro.app.soporte.canales|Canales de Solicitud|sicpro_app_soporte_canales|6|TABLA_ENCONTRADA
+2327|sicpro.app.soporte.cronograma.anio|Años del Cronograma Planificado de Desarrollo|sicpro_app_soporte_cronograma_anio|4|TABLA_ENCONTRADA
+2328|sicpro.app.soporte.cronograma.plan|Cronograma Planificado para el Desarrollo|sicpro_app_soporte_cronograma_plan|351|TABLA_ENCONTRADA
+2329|sicpro.app.soporte.cronograma.plan.dependencias|Dependencias de Cronograma Planificado para el Desarrollo|sicpro_app_soporte_cronograma_plan_dependencias|0|TABLA_ENCONTRADA
+406|sicpro.app.soporte.equipos|Equipos de Soporte|sicpro_app_soporte_equipos|6|TABLA_ENCONTRADA
+402|sicpro.app.soporte.estados|Estados del Soporte|sicpro_app_soporte_estados|6|TABLA_ENCONTRADA
+408|sicpro.app.soporte.estados.aplicaciones|Estados de las aplicaciones del sistema|sicpro_app_soporte_estados_aplicaciones|6|TABLA_ENCONTRADA
+409|sicpro.app.soporte.estados.paquetes|Estados de los paquetes del sistema|sicpro_app_soporte_estados_paquetes|4|TABLA_ENCONTRADA
+407|sicpro.app.soporte.estados.versiones|Estados de las versiones del sistema|sicpro_app_soporte_estados_versiones|6|TABLA_ENCONTRADA
+403|sicpro.app.soporte.etiquetas|Etiquetas del Soporte|sicpro_app_soporte_etiquetas|10|TABLA_ENCONTRADA
+1689|sicpro.app.soporte.fragmentos.codigos|Fragmentos de códigos del desarrollo del sistema|sicpro_app_soporte_fragmentos_codigos|4|TABLA_ENCONTRADA
+412|sicpro.app.soporte.paquetes|Soporte de paquetes del sistema|sicpro_app_soporte_paquetes|27|TABLA_ENCONTRADA
+768|sicpro.app.soporte.tareas|Tareas de Soporte de Ayuda|sicpro_app_soporte_tareas|0|TABLA_ENCONTRADA
+401|sicpro.app.soporte.todos|Todos los Tickets de Soporte de Ayuda|sicpro_app_soporte_todos|1298|TABLA_ENCONTRADA
+410|sicpro.app.soporte.versiones|Soporte de versiones del sistema|sicpro_app_soporte_versiones|18|TABLA_ENCONTRADA
+476|sicpro.app.trabajadores|Trabajadores|sicpro_app_trabajadores|1499|TABLA_ENCONTRADA
+478|sicpro.app.trabajadores.areas|Departamento de los trabajadores|sicpro_app_trabajadores_areas|71|TABLA_ENCONTRADA
+3204|sicpro.app.trabajadores.areas.altas.bajas|Altas y bajas mensuales por áreas, módulo de trabajadores|sicpro_app_trabajadores_areas_altas_bajas|0|TABLA_ENCONTRADA
+3205|sicpro.app.trabajadores.areas.totales|Totales mensuales por áreas, módulo de trabajadores|sicpro_app_trabajadores_areas_totales|65|TABLA_ENCONTRADA
+498|sicpro.app.trabajadores.cargos|Cargos del Trabajador|sicpro_app_trabajadores_cargos|138|TABLA_ENCONTRADA
+477|sicpro.app.trabajadores.categorias|Etiquetas de los trabajadores|sicpro_app_trabajadores_categorias|13|TABLA_ENCONTRADA
+3201|sicpro.app.trabajadores.cierre|Cierres mensuales de Capital Humano|sicpro_app_trabajadores_cierre|65|TABLA_ENCONTRADA
+3202|sicpro.app.trabajadores.cierre.historial|Historial de los cierres mensuales de Capital Humano|sicpro_app_trabajadores_cierre_historial|1|TABLA_ENCONTRADA
+3206|sicpro.app.trabajadores.cierre.wizard|Generar cierre de Capital Humano|sicpro_app_trabajadores_cierre_wizard|0|TABLA_ENCONTRADA
+497|sicpro.app.trabajadores.claves.horas|Claves de Horas Trabajador|sicpro_app_trabajadores_claves_horas|0|TABLA_ENCONTRADA
+488|sicpro.app.trabajadores.cursos|Cursos de los trabajadores|sicpro_app_trabajadores_cursos|12|TABLA_ENCONTRADA
+489|sicpro.app.trabajadores.cursos.habilidades|Habilidades de los trabajadores|sicpro_app_trabajadores_cursos_habilidades|29|TABLA_ENCONTRADA
+490|sicpro.app.trabajadores.cursos.niveles|Niveles de los cursos del trabajador|sicpro_app_trabajadores_cursos_niveles|19|TABLA_ENCONTRADA
+491|sicpro.app.trabajadores.cursos.tipos|Tipos de cursos del trabajador|sicpro_app_trabajadores_cursos_tipos|4|TABLA_ENCONTRADA
+3207|sicpro.app.trabajadores.dialog.wizard|Diálogo de cierre duplicado|sicpro_app_trabajadores_dialog_wizard|0|TABLA_ENCONTRADA
+486|sicpro.app.trabajadores.disiplinaria.acciones|Medidas disciplinarias|sicpro_app_trabajadores_disiplinaria_acciones|0|TABLA_ENCONTRADA
+487|sicpro.app.trabajadores.disiplinaria.categorias|Categorías de medidas disciplinarias|sicpro_app_trabajadores_disiplinaria_categorias|14|TABLA_ENCONTRADA
+483|sicpro.app.trabajadores.documentos|Documentos de los trabajadores|sicpro_app_trabajadores_documentos|0|TABLA_ENCONTRADA
+484|sicpro.app.trabajadores.documentos.plantillas|Plantillas de documentos del trabajador|sicpro_app_trabajadores_documentos_plantillas|3|TABLA_ENCONTRADA
+485|sicpro.app.trabajadores.documentos.tipos|Tipos de documentos del trabajador|sicpro_app_trabajadores_documentos_tipos|11|TABLA_ENCONTRADA
+492|sicpro.app.trabajadores.educacion|Educación de los trabajadores|sicpro_app_trabajadores_educacion|0|TABLA_ENCONTRADA
+494|sicpro.app.trabajadores.educacion.certificacion|Certificación y Homologación del trabajador|sicpro_app_trabajadores_educacion_certificacion|6|TABLA_ENCONTRADA
+493|sicpro.app.trabajadores.educacion.tipos|Tipos de educación del trabajador|sicpro_app_trabajadores_educacion_tipos|6|TABLA_ENCONTRADA
+496|sicpro.app.trabajadores.equipo.tecnico|Técnicos de los trabajadores|sicpro_app_trabajadores_equipo_tecnico|8|TABLA_ENCONTRADA
+481|sicpro.app.trabajadores.familiar|Relaciones de los familiares del trabajador|sicpro_app_trabajadores_familiar|44|TABLA_ENCONTRADA
+500|sicpro.app.trabajadores.intrucciones|Instrucciones de los trabajadores|sicpro_app_trabajadores_intrucciones|880|TABLA_ENCONTRADA
+480|sicpro.app.trabajadores.local|Locales del trabajador|sicpro_app_trabajadores_local|0|TABLA_ENCONTRADA
+482|sicpro.app.trabajadores.nexo.familiar|Nexo Familiar del trabajador|sicpro_app_trabajadores_nexo_familiar|3|TABLA_ENCONTRADA
+3203|sicpro.app.trabajadores.notificacion.cierre|Trabajadores a los que se le notificará el cierre mensual|sicpro_app_trabajadores_notificacion_cierre|1|TABLA_ENCONTRADA
+479|sicpro.app.trabajadores.ocupacion|Categoría Ocupacional del trabajador|sicpro_app_trabajadores_ocupacion|528|TABLA_ENCONTRADA
+495|sicpro.app.trabajadores.organigrama|Gráfica organizacional del trabajador|sicpro_app_trabajadores_organigrama|0|TABLA_ENCONTRADA
+501|sicpro.app.trabajadores.seguridad.proteccion|Tipo de Módulo de Seguridad para los trabajadores|sicpro_app_trabajadores_seguridad_proteccion|1723|TABLA_ENCONTRADA
+502|sicpro.app.trabajadores.seguridad.trabajador|Módulo de Seguridad para los trabajadores|sicpro_app_trabajadores_seguridad_trabajador|6|TABLA_ENCONTRADA
+503|sicpro.app.trabajadores.tallas|Tallas de los trabajadores|sicpro_app_trabajadores_tallas|25|TABLA_ENCONTRADA
+499|sicpro.app.trabajadores.vacunacion|Vacunación de los trabajadores|sicpro_app_trabajadores_vacunacion|1268|TABLA_ENCONTRADA
+3209|sicpro.app.transferencias.cuentas.gastos|Cuentas de Gastos de las transferencias|sicpro_app_transferencias_cuentas_gastos|19|TABLA_ENCONTRADA
+3210|sicpro.app.transferencias.gastos|Transferencias de Gastos|sicpro_app_transferencias_gastos|0|TABLA_ENCONTRADA
+3215|sicpro.app.transferencias.gastos.ajustes|Ajustar valores de gastos|sicpro_app_transferencias_gastos_ajustes|0|TABLA_ENCONTRADA
+3208|sicpro.app.transferencias.gastos.ajustes.historial|Historial de Ajustes de Gastos de la CJ74|sicpro_app_transferencias_gastos_ajustes_historial|0|TABLA_ENCONTRADA
+3217|sicpro.app.transferencias.gastos.cj74.wizard|Enviar gastos a revisión económica|sicpro_app_transferencias_gastos_cj74_wizard|0|TABLA_ENCONTRADA
+3216|sicpro.app.transferencias.gastos.economia.wizard|Enviar gastos a certificar|sicpro_app_transferencias_gastos_economia_wizard|0|TABLA_ENCONTRADA
+3211|sicpro.app.transferencias.gastos.importar|Sincronizar Transferencias de Gastos|sicpro_app_transferencias_gastos_importar|0|TABLA_ENCONTRADA
+3219|sicpro.app.transferencias.gastos.importar.wizard.ordenes|Modificar valor de órdenes|sicpro_app_transferencias_gastos_importar_wizard_ordenes|0|TABLA_ENCONTRADA
+3213|sicpro.app.transferencias.gastos.ordenes|Órdenes vinculadas a las transferencias de Gastos|sicpro_app_transferencias_gastos_ordenes|0|TABLA_ENCONTRADA
+3212|sicpro.app.transferencias.gastos.ordenes.estados|Estado de los gastos de órdenes de trabajo|sicpro_app_transferencias_gastos_ordenes_estados|8|TABLA_ENCONTRADA
+3214|sicpro.app.transferencias.gastos.ordenes.morosidad|Periodo de tiempo en que se debe recibir la certificación de gastos|sicpro_app_transferencias_gastos_ordenes_morosidad|3|TABLA_ENCONTRADA
+3218|sicpro.app.transferencias.ordenes.rechazadas.wizard|Motivo de rechazo de los gastos de las transferencias|sicpro_app_transferencias_ordenes_rechazadas_wizard|0|TABLA_ENCONTRADA
+964|sicpro.app.transporte.distancia|Cálculo de Distancias para el Transporte|sicpro_app_transporte_distancia|2|TABLA_ENCONTRADA
+966|sicpro.app.transporte.distancia.recorrido|Tabla de apoyo para el recorrido|sicpro_app_transporte_distancia_recorrido|1|TABLA_ENCONTRADA
+965|sicpro.app.transporte.distancia.salida|Cálculo de Distancias de salida para el Transporte|sicpro_app_transporte_distancia_salida|1|TABLA_ENCONTRADA
+531|sicpro.app.transporte.estado|Estados del transporte|sicpro_app_transporte_estado|5|TABLA_ENCONTRADA
+530|sicpro.app.transporte.general|Transporte|sicpro_app_transporte_general|648|TABLA_ENCONTRADA
+968|sicpro.app.transporte.modelo|Modelo de Transporte|sicpro_app_transporte_modelo|66|TABLA_ENCONTRADA
+960|sicpro.app.transporte.piquera|Gestión de la Piquera de Transporte|sicpro_app_transporte_piquera|2|TABLA_ENCONTRADA
+963|sicpro.app.transporte.piquera.canceladas|Motivo de Cancelación de la Piquera|sicpro_app_transporte_piquera_canceladas|0|TABLA_ENCONTRADA
+962|sicpro.app.transporte.piquera.rechazadas|Motivo de Rechazo de la Piquera|sicpro_app_transporte_piquera_rechazadas|0|TABLA_ENCONTRADA
+961|sicpro.app.transporte.piquera.recorridos|Gestión de recorridos de la Piquera|sicpro_app_transporte_piquera_recorridos|0|TABLA_ENCONTRADA
+967|sicpro.app.transporte.tipo.combustible|Tipo de Combustible para el Transporte|sicpro_app_transporte_tipo_combustible|0|TABLA_ENCONTRADA
+414|sicpro.app.videoconferencias|Gestor de VideoConferencias|sicpro_app_videoconferencias|2|TABLA_ENCONTRADA
+415|sicpro.app.videoconferencias.usuarioexterno|Participantes externos para la VideoConferencia|sicpro_app_videoconferencias_usuarioexterno|3|TABLA_ENCONTRADA
+3220|sicpro.app.vivienda.escalafon|Escalafón del programa de la vivienda|sicpro_app_vivienda_escalafon|100|TABLA_ENCONTRADA
+3221|sicpro.app.vivienda.etapas|Etapas del programa de la vivienda|sicpro_app_vivienda_etapas|0|TABLA_ENCONTRADA
+3229|sicpro.app.vivienda.fondo|Presupuesto de fondo para el programa de la vivienda|sicpro_app_vivienda_fondo|0|TABLA_ENCONTRADA
+3222|sicpro.app.vivienda.materiales|Materiales para el programa de la vivienda|sicpro_app_vivienda_materiales|0|TABLA_ENCONTRADA
+3223|sicpro.app.vivienda.materiales.um|Unidad de medidas de los materiales|sicpro_app_vivienda_materiales_um|0|TABLA_ENCONTRADA
+3230|sicpro.app.vivienda.ofertas|Ofertas para el programa de la vivienda|sicpro_app_vivienda_ofertas|0|TABLA_ENCONTRADA
+3224|sicpro.app.vivienda.proveedor|Proveedor del programa de la vivienda|sicpro_app_vivienda_proveedor|0|TABLA_ENCONTRADA
+3232|sicpro.app.vivienda.reporte.anexo3|Reportes de Anexo 3|sicpro_app_vivienda_reporte_anexo3|0|TABLA_ENCONTRADA
+3231|sicpro.app.vivienda.reporte.anexo4|Reportes de Anexo 4|sicpro_app_vivienda_reporte_anexo4|0|TABLA_ENCONTRADA
+3233|sicpro.app.vivienda.reporte.estadistica|Reportes de Estadística RRHH|sicpro_app_vivienda_reporte_estadistica|0|TABLA_ENCONTRADA
+3225|sicpro.app.vivienda.trabajador|Programa de la vivienda|sicpro_app_vivienda_trabajador|0|TABLA_ENCONTRADA
+3228|sicpro.app.vivienda.trabajador.canceladas|Motivo de cancelación de la solicitud|sicpro_app_vivienda_trabajador_canceladas|0|TABLA_ENCONTRADA
+3226|sicpro.app.vivienda.trabajador.productos|Productos del programa de la vivienda|sicpro_app_vivienda_trabajador_productos|0|TABLA_ENCONTRADA
+3227|sicpro.app.vivienda.trabajador.rechazadas|Motivo de rechazo de la solicitud|sicpro_app_vivienda_trabajador_rechazadas|0|TABLA_ENCONTRADA
+1863|sicpro.modulo.api.conector|Configura las conexiones con las apis externas|sicpro_modulo_api_conector|3|TABLA_ENCONTRADA
+2370|sicpro.modulo.api.conector.gitlab.commits|Registro de los commits del proyecto|sicpro_modulo_api_conector_gitlab_commits|116|TABLA_ENCONTRADA
+1864|sicpro.modulo.api.conector.historial|Historial de conexiones con las apis externas|sicpro_modulo_api_conector_historial|332|TABLA_ENCONTRADA
+366|sicpro.modulo.auditorias.autovacuum|Auditorias - Eliminar registros logs antiguos|sicpro_modulo_auditorias_autovacuum|0|TABLA_ENCONTRADA
+363|sicpro.modulo.auditorias.http.request|Auditorias - peticiones HTTP log|sicpro_modulo_auditorias_http_request|503|TABLA_ENCONTRADA
+362|sicpro.modulo.auditorias.http.session|Auditorias - sesiones de usuarios HTTP log|sicpro_modulo_auditorias_http_session|90|TABLA_ENCONTRADA
+364|sicpro.modulo.auditorias.log|Auditorias - Log|sicpro_modulo_auditorias_log|224463|TABLA_ENCONTRADA
+365|sicpro.modulo.auditorias.log.line|Auditorias - Log detalles (fields updated)|sicpro_modulo_auditorias_log_line|189369|TABLA_ENCONTRADA
+361|sicpro.modulo.auditorias.rule|Auditorias - Reglas|sicpro_modulo_auditorias_rule|178|TABLA_ENCONTRADA
+2976|sicpro.modulo.backup.dropbox.auth|Asistente de autenticación de Dropbox|sicpro_modulo_backup_dropbox_auth|0|TABLA_ENCONTRADA
+2975|sicpro.modulo.backup.server.gitlab|Url GitLab donde se sincroniza los backups|sicpro_modulo_backup_server_gitlab|1|TABLA_ENCONTRADA
+2974|sicpro.modulo.backup.server.local|Copia de seguridad automática de la base de datos|sicpro_modulo_backup_server_local|1|TABLA_ENCONTRADA
+2372|sicpro.modulo.base.correos.entrantes.asuntos|Asuntos para ejecutar los métodos en la entrada de un correo|sicpro_modulo_base_correos_entrantes_asuntos|15|TABLA_ENCONTRADA
+2371|sicpro.modulo.base.correos.entrantes.metodos|Métodos a ejecutar en la entrada de un correo|sicpro_modulo_base_correos_entrantes_metodos|2|TABLA_ENCONTRADA
+1050|sicpro.modulo.dashboard.colores|Colores - Nomenclador de Colores|sicpro_modulo_dashboard_colores|0|TABLA_ENCONTRADA
+1051|sicpro.modulo.dashboard.colores.orden|Colores - Color con orden|sicpro_modulo_dashboard_colores_orden|72|TABLA_ENCONTRADA
+1052|sicpro.modulo.dashboard.colores.set|Colores - Set de colores|sicpro_modulo_dashboard_colores_set|6|TABLA_ENCONTRADA
+1054|sicpro.modulo.dashboard.graficos|Gráficos de los grupos del dashboard|sicpro_modulo_dashboard_graficos|109|TABLA_ENCONTRADA
+1055|sicpro.modulo.dashboard.graficos.values|Valores Extra de Gráficos de los grupos del dashboard|sicpro_modulo_dashboard_graficos_values|0|TABLA_ENCONTRADA
+1056|sicpro.modulo.dashboard.grupos|Grupos de las secciones del dashboard|sicpro_modulo_dashboard_grupos|192|TABLA_ENCONTRADA
+1053|sicpro.modulo.dashboard.iconos|Nomenclador de Íconos|sicpro_modulo_dashboard_iconos|577|TABLA_ENCONTRADA
+1057|sicpro.modulo.dashboard.secciones|Secciones del dashboard|sicpro_modulo_dashboard_secciones|53|TABLA_ENCONTRADA
+1058|sicpro.modulo.dashboard.tableros|Tableros|sicpro_modulo_dashboard_tableros|11|TABLA_ENCONTRADA
+356|sicpro.modulo.historial.aplicaciones|Control de la acciones en las aplicaciones|sicpro_modulo_historial_aplicaciones|203|TABLA_ENCONTRADA
+1117|sicpro.modulo.mapas|Registro de Plantillas de los Mapas|sicpro_modulo_mapas|3|TABLA_ENCONTRADA
+1074|sicpro.modulo.modelo.vista|Consulta de vistas de los modelos|sicpro_modulo_modelo_vista|0|TABLA_ENCONTRADA
+951|sicpro.modulo.nube.etecsa|Modelo temporal Api Nube Etecsa|sicpro_modulo_nube_etecsa|0|TABLA_ENCONTRADA
+1330|sicpro.modulo.plantilla.acceso|Planilla de Acceso|sicpro_modulo_plantilla_acceso|280|TABLA_ENCONTRADA
+1331|sicpro.modulo.plantilla.acceso.rechazar|Plantilla de acceso rechazada|sicpro_modulo_plantilla_acceso_rechazar|0|TABLA_ENCONTRADA
+1332|sicpro.modulo.plantilla.acceso.roles|Roles de la plantilla de Acceso|sicpro_modulo_plantilla_acceso_roles|2201|TABLA_ENCONTRADA
+954|sicpro.modulo.registro.usuarios|Registro de acceso de usuarios|sicpro_modulo_registro_usuarios|467|TABLA_ENCONTRADA
+956|sicpro.modulo.registro.usuarios.reporte|Reportes del Registro de usuarios|sicpro_modulo_registro_usuarios_reporte|2|TABLA_ENCONTRADA
+955|sicpro.modulo.registro.usuarios_ip|Direcciones IP de los Usuarios|sicpro_modulo_registro_usuarios_ip|0|TABLA_ENCONTRADA
+2285|sicpro.modulo.registro.usuarios_mac|Direcciones MAC de los Usuarios|sicpro_modulo_registro_usuarios_mac|0|TABLA_ENCONTRADA
+349|sicpro.modulo.roles|Roles de usuarios|sicpro_modulo_roles|131|TABLA_ENCONTRADA
+350|sicpro.modulo.roles.line|Usuarios asociados a los roles|sicpro_modulo_roles_line|2866|TABLA_ENCONTRADA
+1110|sicpro.modulo.simular.usuario|Simular usuario|sicpro_modulo_simular_usuario|0|TABLA_ENCONTRADA
+3023|sicpro.modulo.ui.python|Ui Python|sicpro_modulo_ui_python|0|TABLA_ENCONTRADA
+2511|sicpro.modulo.web.about|Link de Acceso al video de Introducción|sicpro_modulo_web_about|1|TABLA_ENCONTRADA
+2549|sicpro.modulo.web.automatiza|Nomencladores de asuntos de los correos entrantes|sicpro_modulo_web_automatiza|2|TABLA_ENCONTRADA
+2512|sicpro.modulo.web.equipo|Equipo de Desarrollo|sicpro_modulo_web_equipo|4|TABLA_ENCONTRADA
+2513|sicpro.modulo.web.galeria|Imágenes de la Galería|sicpro_modulo_web_galeria|7|TABLA_ENCONTRADA
+2514|sicpro.modulo.web.galeria.etiquetas|Etiquetas de la Galería|sicpro_modulo_web_galeria_etiquetas|3|TABLA_ENCONTRADA
+2551|sicpro.modulo.web.mantenimiento|Módulo para la puesta en mantenimiento de SICPRO ERP|sicpro_modulo_web_mantenimiento|1|TABLA_ENCONTRADA
+2515|sicpro.modulo.web.manuales|Manuales de usuarios|sicpro_modulo_web_manuales|8|TABLA_ENCONTRADA
+2552|sicpro.modulo.web.plugins|Listado de aplicaciones y plugins para descargar y utilizar con SICPRO ERP|sicpro_modulo_web_plugins|9|TABLA_ENCONTRADA
+2550|sicpro.modulo.web.registro.roles|Roles para el registro de usuarios|sicpro_modulo_web_registro_roles|24|TABLA_ENCONTRADA
+2553|sicpro.modulo.web.registro.version|Versiones del sistema vinculadas con Soporte|sicpro_modulo_web_registro_version|16|TABLA_ENCONTRADA
+2554|sicpro.modulo.web.registro.versiones|Detalles de las versiones del sistema|sicpro_modulo_web_registro_versiones|53|TABLA_ENCONTRADA
+2516|sicpro.modulo.web.version|Configuración de la Version del Sistema|sicpro_modulo_web_version|1|TABLA_ENCONTRADA
+444|sicpro.nomenclador.anios|Nomenclador de Años|sicpro_nomenclador_anios|10|TABLA_ENCONTRADA
+3024|sicpro.nomenclador.areas.empresa|Nomenclador de Área de Empresa|sicpro_nomenclador_areas_empresa|8|TABLA_ENCONTRADA
+436|sicpro.nomenclador.centro.costo|Nomenclador de Centros de Costos|sicpro_nomenclador_centro_costo|48|TABLA_ENCONTRADA
+3025|sicpro.nomenclador.centro.planificacion|Nomenclador de Centros de Planificación (CePl)|sicpro_nomenclador_centro_planificacion|3|TABLA_ENCONTRADA
+435|sicpro.nomenclador.cuentas.contables|Nomenclador Cuentas Contables|sicpro_nomenclador_cuentas_contables|315|TABLA_ENCONTRADA
+443|sicpro.nomenclador.departamentos|Nomenclador Departamentos del Proceso|sicpro_nomenclador_departamentos|70|TABLA_ENCONTRADA
+3026|sicpro.nomenclador.emplazamientos|Nomenclador de Emplazamientos|sicpro_nomenclador_emplazamientos|7|TABLA_ENCONTRADA
+429|sicpro.nomenclador.especialidad|Nomenclador de Especialidades de ejecución|sicpro_nomenclador_especialidad|36|TABLA_ENCONTRADA
+437|sicpro.nomenclador.locales|Nomenclador de Locales de CC|sicpro_nomenclador_locales|329|TABLA_ENCONTRADA
+428|sicpro.nomenclador.meses|Nomenclador de Meses|sicpro_nomenclador_meses|12|TABLA_ENCONTRADA
+3037|sicpro.nomenclador.sindicato|Áreas sindicales de la DVPE|sicpro_nomenclador_sindicato|0|TABLA_ENCONTRADA
+430|sicpro.nomenclador.territorios|Nomenclador de Unidades Organizativa|sicpro_nomenclador_territorios|31|TABLA_ENCONTRADA
+427|sicpro.nomenclador.trimestre|Nomenclador de Trimestres|sicpro_nomenclador_trimestre|8|TABLA_ENCONTRADA
+369|sicpro.querydb|Ejecuta consultas a Pstgresql desde SICPRO ERP|sicpro_querydb|3|TABLA_ENCONTRADA

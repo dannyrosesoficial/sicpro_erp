@@ -1,0 +1,208 @@
+2|administrador|3|Administrador|1|División de Proyecto y Ejecución de Obras|f|0
+6|abel.gonzalez|13|Abel Gonzalez Pulido|12|Economía|f|8
+9|adalberto.echazabal|16|Adalberto Felix Echazabal Ramirez|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|9
+16|alberto.cancio|23|Alberto Cancio Rivero|13|Logística y Servicios|f|8
+20|alejandro.amartinez|27|Alejandro Alonso Martinez|11|Capital Humano|f|12
+22|alejandro.santana|29|Alejandro Luis Santana Diaz|13|Logística y Servicios|f|8
+24|alexander.ferrer|31|Alexander Ferrer Cardenas|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|10
+26|alexis.sosa|33|Alexis Sosa Alonso|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|12
+29|alicia.rego|36|Alicia Elena Rego Rodriguez|4|Dirección de Ejecución de Obras Civiles|f|14
+32|amanda.rodriguez|39|Amanda Cristina Rodriguez Riera|12|Economía|f|5
+41|aniaska.muniz|48|Aniaska Muniz Castillo|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|9
+42|annia.prieto|49|Annia Prieto Vidal|10|Coordinación General|f|11
+46|ariel.fleitas|53|Ariel Jesus Fleitas Varela|1|División de Proyecto y Ejecución de Obras|f|13
+51|ayram.oromi|58|Ayram Oromi Fiorenzano|3|Dirección de Proyectos de Telecomunicaciones|f|15
+52|baleini.machin|59|Baleini Machin Padron|4|Dirección de Ejecución de Obras Civiles|f|14
+54|benigno.sanchez|61|Benigno Victor Sanchez Curbelo|10|Coordinación General|f|7
+58|carlos.pulido|65|Carlos Jose Pulido Diaz|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|11
+59|carlos.cepero|66|Carlos Luis Cepero Santiago|4|Dirección de Ejecución de Obras Civiles|t|11
+63|carlos.valles|70|Carlos Miguel Valles Tejeda|4|Dirección de Ejecución de Obras Civiles|f|13
+65|cesar.diaz|72|Cesar Diaz Cardenas|3|Dirección de Proyectos de Telecomunicaciones|f|10
+66|claudia.marti|73|Claudia Margarita Marti Aguila|4|Dirección de Ejecución de Obras Civiles|f|12
+73|dania.medina|80|Dania Mary Medina Pantoja|3|Dirección de Proyectos de Telecomunicaciones|f|11
+74|dania.almeida|81|Dania Rosa Almeida Valdes|4|Dirección de Ejecución de Obras Civiles|f|14
+80|dayana.loredo|87|Dayana Loredo Martinez|13|Logística y Servicios|f|9
+82|dayane.borges|89|Dayane Borges Castellon|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|11
+92|edmundo.atherton|99|Edmundo Atherton Barbier|13|Logística y Servicios|f|7
+93|eduardo.rangel|100|Eduardo Julio Rangel Gamez|12|Economía|f|7
+96|elio.benavides|103|Elio Benavides Gomez|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|10
+98|elizaberht.delahoz|105|Elizaberht de la Hoz Solano|4|Dirección de Ejecución de Obras Civiles|f|14
+105|erik.montano|112|Erik Montano Mena|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|12
+118|geanfranco.mata|125|Geanfranco Mata Venegas|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|14
+128|hermes.rojas|135|Hermes Rojas Durades|4|Dirección de Ejecución de Obras Civiles|f|12
+132|iliana.castellanos|139|Iliana Castellanos Paumier|14|Tecnología de la Información|f|12
+147|jorge.falla|154|Jorge Ramon Falla Lopez|3|Dirección de Proyectos de Telecomunicaciones|f|7
+153|joser.rodriguez|160|Jose Ramon Rodriguez Tejeda|7|Vicepresidencia de Inversiones|f|4
+161|julio.arguelles|168|Julio Arguelles Manresa|3|Dirección de Proyectos de Telecomunicaciones|f|10
+162|justo.llerena|169|Justo Lazaro Llerena Gonzalez|3|Dirección de Proyectos de Telecomunicaciones|f|13
+168|lazaro.menazorrilla|175|Lazaro Luis Mena Zorrilla|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|11
+172|liana.zayas|179|Liana Zayas Secada|3|Dirección de Proyectos de Telecomunicaciones|f|9
+174|liesly.scull|181|Liesly Scull Sanchez|3|Dirección de Proyectos de Telecomunicaciones|f|10
+180|madelin.ricardo|187|Madelin Ricardo Leyva|10|Coordinación General|f|9
+182|magaly.somohano|189|Magaly Somohano Sanchez|3|Dirección de Proyectos de Telecomunicaciones|f|8
+185|maite.marin|192|Maite del Carmen Marin Gonzalez|11|Capital Humano|f|10
+188|maria.alfonso|195|Maria Caridad Alfonso Morejon|10|Coordinación General|f|8
+192|mariam.gonzalez|199|Maria Mercedes Gonzalez Palma|3|Dirección de Proyectos de Telecomunicaciones|f|10
+195|mariela.mora|202|Mariela Mora Herrera|3|Dirección de Proyectos de Telecomunicaciones|f|11
+196|mariela.reboledo|203|Mariela Reboledo Flores|3|Dirección de Proyectos de Telecomunicaciones|f|10
+200|maybe.gomez|207|Maybe Caridad Gomez More|13|Logística y Servicios|f|10
+204|margarita.cuesta|211|Migdalia Margarita Cuesta Viltres|3|Dirección de Proyectos de Telecomunicaciones|f|15
+208|mirta.galvez|215|Mirta Galvez Ferro|1|División de Proyecto y Ejecución de Obras|f|9
+212|nelson.petrucheli|219|Nelson Lazaro Menendez Petrucheli|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|12
+213|noraima.alfaro|220|Noraima Alfaro Ganganelly|12|Economía|f|6
+214|norma.rojas|221|Norma Niurka Rojas Justiz|12|Economía|f|5
+219|orlando.rodriguez|226|Orlando David Rodriguez Gonzalez|4|Dirección de Ejecución de Obras Civiles|f|15
+223|otman.sanz|230|Otman Sabad Sanz Cordero|4|Dirección de Ejecución de Obras Civiles|f|14
+233|ricardo.beltran|240|Ricardo Beltran Martinez|13|Logística y Servicios|f|6
+235|ricardo.poll|242|Ricardo Poll Quintana|4|Dirección de Ejecución de Obras Civiles|f|7
+236|roberto.oliva|243|Roberto Oliva Betancourt|11|Capital Humano|f|14
+240|samuel.vazquez|247|Samuel Vazquez Cedeno|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|13
+241|sandra.callis|248|Sandra Callis Caraballoso|11|Capital Humano|f|12
+242|sayuri.cruz|249|Sayuri Cruz Chong|4|Dirección de Ejecución de Obras Civiles|f|14
+254|vivian.ramos|261|Vivian Cristina Ramos Diaz|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|10
+259|yahima.mesa|266|Yahima Mesa Jorlen|7|Vicepresidencia de Inversiones|f|4
+260|yaima.fernandez|267|Yaima Fernandez Canto|7|Vicepresidencia de Inversiones|f|5
+262|yalile.rosabal|269|Yalile Rosabal Valdes|4|Dirección de Ejecución de Obras Civiles|f|10
+264|yamile.lopez|271|Yamilé López Nuñez|13|Logística y Servicios|f|7
+265|yannyra.matute|272|Yannyra de Pilar Matute Tejo|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|7
+269|yukdanys.lobaina|276|Yukdanys Lobaina Gamez|10|Coordinación General|f|7
+272|zuleidy.maique|279|Zuleidy Maique De La Rua|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|11
+274|daniel.borrero|282|Daniel Barrero Reyes|1|División de Proyecto y Ejecución de Obras|f|0
+275|yoel.igarza|283|Yoel Igarza nueva|4|Dirección de Ejecución de Obras Civiles|f|13
+276|osmany.gama|284|Osmany Gama Díaz|4|Dirección de Ejecución de Obras Civiles|f|10
+279|yoandy.cadena|287|Yoandy Cadena Linares|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|7
+284|yosvany.napoles|292|Yosvany Nápoles Prieto|3|Dirección de Proyectos de Telecomunicaciones|f|8
+286|yenimar.villalobos|295|Yenimar Villalobos Ojeda|4|Dirección de Ejecución de Obras Civiles|f|11
+287|teresa.perez|296|Teresa Victoria Perez Pacheco|11|Capital Humano|f|8
+290|ifrain.naranjo|299|Ifrain Naranjo Naranjo|4|Dirección de Ejecución de Obras Civiles|f|10
+294|aslan.santana|306|Aslan Santana Vazquez|7|Vicepresidencia de Inversiones|f|4
+305|heidi.lezcano|317|Heidi Lezcano Mezquida|7|Vicepresidencia de Inversiones|f|4
+307|lourdes.cabrera|319|Lourdes Cabrera Mozo|7|Vicepresidencia de Inversiones|f|4
+308|lucia.romero|320|Lucia Romero Barreiro|7|Vicepresidencia de Inversiones|f|5
+312|taniav.alvarez|324|Tania Tamara Velazquez Alvarez|7|Vicepresidencia de Inversiones|f|4
+314|yeney.fortes|326|Yeney Milagros Fortes Quesada|7|Vicepresidencia de Inversiones|f|4
+315|diosnel.bornot|327|Diosnel Bornot Rodriguez|7|Vicepresidencia de Inversiones|f|4
+320|ivett.martin|332|Ivett Martin Gonzalez|7|Vicepresidencia de Inversiones|f|4
+325|juan.aleman|337|Juan Carlos Aleman Revilla|7|Vicepresidencia de Inversiones|f|4
+326|luis.nicot|338|Luis Nicot Gomero|7|Vicepresidencia de Inversiones|f|4
+328|adianet.gonzalez|340|Adianet Gonzalez Reyes|7|Vicepresidencia de Inversiones|f|4
+331|yuri.miranda|343|Yuri Miranda Callejas|7|Vicepresidencia de Inversiones|f|4
+338|alfredo.olivares|350|Alfredo Olivares Cardoza|7|Vicepresidencia de Inversiones|t|4
+339|fidel.cruz|351|Fidel Cruz Garrido|7|Vicepresidencia de Inversiones|t|5
+341|leticia.reyes|353|Leticia de la Caridad  Reyes Alvarez|7|Vicepresidencia de Inversiones|f|4
+342|leyda.borges|354|Leyda Borges Martinez|7|Vicepresidencia de Inversiones|f|4
+345|maykel.alvarez|357|Maykel Alvarez Hidalgo|7|Vicepresidencia de Inversiones|f|4
+346|digna.mir|358|Digna Lidia Mir Pino|7|Vicepresidencia de Inversiones|f|4
+347|miguel.borges|359|Miguel Angel Borges Sanchez|7|Vicepresidencia de Inversiones|f|4
+348|yuniel.perez|360|Yuniel Perez Hernanadez|7|Vicepresidencia de Inversiones|f|4
+349|yanet.morell|361|Yanet Emma Morell Regueiferos|7|Vicepresidencia de Inversiones|f|4
+350|juanl.garcia|362|Juan Luis Garcia Garcia|7|Vicepresidencia de Inversiones|f|5
+362|alejandro.pino|374|Alejandro Garcia Pino|7|Vicepresidencia de Inversiones|f|4
+364|andy.rues|376|Andy Rues Roman|7|Vicepresidencia de Inversiones|f|4
+365|anton.alabart|377|Anton Alabart Velazquez|7|Vicepresidencia de Inversiones|f|4
+366|ernesto.medina|378|Ernesto Medina Miguel|7|Vicepresidencia de Inversiones|f|4
+368|saylinr.felizola|380|Saylin Ramirez Felizola|7|Vicepresidencia de Inversiones|f|4
+369|victor.cueva|381|Victor Eduardo Cueva Canet|7|Vicepresidencia de Inversiones|f|4
+370|yeleinis.gonzalez|382|Yeleinis Gonzalez Tamayo|1|División de Proyecto y Ejecución de Obras|f|7
+374|alexey.seisdedo|386|Alexey Seisdedo Losa|7|Vicepresidencia de Inversiones|f|4
+379|miguel.ramos|391|Miguel Luis Ramos Perez|4|Dirección de Ejecución de Obras Civiles|f|14
+387|dolores.vazquez|399|Dolores Gelda Vazquez Garcia|4|Dirección de Ejecución de Obras Civiles|t|14
+394|frank.romero|406|Frank Enrique Romero La o|7|Vicepresidencia de Inversiones|f|4
+398|berny.tornes|410|Berny Tornes Chang|4|Dirección de Ejecución de Obras Civiles|f|13
+401|alexander.montero|413|Alexander Montero Gomez|7|Vicepresidencia de Inversiones|f|4
+404|argelio.castaneda|416|Argelio Castaneda Vargas|7|Vicepresidencia de Inversiones|f|4
+416|raul.lopez|428|Raul Eduardo Lopez Serrano|3|Dirección de Proyectos de Telecomunicaciones|f|10
+421|madelaine.dearmas|433|Madelaine de Armas Diaz|3|Dirección de Proyectos de Telecomunicaciones|f|11
+424|saimar.castillo|436|Saimar Castillo Rodriguez |7|Vicepresidencia de Inversiones|f|4
+425|rodelmy.lopez|437|Rodelmy Lopez Avila|7|Vicepresidencia de Inversiones|f|5
+427|mayelin.rvazquez|439|MAYELÍN RODRÍGUEZ VÁZQUEZ|1|División de Proyecto y Ejecución de Obras|f|11
+428|fabian.regalado|440|FABIÁN REGALADO PÉREZ|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|12
+431|airelys.campos|443|Airelys Campos Herrera|10|Coordinación General|f|20
+433|yordanis.ceballo|445|Yordanis Nelson Ceballo Suarez|7|Vicepresidencia de Inversiones|f|4
+434|berlindo.sijin|446|Berlindo Luis Sijin Martinez|7|Vicepresidencia de Inversiones|f|4
+435|aldis.diaz|447|Aldis Diaz Rinack|7|Vicepresidencia de Inversiones|f|4
+436|humberto.garcia|448|Humberto Garcia Gonzalez|7|Vicepresidencia de Inversiones|f|4
+437|belkis.linares|449|Belkis Linares Rodriguez|7|Vicepresidencia de Inversiones|f|4
+438|pedro.risquet|450|Pedro Risquet Diaz|7|Vicepresidencia de Inversiones|f|4
+439|omar.martinez|451|Omar Martinez Gonzalez|7|Vicepresidencia de Inversiones|f|4
+441|michel.dorvigny|453|Michel Dorvigny Acosta|7|Vicepresidencia de Inversiones|f|4
+442|rafael.espinosa|454|Rafael Espinosa Manso|7|Vicepresidencia de Inversiones|f|4
+443|adrian.ribiaux|455|Adrian Ribiaux Menocal|7|Vicepresidencia de Inversiones|f|4
+444|pedro.vegueria|456|Pedro Rey Vegueria Portilla|7|Vicepresidencia de Inversiones|f|4
+445|manuel.duran|457|Manuel Duran Domech|7|Vicepresidencia de Inversiones|f|4
+446|jesus.joa|458|Jesus Joa Llovet|7|Vicepresidencia de Inversiones|f|4
+447|duniesky.bermudez|459|Duniesky Bermudez Higuera|7|Vicepresidencia de Inversiones|f|4
+449|rebeca.valdes|461|Rebeca Maria Valdes Valdes|12|Economía|f|5
+450|guillermo.lopezfidalgo|462|Guillermo de la C. Lopez Fidalgo|7|Vicepresidencia de Inversiones|f|4
+451|omar.caraballo|463|Omar Antonio Caraballo Brito|7|Vicepresidencia de Inversiones|f|4
+452|jorge.gavio|464|Jorge Antonio Gavio Gonzalez|7|Vicepresidencia de Inversiones|f|4
+453|daumier.zayas|465|Daumier Zayas Rojas|7|Vicepresidencia de Inversiones|f|4
+454|joseramon.ruiz|466|Jose Ramon Ruiz Sanchez|7|Vicepresidencia de Inversiones|f|4
+455|melba.guerra|467|Melba Guerra Téllez|4|Dirección de Ejecución de Obras Civiles|f|14
+457|niurka.rcobas|469|Niurka Rodriguez Cobas|4|Dirección de Ejecución de Obras Civiles|f|15
+458|yusdel.dominguez|470|Yusdel Dominguez Rizo|7|Vicepresidencia de Inversiones|f|4
+459|roicel.borroto|471|Roicel Borroto Gonzalez|7|Vicepresidencia de Inversiones|f|4
+460|juanl.nunez|472|Juan Luis Nunez Acosta |7|Vicepresidencia de Inversiones|f|4
+462|julio.pino|474|Julio Antonio Pino Reyes|7|Vicepresidencia de Inversiones|f|4
+463|olga.vidal|475|Olga Lidia Vidal Noel|10|Coordinación General|f|17
+464|jorge.ramos|476|Jorge Luis Ramos Piloto|4|Dirección de Ejecución de Obras Civiles|f|16
+466|oniet.paz|478|Oniet Paz Barros|7|Vicepresidencia de Inversiones|f|4
+467|raul.agras|479|Raul Martinez Agras|7|Vicepresidencia de Inversiones|f|4
+468|danay.hechavarria|480|Danay Hechavarria Alderete|7|Vicepresidencia de Inversiones|f|4
+469|braudel.hernandez|481|Braudel Hernandez Cabrera |7|Vicepresidencia de Inversiones|f|4
+471|yomiuri.yin|483|Yomiuri Yin Cabrera|7|Vicepresidencia de Inversiones|f|4
+473|esludian.rodriguez|485|Esludian Rodriguez Lorenzo|11|Capital Humano|f|11
+476|miladys.capo|488|Miladys Capo Medina|4|Dirección de Ejecución de Obras Civiles|f|13
+477|gilberto.amador|489|Gilberto Amador Gonzalez|7|Vicepresidencia de Inversiones|f|7
+478|esmel.acuna|490|Esmel Acuna Cuba|7|Vicepresidencia de Inversiones|f|4
+479|danna.valdes|491|Danna margarita valdes suarez|7|Vicepresidencia de Inversiones|f|4
+480|yoandy.lopez|492|Yoandy Lopez Molina|7|Vicepresidencia de Inversiones|f|4
+481|millamis.leyva|493|Millamis Celeste Leyva Provance|4|Dirección de Ejecución de Obras Civiles|f|7
+482|albertog.fraga|494|Alberto Garcia Fraga|7|Vicepresidencia de Inversiones|f|4
+483|dania.izaguirre|495|Dania Izaguirre Laffita|7|Vicepresidencia de Inversiones|f|4
+484|lenin.asin|496|Lenin Asin Ordunez|7|Vicepresidencia de Inversiones|f|4
+485|leonel.leon|497|Leonel Antonio Leon Martin|4|Dirección de Ejecución de Obras Civiles|f|12
+486|anaisy.garcia|498|Anaisy Garcia Pulido|4|Dirección de Ejecución de Obras Civiles|f|12
+487|omar.lopez|499|Omar Lopez Diaz |7|Vicepresidencia de Inversiones|t|4
+488|yasniel.hernandez|500|Yasniel Hernandez Alfonso|7|Vicepresidencia de Inversiones|f|5
+489|javier.romay|501|Javier Alejandro Romay Duenas|7|Vicepresidencia de Inversiones|t|4
+490|osmel.morales|502|Osmel Morales Muniz|7|Vicepresidencia de Inversiones|t|5
+491|yunierky.olivera|503|Yunierky Olivera Verdecia|7|Vicepresidencia de Inversiones|t|4
+492|yoennys.delpozo|504|Yoennys Del Pozo Rodriguez|7|Vicepresidencia de Inversiones|f|4
+493|rudyt.morales|505|Rudyt Morales Calderon|7|Vicepresidencia de Inversiones|f|5
+494|mario.gonzalez|506|Nestor Mario Gonzalez Campa|4|Dirección de Ejecución de Obras Civiles|t|9
+495|omar.ardanal|507|Omar Martinez Ardanal|13|Logística y Servicios|t|8
+496|jose.liranza|513|Jose Liranza Zamora|7|Vicepresidencia de Inversiones|f|4
+497|yoendrys.roble|514|Yoendrys Roble Chibas|7|Vicepresidencia de Inversiones|f|4
+498|vladimir.abo|515|Vladimir Abo Olivera|13|Logística y Servicios|f|7
+499|wilma.verdecia|516|Wilma Verdecia Soto |7|Vicepresidencia de Inversiones|f|4
+500|daniel.pacheco|517|Daniel Dominguez Pacheco|7|Vicepresidencia de Inversiones|f|4
+501|angelg.gonzalez|518|Angel Gonzalez Gonzalez|7|Vicepresidencia de Inversiones|f|5
+502|rene.huie|519|Rene Julian Huie Chiug|7|Vicepresidencia de Inversiones|f|4
+503|daylee.mompie|520|Daylee Mompie Marti|14|Tecnología de la Información|f|7
+504|daniel.calderon|521|Daniel Ricardo Calderon Estevez|14|Tecnología de la Información|f|6
+506|yamil.diago|523|Yamil Alfonso Diago Bent|11|Capital Humano|f|7
+507|ralkis.benitez|524|Ralkis Ezequiel Benitez Suarez|13|Logística y Servicios|f|12
+508|andres.fernandez|525|Arnoldo Andres Fort Fernandez|7|Vicepresidencia de Inversiones|f|4
+509|yoel.tellez|526|Yoel Adalberto Tellez Barrueco|7|Vicepresidencia de Inversiones|f|4
+510|yordan.castillo|527|Jose Yordan Castillo Landa|11|Capital Humano|f|7
+511|yadir.oliva|528|Yadir Oliva Garcia|7|Vicepresidencia de Inversiones|f|5
+512|ivon.gonzalez|529|Ivon Gonzalez Acosta|11|Capital Humano|f|10
+513|erick.rodriguez|530|Erick Rodriguez Suarez|7|Vicepresidencia de Inversiones|f|4
+514|elizabeth.miranda|531|Elizabeth Miranda Ortega|7|Vicepresidencia de Inversiones|f|5
+515|jorge.sacre|532|Jorge Mario Sacre Izquierdo|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|11
+516|leodamys.balda|533|Leodamys Balda Sicre|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|10
+518|cesar.lguevara|535|Cesar Dayan Laron de Guevara Figueredo|7|Vicepresidencia de Inversiones|f|6
+519|tairy.garcia|536|Tairy Garcia Hernandez|11|Capital Humano|f|10
+520|julio.navarro|537|Julio Ernesto Navarro|7|Vicepresidencia de Inversiones|f|6
+521|lisdiana.correa|538|Lis Diana Correa Furones|7|Vicepresidencia de Inversiones|f|6
+522|jorgev.padilla|539|Jorge Victor Padilla Villalon|7|Vicepresidencia de Inversiones|f|6
+523|maykel.maquintoche|540|Maykel Maquintoche Herrera|7|Vicepresidencia de Inversiones|f|6
+524|zuyen.hung|541|Zuyen Hung Martinez|7|Vicepresidencia de Inversiones|f|6
+525|anibal.andres|542|Anibal Andres Zayas|1|División de Proyecto y Ejecución de Obras|f|18
+526|sheyla.elizondo|543|Sheyla de la Caridad Elizondo Morales|11|Capital Humano|f|11
+527|diamel.sebastian|544|Diamel Sebastian Gomez Alfonso|7|Vicepresidencia de Inversiones|f|6
+528|maykelg.enriquez|545|Maykel Gonzalez Enriquez|7|Vicepresidencia de Inversiones|f|7
+529|saud.santana|546|Saud Arturo Santana Gil|7|Vicepresidencia de Inversiones|f|6
+530|yoel.medel|547|Yoel Medel Martinez|7|Vicepresidencia de Inversiones|f|6
+531|jorge.matos|548|Jorge Matos Noya|7|Vicepresidencia de Inversiones|f|6

@@ -1,0 +1,594 @@
+2|_unknown|Unknown|base|base|f
+1113|api.rest.field|Campos utilizados en el Api Rest||base|f
+1115|api.rest.function.parameter|Parámetros utilizados en el Api Rest||base|f
+1116|api.rest.log|Historial de accesos al Api Rest||base|f
+1112|api.rest.path|Registro de aplicaciones para el Api Rest||base|f
+1114|api.rest.tag|Categorías del Api Rest||base|f
+1111|api.rest.version|Registro de versiones del Api Rest||base|f
+116|auth_totp.device|Authentication Device|auth_totp|base|f
+117|auth_totp.wizard|2-Factor Setup Wizard|auth_totp|base|t
+76|avatar.mixin|Avatar Mixin|base|base|f
+1|base|Base|base, base_import, mail, sicpro_modulo_importar_seguridad, web|base|f
+352|base.automation|Automated Action|base_automation|base|f
+115|base.document.layout|Company Document Layout|web|base|t
+74|base.enable.profiling.wizard|Enable profiling for some time|base|base|t
+110|base.language.export|Language Export|base|base|t
+107|base.language.import|Language Import|base|base|t
+106|base.language.install|Install Language|base|base|t
+109|base.module.uninstall|Module Uninstall|base, mail|base|t
+105|base.module.update|Update Module|base|base|t
+108|base.module.upgrade|Upgrade Module|base|base|t
+113|base.partner.merge.automatic.wizard|Merge Partner Wizard|base, mail|base|t
+112|base.partner.merge.line|Merge Partner Line|base|base|t
+111|base.update.translations|Update Translations|base|base|t
+119|base_import.import|Base Import|base_import|base|t
+118|base_import.mapping|Base Import Mapping|base_import|base|f
+120|base_import.tests.models.char|Tests : Base Import Model, Character|base_import|base|f
+124|base_import.tests.models.char.noreadonly|Tests : Base Import Model, Character No readonly|base_import|base|f
+122|base_import.tests.models.char.readonly|Tests : Base Import Model, Character readonly|base_import|base|f
+121|base_import.tests.models.char.required|Tests : Base Import Model, Character required|base_import|base|f
+123|base_import.tests.models.char.states|Tests : Base Import Model, Character states|base_import|base|f
+125|base_import.tests.models.char.stillreadonly|Tests : Base Import Model, Character still readonly|base_import|base|f
+134|base_import.tests.models.complex|Tests: Base Import Model Complex|base_import|base|f
+133|base_import.tests.models.float|Tests: Base Import Model Float|base_import|base|f
+126|base_import.tests.models.m2o|Tests : Base Import Model, Many to One|base_import|base|f
+127|base_import.tests.models.m2o.related|Tests : Base Import Model, Many to One related|base_import|base|f
+128|base_import.tests.models.m2o.required|Tests : Base Import Model, Many to One required|base_import|base|f
+129|base_import.tests.models.m2o.required.related|Tests : Base Import Model, Many to One required related|base_import|base|f
+130|base_import.tests.models.o2m|Tests : Base Import Model, One to Many|base_import|base|f
+131|base_import.tests.models.o2m.child|Tests : Base Import Model, One to Many child|base_import|base|f
+132|base_import.tests.models.preview|Tests : Base Import Model Preview|base_import|base|f
+136|bus.bus|Communication Bus|bus|base|f
+137|bus.presence|User Presence|bus, mail|base|f
+1692|calendar.actividades.organizativas|Actividades Organizativas del Calendario||base|f
+386|calendar.alarm|Event Alarm|calendar|base|f
+387|calendar.alarm_manager|Event Alarm Manager|calendar|base|f
+383|calendar.attendee|Calendar Attendee Information|calendar|base|f
+1693|calendar.cargos.externos|Cargo Externos del Calendario||base|f
+1861|calendar.cumplimiento.reporte|Cumplimiento del plan de trabajo||base|f
+385|calendar.event|Calendar Event|calendar|base|f
+389|calendar.event.type|Event Meeting Type|calendar|base|f
+388|calendar.filters|Calendar Filters|calendar|base|f
+2332|calendar.pie.firmas|Pie de Firma del Calendario||base|f
+1324|calendar.plan.reporte|Reportes del plan de trabajo||base|f
+384|calendar.recurrence|Event Recurrence Rule|calendar|base|f
+3038|calendar.tareas.principales.generales|Registros de tareas principales y generales||base|f
+1325|calendar.tipo.calendario|Tipo de Calendario||base|f
+99|change.password.user|User, Change Password Wizard|base|base|t
+98|change.password.wizard|Change Password Wizard|base|base|t
+103|decimal.precision|Decimal Precision|base|base|f
+1089|digest.digest|Digest||base|f
+1090|digest.tip|Digest Tips||base|f
+313|fetchmail.server|Incoming Mail Server|fetchmail|base|f
+81|format.address.mixin|Address Format|base|base|f
+395|gamification.badge|Gamification Badge|gamification|base|f
+394|gamification.badge.user|Gamification User Badge|gamification|base|f
+399|gamification.badge.user.wizard|Gamification User Badge Wizard|gamification|base|t
+392|gamification.challenge|Gamification Challenge|gamification|base|f
+393|gamification.challenge.line|Gamification generic goal for challenge|gamification|base|f
+391|gamification.goal|Gamification Goal|gamification|base|f
+390|gamification.goal.definition|Gamification Goal Definition|gamification|base|f
+398|gamification.goal.wizard|Gamification Goal Wizard|gamification|base|t
+396|gamification.karma.rank|Rank based on karma|gamification|base|f
+397|gamification.karma.tracking|Track Karma Changes|gamification|base|f
+138|iap.account|IAP Account|iap|base|f
+139|iap.enrich.api|IAP Lead Enrichment API|iap|base|f
+75|image.mixin|Image Mixin|base|base|f
+3238|internos.solicitudes.cancelado|Solicitudes de los Servicios internos Cancelados||base|t
+3236|internos.solicitudes.rechazado.revision|Solicitudes de los Servicios internos Rechazados en la revisión||base|t
+3237|internos.solicitudes.rechazado.validacion|Solicitudes de los Servicios internos Rechazados en la validación||base|t
+22|ir.actions.act_url|Action URL|base|base|f
+19|ir.actions.act_window|Action Window|base|base|f
+20|ir.actions.act_window.view|Action Window View|base, mail, web|base|f
+21|ir.actions.act_window_close|Action Window Close|base|base|f
+18|ir.actions.actions|Actions|base|base|f
+26|ir.actions.client|Client Action|base|base|f
+27|ir.actions.report|Report Action|base|base|f
+23|ir.actions.server|Server Action|base, base_automation, mail, mass_editing|base|f
+25|ir.actions.todo|Configuration Wizards|base|base|f
+17|ir.asset|Asset|base|base|f
+28|ir.attachment|Attachment|base, mail, web_editor|base|f
+38|ir.autovacuum|Automatic Vacuum|base|base|f
+37|ir.config_parameter|System Parameter|base, mail, sicpro_modulo_timeout|base|f
+29|ir.cron|Scheduled Actions|base|base|f
+1104|ir.cron.history|Historial de ejecución del Cron||base|f
+30|ir.cron.trigger|Triggered actions|base|base|f
+32|ir.default|Default Values|base|base|f
+68|ir.demo|Demo|base|base|t
+69|ir.demo_failure|Demo failure|base|base|t
+70|ir.demo_failure.wizard|Demo Failure wizard|base|base|t
+34|ir.exports|Exports|base|base|f
+35|ir.exports.line|Exports Line|base|base|f
+40|ir.fields.converter|Fields Converter|base|base|f
+31|ir.filters|Filters|base|base|f
+61|ir.http|HTTP Routing|auth_signup, auth_totp, base, base_setup, calendar, http_routing, mail, mail_bot, sicpro_modulo_importar_seguridad, sicpro_modulo_timeout, web, web_editor, web_tour|base|f
+62|ir.logging|Logging|base|base|f
+39|ir.mail_server|Mail Server|base|base|f
+3|ir.model|Models|base, mail|base|f
+8|ir.model.access|Model Access|base|base|f
+6|ir.model.constraint|Model Constraint|base|base|f
+9|ir.model.data|Model Data|base|base|f
+4|ir.model.fields|Fields|base, mail|base|f
+5|ir.model.fields.selection|Fields Selection|base|base|f
+7|ir.model.relation|Relation Model|base|base|f
+64|ir.module.category|Application|base|base|f
+65|ir.module.module|Module|base|base|f
+66|ir.module.module.dependency|Module dependency|base|base|f
+67|ir.module.module.exclusion|Module exclusion|base|base|f
+73|ir.profile|Profiling results|base|base|f
+63|ir.property|Company Property|base|base|f
+41|ir.qweb|Qweb|base, web_editor|base|f
+42|ir.qweb.field|Qweb Field|base, web_editor|base|f
+58|ir.qweb.field.barcode|Qweb Field Barcode|base|base|f
+59|ir.qweb.field.contact|Qweb Field Contact|base, web_editor|base|f
+45|ir.qweb.field.date|Qweb Field Date|base, web_editor|base|f
+46|ir.qweb.field.datetime|Qweb Field Datetime|base, web_editor|base|f
+56|ir.qweb.field.duration|Qweb Field Duration|base, web_editor|base|f
+44|ir.qweb.field.float|Qweb Field Float|base, web_editor|base|f
+55|ir.qweb.field.float_time|Qweb Field Float Time|base|base|f
+51|ir.qweb.field.html|Qweb Field HTML|base, web_editor|base|f
+52|ir.qweb.field.image|Qweb Field Image|base, web, web_editor, web_unsplash|base|f
+53|ir.qweb.field.image_url|Qweb Field Image|base, web|base|f
+43|ir.qweb.field.integer|Qweb Field Integer|base, web_editor|base|f
+50|ir.qweb.field.many2many|Qweb field many2many|base|base|f
+49|ir.qweb.field.many2one|Qweb Field Many to One|base, web_editor|base|f
+54|ir.qweb.field.monetary|Qweb Field Monetary|base, web_editor|base|f
+60|ir.qweb.field.qweb|Qweb Field qweb|base, web_editor|base|f
+57|ir.qweb.field.relative|Qweb Field Relative|base, web_editor|base|f
+48|ir.qweb.field.selection|Qweb Field Selection|base, web_editor|base|f
+47|ir.qweb.field.text|Qweb Field Text|base, web_editor|base|f
+36|ir.rule|Record Rule|base|base|f
+11|ir.sequence|Sequence|base|base|f
+12|ir.sequence.date_range|Sequence Date Range|base|base|f
+24|ir.server.object.lines|Server Action value mapping|base|base|f
+33|ir.translation|Translation|base, web_editor|base|f
+13|ir.ui.menu|Menu|base, web|base|f
+15|ir.ui.view|View|base, http_routing, mail, web_editor|base|f
+14|ir.ui.view.custom|Custom View|base, sicpro_app_dashboard|base|f
+1082|link.tracker|Link Tracker||base|f
+1084|link.tracker.click|Link Tracker Click||base|f
+1083|link.tracker.code|Link Tracker Code||base|f
+151|mail.activity|Activity|calendar, mail, note|base|f
+142|mail.activity.mixin|Activity Mixin|calendar, mail|base|f
+150|mail.activity.type|Activity Type|calendar, mail, note|base|f
+140|mail.alias|Email Aliases|mail|base|f
+143|mail.alias.mixin|Email Aliases Mixin|mail|base|f
+152|mail.blacklist|Mail Blacklist|mail|base|f
+185|mail.blacklist.remove|Remove email from blacklist wizard|mail|base|t
+314|mail.bot|Mail Bot|mail_bot|base|f
+162|mail.channel|Discussion Channel|mail, mail_bot|base|f
+160|mail.channel.partner|Listeners of a Channel|mail|base|f
+161|mail.channel.rtc.session|Mail RTC session|mail|base|f
+186|mail.compose.message|Email composition wizard|mail|base|t
+145|mail.composer.mixin|Mail Composer Mixin|mail|base|f
+153|mail.followers|Document Followers|mail|base|f
+163|mail.guest|Guest|mail|base|f
+164|mail.ice.server|ICE server|mail|base|f
+157|mail.mail|Outgoing Mails|fetchmail, mail|base|f
+156|mail.message|Message|mail|base|f
+154|mail.message.reaction|Message Reaction|mail|base|f
+155|mail.message.subtype|Message subtypes|mail|base|f
+149|mail.notification|Message Notifications|mail|base|f
+144|mail.render.mixin|Mail Render Mixin|mail|base|f
+187|mail.resend.cancel|Dismiss notification for resend by model|mail|base|t
+188|mail.resend.message|Email resend wizard|mail|base|t
+189|mail.resend.partner|Partner with additional information for mail resend|mail|base|t
+165|mail.shortcode|Canned Response / Shortcode|mail|base|f
+159|mail.template|Email Templates|mail|base|f
+190|mail.template.preview|Email Template Preview|mail|base|t
+146|mail.thread|Email Thread|mail, mail_bot|base|f
+147|mail.thread.blacklist|Mail Blacklist mixin|mail|base|f
+148|mail.thread.cc|Email CC management|mail|base|f
+316|mail.thread.phone|Phone Blacklist Mixin|phone_validation|base|f
+158|mail.tracking.value|Mail Tracking Value|mail|base|f
+191|mail.wizard.invite|Invite wizard|mail|base|t
+1092|mailing.contact|Mailing Contact||base|f
+1091|mailing.contact.subscription|Mass Mailing Subscription Information||base|f
+1099|mailing.contact.to.list|Add Contacts to Mailing List||base|t
+1093|mailing.list|Mailing List||base|f
+1100|mailing.list.merge|Merge Mass Mailing List||base|t
+1095|mailing.mailing|Mass Mailing||base|f
+1102|mailing.mailing.schedule.date|schedule a mailing||base|t
+1101|mailing.mailing.test|Sample Mail Wizard||base|t
+1094|mailing.trace|Mailing Statistics||base|f
+1098|mailing.trace.report|Mass Mailing Statistics||base|f
+1118|map.website|Map Website||base|f
+357|mass.editing.line|Mass Editing Line|mass_editing|base|f
+358|mass.editing.wizard|Wizard for mass edition|mass_editing|base|t
+341|note.note|Note|note|base|f
+339|note.stage|Note Stage|note|base|f
+2369|note.tableros|Tableros de Notas||base|f
+340|note.tag|Note Tag|note|base|f
+927|nucleo.sicpro.readonly|Nucleo Readonly|nucleo_sicpro_erp|base|f
+947|pass.user.backup|Modelo para visualizar el PassUserBackup||base|t
+368|pdforientation|Seleccionar la orientación del pdf||base|t
+315|phone.blacklist|Phone Blacklist|phone_validation|base|f
+317|phone.blacklist.remove|Remove phone from blacklist|phone_validation|base|t
+1085|portal.mixin|Portal Mixin||base|f
+1086|portal.share|Portal Sharing||base|t
+1087|portal.wizard|Grant Portal Access||base|t
+1088|portal.wizard.user|Portal User Config||base|t
+182|publisher_warranty.contract|Publisher Warranty Contract|mail|base|f
+1075|python.paquetes.instalados|Paquetes Instalados de Python||base|f
+3262|question.selection|Preguntas de selección||base|f
+104|report.base.report_irmodulereference|Module Reference Report (base)|base|base|f
+71|report.layout|Report Layout|base|base|f
+72|report.paperformat|Paper Format Config|base|base|f
+86|res.bank|Bank|base|base|f
+93|res.company|Companies|auth_ldap, base, mail, nucleo_sicpro_erp, resource, web|base|f
+916|res.company.ldap|Configuración del Certificado LDAPS|auth_ldap|base|f
+88|res.config|Config|base|base|t
+89|res.config.installer|Config Installer|base|base|t
+90|res.config.settings|Config Settings|auth_ldap, auth_signup, base, base_setup, iap, mail, web_unsplash|base|t
+77|res.country|Country|base|base|f
+78|res.country.group|Country Group|base|base|f
+79|res.country.state|Country state|base|base|f
+91|res.currency|Currency|base|base|f
+92|res.currency.rate|Currency Rate|base|base|f
+94|res.groups|Access Groups|base, mail|base|f
+80|res.lang|Languages|base|base|f
+953|res.municipality|Municipio||base|f
+84|res.partner|Contact|auth_signup, base, bus, calendar, mail, phone_validation|base|f
+87|res.partner.bank|Bank Accounts|base|base|f
+82|res.partner.category|Partner Tags|base|base|f
+85|res.partner.industry|Industry|base|base|f
+83|res.partner.title|Partner Title|base|base|f
+96|res.users|Users|auth_ldap, auth_signup, auth_totp, auth_totp_mail, base, base_import, base_setup, bus, calendar, gamification, mail, mail_bot, note, resource, sicpro_modulo_roles, sicpro_modulo_timeout, web_unsplash|base|f
+100|res.users.apikeys|res.users.apikeys|base|base|f
+101|res.users.apikeys.description|res.users.apikeys.description|base|base|t
+102|res.users.apikeys.show|res.users.apikeys.show|base|base|f
+97|res.users.identitycheck|Password Check Wizard|base|base|t
+95|res.users.log|Users Log|base|base|f
+166|res.users.settings|User Settings|mail|base|f
+167|res.users.settings.volumes|User Settings Volumes|mail|base|f
+16|reset.view.arch.wizard|Reset View Architecture Wizard|base|base|t
+344|resource.calendar|Resource Working Time|resource|base|f
+345|resource.calendar.attendance|Work Detail|resource|base|f
+347|resource.calendar.leaves|Resource Time Off Detail|resource|base|f
+343|resource.mixin|Resource Mixin|resource|base|f
+346|resource.resource|Resources|resource|base|f
+348|resource.test|Test Resource Model|resource|base|f
+353|sicpro.app.administracion|Aplicación para la administración de SICPRO ERP||base|f
+1073|sicpro.app.administracion.directorio.app|Registro de los directorios de las App||base|f
+942|sicpro.app.administracion.menus|Menus de accesos a la administración||base|f
+943|sicpro.app.administracion.menus.accesos|Accesos de los menus de la administración||base|f
+445|sicpro.app.clientes|Aplicación de Clientes||base|f
+446|sicpro.app.clientes.etiquetas|Etiquetas para la Aplicación de Clientes||base|f
+815|sicpro.app.cmi.acciones|Acciones del CMI||base|f
+816|sicpro.app.cmi.acciones.estado|Estado de las acciones||base|f
+817|sicpro.app.cmi.acciones.modo.control|Modo de Control de las acciones||base|f
+806|sicpro.app.cmi.indicadores|Indicadores del CMI||base|f
+809|sicpro.app.cmi.indicadores.cambios|Cambios de Indicadores del CMI||base|f
+810|sicpro.app.cmi.indicadores.graficos|Gráficos de los Indicadores del CMI||base|f
+807|sicpro.app.cmi.indicadores.modal.cambios|Solicitud de cambios en los indicadores||base|t
+808|sicpro.app.cmi.indicadores.valores|Valores de los Indicadores del CMI||base|f
+818|sicpro.app.cmi.objetivos.anuales|Objetivos Anuales del CMI||base|f
+819|sicpro.app.cmi.objetivos.estrategicos|Objetivos Estratégicos del CMI||base|f
+811|sicpro.app.cmi.perspectivas|Perspectivas del CMI||base|f
+813|sicpro.app.cmi.perspectivas.anios|Años de las Perspectivas del CMI||base|f
+812|sicpro.app.cmi.perspectivas.eje.estrategico|Ejes Estratégicos del CMI||base|f
+814|sicpro.app.cmi.perspectivas.periodos|Periodos del CMI||base|f
+820|sicpro.app.cmi.reporte|Reportes del CMI||base|t
+452|sicpro.app.contratos|Gestión de Contratos||base|f
+461|sicpro.app.contratos.areas|Áreas de los contratos||base|f
+462|sicpro.app.contratos.beneficiarios|Beneficiarios de los contratos||base|f
+454|sicpro.app.contratos.cancelado|Contratos Cancelados||base|t
+455|sicpro.app.contratos.cuentas|Cuentas de los contratos||base|f
+458|sicpro.app.contratos.dias|Días hábiles para los contratos||base|f
+463|sicpro.app.contratos.economia|Gestión económica de los contratos||base|f
+469|sicpro.app.contratos.economia.acapite|Acápites económicos de los contratos||base|f
+470|sicpro.app.contratos.economia.bancos|Bancos de los contratos||base|f
+471|sicpro.app.contratos.economia.cuentas.dvpe|Registro de cuentas de la DVPE||base|f
+465|sicpro.app.contratos.economia.estados|Estados económicos de los contratos||base|f
+466|sicpro.app.contratos.economia.etiquetas|Etiquetas económicas de los contratos||base|f
+464|sicpro.app.contratos.economia.facturas|Facturas de los contratos||base|f
+468|sicpro.app.contratos.economia.indicador|Indicadores económicos de los contratos||base|f
+467|sicpro.app.contratos.economia.pago|Forma de pago económico de los contratos||base|f
+457|sicpro.app.contratos.estados|Estados de los contratos||base|f
+459|sicpro.app.contratos.etiquetas|Etiquetas de los contratos||base|f
+447|sicpro.app.contratos.proveedores|Gestión de los proveedores||base|f
+449|sicpro.app.contratos.proveedores.estados|Estados del proveedor||base|f
+450|sicpro.app.contratos.proveedores.etiquetas|Etiquetas de proveedores de los contratos||base|f
+448|sicpro.app.contratos.proveedores.rechazadas|Proveedores Rechazados||base|t
+451|sicpro.app.contratos.proveedores.tipo|Tipos de proveedores de los contratos||base|f
+453|sicpro.app.contratos.rechazado|Contratos Rechazados||base|t
+456|sicpro.app.contratos.tipo|Tipo de contratos||base|f
+460|sicpro.app.contratos.unidades|Unidades de los contratos||base|f
+800|sicpro.app.credenciales|Credenciales de los Trabajadores||base|f
+804|sicpro.app.credenciales.accesos|Accesos de Credenciales||base|f
+803|sicpro.app.credenciales.alcance|Alcance de Credenciales||base|f
+1254|sicpro.app.credenciales.cancelacion|Motivo de cancelación de las Credenciales||base|f
+1253|sicpro.app.credenciales.cancelar|Cancelar Trabajadores||base|t
+805|sicpro.app.credenciales.modal|Credenciales - Modal para recortar Imagen||base|t
+802|sicpro.app.credenciales.siglas|Siglas de las Credenciales||base|f
+801|sicpro.app.credenciales.tipo|Tipo de Credenciales||base|f
+382|sicpro.app.dashboard|Mi Dashboard Personal|sicpro_app_dashboard|base|f
+422|sicpro.app.gestor.documental|Gestor Documental||base|f
+2973|sicpro.app.grupo.ejecutor.horizontal|Grupo Ejecutor Solicitudes Horizontales||base|t
+523|sicpro.app.grupo.ejecutor.t4|Grupo Ejecutor T4||base|t
+525|sicpro.app.grupo.ejecutor.t5|Grupo Ejecutor T5||base|t
+3149|sicpro.app.instrucciones.etiquetas|Etiquetas de las Instrucciones||base|f
+3150|sicpro.app.instrucciones.instruccion|Registro de Instrucciones||base|f
+3151|sicpro.app.instrucciones.trabajador|Instrucciones Laborales de los Trabajadores||base|f
+473|sicpro.app.materiales.insumos|Materiales e insumos||base|f
+474|sicpro.app.materiales.insumos.etiquetas|Etiquetas de los productos||base|f
+475|sicpro.app.materiales.insumos.um|UM de los productos||base|f
+3028|sicpro.app.medios.informaticos|Inventario Medios Informáticos||base|f
+3029|sicpro.app.medios.informaticos.bajas|Baja de Medios Informáticos||base|f
+3030|sicpro.app.medios.informaticos.historial|Historial de actualizaciones del inventario||base|f
+3031|sicpro.app.medios.informaticos.importar|Sincronizar Medios Informáticos||base|f
+3036|sicpro.app.medios.informaticos.importar.wizard|Actualizar Inventario de medios informáticos||base|t
+3032|sicpro.app.medios.informaticos.pdtes.piezas|Medios Informáticos Pendiente por Piezas||base|f
+3033|sicpro.app.medios.informaticos.taller|Medios Informáticos Enviados a Taller||base|f
+3034|sicpro.app.medios.informaticos.tipo.equipo|Tipo de Medio Informático||base|f
+3035|sicpro.app.medios.informaticos.tramites|Trámites del taller de Medio Informático||base|f
+508|sicpro.app.metrologia.centro.calibracion|Centro de Calibración Metrología||base|f
+504|sicpro.app.metrologia.direcciones|Direcciones de equipos de Metrología||base|f
+505|sicpro.app.metrologia.equipos|Equipos de metrología||base|f
+506|sicpro.app.metrologia.equipos.transferencias|Transferencias de Gastos de los Equipos||base|f
+509|sicpro.app.metrologia.estado.tecnico|Estado Técnico Metrología||base|f
+510|sicpro.app.metrologia.magnitud|Magnitudes de la Metrología||base|f
+1106|sicpro.app.modulo.ldap.historial|Historial de Registros LDAP||base|f
+1107|sicpro.app.modulo.ldap.registros|Registros del Servicio LDAP||base|f
+1109|sicpro.app.modulo.usuario.desactivar|Desactivación de los usuarios||base|f
+1697|sicpro.app.modulo.usuario.desactivar.dias|Aviso en días para la desactivación de los usuarios||base|f
+1247|sicpro.app.nube.etecsa.token|Token de la Nube Etecsa||base|t
+3010|sicpro.app.ordenes.clases.proyecto|Clase de trabajo para las órdenes de proyecto||base|f
+3011|sicpro.app.ordenes.consecutivos|Programa de Inversiones de las Órdenes de Trabajo||base|f
+3012|sicpro.app.ordenes.estados|Estado de las órdenes de trabajo||base|f
+3308|sicpro.app.ordenes.estados.trabajador|Estado de los trabajadores en las obras||base|f
+3309|sicpro.app.ordenes.estados.transporte.equipos|Estado del transporte y los equipos en las obras||base|f
+3013|sicpro.app.ordenes.etiquetas|Etiquetas de las órdenes de trabajo||base|f
+3310|sicpro.app.ordenes.grupo.transporte|Grupos del transporte||base|f
+3311|sicpro.app.ordenes.grupo.transporte.equipos|Configuración del transporte y los equipos||base|f
+3014|sicpro.app.ordenes.paralizacion|Motivo de la última paralización||base|f
+3015|sicpro.app.ordenes.problemas|Problemas en la ejecución||base|f
+3016|sicpro.app.ordenes.programa.inversiones|Programa de Inversiones de las Órdenes de Trabajo||base|f
+3017|sicpro.app.ordenes.trabajo|Órdenes de Trabajo||base|f
+3018|sicpro.app.ordenes.trabajo.anexo.problemas|Tabla anexo de los problemas en la ejecución||base|f
+3027|sicpro.app.ordenes.trabajo.anexo3|Modelo para visualizar el Anexo 3||base|t
+3022|sicpro.app.ordenes.trabajo.aviso.intension|Aviso de intensión de la orden de trabajo||base|t
+3021|sicpro.app.ordenes.trabajo.canceladas|Motivo de cancelación de la orden de trabajo||base|t
+3307|sicpro.app.ordenes.trabajo.equipos.complementarios|Equipos complemtarios en la ejecución||base|f
+3306|sicpro.app.ordenes.trabajo.equipos.especializados|Equipos especializados en la ejecución||base|f
+3019|sicpro.app.ordenes.trabajo.paralizacion|Motivo de la paralización de la orden de trabajo||base|t
+3020|sicpro.app.ordenes.trabajo.rechazadas|Motivo de rechazo de la orden de trabajo||base|t
+3304|sicpro.app.ordenes.trabajo.trabajadores|Trabajadores en la ejecución||base|f
+3305|sicpro.app.ordenes.trabajo.transporte|Transporte en la ejecución||base|f
+3253|sicpro.app.repo|Repositorio Institucional||base|f
+3254|sicpro.app.repo.autores|Autores del repositorio||base|f
+3260|sicpro.app.repo.estados|Estado de los repositorios||base|f
+3258|sicpro.app.repo.etiquetas|Etiqueta o Palabra Clave||base|f
+3261|sicpro.app.repo.facultad|Facultad o Universidad||base|f
+3259|sicpro.app.repo.licencia|Licencias de Uso||base|f
+3257|sicpro.app.repo.tipo|Tipos de repositorios||base|f
+3255|sicpro.app.repo.tutor.externo|Tutores Externos||base|f
+3256|sicpro.app.repo.tutor.interno|Tutores Internos||base|f
+511|sicpro.app.reuniones|Gestión de Reuniones||base|f
+517|sicpro.app.reuniones.acuerdos|Acuerdos de las reuniones||base|f
+1256|sicpro.app.reuniones.acuerdos.cancelados|Cancelar decisiones||base|t
+1255|sicpro.app.reuniones.acuerdos.rechazados|Rechazar decisiones||base|t
+514|sicpro.app.reuniones.categorias|Categorías de las etiquetas||base|f
+1257|sicpro.app.reuniones.decisiones|Decisiones de las reuniones||base|f
+1259|sicpro.app.reuniones.decisiones.canceladas|Cancelar decisiones||base|t
+1258|sicpro.app.reuniones.decisiones.rechazadas|Rechazar decisiones||base|t
+1260|sicpro.app.reuniones.despachos|Gestión de los Despachos||base|f
+1263|sicpro.app.reuniones.despachos.agenda|Agenda de los Despachos||base|f
+1262|sicpro.app.reuniones.despachos.comentarios|Comentarios de los Despachos||base|f
+1261|sicpro.app.reuniones.despachos.participantes|Participantes de los Despachos||base|f
+512|sicpro.app.reuniones.estados|Estados de las Reuniones||base|f
+513|sicpro.app.reuniones.etiquetas|Etiqueta de las Reuniones||base|f
+515|sicpro.app.reuniones.lugares|Lugares de las Reuniones||base|f
+516|sicpro.app.reuniones.participantes|Participantes de la reunión||base|f
+424|sicpro.app.salon.clases|Salón de Clases||base|f
+767|sicpro.app.salon.clases.adjuntos|Documentación del Salón de Clases||base|f
+423|sicpro.app.salon.clases.etiquetas|Etiquetas del Salón de clases||base|f
+765|sicpro.app.salon.clases.http|Salón de Clases Http||base|f
+425|sicpro.app.salon.clases.temas|Temas del Salón de clases||base|f
+426|sicpro.app.salon.clases.tipo|Tipo de temáticas||base|f
+1687|sicpro.app.servicios.internos.correos|Gestión de correos internos||base|f
+1334|sicpro.app.servicios.internos.fijos|Gestión de fijos||base|f
+1333|sicpro.app.servicios.internos.lineas|Gestión de líneas||base|f
+1335|sicpro.app.servicios.internos.nauta|Gestión de cuentas nautas||base|f
+3235|sicpro.app.servicios.internos.solicitudes|Gestión de las Solicitudes de los Servicios internos||base|f
+3234|sicpro.app.servicios.internos.solicitudes.observaciones|Gestión de observaciones de las solicitudes||base|f
+519|sicpro.app.solicitudes.canceladas.t2|Canceladas T2||base|t
+521|sicpro.app.solicitudes.canceladas.t3|Canceladas T3||base|t
+527|sicpro.app.solicitudes.estados|Estado de Solicitudes||base|f
+529|sicpro.app.solicitudes.etiquetas|Etiquetas de las Solicitudes||base|f
+518|sicpro.app.solicitudes.oportunidades|Solicitudes y oportunidades||base|f
+528|sicpro.app.solicitudes.rechazadas|Motivo de rechazo||base|f
+520|sicpro.app.solicitudes.rechazadas.t3|Rechazadas T3||base|t
+522|sicpro.app.solicitudes.rechazadas.t4|Rechazadas T4||base|t
+524|sicpro.app.solicitudes.rechazadas.t5|Rechazadas T5||base|t
+1696|sicpro.app.solicitudes.rechazadas.t6|Rechazadas T6||base|t
+526|sicpro.app.solicitudes.tabla.oportunidades|Tabla de Solicitudes y oportunidades||base|f
+400|sicpro.app.soporte|Soporte de Ayuda||base|f
+411|sicpro.app.soporte.aplicaciones|Soporte de aplicaciones del sistema||base|f
+413|sicpro.app.soporte.bitacora|Bitácora de Usuarios SICPRO||base|f
+404|sicpro.app.soporte.canales|Canales de Solicitud||base|f
+2327|sicpro.app.soporte.cronograma.anio|Años del Cronograma Planificado de Desarrollo||base|f
+2328|sicpro.app.soporte.cronograma.plan|Cronograma Planificado para el Desarrollo||base|f
+2329|sicpro.app.soporte.cronograma.plan.dependencias|Dependencias de Cronograma Planificado para el Desarrollo||base|f
+406|sicpro.app.soporte.equipos|Equipos de Soporte||base|f
+402|sicpro.app.soporte.estados|Estados del Soporte||base|f
+408|sicpro.app.soporte.estados.aplicaciones|Estados de las aplicaciones del sistema||base|f
+409|sicpro.app.soporte.estados.paquetes|Estados de los paquetes del sistema||base|f
+407|sicpro.app.soporte.estados.versiones|Estados de las versiones del sistema||base|f
+403|sicpro.app.soporte.etiquetas|Etiquetas del Soporte||base|f
+1689|sicpro.app.soporte.fragmentos.codigos|Fragmentos de códigos del desarrollo del sistema||base|f
+412|sicpro.app.soporte.paquetes|Soporte de paquetes del sistema||base|f
+768|sicpro.app.soporte.tareas|Tareas de Soporte de Ayuda||base|f
+401|sicpro.app.soporte.todos|Todos los Tickets de Soporte de Ayuda||base|f
+410|sicpro.app.soporte.versiones|Soporte de versiones del sistema||base|f
+476|sicpro.app.trabajadores|Trabajadores||base|f
+478|sicpro.app.trabajadores.areas|Departamento de los trabajadores||base|f
+3204|sicpro.app.trabajadores.areas.altas.bajas|Altas y bajas mensuales por áreas, módulo de trabajadores||base|f
+3205|sicpro.app.trabajadores.areas.totales|Totales mensuales por áreas, módulo de trabajadores||base|f
+498|sicpro.app.trabajadores.cargos|Cargos del Trabajador||base|f
+477|sicpro.app.trabajadores.categorias|Etiquetas de los trabajadores||base|f
+3201|sicpro.app.trabajadores.cierre|Cierres mensuales de Capital Humano||base|f
+3202|sicpro.app.trabajadores.cierre.historial|Historial de los cierres mensuales de Capital Humano||base|f
+3206|sicpro.app.trabajadores.cierre.wizard|Generar cierre de Capital Humano||base|t
+497|sicpro.app.trabajadores.claves.horas|Claves de Horas Trabajador||base|f
+488|sicpro.app.trabajadores.cursos|Cursos de los trabajadores||base|f
+489|sicpro.app.trabajadores.cursos.habilidades|Habilidades de los trabajadores||base|f
+490|sicpro.app.trabajadores.cursos.niveles|Niveles de los cursos del trabajador||base|f
+491|sicpro.app.trabajadores.cursos.tipos|Tipos de cursos del trabajador||base|f
+3207|sicpro.app.trabajadores.dialog.wizard|Diálogo de cierre duplicado||base|t
+486|sicpro.app.trabajadores.disiplinaria.acciones|Medidas disciplinarias||base|f
+487|sicpro.app.trabajadores.disiplinaria.categorias|Categorías de medidas disciplinarias||base|f
+483|sicpro.app.trabajadores.documentos|Documentos de los trabajadores||base|f
+484|sicpro.app.trabajadores.documentos.plantillas|Plantillas de documentos del trabajador||base|f
+485|sicpro.app.trabajadores.documentos.tipos|Tipos de documentos del trabajador||base|f
+492|sicpro.app.trabajadores.educacion|Educación de los trabajadores||base|f
+494|sicpro.app.trabajadores.educacion.certificacion|Certificación y Homologación del trabajador||base|f
+493|sicpro.app.trabajadores.educacion.tipos|Tipos de educación del trabajador||base|f
+496|sicpro.app.trabajadores.equipo.tecnico|Técnicos de los trabajadores||base|f
+481|sicpro.app.trabajadores.familiar|Relaciones de los familiares del trabajador||base|f
+500|sicpro.app.trabajadores.intrucciones|Instrucciones de los trabajadores||base|f
+480|sicpro.app.trabajadores.local|Locales del trabajador||base|f
+482|sicpro.app.trabajadores.nexo.familiar|Nexo Familiar del trabajador||base|f
+3203|sicpro.app.trabajadores.notificacion.cierre|Trabajadores a los que se le notificará el cierre mensual||base|f
+479|sicpro.app.trabajadores.ocupacion|Categoría Ocupacional del trabajador||base|f
+495|sicpro.app.trabajadores.organigrama|Gráfica organizacional del trabajador||base|f
+501|sicpro.app.trabajadores.seguridad.proteccion|Tipo de Módulo de Seguridad para los trabajadores||base|f
+502|sicpro.app.trabajadores.seguridad.trabajador|Módulo de Seguridad para los trabajadores||base|f
+503|sicpro.app.trabajadores.tallas|Tallas de los trabajadores||base|f
+499|sicpro.app.trabajadores.vacunacion|Vacunación de los trabajadores||base|f
+3209|sicpro.app.transferencias.cuentas.gastos|Cuentas de Gastos de las transferencias||base|f
+3210|sicpro.app.transferencias.gastos|Transferencias de Gastos||base|f
+3215|sicpro.app.transferencias.gastos.ajustes|Ajustar valores de gastos||base|t
+3208|sicpro.app.transferencias.gastos.ajustes.historial|Historial de Ajustes de Gastos de la CJ74||base|f
+3217|sicpro.app.transferencias.gastos.cj74.wizard|Enviar gastos a revisión económica||base|t
+3216|sicpro.app.transferencias.gastos.economia.wizard|Enviar gastos a certificar||base|t
+3211|sicpro.app.transferencias.gastos.importar|Sincronizar Transferencias de Gastos||base|f
+3219|sicpro.app.transferencias.gastos.importar.wizard.ordenes|Modificar valor de órdenes||base|t
+3213|sicpro.app.transferencias.gastos.ordenes|Órdenes vinculadas a las transferencias de Gastos||base|f
+3212|sicpro.app.transferencias.gastos.ordenes.estados|Estado de los gastos de órdenes de trabajo||base|f
+3214|sicpro.app.transferencias.gastos.ordenes.morosidad|Periodo de tiempo en que se debe recibir la certificación de gastos||base|f
+3218|sicpro.app.transferencias.ordenes.rechazadas.wizard|Motivo de rechazo de los gastos de las transferencias||base|t
+964|sicpro.app.transporte.distancia|Cálculo de Distancias para el Transporte||base|f
+966|sicpro.app.transporte.distancia.recorrido|Tabla de apoyo para el recorrido||base|f
+965|sicpro.app.transporte.distancia.salida|Cálculo de Distancias de salida para el Transporte||base|f
+531|sicpro.app.transporte.estado|Estados del transporte||base|f
+530|sicpro.app.transporte.general|Transporte||base|f
+968|sicpro.app.transporte.modelo|Modelo de Transporte||base|f
+960|sicpro.app.transporte.piquera|Gestión de la Piquera de Transporte||base|f
+963|sicpro.app.transporte.piquera.canceladas|Motivo de Cancelación de la Piquera||base|t
+962|sicpro.app.transporte.piquera.rechazadas|Motivo de Rechazo de la Piquera||base|t
+961|sicpro.app.transporte.piquera.recorridos|Gestión de recorridos de la Piquera||base|f
+967|sicpro.app.transporte.tipo.combustible|Tipo de Combustible para el Transporte||base|f
+414|sicpro.app.videoconferencias|Gestor de VideoConferencias|sicpro_app_video_conferencias|base|f
+415|sicpro.app.videoconferencias.usuarioexterno|Participantes externos para la VideoConferencia|sicpro_app_video_conferencias|base|f
+3220|sicpro.app.vivienda.escalafon|Escalafón del programa de la vivienda||base|f
+3221|sicpro.app.vivienda.etapas|Etapas del programa de la vivienda||base|f
+3229|sicpro.app.vivienda.fondo|Presupuesto de fondo para el programa de la vivienda||base|f
+3222|sicpro.app.vivienda.materiales|Materiales para el programa de la vivienda||base|f
+3223|sicpro.app.vivienda.materiales.um|Unidad de medidas de los materiales||base|f
+3230|sicpro.app.vivienda.ofertas|Ofertas para el programa de la vivienda||base|f
+3224|sicpro.app.vivienda.proveedor|Proveedor del programa de la vivienda||base|f
+3232|sicpro.app.vivienda.reporte.anexo3|Reportes de Anexo 3||base|t
+3231|sicpro.app.vivienda.reporte.anexo4|Reportes de Anexo 4||base|t
+3233|sicpro.app.vivienda.reporte.estadistica|Reportes de Estadística RRHH||base|t
+3225|sicpro.app.vivienda.trabajador|Programa de la vivienda||base|f
+3228|sicpro.app.vivienda.trabajador.canceladas|Motivo de cancelación de la solicitud||base|t
+3226|sicpro.app.vivienda.trabajador.productos|Productos del programa de la vivienda||base|f
+3227|sicpro.app.vivienda.trabajador.rechazadas|Motivo de rechazo de la solicitud||base|t
+1863|sicpro.modulo.api.conector|Configura las conexiones con las apis externas||base|f
+2370|sicpro.modulo.api.conector.gitlab.commits|Registro de los commits del proyecto||base|f
+1864|sicpro.modulo.api.conector.historial|Historial de conexiones con las apis externas||base|f
+366|sicpro.modulo.auditorias.autovacuum|Auditorias - Eliminar registros logs antiguos||base|t
+363|sicpro.modulo.auditorias.http.request|Auditorias - peticiones HTTP log||base|f
+362|sicpro.modulo.auditorias.http.session|Auditorias - sesiones de usuarios HTTP log||base|f
+364|sicpro.modulo.auditorias.log|Auditorias - Log||base|f
+365|sicpro.modulo.auditorias.log.line|Auditorias - Log detalles (fields updated)||base|f
+361|sicpro.modulo.auditorias.rule|Auditorias - Reglas||base|f
+2976|sicpro.modulo.backup.dropbox.auth|Asistente de autenticación de Dropbox||base|t
+2975|sicpro.modulo.backup.server.gitlab|Url GitLab donde se sincroniza los backups||base|f
+2974|sicpro.modulo.backup.server.local|Copia de seguridad automática de la base de datos||base|f
+2372|sicpro.modulo.base.correos.entrantes.asuntos|Asuntos para ejecutar los métodos en la entrada de un correo||base|f
+2371|sicpro.modulo.base.correos.entrantes.metodos|Métodos a ejecutar en la entrada de un correo||base|f
+1050|sicpro.modulo.dashboard.colores|Colores - Nomenclador de Colores||base|f
+1051|sicpro.modulo.dashboard.colores.orden|Colores - Color con orden||base|f
+1052|sicpro.modulo.dashboard.colores.set|Colores - Set de colores||base|f
+1054|sicpro.modulo.dashboard.graficos|Gráficos de los grupos del dashboard||base|f
+1055|sicpro.modulo.dashboard.graficos.values|Valores Extra de Gráficos de los grupos del dashboard||base|f
+1056|sicpro.modulo.dashboard.grupos|Grupos de las secciones del dashboard||base|f
+1053|sicpro.modulo.dashboard.iconos|Nomenclador de Íconos||base|f
+1057|sicpro.modulo.dashboard.secciones|Secciones del dashboard||base|f
+1058|sicpro.modulo.dashboard.tableros|Tableros||base|f
+356|sicpro.modulo.historial.aplicaciones|Control de la acciones en las aplicaciones||base|f
+1117|sicpro.modulo.mapas|Registro de Plantillas de los Mapas||base|f
+1074|sicpro.modulo.modelo.vista|Consulta de vistas de los modelos||base|t
+951|sicpro.modulo.nube.etecsa|Modelo temporal Api Nube Etecsa||base|t
+1330|sicpro.modulo.plantilla.acceso|Planilla de Acceso||base|f
+1331|sicpro.modulo.plantilla.acceso.rechazar|Plantilla de acceso rechazada||base|t
+1332|sicpro.modulo.plantilla.acceso.roles|Roles de la plantilla de Acceso||base|f
+954|sicpro.modulo.registro.usuarios|Registro de acceso de usuarios||base|f
+956|sicpro.modulo.registro.usuarios.reporte|Reportes del Registro de usuarios||base|f
+955|sicpro.modulo.registro.usuarios_ip|Direcciones IP de los Usuarios||base|f
+2285|sicpro.modulo.registro.usuarios_mac|Direcciones MAC de los Usuarios||base|f
+349|sicpro.modulo.roles|Roles de usuarios|sicpro_modulo_roles|base|f
+350|sicpro.modulo.roles.line|Usuarios asociados a los roles|sicpro_modulo_roles|base|f
+1110|sicpro.modulo.simular.usuario|Simular usuario||base|t
+3023|sicpro.modulo.ui.python|Ui Python||base|f
+2511|sicpro.modulo.web.about|Link de Acceso al video de Introducción||base|f
+2549|sicpro.modulo.web.automatiza|Nomencladores de asuntos de los correos entrantes||base|f
+2512|sicpro.modulo.web.equipo|Equipo de Desarrollo||base|f
+2513|sicpro.modulo.web.galeria|Imágenes de la Galería||base|f
+2514|sicpro.modulo.web.galeria.etiquetas|Etiquetas de la Galería||base|f
+2551|sicpro.modulo.web.mantenimiento|Módulo para la puesta en mantenimiento de SICPRO ERP||base|f
+2515|sicpro.modulo.web.manuales|Manuales de usuarios||base|f
+2552|sicpro.modulo.web.plugins|Listado de aplicaciones y plugins para descargar y utilizar con SICPRO ERP||base|f
+2550|sicpro.modulo.web.registro.roles|Roles para el registro de usuarios||base|f
+2553|sicpro.modulo.web.registro.version|Versiones del sistema vinculadas con Soporte||base|f
+2554|sicpro.modulo.web.registro.versiones|Detalles de las versiones del sistema||base|f
+2516|sicpro.modulo.web.version|Configuración de la Version del Sistema||base|f
+444|sicpro.nomenclador.anios|Nomenclador de Años||base|f
+3024|sicpro.nomenclador.areas.empresa|Nomenclador de Área de Empresa||base|f
+436|sicpro.nomenclador.centro.costo|Nomenclador de Centros de Costos||base|f
+3025|sicpro.nomenclador.centro.planificacion|Nomenclador de Centros de Planificación (CePl)||base|f
+435|sicpro.nomenclador.cuentas.contables|Nomenclador Cuentas Contables||base|f
+443|sicpro.nomenclador.departamentos|Nomenclador Departamentos del Proceso||base|f
+3026|sicpro.nomenclador.emplazamientos|Nomenclador de Emplazamientos||base|f
+429|sicpro.nomenclador.especialidad|Nomenclador de Especialidades de ejecución||base|f
+437|sicpro.nomenclador.locales|Nomenclador de Locales de CC||base|f
+428|sicpro.nomenclador.meses|Nomenclador de Meses||base|f
+3037|sicpro.nomenclador.sindicato|Áreas sindicales de la DVPE||base|f
+430|sicpro.nomenclador.territorios|Nomenclador de Unidades Organizativa||base|f
+427|sicpro.nomenclador.trimestre|Nomenclador de Trimestres||base|f
+369|sicpro.querydb|Ejecuta consultas a Pstgresql desde SICPRO ERP||base|f
+326|sms.api|SMS API||base|f
+329|sms.cancel|Dismiss notification for resend by model||base|t
+330|sms.composer|Send SMS Wizard||base|t
+332|sms.resend|SMS Resend||base|t
+331|sms.resend.recipient|Resend Notification||base|t
+327|sms.sms|Outgoing SMS||base|f
+328|sms.template|SMS Templates||base|f
+333|sms.template.preview|SMS Template Preview||base|t
+335|snailmail.confirm|Snailmail Confirm||base|f
+334|snailmail.letter|Snailmail Letter||base|f
+336|snailmail.letter.cancel|Dismiss notification for resend by model||base|t
+337|snailmail.letter.format.error|Format Error Sending a Snailmail Letter||base|t
+338|snailmail.letter.missing.required.fields|Update address of partner||base|t
+421|survey.invite|Survey Invitation Wizard||base|t
+417|survey.question|Survey Question||base|f
+418|survey.question.answer|Survey Label||base|f
+416|survey.survey|Survey||base|f
+419|survey.user_input|Survey User Input||base|f
+420|survey.user_input.line|Survey User Input Line||base|f
+370|tipsqueries|Tips for queries||base|f
+1078|utm.campaign|UTM Campaign||base|f
+1077|utm.medium|UTM Medium||base|f
+1081|utm.mixin|UTM Mixin||base|f
+1079|utm.source|UTM Source||base|f
+1076|utm.stage|Campaign Stage||base|f
+1080|utm.tag|UTM Tag||base|f
+367|web.environment.ribbon.backend|Web Environment Ribbon Backend||base|f
+319|web_editor.assets|Assets Utils|web_editor|base|f
+320|web_editor.converter.test|Web Editor Converter Test|web_editor|base|f
+321|web_editor.converter.test.sub|Web Editor Converter Subtest|web_editor|base|f
+135|web_tour.tour|Tours|web_tour|base|f
+10|wizard.ir.model.menu.create|Create Menu Wizard|base|base|t
+1105|xml.rpc.log|Historial de solicitudes xmlrpc||base|f

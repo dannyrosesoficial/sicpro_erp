@@ -1,0 +1,376 @@
+6|abel.gonzalez|Abel Gonzalez Pulido|t|13
+9|adalberto.echazabal|Adalberto Felix Echazabal Ramirez|t|16
+10|adalberto.ortega|Adalberto Ortega Eguino|f|17
+16|alberto.cancio|Alberto Cancio Rivero|t|23
+18|albin.ebanks|Albin Ebanks Blanco|f|25
+20|alejandro.amartinez|Alejandro Alonso Martinez|t|27
+22|alejandro.santana|Alejandro Luis Santana Diaz|t|29
+24|alexander.ferrer|Alexander Ferrer Cardenas|t|31
+25|alexei.perez|Alexei Perez de Cespedes|f|32
+26|alexis.sosa|Alexis Sosa Alonso|t|33
+27|alfredo.betancourt|Alfredo Betancourt Arango|f|34
+29|alicia.rego|Alicia Elena Rego Rodriguez|t|36
+30|amada.martinez|Amada Martinez Hernandez|f|37
+32|amanda.rodriguez|Amanda Cristina Rodriguez Riera|t|39
+33|amarilys.campuzano|Amarilys Campuzano Nunez|f|40
+34|ana.gonzalez|Ana Gonzalez Dominguez|f|41
+35|anam.blanco|Ana Maria Blanco Gonzalez|f|42
+36|andres.cabrerapelier|Andres Cabrera Pelier|f|43
+41|aniaska.muniz|Aniaska Muniz Castillo|t|48
+42|annia.prieto|Annia Prieto Vidal|t|49
+45|ariel.gonzalez|Ariel Gonzalez Pedroso|f|52
+46|ariel.fleitas|Ariel Jesus Fleitas Varela|t|53
+51|ayram.oromi|Ayram Oromi Fiorenzano|t|58
+52|baleini.machin|Baleini Machin Padron|t|59
+54|benigno.sanchez|Benigno Victor Sanchez Curbelo|t|61
+58|carlos.pulido|Carlos Jose Pulido Diaz|t|65
+59|carlos.cepero|Carlos Luis Cepero Santiago|t|66
+63|carlos.valles|Carlos Miguel Valles Tejeda|t|70
+64|catalina.gonzalez|Catalina Gonzalez Miramon|f|71
+65|cesar.diaz|Cesar Diaz Cardenas|t|72
+66|claudia.marti|Claudia Margarita Marti Aguila|t|73
+69|daily.perez|Daily Perez Molano|f|76
+71|daisy.hernandez|Daisy Hernandez Ramirez|f|78
+73|dania.medina|Dania Mary Medina Pantoja|t|80
+74|dania.almeida|Dania Rosa Almeida Valdes|t|81
+80|dayana.loredo|Dayana Loredo Martinez|t|87
+82|dayane.borges|Dayane Borges Castellon|t|89
+83|daylin.parra|Daylin Niurka Parra Martinez|f|90
+88|diana.cardenas|Diana Cardenas Granados|f|95
+89|diego.perez|Diego Cesar Perez Hernandez|f|96
+91|edgar.haber|Edgar Haber Diaz|f|98
+92|edmundo.atherton|Edmundo Atherton Barbier|t|99
+93|eduardo.rangel|Eduardo Julio Rangel Gamez|t|100
+96|elio.benavides|Elio Benavides Gomez|t|103
+98|elizaberht.delahoz|Elizaberht de la Hoz Solano|t|105
+99|emeterio.chacon|Emeterio Chacon Torres|f|106
+105|erik.montano|Erik Montano Mena|t|112
+106|ernesto.acevedo|Ernesto Acevedo Nuñez|f|113
+107|esperanza.gonzalez|Esperanza Gonzalez Salinas|f|114
+108|eugenio.mitjans|Eugenio Mitjans Garcia|f|115
+111|evelio.samuel|Evelio Samuel Martinez|f|118
+113|fidel.granda|Fidel Granda Guzman|f|120
+117|gaston.marquez|Gaston Rafael Marquez Lescaille|f|124
+118|geanfranco.mata|Geanfranco Mata Venegas|t|125
+119|genry.avila|Genry Avila Merino|f|126
+122|gisela.rodriguez|Gisela Rodriguez Mora|f|129
+125|grethel.rivas|Grethel Rivas Bermudez|f|132
+128|hermes.rojas|Hermes Rojas Durades|t|135
+132|iliana.castellanos|Iliana Castellanos Paumier|t|139
+133|ines.hernandez|Ines Maria Hernandez La Rosa|f|140
+134|iraldis.morales|Iraldis Morales Martinez|f|141
+137|yanet.cordoves|Janet Maria Cordoves Monsibaez|f|144
+138|janete.tamayo|Janete Tamayo Puentes|f|145
+140|joel.betancourt|Joel Betancourt Valiente|f|147
+147|jorge.falla|Jorge Ramon Falla Lopez|t|154
+149|joseenrique.oliva|Jose Enrique Oliva Martin|f|156
+151|josemanuel.gomez|Jose Manuel Gomez Leal|f|158
+152|jose.estrada|Jose Miguel Estrada Ramos|f|159
+153|joser.rodriguez|Jose Ramon Rodriguez Tejeda|t|160
+154|rodolfo.ferrer|Jose Rodolfo Ferrer Cuesta|f|161
+158|juan.torres|Juan Virgilio Torres Idavoy|f|165
+161|julio.arguelles|Julio Arguelles Manresa|t|168
+162|justo.llerena|Justo Lazaro Llerena Gonzalez|t|169
+165|kenia.pardo|Kenia Teresita Pardo Garia|f|172
+167|lazaro.hernandez|Lazaro Hernandez Cardenas|f|174
+168|lazaro.menazorrilla|Lazaro Luis Mena Zorrilla|t|175
+169|lazaror.pereira|Lazaro Ruben Pereira Lara|f|176
+172|liana.zayas|Liana Zayas Secada|t|179
+174|liesly.scull|Liesly Scull Sanchez|t|181
+175|luis.delacruz|Luis Ernesto de la Cruz Hurtado|f|182
+177|mabel.espino|Mabel Espino Suarez|f|184
+178|mabel.saura|Mabel Saura Rodriguez|f|185
+180|madelin.ricardo|Madelin Ricardo Leyva|t|187
+182|magaly.somohano|Magaly Somohano Sanchez|t|189
+185|maite.marin|Maite del Carmen Marin Gonzalez|t|192
+186|manuel.robaina|Manuel Robaina Nunez|f|193
+187|manuel.ruyol|Manuel Ruyol Serrate|f|194
+188|maria.alfonso|Maria Caridad Alfonso Morejon|t|195
+189|maria.barba|Maria Cristina Barba Filiberto|f|196
+190|dolores.azcuy|Maria Dolores Azcuy Castillo|f|197
+192|mariam.gonzalez|Maria Mercedes Gonzalez Palma|t|199
+194|maria.santaballa|Maria del Carmen Santaballa Marquez|f|201
+195|mariela.mora|Mariela Mora Herrera|t|202
+196|mariela.reboledo|Mariela Reboledo Flores|t|203
+200|maybe.gomez|Maybe Caridad Gomez More|t|207
+201|maykel.quintana|Maykel Quintana Linares|f|208
+203|michel.fagundo|Michel Jesus Fagundo Heras|f|210
+204|margarita.cuesta|Migdalia Margarita Cuesta Viltres|t|211
+208|mirta.galvez|Mirta Galvez Ferro|t|215
+212|nelson.petrucheli|Nelson Lazaro Menendez Petrucheli|t|219
+213|noraima.alfaro|Noraima Alfaro Ganganelly|t|220
+214|norma.rojas|Norma Niurka Rojas Justiz|t|221
+215|odiley.perez|Odiley Perez Romero|f|222
+217|olivia.borges|Olivia Borges Nodarse|f|224
+219|orlando.rodriguez|Orlando David Rodriguez Gonzalez|t|226
+221|osmany.diaz|Osmani Díaz Mantilla|f|228
+223|otman.sanz|Otman Sabad Sanz Cordero|t|230
+226|ramon.scull|Ramon Scull Roque|f|233
+233|ricardo.beltran|Ricardo Beltran Martinez|t|240
+235|ricardo.poll|Ricardo Poll Quintana|t|242
+236|roberto.oliva|Roberto Oliva Betancourt|t|243
+240|samuel.vazquez|Samuel Vazquez Cedeno|t|247
+241|sandra.callis|Sandra Callis Caraballoso|t|248
+242|sayuri.cruz|Sayuri Cruz Chong|t|249
+244|shakira.carmona|Shakira Carmona Garcia|f|251
+247|susana.riveira|Susana Riveira Ares|f|254
+249|tania.legon|Tania Legon Perez|f|256
+251|thalia.menendez|Thalia Menéndez Vargas|f|258
+253|victoria.vazquez|Victoria de la Paz Vazquez Ojeda|f|260
+254|vivian.ramos|Vivian Cristina Ramos Diaz|t|261
+257|wenkin.wong|Wenkin Wong Chiu|f|264
+258|yadianys.suarez|Yadianys Suarez Ramirez|f|265
+259|yahima.mesa|Yahima Mesa Jorlen|t|266
+260|yaima.fernandez|Yaima Fernandez Canto|t|267
+262|yalile.rosabal|Yalile Rosabal Valdes|t|269
+264|yamile.lopez|Yamilé López Nuñez|t|271
+265|yannyra.matute|Yannyra de Pilar Matute Tejo|t|272
+267|yordan.tonely|Yordan Tonely Mena|f|274
+268|yosvanys.sosa|Yosvanys Alcides Sosa Ramirez|f|275
+269|yukdanys.lobaina|Yukdanys Lobaina Gamez|t|276
+270|yuliet.hernandez|Yuliet Hernandez Gainza|f|277
+272|zuleidy.maique|Zuleidy Maique De La Rua|t|279
+275|yoel.igarza|Yoel Igarza nueva|t|283
+276|osmany.gama|Osmany Gama Díaz|t|284
+277|wilfredo.rosales|Wilfredo Rosales Olivet|f|285
+278|yesenia.cervantes|Yesenia Cervantes Delgado|f|286
+279|yoandy.cadena|Yoandy Cadena Linares|t|287
+280|hugo.rodriguez|Hugo Rodríguez Vergel|f|288
+281|leonel.figueredo|Leonel Figueredo Fernández|f|289
+282|irina.rodriguez|Irina Rodríguez Silva|f|290
+283|mariselis.milanes|Mariselis Milanés Rodríguez|f|291
+284|yosvany.napoles|Yosvany Nápoles Prieto|t|292
+286|yenimar.villalobos|Yenimar Villalobos Ojeda|t|295
+287|teresa.perez|Teresa Victoria Perez Pacheco|t|296
+288|danisleydis.hernandez|Danisleydis Hernández Rodríguez|f|297
+289|yanier.jauregui|Yanier Jauregui|f|298
+290|ifrain.naranjo|Ifrain Naranjo Naranjo|t|299
+293|alejandro.vazquez|Alejandro Agustín Vazquez|f|305
+294|aslan.santana|Aslan Santana Vazquez|t|306
+295|ernesto.quelle|Ernesto Quelle Santana|f|307
+296|luis.iglesias|Luis Adolfo Iglesias Reyes|f|308
+297|manuel.rosales|Manuel Alexander Rosales Verdecia|f|309
+298|leandro.cruz|Leandro Cruz Reygada|f|310
+299|jose.villalta|Jose Rafael Villalta Cubelo|f|311
+300|javierp.sierra|Javier Perez Sierra|f|312
+301|manleys.rodriguez|Manleys Rodriguez Torres|f|313
+302|milton.sosa|Reynaldo Milton Sosa molina|f|314
+303|rolando.padron|Rolando Banier Padron Sosa|f|315
+304|gustavo.rodriguez|Gustavo Daniel Rodriguez Reyes|f|316
+305|heidi.lezcano|Heidi Lezcano Mezquida|t|317
+306|janier.esquijarosa|Janier Esquijarosa Alvarez|f|318
+307|lourdes.cabrera|Lourdes Cabrera Mozo|t|319
+308|lucia.romero|Lucia Romero Barreiro|t|320
+309|nerio.falcon|Nerio Yosvany Falcon Lopez|f|321
+310|roger.pineyro|Roger Pineyro Suarez|f|322
+311|sachye.hernandez|Sachye Hernandez Izquierdo |f|323
+312|taniav.alvarez|Tania Tamara Velazquez Alvarez|t|324
+313|yelena.fernandez|Yelena Fernandez Morell|f|325
+314|yeney.fortes|Yeney Milagros Fortes Quesada|t|326
+315|diosnel.bornot|Diosnel Bornot Rodriguez|t|327
+316|roger.lopez|Roger Lopez Garcia|f|328
+317|yasiel.hernandez|Yasiel Hernandez Barrios|f|329
+318|barbara.despaigne|Barbara Despaigne Villavicencio|f|330
+319|deniris.ponce|Deniris Ponce de Leon Hechevarria|f|331
+320|ivett.martin|Ivett Martin Gonzalez|t|332
+325|juan.aleman|Juan Carlos Aleman Revilla|t|337
+326|luis.nicot|Luis Nicot Gomero|t|338
+327|rosana.mesa|Rosana Mesa La Nuez|f|339
+328|adianet.gonzalez|Adianet Gonzalez Reyes|t|340
+329|marcos.labaut|Marcos Labaut Fonseca|f|341
+330|dianelys.perdomo|Dianelys Perdomo Meneses|f|342
+331|yuri.miranda|Yuri Miranda Callejas|t|343
+332|geisy.chavez|Geisy Chavez Suarez|f|344
+333|gilberto.fernandez|Gilberto Fernandez Rivero|f|345
+334|rigoberto.roque|Rigoberto Roque Martinez|f|346
+335|alejandro.iraola|Alejandro Miguel Iraola Perez|f|347
+336|aleida.aguilar|Aleida de la Caridad Aguilar Rivera|f|348
+337|alexander.columbie|Alexander Columbie Bayart|f|349
+338|alfredo.olivares|Alfredo Olivares Cardoza|t|350
+339|fidel.cruz|Fidel Cruz Garrido|t|351
+340|jose.almeida|Jose Lazaro Ramirez Almeida |f|352
+341|leticia.reyes|Leticia de la Caridad  Reyes Alvarez|t|353
+342|leyda.borges|Leyda Borges Martinez|t|354
+343|magdey.napoles|Magdey Napoles Gutierrez|f|355
+344|dailyn.mauri|Dailyn de Jesus Hernandez Mauri|f|356
+345|maykel.alvarez|Maykel Alvarez Hidalgo|t|357
+346|digna.mir|Digna Lidia Mir Pino|t|358
+347|miguel.borges|Miguel Angel Borges Sanchez|t|359
+348|yuniel.perez|Yuniel Perez Hernanadez|t|360
+349|yanet.morell|Yanet Emma Morell Regueiferos|t|361
+350|juanl.garcia|Juan Luis Garcia Garcia|t|362
+351|angel.santamaria|Angel Santamaria Alfonso|f|363
+352|roberto.olmo|Roberto Olmo Gorrin |f|364
+353|pedro.castro|Pedro Luis Castro Tabera|f|365
+354|omandy.suarez|Omandy Suarez Hernandez|f|366
+355|alejandro.rodriguez|Alejandro Rodriguez Quintero|f|367
+356|garcia.sotolongo|Carlos Arturo Garcia Sotolongo|f|368
+357|dafnet.gomez|Dafnet Ysabel Gomez Castillo|f|369
+358|eduardo.calderon|Eduardo Carderon Toledo|f|370
+359|maria.rivas|Maria del Carmen Rivas Batista|f|371
+360|roberto.oquendo|Roberto Luis Oquendo Oms|f|372
+361|yohanner.carrete|Yohanner Carrete Marrero|f|373
+362|alejandro.pino|Alejandro Garcia Pino|t|374
+364|andy.rues|Andy Rues Roman|t|376
+365|anton.alabart|Anton Alabart Velazquez|t|377
+366|ernesto.medina|Ernesto Medina Miguel|t|378
+367|guillermo.labori|Guillermo Labori Mayet|f|379
+368|saylinr.felizola|Saylin Ramirez Felizola|t|380
+369|victor.cueva|Victor Eduardo Cueva Canet|t|381
+370|yeleinis.gonzalez|Yeleinis Gonzalez Tamayo|t|382
+371|amarys.perez|Amarys Perez Reyes|f|383
+372|niuris.mendez|Niuris Mendez Hernandez|f|384
+373|ramon.fajardo|Ramon Fajardo Gonzalez|f|385
+374|alexey.seisdedo|Alexey Seisdedo Losa|t|386
+375|alexeis.tornes|Alexeis Tornes Gonzalez|f|387
+376|zeida.nunez|Zeida Tomasa Nunez Gaskin|f|388
+377|yoel.blanco|Felix Yoel Blanco Rodriguez|f|389
+378|elvio.verdecia|Elvio Guillermo Verdecia Pasos|f|390
+379|miguel.ramos|Miguel Luis Ramos Perez|t|391
+380|leonardo.fonseca|Leonardo Misael Fonseca Gonzalez|f|392
+381|darvis.torres|Darvis Torres Diaz|f|393
+382|orlando.aliaga|Orlando Mario de Jesus Aliaga Fonseca|f|394
+383|yurien.hamilton|Yurien Hamilton Mendoza|f|395
+384|yordys.fernandez|Yordys Daniel Fernandez Jorge|f|396
+385|cecilio.alvarez|Cecilio Gabriel Alvarez Galardy|f|397
+386|nilva.guerra|Nilva Guerra Silvera|f|398
+387|dolores.vazquez|Dolores Gelda Vazquez Garcia|t|399
+388|william.martinez|Wiliam Martinez Lopez|f|400
+389|miguel.perezescalona|Miguel Perez Escalona|f|401
+390|eusebio.rodriguez|Eusebio Primo Rodriguez Mejias|f|402
+391|alain.cruz|Alain Cruz Roca|f|403
+392|angel.perez|Angel Perez Perez|f|404
+393|ernesto.vega|Ernesto Vega Hernandez |f|405
+394|frank.romero|Frank Enrique Romero La o|t|406
+395|orestes.tabares|Tabares Tamayo Orestes|f|407
+396|orlando.pupo|Orlando Pupo Fernandez|f|408
+397|raul.fernandez|Raul Fernandez del Valle|f|409
+398|berny.tornes|Berny Tornes Chang|t|410
+399|hiram.cabrera|Hiram Alberto Cabrera Benitez|f|411
+400|miguel.gutierrez|Miguel Eduardo Gutierrez Cabaña|f|412
+401|alexander.montero|Alexander Montero Gomez|t|413
+402|randy.cabrera|Randy Cabrera Cordero|f|414
+403|sunhay.triana|Sunhay Triana Banos|f|415
+404|argelio.castaneda|Argelio Castaneda Vargas|t|416
+405|guerby.bobadilla|Guerby Bobadilla de la Cruz|f|417
+406|lourdes.portelles|Lourdes Maria Portelles Rodriguez|f|418
+407|ariel.guillot|Ariel Guillot Montes|f|419
+408|kenia.langer|Kenia Langer Rodriguez|f|420
+409|sergio.estrada|Sergio Yudiser Estrada Ortiz|f|421
+411|adiel.alvarez|Adiel Alvarez Alvarez|f|423
+412|alain.torres|Alain Torres Gandara|f|424
+413|carlos.fine|Carlos Reynier Fine de Armas|f|425
+414|luismiguel.perez|Luis Miguel Perez Fernandez|f|426
+415|juan.pinon|Juan M. Pinon Rodriguez|f|427
+416|raul.lopez|Raul Eduardo Lopez Serrano|t|428
+417|arnaldo.bernal|Arnaldo Albino Bernal Delgado|f|429
+418|alexis.santo|Alexis Raul Santo Vidal|f|430
+419|eduardo.cuesta|Eduardo Joaquin Cuesta Ramirez|f|431
+420|aridio.perez|Aridio Enrique Perez Ricardo|f|432
+421|madelaine.dearmas|Madelaine de Armas Diaz|t|433
+423|vicente.rivera|Vicente Manuel Rivera Rodriguez|f|435
+424|saimar.castillo|Saimar Castillo Rodriguez |t|436
+425|rodelmy.lopez|Rodelmy Lopez Avila|t|437
+426|marcel.gonzalez|Marcel Gonzalez Rodriguez|f|438
+427|mayelin.rvazquez|MAYELÍN RODRÍGUEZ VÁZQUEZ|t|439
+428|fabian.regalado|FABIÁN REGALADO PÉREZ|t|440
+429|elaine.roque|Elaine Roque Portal|f|441
+431|airelys.campos|Airelys Campos Herrera|t|443
+432|lester.marbot|Lester Marbot Pino|f|444
+433|yordanis.ceballo|Yordanis Nelson Ceballo Suarez|t|445
+434|berlindo.sijin|Berlindo Luis Sijin Martinez|t|446
+435|aldis.diaz|Aldis Diaz Rinack|t|447
+436|humberto.garcia|Humberto Garcia Gonzalez|t|448
+437|belkis.linares|Belkis Linares Rodriguez|t|449
+438|pedro.risquet|Pedro Risquet Diaz|t|450
+439|omar.martinez|Omar Martinez Gonzalez|t|451
+441|michel.dorvigny|Michel Dorvigny Acosta|t|453
+442|rafael.espinosa|Rafael Espinosa Manso|t|454
+443|adrian.ribiaux|Adrian Ribiaux Menocal|t|455
+444|pedro.vegueria|Pedro Rey Vegueria Portilla|t|456
+445|manuel.duran|Manuel Duran Domech|t|457
+446|jesus.joa|Jesus Joa Llovet|t|458
+447|duniesky.bermudez|Duniesky Bermudez Higuera|t|459
+449|rebeca.valdes|Rebeca Maria Valdes Valdes|t|461
+450|guillermo.lopezfidalgo|Guillermo de la C. Lopez Fidalgo|t|462
+451|omar.caraballo|Omar Antonio Caraballo Brito|t|463
+452|jorge.gavio|Jorge Antonio Gavio Gonzalez|t|464
+453|daumier.zayas|Daumier Zayas Rojas|t|465
+454|joseramon.ruiz|Jose Ramon Ruiz Sanchez|t|466
+455|melba.guerra|Melba Guerra Téllez|t|467
+456|maria.font|Maria Elena Font Rodil|f|468
+457|niurka.rcobas|Niurka Rodriguez Cobas|t|469
+458|yusdel.dominguez|Yusdel Dominguez Rizo|t|470
+459|roicel.borroto|Roicel Borroto Gonzalez|t|471
+460|juanl.nunez|Juan Luis Nunez Acosta |t|472
+461|yusleivi.izaguirre|Yusleivi Mercedes Izaguirre Hernandez|f|473
+462|julio.pino|Julio Antonio Pino Reyes|t|474
+463|olga.vidal|Olga Lidia Vidal Noel|t|475
+464|jorge.ramos|Jorge Luis Ramos Piloto|t|476
+465|ingrid.diaz|Ingrid Diaz Lopez|f|477
+466|oniet.paz|Oniet Paz Barros|t|478
+467|raul.agras|Raul Martinez Agras|t|479
+468|danay.hechavarria|Danay Hechavarria Alderete|t|480
+469|braudel.hernandez|Braudel Hernandez Cabrera |t|481
+470|anielys.herrera|Anielys Herrera Nuviola|f|482
+471|yomiuri.yin|Yomiuri Yin Cabrera|t|483
+472|yosmel.salinas|Yosmel Salinas Nunez|f|484
+473|esludian.rodriguez|Esludian Rodriguez Lorenzo|t|485
+474|alfredo.duarte|Alfredo Manuel Duarte Alvarez|f|486
+475|rodney.rodriguez|Rodney Rodriguez Despaigne|f|487
+476|miladys.capo|Miladys Capo Medina|t|488
+477|gilberto.amador|Gilberto Amador Gonzalez|t|489
+478|esmel.acuna|Esmel Acuna Cuba|t|490
+479|danna.valdes|Danna margarita valdes suarez|t|491
+480|yoandy.lopez|Yoandy Lopez Molina|t|492
+481|millamis.leyva|Millamis Celeste Leyva Provance|t|493
+482|albertog.fraga|Alberto Garcia Fraga|t|494
+483|dania.izaguirre|Dania Izaguirre Laffita|t|495
+484|lenin.asin|Lenin Asin Ordunez|t|496
+485|leonel.leon|Leonel Antonio Leon Martin|t|497
+486|anaisy.garcia|Anaisy Garcia Pulido|t|498
+487|omar.lopez|Omar Lopez Diaz |t|499
+488|yasniel.hernandez|Yasniel Hernandez Alfonso|t|500
+489|javier.romay|Javier Alejandro Romay Duenas|t|501
+490|osmel.morales|Osmel Morales Muniz|t|502
+491|yunierky.olivera|Yunierky Olivera Verdecia|t|503
+492|yoennys.delpozo|Yoennys Del Pozo Rodriguez|t|504
+493|rudyt.morales|Rudyt Morales Calderon|t|505
+494|mario.gonzalez|Nestor Mario Gonzalez Campa|t|506
+495|omar.ardanal|Omar Martinez Ardanal|t|507
+496|jose.liranza|Jose Liranza Zamora|t|513
+497|yoendrys.roble|Yoendrys Roble Chibas|t|514
+498|vladimir.abo|Vladimir Abo Olivera|t|515
+499|wilma.verdecia|Wilma Verdecia Soto |t|516
+500|daniel.pacheco|Daniel Dominguez Pacheco|t|517
+501|angelg.gonzalez|Angel Gonzalez Gonzalez|t|518
+502|rene.huie|Rene Julian Huie Chiug|t|519
+503|daylee.mompie|Daylee Mompie Marti|t|520
+504|daniel.calderon|Daniel Ricardo Calderon Estevez|t|521
+505|yannick.campos|Yannick Campos Mesa|f|522
+506|yamil.diago|Yamil Alfonso Diago Bent|t|523
+507|ralkis.benitez|Ralkis Ezequiel Benitez Suarez|t|524
+508|andres.fernandez|Arnoldo Andres Fort Fernandez|t|525
+509|yoel.tellez|Yoel Adalberto Tellez Barrueco|t|526
+510|yordan.castillo|Jose Yordan Castillo Landa|t|527
+511|yadir.oliva|Yadir Oliva Garcia|t|528
+512|ivon.gonzalez|Ivon Gonzalez Acosta|t|529
+513|erick.rodriguez|Erick Rodriguez Suarez|t|530
+514|elizabeth.miranda|Elizabeth Miranda Ortega|t|531
+515|jorge.sacre|Jorge Mario Sacre Izquierdo|t|532
+516|leodamys.balda|Leodamys Balda Sicre|t|533
+517|reinier.brocal|Reinier Brocal Noblet|f|534
+518|cesar.lguevara|Cesar Dayan Laron de Guevara Figueredo|t|535
+519|tairy.garcia|Tairy Garcia Hernandez|t|536
+520|julio.navarro|Julio Ernesto Navarro|t|537
+521|lisdiana.correa|Lis Diana Correa Furones|t|538
+522|jorgev.padilla|Jorge Victor Padilla Villalon|t|539
+523|maykel.maquintoche|Maykel Maquintoche Herrera|t|540
+524|zuyen.hung|Zuyen Hung Martinez|t|541
+525|anibal.andres|Anibal Andres Zayas|t|542
+526|sheyla.elizondo|Sheyla de la Caridad Elizondo Morales|t|543
+527|diamel.sebastian|Diamel Sebastian Gomez Alfonso|t|544
+528|maykelg.enriquez|Maykel Gonzalez Enriquez|t|545
+529|saud.santana|Saud Arturo Santana Gil|t|546
+530|yoel.medel|Yoel Medel Martinez|t|547
+531|jorge.matos|Jorge Matos Noya|t|548

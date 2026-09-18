@@ -1,0 +1,131 @@
+101|Tipo Usuario: Rol Usuario|Roles de Usuarios|1
+102|Tipo Usuario: Rol Permisos|Roles de Usuarios|2
+103|Tipo Usuario: Rol Administrador|Roles de Usuarios|4
+104|Canal: STAFF|Roles de Usuarios|1
+105|Canal: PROYECTO|Roles de Usuarios|1
+106|Canal: DEOCT|Roles de Usuarios|1
+107|Canal: DEOIT|Roles de Usuarios|1
+108|Contratación: Rol Usuario|Roles de Usuarios|1
+109|Contratación: Rol Visualiza Todo|Roles de Usuarios|4
+110|Contratación: Rol Gestor|Roles de Usuarios|1
+111|Contratación: Rol Distribuidor|Roles de Usuarios|1
+113|Contratación: Rol Comité de Contratación|Roles de Usuarios|1
+114|Contratación: Rol Revisión del Área|Roles de Usuarios|1
+115|Contratación: Rol Legal|Roles de Usuarios|1
+116|Contratación: Rol Economía Contratos|Roles de Usuarios|1
+117|Contratación: Rol Económico|Roles de Usuarios|1
+118|Contratación: Rol Responsable|Roles de Usuarios|1
+119|Contratación: Rol Administrador|Roles de Usuarios|5
+120|Trabajadores: Rol Usuarios de Procesos|Roles de Usuarios|1
+121|Trabajadores: Rol Técnicos|Roles de Usuarios|3
+122|Trabajadores: Rol Jefe de Procesos|Roles de Usuarios|2
+123|Trabajadores: Rol Legal|Roles de Usuarios|3
+124|Trabajadores: Rol Capacitador|Roles de Usuarios|2
+125|Trabajadores: Rol Responsable|Roles de Usuarios|3
+126|Trabajadores: Rol Administrador|Roles de Usuarios|3
+127|Clientes: Rol Usuario|Roles de Usuarios|1
+128|Clientes: Rol Ejecutor|Roles de Usuarios|1
+129|Clientes: Rol Responsable|Roles de Usuarios|1
+130|Clientes: Rol Administrador|Roles de Usuarios|1
+131|Transporte: Rol Usuario|Roles de Usuarios|2
+132|Transporte: Rol Responsable|Roles de Usuarios|2
+133|Transporte: Rol Administrador|Roles de Usuarios|1
+134|Reuniones: Rol Usuario|Roles de Usuarios|1
+135|Reuniones: Rol Secretaria|Roles de Usuarios|1
+136|Reuniones: Rol Director|Roles de Usuarios|1
+137|Reuniones: Rol Responsable|Roles de Usuarios|1
+138|Reuniones: Rol Administrador|Roles de Usuarios|1
+139|Documental: Rol Usuario|Roles de Usuarios|1
+140|Documental: Rol Ejecutor|Roles de Usuarios|1
+141|Soporte: Rol Ejecutor|Roles de Usuarios|1
+142|Soporte: Rol Responsable|Roles de Usuarios|1
+143|Soporte: Rol Visualizar Todo|Roles de Usuarios|1
+144|Soporte: Rol Administrador|Roles de Usuarios|1
+145|Materiales/Insumos: Rol Usuario|Roles de Usuarios|1
+146|Materiales/Insumos: Rol Ejecutor|Roles de Usuarios|1
+147|Materiales/Insumos: Rol Responsable|Roles de Usuarios|1
+148|Materiales/Insumos: Rol Administrador|Roles de Usuarios|1
+149|Permiso Especial: Importar Datos|Roles de Usuarios|1
+150|Permiso Especial: Exportar Datos|Roles de Usuarios|1
+151|Trabajadores: Rol Seguridad y Salud|Roles de Usuarios|2
+152|Trabajadores: Rol Todos los Trabajadores|Roles de Usuarios|1
+153|Instrucciones Laborales: Rol Usuario|Roles de Usuarios|1
+154|Instrucciones Laborales: Rol Instructor|Roles de Usuarios|1
+155|Instrucciones Laborales: Rol Administrador|Roles de Usuarios|1
+156|Encuesta: Rol Usuario|Roles de Usuarios|1
+157|Encuesta: Rol Administrador|Roles de Usuarios|1
+158|Metrología: Rol Usuario|Roles de Usuarios|1
+159|Metrología: Rol Ejecutor|Roles de Usuarios|1
+160|Metrología: Rol Responsable|Roles de Usuarios|1
+161|Metrología: Rol Administrador|Roles de Usuarios|1
+162|Solicitudes: Rol Usuario|Roles de Usuarios|1
+163|Solicitudes: Rol Visualizar Todo|Roles de Usuarios|0
+164|Solicitudes: Rol Responsable|Roles de Usuarios|1
+165|Solicitudes: Rol Administrador|Roles de Usuarios|1
+166|Solicitudes: Rol Inversionista|Roles de Usuarios|1
+167|Solicitudes: Rol Negociador|Roles de Usuarios|1
+168|Solicitudes: Rol Revisión del Negocio|Roles de Usuarios|1
+169|Solicitudes: Rol Distribuidor|Roles de Usuarios|1
+170|Solicitudes: Rol Especialista Responsable|Roles de Usuarios|1
+171|Permiso Especial: VPN|Roles de Usuarios|0
+172|Permiso Especial: Eliminar accesos de usuarios|Roles de Usuarios|0
+185|CMI: Rol Usuario|Roles de Usuarios|1
+186|CMI: Rol Ejecutor|Roles de Usuarios|1
+187|CMI: Rol Responsable|Roles de Usuarios|1
+188|CMI: Rol Administrador|Roles de Usuarios|1
+189|Credenciales: Rol Técnicos|Roles de Usuarios|1
+190|Credenciales: Rol Responsable|Roles de Usuarios|1
+191|Credenciales: Rol Administrador|Roles de Usuarios|1
+203|Canal: INVERSIONISTAS|Roles de Usuarios|1
+204|Marketing por Correo: Rol Usuario|Roles de Usuarios|1
+205|Salón de Clases: Rol Usuario|Roles de Usuarios|1
+206|Salón de Clases: Rol Responsable|Roles de Usuarios|1
+207|Salón de Clases: Rol Administrador|Roles de Usuarios|1
+208|Transporte: Rol Piquera|Roles de Usuarios|2
+213|Permiso Especial: MultiProcesos|Roles de Usuarios|0
+219|Solicitudes: Rol Territorio|Roles de Usuarios|1
+220|Servicios Internos: Rol Usuario|Roles de Usuarios|1
+221|Servicios Internos: Rol Ejecutor de Servicios|Roles de Usuarios|1
+222|Servicios Internos: Rol Ejecutor Corporativo|Roles de Usuarios|1
+223|Servicios Internos: Rol Administrador|Roles de Usuarios|1
+225|Transporte: Rol Ejecutor|Roles de Usuarios|1
+226|Desactivar Usuario: Motivo LDAP|Roles de Usuarios|0
+227|Desactivar Usuario: Motivo Registro|Roles de Usuarios|0
+228|Desactivar Usuario: Motivo Acceso|Roles de Usuarios|0
+239|Ordenes: Rol Visualizar Proceso|Roles de Usuarios|1
+240|Ordenes: Rol Visualizar Todo|Roles de Usuarios|1
+241|Ordenes: Rol Inversionista Visualización Personal|Roles de Usuarios|1
+242|Ordenes: Rol Inversionista Visualizar Todo|Roles de Usuarios|1
+243|Ordenes: Rol Solicitar Orden|Roles de Usuarios|1
+244|Ordenes: Rol Validar Orden|Roles de Usuarios|1
+245|Ordenes: Rol Crear Orden|Roles de Usuarios|1
+246|Ordenes: Rol Responsable|Roles de Usuarios|1
+247|Ordenes: Rol Administrador|Roles de Usuarios|1
+254|Informática: Visualizar Medios|Roles de Usuarios|1
+255|Informática: Técnico de Medios|Roles de Usuarios|1
+256|Informática: Responsable|Roles de Usuarios|1
+257|Informática: Administrador|Roles de Usuarios|1
+258|Informática: Visualizar Taller|Roles de Usuarios|1
+259|Informática: Técnico de taller|Roles de Usuarios|1
+271|Transferencias: Rol Visualizar Todo|Roles de Usuarios|1
+272|Transferencias: Rol Visualizar Proceso|Roles de Usuarios|1
+273|Transferencias: Rol Inversionista|Roles de Usuarios|1
+274|Transferencias: Rol Ejecutor|Roles de Usuarios|1
+275|Transferencias: Rol Técnico Productivo|Roles de Usuarios|1
+276|Transferencias: Rol Económico|Roles de Usuarios|1
+277|Transferencias: Rol Responsable|Roles de Usuarios|1
+278|Transferencias: Rol Administrador|Roles de Usuarios|1
+287|Vivienda: Rol Usuario|Roles de Usuarios|1
+288|Vivienda: Rol Secretario Sindical|Roles de Usuarios|1
+289|Vivienda: Rol Secretario General|Roles de Usuarios|1
+290|Vivienda: Rol Validar Solicitud|Roles de Usuarios|1
+291|Vivienda: Rol Logística|Roles de Usuarios|1
+292|Vivienda: Rol Economía|Roles de Usuarios|1
+293|Vivienda: Rol Responsable|Roles de Usuarios|1
+294|Vivienda: Rol Administrador|Roles de Usuarios|1
+302|Solicitudes: Rol Especialista Ejecutante|Roles de Usuarios|1
+303|Repositorio: Usuario|Roles de Usuarios|1
+304|Repositorio: Creador|Roles de Usuarios|1
+305|Repositorio: Validación|Roles de Usuarios|1
+306|Repositorio: Responsable|Roles de Usuarios|1
+307|Repositorio: Administrador|Roles de Usuarios|1

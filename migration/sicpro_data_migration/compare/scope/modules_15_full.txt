@@ -1,0 +1,113 @@
+sicpro_app_administracion|installed|SICPRO: Administración
+sicpro_app_calendario|installed|SICPRO: Calendario
+sicpro_app_clientes|installed|SICPRO: Clientes
+sicpro_app_cmi|installed|SICPRO: Cuadro de Mando Integral
+sicpro_app_contactos|installed|SICPRO: Contactos
+sicpro_app_contratos|installed|SICPRO: Contratos
+sicpro_app_control_informacion|uninstalled|SICPRO: Control de la Información
+sicpro_app_credenciales|installed|SICPRO: Credenciales
+sicpro_app_dashboard|installed|Mi Dashboard Personal
+sicpro_app_encuestas|installed|SICPRO: Encuestas
+sicpro_app_escaner_codigos|uninstalled|SICPRO: Escáner de Código de Barras/QR
+sicpro_app_firma_digital|uninstalled|SICPRO: Firma Digital
+sicpro_app_fuerzas_medios|uninstalled|SICPRO: Fuerzas y Medios
+sicpro_app_gestion_moviles|uninstalled|SICPRO: Gestión de Móviles
+sicpro_app_gestor_documental|installed|SICPRO: Gestor Documental
+sicpro_app_gitlab|installed|SICPRO: Acceso directo a GitLab
+sicpro_app_instrucciones|installed|SICPRO: Instrucciones Laborales
+sicpro_app_marketing|installed|SICPRO: Marketing por Correo
+sicpro_app_materiales_insumos|installed|SICPRO: Materiales e Insumos
+sicpro_app_medios_informaticos|installed|SICPRO: Medios Informáticos
+sicpro_app_metrologia|installed|SICPRO: Metrología
+sicpro_app_notas|installed|SICPRO: Tablero de Notas
+sicpro_app_nube_etecsa|installed|SICPRO: Nube ETECSA
+sicpro_app_ordenes_trabajo|installed|SICPRO: Órdenes de Trabajo
+sicpro_app_presupuesto|uninstalled|SICPRO: Presupuesto
+sicpro_app_programa_viviendas|installed|SICPRO: Programa de la vivienda
+sicpro_app_repositorio_institucional|installed|SICPRO: Repositorio Institucional
+sicpro_app_rest_api|installed|SICPRO: API Rest
+sicpro_app_reuniones|installed|SICPRO: Gestor de Reuniones
+sicpro_app_salon_clases|installed|SICPRO: Salón de Clases
+sicpro_app_servicios_internos|installed|SICPRO: Servicios Internos
+sicpro_app_solicitudes|installed|SICPRO: Solicitudes de Trabajo
+sicpro_app_soporte|installed|SICPRO: Soporte
+sicpro_app_trabajadores|installed|SICPRO: Trabajadores
+sicpro_app_transferencias_gastos|installed|SICPRO: Transferencias de Gastos
+sicpro_app_transporte|installed|SICPRO: Transporte
+sicpro_app_video_conferencias|installed|SICPRO: Video Conferencias
+sicpro_app_viveres|uninstalled|SICPRO: Víveres
+sicpro_modulo_adjuntos_capacidad|installed|SICPRO: Adjuntos Capacidad
+sicpro_modulo_adjuntos_multiples|installed|SICPRO: Adjuntos Multiples
+sicpro_modulo_api_calendario|uninstalled|SICPRO: API Calendario
+sicpro_modulo_api_conector|installed|SICPRO: API Conector
+sicpro_modulo_api_conector_gitlab|installed|SICPRO: API Conector (GITLAB)
+sicpro_modulo_api_conector_gitlab_backup|installed|SICPRO: API Conector (BACKUP)
+sicpro_modulo_api_conector_gitlab_soporte|installed|SICPRO: API Conector GITLAB/Soporte
+sicpro_modulo_api_conector_transporte_sipetc|installed|SICPRO: API Conector (SIPETC)
+sicpro_modulo_api_deck|uninstalled|SICPRO: API Deck Nextcloud
+sicpro_modulo_api_deck_reuniones|uninstalled|SICPRO: API Deck Nextcloud Reuniones
+sicpro_modulo_auditorias|installed|SICPRO: Registros de Auditoria
+sicpro_modulo_avanzado|installed|SICPRO: Personalización Avanzada
+sicpro_modulo_backup_local|uninstalled|SICPRO: Backup Local Server
+sicpro_modulo_backup_server|installed|SICPRO: Backup Server Local y Remoto
+sicpro_modulo_barra_lateral|installed|SICPRO: Barra Lateral de Búsqueda
+sicpro_modulo_base_correos_entrantes|installed|SICPRO: Base de Correos Entrantes
+sicpro_modulo_base_correos_entrantes_soporte|installed|SICPRO: Solicitud de Correos desde Soporte
+sicpro_modulo_base_correos_entrantes_soporte_acceso|installed|SICPRO: Base de Correos Entrantes - Soporte Acceso
+sicpro_modulo_base_correos_entrantes_soporte_tecnico|installed|SICPRO: Base de Correos Entrantes - Soporte Técnico
+sicpro_modulo_certificados_digitales|uninstalled|SICPRO: Administrar Certificados Digitales
+sicpro_modulo_dashboard_extendido|installed|SICPRO: Dashboard Extendidos
+sicpro_modulo_directorios|installed|SICPRO: Directorios de Aplicaciones
+sicpro_modulo_dominio_dinamico|installed|SICPRO: Dominio Dinámico
+sicpro_modulo_fullscreen|installed|SICPRO: Vista FullScreen
+sicpro_modulo_historial_aplicaciones|installed|SICPRO: Historial de Aplicaciones
+sicpro_modulo_historial_cron|installed|SICPRO: Historial de Ejecución Cron
+sicpro_modulo_historial_xmlrpc|installed|SICPRO: Historial de solicitudes XMLRPC
+sicpro_modulo_imagenes|installed|SICPRO: Trabajos con Imágenes
+sicpro_modulo_importar_seguridad|installed|SICPRO: Seguridad de Importación
+sicpro_modulo_ldap_local|installed|SICPRO: Usuario LDAP a local
+sicpro_modulo_ldap_local_clientes|installed|SICPRO: Usuario LDAP a Cliente local
+sicpro_modulo_ldap_query|installed|SICPRO: Consultas Dinámicas al LDAP
+sicpro_modulo_ldap_servicios_internos|installed|SICPRO: LDAP a Servicios Internos
+sicpro_modulo_ldap_ssl|installed|SICPRO: Conexión mediante LDAP SSL
+sicpro_modulo_mapas|installed|SICPRO: Integración con Mapas
+sicpro_modulo_mapas_externo|installed|SICPRO: Mapas Externos
+sicpro_modulo_modelo_vistas|installed|SICPRO: Vistas de los modelos de datos
+sicpro_modulo_monto_texto|installed|SICPRO: Monto a Texto
+sicpro_modulo_nomencladores|installed|SICPRO: Nomencladores
+sicpro_modulo_nomencladores_sindicato|installed|SICPRO: Nomenclador del sindicato
+sicpro_modulo_one2many_search|installed|SICPRO: Widget Buscador One2many
+sicpro_modulo_paquetes_python|installed|SICPRO: Paquetes Python
+sicpro_modulo_plantilla_acceso|installed|SICPRO: Planilla Acceso
+sicpro_modulo_plantilla_acceso_soporte_bitacora|installed|SICPRO: Planilla Acceso Soporte
+sicpro_modulo_querydb|installed|SICPRO: Base de Datos Query
+sicpro_modulo_roles|installed|SICPRO: Roles
+sicpro_modulo_sequence_romanos|installed|SICPRO: Sequence Romanos
+sicpro_modulo_servidor_info|installed|SICPRO: Servidor Info
+sicpro_modulo_temavisual|installed|SICPRO: Tema Visual SICPRO ERP
+sicpro_modulo_temavisual_login|installed|SICPRO: Relación de Tema Visual con Login
+sicpro_modulo_test_desarrollo|uninstalled|SICPRO: Test para Desarrollo
+sicpro_modulo_timeout|uninstalled|SICPRO: Timeout
+sicpro_modulo_ui_python|installed|SICPRO: UI Python
+sicpro_modulo_usuario_desactivar|installed|SICPRO: Desactivar Usuarios
+sicpro_modulo_usuario_registro|installed|SICPRO: Registros de Usuario
+sicpro_modulo_usuario_simular|installed|SICPRO: Simulación de Usuarios
+sicpro_modulo_vistas|installed|SICPRO: Modificación Vistas de Lista
+sicpro_modulo_vistas_tooltip|installed|SICPRO: Imagen tooltip vista de lista
+sicpro_modulo_web|installed|SICPRO: Web Página Inicial
+sicpro_modulo_web_automatiza|installed|SICPRO: Web Automatización de Correos
+sicpro_modulo_web_base_datos|installed|SICPRO: Web Gestor de Base de Datos
+sicpro_modulo_web_error|installed|SICPRO: Web Error
+sicpro_modulo_web_login|installed|SICPRO: Web Login SICPRO ERP
+sicpro_modulo_web_login_show_pass|installed|SICPRO: Mostrar Contraseña Login
+sicpro_modulo_web_mantenimiento|installed|SICPRO: Web Mantenimiento
+sicpro_modulo_web_notify|installed|SICPRO: Notificaciones Web
+sicpro_modulo_web_plugins|installed|SICPRO: Web Descargas Plugins
+sicpro_modulo_web_registro|installed|SICPRO: Web Registro Usuario
+sicpro_modulo_web_versiones|installed|SICPRO: Web Página Versiones
+sicpro_modulo_widget_audio|installed|SICPRO: Widget de Audio
+sicpro_modulo_widget_contador|installed|SICPRO: Contador de Números
+sicpro_modulo_widget_datepicker|installed|SICPRO: Multiples Fechas
+sicpro_modulo_widget_m2o_info|installed|SICPRO: Widget Many2One Info
+sicpro_modulo_widget_time_delta|installed|SICPRO: Formato a Fechas
+sicpro_modulo_zona_descargas|uninstalled|SICPRO: Zona de Descargas

@@ -1,0 +1,757 @@
+model,id_15,id_19,status,name_15,name_19,state_15,state_19
+_unknown,2,2,SAME_ID,Unknown,"{""en_US"": ""Unknown"", ""es_ES"": ""Desconocido""}",base,base
+account.analytic.account,,421,ONLY_19,,"{""en_US"": ""Analytic Account"", ""es_ES"": ""Cuenta analítica""}",,base
+account.analytic.applicability,,420,ONLY_19,,"{""en_US"": ""Analytic Plan's Applicabilities"", ""es_ES"": ""Aplicabilidad del plan analítico""}",,base
+account.analytic.distribution.model,,425,ONLY_19,,"{""en_US"": ""Analytic Distribution Model"", ""es_ES"": ""Modelo de distribución analítica""}",,base
+account.analytic.line,,423,ONLY_19,,"{""en_US"": ""Analytic Line"", ""es_ES"": ""Línea analítica""}",,base
+account.analytic.plan,,419,ONLY_19,,"{""en_US"": ""Analytic Plans"", ""es_ES"": ""Planes analíticos:""}",,base
+addon.import.wizard,,494,ONLY_19,,"{""en_US"": ""Asistente de integración de módulos""}",,base
+analytic.mixin,,424,ONLY_19,,"{""en_US"": ""Analytic Mixin"", ""es_ES"": ""Mixin analítico""}",,base
+analytic.plan.fields.mixin,,422,ONLY_19,,"{""en_US"": ""Analytic Plan Fields"", ""es_ES"": ""Campos de planes analíticos""}",,base
+api.rest.field,1113,,ONLY_15,Campos utilizados en el Api Rest,,base,
+api.rest.function.parameter,1115,,ONLY_15,Parámetros utilizados en el Api Rest,,base,
+api.rest.log,1116,,ONLY_15,Historial de accesos al Api Rest,,base,
+api.rest.path,1112,,ONLY_15,Registro de aplicaciones para el Api Rest,,base,
+api.rest.tag,1114,,ONLY_15,Categorías del Api Rest,,base,
+api.rest.version,1111,,ONLY_15,Registro de versiones del Api Rest,,base,
+auditlog.autovacuum,,482,ONLY_19,,"{""en_US"": ""Registro de auditoría: eliminar registros antiguos""}",,base
+auditlog.http.request,,476,ONLY_19,,"{""en_US"": ""Registro de auditoría: registro de solicitudes HTTP""}",,base
+auditlog.http.session,,477,ONLY_19,,"{""en_US"": ""Registro de auditoría: registro de sesión de usuario HTTP""}",,base
+auditlog.log,,478,ONLY_19,,"{""en_US"": ""Registro de auditoría - Registro""}",,base
+auditlog.log.line,,479,ONLY_19,,"{""en_US"": ""Registro de auditoría: detalles del registro (campos actualizados)""}",,base
+auditlog.log.line.view,,480,ONLY_19,,"{""en_US"": ""Registro de auditoría: detalles del registro (campos actualizados)""}",,base
+auditlog.rule,,481,ONLY_19,,"{""en_US"": ""Registro de auditoría - Regla""}",,base
+auth.passkey.key,,140,ONLY_19,,"{""en_US"": ""Passkey"", ""es_ES"": ""Clave de acceso""}",,base
+auth.passkey.key.create,,141,ONLY_19,,"{""en_US"": ""Create a Passkey"", ""es_ES"": ""Crear una clave de acceso""}",,base
+auth.totp.rate.limit.log,,129,ONLY_19,,"{""en_US"": ""TOTP rate limit logs"", ""es_ES"": ""Cantidad límite de registros de TOTP""}",,base
+auth_totp.device,116,128,DIFFERENT_ID,Authentication Device,"{""en_US"": ""Authentication Device"", ""es_ES"": ""Dispositivo de autenticación""}",base,base
+auth_totp.wizard,117,130,DIFFERENT_ID,2-Factor Setup Wizard,"{""en_US"": ""2-Factor Setup Wizard"", ""es_ES"": ""Asistente de la configuración de la autenticación de dos factores""}",base,base
+avatar.mixin,76,82,DIFFERENT_ID,Avatar Mixin,"{""en_US"": ""Avatar Mixin"", ""es_ES"": ""Avatar Mixin""}",base,base
+base,1,1,SAME_ID,Base,"{""en_US"": ""Base"", ""es_ES"": ""Base""}",base,base
+base.automation,352,413,DIFFERENT_ID,Automated Action,"{""en_US"": ""Automation Rule"", ""es_ES"": ""Regla de automatización""}",base,base
+base.document.layout,115,126,DIFFERENT_ID,Company Document Layout,"{""en_US"": ""Company Document Layout"", ""es_ES"": ""Diseño de documentos de la compañía""}",base,base
+base.enable.profiling.wizard,74,80,DIFFERENT_ID,Enable profiling for some time,"{""en_US"": ""Enable profiling for some time"", ""es_ES"": ""Habilitar análisis de rendimiento por cierto tiempo""}",base,base
+base.import.module,,133,ONLY_19,,"{""en_US"": ""Import Module"", ""es_ES"": ""Importar módulo""}",,base
+base.language.export,110,121,DIFFERENT_ID,Language Export,"{""en_US"": ""Language Export"", ""es_ES"": ""Exportación de idioma""}",base,base
+base.language.import,107,118,DIFFERENT_ID,Language Import,"{""en_US"": ""Language Import"", ""es_ES"": ""Importación de idioma""}",base,base
+base.language.install,106,117,DIFFERENT_ID,Install Language,"{""en_US"": ""Install Language"", ""es_ES"": ""Instalar idioma""}",base,base
+base.module.install.request,,370,ONLY_19,,"{""en_US"": ""Module Activation Request"", ""es_ES"": ""Solicitud de activación de módulo""}",,base
+base.module.install.review,,371,ONLY_19,,"{""en_US"": ""Module Activation Review"", ""es_ES"": ""Revisión de la activación del módulo""}",,base
+base.module.uninstall,109,120,DIFFERENT_ID,Module Uninstall,"{""en_US"": ""Module Uninstall"", ""es_ES"": ""Desinstalar módulo""}",base,base
+base.module.update,105,116,DIFFERENT_ID,Update Module,"{""en_US"": ""Update Module"", ""es_ES"": ""Actualizar módulo""}",base,base
+base.module.upgrade,108,119,DIFFERENT_ID,Upgrade Module,"{""en_US"": ""Upgrade Module"", ""es_ES"": ""Actualizar módulo""}",base,base
+base.partner.merge.automatic.wizard,113,123,DIFFERENT_ID,Merge Partner Wizard,"{""en_US"": ""Merge Partner Wizard"", ""es_ES"": ""Asistente de fusión de contactos""}",base,base
+base.partner.merge.line,112,122,DIFFERENT_ID,Merge Partner Line,"{""en_US"": ""Merge Partner Line"", ""es_ES"": ""Fusionar línea de contacto""}",base,base
+base.update.translations,111,,ONLY_15,Update Translations,,base,
+base_import.import,119,132,DIFFERENT_ID,Base Import,"{""en_US"": ""Base Import"", ""es_ES"": ""Importación base""}",base,base
+base_import.mapping,118,131,DIFFERENT_ID,Base Import Mapping,"{""en_US"": ""Base Import Mapping"", ""es_ES"": ""Mapeo de la importación base""}",base,base
+base_import.tests.models.char,120,,ONLY_15,"Tests : Base Import Model, Character",,base,
+base_import.tests.models.char.noreadonly,124,,ONLY_15,"Tests : Base Import Model, Character No readonly",,base,
+base_import.tests.models.char.readonly,122,,ONLY_15,"Tests : Base Import Model, Character readonly",,base,
+base_import.tests.models.char.required,121,,ONLY_15,"Tests : Base Import Model, Character required",,base,
+base_import.tests.models.char.states,123,,ONLY_15,"Tests : Base Import Model, Character states",,base,
+base_import.tests.models.char.stillreadonly,125,,ONLY_15,"Tests : Base Import Model, Character still readonly",,base,
+base_import.tests.models.complex,134,,ONLY_15,Tests: Base Import Model Complex,,base,
+base_import.tests.models.float,133,,ONLY_15,Tests: Base Import Model Float,,base,
+base_import.tests.models.m2o,126,,ONLY_15,"Tests : Base Import Model, Many to One",,base,
+base_import.tests.models.m2o.related,127,,ONLY_15,"Tests : Base Import Model, Many to One related",,base,
+base_import.tests.models.m2o.required,128,,ONLY_15,"Tests : Base Import Model, Many to One required",,base,
+base_import.tests.models.m2o.required.related,129,,ONLY_15,"Tests : Base Import Model, Many to One required related",,base,
+base_import.tests.models.o2m,130,,ONLY_15,"Tests : Base Import Model, One to Many",,base,
+base_import.tests.models.o2m.child,131,,ONLY_15,"Tests : Base Import Model, One to Many child",,base,
+base_import.tests.models.preview,132,,ONLY_15,Tests : Base Import Model Preview,,base,
+bus.bus,136,135,DIFFERENT_ID,Communication Bus,"{""en_US"": ""Communication Bus"", ""es_ES"": ""Bus de comunicación""}",base,base
+bus.listener.mixin,,136,ONLY_19,,"{""en_US"": ""Can send messages via bus.bus"", ""es_ES"": ""Puede enviar mensajes mediante bus.bus""}",,base
+bus.presence,137,,ONLY_15,User Presence,,base,
+calendar.actividades.organizativas,1692,676,DIFFERENT_ID,Actividades Organizativas del Calendario,"{""en_US"": ""Actividades Organizativas del Calendario""}",base,base
+calendar.alarm,386,375,DIFFERENT_ID,Event Alarm,"{""en_US"": ""Event Alarm"", ""es_ES"": ""Alerta del evento""}",base,base
+calendar.alarm_manager,387,376,DIFFERENT_ID,Event Alarm Manager,"{""en_US"": ""Event Alarm Manager"", ""es_ES"": ""Gestor de alertas del calendario""}",base,base
+calendar.attendee,383,372,DIFFERENT_ID,Calendar Attendee Information,"{""en_US"": ""Calendar Attendee Information"", ""es_ES"": ""Información del calendario de asistentes""}",base,base
+calendar.cargos.externos,1693,677,DIFFERENT_ID,Cargo Externos del Calendario,"{""en_US"": ""Cargo Externos del Calendario""}",base,base
+calendar.cumplimiento.reporte,1861,678,DIFFERENT_ID,Cumplimiento del plan de trabajo,"{""en_US"": ""Cumplimiento del plan de trabajo""}",base,base
+calendar.event,385,374,DIFFERENT_ID,Calendar Event,"{""en_US"": ""Calendar Event"", ""es_ES"": ""Evento de calendario""}",base,base
+calendar.event.type,389,378,DIFFERENT_ID,Event Meeting Type,"{""en_US"": ""Event Meeting Type"", ""es_ES"": ""Tipo de reunión""}",base,base
+calendar.filters,388,377,DIFFERENT_ID,Calendar Filters,"{""en_US"": ""Calendar Filters"", ""es_ES"": ""Filtros de calendario""}",base,base
+calendar.pie.firmas,2332,680,DIFFERENT_ID,Pie de Firma del Calendario,"{""en_US"": ""Pie de Firma del Calendario""}",base,base
+calendar.plan.reporte,1324,681,DIFFERENT_ID,Reportes del plan de trabajo,"{""en_US"": ""Reportes del plan de trabajo""}",base,base
+calendar.popover.delete.wizard,,380,ONLY_19,,"{""en_US"": ""Calendar Popover Delete Wizard"", ""es_ES"": ""Asistente para eliminar ventana emergente del calendario""}",,base
+calendar.provider.config,,379,ONLY_19,,"{""en_US"": ""Calendar Provider Configuration Wizard"", ""es_ES"": ""Asistente de configuración de proveedor de calendario""}",,base
+calendar.recurrence,384,373,DIFFERENT_ID,Event Recurrence Rule,"{""en_US"": ""Event Recurrence Rule"", ""es_ES"": ""Regla de recurrencia de evento""}",base,base
+calendar.tareas.principales.generales,3038,682,DIFFERENT_ID,Registros de tareas principales y generales,"{""en_US"": ""Registros de tareas principales y generales""}",base,base
+calendar.tipo.calendario,1325,683,DIFFERENT_ID,Tipo de Calendario,"{""en_US"": ""Tipo de Calendario""}",base,base
+change.password.own,,106,ONLY_19,,"{""en_US"": ""User, change own password wizard"", ""es_ES"": ""Usuario, asistente para cambiar la propia contraseña""}",,base
+change.password.user,99,105,DIFFERENT_ID,"User, Change Password Wizard","{""en_US"": ""User, Change Password Wizard"", ""es_ES"": ""Usuario, asistente para cambiar la contraseña""}",base,base
+change.password.wizard,98,104,DIFFERENT_ID,Change Password Wizard,"{""en_US"": ""Change Password Wizard"", ""es_ES"": ""Asistente de cambio de contraseña""}",base,base
+decimal.precision,103,114,DIFFERENT_ID,Decimal Precision,"{""en_US"": ""Decimal Precision"", ""es_ES"": ""Precisión decimal""}",base,base
+digest.digest,1089,411,DIFFERENT_ID,Digest,"{""en_US"": ""Digest"", ""es_ES"": ""Resumen""}",base,base
+digest.tip,1090,412,DIFFERENT_ID,Digest Tips,"{""en_US"": ""Digest Tips"", ""es_ES"": ""Consejos del resumen""}",base,base
+discuss.call.history,,218,ONLY_19,,"{""en_US"": ""Keep the call history"", ""es_ES"": ""Mantener el historial de llamadas""}",,base
+discuss.channel,,221,ONLY_19,,"{""en_US"": ""Discussion Channel"", ""es_ES"": ""Canal de conversaciones""}",,base
+discuss.channel.member,,219,ONLY_19,,"{""en_US"": ""Channel Member"", ""es_ES"": ""Miembro del canal""}",,base
+discuss.channel.rtc.session,,220,ONLY_19,,"{""en_US"": ""Mail RTC session"", ""es_ES"": ""Sesión de comunicación en tiempo real por correo""}",,base
+discuss.gif.favorite,,222,ONLY_19,,"{""en_US"": ""Save favorite GIF from Tenor API"", ""es_ES"": ""Marcar un GIF de Tenor API como favorito""}",,base
+discuss.voice.metadata,,223,ONLY_19,,"{""en_US"": ""Metadata for voice attachments"", ""es_ES"": ""Metadatos para los archivos adjuntos de voz""}",,base
+execute.script,,483,ONLY_19,,"{""en_US"": ""Ejecutar consultas PostgreSQL o de código Python desde la interfaz de SICPRO ERP""}",,base
+fetchmail.server,313,173,DIFFERENT_ID,Incoming Mail Server,"{""en_US"": ""Incoming Mail Server"", ""es_ES"": ""Servidor de correo de entrada""}",base,base
+format.address.mixin,81,88,DIFFERENT_ID,Address Format,"{""en_US"": ""Address Format"", ""es_ES"": ""Formato de dirección""}",base,base
+format.vat.label.mixin,,87,ONLY_19,,"{""en_US"": ""Country Specific VAT Label"", ""es_ES"": ""Etiqueta de IVA específica del país""}",,base
+gamification.badge,395,426,DIFFERENT_ID,Gamification Badge,"{""en_US"": ""Gamification Badge"", ""es_ES"": ""Insignia de ludificación""}",base,base
+gamification.badge.user,394,427,DIFFERENT_ID,Gamification User Badge,"{""en_US"": ""Gamification User Badge"", ""es_ES"": ""Insignia de usuario de ludificación""}",base,base
+gamification.badge.user.wizard,399,435,DIFFERENT_ID,Gamification User Badge Wizard,"{""en_US"": ""Gamification User Badge Wizard"", ""es_ES"": ""Asistente de insignia de usuario de ludificación""}",base,base
+gamification.challenge,392,428,DIFFERENT_ID,Gamification Challenge,"{""en_US"": ""Gamification Challenge"", ""es_ES"": ""Desafío de ludificación""}",base,base
+gamification.challenge.line,393,429,DIFFERENT_ID,Gamification generic goal for challenge,"{""en_US"": ""Gamification generic goal for challenge"", ""es_ES"": ""Meta genérica de ludificación para el desafío""}",base,base
+gamification.goal,391,430,DIFFERENT_ID,Gamification Goal,"{""en_US"": ""Gamification Goal"", ""es_ES"": ""Meta de ludificación""}",base,base
+gamification.goal.definition,390,431,DIFFERENT_ID,Gamification Goal Definition,"{""en_US"": ""Gamification Goal Definition"", ""es_ES"": ""Definición de meta de ludificación""}",base,base
+gamification.goal.wizard,398,434,DIFFERENT_ID,Gamification Goal Wizard,"{""en_US"": ""Gamification Goal Wizard"", ""es_ES"": ""Asistente de metas de ludificación""}",base,base
+gamification.karma.rank,396,432,DIFFERENT_ID,Rank based on karma,"{""en_US"": ""Rank based on karma"", ""es_ES"": ""Rango basado en karma""}",base,base
+gamification.karma.tracking,397,433,DIFFERENT_ID,Track Karma Changes,"{""en_US"": ""Track Karma Changes"", ""es_ES"": ""Seguimiento de cambios de karma""}",base,base
+google.gmail.mixin,,381,ONLY_19,,"{""en_US"": ""Google Gmail Mixin"", ""es_ES"": ""Mixin de Gmail de Google""}",,base
+html.field.history.mixin,,145,ONLY_19,,"{""en_US"": ""Field html History"", ""es_ES"": ""Historial del campo html""}",,base
+html_editor.converter.test,,143,ONLY_19,,"{""en_US"": ""Html Editor Converter Test""}",,base
+html_editor.converter.test.sub,,144,ONLY_19,,"{""en_US"": ""Html Editor Converter Subtest""}",,base
+iap.account,138,146,DIFFERENT_ID,IAP Account,"{""en_US"": ""IAP Account"", ""es_ES"": ""Cuenta IAP""}",base,base
+iap.autocomplete.api,,394,ONLY_19,,"{""en_US"": ""IAP Partner Autocomplete API"", ""es_ES"": ""API de autocompletado del contacto de IAP""}",,base
+iap.enrich.api,139,147,DIFFERENT_ID,IAP Lead Enrichment API,"{""en_US"": ""IAP Lead Enrichment API"", ""es_ES"": ""API de enriquecimiento de leads para IAP""}",base,base
+iap.service,,148,ONLY_19,,"{""en_US"": ""IAP Service"", ""es_ES"": ""Servicio IAP""}",,base
+image.mixin,75,81,DIFFERENT_ID,Image Mixin,"{""en_US"": ""Image Mixin"", ""es_ES"": ""Mixin de imagen""}",base,base
+internos.solicitudes.cancelado,3238,636,DIFFERENT_ID,Solicitudes de los Servicios internos Cancelados,"{""en_US"": ""Solicitudes de los Servicios internos Cancelados""}",base,base
+internos.solicitudes.rechazado.revision,3236,634,DIFFERENT_ID,Solicitudes de los Servicios internos Rechazados en la revisión,"{""en_US"": ""Solicitudes de los Servicios internos Rechazados en la revisión""}",base,base
+internos.solicitudes.rechazado.validacion,3237,635,DIFFERENT_ID,Solicitudes de los Servicios internos Rechazados en la validación,"{""en_US"": ""Solicitudes de los Servicios internos Rechazados en la validación""}",base,base
+ir.actions.act_url,22,22,SAME_ID,Action URL,"{""en_US"": ""Action URL"", ""es_ES"": ""URL de la acción""}",base,base
+ir.actions.act_window,19,19,SAME_ID,Action Window,"{""en_US"": ""Action Window"", ""es_ES"": ""Acción de ventana""}",base,base
+ir.actions.act_window.view,20,20,SAME_ID,Action Window View,"{""en_US"": ""Action Window View"", ""es_ES"": ""Vista de la ventana de acción""}",base,base
+ir.actions.act_window_close,21,21,SAME_ID,Action Window Close,"{""en_US"": ""Action Window Close"", ""es_ES"": ""Cierre de acción de ventana""}",base,base
+ir.actions.actions,18,18,SAME_ID,Actions,"{""en_US"": ""Actions"", ""es_ES"": ""Acciones""}",base,base
+ir.actions.client,26,27,DIFFERENT_ID,Client Action,"{""en_US"": ""Client Action"", ""es_ES"": ""Acción de cliente""}",base,base
+ir.actions.report,27,29,DIFFERENT_ID,Report Action,"{""en_US"": ""Report Action"", ""es_ES"": ""Acción de informe""}",base,base
+ir.actions.server,23,25,DIFFERENT_ID,Server Action,"{""en_US"": ""Server Action"", ""es_ES"": ""Acción de servidor""}",base,base
+ir.actions.server.history,,24,ONLY_19,,"{""en_US"": ""Server Action History""}",,base
+ir.actions.todo,25,26,DIFFERENT_ID,Configuration Wizards,"{""en_US"": ""Configuration Wizards"", ""es_ES"": ""Asistentes de configuración""}",base,base
+ir.asset,17,17,SAME_ID,Asset,"{""en_US"": ""Asset"", ""es_ES"": ""Activo""}",base,base
+ir.attachment,28,30,DIFFERENT_ID,Attachment,"{""en_US"": ""Attachment"", ""es_ES"": ""Archivo adjunto""}",base,base
+ir.autovacuum,38,41,DIFFERENT_ID,Automatic Vacuum,"{""en_US"": ""Automatic Vacuum"", ""es_ES"": ""Limpieza automática""}",base,base
+ir.binary,,31,ONLY_19,,"{""en_US"": ""File streaming helper model for controllers"", ""es_ES"": ""Modelo de ayuda para la transmisión de archivos para controladores""}",,base
+ir.config_parameter,37,40,DIFFERENT_ID,System Parameter,"{""en_US"": ""System Parameter"", ""es_ES"": ""Parámetro del sistema""}",base,base
+ir.cron,29,32,DIFFERENT_ID,Scheduled Actions,"{""en_US"": ""Scheduled Actions"", ""es_ES"": ""Acciones planificadas""}",base,base
+ir.cron.history,1104,492,DIFFERENT_ID,Historial de ejecución del Cron,"{""en_US"": ""Historial de ejecución del Cron""}",base,base
+ir.cron.progress,,34,ONLY_19,,"{""en_US"": ""Progress of Scheduled Actions"", ""es_ES"": ""Progeso de acciones planificadas""}",,base
+ir.cron.trigger,30,33,DIFFERENT_ID,Triggered actions,"{""en_US"": ""Triggered actions"", ""es_ES"": ""Acciones activadas""}",base,base
+ir.default,32,36,DIFFERENT_ID,Default Values,"{""en_US"": ""Default Values"", ""es_ES"": ""Valores por defecto""}",base,base
+ir.demo,68,72,DIFFERENT_ID,Demo,"{""en_US"": ""Demo"", ""es_ES"": ""Demostración""}",base,base
+ir.demo_failure,69,73,DIFFERENT_ID,Demo failure,"{""en_US"": ""Demo failure"", ""es_ES"": ""Falla de demostración""}",base,base
+ir.demo_failure.wizard,70,74,DIFFERENT_ID,Demo Failure wizard,"{""en_US"": ""Demo Failure wizard"", ""es_ES"": ""Asistente para error de datos demo""}",base,base
+ir.embedded.actions,,28,ONLY_19,,"{""en_US"": ""Embedded Actions"", ""es_ES"": ""Acciones incrustadas""}",,base
+ir.exports,34,37,DIFFERENT_ID,Exports,"{""en_US"": ""Exports"", ""es_ES"": ""Exportaciones""}",base,base
+ir.exports.line,35,38,DIFFERENT_ID,Exports Line,"{""en_US"": ""Exports Line"", ""es_ES"": ""Línea de exportaciones""}",base,base
+ir.fields.converter,40,43,DIFFERENT_ID,Fields Converter,"{""en_US"": ""Fields Converter"", ""es_ES"": ""Conversor de campos""}",base,base
+ir.filters,31,35,DIFFERENT_ID,Filters,"{""en_US"": ""Filters"", ""es_ES"": ""Filtros""}",base,base
+ir.http,61,66,DIFFERENT_ID,HTTP Routing,"{""en_US"": ""HTTP Routing"", ""es_ES"": ""Enrutamiento HTTP""}",base,base
+ir.logging,62,67,DIFFERENT_ID,Logging,"{""en_US"": ""Logging"", ""es_ES"": ""Registro""}",base,base
+ir.mail_server,39,42,DIFFERENT_ID,Mail Server,"{""en_US"": ""Mail Server"", ""es_ES"": ""Servidor de correo""}",base,base
+ir.model,3,3,SAME_ID,Models,"{""en_US"": ""Models"", ""es_ES"": ""Modelos""}",base,base
+ir.model.access,8,9,DIFFERENT_ID,Model Access,"{""en_US"": ""Model Access"", ""es_ES"": ""Acceso al modelo""}",base,base
+ir.model.constraint,6,7,DIFFERENT_ID,Model Constraint,"{""en_US"": ""Model Constraint"", ""es_ES"": ""Restricciones del modelo""}",base,base
+ir.model.data,9,10,DIFFERENT_ID,Model Data,"{""en_US"": ""Model Data"", ""es_ES"": ""Datos del modelo""}",base,base
+ir.model.fields,4,4,SAME_ID,Fields,"{""en_US"": ""Fields"", ""es_ES"": ""Campos""}",base,base
+ir.model.fields.selection,5,6,DIFFERENT_ID,Fields Selection,"{""en_US"": ""Fields Selection"", ""es_ES"": ""Selección de campos""}",base,base
+ir.model.inherit,,5,ONLY_19,,"{""en_US"": ""Model Inheritance Tree"", ""es_ES"": ""Árbol de la herencia del modelo""}",,base
+ir.model.relation,7,8,DIFFERENT_ID,Relation Model,"{""en_US"": ""Relation Model"", ""es_ES"": ""Modelo de relación""}",base,base
+ir.module.addons.path,,497,ONLY_19,,"{""en_US"": ""Module Addons Path""}",,base
+ir.module.category,64,68,DIFFERENT_ID,Application,"{""en_US"": ""Application"", ""es_ES"": ""Aplicación""}",base,base
+ir.module.module,65,69,DIFFERENT_ID,Module,"{""en_US"": ""Module"", ""es_ES"": ""Módulo""}",base,base
+ir.module.module.dependency,66,70,DIFFERENT_ID,Module dependency,"{""en_US"": ""Module dependency"", ""es_ES"": ""Dependencia del módulo""}",base,base
+ir.module.module.exclusion,67,71,DIFFERENT_ID,Module exclusion,"{""en_US"": ""Module exclusion"", ""es_ES"": ""Exclusión del módulo""}",base,base
+ir.profile,73,79,DIFFERENT_ID,Profiling results,"{""en_US"": ""Profiling results"", ""es_ES"": ""Resultados del análisis de rendimiento de software""}",base,base
+ir.property,63,,ONLY_15,Company Property,,base,
+ir.qweb,41,44,DIFFERENT_ID,Qweb,"{""en_US"": ""Qweb"", ""es_ES"": ""Qweb""}",base,base
+ir.qweb.field,42,45,DIFFERENT_ID,Qweb Field,"{""en_US"": ""Qweb Field"", ""es_ES"": ""Campo Qweb""}",base,base
+ir.qweb.field.barcode,58,63,DIFFERENT_ID,Qweb Field Barcode,"{""en_US"": ""Qweb Field Barcode"", ""es_ES"": ""Campo Qweb Código de Barras""}",base,base
+ir.qweb.field.contact,59,64,DIFFERENT_ID,Qweb Field Contact,"{""en_US"": ""Qweb Field Contact"", ""es_ES"": ""Campo Qweb Contacto""}",base,base
+ir.qweb.field.date,45,48,DIFFERENT_ID,Qweb Field Date,"{""en_US"": ""Qweb Field Date"", ""es_ES"": ""Campo Qweb Fecha""}",base,base
+ir.qweb.field.datetime,46,49,DIFFERENT_ID,Qweb Field Datetime,"{""en_US"": ""Qweb Field Datetime"", ""es_ES"": ""Campo Qweb Fecha-Hora""}",base,base
+ir.qweb.field.duration,56,61,DIFFERENT_ID,Qweb Field Duration,"{""en_US"": ""Qweb Field Duration"", ""es_ES"": ""Campo Qweb Duración""}",base,base
+ir.qweb.field.float,44,47,DIFFERENT_ID,Qweb Field Float,"{""en_US"": ""Qweb Field Float"", ""es_ES"": ""Campo Qweb Flotante""}",base,base
+ir.qweb.field.float_time,55,59,DIFFERENT_ID,Qweb Field Float Time,"{""en_US"": ""Qweb Field Float Time"", ""es_ES"": ""Campo Qweb Tiempo flotante""}",base,base
+ir.qweb.field.html,51,55,DIFFERENT_ID,Qweb Field HTML,"{""en_US"": ""Qweb Field HTML"", ""es_ES"": ""Campo Qweb HTML""}",base,base
+ir.qweb.field.image,52,56,DIFFERENT_ID,Qweb Field Image,"{""en_US"": ""Qweb Field Image"", ""es_ES"": ""Campo Qweb Imagen""}",base,base
+ir.qweb.field.image_url,53,57,DIFFERENT_ID,Qweb Field Image,"{""en_US"": ""Qweb Field Image"", ""es_ES"": ""Campo Qweb Imagen""}",base,base
+ir.qweb.field.integer,43,46,DIFFERENT_ID,Qweb Field Integer,"{""en_US"": ""Qweb Field Integer"", ""es_ES"": ""Campo Qweb Entero""}",base,base
+ir.qweb.field.many2many,50,53,DIFFERENT_ID,Qweb field many2many,"{""en_US"": ""Qweb field many2many"", ""es_ES"": ""Campo Qweb Many2many""}",base,base
+ir.qweb.field.many2one,49,52,DIFFERENT_ID,Qweb Field Many to One,"{""en_US"": ""Qweb Field Many to One"", ""es_ES"": ""Campo Qweb Many to One""}",base,base
+ir.qweb.field.monetary,54,58,DIFFERENT_ID,Qweb Field Monetary,"{""en_US"": ""Qweb Field Monetary"", ""es_ES"": ""Campo Qweb Monetario""}",base,base
+ir.qweb.field.one2many,,54,ONLY_19,,"{""en_US"": ""Qweb field one2many""}",,base
+ir.qweb.field.qweb,60,65,DIFFERENT_ID,Qweb Field qweb,"{""en_US"": ""Qweb Field qweb"", ""es_ES"": ""Campo Qweb de Qweb""}",base,base
+ir.qweb.field.relative,57,62,DIFFERENT_ID,Qweb Field Relative,"{""en_US"": ""Qweb Field Relative"", ""es_ES"": ""Campo Qweb Relativo""}",base,base
+ir.qweb.field.selection,48,51,DIFFERENT_ID,Qweb Field Selection,"{""en_US"": ""Qweb Field Selection"", ""es_ES"": ""Campo Qweb Selección""}",base,base
+ir.qweb.field.text,47,50,DIFFERENT_ID,Qweb Field Text,"{""en_US"": ""Qweb Field Text"", ""es_ES"": ""Campo Qweb Texto""}",base,base
+ir.qweb.field.time,,60,ONLY_19,,"{""en_US"": ""QWeb Field Time"", ""es_ES"": ""Tiempo del campo QWeb""}",,base
+ir.rule,36,39,DIFFERENT_ID,Record Rule,"{""en_US"": ""Record Rule"", ""es_ES"": ""Regla""}",base,base
+ir.sequence,11,11,SAME_ID,Sequence,"{""en_US"": ""Sequence"", ""es_ES"": ""Secuencia""}",base,base
+ir.sequence.date_range,12,12,SAME_ID,Sequence Date Range,"{""en_US"": ""Sequence Date Range"", ""es_ES"": ""Rango de fechas de la secuencia""}",base,base
+ir.server.object.lines,24,,ONLY_15,Server Action value mapping,,base,
+ir.translation,33,,ONLY_15,Translation,,base,
+ir.ui.menu,13,13,SAME_ID,Menu,"{""en_US"": ""Menu"", ""es_ES"": ""Menú""}",base,base
+ir.ui.view,15,15,SAME_ID,View,"{""en_US"": ""View"", ""es_ES"": ""Vista""}",base,base
+ir.ui.view.custom,14,14,SAME_ID,Custom View,"{""en_US"": ""Custom View"", ""es_ES"": ""Vista personalizada""}",base,base
+ir.websocket,,137,ONLY_19,,"{""en_US"": ""websocket message handling"", ""es_ES"": ""gestión de mensajes de WebSocket""}",,base
+kpi.provider,,134,ONLY_19,,"{""en_US"": ""KPI Provider"", ""es_ES"": ""Proveedor de KPI""}",,base
+link.tracker,1082,,ONLY_15,Link Tracker,,base,
+link.tracker.click,1084,,ONLY_15,Link Tracker Click,,base,
+link.tracker.code,1083,,ONLY_15,Link Tracker Code,,base,
+mail.activity,151,176,DIFFERENT_ID,Activity,"{""en_US"": ""Activity"", ""es_ES"": ""Actividad""}",base,base
+mail.activity.mixin,142,162,DIFFERENT_ID,Activity Mixin,"{""en_US"": ""Activity Mixin"", ""es_ES"": ""Mixin de actividad""}",base,base
+mail.activity.plan,,177,ONLY_19,,"{""en_US"": ""Activity Plan"", ""es_ES"": ""Plan de actividad""}",,base
+mail.activity.plan.template,,178,ONLY_19,,"{""en_US"": ""Activity plan template"", ""es_ES"": ""Plantilla del plan de actividad""}",,base
+mail.activity.schedule,,232,ONLY_19,,"{""en_US"": ""Activity schedule plan Wizard"", ""es_ES"": ""Asistente para planificar actividades""}",,base
+mail.activity.schedule.line,,233,ONLY_19,,"{""en_US"": ""Mail Activity Schedule Line"", ""es_ES"": ""Línea del horario de actividades de correo""}",,base
+mail.activity.todo.create,,466,ONLY_19,,"{""en_US"": ""Create activity and todo at the same time"", ""es_ES"": ""Crear actividad y actividad pendiente al mismo tiempo""}",,base
+mail.activity.type,150,175,DIFFERENT_ID,Activity Type,"{""en_US"": ""Activity Type"", ""es_ES"": ""Tipo de actividad""}",base,base
+mail.alias,140,159,DIFFERENT_ID,Email Aliases,"{""en_US"": ""Email Aliases"", ""es_ES"": ""Alias de correo electrónico""}",base,base
+mail.alias.domain,,160,ONLY_19,,"{""en_US"": ""Email Domain"", ""es_ES"": ""Dominio de correo electrónico""}",,base
+mail.alias.mixin,143,164,DIFFERENT_ID,Email Aliases Mixin,"{""en_US"": ""Email Aliases Mixin"", ""es_ES"": ""Mixin de alias de correo electrónico""}",base,base
+mail.alias.mixin.optional,,163,ONLY_19,,"{""en_US"": ""Email Aliases Mixin (light)"", ""es_ES"": ""Mixin de alias de correo electrónico (claro)""}",,base
+mail.blacklist,152,179,DIFFERENT_ID,Mail Blacklist,"{""en_US"": ""Mail Blacklist"", ""es_ES"": ""Lista negra de correos""}",base,base
+mail.blacklist.remove,185,230,DIFFERENT_ID,Remove email from blacklist wizard,"{""en_US"": ""Remove email from blacklist wizard"", ""es_ES"": ""Asistente para eliminar correo electrónico de la lista negra""}",base,base
+mail.bot,314,383,DIFFERENT_ID,Mail Bot,"{""en_US"": ""Mail Bot"", ""es_ES"": ""Bot de correo""}",base,base
+mail.canned.response,,197,ONLY_19,,"{""en_US"": ""Canned Response"", ""es_ES"": ""Respuesta predefinida""}",,base
+mail.channel,162,,ONLY_15,Discussion Channel,,base,
+mail.channel.partner,160,,ONLY_15,Listeners of a Channel,,base,
+mail.channel.rtc.session,161,,ONLY_15,Mail RTC session,,base,
+mail.compose.message,186,231,DIFFERENT_ID,Email composition wizard,"{""en_US"": ""Email composition wizard"", ""es_ES"": ""Asistente de redacción de correo electrónico""}",base,base
+mail.composer.mixin,145,166,DIFFERENT_ID,Mail Composer Mixin,"{""en_US"": ""Mail Composer Mixin"", ""es_ES"": ""Mixin del redactor de correo""}",base,base
+mail.followers,153,180,DIFFERENT_ID,Document Followers,"{""en_US"": ""Document Followers"", ""es_ES"": ""Seguidores del documento""}",base,base
+mail.followers.edit,,236,ONLY_19,,"{""en_US"": ""Followers edit wizard"", ""es_ES"": ""Asistente para editar seguidores""}",,base
+mail.gateway.allowed,,181,ONLY_19,,"{""en_US"": ""Mail Gateway Allowed"", ""es_ES"": ""Puerta de enlace de correo permitida""}",,base
+mail.guest,163,224,DIFFERENT_ID,Guest,"{""en_US"": ""Guest"", ""es_ES"": ""Invitado""}",base,base
+mail.ice.server,164,196,DIFFERENT_ID,ICE server,"{""en_US"": ""ICE Server""}",base,base
+mail.link.preview,,182,ONLY_19,,"{""en_US"": ""Store link preview data"", ""es_ES"": ""Almacenar los datos de la vista previa del enlace""}",,base
+mail.mail,157,189,DIFFERENT_ID,Outgoing Mails,"{""en_US"": ""Outgoing Mails"", ""es_ES"": ""Correos electrónicos salientes""}",base,base
+mail.message,156,188,DIFFERENT_ID,Message,"{""en_US"": ""Message"", ""es_ES"": ""Mensaje""}",base,base
+mail.message.link.preview,,183,ONLY_19,,"{""en_US"": ""Link between link previews and messages"", ""es_ES"": ""Enlace entre las vistas previas de enlaces y mensajes""}",,base
+mail.message.reaction,154,184,DIFFERENT_ID,Message Reaction,"{""en_US"": ""Message Reaction"", ""es_ES"": ""Reacción de mensaje""}",base,base
+mail.message.schedule,,185,ONLY_19,,"{""en_US"": ""Scheduled Messages"", ""es_ES"": ""Mensajes programados""}",,base
+mail.message.subtype,155,186,DIFFERENT_ID,Message subtypes,"{""en_US"": ""Message subtypes"", ""es_ES"": ""Subtipos de mensaje""}",base,base
+mail.message.translation,,187,ONLY_19,,"{""en_US"": ""Message Translation"", ""es_ES"": ""Traducción del mensaje""}",,base
+mail.notification,149,174,DIFFERENT_ID,Message Notifications,"{""en_US"": ""Message Notifications"", ""es_ES"": ""Notificaciones de mensajes""}",base,base
+mail.presence,,190,ONLY_19,,"{""en_US"": ""User/Guest Presence"", ""es_ES"": ""Conexión del usuario/invitado""}",,base
+mail.push,,191,ONLY_19,,"{""en_US"": ""Push Notifications"", ""es_ES"": ""Notificaciones push""}",,base
+mail.push.device,,192,ONLY_19,,"{""en_US"": ""Push Notification Device"", ""es_ES"": ""Dispositivo de notificación push""}",,base
+mail.render.mixin,144,165,DIFFERENT_ID,Mail Render Mixin,"{""en_US"": ""Mail Render Mixin"", ""es_ES"": ""Mixin de renderización de correo""}",base,base
+mail.resend.cancel,187,,ONLY_15,Dismiss notification for resend by model,,base,
+mail.resend.message,188,,ONLY_15,Email resend wizard,,base,
+mail.resend.partner,189,,ONLY_15,Partner with additional information for mail resend,,base,
+mail.scheduled.message,,193,ONLY_19,,"{""en_US"": ""Scheduled Message"", ""es_ES"": ""Mensaje programado""}",,base
+mail.shortcode,165,,ONLY_15,Canned Response / Shortcode,,base,
+mail.template,159,195,DIFFERENT_ID,Email Templates,"{""en_US"": ""Email Templates"", ""es_ES"": ""Plantillas de correo electrónico""}",base,base
+mail.template.preview,190,234,DIFFERENT_ID,Email Template Preview,"{""en_US"": ""Email Template Preview"", ""es_ES"": ""Vista previa de la plantilla del correo electrónico""}",base,base
+mail.template.reset,,235,ONLY_19,,"{""en_US"": ""Mail Template Reset"", ""es_ES"": ""Restablecimiento de la plantilla de correo""}",,base
+mail.thread,146,167,DIFFERENT_ID,Email Thread,"{""en_US"": ""Email Thread"", ""es_ES"": ""Hilo de correo electrónico""}",base,base
+mail.thread.blacklist,147,168,DIFFERENT_ID,Mail Blacklist mixin,"{""en_US"": ""Mail Blacklist mixin"", ""es_ES"": ""Mixin de la lista negra de correos""}",base,base
+mail.thread.cc,148,169,DIFFERENT_ID,Email CC management,"{""en_US"": ""Email CC management"", ""es_ES"": ""Gestión del CC del correo electrónico""}",base,base
+mail.thread.main.attachment,,170,ONLY_19,,"{""en_US"": ""Mail Main Attachment management"", ""es_ES"": ""Gestión de los principales archivos adjuntos del correo""}",,base
+mail.thread.phone,316,388,DIFFERENT_ID,Phone Blacklist Mixin,"{""en_US"": ""Phone Blacklist Mixin"", ""es_ES"": ""Mixin de lista negra del teléfono""}",base,base
+mail.tracking.duration.mixin,,171,ONLY_19,,"{""en_US"": ""Mixin to compute the time a record has spent in each value a many2one field can take"", ""es_ES"": ""Mixin para calcular el tiempo que ha pasado un registro en cada valor que puede tomar un campo many2one""}",,base
+mail.tracking.value,158,194,DIFFERENT_ID,Mail Tracking Value,"{""en_US"": ""Mail Tracking Value"", ""es_ES"": ""Valor de seguimiento de correo""}",base,base
+mail.wizard.invite,191,,ONLY_15,Invite wizard,,base,
+mailing.contact,1092,,ONLY_15,Mailing Contact,,base,
+mailing.contact.subscription,1091,,ONLY_15,Mass Mailing Subscription Information,,base,
+mailing.contact.to.list,1099,,ONLY_15,Add Contacts to Mailing List,,base,
+mailing.list,1093,,ONLY_15,Mailing List,,base,
+mailing.list.merge,1100,,ONLY_15,Merge Mass Mailing List,,base,
+mailing.mailing,1095,,ONLY_15,Mass Mailing,,base,
+mailing.mailing.schedule.date,1102,,ONLY_15,schedule a mailing,,base,
+mailing.mailing.test,1101,,ONLY_15,Sample Mail Wizard,,base,
+mailing.trace,1094,,ONLY_15,Mailing Statistics,,base,
+mailing.trace.report,1098,,ONLY_15,Mass Mailing Statistics,,base,
+map.website,1118,,ONLY_15,Map Website,,base,
+mass.editing.line,357,,ONLY_15,Mass Editing Line,,base,
+mass.editing.wizard,358,,ONLY_15,Wizard for mass edition,,base,
+microsoft.outlook.mixin,,384,ONLY_19,,"{""en_US"": ""Microsoft Outlook Mixin"", ""es_ES"": ""Mixin de Microsoft Outlook""}",,base
+note.note,341,,ONLY_15,Note,,base,
+note.stage,339,,ONLY_15,Note Stage,,base,
+note.tableros,2369,,ONLY_15,Tableros de Notas,,base,
+note.tag,340,,ONLY_15,Note Tag,,base,
+nucleo.sicpro.readonly,927,,ONLY_15,Nucleo Readonly,,base,
+pass.user.backup,947,522,DIFFERENT_ID,Modelo para visualizar el PassUserBackup,"{""en_US"": ""Modelo para visualizar el PassUserBackup""}",base,base
+pdforientation,368,514,DIFFERENT_ID,Seleccionar la orientación del pdf,"{""en_US"": ""Seleccionar la orientación del archivo PDF""}",base,base
+phone.blacklist,315,387,DIFFERENT_ID,Phone Blacklist,"{""en_US"": ""Phone Blacklist"", ""es_ES"": ""Lista negra del teléfono""}",base,base
+phone.blacklist.remove,317,390,DIFFERENT_ID,Remove phone from blacklist,"{""en_US"": ""Remove phone from blacklist"", ""es_ES"": ""Eliminar teléfono de la lista negra""}",base,base
+portal.mixin,1085,395,DIFFERENT_ID,Portal Mixin,"{""en_US"": ""Portal Mixin"", ""es_ES"": ""Mixin del portal""}",base,base
+portal.share,1086,396,DIFFERENT_ID,Portal Sharing,"{""en_US"": ""Portal Sharing"", ""es_ES"": ""Compartir portal""}",base,base
+portal.wizard,1087,397,DIFFERENT_ID,Grant Portal Access,"{""en_US"": ""Grant Portal Access"", ""es_ES"": ""Otorgar acceso al portal""}",base,base
+portal.wizard.user,1088,398,DIFFERENT_ID,Portal User Config,"{""en_US"": ""Portal User Config"", ""es_ES"": ""Configuración del usuario del portal""}",base,base
+privacy.log,,391,ONLY_19,,"{""en_US"": ""Privacy Log"", ""es_ES"": ""Registro de privacidad""}",,base
+privacy.lookup.wizard,,392,ONLY_19,,"{""en_US"": ""Privacy Lookup Wizard"", ""es_ES"": ""Asistente de búsqueda de privacidad""}",,base
+privacy.lookup.wizard.line,,393,ONLY_19,,"{""en_US"": ""Privacy Lookup Wizard Line"", ""es_ES"": ""Línea de asistente de búsqueda de privacidad""}",,base
+project.collaborator,,455,ONLY_19,,"{""en_US"": ""Collaborators in project shared"", ""es_ES"": ""Colaboradores en proyectos compartidos""}",,base
+project.milestone,,449,ONLY_19,,"{""en_US"": ""Project Milestone"", ""es_ES"": ""Hito de proyecto""}",,base
+project.project,,451,ONLY_19,,"{""en_US"": ""Project"", ""es_ES"": ""Proyecto""}",,base
+project.project.stage,,445,ONLY_19,,"{""en_US"": ""Project Stage"", ""es_ES"": ""Etapa del proyecto""}",,base
+project.project.stage.delete.wizard,,459,ONLY_19,,"{""en_US"": ""Project Stage Delete Wizard"", ""es_ES"": ""Asistente para eliminar la etapa del proyecto""}",,base
+project.role,,452,ONLY_19,,"{""en_US"": ""Project Role"", ""es_ES"": ""Rol del proyecto""}",,base
+project.share.collaborator.wizard,,463,ONLY_19,,"{""en_US"": ""Project Sharing Collaborator Wizard"", ""es_ES"": ""Asistente de colaborador para compartir proyectos""}",,base
+project.share.wizard,,462,ONLY_19,,"{""en_US"": ""Project Sharing"", ""es_ES"": ""Compartir proyectos""}",,base
+project.tags,,454,ONLY_19,,"{""en_US"": ""Project Tags"", ""es_ES"": ""Etiquetas del proyecto""}",,base
+project.task,,448,ONLY_19,,"{""en_US"": ""Task"", ""es_ES"": ""Tarea""}",,base
+project.task.burndown.chart.report,,458,ONLY_19,,"{""en_US"": ""Burndown Chart"", ""es_ES"": ""Diagrama de quemado""}",,base
+project.task.recurrence,,446,ONLY_19,,"{""en_US"": ""Task Recurrence"", ""es_ES"": ""Recurrencia de tareas""}",,base
+project.task.stage.personal,,447,ONLY_19,,"{""en_US"": ""Personal Task Stage"", ""es_ES"": ""Etapa de la tarea personal""}",,base
+project.task.type,,453,ONLY_19,,"{""en_US"": ""Task Stage"", ""es_ES"": ""Etapa de la tarea""}",,base
+project.task.type.delete.wizard,,461,ONLY_19,,"{""en_US"": ""Project Task Stage Delete Wizard"", ""es_ES"": ""Asistente para eliminar la etapa de las tareas del proyecto""}",,base
+project.template.create.wizard,,464,ONLY_19,,"{""en_US"": ""Project Template create Wizard"", ""es_ES"": ""Asistente de creación de plantillas de proyecto""}",,base
+project.template.role.to.users.map,,465,ONLY_19,,"{""en_US"": ""Project role to users mapping"", ""es_ES"": ""Asignación de roles del proyecto a usuarios""}",,base
+project.update,,450,ONLY_19,,"{""en_US"": ""Project Update"", ""es_ES"": ""Actualización del proyecto""}",,base
+properties.base.definition,,75,ONLY_19,,"{""en_US"": ""Properties Base Definition""}",,base
+properties.base.definition.mixin,,76,ONLY_19,,"{""en_US"": ""Properties Base Definition Mixin""}",,base
+publisher_warranty.contract,182,217,DIFFERENT_ID,Publisher Warranty Contract,"{""en_US"": ""Publisher Warranty Contract"", ""es_ES"": ""Contrato de garantía del editor""}",base,base
+python.paquetes.instalados,1075,512,DIFFERENT_ID,Paquetes Instalados de Python,"{""en_US"": ""Paquetes Instalados de Python""}",base,base
+qrcode.generator,,490,ONLY_19,,"{""en_US"": ""Generador QR""}",,base
+querydeluxe,,513,ONLY_19,,"{""en_US"": ""Consultas aPostgreSQL desde la interfaz de SICPRO ERP""}",,base
+question.selection,3262,,ONLY_15,Preguntas de selección,,base,
+rating.mixin,,437,ONLY_19,,"{""en_US"": ""Rating Mixin"", ""es_ES"": ""Mixin de calificación""}",,base
+rating.parent.mixin,,438,ONLY_19,,"{""en_US"": ""Rating Parent Mixin"", ""es_ES"": ""Mixin de la calificación padre""}",,base
+rating.rating,,436,ONLY_19,,"{""en_US"": ""Rating"", ""es_ES"": ""Calificación""}",,base
+report.base.report_irmodulereference,104,115,DIFFERENT_ID,Module Reference Report (base),"{""en_US"": ""Module Reference Report (base)"", ""es_ES"": ""Informe del módulo de referencia (base)""}",base,base
+report.layout,71,77,DIFFERENT_ID,Report Layout,"{""en_US"": ""Report Layout"", ""es_ES"": ""Diseño del informe""}",base,base
+report.paperformat,72,78,DIFFERENT_ID,Paper Format Config,"{""en_US"": ""Paper Format Config"", ""es_ES"": ""Configuración del formato de papel""}",base,base
+report.project.task.user,,457,ONLY_19,,"{""en_US"": ""Tasks Analysis"", ""es_ES"": ""Análisis de tareas""}",,base
+res.bank,86,92,DIFFERENT_ID,Bank,"{""en_US"": ""Bank"", ""es_ES"": ""Banco""}",base,base
+res.company,93,98,DIFFERENT_ID,Companies,"{""en_US"": ""Companies"", ""es_ES"": ""Compañías""}",base,base
+res.company.ldap,916,158,DIFFERENT_ID,Configuración del Certificado LDAPS,"{""en_US"": ""Company LDAP configuration"", ""es_ES"": ""Configuración Compañia LDAP""}",base,base
+res.config,88,94,DIFFERENT_ID,Config,"{""en_US"": ""Config"", ""es_ES"": ""Configuración""}",base,base
+res.config.installer,89,,ONLY_15,Config Installer,,base,
+res.config.settings,90,95,DIFFERENT_ID,Config Settings,"{""en_US"": ""Config Settings"", ""es_ES"": ""Ajustes de configuración""}",base,base
+res.country,77,83,DIFFERENT_ID,Country,"{""en_US"": ""Country"", ""es_ES"": ""País""}",base,base
+res.country.group,78,84,DIFFERENT_ID,Country Group,"{""en_US"": ""Country Group"", ""es_ES"": ""Grupo de países""}",base,base
+res.country.state,79,85,DIFFERENT_ID,Country state,"{""en_US"": ""Country state"", ""es_ES"": ""Provincia del país""}",base,base
+res.currency,91,96,DIFFERENT_ID,Currency,"{""en_US"": ""Currency"", ""es_ES"": ""Moneda""}",base,base
+res.currency.rate,92,97,DIFFERENT_ID,Currency Rate,"{""en_US"": ""Currency Rate"", ""es_ES"": ""Tipo de cambio""}",base,base
+res.device,,113,ONLY_19,,"{""en_US"": ""Devices"", ""es_ES"": ""Dispositivos""}",,base
+res.device.log,,112,ONLY_19,,"{""en_US"": ""Device Log"", ""es_ES"": ""Registro del dispositivo""}",,base
+res.groups,94,100,DIFFERENT_ID,Access Groups,"{""en_US"": ""Access Groups"", ""es_ES"": ""Grupos de acceso""}",base,base
+res.groups.privilege,,99,ONLY_19,,"{""en_US"": ""Privileges"", ""es_ES"": ""Privilegios""}",,base
+res.lang,80,86,DIFFERENT_ID,Languages,"{""en_US"": ""Languages"", ""es_ES"": ""Idiomas""}",base,base
+res.municipality,953,499,DIFFERENT_ID,Municipio,"{""en_US"": ""Municipio""}",base,base
+res.partner,84,90,DIFFERENT_ID,Contact,"{""en_US"": ""Contact"", ""es_ES"": ""Contacto""}",base,base
+res.partner.bank,87,93,DIFFERENT_ID,Bank Accounts,"{""en_US"": ""Bank Accounts"", ""es_ES"": ""Cuentas bancarias""}",base,base
+res.partner.category,82,89,DIFFERENT_ID,Partner Tags,"{""en_US"": ""Partner Tags"", ""es_ES"": ""Etiquetas del contacto""}",base,base
+res.partner.industry,85,91,DIFFERENT_ID,Industry,"{""en_US"": ""Industry"", ""es_ES"": ""Sector""}",base,base
+res.partner.title,83,,ONLY_15,Partner Title,,base,
+res.role,,215,ONLY_19,,"{""en_US"": ""Represents a role in the system used to categorize users. Each role has a unique name and can be associated with multiple users. Roles can be mentioned in messages to notify all associated users."", ""es_ES"": ""Representa un rol en el sistema utilizado para categorizar a los usuarios. Cada rol tiene un nombre único y puede estar asociado a varios usuarios. Puede mencionar a los roles en los mensajes para notificar a todos los usuarios asociados.""}",,base
+res.users,96,102,DIFFERENT_ID,Users,"{""en_US"": ""User"", ""es_ES"": ""Usuario""}",base,base
+res.users.apikeys,100,107,DIFFERENT_ID,res.users.apikeys,"{""en_US"": ""Users API Keys"", ""es_ES"": ""Claves API de los usuarios""}",base,base
+res.users.apikeys.description,101,108,DIFFERENT_ID,res.users.apikeys.description,"{""en_US"": ""API Key Description"", ""es_ES"": ""Descripción de la clave API""}",base,base
+res.users.apikeys.show,102,109,DIFFERENT_ID,res.users.apikeys.show,"{""en_US"": ""Show API Key"", ""es_ES"": ""Mostrar clave API""}",base,base
+res.users.deletion,,111,ONLY_19,,"{""en_US"": ""Users Deletion Request"", ""es_ES"": ""Solicitud de eliminación del usario""}",,base
+res.users.identitycheck,97,103,DIFFERENT_ID,Password Check Wizard,"{""en_US"": ""Password Check Wizard"", ""es_ES"": ""Asistente de verificación de contraseñas""}",base,base
+res.users.log,95,101,DIFFERENT_ID,Users Log,"{""en_US"": ""Users Log"", ""es_ES"": ""Registro de usuarios""}",base,base
+res.users.role,,149,ONLY_19,,"{""en_US"": ""Rol de usuario""}",,base
+res.users.role.line,,150,ONLY_19,,"{""en_US"": ""Usuarios asociados a un rol""}",,base
+res.users.settings,166,110,DIFFERENT_ID,User Settings,"{""en_US"": ""User Settings"", ""es_ES"": ""Ajustes de usuario""}",base,base
+res.users.settings.embedded.action,,127,ONLY_19,,"{""en_US"": ""User Settings for Embedded Actions""}",,base
+res.users.settings.volumes,167,199,DIFFERENT_ID,User Settings Volumes,"{""en_US"": ""User Settings Volumes"", ""es_ES"": ""Ajustes de volumen del usuario""}",base,base
+reset.view.arch.wizard,16,16,SAME_ID,Reset View Architecture Wizard,"{""en_US"": ""Reset View Architecture Wizard"", ""es_ES"": ""Asistente para restablecer la arquitectura de la vista""}",base,base
+resource.calendar,344,153,DIFFERENT_ID,Resource Working Time,"{""en_US"": ""Resource Working Time"", ""es_ES"": ""Tiempo de trabajo de recursos""}",base,base
+resource.calendar.attendance,345,154,DIFFERENT_ID,Work Detail,"{""en_US"": ""Work Detail"", ""es_ES"": ""Detalle del trabajo""}",base,base
+resource.calendar.leaves,347,155,DIFFERENT_ID,Resource Time Off Detail,"{""en_US"": ""Resource Time Off Detail"", ""es_ES"": ""Detalle de las ausencias del recurso""}",base,base
+resource.mixin,343,156,DIFFERENT_ID,Resource Mixin,"{""en_US"": ""Resource Mixin"", ""es_ES"": ""Mixin de recursos""}",base,base
+resource.resource,346,157,DIFFERENT_ID,Resources,"{""en_US"": ""Resources"", ""es_ES"": ""Recursos""}",base,base
+resource.test,348,,ONLY_15,Test Resource Model,,base,
+server.action.history.wizard,,23,ONLY_19,,"{""en_US"": ""Server Action History Wizard""}",,base
+sicpro.app.administracion,353,415,DIFFERENT_ID,Aplicación para la administración de SICPRO ERP,"{""en_US"": ""Aplicación para la administración de SICPRO ERP""}",base,base
+sicpro.app.administracion.directorio.app,1073,,ONLY_15,Registro de los directorios de las App,,base,
+sicpro.app.administracion.menus,942,416,DIFFERENT_ID,Menus de accesos a la administración,"{""en_US"": ""Menus de accesos a la administración""}",base,base
+sicpro.app.administracion.menus.accesos,943,417,DIFFERENT_ID,Accesos de los menus de la administración,"{""en_US"": ""Accesos de los menus de la administración""}",base,base
+sicpro.app.clientes,445,684,DIFFERENT_ID,Aplicación de Clientes,"{""en_US"": ""Aplicación de Clientes""}",base,base
+sicpro.app.clientes.etiquetas,446,685,DIFFERENT_ID,Etiquetas para la Aplicación de Clientes,"{""en_US"": ""Etiquetas para la Aplicación de Clientes""}",base,base
+sicpro.app.cmi.acciones,815,525,DIFFERENT_ID,Acciones del CMI,"{""en_US"": ""Acciones del CMI""}",base,base
+sicpro.app.cmi.acciones.estado,816,526,DIFFERENT_ID,Estado de las acciones,"{""en_US"": ""Estado de las acciones""}",base,base
+sicpro.app.cmi.acciones.modo.control,817,527,DIFFERENT_ID,Modo de Control de las acciones,"{""en_US"": ""Modo de Control de las acciones""}",base,base
+sicpro.app.cmi.indicadores,806,528,DIFFERENT_ID,Indicadores del CMI,"{""en_US"": ""Indicadores del CMI""}",base,base
+sicpro.app.cmi.indicadores.cambios,809,530,DIFFERENT_ID,Cambios de Indicadores del CMI,"{""en_US"": ""Cambios de Indicadores del CMI""}",base,base
+sicpro.app.cmi.indicadores.graficos,810,531,DIFFERENT_ID,Gráficos de los Indicadores del CMI,"{""en_US"": ""Gráficos de los Indicadores del CMI""}",base,base
+sicpro.app.cmi.indicadores.modal.cambios,807,529,DIFFERENT_ID,Solicitud de cambios en los indicadores,"{""en_US"": ""Solicitud de cambios en los indicadores""}",base,base
+sicpro.app.cmi.indicadores.valores,808,532,DIFFERENT_ID,Valores de los Indicadores del CMI,"{""en_US"": ""Valores de los Indicadores del CMI""}",base,base
+sicpro.app.cmi.objetivos.anuales,818,533,DIFFERENT_ID,Objetivos Anuales del CMI,"{""en_US"": ""Objetivos Anuales del CMI""}",base,base
+sicpro.app.cmi.objetivos.estrategicos,819,534,DIFFERENT_ID,Objetivos Estratégicos del CMI,"{""en_US"": ""Objetivos Estratégicos del CMI""}",base,base
+sicpro.app.cmi.perspectivas,811,535,DIFFERENT_ID,Perspectivas del CMI,"{""en_US"": ""Perspectivas del CMI""}",base,base
+sicpro.app.cmi.perspectivas.anios,813,536,DIFFERENT_ID,Años de las Perspectivas del CMI,"{""en_US"": ""Años de las Perspectivas del CMI""}",base,base
+sicpro.app.cmi.perspectivas.eje.estrategico,812,537,DIFFERENT_ID,Ejes Estratégicos del CMI,"{""en_US"": ""Ejes Estratégicos del CMI""}",base,base
+sicpro.app.cmi.perspectivas.periodos,814,538,DIFFERENT_ID,Periodos del CMI,"{""en_US"": ""Periodos del CMI""}",base,base
+sicpro.app.cmi.reporte,820,524,DIFFERENT_ID,Reportes del CMI,"{""en_US"": ""Reportes del CMI""}",base,base
+sicpro.app.contratos,452,,ONLY_15,Gestión de Contratos,,base,
+sicpro.app.contratos.areas,461,,ONLY_15,Áreas de los contratos,,base,
+sicpro.app.contratos.beneficiarios,462,,ONLY_15,Beneficiarios de los contratos,,base,
+sicpro.app.contratos.cancelado,454,,ONLY_15,Contratos Cancelados,,base,
+sicpro.app.contratos.cuentas,455,,ONLY_15,Cuentas de los contratos,,base,
+sicpro.app.contratos.dias,458,,ONLY_15,Días hábiles para los contratos,,base,
+sicpro.app.contratos.economia,463,,ONLY_15,Gestión económica de los contratos,,base,
+sicpro.app.contratos.economia.acapite,469,,ONLY_15,Acápites económicos de los contratos,,base,
+sicpro.app.contratos.economia.bancos,470,,ONLY_15,Bancos de los contratos,,base,
+sicpro.app.contratos.economia.cuentas.dvpe,471,,ONLY_15,Registro de cuentas de la DVPE,,base,
+sicpro.app.contratos.economia.estados,465,,ONLY_15,Estados económicos de los contratos,,base,
+sicpro.app.contratos.economia.etiquetas,466,,ONLY_15,Etiquetas económicas de los contratos,,base,
+sicpro.app.contratos.economia.facturas,464,,ONLY_15,Facturas de los contratos,,base,
+sicpro.app.contratos.economia.indicador,468,,ONLY_15,Indicadores económicos de los contratos,,base,
+sicpro.app.contratos.economia.pago,467,,ONLY_15,Forma de pago económico de los contratos,,base,
+sicpro.app.contratos.estados,457,,ONLY_15,Estados de los contratos,,base,
+sicpro.app.contratos.etiquetas,459,,ONLY_15,Etiquetas de los contratos,,base,
+sicpro.app.contratos.proveedores,447,,ONLY_15,Gestión de los proveedores,,base,
+sicpro.app.contratos.proveedores.estados,449,,ONLY_15,Estados del proveedor,,base,
+sicpro.app.contratos.proveedores.etiquetas,450,,ONLY_15,Etiquetas de proveedores de los contratos,,base,
+sicpro.app.contratos.proveedores.rechazadas,448,,ONLY_15,Proveedores Rechazados,,base,
+sicpro.app.contratos.proveedores.tipo,451,,ONLY_15,Tipos de proveedores de los contratos,,base,
+sicpro.app.contratos.rechazado,453,,ONLY_15,Contratos Rechazados,,base,
+sicpro.app.contratos.tipo,456,,ONLY_15,Tipo de contratos,,base,
+sicpro.app.contratos.unidades,460,,ONLY_15,Unidades de los contratos,,base,
+sicpro.app.control.informacion,,572,ONLY_19,,"{""en_US"": ""Control de Información de la DVPE""}",,base
+sicpro.app.control.informacion.actividad,,574,ONLY_19,,"{""en_US"": ""Actividades para el control de información""}",,base
+sicpro.app.control.informacion.areas,,575,ONLY_19,,"{""en_US"": ""Áreas para el control de información""}",,base
+sicpro.app.control.informacion.control.actividades,,576,ONLY_19,,"{""en_US"": ""Control de las actividades de la información""}",,base
+sicpro.app.control.informacion.devueltas,,573,ONLY_19,,"{""en_US"": ""Motivo de devolución de la información""}",,base
+sicpro.app.control.informacion.dias,,577,ONLY_19,,"{""en_US"": ""Días de aviso para el control de información""}",,base
+sicpro.app.control.informacion.etiquetas,,578,ONLY_19,,"{""en_US"": ""Etiquetas del control de información""}",,base
+sicpro.app.control.informacion.motivos.devolucion,,579,ONLY_19,,"{""en_US"": ""Motivos de rechazo del control de información""}",,base
+sicpro.app.credenciales,800,580,DIFFERENT_ID,Credenciales de los Trabajadores,"{""en_US"": ""Credenciales de los Trabajadores""}",base,base
+sicpro.app.credenciales.accesos,804,585,DIFFERENT_ID,Accesos de Credenciales,"{""en_US"": ""Accesos de Credenciales""}",base,base
+sicpro.app.credenciales.alcance,803,584,DIFFERENT_ID,Alcance de Credenciales,"{""en_US"": ""Alcance de Credenciales""}",base,base
+sicpro.app.credenciales.cancelacion,1254,586,DIFFERENT_ID,Motivo de cancelación de las Credenciales,"{""en_US"": ""Motivo de cancelación de las Credenciales""}",base,base
+sicpro.app.credenciales.cancelar,1253,581,DIFFERENT_ID,Cancelar Trabajadores,"{""en_US"": ""Cancelar Trabajadores""}",base,base
+sicpro.app.credenciales.modal,805,587,DIFFERENT_ID,Credenciales - Modal para recortar Imagen,"{""en_US"": ""Credenciales - Editar Imagen""}",base,base
+sicpro.app.credenciales.siglas,802,583,DIFFERENT_ID,Siglas de las Credenciales,"{""en_US"": ""Siglas de las Credenciales""}",base,base
+sicpro.app.credenciales.tipo,801,582,DIFFERENT_ID,Tipo de Credenciales,"{""en_US"": ""Tipo de Credenciales""}",base,base
+sicpro.app.dashboard,382,,ONLY_15,Mi Dashboard Personal,,base,
+sicpro.app.gestor.documental,422,467,DIFFERENT_ID,Gestor Documental,"{""en_US"": ""Gestor Documental""}",base,base
+sicpro.app.grupo.ejecutor.horizontal,2973,708,DIFFERENT_ID,Grupo Ejecutor Solicitudes Horizontales,"{""en_US"": ""Grupo Ejecutor Solicitudes Horizontales""}",base,base
+sicpro.app.grupo.ejecutor.t4,523,,ONLY_15,Grupo Ejecutor T4,,base,
+sicpro.app.grupo.ejecutor.t5,525,,ONLY_15,Grupo Ejecutor T5,,base,
+sicpro.app.instrucciones.etiquetas,3149,686,DIFFERENT_ID,Etiquetas de las Instrucciones,"{""en_US"": ""Etiquetas de las Instrucciones""}",base,base
+sicpro.app.instrucciones.instruccion,3150,687,DIFFERENT_ID,Registro de Instrucciones,"{""en_US"": ""Registro de Instrucciones""}",base,base
+sicpro.app.instrucciones.trabajador,3151,688,DIFFERENT_ID,Instrucciones Laborales de los Trabajadores,"{""en_US"": ""Instrucciones Laborales de los Trabajadores""}",base,base
+sicpro.app.materiales.insumos,473,539,DIFFERENT_ID,Materiales e insumos,"{""en_US"": ""Materiales e insumos""}",base,base
+sicpro.app.materiales.insumos.etiquetas,474,540,DIFFERENT_ID,Etiquetas de los productos,"{""en_US"": ""Etiquetas de los productos""}",base,base
+sicpro.app.materiales.insumos.um,475,541,DIFFERENT_ID,UM de los productos,"{""en_US"": ""UM de los productos""}",base,base
+sicpro.app.medios.informaticos,3028,588,DIFFERENT_ID,Inventario Medios Informáticos,"{""en_US"": ""Inventario Medios Informáticos""}",base,base
+sicpro.app.medios.informaticos.bajas,3029,589,DIFFERENT_ID,Baja de Medios Informáticos,"{""en_US"": ""Baja de Medios Informáticos""}",base,base
+sicpro.app.medios.informaticos.historial,3030,590,DIFFERENT_ID,Historial de actualizaciones del inventario,"{""en_US"": ""Historial de actualizaciones del inventario""}",base,base
+sicpro.app.medios.informaticos.importar,3031,591,DIFFERENT_ID,Sincronizar Medios Informáticos,"{""en_US"": ""Sincronizar Medios Informáticos""}",base,base
+sicpro.app.medios.informaticos.importar.wizard,3036,596,DIFFERENT_ID,Actualizar Inventario de medios informáticos,"{""en_US"": ""Actualizar Inventario de medios informáticos""}",base,base
+sicpro.app.medios.informaticos.pdtes.piezas,3032,592,DIFFERENT_ID,Medios Informáticos Pendiente por Piezas,"{""en_US"": ""Medios Informáticos Pendiente por Piezas""}",base,base
+sicpro.app.medios.informaticos.taller,3033,593,DIFFERENT_ID,Medios Informáticos Enviados a Taller,"{""en_US"": ""Medios Informáticos Enviados a Taller""}",base,base
+sicpro.app.medios.informaticos.tipo.equipo,3034,594,DIFFERENT_ID,Tipo de Medio Informático,"{""en_US"": ""Tipo de Medio Informático""}",base,base
+sicpro.app.medios.informaticos.tramites,3035,595,DIFFERENT_ID,Trámites del taller de Medio Informático,"{""en_US"": ""Trámites del taller de Medio Informático""}",base,base
+sicpro.app.metrologia.centro.calibracion,508,597,DIFFERENT_ID,Centro de Calibración Metrología,"{""en_US"": ""Centro de Calibración Metrología""}",base,base
+sicpro.app.metrologia.direcciones,504,600,DIFFERENT_ID,Direcciones de equipos de Metrología,"{""en_US"": ""Direcciones de equipos de Metrología""}",base,base
+sicpro.app.metrologia.equipos,505,598,DIFFERENT_ID,Equipos de metrología,"{""en_US"": ""Equipos de metrología""}",base,base
+sicpro.app.metrologia.equipos.transferencias,506,599,DIFFERENT_ID,Transferencias de Gastos de los Equipos,"{""en_US"": ""Transferencias de Gastos de los Equipos""}",base,base
+sicpro.app.metrologia.estado.tecnico,509,601,DIFFERENT_ID,Estado Técnico Metrología,"{""en_US"": ""Estado Técnico Metrología""}",base,base
+sicpro.app.metrologia.magnitud,510,602,DIFFERENT_ID,Magnitudes de la Metrología,"{""en_US"": ""Magnitudes de la Metrología""}",base,base
+sicpro.app.modulo.ldap.historial,1106,703,DIFFERENT_ID,Historial de Registros LDAP,"{""en_US"": ""Historial de Registros LDAP""}",base,base
+sicpro.app.modulo.ldap.registros,1107,704,DIFFERENT_ID,Registros del Servicio LDAP,"{""en_US"": ""Registros del Servicio LDAP""}",base,base
+sicpro.app.modulo.usuario.desactivar,1109,712,DIFFERENT_ID,Desactivación de los usuarios,"{""en_US"": ""Desactivación de los usuarios""}",base,base
+sicpro.app.modulo.usuario.desactivar.dias,1697,713,DIFFERENT_ID,Aviso en días para la desactivación de los usuarios,"{""en_US"": ""Aviso en días para la desactivación de los usuarios""}",base,base
+sicpro.app.nube.etecsa.token,1247,,ONLY_15,Token de la Nube Etecsa,,base,
+sicpro.app.ordenes.clases.proyecto,3010,714,DIFFERENT_ID,Clase de trabajo para las órdenes de proyecto,"{""en_US"": ""Clase de trabajo para las órdenes de proyecto""}",base,base
+sicpro.app.ordenes.consecutivos,3011,715,DIFFERENT_ID,Programa de Inversiones de las Órdenes de Trabajo,"{""en_US"": ""Programa de Inversiones de las Órdenes de Trabajo""}",base,base
+sicpro.app.ordenes.estados,3012,716,DIFFERENT_ID,Estado de las órdenes de trabajo,"{""en_US"": ""Estado de las órdenes de trabajo""}",base,base
+sicpro.app.ordenes.estados.trabajador,3308,731,DIFFERENT_ID,Estado de los trabajadores en las obras,"{""en_US"": ""Estado de los trabajadores en las obras""}",base,base
+sicpro.app.ordenes.estados.transporte.equipos,3309,732,DIFFERENT_ID,Estado del transporte y los equipos en las obras,"{""en_US"": ""Estado del transporte y los equipos en las obras""}",base,base
+sicpro.app.ordenes.etiquetas,3013,717,DIFFERENT_ID,Etiquetas de las órdenes de trabajo,"{""en_US"": ""Etiquetas de las órdenes de trabajo""}",base,base
+sicpro.app.ordenes.grupo.transporte,3310,733,DIFFERENT_ID,Grupos del transporte,"{""en_US"": ""Grupos del transporte""}",base,base
+sicpro.app.ordenes.grupo.transporte.equipos,3311,734,DIFFERENT_ID,Configuración del transporte y los equipos,"{""en_US"": ""Configuración del transporte y los equipos""}",base,base
+sicpro.app.ordenes.paralizacion,3014,718,DIFFERENT_ID,Motivo de la última paralización,"{""en_US"": ""Motivo de la última paralización""}",base,base
+sicpro.app.ordenes.problemas,3015,719,DIFFERENT_ID,Problemas en la ejecución,"{""en_US"": ""Problemas en la ejecución""}",base,base
+sicpro.app.ordenes.programa.inversiones,3016,720,DIFFERENT_ID,Programa de Inversiones de las Órdenes de Trabajo,"{""en_US"": ""Programa de Inversiones de las Órdenes de Trabajo""}",base,base
+sicpro.app.ordenes.trabajo,3017,721,DIFFERENT_ID,Órdenes de Trabajo,"{""en_US"": ""Órdenes de Trabajo""}",base,base
+sicpro.app.ordenes.trabajo.anexo.problemas,3018,726,DIFFERENT_ID,Tabla anexo de los problemas en la ejecución,"{""en_US"": ""Tabla anexo de los problemas en la ejecución""}",base,base
+sicpro.app.ordenes.trabajo.anexo3,3027,735,DIFFERENT_ID,Modelo para visualizar el Anexo 3,"{""en_US"": ""Modelo para visualizar el Anexo 3""}",base,base
+sicpro.app.ordenes.trabajo.aviso.intension,3022,730,DIFFERENT_ID,Aviso de intensión de la orden de trabajo,"{""en_US"": ""Aviso de intensión de la orden de trabajo""}",base,base
+sicpro.app.ordenes.trabajo.canceladas,3021,729,DIFFERENT_ID,Motivo de cancelación de la orden de trabajo,"{""en_US"": ""Motivo de cancelación de la orden de trabajo""}",base,base
+sicpro.app.ordenes.trabajo.equipos.complementarios,3307,725,DIFFERENT_ID,Equipos complemtarios en la ejecución,"{""en_US"": ""Equipos complemtarios en la ejecución""}",base,base
+sicpro.app.ordenes.trabajo.equipos.especializados,3306,724,DIFFERENT_ID,Equipos especializados en la ejecución,"{""en_US"": ""Equipos especializados en la ejecución""}",base,base
+sicpro.app.ordenes.trabajo.paralizacion,3019,727,DIFFERENT_ID,Motivo de la paralización de la orden de trabajo,"{""en_US"": ""Motivo de la paralización de la orden de trabajo""}",base,base
+sicpro.app.ordenes.trabajo.rechazadas,3020,728,DIFFERENT_ID,Motivo de rechazo de la orden de trabajo,"{""en_US"": ""Motivo de rechazo de la orden de trabajo""}",base,base
+sicpro.app.ordenes.trabajo.trabajadores,3304,722,DIFFERENT_ID,Trabajadores en la ejecución,"{""en_US"": ""Trabajadores en la ejecución""}",base,base
+sicpro.app.ordenes.trabajo.transporte,3305,723,DIFFERENT_ID,Transporte en la ejecución,"{""en_US"": ""Transporte en la ejecución""}",base,base
+sicpro.app.repo,3253,603,DIFFERENT_ID,Repositorio Institucional,"{""en_US"": ""Repositorio Institucional""}",base,base
+sicpro.app.repo.autores,3254,604,DIFFERENT_ID,Autores del repositorio,"{""en_US"": ""Autores del repositorio""}",base,base
+sicpro.app.repo.estados,3260,610,DIFFERENT_ID,Estado de los repositorios,"{""en_US"": ""Estado de los repositorios""}",base,base
+sicpro.app.repo.etiquetas,3258,608,DIFFERENT_ID,Etiqueta o Palabra Clave,"{""en_US"": ""Etiqueta o Palabra Clave""}",base,base
+sicpro.app.repo.facultad,3261,611,DIFFERENT_ID,Facultad o Universidad,"{""en_US"": ""Facultad o Universidad""}",base,base
+sicpro.app.repo.licencia,3259,609,DIFFERENT_ID,Licencias de Uso,"{""en_US"": ""Licencias de Uso""}",base,base
+sicpro.app.repo.tipo,3257,607,DIFFERENT_ID,Tipos de repositorios,"{""en_US"": ""Tipos de repositorios""}",base,base
+sicpro.app.repo.tutor.externo,3255,605,DIFFERENT_ID,Tutores Externos,"{""en_US"": ""Tutores Externos""}",base,base
+sicpro.app.repo.tutor.interno,3256,606,DIFFERENT_ID,Tutores Internos,"{""en_US"": ""Tutores Internos""}",base,base
+sicpro.app.reuniones,511,612,DIFFERENT_ID,Gestión de Reuniones,"{""en_US"": ""Gestión de Reuniones""}",base,base
+sicpro.app.reuniones.acuerdos,517,618,DIFFERENT_ID,Acuerdos de las reuniones,"{""en_US"": ""Acuerdos de las reuniones""}",base,base
+sicpro.app.reuniones.acuerdos.cancelados,1256,620,DIFFERENT_ID,Cancelar decisiones,"{""en_US"": ""Cancelar decisiones""}",base,base
+sicpro.app.reuniones.acuerdos.rechazados,1255,619,DIFFERENT_ID,Rechazar decisiones,"{""en_US"": ""Rechazar decisiones""}",base,base
+sicpro.app.reuniones.categorias,514,615,DIFFERENT_ID,Categorías de las etiquetas,"{""en_US"": ""Categorías de las etiquetas""}",base,base
+sicpro.app.reuniones.decisiones,1257,621,DIFFERENT_ID,Decisiones de las reuniones,"{""en_US"": ""Decisiones de las reuniones""}",base,base
+sicpro.app.reuniones.decisiones.canceladas,1259,623,DIFFERENT_ID,Cancelar decisiones,"{""en_US"": ""Cancelar decisiones""}",base,base
+sicpro.app.reuniones.decisiones.rechazadas,1258,622,DIFFERENT_ID,Rechazar decisiones,"{""en_US"": ""Rechazar decisiones""}",base,base
+sicpro.app.reuniones.despachos,1260,624,DIFFERENT_ID,Gestión de los Despachos,"{""en_US"": ""Gestión de los Despachos""}",base,base
+sicpro.app.reuniones.despachos.agenda,1263,627,DIFFERENT_ID,Agenda de los Despachos,"{""en_US"": ""Agenda de los Despachos""}",base,base
+sicpro.app.reuniones.despachos.comentarios,1262,626,DIFFERENT_ID,Comentarios de los Despachos,"{""en_US"": ""Comentarios de los Despachos""}",base,base
+sicpro.app.reuniones.despachos.participantes,1261,625,DIFFERENT_ID,Participantes de los Despachos,"{""en_US"": ""Participantes de los Despachos""}",base,base
+sicpro.app.reuniones.estados,512,613,DIFFERENT_ID,Estados de las Reuniones,"{""en_US"": ""Estados de las Reuniones""}",base,base
+sicpro.app.reuniones.etiquetas,513,614,DIFFERENT_ID,Etiqueta de las Reuniones,"{""en_US"": ""Etiqueta de las Reuniones""}",base,base
+sicpro.app.reuniones.lugares,515,616,DIFFERENT_ID,Lugares de las Reuniones,"{""en_US"": ""Lugares de las Reuniones""}",base,base
+sicpro.app.reuniones.participantes,516,617,DIFFERENT_ID,Participantes de la reunión,"{""en_US"": ""Participantes de la reunión""}",base,base
+sicpro.app.salon.clases,424,469,DIFFERENT_ID,Salón de Clases,"{""en_US"": ""Salón de Clases""}",base,base
+sicpro.app.salon.clases.adjuntos,767,,ONLY_15,Documentación del Salón de Clases,,base,
+sicpro.app.salon.clases.etiquetas,423,468,DIFFERENT_ID,Etiquetas del Salón de clases,"{""en_US"": ""Etiquetas del Salón de clases""}",base,base
+sicpro.app.salon.clases.http,765,,ONLY_15,Salón de Clases Http,,base,
+sicpro.app.salon.clases.temas,425,470,DIFFERENT_ID,Temas del Salón de clases,"{""en_US"": ""Temas del Salón de clases""}",base,base
+sicpro.app.salon.clases.tipo,426,471,DIFFERENT_ID,Tipo de temáticas,"{""en_US"": ""Tipo de temáticas""}",base,base
+sicpro.app.servicios.internos.correos,1687,628,DIFFERENT_ID,Gestión de correos internos,"{""en_US"": ""Gestión de correos internos""}",base,base
+sicpro.app.servicios.internos.fijos,1334,629,DIFFERENT_ID,Gestión de fijos,"{""en_US"": ""Gestión de fijos""}",base,base
+sicpro.app.servicios.internos.lineas,1333,630,DIFFERENT_ID,Gestión de líneas,"{""en_US"": ""Gestión de líneas""}",base,base
+sicpro.app.servicios.internos.nauta,1335,631,DIFFERENT_ID,Gestión de cuentas nautas,"{""en_US"": ""Gestión de cuentas nautas""}",base,base
+sicpro.app.servicios.internos.solicitudes,3235,633,DIFFERENT_ID,Gestión de las Solicitudes de los Servicios internos,"{""en_US"": ""Gestión de las Solicitudes de los Servicios internos""}",base,base
+sicpro.app.servicios.internos.solicitudes.observaciones,3234,632,DIFFERENT_ID,Gestión de observaciones de las solicitudes,"{""en_US"": ""Gestión de observaciones de las solicitudes""}",base,base
+sicpro.app.solicitudes.asignacion.wizard,,710,ONLY_19,,"{""en_US"": ""Wizard Unificado de Asignación de Oportunidades""}",,base
+sicpro.app.solicitudes.canceladas.t2,519,,ONLY_15,Canceladas T2,,base,
+sicpro.app.solicitudes.canceladas.t3,521,,ONLY_15,Canceladas T3,,base,
+sicpro.app.solicitudes.estados,527,705,DIFFERENT_ID,Estado de Solicitudes,"{""en_US"": ""Estado de Solicitudes""}",base,base
+sicpro.app.solicitudes.etiquetas,529,706,DIFFERENT_ID,Etiquetas de las Solicitudes,"{""en_US"": ""Etiquetas de las Solicitudes""}",base,base
+sicpro.app.solicitudes.motivo.wizard,,711,ONLY_19,,"{""en_US"": ""Wizard Unificado de Rechazo y Cancelación de Solicitudes""}",,base
+sicpro.app.solicitudes.oportunidades,518,707,DIFFERENT_ID,Solicitudes y oportunidades,"{""en_US"": ""Solicitudes y oportunidades""}",base,base
+sicpro.app.solicitudes.rechazadas,528,709,DIFFERENT_ID,Motivo de rechazo,"{""en_US"": ""Motivo de rechazo""}",base,base
+sicpro.app.solicitudes.rechazadas.t3,520,,ONLY_15,Rechazadas T3,,base,
+sicpro.app.solicitudes.rechazadas.t4,522,,ONLY_15,Rechazadas T4,,base,
+sicpro.app.solicitudes.rechazadas.t5,524,,ONLY_15,Rechazadas T5,,base,
+sicpro.app.solicitudes.rechazadas.t6,1696,,ONLY_15,Rechazadas T6,,base,
+sicpro.app.solicitudes.tabla.oportunidades,526,,ONLY_15,Tabla de Solicitudes y oportunidades,,base,
+sicpro.app.soporte,400,637,DIFFERENT_ID,Soporte de Ayuda,"{""en_US"": ""Soporte de Ayuda""}",base,base
+sicpro.app.soporte.aplicaciones,411,638,DIFFERENT_ID,Soporte de aplicaciones del sistema,"{""en_US"": ""Soporte de aplicaciones del sistema""}",base,base
+sicpro.app.soporte.bitacora,413,639,DIFFERENT_ID,Bitácora de Usuarios SICPRO,"{""en_US"": ""Bitácora de Usuarios SICPRO""}",base,base
+sicpro.app.soporte.canales,404,640,DIFFERENT_ID,Canales de Solicitud,"{""en_US"": ""Canales de Solicitud""}",base,base
+sicpro.app.soporte.cronograma.anio,2327,,ONLY_15,Años del Cronograma Planificado de Desarrollo,,base,
+sicpro.app.soporte.cronograma.plan,2328,,ONLY_15,Cronograma Planificado para el Desarrollo,,base,
+sicpro.app.soporte.cronograma.plan.dependencias,2329,,ONLY_15,Dependencias de Cronograma Planificado para el Desarrollo,,base,
+sicpro.app.soporte.equipos,406,641,DIFFERENT_ID,Equipos de Soporte,"{""en_US"": ""Equipos de Soporte""}",base,base
+sicpro.app.soporte.estados,402,642,DIFFERENT_ID,Estados del Soporte,"{""en_US"": ""Estados del Soporte""}",base,base
+sicpro.app.soporte.estados.aplicaciones,408,643,DIFFERENT_ID,Estados de las aplicaciones del sistema,"{""en_US"": ""Estados de las aplicaciones del sistema""}",base,base
+sicpro.app.soporte.estados.paquetes,409,644,DIFFERENT_ID,Estados de los paquetes del sistema,"{""en_US"": ""Estados de los paquetes del sistema""}",base,base
+sicpro.app.soporte.estados.versiones,407,645,DIFFERENT_ID,Estados de las versiones del sistema,"{""en_US"": ""Estados de las versiones del sistema""}",base,base
+sicpro.app.soporte.etiquetas,403,646,DIFFERENT_ID,Etiquetas del Soporte,"{""en_US"": ""Etiquetas del Soporte""}",base,base
+sicpro.app.soporte.fragmentos.codigos,1689,647,DIFFERENT_ID,Fragmentos de códigos del desarrollo del sistema,"{""en_US"": ""Fragmentos de códigos del desarrollo del sistema""}",base,base
+sicpro.app.soporte.paquetes,412,648,DIFFERENT_ID,Soporte de paquetes del sistema,"{""en_US"": ""Soporte de paquetes del sistema""}",base,base
+sicpro.app.soporte.tareas,768,649,DIFFERENT_ID,Tareas de Soporte de Ayuda,"{""en_US"": ""Tareas de Soporte de Ayuda""}",base,base
+sicpro.app.soporte.todos,401,650,DIFFERENT_ID,Todos los Tickets de Soporte de Ayuda,"{""en_US"": ""Todos los Tickets de Soporte de Ayuda""}",base,base
+sicpro.app.soporte.versiones,410,651,DIFFERENT_ID,Soporte de versiones del sistema,"{""en_US"": ""Soporte de versiones del sistema""}",base,base
+sicpro.app.trabajadores,476,542,DIFFERENT_ID,Trabajadores,"{""en_US"": ""Trabajadores""}",base,base
+sicpro.app.trabajadores.areas,478,544,DIFFERENT_ID,Departamento de los trabajadores,"{""en_US"": ""Departamento de los trabajadores""}",base,base
+sicpro.app.trabajadores.areas.altas.bajas,3204,569,DIFFERENT_ID,"Altas y bajas mensuales por áreas, módulo de trabajadores","{""en_US"": ""Altas y bajas mensuales por áreas, módulo de trabajadores""}",base,base
+sicpro.app.trabajadores.areas.totales,3205,570,DIFFERENT_ID,"Totales mensuales por áreas, módulo de trabajadores","{""en_US"": ""Totales mensuales por áreas, módulo de trabajadores""}",base,base
+sicpro.app.trabajadores.cargos,498,563,DIFFERENT_ID,Cargos del Trabajador,"{""en_US"": ""Cargos del Trabajador""}",base,base
+sicpro.app.trabajadores.categorias,477,543,DIFFERENT_ID,Etiquetas de los trabajadores,"{""en_US"": ""Etiquetas de los trabajadores""}",base,base
+sicpro.app.trabajadores.cierre,3201,,ONLY_15,Cierres mensuales de Capital Humano,,base,
+sicpro.app.trabajadores.cierre.historial,3202,,ONLY_15,Historial de los cierres mensuales de Capital Humano,,base,
+sicpro.app.trabajadores.cierre.wizard,3206,,ONLY_15,Generar cierre de Capital Humano,,base,
+sicpro.app.trabajadores.claves.horas,497,562,DIFFERENT_ID,Claves de Horas Trabajador,"{""en_US"": ""Claves de Horas Trabajador""}",base,base
+sicpro.app.trabajadores.cursos,488,554,DIFFERENT_ID,Cursos de los trabajadores,"{""en_US"": ""Cursos de los trabajadores""}",base,base
+sicpro.app.trabajadores.cursos.habilidades,489,555,DIFFERENT_ID,Habilidades de los trabajadores,"{""en_US"": ""Habilidades de los trabajadores""}",base,base
+sicpro.app.trabajadores.cursos.niveles,490,556,DIFFERENT_ID,Niveles de los cursos del trabajador,"{""en_US"": ""Niveles de los cursos del trabajador""}",base,base
+sicpro.app.trabajadores.cursos.tipos,491,557,DIFFERENT_ID,Tipos de cursos del trabajador,"{""en_US"": ""Tipos de cursos del trabajador""}",base,base
+sicpro.app.trabajadores.dialog.wizard,3207,,ONLY_15,Diálogo de cierre duplicado,,base,
+sicpro.app.trabajadores.disiplinaria.acciones,486,552,DIFFERENT_ID,Medidas disciplinarias,"{""en_US"": ""Medidas disciplinarias""}",base,base
+sicpro.app.trabajadores.disiplinaria.categorias,487,553,DIFFERENT_ID,Categorías de medidas disciplinarias,"{""en_US"": ""Categorías de medidas disciplinarias""}",base,base
+sicpro.app.trabajadores.documentos,483,549,DIFFERENT_ID,Documentos de los trabajadores,"{""en_US"": ""Documentos de los trabajadores""}",base,base
+sicpro.app.trabajadores.documentos.plantillas,484,550,DIFFERENT_ID,Plantillas de documentos del trabajador,"{""en_US"": ""Plantillas de documentos del trabajador""}",base,base
+sicpro.app.trabajadores.documentos.tipos,485,551,DIFFERENT_ID,Tipos de documentos del trabajador,"{""en_US"": ""Tipos de documentos del trabajador""}",base,base
+sicpro.app.trabajadores.educacion,492,558,DIFFERENT_ID,Educación de los trabajadores,"{""en_US"": ""Educación de los trabajadores""}",base,base
+sicpro.app.trabajadores.educacion.certificacion,494,560,DIFFERENT_ID,Certificación y Homologación del trabajador,"{""en_US"": ""Certificación y Homologación del trabajador""}",base,base
+sicpro.app.trabajadores.educacion.tipos,493,559,DIFFERENT_ID,Tipos de educación del trabajador,"{""en_US"": ""Tipos de educación del trabajador""}",base,base
+sicpro.app.trabajadores.equipo.tecnico,496,561,DIFFERENT_ID,Técnicos de los trabajadores,"{""en_US"": ""Técnicos de los trabajadores""}",base,base
+sicpro.app.trabajadores.familiar,481,547,DIFFERENT_ID,Relaciones de los familiares del trabajador,"{""en_US"": ""Relaciones de los familiares del trabajador""}",base,base
+sicpro.app.trabajadores.intrucciones,500,565,DIFFERENT_ID,Instrucciones de los trabajadores,"{""en_US"": ""Instrucciones de los trabajadores""}",base,base
+sicpro.app.trabajadores.local,480,546,DIFFERENT_ID,Locales del trabajador,"{""en_US"": ""Locales del trabajador""}",base,base
+sicpro.app.trabajadores.nexo.familiar,482,548,DIFFERENT_ID,Nexo Familiar del trabajador,"{""en_US"": ""Nexo Familiar del trabajador""}",base,base
+sicpro.app.trabajadores.notificacion.cierre,3203,,ONLY_15,Trabajadores a los que se le notificará el cierre mensual,,base,
+sicpro.app.trabajadores.ocupacion,479,545,DIFFERENT_ID,Categoría Ocupacional del trabajador,"{""en_US"": ""Categoría Ocupacional del trabajador""}",base,base
+sicpro.app.trabajadores.organigrama,495,,ONLY_15,Gráfica organizacional del trabajador,,base,
+sicpro.app.trabajadores.seguridad.proteccion,501,566,DIFFERENT_ID,Tipo de Módulo de Seguridad para los trabajadores,"{""en_US"": ""Tipo de Módulo de Seguridad para los trabajadores""}",base,base
+sicpro.app.trabajadores.seguridad.trabajador,502,567,DIFFERENT_ID,Módulo de Seguridad para los trabajadores,"{""en_US"": ""Módulo de Seguridad para los trabajadores""}",base,base
+sicpro.app.trabajadores.tallas,503,568,DIFFERENT_ID,Tallas de los trabajadores,"{""en_US"": ""Tallas de los trabajadores""}",base,base
+sicpro.app.trabajadores.vacunacion,499,564,DIFFERENT_ID,Vacunación de los trabajadores,"{""en_US"": ""Vacunación de los trabajadores""}",base,base
+sicpro.app.transferencias.cuentas.gastos,3209,737,DIFFERENT_ID,Cuentas de Gastos de las transferencias,"{""en_US"": ""Cuentas de Gastos de las transferencias""}",base,base
+sicpro.app.transferencias.gastos,3210,738,DIFFERENT_ID,Transferencias de Gastos,"{""en_US"": ""Transferencias de Gastos""}",base,base
+sicpro.app.transferencias.gastos.ajustes,3215,743,DIFFERENT_ID,Ajustar valores de gastos,"{""en_US"": ""Ajustar valores de gastos""}",base,base
+sicpro.app.transferencias.gastos.ajustes.historial,3208,736,DIFFERENT_ID,Historial de Ajustes de Gastos de la CJ74,"{""en_US"": ""Historial de Ajustes de Gastos de la CJ74""}",base,base
+sicpro.app.transferencias.gastos.cj74.wizard,3217,745,DIFFERENT_ID,Enviar gastos a revisión económica,"{""en_US"": ""Enviar gastos a revisión económica""}",base,base
+sicpro.app.transferencias.gastos.economia.wizard,3216,744,DIFFERENT_ID,Enviar gastos a certificar,"{""en_US"": ""Enviar gastos a certificar""}",base,base
+sicpro.app.transferencias.gastos.importar,3211,739,DIFFERENT_ID,Sincronizar Transferencias de Gastos,"{""en_US"": ""Sincronizar Transferencias de Gastos""}",base,base
+sicpro.app.transferencias.gastos.importar.wizard.ordenes,3219,747,DIFFERENT_ID,Modificar valor de órdenes,"{""en_US"": ""Modificar valor de órdenes""}",base,base
+sicpro.app.transferencias.gastos.ordenes,3213,741,DIFFERENT_ID,Órdenes vinculadas a las transferencias de Gastos,"{""en_US"": ""Órdenes vinculadas a las transferencias de Gastos""}",base,base
+sicpro.app.transferencias.gastos.ordenes.estados,3212,740,DIFFERENT_ID,Estado de los gastos de órdenes de trabajo,"{""en_US"": ""Estado de los gastos de órdenes de trabajo""}",base,base
+sicpro.app.transferencias.gastos.ordenes.morosidad,3214,742,DIFFERENT_ID,Periodo de tiempo en que se debe recibir la certificación de gastos,"{""en_US"": ""Periodo de tiempo en que se debe recibir la certificación de gastos""}",base,base
+sicpro.app.transferencias.ordenes.rechazadas.wizard,3218,746,DIFFERENT_ID,Motivo de rechazo de los gastos de las transferencias,"{""en_US"": ""Motivo de rechazo de los gastos de las transferencias""}",base,base
+sicpro.app.transporte.distancia,964,658,DIFFERENT_ID,Cálculo de Distancias para el Transporte,"{""en_US"": ""Cálculo de Distancias para el Transporte""}",base,base
+sicpro.app.transporte.distancia.recorrido,966,660,DIFFERENT_ID,Tabla de apoyo para el recorrido,"{""en_US"": ""Tabla de apoyo para el recorrido""}",base,base
+sicpro.app.transporte.distancia.salida,965,659,DIFFERENT_ID,Cálculo de Distancias de salida para el Transporte,"{""en_US"": ""Cálculo de Distancias de salida para el Transporte""}",base,base
+sicpro.app.transporte.estado,531,657,DIFFERENT_ID,Estados del transporte,"{""en_US"": ""Estados del transporte""}",base,base
+sicpro.app.transporte.general,530,652,DIFFERENT_ID,Transporte,"{""en_US"": ""Transporte""}",base,base
+sicpro.app.transporte.modelo,968,662,DIFFERENT_ID,Modelo de Transporte,"{""en_US"": ""Modelo de Transporte""}",base,base
+sicpro.app.transporte.piquera,960,653,DIFFERENT_ID,Gestión de la Piquera de Transporte,"{""en_US"": ""Gestión de la Piquera de Transporte""}",base,base
+sicpro.app.transporte.piquera.canceladas,963,656,DIFFERENT_ID,Motivo de Cancelación de la Piquera,"{""en_US"": ""Motivo de Cancelación de la Piquera""}",base,base
+sicpro.app.transporte.piquera.rechazadas,962,655,DIFFERENT_ID,Motivo de Rechazo de la Piquera,"{""en_US"": ""Motivo de Rechazo de la Piquera""}",base,base
+sicpro.app.transporte.piquera.recorridos,961,654,DIFFERENT_ID,Gestión de recorridos de la Piquera,"{""en_US"": ""Gestión de recorridos de la Piquera""}",base,base
+sicpro.app.transporte.tipo.combustible,967,661,DIFFERENT_ID,Tipo de Combustible para el Transporte,"{""en_US"": ""Tipo de Combustible para el Transporte""}",base,base
+sicpro.app.videoconferencias,414,472,DIFFERENT_ID,Gestor de VideoConferencias,"{""en_US"": ""Gestor de VideoConferencias""}",base,base
+sicpro.app.videoconferencias.usuarioexterno,415,473,DIFFERENT_ID,Participantes externos para la VideoConferencia,"{""en_US"": ""Participantes externos para la VideoConferencia""}",base,base
+sicpro.app.viveres,,663,ONLY_19,,"{""en_US"": ""Control entrega de víveres""}",,base
+sicpro.app.viveres.areas,,673,ONLY_19,,"{""en_US"": ""Áreas del módulo de víveres""}",,base
+sicpro.app.viveres.areas.altas.bajas,,672,ONLY_19,,"{""en_US"": ""Altas y bajas mensuales por áreas, módulo de víveres""}",,base
+sicpro.app.viveres.areas.efectivo,,671,ONLY_19,,"{""en_US"": ""Efectivo entregado por áreas, módulo de víveres""}",,base
+sicpro.app.viveres.areas.entregas,,669,ONLY_19,,"{""en_US"": ""Entregas por áreas, módulo de víveres""}",,base
+sicpro.app.viveres.areas.entregas.resumenes,,667,ONLY_19,,"{""en_US"": ""Resumen entregas por áreas, módulo de víveres""}",,base
+sicpro.app.viveres.areas.fondo,,668,ONLY_19,,"{""en_US"": ""Fondo por áreas, módulo de víveres""}",,base
+sicpro.app.viveres.cierre,,666,ONLY_19,,"{""en_US"": ""Cierres mensuales de Capital Humano para módulo víveres""}",,base
+sicpro.app.viveres.productos,,664,ONLY_19,,"{""en_US"": ""Productos del módulo de víveres""}",,base
+sicpro.app.viveres.productos.comprados,,665,ONLY_19,,"{""en_US"": ""Módulo de víveres, productos comprados para la distribución""}",,base
+sicpro.app.viveres.trabajadores.entrega.wizard,,674,ONLY_19,,"{""en_US"": ""Entrega de productos a los trabajadores""}",,base
+sicpro.app.viveres.trabajadores.entregas,,670,ONLY_19,,"{""en_US"": ""Entregas a los trabajadores, módulo de víveres""}",,base
+sicpro.app.vivienda.escalafon,3220,689,DIFFERENT_ID,Escalafón del programa de la vivienda,"{""en_US"": ""Escalafón del programa de la vivienda""}",base,base
+sicpro.app.vivienda.etapas,3221,690,DIFFERENT_ID,Etapas del programa de la vivienda,"{""en_US"": ""Etapas del programa de la vivienda""}",base,base
+sicpro.app.vivienda.fondo,3229,698,DIFFERENT_ID,Presupuesto de fondo para el programa de la vivienda,"{""en_US"": ""Presupuesto de fondo para el programa de la vivienda""}",base,base
+sicpro.app.vivienda.materiales,3222,691,DIFFERENT_ID,Materiales para el programa de la vivienda,"{""en_US"": ""Materiales para el programa de la vivienda""}",base,base
+sicpro.app.vivienda.materiales.um,3223,692,DIFFERENT_ID,Unidad de medidas de los materiales,"{""en_US"": ""Unidad de medidas de los materiales""}",base,base
+sicpro.app.vivienda.ofertas,3230,699,DIFFERENT_ID,Ofertas para el programa de la vivienda,"{""en_US"": ""Ofertas para el programa de la vivienda""}",base,base
+sicpro.app.vivienda.proveedor,3224,693,DIFFERENT_ID,Proveedor del programa de la vivienda,"{""en_US"": ""Proveedor del programa de la vivienda""}",base,base
+sicpro.app.vivienda.reporte.anexo3,3232,701,DIFFERENT_ID,Reportes de Anexo 3,"{""en_US"": ""Reportes de Anexo 3""}",base,base
+sicpro.app.vivienda.reporte.anexo4,3231,700,DIFFERENT_ID,Reportes de Anexo 4,"{""en_US"": ""Reportes de Anexo 4""}",base,base
+sicpro.app.vivienda.reporte.estadistica,3233,702,DIFFERENT_ID,Reportes de Estadística RRHH,"{""en_US"": ""Reportes de Estadística RRHH""}",base,base
+sicpro.app.vivienda.trabajador,3225,694,DIFFERENT_ID,Programa de la vivienda,"{""en_US"": ""Programa de la vivienda""}",base,base
+sicpro.app.vivienda.trabajador.canceladas,3228,697,DIFFERENT_ID,Motivo de cancelación de la solicitud,"{""en_US"": ""Motivo de cancelación de la solicitud""}",base,base
+sicpro.app.vivienda.trabajador.productos,3226,695,DIFFERENT_ID,Productos del programa de la vivienda,"{""en_US"": ""Productos del programa de la vivienda""}",base,base
+sicpro.app.vivienda.trabajador.rechazadas,3227,696,DIFFERENT_ID,Motivo de rechazo de la solicitud,"{""en_US"": ""Motivo de rechazo de la solicitud""}",base,base
+sicpro.backup.eliminacion,,487,ONLY_19,,"{""en_US"": ""Backup Deletion Confirmation Wizard""}",,base
+sicpro.backup.local,,484,ONLY_19,,"{""en_US"": ""Proceso de copia de seguridad""}",,base
+sicpro.backup.local.detalles,,485,ONLY_19,,"{""en_US"": ""Detalles del proceso de copia de seguridad""}",,base
+sicpro.backup.mensaje.wizard,,488,ONLY_19,,"{""en_US"": ""Backup Custom Message Wizard""}",,base
+sicpro.backup.remote.server,,486,ONLY_19,,"{""en_US"": ""Servidor remoto de respaldo""}",,base
+sicpro.menu.marcadores,,495,ONLY_19,,"{""en_US"": ""Marcadores""}",,base
+sicpro.modulo.api.conector,1863,474,DIFFERENT_ID,Configura las conexiones con las apis externas,"{""en_US"": ""Configura las conexiones con las apis externas""}",base,base
+sicpro.modulo.api.conector.gitlab.commits,2370,,ONLY_15,Registro de los commits del proyecto,,base,
+sicpro.modulo.api.conector.historial,1864,475,DIFFERENT_ID,Historial de conexiones con las apis externas,"{""en_US"": ""Historial de conexiones con las apis externas""}",base,base
+sicpro.modulo.auditorias.autovacuum,366,,ONLY_15,Auditorias - Eliminar registros logs antiguos,,base,
+sicpro.modulo.auditorias.http.request,363,,ONLY_15,Auditorias - peticiones HTTP log,,base,
+sicpro.modulo.auditorias.http.session,362,,ONLY_15,Auditorias - sesiones de usuarios HTTP log,,base,
+sicpro.modulo.auditorias.log,364,,ONLY_15,Auditorias - Log,,base,
+sicpro.modulo.auditorias.log.line,365,,ONLY_15,Auditorias - Log detalles (fields updated),,base,
+sicpro.modulo.auditorias.rule,361,,ONLY_15,Auditorias - Reglas,,base,
+sicpro.modulo.backup.dropbox.auth,2976,,ONLY_15,Asistente de autenticación de Dropbox,,base,
+sicpro.modulo.backup.server.gitlab,2975,,ONLY_15,Url GitLab donde se sincroniza los backups,,base,
+sicpro.modulo.backup.server.local,2974,,ONLY_15,Copia de seguridad automática de la base de datos,,base,
+sicpro.modulo.base.correos.entrantes.asuntos,2372,,ONLY_15,Asuntos para ejecutar los métodos en la entrada de un correo,,base,
+sicpro.modulo.base.correos.entrantes.metodos,2371,,ONLY_15,Métodos a ejecutar en la entrada de un correo,,base,
+sicpro.modulo.certificados.digitales,,489,ONLY_19,,"{""en_US"": ""Gestión de control de los certificados digitales""}",,base
+sicpro.modulo.dashboard.colores,1050,,ONLY_15,Colores - Nomenclador de Colores,,base,
+sicpro.modulo.dashboard.colores.orden,1051,,ONLY_15,Colores - Color con orden,,base,
+sicpro.modulo.dashboard.colores.set,1052,,ONLY_15,Colores - Set de colores,,base,
+sicpro.modulo.dashboard.graficos,1054,,ONLY_15,Gráficos de los grupos del dashboard,,base,
+sicpro.modulo.dashboard.graficos.values,1055,,ONLY_15,Valores Extra de Gráficos de los grupos del dashboard,,base,
+sicpro.modulo.dashboard.grupos,1056,,ONLY_15,Grupos de las secciones del dashboard,,base,
+sicpro.modulo.dashboard.iconos,1053,,ONLY_15,Nomenclador de Íconos,,base,
+sicpro.modulo.dashboard.secciones,1057,,ONLY_15,Secciones del dashboard,,base,
+sicpro.modulo.dashboard.tableros,1058,,ONLY_15,Tableros,,base,
+sicpro.modulo.historial.aplicaciones,356,491,DIFFERENT_ID,Control de la acciones en las aplicaciones,"{""en_US"": ""Control de la acciones en las aplicaciones""}",base,base
+sicpro.modulo.mapas,1117,,ONLY_15,Registro de Plantillas de los Mapas,,base,
+sicpro.modulo.modelo.vista,1074,498,DIFFERENT_ID,Consulta de vistas de los modelos,"{""en_US"": ""Consulta de vistas de los modelos""}",base,base
+sicpro.modulo.nube.etecsa,951,,ONLY_15,Modelo temporal Api Nube Etecsa,,base,
+sicpro.modulo.plantilla.acceso,1330,,ONLY_15,Planilla de Acceso,,base,
+sicpro.modulo.plantilla.acceso.rechazar,1331,,ONLY_15,Plantilla de acceso rechazada,,base,
+sicpro.modulo.plantilla.acceso.roles,1332,,ONLY_15,Roles de la plantilla de Acceso,,base,
+sicpro.modulo.registro.usuarios,954,518,DIFFERENT_ID,Registro de acceso de usuarios,"{""en_US"": ""Registro de acceso de usuarios""}",base,base
+sicpro.modulo.registro.usuarios.reporte,956,521,DIFFERENT_ID,Reportes del Registro de usuarios,"{""en_US"": ""Reportes del Registro de usuarios""}",base,base
+sicpro.modulo.registro.usuarios_ip,955,520,DIFFERENT_ID,Direcciones IP de los Usuarios,"{""en_US"": ""Direcciones IP de los Usuarios""}",base,base
+sicpro.modulo.registro.usuarios_mac,2285,519,DIFFERENT_ID,Direcciones MAC de los Usuarios,"{""en_US"": ""Direcciones MAC de los Usuarios""}",base,base
+sicpro.modulo.roles,349,,ONLY_15,Roles de usuarios,,base,
+sicpro.modulo.roles.line,350,,ONLY_15,Usuarios asociados a los roles,,base,
+sicpro.modulo.simular.usuario,1110,,ONLY_15,Simular usuario,,base,
+sicpro.modulo.solicitud.acceso,,758,ONLY_19,,"{""en_US"": ""Planilla de Acceso""}",,base
+sicpro.modulo.solicitud.acceso.rechazar,,759,ONLY_19,,"{""en_US"": ""Plantilla de acceso rechazada""}",,base
+sicpro.modulo.solicitud.acceso.roles,,760,ONLY_19,,"{""en_US"": ""Roles de la solicitud de Acceso""}",,base
+sicpro.modulo.test,,516,ONLY_19,,"{""en_US"": ""Módulo para generar funcionalidades""}",,base
+sicpro.modulo.test.exceptions,,517,ONLY_19,,"{""en_US"": ""Test Exception Model""}",,base
+sicpro.modulo.ui.python,3023,,ONLY_15,Ui Python,,base,
+sicpro.modulo.web.about,2511,,ONLY_15,Link de Acceso al video de Introducción,,base,
+sicpro.modulo.web.automatiza,2549,,ONLY_15,Nomencladores de asuntos de los correos entrantes,,base,
+sicpro.modulo.web.aviso.mantenimiento,,756,ONLY_19,,"{""en_US"": ""Aviso de mantenimiento del Sistema""}",,base
+sicpro.modulo.web.equipo,2512,748,DIFFERENT_ID,Equipo de Desarrollo,"{""en_US"": ""Equipo de Desarrollo""}",base,base
+sicpro.modulo.web.evolucion,,753,ONLY_19,,"{""en_US"": ""Hitos de Evolución SICPRO""}",,base
+sicpro.modulo.web.galeria,2513,749,DIFFERENT_ID,Imágenes de la Galería,"{""en_US"": ""Imágenes de la Galería""}",base,base
+sicpro.modulo.web.galeria.etiquetas,2514,,ONLY_15,Etiquetas de la Galería,,base,
+sicpro.modulo.web.mantenimiento,2551,757,DIFFERENT_ID,Módulo para la puesta en mantenimiento de SICPRO ERP,"{""en_US"": ""Control de Mantenimiento SICPRO""}",base,base
+sicpro.modulo.web.manuales,2515,750,DIFFERENT_ID,Manuales de usuarios,"{""en_US"": ""Manuales de usuarios""}",base,base
+sicpro.modulo.web.plugins,2552,,ONLY_15,Listado de aplicaciones y plugins para descargar y utilizar con SICPRO ERP,,base,
+sicpro.modulo.web.preguntas,,754,ONLY_19,,"{""en_US"": ""Preguntas Frecuentes SICPRO""}",,base
+sicpro.modulo.web.registro.roles,2550,761,DIFFERENT_ID,Roles para el registro de usuarios,"{""en_US"": ""Roles para el registro de usuarios""}",base,base
+sicpro.modulo.web.registro.version,2553,,ONLY_15,Versiones del sistema vinculadas con Soporte,,base,
+sicpro.modulo.web.registro.versiones,2554,,ONLY_15,Detalles de las versiones del sistema,,base,
+sicpro.modulo.web.trabajadores,,755,ONLY_19,,"{""en_US"": ""Configuración de los contactos RH""}",,base
+sicpro.modulo.web.version,2516,751,DIFFERENT_ID,Configuración de la Version del Sistema,"{""en_US"": ""Configuración de la Version del Sistema""}",base,base
+sicpro.modulo.web.version.line,,752,ONLY_19,,"{""en_US"": ""Líneas de Cambio de Versión""}",,base
+sicpro.nomenclador.anios,444,500,DIFFERENT_ID,Nomenclador de Años,"{""en_US"": ""Nomenclador de Años""}",base,base
+sicpro.nomenclador.areas.empresa,3024,501,DIFFERENT_ID,Nomenclador de Área de Empresa,"{""en_US"": ""Nomenclador de Área de Empresa""}",base,base
+sicpro.nomenclador.centro.costo,436,502,DIFFERENT_ID,Nomenclador de Centros de Costos,"{""en_US"": ""Nomenclador de Centros de Costos""}",base,base
+sicpro.nomenclador.centro.planificacion,3025,503,DIFFERENT_ID,Nomenclador de Centros de Planificación (CePl),"{""en_US"": ""Nomenclador de Centros de Planificación (CePl)""}",base,base
+sicpro.nomenclador.cuentas.contables,435,504,DIFFERENT_ID,Nomenclador Cuentas Contables,"{""en_US"": ""Nomenclador Cuentas Contables""}",base,base
+sicpro.nomenclador.departamentos,443,505,DIFFERENT_ID,Nomenclador Departamentos del Proceso,"{""en_US"": ""Nomenclador Departamentos del Proceso""}",base,base
+sicpro.nomenclador.emplazamientos,3026,506,DIFFERENT_ID,Nomenclador de Emplazamientos,"{""en_US"": ""Nomenclador de Emplazamientos""}",base,base
+sicpro.nomenclador.especialidad,429,507,DIFFERENT_ID,Nomenclador de Especialidades de ejecución,"{""en_US"": ""Nomenclador de Especialidades de ejecución""}",base,base
+sicpro.nomenclador.iconos,,571,ONLY_19,,"{""en_US"": ""Nomenclador de Iconos Font Awesome""}",,base
+sicpro.nomenclador.locales,437,508,DIFFERENT_ID,Nomenclador de Locales de CC,"{""en_US"": ""Nomenclador de Locales de CC""}",base,base
+sicpro.nomenclador.meses,428,509,DIFFERENT_ID,Nomenclador de Meses,"{""en_US"": ""Nomenclador de Meses""}",base,base
+sicpro.nomenclador.sindicato,3037,675,DIFFERENT_ID,Áreas sindicales de la DVPE,"{""en_US"": ""Áreas sindicales de la DVPE""}",base,base
+sicpro.nomenclador.territorios,430,510,DIFFERENT_ID,Nomenclador de Unidades Organizativa,"{""en_US"": ""Nomenclador de Unidades Organizativa""}",base,base
+sicpro.nomenclador.trimestre,427,511,DIFFERENT_ID,Nomenclador de Trimestres,"{""en_US"": ""Nomenclador de Trimestres""}",base,base
+sicpro.querydb,369,,ONLY_15,Ejecuta consultas a Pstgresql desde SICPRO ERP,,base,
+sicpro_modulo_tema_colores.color_assets_editor,,515,ONLY_19,,"{""en_US"": ""Utilidades de recursos de color""}",,base
+sms.account.code,,404,ONLY_19,,"{""en_US"": ""SMS Account Verification Code Wizard"", ""es_ES"": ""Asistente para código de verificación para cuenta de SMS""}",,base
+sms.account.phone,,405,ONLY_19,,"{""en_US"": ""SMS Account Registration Phone Number Wizard"", ""es_ES"": ""Asistente de registro de número de teléfono para cuenta de SMS""}",,base
+sms.account.sender,,406,ONLY_19,,"{""en_US"": ""SMS Account Sender Name Wizard"", ""es_ES"": ""Asistente para nombre de remitente para cuenta de SMS""}",,base
+sms.api,326,,ONLY_15,SMS API,,base,
+sms.cancel,329,,ONLY_15,Dismiss notification for resend by model,,base,
+sms.composer,330,407,DIFFERENT_ID,Send SMS Wizard,"{""en_US"": ""Send SMS Wizard"", ""es_ES"": ""Asistente de envío de SMS""}",base,base
+sms.resend,332,,ONLY_15,SMS Resend,,base,
+sms.resend.recipient,331,,ONLY_15,Resend Notification,,base,
+sms.sms,327,401,DIFFERENT_ID,Outgoing SMS,"{""en_US"": ""Outgoing SMS"", ""es_ES"": ""SMS salientes""}",base,base
+sms.template,328,402,DIFFERENT_ID,SMS Templates,"{""en_US"": ""SMS Templates"", ""es_ES"": ""Plantillas de SMS""}",base,base
+sms.template.preview,333,408,DIFFERENT_ID,SMS Template Preview,"{""en_US"": ""SMS Template Preview"", ""es_ES"": ""Vista previa de la plantilla de SMS""}",base,base
+sms.template.reset,,409,ONLY_19,,"{""en_US"": ""SMS Template Reset"", ""es_ES"": ""Restablecimiento de la plantilla de SMS""}",,base
+sms.tracker,,403,ONLY_19,,"{""en_US"": ""Link SMS to mailing/sms tracking models"", ""es_ES"": ""Vincular SMS a los modelos de seguimiento de correo/sms""}",,base
+snailmail.confirm,335,,ONLY_15,Snailmail Confirm,,base,
+snailmail.letter,334,410,DIFFERENT_ID,Snailmail Letter,"{""en_US"": ""Snailmail Letter"", ""es_ES"": ""Carta de correo postal""}",base,base
+snailmail.letter.cancel,336,,ONLY_15,Dismiss notification for resend by model,,base,
+snailmail.letter.format.error,337,,ONLY_15,Format Error Sending a Snailmail Letter,,base,
+snailmail.letter.missing.required.fields,338,,ONLY_15,Update address of partner,,base,
+survey.invite,421,444,DIFFERENT_ID,Survey Invitation Wizard,"{""en_US"": ""Survey Invitation Wizard"", ""es_ES"": ""Asistente de invitación a encuestas""}",base,base
+survey.question,417,439,DIFFERENT_ID,Survey Question,"{""en_US"": ""Survey Question"", ""es_ES"": ""Pregunta de la encuesta""}",base,base
+survey.question.answer,418,440,DIFFERENT_ID,Survey Label,"{""en_US"": ""Survey Label"", ""es_ES"": ""Etiqueta de la encuesta""}",base,base
+survey.survey,416,441,DIFFERENT_ID,Survey,"{""en_US"": ""Survey"", ""es_ES"": ""Encuesta""}",base,base
+survey.user_input,419,442,DIFFERENT_ID,Survey User Input,"{""en_US"": ""Survey User Input"", ""es_ES"": ""Entrada de usuario de la encuesta""}",base,base
+survey.user_input.line,420,443,DIFFERENT_ID,Survey User Input Line,"{""en_US"": ""Survey User Input Line"", ""es_ES"": ""Línea de entrada de usuario de la encuesta""}",base,base
+task.share.wizard,,460,ONLY_19,,"{""en_US"": ""Task Sharing""}",,base
+template.reset.mixin,,172,ONLY_19,,"{""en_US"": ""Template Reset Mixin"", ""es_ES"": ""Mixin de restablecimiento de plantilla""}",,base
+tipsqueries,370,,ONLY_15,Tips for queries,,base,
+uom.uom,,418,ONLY_19,,"{""en_US"": ""Product Unit of Measure"", ""es_ES"": ""Unidad de medida del producto""}",,base
+user.selection,,523,ONLY_19,,"{""en_US"": ""User Selection""}",,base
+utm.campaign,1078,,ONLY_15,UTM Campaign,,base,
+utm.medium,1077,,ONLY_15,UTM Medium,,base,
+utm.mixin,1081,,ONLY_15,UTM Mixin,,base,
+utm.source,1079,,ONLY_15,UTM Source,,base,
+utm.stage,1076,,ONLY_15,Campaign Stage,,base,
+utm.tag,1080,,ONLY_15,UTM Tag,,base,
+web.environment.ribbon.backend,367,496,DIFFERENT_ID,Web Environment Ribbon Backend,"{""en_US"": ""Web Environment Ribbon Backend""}",base,base
+web_editor.assets,319,,ONLY_15,Assets Utils,,base,
+web_editor.converter.test,320,,ONLY_15,Web Editor Converter Test,,base,
+web_editor.converter.test.sub,321,,ONLY_15,Web Editor Converter Subtest,,base,
+web_tour.tour,135,138,DIFFERENT_ID,Tours,"{""en_US"": ""Tours"", ""es_ES"": ""Recorridos""}",base,base
+web_tour.tour.step,,139,ONLY_19,,"{""en_US"": ""Tour's step"", ""es_ES"": ""Paso del recorrido""}",,base
+wizard.create.role.from.user,,151,ONLY_19,,"{""en_US"": ""Crear rol desde el asistente de usuario""}",,base
+wizard.groups.into.role,,152,ONLY_19,,"{""en_US"": ""Agrupar grupos en un rol.""}",,base
+wizard.ir.model.menu.create,10,124,DIFFERENT_ID,Create Menu Wizard,"{""en_US"": ""Create Menu Wizard"", ""es_ES"": ""Asistente para creación de menú""}",base,base
+xml.rpc.log,1105,493,DIFFERENT_ID,Historial de solicitudes xmlrpc,"{""en_US"": ""Historial de solicitudes xmlrpc""}",base,base

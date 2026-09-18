@@ -1,0 +1,14 @@
+id_15,name_15,candidatos_19,mejor_id_19,mejor_name_19,mejor_score,mejores_matches,estado_fuente
+1,División de Proyecto y Ejecución de Obras,15,1,División de Proyecto y Ejecución de Obras,230,"email,phone,name,is_company,type",UNICO_MEJOR
+4,Public user,15,4,Public user,50,"name,is_company,type",UNICO_MEJOR
+6,Portal User Template,15,5,Portal User Template,50,"name,is_company,type",UNICO_MEJOR
+7,STAFF,15,6,STAFF,230,"email,phone,name,is_company,type",UNICO_MEJOR
+8,Dirección de Proyectos de Telecomunicaciones,15,7,Dirección de Proyectos de Telecomunicaciones,230,"email,phone,name,is_company,type",UNICO_MEJOR
+9,Dirección de Ejecución de Obras Civiles,15,8,Dirección de Ejecución de Obras Civiles,230,"email,phone,name,is_company,type",UNICO_MEJOR
+11,Dirección de Ejecución de Obras de Instalaciones Tecnológicas,15,9,Dirección de Ejecución de Obras de Instalaciones Tecnológicas,230,"email,phone,name,is_company,type",UNICO_MEJOR
+12,Vicepresidencia de Inversiones,15,15,Vicepresidencia de Inversiones,230,"email,phone,name,is_company,type",UNICO_MEJOR
+508,Coordinación General,15,10,Coordinación General,230,"email,phone,name,is_company,type",UNICO_MEJOR
+509,Capital Humano,15,11,Capital Humano,230,"email,phone,name,is_company,type",UNICO_MEJOR
+510,Economía,15,12,Economía,230,"email,phone,name,is_company,type",UNICO_MEJOR
+511,Logística y Servicios,15,13,Logística y Servicios,230,"email,phone,name,is_company,type",UNICO_MEJOR
+512,Tecnología de la Información,15,14,Tecnología de la Información,230,"email,phone,name,is_company,type",UNICO_MEJOR

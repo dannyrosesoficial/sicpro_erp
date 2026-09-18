@@ -1,0 +1,486 @@
+user_id_15,login,partner_id_15,partner_name,email,phone,company_id_15,company_name_15,active_15,share_15,user_id_19,login_19,name_19,active_19,partner_id_19,status
+1,__system__,2,SICPRO ERP,sicproerp@etecsa.cu,,f,f,f,1,1,__system__,SICPRO ERP,f,2,LOGIN_MATCH
+2,administrador,3,Administrador,sicproerp@etecsa.cu,,t,t,f,1,,,,,,NOT_FOUND_19
+3,default,5,Plantilla Usuario por Defecto,default,,f,f,f,1,,,,,,NOT_FOUND_19
+4,public,4,Public user,,,f,f,t,1,3,public,Public user,f,4,LOGIN_MATCH
+5,portaltemplate,6,Portal User Template,portal,,f,f,t,1,4,portaltemplate,Portal User Template,f,5,LOGIN_MATCH
+6,abel.gonzalez,13,Abel Gonzalez Pulido,abel.gonzalez@etecsa.cu,,t,t,f,12,,,,,,NOT_FOUND_19
+7,abel.hernandez,14,Abel Hernandez Garcia,abel.hernandez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+8,adalucia.garcia,15,Ada Lucia Garcia Avila,adalucia.garcia@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+9,adalberto.echazabal,16,Adalberto Felix Echazabal Ramirez,adalberto.echazabal@etecsa.cu,7-6488024,t,t,f,6,,,,,,NOT_FOUND_19
+10,adalberto.ortega,17,Adalberto Ortega Eguino,adalberto.ortega@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+13,adrian.puig,20,Adrian Puig Hernandez,adriang.puig@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+15,agustin.izquierdo,22,Agustin Izquierdo Pino,agustin.izquierdo@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+16,alberto.cancio,23,Alberto Cancio Rivero,alberto.cancio@etecsa.cu,7-8789211,t,t,f,13,,,,,,NOT_FOUND_19
+17,alberto.galvez,24,Alberto Galvez Arteaga,alberto.galvez@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+18,albin.ebanks,25,Albin Ebanks Blanco,albin.ebanks@etecsa.cu,7-8789239,t,f,f,2,,,,,,NOT_FOUND_19
+20,alejandro.amartinez,27,Alejandro Alonso Martinez,alejandro.amartinez@etecsa.cu,7-8786156,t,t,f,11,,,,,,NOT_FOUND_19
+22,alejandro.santana,29,Alejandro Luis Santana Diaz,alejandro.santana@etecsa.cu,7-8789280,t,t,f,13,,,,,,NOT_FOUND_19
+24,alexander.ferrer,31,Alexander Ferrer Cardenas,alexander.ferrer@etecsa.cu,7-8741513,t,t,f,6,,,,,,NOT_FOUND_19
+25,alexei.perez,32,Alexei Perez de Cespedes,alexei.perez@etecsa.cu,7-8791067,t,f,f,6,,,,,,NOT_FOUND_19
+26,alexis.sosa,33,Alexis Sosa Alonso,alexis.sosa@etecsa.cu,7-8793120,t,t,f,6,,,,,,NOT_FOUND_19
+27,alfredo.betancourt,34,Alfredo Betancourt Arango,alfredo.betancourt@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+29,alicia.rego,36,Alicia Elena Rego Rodriguez,alicia.rego@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+30,amada.martinez,37,Amada Martinez Hernandez,amada.martinez@etecsa.cu,7-8741485,f,f,f,6,,,,,,NOT_FOUND_19
+31,amado.perez,38,Amado Perez Urrutia,amado.perez@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+32,amanda.rodriguez,39,Amanda Cristina Rodriguez Riera,amanda.rodriguez@etecsa.cu,,t,t,f,12,,,,,,NOT_FOUND_19
+33,amarilys.campuzano,40,Amarilys Campuzano Nunez,amarilys.campuzano@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+34,ana.gonzalez,41,Ana Gonzalez Dominguez,ana.gonzalez@etecsa.cu,7-6488024,f,f,f,6,,,,,,NOT_FOUND_19
+35,anam.blanco,42,Ana Maria Blanco Gonzalez,anam.blanco@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+36,andres.cabrerapelier,43,Andres Cabrera Pelier,andres.cabrerapelier@etecsa.cu,7-6488118,f,f,f,6,,,,,,NOT_FOUND_19
+38,angel.gonzalez,45,Angel Alberto Gonzalez Acosta,angel.gonzalez@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+39,angel.reyes,46,Angel Reyes Jara,angel.reyes@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+40,angela.grodriguez,47,Angela Gomez Rodriguez,angela.grodriguez@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+41,aniaska.muniz,48,Aniaska Muniz Castillo,aniaska.muniz@etecsa.cu,,t,t,f,6,,,,,,NOT_FOUND_19
+42,annia.prieto,49,Annia Prieto Vidal,annia.prieto@etecsa.cu,7-8783588,t,t,f,10,,,,,,NOT_FOUND_19
+43,antonio.lastre,50,Antonio Lastre Gonzalez,antonio.lastre@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+44,ariel.acosta,51,Ariel Acosta Hernandez,ariel.acosta@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+45,ariel.gonzalez,52,Ariel Gonzalez Pedroso,ariel.gonzalez@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+46,ariel.fleitas,53,Ariel Jesus Fleitas Varela,ariel.fleitas@etecsa.cu,7-8775932,t,t,f,1,,,,,,NOT_FOUND_19
+47,armando.lecour,54,Armando Enrique Lecour Villadroin,armando.lecour@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+48,armando.solano,55,Armando Solano Aguilera,armando.solano@etecsa.cu,7-8733550,f,f,f,1,,,,,,NOT_FOUND_19
+49,arnaldo.cuesta,56,Arnaldo Cuesta Fuentes,arnaldo.cuesta@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+50,aymee.franco,57,Aymee Franco Bordenave,aymee.franco@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+51,ayram.oromi,58,Ayram Oromi Fiorenzano,ayram.oromi@etecsa.cu,7-8739544,t,t,f,3,,,,,,NOT_FOUND_19
+52,baleini.machin,59,Baleini Machin Padron,baleini.machin@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+53,beatriz.viamonte,60,Beatriz Viamonte Guevara,beatriz.viamonte@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+54,benigno.sanchez,61,Benigno Victor Sanchez Curbelo,benigno.sanchez@etecsa.cu,7-8789281,t,t,f,10,,,,,,NOT_FOUND_19
+55,camilo.gomez,62,Camilo Gomez Suarez,camilo.gomez@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+56,caridad.manzanet,63,Caridad Manzanet Ruiz,caridad.manzanet@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+58,carlos.pulido,65,Carlos Jose Pulido Diaz,carlos.pulido@etecsa.cu,,t,t,f,6,,,,,,NOT_FOUND_19
+59,carlos.cepero,66,Carlos Luis Cepero Santiago,carlos.cepero@etecsa.cu,,t,t,t,4,,,,,,NOT_FOUND_19
+60,carlos.capote,67,Carlos Manuel Capote Rodriguez,carlos.capote@etecsa.cu,7-8789265,f,f,f,4,,,,,,NOT_FOUND_19
+61,carlos.monto,68,Carlos Manuel Monto Fernandez,carlos.monto@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+62,carlos.delahoz,69,Carlos Manuel de la Hoz Serrano,carlos.delahoz@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+63,carlos.valles,70,Carlos Miguel Valles Tejeda,carlos.valles@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+64,catalina.gonzalez,71,Catalina Gonzalez Miramon,catalina.gonzalez@etecsa.cu,7-6488021 ,f,f,f,6,,,,,,NOT_FOUND_19
+65,cesar.diaz,72,Cesar Diaz Cardenas,cesar.diaz@etecsa.cu,7-8700710,t,t,f,3,,,,,,NOT_FOUND_19
+66,claudia.marti,73,Claudia Margarita Marti Aguila,claudia.marti@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+67,ivonne.abreu,74,Cristina Ivonne Abreu Martinez,ivonne.abreu@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+68,cruz.cardenas,75,Cruz Maria Cardenas Amuedo,cruz.cardenas@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+69,daily.perez,76,Daily Perez Molano,daily.perez@etecsa.cu,,f,f,f,12,,,,,,NOT_FOUND_19
+70,daislem.bell,77,Daislen Bell Couret,daislem.bell@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+71,daisy.hernandez,78,Daisy Hernandez Ramirez,daisy.hernandez@etecsa.cu,7-8741440,f,f,f,1,,,,,,NOT_FOUND_19
+72,daliana.cortes,79,Daliana Cortes Morandeira,daliana.cortes@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+73,dania.medina,80,Dania Mary Medina Pantoja,dania.medina@etecsa.cu,,t,t,f,3,,,,,,NOT_FOUND_19
+74,dania.almeida,81,Dania Rosa Almeida Valdes,dania.almeida@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+76,darilys.ramirez,83,Darilys Ramirez Marquez,darilys.ramirez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+78,david.cardona,85,David Cardona Fong,david.cardona@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+79,david.rivera,86,David Rivera Estopinan,david.rivera@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+80,dayana.loredo,87,Dayana Loredo Martinez,dayana.loredo@etecsa.cu,7-8789289,t,t,f,13,,,,,,NOT_FOUND_19
+82,dayane.borges,89,Dayane Borges Castellon,dayane.borges@etecsa.cu,7-8791067,t,t,f,6,,,,,,NOT_FOUND_19
+83,daylin.parra,90,Daylin Niurka Parra Martinez,daylin.parra@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+85,denia.hernandez,92,Denia Hernandez Ramos,denia.hernandez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+86,denis.figueredo,93,Denis Wilfredo Figueredo Leon,denis.figueredo@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+87,diamila.vallejo,94,Diamila Maria Vallejo Cabrera,diamila.vallejo@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+88,diana.cardenas,95,Diana Cardenas Granados,diana.cardenas@etecsa.cu,7-8780917,f,f,f,2,,,,,,NOT_FOUND_19
+89,diego.perez,96,Diego Cesar Perez Hernandez,diego.perez@etecsa.cu,7-8794590,f,f,f,6,,,,,,NOT_FOUND_19
+90,dimitri.lopez,97,Dimitri Lopez Lombardo,dimitri.lopez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+91,edgar.haber,98,Edgar Haber Diaz,edgar.haber@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+92,edmundo.atherton,99,Edmundo Atherton Barbier,edmundo.atherton@etecsa.cu,7-8741493,t,t,f,13,,,,,,NOT_FOUND_19
+93,eduardo.rangel,100,Eduardo Julio Rangel Gamez,eduardo.rangel@etecsa.cu,7-8741548,t,t,f,12,,,,,,NOT_FOUND_19
+94,eilhy.beltran,101,Eilhy Imey Beltran Busutil,eilhy.beltran@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+95,elainy.echazabal,102,Elainy Echazabal Gonzalez,elainy.echazabal@etecsa.cu,7-8792046,f,f,t,6,,,,,,NOT_FOUND_19
+96,elio.benavides,103,Elio Benavides Gomez,elio.benavides@etecsa.cu,7-6487945,t,t,f,6,,,,,,NOT_FOUND_19
+97,elisa.gil,104,Elisa Gil Leon,elisa.gil@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+98,elizaberht.delahoz,105,Elizaberht de la Hoz Solano,elizaberht.delahoz@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+99,emeterio.chacon,106,Emeterio Chacon Torres,emeterio.chacon@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+101,enrique.izaguirre,108,Enrique Izaguirre Miranda,enrique.izaguirre@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+102,eric.sayu,109,Eric Manuel Sayu Sigarroas,eric.sayu@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+103,erich.fernandez,110,Erich Fernandez Medina,erich.fernandez@etecsa.cu,7-8709939,f,f,f,2,,,,,,NOT_FOUND_19
+104,erick.pena,111,Erick Pena Gil,erick.pena@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+105,erik.montano,112,Erik Montano Mena,erik.montano@etecsa.cu,,t,t,f,6,,,,,,NOT_FOUND_19
+106,ernesto.acevedo,113,Ernesto Acevedo Nuñez,ernesto.acevedo@etecsa.cu,7-8741425,f,f,f,3,,,,,,NOT_FOUND_19
+107,esperanza.gonzalez,114,Esperanza Gonzalez Salinas,esperanza.gonzalez@etecsa.cu,7-8709939,f,f,f,2,,,,,,NOT_FOUND_19
+108,eugenio.mitjans,115,Eugenio Mitjans Garcia,eugenio.mitjans@etecsa.cu,7-8789290,f,f,f,6,,,,,,NOT_FOUND_19
+110,evelio.lopez,117,Evelio Lopez Cabeza,evelio.lopez@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+111,evelio.samuel,118,Evelio Samuel Martinez,evelio.samuel@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+112,fabian.fages,119,Fabian Gerardo Fages Guitierrez,fabian.fages@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+113,fidel.granda,120,Fidel Granda Guzman,fidel.granda@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+116,fred.diaz,123,Fred Alejandro Diaz Alvite,fred.diaz@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+117,gaston.marquez,124,Gaston Rafael Marquez Lescaille,gaston.marquez@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+118,geanfranco.mata,125,Geanfranco Mata Venegas,geanfranco.mata@etecsa.cu,7-8741512,t,t,f,6,,,,,,NOT_FOUND_19
+119,genry.avila,126,Genry Avila Merino,genry.avila@etecsa.cu,7-6488119,t,f,f,6,,,,,,NOT_FOUND_19
+121,german.vazquez,128,German Alfredo Vazquez Rojas,german.vazquez@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+122,gisela.rodriguez,129,Gisela Rodriguez Mora,gisela.rodriguez@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+123,glendis.garcia,130,Glendis Garcia Gonzalez,glendis.garcia@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+124,gonzalo.regalado,131,Gonzalo Enrique Regalado Martinez,gonzalo.regalado@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+125,grethel.rivas,132,Grethel Rivas Bermudez,grethel.rivas@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+126,guido.martinez,133,Guido Martinez Gomez,guido.martinez@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+127,henri.pena,134,Henri Pena Vidal,henri.pena@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+128,hermes.rojas,135,Hermes Rojas Durades,hermes.rojas@etecsa.cu,7-8789284,t,t,f,4,,,,,,NOT_FOUND_19
+129,idalmi.castillo,136,Idalmi Castillo Gonzalez,idalmi.castillo@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+130,ignacio.montesano,137,Ignacio de Layola Montesano Interian,ignacio.montesano@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+131,ihosvany.cortes,138,Ihosvany Cortes Ramirez,ihosvany.cortes@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+132,iliana.castellanos,139,Iliana Castellanos Paumier,iliana.castellanos@etecsa.cu,7-8789248,t,t,f,14,,,,,,NOT_FOUND_19
+133,ines.hernandez,140,Ines Maria Hernandez La Rosa,ines.hernandez@etecsa.cu,7-8733520,f,f,f,2,,,,,,NOT_FOUND_19
+134,iraldis.morales,141,Iraldis Morales Martinez,iraldis.morales@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+136,isis.chavez,143,Isis Belen Chavez Toymil,isis.chavez@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+137,yanet.cordoves,144,Janet Maria Cordoves Monsibaez,yanet.cordoves@etecsa.cu,7-6942981,f,f,f,4,,,,,,NOT_FOUND_19
+138,janete.tamayo,145,Janete Tamayo Puentes,janete.tamayo@etecsa.cu,7-8789298,f,f,f,2,,,,,,NOT_FOUND_19
+139,javier.gonzalez,146,Javier Gonzalez Arcos,javier.gonzalez@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+140,joel.betancourt,147,Joel Betancourt Valiente,joel.betancourt@etecsa.cu,5-2180084,t,f,f,2,,,,,,NOT_FOUND_19
+141,joel.denis,148,Joel Esteban Denis Caliz,joel.denis@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+142,alejandrog.pelaez,149,Jorge Alejandro Garcia Pelaez,alejandrog.pelaez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+143,jorge.alvarez,150,Jorge C. Alvarez Garcia,jorge.alvarez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+146,jorge.mendez,153,Jorge Mendez Moreno,jorge.mendez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+147,jorge.falla,154,Jorge Ramon Falla Lopez,jorge.falla@etecsa.cu,7-8741480,t,t,f,3,,,,,,NOT_FOUND_19
+148,jorget.perez,155,Jorge Tomas Perez Barrios,jorget.perez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+149,joseenrique.oliva,156,Jose Enrique Oliva Martin,joseenrique.oliva@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+150,josemanuel.diaz,157,Jose Manuel Diaz Arauz,josemanuel.diaz@etecsa.cu,7-8733510 ,f,f,t,4,,,,,,NOT_FOUND_19
+151,josemanuel.gomez,158,Jose Manuel Gomez Leal,josemanuel.gomez@etecsa.cu,7-8733510,f,f,t,4,,,,,,NOT_FOUND_19
+152,jose.estrada,159,Jose Miguel Estrada Ramos,jose.estrada@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+153,joser.rodriguez,160,Jose Ramon Rodriguez Tejeda,joser.rodriguez@etecsa.cu,5-2182379,t,t,f,7,,,,,,NOT_FOUND_19
+154,rodolfo.ferrer,161,Jose Rodolfo Ferrer Cuesta,rodolfo.ferrer@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+155,juan.gonzalez,162,Juan Alberto Gonzalez Ramos,juan.gonzalez@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+158,juan.torres,165,Juan Virgilio Torres Idavoy,juan.torres@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+159,juanamaria.gonzalez,166,Juana Maria Gonzalez Guerra,juanamaria.gonzalez@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+160,carmen.silveira,167,Juana del Carmen Silveira Ramirez,carmen.silveira@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+161,julio.arguelles,168,Julio Arguelles Manresa,julio.arguelles@etecsa.cu,7-8741423,t,t,f,3,,,,,,NOT_FOUND_19
+162,justo.llerena,169,Justo Lazaro Llerena Gonzalez,justo.llerena@etecsa.cu,,t,t,f,3,,,,,,NOT_FOUND_19
+163,karla.russinyol,170,Karla Nery Russinyol Ara,karla.russinyol@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+164,kenia.reyes,171,Kenia Reyes Kindelan,kenia.reyes@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+165,kenia.pardo,172,Kenia Teresita Pardo Garia,kenia.pardo@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+166,mareliz.betancourt,173,Lazara Mareliz Betancourt Martinez,mareliz.betancourt@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+167,lazaro.hernandez,174,Lazaro Hernandez Cardenas,lazaro.hernandez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+168,lazaro.menazorrilla,175,Lazaro Luis Mena Zorrilla,lazaro.menazorrilla@etecsa.cu,7-8794355,t,t,f,6,,,,,,NOT_FOUND_19
+169,lazaror.pereira,176,Lazaro Ruben Pereira Lara,lazaror.pereira@etecsa.cu,7-8741467,t,f,f,11,,,,,,NOT_FOUND_19
+171,leonardo.roque,178,Leonardo Roque Cespedes,leonardo.roque@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+172,liana.zayas,179,Liana Zayas Secada,liana.zayas@etecsa.cu,7-8741552,t,t,f,3,,,,,,NOT_FOUND_19
+173,lidia.orta,180,Lidia Orta Gener,lidia.orta@etecsa.cu,7-8789296,f,f,t,2,,,,,,NOT_FOUND_19
+174,liesly.scull,181,Liesly Scull Sanchez,liesly.scull@etecsa.cu,,t,t,f,3,,,,,,NOT_FOUND_19
+175,luis.delacruz,182,Luis Ernesto de la Cruz Hurtado,luis.delacruz@etecsa.cu,,t,f,f,4,,,,,,NOT_FOUND_19
+176,luis.miranda,183,Luis Miranda Hernandez,luis.miranda@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+177,mabel.espino,184,Mabel Espino Suarez,mabel.espino@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+178,mabel.saura,185,Mabel Saura Rodriguez,mabel.saura@etecsa.cu,7-8786153,f,f,f,2,,,,,,NOT_FOUND_19
+180,madelin.ricardo,187,Madelin Ricardo Leyva,madelin.ricardo@etecsa.cu,7-8789299 ,t,t,f,10,,,,,,NOT_FOUND_19
+181,magaly.montenegro,188,Magaly Montenegro Lara,magaly.montenegro@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+182,magaly.somohano,189,Magaly Somohano Sanchez,magaly.somohano@etecsa.cu,7-8741477,t,t,f,3,,,,,,NOT_FOUND_19
+183,magdalena.ariosa,190,Magdalena Ariosa Garcia,magdalena.ariosa@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+185,maite.marin,192,Maite del Carmen Marin Gonzalez,maite.marin@etecsa.cu,7-8789276,t,t,f,11,,,,,,NOT_FOUND_19
+186,manuel.robaina,193,Manuel Robaina Nunez,manuel.robaina@etecsa.cu,7-6488113 ,f,f,f,6,,,,,,NOT_FOUND_19
+187,manuel.ruyol,194,Manuel Ruyol Serrate,manuel.ruyol@etecsa.cu,7-6488117,f,f,f,6,,,,,,NOT_FOUND_19
+188,maria.alfonso,195,Maria Caridad Alfonso Morejon,maria.alfonso@etecsa.cu,7-8741548,t,t,f,10,,,,,,NOT_FOUND_19
+189,maria.barba,196,Maria Cristina Barba Filiberto,maria.barba@etecsa.cu,7-8741582,f,f,f,2,,,,,,NOT_FOUND_19
+190,dolores.azcuy,197,Maria Dolores Azcuy Castillo,dolores.azcuy@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+191,mariah.perez,198,Maria Hortencia Perez Martinez,mariah.perez@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+192,mariam.gonzalez,199,Maria Mercedes Gonzalez Palma,mariam.gonzalez@etecsa.cu,7-8741428,t,t,f,3,,,,,,NOT_FOUND_19
+193,mariat.valdes,200,Maria Teresa Valdes Yanes,mariat.valdes@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+194,maria.santaballa,201,Maria del Carmen Santaballa Marquez,maria.santaballa@etecsa.cu,7-8733573,t,f,f,11,,,,,,NOT_FOUND_19
+195,mariela.mora,202,Mariela Mora Herrera,mariela.mora@etecsa.cu,7-8741544,t,t,f,3,,,,,,NOT_FOUND_19
+196,mariela.reboledo,203,Mariela Reboledo Flores,mariela.reboledo@etecsa.cu,7-8741426,t,t,f,3,,,,,,NOT_FOUND_19
+197,marlon.nunez,204,Marlon Frank Nunez Iglesias,marlon.nunez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+198,marta.triana,205,Marta Triana Pupo,marta.triana@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+199,barbara.hernandez,206,Maxima Barbara Hernandez Huet,barbara.hernandez@etecsa.cu,7-6942983,f,f,f,4,,,,,,NOT_FOUND_19
+200,maybe.gomez,207,Maybe Caridad Gomez More,maybe.gomez@etecsa.cu,7-874-1411,t,t,f,13,,,,,,NOT_FOUND_19
+201,maykel.quintana,208,Maykel Quintana Linares,maykel.quintana@etecsa.cu,,t,f,f,6,,,,,,NOT_FOUND_19
+203,michel.fagundo,210,Michel Jesus Fagundo Heras,michel.fagundo@etecsa.cu,7-8741583,f,f,f,3,,,,,,NOT_FOUND_19
+204,margarita.cuesta,211,Migdalia Margarita Cuesta Viltres,margarita.cuesta@etecsa.cu,7-8764389,t,t,f,3,,,,,,NOT_FOUND_19
+205,migdalia.rosell,212,Migdalia Rosell Echenique,migdalia.rosell@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+206,miriam.dominguez,213,Miriam Dominguez Roque,miriam.dominguez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+207,miriam.mesa,214,Miriam Mesa Wilson,miriam.mesa@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+208,mirta.galvez,215,Mirta Galvez Ferro,mirta.galvez@etecsa.cu,7-8786155,t,t,f,1,,,,,,NOT_FOUND_19
+209,mirtha.hechavarria,216,Mirtha de los A. Hechavarria,mirtha.hechavarria@etecsa.cu,7-8789245,f,f,f,4,,,,,,NOT_FOUND_19
+210,myrna.rey,217,Myrna Rey Ramirez,myrna.rey@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+211,nahomy.gutierrez,218,Nahomy Gutierrez Diaz,nahomy.gutierrez@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+212,nelson.petrucheli,219,Nelson Lazaro Menendez Petrucheli,nelson.petrucheli@etecsa.cu,7-8794388,t,t,f,6,,,,,,NOT_FOUND_19
+213,noraima.alfaro,220,Noraima Alfaro Ganganelly,noraima.alfaro@etecsa.cu,,t,t,f,12,,,,,,NOT_FOUND_19
+214,norma.rojas,221,Norma Niurka Rojas Justiz,norma.rojas@etecsa.cu,,t,t,f,12,,,,,,NOT_FOUND_19
+215,odiley.perez,222,Odiley Perez Romero,odiley.perez@etecsa.cu,,f,f,f,12,,,,,,NOT_FOUND_19
+216,olgalidia.milanes,223,Olga Lidia Milanes Portillo,olgalidia.milanes@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+217,olivia.borges,224,Olivia Borges Nodarse,olivia.borges@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+218,onely.espinosa,225,Onely Espinosa Isaac,onely.espinosa@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+219,orlando.rodriguez,226,Orlando David Rodriguez Gonzalez,orlando.rodriguez@etecsa.cu,7-8741445 ,t,t,f,4,,,,,,NOT_FOUND_19
+221,osmany.diaz,228,Osmani Díaz Mantilla,osmany.diaz@etecsa.cu,7-6488121,f,f,f,6,,,,,,NOT_FOUND_19
+222,osmel.arcia,229,Osmel Arcia Jimenez,osmel.arcia@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+223,otman.sanz,230,Otman Sabad Sanz Cordero,otman.sanz@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+226,ramon.scull,233,Ramon Scull Roque,ramon.scull@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+227,raul.inocencio,234,Raul Inocencio Inocencio,raul.inocencio@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+229,regis.jimenez,236,Regis Jimenez Placeres,regis.jimenez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+230,reinier.ruiz,237,Reinier Rodolfo Ruiz Alvarez,reinier.ruiz@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+232,rene.torres,239,Rene Torres Perez,rene.torres@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+233,ricardo.beltran,240,Ricardo Beltran Martinez,ricardo.beltran@etecsa.cu,7-8741464,t,t,f,13,,,,,,NOT_FOUND_19
+234,ricardo.perezvento,241,Ricardo Perez Vento,ricardo.perezvento@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+235,ricardo.poll,242,Ricardo Poll Quintana,ricardo.poll@etecsa.cu,7-8741533,t,t,f,4,,,,,,NOT_FOUND_19
+236,roberto.oliva,243,Roberto Oliva Betancourt,roberto.oliva@etecsa.cu,7-8741444,t,t,f,11,,,,,,NOT_FOUND_19
+239,rosa.morejon,246,Rosa Esther Morejon Suarez,rosa.morejon@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+240,samuel.vazquez,247,Samuel Vazquez Cedeno,samuel.vazquez@etecsa.cu,,t,t,f,6,,,,,,NOT_FOUND_19
+241,sandra.callis,248,Sandra Callis Caraballoso,sandra.callis@etecsa.cu,7-8789250,t,t,f,11,,,,,,NOT_FOUND_19
+242,sayuri.cruz,249,Sayuri Cruz Chong,sayuri.cruz@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+243,seinela.sanchez,250,Seinela Sanchez Nevot,seinela.sanchez@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+244,shakira.carmona,251,Shakira Carmona Garcia,shakira.carmona@etecsa.cu,7-8789246,f,f,f,2,,,,,,NOT_FOUND_19
+245,silvia.garmendia,252,Silvia Rosa Garmendia Serafin,silvia.garmendia@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+246,sonia.laguardia,253,Sonia la Guardia Madrazo,sonia.laguardia@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+247,susana.riveira,254,Susana Riveira Ares,susana.riveira@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+248,tamara.ruiz,255,Tamara Ruiz Camejo,tamara.ruiz@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+249,tania.legon,256,Tania Legon Perez,tania.legon@etecsa.cu,7-8764376,f,f,f,3,,,,,,NOT_FOUND_19
+250,tatiana.lorenzo,257,Tatiana Lorenzo Calderon,tatiana.lorenzo@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+251,thalia.menendez,258,Thalia Menéndez Vargas,thalia.menendez@etecsa.cu,7-8733573 ,f,f,f,2,,,,,,NOT_FOUND_19
+252,tony.huguet,259,Tony Huguet Yuque,tony.huguet@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+253,victoria.vazquez,260,Victoria de la Paz Vazquez Ojeda,victoria.vazquez@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+254,vivian.ramos,261,Vivian Cristina Ramos Diaz,vivian.ramos@etecsa.cu,,t,t,f,6,,,,,,NOT_FOUND_19
+255,vivian.reve,262,Vivian Reve Sayoux,vivian.reve@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+256,waldemar.avila,263,Waldemar Avila Leyva,waldemar.avila@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+257,wenkin.wong,264,Wenkin Wong Chiu,wenkin.wong@etecsa.cu,7-8741438,t,f,f,12,,,,,,NOT_FOUND_19
+258,yadianys.suarez,265,Yadianys Suarez Ramirez,yadianys.suarez@etecsa.cu,7-8792046,f,f,f,6,,,,,,NOT_FOUND_19
+259,yahima.mesa,266,Yahima Mesa Jorlen,yahima.mesa@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+260,yaima.fernandez,267,Yaima Fernandez Canto,yaima.fernandez@etecsa.cu,7-8789275,t,t,f,7,,,,,,NOT_FOUND_19
+261,yainiel.martinez,268,Yainiel Martinez Fresneda,yainiel.martinez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+262,yalile.rosabal,269,Yalile Rosabal Valdes,yalile.rosabal@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+263,yamila.trujillo,270,Yamila Trujillo Carrodegua,yamila.trujillo@etecsa.cu,,t,f,f,6,,,,,,NOT_FOUND_19
+264,yamile.lopez,271,Yamilé López Nuñez,yamile.lopez@etecsa.cu,7-8741527,t,t,f,13,,,,,,NOT_FOUND_19
+265,yannyra.matute,272,Yannyra de Pilar Matute Tejo,yannyra.matute@etecsa.cu,7-6488024,t,t,f,6,,,,,,NOT_FOUND_19
+266,yohanca.vazquez,273,Yohanka Vazquez Sanchez,yohanca.vazquez@etecsa.cu,7-8793248,f,f,f,6,,,,,,NOT_FOUND_19
+267,yordan.tonely,274,Yordan Tonely Mena,yordan.tonely@etecsa.cu,7-8741467 ,f,f,f,2,,,,,,NOT_FOUND_19
+268,yosvanys.sosa,275,Yosvanys Alcides Sosa Ramirez,yosvanys.sosa@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+269,yukdanys.lobaina,276,Yukdanys Lobaina Gamez,yukdanys.lobaina@etecsa.cu,7-8741585,t,t,f,10,,,,,,NOT_FOUND_19
+270,yuliet.hernandez,277,Yuliet Hernandez Gainza,yuliet.hernandez@etecsa.cu,7-8785139,f,f,f,2,,,,,,NOT_FOUND_19
+271,yuliet.suarez,278,Yuliet Suarez Prado,yuliet.suarez@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+272,zuleidy.maique,279,Zuleidy Maique De La Rua,zuleidy.maique@etecsa.cu,7-8741514,t,t,f,6,,,,,,NOT_FOUND_19
+273,zulema.fernandez,280,Zulema Fernandez Coelo,zulema.fernandez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+274,daniel.borrero,282,Daniel Barrero Reyes,daniel.borrero@etecsa.cu,7-8741568,t,t,f,1,,,,,,NOT_FOUND_19
+275,yoel.igarza,283,Yoel Igarza nueva,yoel.igarza@etecsa.cu,23-419906,t,t,f,4,,,,,,NOT_FOUND_19
+276,osmany.gama,284,Osmany Gama Díaz,osmany.gama@etecsa.cu,41-326368,t,t,f,4,,,,,,NOT_FOUND_19
+277,wilfredo.rosales,285,Wilfredo Rosales Olivet,wilfredo.rosales@etecsa.cu,23-419957,f,f,f,6,,,,,,NOT_FOUND_19
+278,yesenia.cervantes,286,Yesenia Cervantes Delgado,yesenia.cervantes@etecsa.cu,41-326199,f,f,f,6,,,,,,NOT_FOUND_19
+279,yoandy.cadena,287,Yoandy Cadena Linares,yoandy.cadena@etecsa.cu,41-326199,t,t,f,6,,,,,,NOT_FOUND_19
+280,hugo.rodriguez,288,Hugo Rodríguez Vergel,hugo.rodriguez@etecsa.cu,23-419957,f,f,f,6,,,,,,NOT_FOUND_19
+281,leonel.figueredo,289,Leonel Figueredo Fernández,leonel.figueredo@etecsa.cu,23-419957 ,f,f,f,6,,,,,,NOT_FOUND_19
+282,irina.rodriguez,290,Irina Rodríguez Silva,irina.rodriguez@etecsa.cu,5-2180689 ,f,f,f,2,,,,,,NOT_FOUND_19
+283,mariselis.milanes,291,Mariselis Milanés Rodríguez,mariselis.milanes@etecsa.cu,23-419967,f,f,f,3,,,,,,NOT_FOUND_19
+284,yosvany.napoles,292,Yosvany Nápoles Prieto,yosvany.napoles@etecsa.cu,41-326377,t,t,f,3,,,,,,NOT_FOUND_19
+286,yenimar.villalobos,295,Yenimar Villalobos Ojeda,yenimar.villalobos@etecsa.cu,41-326369,t,t,f,4,,,,,,NOT_FOUND_19
+287,teresa.perez,296,Teresa Victoria Perez Pacheco,teresa.perez@etecsa.cu,23-419989,t,t,f,11,,,,,,NOT_FOUND_19
+288,danisleydis.hernandez,297,Danisleydis Hernández Rodríguez,danisleydis.hernandez@etecsa.cu,7-8741451,f,f,f,2,,,,,,NOT_FOUND_19
+289,yanier.jauregui,298,Yanier Jauregui,yanier.jauregui@etecsa.cu,7-8799575,f,f,f,2,,,,,,NOT_FOUND_19
+290,ifrain.naranjo,299,Ifrain Naranjo Naranjo,ifrain.naranjo@etecsa.cu,23-419949,t,t,f,4,,,,,,NOT_FOUND_19
+292,laritsa.madan,302,Laritsa Madan Beyris,laritsa.madan@etecsa.cu,7-8736046,f,f,f,2,,,,,,NOT_FOUND_19
+293,alejandro.vazquez,305,Alejandro Agustín Vazquez,alejandro.vazquez@etecsa.cu,7-8789242 ,f,f,f,2,,,,,,NOT_FOUND_19
+294,aslan.santana,306,Aslan Santana Vazquez,aslan.santana@etecsa.cu,33-200686,t,t,f,7,,,,,,NOT_FOUND_19
+295,ernesto.quelle,307,Ernesto Quelle Santana,ernesto.quelle@etecsa.cu,7-2667301,f,f,f,7,,,,,,NOT_FOUND_19
+296,luis.iglesias,308,Luis Adolfo Iglesias Reyes,luis.iglesias@etecsa.cu,7-2666985,f,f,f,7,,,,,,NOT_FOUND_19
+297,manuel.rosales,309,Manuel Alexander Rosales Verdecia,manuel.rosales@etecsa.cu,23-427436,f,f,f,7,,,,,,NOT_FOUND_19
+298,leandro.cruz,310,Leandro Cruz Reygada,leandro.cruz@etecsa.cu,31-346553,f,f,f,7,,,,,,NOT_FOUND_19
+299,jose.villalta,311,Jose Rafael Villalta Cubelo,jose.villalta@etecsa.cu,31-346548,f,f,f,7,,,,,,NOT_FOUND_19
+300,javierp.sierra,312,Javier Perez Sierra,javierp.sierra@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+301,manleys.rodriguez,313,Manleys Rodriguez Torres,manleys.rodriguez@etecsa.cu,23-420693,f,f,f,7,,,,,,NOT_FOUND_19
+302,milton.sosa,314,Reynaldo Milton Sosa molina,milton.sosa@etecsa.cu,23-4206889 ,f,f,f,7,,,,,,NOT_FOUND_19
+303,rolando.padron,315,Rolando Banier Padron Sosa,rolando.padron@etecsa.cu,23-419840,f,f,f,7,,,,,,NOT_FOUND_19
+304,gustavo.rodriguez,316,Gustavo Daniel Rodriguez Reyes,gustavo.rodriguez@etecsa.cu,50912842,f,f,f,7,,,,,,NOT_FOUND_19
+305,heidi.lezcano,317,Heidi Lezcano Mezquida,heidi.lezcano@etecsa.cu,7-8643303 ,t,t,f,7,,,,,,NOT_FOUND_19
+306,janier.esquijarosa,318,Janier Esquijarosa Alvarez,janier.esquijarosa@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+307,lourdes.cabrera,319,Lourdes Cabrera Mozo,lourdes.cabrera@etecsa.cu,7-8643317,t,t,f,7,,,,,,NOT_FOUND_19
+308,lucia.romero,320,Lucia Romero Barreiro,lucia.romero@etecsa.cu,7-8643303 ,t,t,f,7,,,,,,NOT_FOUND_19
+309,nerio.falcon,321,Nerio Yosvany Falcon Lopez,nerio.falcon@etecsa.cu,33-204243,f,f,f,7,,,,,,NOT_FOUND_19
+310,roger.pineyro,322,Roger Pineyro Suarez,roger.pineyro@etecsa.cu,42-217680 ,f,f,f,7,,,,,,NOT_FOUND_19
+311,sachye.hernandez,323,Sachye Hernandez Izquierdo ,sachye.hernandez@etecsa.cu,7-8643303,f,f,f,7,,,,,,NOT_FOUND_19
+312,taniav.alvarez,324,Tania Tamara Velazquez Alvarez,taniav.alvarez@etecsa.cu,7-8643318,t,t,f,7,,,,,,NOT_FOUND_19
+313,yelena.fernandez,325,Yelena Fernandez Morell,yelena.fernandez@etecsa.cu,7-2666813,f,f,f,7,,,,,,NOT_FOUND_19
+314,yeney.fortes,326,Yeney Milagros Fortes Quesada,yeney.fortes@etecsa.cu,7-8643320,t,t,f,7,,,,,,NOT_FOUND_19
+315,diosnel.bornot,327,Diosnel Bornot Rodriguez,diosnel.bornot@etecsa.cu,45-255294,t,t,f,7,,,,,,NOT_FOUND_19
+316,roger.lopez,328,Roger Lopez Garcia,roger.lopez@etecsa.cu,33-228872,f,f,f,7,,,,,,NOT_FOUND_19
+317,yasiel.hernandez,329,Yasiel Hernandez Barrios,yasiel.hernandez@etecsa.cu,52889296,f,f,f,7,,,,,,NOT_FOUND_19
+318,barbara.despaigne,330,Barbara Despaigne Villavicencio,barbara.despaigne@etecsa.cu,7-6488261 ,f,f,f,7,,,,,,NOT_FOUND_19
+319,deniris.ponce,331,Deniris Ponce de Leon Hechevarria,deniris.ponce@etecsa.cu,7-6488042 ,f,f,f,7,,,,,,NOT_FOUND_19
+320,ivett.martin,332,Ivett Martin Gonzalez,ivett.martin@etecsa.cu,7-6488058,t,t,f,7,,,,,,NOT_FOUND_19
+325,juan.aleman,337,Juan Carlos Aleman Revilla,juan.aleman@etecsa.cu,7-6488172,t,t,f,7,,,,,,NOT_FOUND_19
+326,luis.nicot,338,Luis Nicot Gomero,luis.nicot@etecsa.cu,7-6488065,t,t,f,7,,,,,,NOT_FOUND_19
+327,rosana.mesa,339,Rosana Mesa La Nuez,rosana.mesa@etecsa.cu,76488075,f,f,f,7,,,,,,NOT_FOUND_19
+328,adianet.gonzalez,340,Adianet Gonzalez Reyes,adianet.gonzalez@etecsa.cu,32-298320,t,t,f,7,,,,,,NOT_FOUND_19
+329,marcos.labaut,341,Marcos Labaut Fonseca,marcos.labaut@etecsa.cu,5-2184266 ,t,f,f,4,,,,,,NOT_FOUND_19
+330,dianelys.perdomo,342,Dianelys Perdomo Meneses,dianelys.perdomo@etecsa.cu,7-8733503 ,f,f,f,2,,,,,,NOT_FOUND_19
+331,yuri.miranda,343,Yuri Miranda Callejas,yuri.miranda@etecsa.cu,33-228012,t,t,f,7,,,,,,NOT_FOUND_19
+332,geisy.chavez,344,Geisy Chavez Suarez,geisy.chavez@etecsa.cu,33-200531,f,f,f,7,,,,,,NOT_FOUND_19
+333,gilberto.fernandez,345,Gilberto Fernandez Rivero,gilberto.fernandez@etecsa.cu,33-228012,f,f,f,7,,,,,,NOT_FOUND_19
+334,rigoberto.roque,346,Rigoberto Roque Martinez,rigoberto.roque@etecsa.cu,52181965,f,f,f,7,,,,,,NOT_FOUND_19
+335,alejandro.iraola,347,Alejandro Miguel Iraola Perez,alejandro.iraola@etecsa.cu,33-262000 ,f,f,f,7,,,,,,NOT_FOUND_19
+336,aleida.aguilar,348,Aleida de la Caridad Aguilar Rivera,aleida.aguilar@etecsa.cu,7-6961229 ,f,f,f,7,,,,,,NOT_FOUND_19
+337,alexander.columbie,349,Alexander Columbie Bayart,alexander.columbie@etecsa.cu,51451474,f,f,f,7,,,,,,NOT_FOUND_19
+338,alfredo.olivares,350,Alfredo Olivares Cardoza,alfredo.olivares@etecsa.cu,7-6980003 ext:1189 ,t,t,t,7,,,,,,NOT_FOUND_19
+339,fidel.cruz,351,Fidel Cruz Garrido,fidel.cruz@etecsa.cu,,t,t,t,7,,,,,,NOT_FOUND_19
+340,jose.almeida,352,Jose Lazaro Ramirez Almeida ,jose.almeida@etecsa.cu,7-6980003 ext:1208,f,f,f,7,,,,,,NOT_FOUND_19
+341,leticia.reyes,353,Leticia de la Caridad  Reyes Alvarez,leticia.reyes@etecsa.cu,7-6961229,t,t,f,7,,,,,,NOT_FOUND_19
+342,leyda.borges,354,Leyda Borges Martinez,leyda.borges@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+343,magdey.napoles,355,Magdey Napoles Gutierrez,magdey.napoles@etecsa.cu,5-53587550 ,f,f,f,7,,,,,,NOT_FOUND_19
+344,dailyn.mauri,356,Dailyn de Jesus Hernandez Mauri,dailyn.mauri@etecsa.cu,48-767128,f,f,f,7,,,,,,NOT_FOUND_19
+345,maykel.alvarez,357,Maykel Alvarez Hidalgo,maykel.alvarez@etecsa.cu,48-758333,t,t,f,7,,,,,,NOT_FOUND_19
+346,digna.mir,358,Digna Lidia Mir Pino,digna.mir@etecsa.cu,24-474155,t,t,f,7,,,,,,NOT_FOUND_19
+347,miguel.borges,359,Miguel Angel Borges Sanchez,miguel.borges@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+348,yuniel.perez,360,Yuniel Perez Hernanadez,yuniel.perez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+349,yanet.morell,361,Yanet Emma Morell Regueiferos,yanet.morell@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+350,juanl.garcia,362,Juan Luis Garcia Garcia,juanl.garcia@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+351,angel.santamaria,363,Angel Santamaria Alfonso,angel.santamaria@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+352,roberto.olmo,364,Roberto Olmo Gorrin ,roberto.olmo@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+353,pedro.castro,365,Pedro Luis Castro Tabera,pedro.castro@etecsa.cu,,t,f,f,13,,,,,,NOT_FOUND_19
+354,omandy.suarez,366,Omandy Suarez Hernandez,omandy.suarez@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+355,alejandro.rodriguez,367,Alejandro Rodriguez Quintero,alejandro.rodriguez@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+356,garcia.sotolongo,368,Carlos Arturo Garcia Sotolongo,garcia.sotolongo@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+357,dafnet.gomez,369,Dafnet Ysabel Gomez Castillo,dafnet.gomez@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+358,eduardo.calderon,370,Eduardo Carderon Toledo,eduardo.calderon@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+359,maria.rivas,371,Maria del Carmen Rivas Batista,maria.rivas@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+360,roberto.oquendo,372,Roberto Luis Oquendo Oms,roberto.oquendo@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+361,yohanner.carrete,373,Yohanner Carrete Marrero,yohanner.carrete@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+362,alejandro.pino,374,Alejandro Garcia Pino,alejandro.pino@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+364,andy.rues,376,Andy Rues Roman,andy.rues@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+365,anton.alabart,377,Anton Alabart Velazquez,anton.alabart@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+366,ernesto.medina,378,Ernesto Medina Miguel,ernesto.medina@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+367,guillermo.labori,379,Guillermo Labori Mayet,guillermo.labori@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+368,saylinr.felizola,380,Saylin Ramirez Felizola,saylinr.felizola@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+369,victor.cueva,381,Victor Eduardo Cueva Canet,victor.cueva@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+370,yeleinis.gonzalez,382,Yeleinis Gonzalez Tamayo,yeleinis.gonzalez@etecsa.cu,,t,t,f,1,,,,,,NOT_FOUND_19
+371,amarys.perez,383,Amarys Perez Reyes,amarys.perez@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+372,niuris.mendez,384,Niuris Mendez Hernandez,niuris.mendez@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+373,ramon.fajardo,385,Ramon Fajardo Gonzalez,ramon.fajardo@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+374,alexey.seisdedo,386,Alexey Seisdedo Losa,alexey.seisdedo@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+375,alexeis.tornes,387,Alexeis Tornes Gonzalez,alexeis.tornes@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+376,zeida.nunez,388,Zeida Tomasa Nunez Gaskin,zeida.nunez@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+377,yoel.blanco,389,Felix Yoel Blanco Rodriguez,yoel.blanco@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+378,elvio.verdecia,390,Elvio Guillermo Verdecia Pasos,elvio.verdecia@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+379,miguel.ramos,391,Miguel Luis Ramos Perez,miguel.ramos@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+380,leonardo.fonseca,392,Leonardo Misael Fonseca Gonzalez,leonardo.fonseca@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+381,darvis.torres,393,Darvis Torres Diaz,darvis.torres@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+382,orlando.aliaga,394,Orlando Mario de Jesus Aliaga Fonseca,orlando.aliaga@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+383,yurien.hamilton,395,Yurien Hamilton Mendoza,yurien.hamilton@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+384,yordys.fernandez,396,Yordys Daniel Fernandez Jorge,yordys.fernandez@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+385,cecilio.alvarez,397,Cecilio Gabriel Alvarez Galardy,cecilio.alvarez@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+386,nilva.guerra,398,Nilva Guerra Silvera,nilva.guerra@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+387,dolores.vazquez,399,Dolores Gelda Vazquez Garcia,dolores.vazquez@etecsa.cu,,t,t,t,4,,,,,,NOT_FOUND_19
+388,william.martinez,400,Wiliam Martinez Lopez,william.martinez@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+389,miguel.perezescalona,401,Miguel Perez Escalona,miguel.perezescalona@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+390,eusebio.rodriguez,402,Eusebio Primo Rodriguez Mejias,eusebio.rodriguez@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+391,alain.cruz,403,Alain Cruz Roca,alain.cruz@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+392,angel.perez,404,Angel Perez Perez,angel.perez@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+393,ernesto.vega,405,Ernesto Vega Hernandez ,ernesto.vega@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+394,frank.romero,406,Frank Enrique Romero La o,frank.romero@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+395,orestes.tabares,407,Tabares Tamayo Orestes,orestes.tabares@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+396,orlando.pupo,408,Orlando Pupo Fernandez,orlando.pupo@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+397,raul.fernandez,409,Raul Fernandez del Valle,raul.fernandez@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+398,berny.tornes,410,Berny Tornes Chang,berny.tornes@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+399,hiram.cabrera,411,Hiram Alberto Cabrera Benitez,hiram.cabrera@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+400,miguel.gutierrez,412,Miguel Eduardo Gutierrez Cabaña,miguel.gutierrez@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+401,alexander.montero,413,Alexander Montero Gomez,alexander.montero@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+402,randy.cabrera,414,Randy Cabrera Cordero,randy.cabrera@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+403,sunhay.triana,415,Sunhay Triana Banos,sunhay.triana@etecsa.cu,,f,f,f,2,,,,,,NOT_FOUND_19
+404,argelio.castaneda,416,Argelio Castaneda Vargas,argelio.castaneda@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+405,guerby.bobadilla,417,Guerby Bobadilla de la Cruz,guerby.bobadilla@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+406,lourdes.portelles,418,Lourdes Maria Portelles Rodriguez,lourdes.portelles@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+407,ariel.guillot,419,Ariel Guillot Montes,ariel.guillot@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+408,kenia.langer,420,Kenia Langer Rodriguez,kenia.langer@etecsa.cu,,f,f,f,4,,,,,,NOT_FOUND_19
+409,sergio.estrada,421,Sergio Yudiser Estrada Ortiz,sergio.estrada@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+411,adiel.alvarez,423,Adiel Alvarez Alvarez,adiel.alvarez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+412,alain.torres,424,Alain Torres Gandara,alain.torres@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+413,carlos.fine,425,Carlos Reynier Fine de Armas,carlos.fine@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+414,luismiguel.perez,426,Luis Miguel Perez Fernandez,luismiguel.perez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+415,juan.pinon,427,Juan M. Pinon Rodriguez,juan.pinon@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+416,raul.lopez,428,Raul Eduardo Lopez Serrano,raul.lopez@etecsa.cu,,t,t,f,3,,,,,,NOT_FOUND_19
+417,arnaldo.bernal,429,Arnaldo Albino Bernal Delgado,arnaldo.bernal@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+418,alexis.santo,430,Alexis Raul Santo Vidal,alexis.santo@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+419,eduardo.cuesta,431,Eduardo Joaquin Cuesta Ramirez,eduardo.cuesta@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+420,aridio.perez,432,Aridio Enrique Perez Ricardo,aridio.perez@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+421,madelaine.dearmas,433,Madelaine de Armas Diaz,madelaine.dearmas@etecsa.cu,,t,t,f,3,,,,,,NOT_FOUND_19
+423,vicente.rivera,435,Vicente Manuel Rivera Rodriguez,vicente.rivera@etecsa.cu,,f,f,f,3,,,,,,NOT_FOUND_19
+424,saimar.castillo,436,Saimar Castillo Rodriguez ,saimar.castillo@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+425,rodelmy.lopez,437,Rodelmy Lopez Avila,rodelmy.lopez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+426,marcel.gonzalez,438,Marcel Gonzalez Rodriguez,marcel.gonzalez@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+427,mayelin.rvazquez,439,MAYELÍN RODRÍGUEZ VÁZQUEZ,mayelin.rvazquez@etecsa.cu,,t,t,f,1,,,,,,NOT_FOUND_19
+428,fabian.regalado,440,FABIÁN REGALADO PÉREZ,fabian.regalado@etecsa.cu,,t,t,t,6,,,,,,NOT_FOUND_19
+429,elaine.roque,441,Elaine Roque Portal,elaine.roque@etecsa.cu,,f,f,f,7,,,,,,NOT_FOUND_19
+431,airelys.campos,443,Airelys Campos Herrera,airelys.campos@etecsa.cu,,t,t,f,10,,,,,,NOT_FOUND_19
+432,lester.marbot,444,Lester Marbot Pino,lester.marbot@etecsa.cu,,t,f,f,2,,,,,,NOT_FOUND_19
+433,yordanis.ceballo,445,Yordanis Nelson Ceballo Suarez,yordanis.ceballo@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+434,berlindo.sijin,446,Berlindo Luis Sijin Martinez,berlindo.sijin@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+435,aldis.diaz,447,Aldis Diaz Rinack,aldis.diaz@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+436,humberto.garcia,448,Humberto Garcia Gonzalez,humberto.garcia@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+437,belkis.linares,449,Belkis Linares Rodriguez,belkis.linares@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+438,pedro.risquet,450,Pedro Risquet Diaz,pedro.risquet@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+439,omar.martinez,451,Omar Martinez Gonzalez,omar.martinez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+441,michel.dorvigny,453,Michel Dorvigny Acosta,michel.dorvigny@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+442,rafael.espinosa,454,Rafael Espinosa Manso,rafael.espinosa@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+443,adrian.ribiaux,455,Adrian Ribiaux Menocal,adrian.ribiaux@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+444,pedro.vegueria,456,Pedro Rey Vegueria Portilla,pedro.vegueria@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+445,manuel.duran,457,Manuel Duran Domech,manuel.duran@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+446,jesus.joa,458,Jesus Joa Llovet,jesus.joa@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+447,duniesky.bermudez,459,Duniesky Bermudez Higuera,duniesky.bermudez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+449,rebeca.valdes,461,Rebeca Maria Valdes Valdes,rebeca.valdes@etecsa.cu,,t,t,f,12,,,,,,NOT_FOUND_19
+450,guillermo.lopezfidalgo,462,Guillermo de la C. Lopez Fidalgo,guillermo.lopezfidalgo@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+451,omar.caraballo,463,Omar Antonio Caraballo Brito,omar.caraballo@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+452,jorge.gavio,464,Jorge Antonio Gavio Gonzalez,jorge.gavio@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+453,daumier.zayas,465,Daumier Zayas Rojas,daumier.zayas@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+454,joseramon.ruiz,466,Jose Ramon Ruiz Sanchez,joseramon.ruiz@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+455,melba.guerra,467,Melba Guerra Téllez,melba.guerra@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+456,maria.font,468,Maria Elena Font Rodil,maria.font@etecsa.cu,,f,f,f,6,,,,,,NOT_FOUND_19
+457,niurka.rcobas,469,Niurka Rodriguez Cobas,niurka.rcobas@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+458,yusdel.dominguez,470,Yusdel Dominguez Rizo,yusdel.dominguez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+459,roicel.borroto,471,Roicel Borroto Gonzalez,roicel.borroto@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+460,juanl.nunez,472,Juan Luis Nunez Acosta ,juanl.nunez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+461,yusleivi.izaguirre,473,Yusleivi Mercedes Izaguirre Hernandez,yusleivi.izaguirre@etecsa.cu,,t,f,f,11,,,,,,NOT_FOUND_19
+462,julio.pino,474,Julio Antonio Pino Reyes,julio.pino@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+463,olga.vidal,475,Olga Lidia Vidal Noel,olga.vidal@etecsa.cu,,t,t,f,10,,,,,,NOT_FOUND_19
+464,jorge.ramos,476,Jorge Luis Ramos Piloto,jorge.ramos@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+465,ingrid.diaz,477,Ingrid Diaz Lopez,ingrid.diaz@etecsa.cu,,t,f,f,2,,,,,,NOT_FOUND_19
+466,oniet.paz,478,Oniet Paz Barros,oniet.paz@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+467,raul.agras,479,Raul Martinez Agras,raul.agras@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+468,danay.hechavarria,480,Danay Hechavarria Alderete,danay.hechavarria@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+469,braudel.hernandez,481,Braudel Hernandez Cabrera ,braudel.hernandez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+470,anielys.herrera,482,Anielys Herrera Nuviola,anielys.herrera@etecsa.cu,,t,f,f,14,,,,,,NOT_FOUND_19
+471,yomiuri.yin,483,Yomiuri Yin Cabrera,yomiuri.yin@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+472,yosmel.salinas,484,Yosmel Salinas Nunez,yosmel.salinas@etecsa.cu,,t,f,f,2,,,,,,NOT_FOUND_19
+473,esludian.rodriguez,485,Esludian Rodriguez Lorenzo,esludian.rodriguez@etecsa.cu,,t,t,f,11,,,,,,NOT_FOUND_19
+474,alfredo.duarte,486,Alfredo Manuel Duarte Alvarez,alfredo.duarte@etecsa.cu,,t,f,f,2,,,,,,NOT_FOUND_19
+475,rodney.rodriguez,487,Rodney Rodriguez Despaigne,rodney.rodriguez@etecsa.cu,,t,f,f,11,,,,,,NOT_FOUND_19
+476,miladys.capo,488,Miladys Capo Medina,miladys.capo@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+477,gilberto.amador,489,Gilberto Amador Gonzalez,gilberto.amador@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+478,esmel.acuna,490,Esmel Acuna Cuba,esmel.acuna@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+479,danna.valdes,491,Danna margarita valdes suarez,danna.valdes@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+480,yoandy.lopez,492,Yoandy Lopez Molina,yoandy.lopez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+481,millamis.leyva,493,Millamis Celeste Leyva Provance,millamis.leyva@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+482,albertog.fraga,494,Alberto Garcia Fraga,albertog.fraga@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+483,dania.izaguirre,495,Dania Izaguirre Laffita,dania.izaguirre@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+484,lenin.asin,496,Lenin Asin Ordunez,lenin.asin@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+485,leonel.leon,497,Leonel Antonio Leon Martin,leonel.leon@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+486,anaisy.garcia,498,Anaisy Garcia Pulido,anaisy.garcia@etecsa.cu,,t,t,f,4,,,,,,NOT_FOUND_19
+487,omar.lopez,499,Omar Lopez Diaz ,omar.lopez@etecsa.cu,,t,t,t,7,,,,,,NOT_FOUND_19
+488,yasniel.hernandez,500,Yasniel Hernandez Alfonso,yasniel.hernandez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+489,javier.romay,501,Javier Alejandro Romay Duenas,javier.romay@etecsa.cu,,t,t,t,7,,,,,,NOT_FOUND_19
+490,osmel.morales,502,Osmel Morales Muniz,osmel.morales@etecsa.cu,,t,t,t,7,,,,,,NOT_FOUND_19
+491,yunierky.olivera,503,Yunierky Olivera Verdecia,yunierky.olivera@etecsa.cu,,t,t,t,7,,,,,,NOT_FOUND_19
+492,yoennys.delpozo,504,Yoennys Del Pozo Rodriguez,yoennys.delpozo@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+493,rudyt.morales,505,Rudyt Morales Calderon,rudyt.morales@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+494,mario.gonzalez,506,Nestor Mario Gonzalez Campa,mario.gonzalez@etecsa.cu,,t,t,t,4,,,,,,NOT_FOUND_19
+495,omar.ardanal,507,Omar Martinez Ardanal,omar.ardanal@etecsa.cu,,t,t,t,13,,,,,,NOT_FOUND_19
+496,jose.liranza,513,Jose Liranza Zamora,jose.liranza@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+497,yoendrys.roble,514,Yoendrys Roble Chibas,yoendrys.roble@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+498,vladimir.abo,515,Vladimir Abo Olivera,vladimir.abo@etecsa.cu,,t,t,f,13,,,,,,NOT_FOUND_19
+499,wilma.verdecia,516,Wilma Verdecia Soto ,wilma.verdecia@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+500,daniel.pacheco,517,Daniel Dominguez Pacheco,daniel.pacheco@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+501,angelg.gonzalez,518,Angel Gonzalez Gonzalez,angelg.gonzalez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+502,rene.huie,519,Rene Julian Huie Chiug,rene.huie@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+503,daylee.mompie,520,Daylee Mompie Marti,daylee.mompie@etecsa.cu,,t,t,f,14,,,,,,NOT_FOUND_19
+504,daniel.calderon,521,Daniel Ricardo Calderon Estevez,daniel.calderon@etecsa.cu,,t,t,f,14,,,,,,NOT_FOUND_19
+505,yannick.campos,522,Yannick Campos Mesa,yannick.campos@etecsa.cu,,t,f,f,14,,,,,,NOT_FOUND_19
+506,yamil.diago,523,Yamil Alfonso Diago Bent,yamil.diago@etecsa.cu,,t,t,f,11,,,,,,NOT_FOUND_19
+507,ralkis.benitez,524,Ralkis Ezequiel Benitez Suarez,ralkis.benitez@etecsa.cu,,t,t,f,13,,,,,,NOT_FOUND_19
+508,andres.fernandez,525,Arnoldo Andres Fort Fernandez,andres.fernandez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+509,yoel.tellez,526,Yoel Adalberto Tellez Barrueco,yoel.tellez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+510,yordan.castillo,527,Jose Yordan Castillo Landa,yordan.castillo@etecsa.cu,,t,t,f,11,,,,,,NOT_FOUND_19
+511,yadir.oliva,528,Yadir Oliva Garcia,yadir.oliva@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+512,ivon.gonzalez,529,Ivon Gonzalez Acosta,ivon.gonzalez@etecsa.cu,,t,t,f,11,,,,,,NOT_FOUND_19
+513,erick.rodriguez,530,Erick Rodriguez Suarez,erick.rodriguez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+514,elizabeth.miranda,531,Elizabeth Miranda Ortega,elizabeth.miranda@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+515,jorge.sacre,532,Jorge Mario Sacre Izquierdo,jorge.sacre@etecsa.cu,,t,t,t,6,,,,,,NOT_FOUND_19
+516,leodamys.balda,533,Leodamys Balda Sicre,leodamys.balda@etecsa.cu,,t,t,f,6,,,,,,NOT_FOUND_19
+517,reinier.brocal,534,Reinier Brocal Noblet,reinier.brocal@etecsa.cu,,t,f,f,6,,,,,,NOT_FOUND_19
+518,cesar.lguevara,535,Cesar Dayan Laron de Guevara Figueredo,cesar.lguevara@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+519,tairy.garcia,536,Tairy Garcia Hernandez,tairy.garcia@etecsa.cu,,t,t,f,11,,,,,,NOT_FOUND_19
+520,julio.navarro,537,Julio Ernesto Navarro,julio.navarro@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+521,lisdiana.correa,538,Lis Diana Correa Furones,lisdiana.correa@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+522,jorgev.padilla,539,Jorge Victor Padilla Villalon,jorgev.padilla@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+523,maykel.maquintoche,540,Maykel Maquintoche Herrera,maykel.maquintoche@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+524,zuyen.hung,541,Zuyen Hung Martinez,zuyen.hung@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+525,anibal.andres,542,Anibal Andres Zayas,anibal.andres@etecsa.cu,,t,t,f,1,,,,,,NOT_FOUND_19
+526,sheyla.elizondo,543,Sheyla de la Caridad Elizondo Morales,sheyla.elizondo@etecsa.cu,,t,t,f,11,,,,,,NOT_FOUND_19
+527,diamel.sebastian,544,Diamel Sebastian Gomez Alfonso,diamel.sebastian@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+528,maykelg.enriquez,545,Maykel Gonzalez Enriquez,maykelg.enriquez@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+529,saud.santana,546,Saud Arturo Santana Gil,saud.santana@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+530,yoel.medel,547,Yoel Medel Martinez,yoel.medel@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19
+531,jorge.matos,548,Jorge Matos Noya,jorge.matos@etecsa.cu,,t,t,f,7,,,,,,NOT_FOUND_19

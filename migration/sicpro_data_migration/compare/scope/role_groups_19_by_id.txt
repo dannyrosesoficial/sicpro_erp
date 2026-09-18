@@ -1,0 +1,67 @@
+101|{"en_US": "Ejecutor de Servicios"}
+102|{"en_US": "Ejecutor Corporativo"}
+103|{"en_US": "Responsable"}
+104|{"en_US": "Administrador"}
+105|{"en_US": "Usuario"}
+106|{"en_US": "Ejecutor de Solicitud"}
+107|{"en_US": "Revisión de Solicitud"}
+108|{"en_US": "Validación de Solicitud"}
+109|{"en_US": "Ejecutor"}
+110|{"en_US": "Responsable"}
+111|{"en_US": "Administrador"}
+113|{"en_US": "Usuarios"}
+114|{"en_US": "Ejecutor"}
+115|{"en_US": "Responsable"}
+116|{"en_US": "Administrador"}
+117|{"en_US": "Usuarios"}
+118|{"en_US": "Ejecutor"}
+119|{"en_US": "Visualizar"}
+120|{"en_US": "Ejecutor"}
+121|{"en_US": "Responsable"}
+122|{"en_US": "Administrador"}
+123|{"en_US": "Visualizar"}
+124|{"en_US": "Ejecutor"}
+125|{"en_US": "Jefe"}
+126|{"en_US": "Usuarios"}
+127|{"en_US": "Ejecutor"}
+128|{"en_US": "Responsable"}
+129|{"en_US": "Administrador"}
+130|{"en_US": "Usuarios"}
+131|{"en_US": "Instructor"}
+132|{"en_US": "Administrador"}
+133|{"en_US": "Secretario sindical"}
+134|{"en_US": "Usuario"}
+135|{"en_US": "Secretario general"}
+136|{"en_US": "Validar solicitud"}
+137|{"en_US": "Logística"}
+138|{"en_US": "Economía"}
+139|{"en_US": "Responsable"}
+140|{"en_US": "Administrador"}
+141|{"en_US": "Usuarios"}
+142|{"en_US": "Administrativos"}
+143|{"en_US": "Responsable"}
+144|{"en_US": "Administrador"}
+145|{"en_US": "Ejecutor"}
+146|{"en_US": "Territorial"}
+147|{"en_US": "Ejecutor"}
+148|{"en_US": "Ejecutor"}
+149|{"en_US": "Ejecutor"}
+150|{"en_US": "Ejecutante"}
+151|{"en_US": "Responsable"}
+152|{"en_US": "Visualizar órdenes del Proceso"}
+153|{"en_US": "Visualizar Todas las órdenes"}
+154|{"en_US": "Responsable"}
+155|{"en_US": "Administrador"}
+156|{"en_US": "Visualizar órdenes personales"}
+157|{"en_US": "Visualizar todas las órdenes Inversionistas"}
+158|{"en_US": "Solicitar Orden"}
+159|{"en_US": "Validar Orden"}
+160|{"en_US": "Crear Orden"}
+161|{"en_US": "Visualizar todas las Transferencias"}
+162|{"en_US": "Gestión del Inversionista"}
+163|{"en_US": "Visualizar por Procesos"}
+164|{"en_US": "Gestión del Ejecutor"}
+165|{"en_US": "Gestión del Técnico Productivo"}
+166|{"en_US": "Gestión Económica"}
+167|{"en_US": "Responsable"}
+168|{"en_US": "Administrador"}

@@ -1,0 +1,168 @@
+1|Role / User|||6:Multi Currencies,7:Technical Features
+2|Access Rights|||1:Role / User,44:Consultas Postgres
+3|Bypass HTML Field Sanitize|||
+4|Role / Administrator|||2:Access Rights,3:Bypass HTML Field Sanitize,7:Technical Features,8:Allowed,9:Creation,13:Technical Documentation,14:Canned Response Administrator,15:Mail Template Editor,24:Permitido,42:Administrador,44:Consultas Postgres
+5|Multi Companies|||
+6|Multi Currencies|||
+7|Technical Features|||
+8|Allowed|1|Export|
+9|Creation|2|Contact|
+10|Role / Portal|||
+11|Role / Public|||
+12|Default access for new users|||
+13|Technical Documentation|||
+14|Canned Response Administrator|3|Canned Responses|
+15|Mail Template Editor|||
+16|Receive notifications in Odoo|||
+17|Administrador|4|Administrar SICPRO|1:Role / User
+18|Notificaciones Administrativas|5|Notificaciones|1:Role / User
+19|Canal del STAFF|6|Canales|
+20|Canal de Proyectos|6|Canales|
+21|Canal de DEOCT|6|Canales|
+22|Canal de DEOIT|6|Canales|
+23|Canal de Inversiones|6|Canales|
+24|Permitido|7|Importar|
+25|Menus y Accesos Obsoletos|||1:Role / User
+26|Manage Multiple Units of Measure|||
+27|Analytic Accounting|||
+28|User|8|Surveys|
+29|Administrator|8|Surveys|28:User
+30|User|9|Project|1:Role / User
+31|Administrator|9|Project|14:Canned Response Administrator,30:User
+32|Use Stages on Project|||
+33|Use Recurring Tasks|||
+34|Use Task Dependencies|||
+35|Use Milestones|||
+36|Usuario|10|Gestor Documental|1:Role / User
+37|Ejecutor|10|Gestor Documental|36:Usuario
+38|Usuario|11|Salón de Clases|1:Role / User
+39|Responsable|11|Salón de Clases|38:Usuario
+40|Administrador|11|Salón de Clases|39:Responsable
+41|Usuario|12|Registros de auditoría|
+42|Administrador|12|Registros de auditoría|41:Usuario
+43|Administrador|13|Nomencladores|1:Role / User
+44|Consultas Postgres|||
+45|Activar Test|14|Tests de Desarrollo|1:Role / User
+46|Usuarios|15|CMI|1:Role / User
+47|Ejecutor|15|CMI|46:Usuarios
+48|Responsable|15|CMI|47:Ejecutor
+49|Administrador|15|CMI|48:Responsable
+50|Usuarios|16|Materiales e Insumos|1:Role / User
+51|Ejecutor|16|Materiales e Insumos|50:Usuarios
+52|Responsable|16|Materiales e Insumos|51:Ejecutor
+53|Administrador|16|Materiales e Insumos|52:Responsable
+54|Usuarios|17|Usuario del Proceso|1:Role / User
+55|Todos los Trabajadores|17|Usuario del Proceso|54:Usuarios
+56|Técnicos|18|Trabajadores|1:Role / User
+57|Responsable|18|Trabajadores|56:Técnicos
+58|Administrador|18|Trabajadores|57:Responsable
+59|Técnicos|19|Equipo Técnico|1:Role / User
+60|Responsable|19|Equipo Técnico|59:Técnicos
+61|Administrador|19|Equipo Técnico|60:Responsable
+62|Jefe del Proceso|20|Disciplinarias|1:Role / User
+63|Técnicos|20|Disciplinarias|62:Jefe del Proceso
+64|Acción Legal|20|Disciplinarias|63:Técnicos
+65|Responsable|20|Disciplinarias|64:Acción Legal
+66|Administrador|20|Disciplinarias|65:Responsable
+67|Capacitador|21|Capacitación|1:Role / User
+68|Responsable|21|Capacitación|67:Capacitador
+69|Ejecutor|22|Seguridad y Salud|1:Role / User
+70|Responsable|22|Seguridad y Salud|69:Ejecutor
+71|Visualizar Proceso|23|Ejecutor|1:Role / User
+72|Ejecutor|23|Ejecutor|71:Visualizar Proceso
+73|Revisión|24|Revisión|1:Role / User
+74|Visualizar Todo|25|Control|1:Role / User
+75|Responsable|25|Control|74:Visualizar Todo
+76|Administrador|25|Control|75:Responsable
+77|Técnicos|26|Credenciales|1:Role / User
+78|Responsable|26|Credenciales|77:Técnicos
+79|Administrador|26|Credenciales|78:Responsable
+80|Visualizar|27|Medios Informáticos|1:Role / User
+81|Técnico|27|Medios Informáticos|80:Visualizar
+82|Responsable|27|Medios Informáticos|81:Técnico
+83|Administrador|27|Medios Informáticos|82:Responsable
+84|Visualizar|28|Taller|1:Role / User
+85|Técnico|28|Taller|84:Visualizar
+86|Usuarios|29|Metrología|1:Role / User
+87|Ejecutor|29|Metrología|86:Usuarios
+88|Responsable|29|Metrología|87:Ejecutor
+89|Administrador|29|Metrología|88:Responsable
+90|Usuario|30|Repositorio DVPE.|1:Role / User
+91|Creador|30|Repositorio DVPE.|90:Usuario
+92|Validación|30|Repositorio DVPE.|91:Creador
+93|Responsable|30|Repositorio DVPE.|92:Validación
+94|Administrador|30|Repositorio DVPE.|93:Responsable
+95|Usuario|31|Reuniones|1:Role / User
+96|Secretaria|31|Reuniones|95:Usuario
+97|Director|31|Reuniones|96:Secretaria
+98|Responsable|31|Reuniones|97:Director
+99|Administrator|31|Reuniones|98:Responsable
+100|Usuario|32|Servicios Internos|1:Role / User
+101|Ejecutor de Servicios|32|Servicios Internos|100:Usuario
+102|Ejecutor Corporativo|32|Servicios Internos|101:Ejecutor de Servicios
+103|Responsable|32|Servicios Internos|102:Ejecutor Corporativo
+104|Administrador|32|Servicios Internos|103:Responsable
+105|Usuario|33|Solicitudes de S.I.|1:Role / User
+106|Ejecutor de Solicitud|33|Solicitudes de S.I.|105:Usuario
+107|Revisión de Solicitud|33|Solicitudes de S.I.|106:Ejecutor de Solicitud
+108|Validación de Solicitud|33|Solicitudes de S.I.|107:Revisión de Solicitud
+109|Ejecutor|34|Soporte|1:Role / User
+110|Responsable|34|Soporte|109:Ejecutor
+111|Administrador|34|Soporte|110:Responsable
+112|Visualizar Todos los Tickets de Soporte|35|Ver Todo|1:Role / User
+113|Usuarios|36|Transporte|1:Role / User
+114|Ejecutor|36|Transporte|113:Usuarios
+115|Responsable|36|Transporte|114:Ejecutor
+116|Administrador|36|Transporte|115:Responsable
+117|Usuarios|37|Piquera|1:Role / User
+118|Ejecutor|37|Piquera|117:Usuarios
+119|Visualizar|38|Víveres Logística|1:Role / User
+120|Ejecutor|38|Víveres Logística|119:Visualizar
+121|Responsable|38|Víveres Logística|120:Ejecutor
+122|Administrador|38|Víveres Logística|121:Responsable
+123|Visualizar|39|Víveres Áreas|1:Role / User
+124|Ejecutor|39|Víveres Áreas|123:Visualizar
+125|Jefe|39|Víveres Áreas|124:Ejecutor
+126|Usuarios|40|Clientes|1:Role / User
+127|Ejecutor|40|Clientes|126:Usuarios
+128|Responsable|40|Clientes|127:Ejecutor
+129|Administrador|40|Clientes|128:Responsable
+130|Usuarios|41|Instrucciones|1:Role / User
+131|Instructor|41|Instrucciones|130:Usuarios
+132|Administrador|41|Instrucciones|131:Instructor
+133|Secretario sindical|42|Sindicato|1:Role / User
+134|Usuario|43|Operaciones|1:Role / User
+135|Secretario general|43|Operaciones|134:Usuario
+136|Validar solicitud|43|Operaciones|135:Secretario general
+137|Logística|43|Operaciones|136:Validar solicitud
+138|Economía|43|Operaciones|137:Logística
+139|Responsable|43|Operaciones|138:Economía
+140|Administrador|43|Operaciones|139:Responsable
+141|Usuarios|44|Solicitudes|1:Role / User
+142|Administrativos|44|Solicitudes|141:Usuarios
+143|Responsable|44|Solicitudes|142:Administrativos
+144|Administrador|44|Solicitudes|143:Responsable
+145|Ejecutor|45|Inversionistas|1:Role / User
+146|Territorial|45|Inversionistas|145:Ejecutor
+147|Ejecutor|46|Negociación|1:Role / User
+148|Ejecutor|47|Revisión del Negocio|1:Role / User
+149|Ejecutor|48|Distribuidores|1:Role / User
+150|Ejecutante|49|Especialista Ejecutor|1:Role / User
+151|Responsable|49|Especialista Ejecutor|150:Ejecutante
+152|Visualizar órdenes del Proceso|50|Usuarios Internos|1:Role / User
+153|Visualizar Todas las órdenes|50|Usuarios Internos|152:Visualizar órdenes del Proceso
+154|Responsable|50|Usuarios Internos|153:Visualizar Todas las órdenes
+155|Administrador|50|Usuarios Internos|154:Responsable
+156|Visualizar órdenes personales|51|Inversionista|1:Role / User
+157|Visualizar todas las órdenes Inversionistas|51|Inversionista|156:Visualizar órdenes personales
+158|Solicitar Orden|52|Ejecución|1:Role / User
+159|Validar Orden|52|Ejecución|158:Solicitar Orden
+160|Crear Orden|52|Ejecución|159:Validar Orden
+161|Visualizar todas las Transferencias|53|Transferencias|1:Role / User
+162|Gestión del Inversionista|53|Transferencias|161:Visualizar todas las Transferencias
+163|Visualizar por Procesos|53|Transferencias|162:Gestión del Inversionista
+164|Gestión del Ejecutor|53|Transferencias|163:Visualizar por Procesos
+165|Gestión del Técnico Productivo|53|Transferencias|164:Gestión del Ejecutor
+166|Gestión Económica|53|Transferencias|165:Gestión del Técnico Productivo
+167|Responsable|53|Transferencias|166:Gestión Económica
+168|Administrador|53|Transferencias|167:Responsable

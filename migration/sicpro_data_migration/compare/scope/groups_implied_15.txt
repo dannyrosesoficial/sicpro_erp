@@ -1,0 +1,131 @@
+101|Tipo Usuario: Rol Usuario|1:Internal User
+102|Tipo Usuario: Rol Permisos|1:Internal User,2:Access Rights
+103|Tipo Usuario: Rol Administrador|2:Access Rights,3:Settings,13:Administrador,33:Administrador
+104|Canal: STAFF|15:Canal del STAFF
+105|Canal: PROYECTO|16:Canal de Proyectos
+106|Canal: DEOCT|17:Canal de DEOCT
+107|Canal: DEOIT|18:Canal de DEOIT
+108|Contratación: Rol Usuario|38:Usuarios
+109|Contratación: Rol Visualiza Todo|38:Usuarios,41:Visualizar Gestión,44:1. Visualizar Gestión del Contrato,50:1. Visualizar Gestión Económica
+110|Contratación: Rol Gestor|38:Usuarios
+111|Contratación: Rol Distribuidor|38:Usuarios
+113|Contratación: Rol Comité de Contratación|38:Usuarios
+114|Contratación: Rol Revisión del Área|38:Usuarios
+115|Contratación: Rol Legal|38:Usuarios
+116|Contratación: Rol Economía Contratos|38:Usuarios
+117|Contratación: Rol Económico|38:Usuarios
+118|Contratación: Rol Responsable|38:Usuarios
+119|Contratación: Rol Administrador|40:Administrador,111:Contratación: Rol Distribuidor,116:Contratación: Rol Economía Contratos,117:Contratación: Rol Económico,118:Contratación: Rol Responsable
+120|Trabajadores: Rol Usuarios de Procesos|60:Usuarios
+121|Trabajadores: Rol Técnicos|62:Técnicos,65:Técnicos,69:Técnicos
+122|Trabajadores: Rol Jefe de Procesos|60:Usuarios,68:Jefe del Proceso
+123|Trabajadores: Rol Legal|60:Usuarios,70:Acción Legal,71:Responsable
+124|Trabajadores: Rol Capacitador|62:Técnicos,73:Capacitador
+125|Trabajadores: Rol Responsable|63:Responsable,66:Responsable,76:Responsable
+126|Trabajadores: Rol Administrador|64:Administrador,67:Administrador,72:Administrador
+127|Clientes: Rol Usuario|34:Usuarios
+128|Clientes: Rol Ejecutor|35:Ejecutor
+129|Clientes: Rol Responsable|36:Responsable
+130|Clientes: Rol Administrador|37:Administrador
+131|Transporte: Rol Usuario|95:Usuarios,197:Usuarios
+132|Transporte: Rol Responsable|96:Responsable,198:Ejecutor
+133|Transporte: Rol Administrador|97:Administrador
+134|Reuniones: Rol Usuario|81:Usuario
+135|Reuniones: Rol Secretaria|82:Secretaria
+136|Reuniones: Rol Director|83:Director
+137|Reuniones: Rol Responsable|84:Responsable
+138|Reuniones: Rol Administrador|85:Administrator
+139|Documental: Rol Usuario|29:Usuario
+140|Documental: Rol Ejecutor|30:Ejecutor
+141|Soporte: Rol Ejecutor|23:Ejecutor
+142|Soporte: Rol Responsable|24:Responsable
+143|Soporte: Rol Visualizar Todo|26:Visualizar Todos los Tickets de Soporte
+144|Soporte: Rol Administrador|25:Administrador
+145|Materiales/Insumos: Rol Usuario|56:Usuarios
+146|Materiales/Insumos: Rol Ejecutor|57:Ejecutor
+147|Materiales/Insumos: Rol Responsable|58:Responsable
+148|Materiales/Insumos: Rol Administrador|59:Administrador
+149|Permiso Especial: Importar Datos|21:	Acceso a la función de Importar datos
+150|Permiso Especial: Exportar Datos|7:Acceso a la función de exportación
+151|Trabajadores: Rol Seguridad y Salud|62:Técnicos,76:Responsable
+152|Trabajadores: Rol Todos los Trabajadores|61:Todos los Trabajadores
+153|Instrucciones Laborales: Rol Usuario|260:Usuarios
+154|Instrucciones Laborales: Rol Instructor|261:Instructor
+155|Instrucciones Laborales: Rol Administrador|262:Administrador
+156|Encuesta: Rol Usuario|27:User
+157|Encuesta: Rol Administrador|28:Administrator
+158|Metrología: Rol Usuario|77:Usuarios
+159|Metrología: Rol Ejecutor|78:Ejecutor
+160|Metrología: Rol Responsable|79:Responsable
+161|Metrología: Rol Administrador|80:Administrador
+162|Solicitudes: Rol Usuario|86:Usuarios
+163|Solicitudes: Rol Visualizar Todo|
+164|Solicitudes: Rol Responsable|88:Responsable
+165|Solicitudes: Rol Administrador|89:Administrador
+166|Solicitudes: Rol Inversionista|90:Ejecutor
+167|Solicitudes: Rol Negociador|91:Ejecutor
+168|Solicitudes: Rol Revisión del Negocio|92:Ejecutor
+169|Solicitudes: Rol Distribuidor|93:Ejecutor
+170|Solicitudes: Rol Especialista Responsable|94:Responsable
+171|Permiso Especial: VPN|
+172|Permiso Especial: Eliminar accesos de usuarios|
+185|CMI: Rol Usuario|181:Usuarios
+186|CMI: Rol Ejecutor|182:Ejecutor
+187|CMI: Rol Responsable|183:Responsable
+188|CMI: Rol Administrador|184:Administrador
+189|Credenciales: Rol Técnicos|178:Técnicos
+190|Credenciales: Rol Responsable|179:Responsable
+191|Credenciales: Rol Administrador|180:Administrador
+203|Canal: INVERSIONISTAS|193:Canal de Inversiones
+204|Marketing por Correo: Rol Usuario|199:User
+205|Salón de Clases: Rol Usuario|195:Usuario
+206|Salón de Clases: Rol Responsable|31:Responsable
+207|Salón de Clases: Rol Administrador|32:Administrador
+208|Transporte: Rol Piquera|95:Usuarios,198:Ejecutor
+213|Permiso Especial: MultiProcesos|
+219|Solicitudes: Rol Territorio|214:Territorial
+220|Servicios Internos: Rol Usuario|215:Usuario
+221|Servicios Internos: Rol Ejecutor de Servicios|216:Ejecutor de Servicios
+222|Servicios Internos: Rol Ejecutor Corporativo|217:Ejecutor Corporativo
+223|Servicios Internos: Rol Administrador|218:Administrador
+225|Transporte: Rol Ejecutor|196:Ejecutor
+226|Desactivar Usuario: Motivo LDAP|
+227|Desactivar Usuario: Motivo Registro|
+228|Desactivar Usuario: Motivo Acceso|
+239|Ordenes: Rol Visualizar Proceso|230:Visualizar órdenes del Proceso
+240|Ordenes: Rol Visualizar Todo|231:Visualizar Todas las órdenes
+241|Ordenes: Rol Inversionista Visualización Personal|234:Visualizar órdenes personales
+242|Ordenes: Rol Inversionista Visualizar Todo|235:Visualizar todas las órdenes Inversionistas
+243|Ordenes: Rol Solicitar Orden|236:Solicitar Orden
+244|Ordenes: Rol Validar Orden|237:Validar Orden
+245|Ordenes: Rol Crear Orden|238:Crear Orden
+246|Ordenes: Rol Responsable|232:Responsable
+247|Ordenes: Rol Administrador|233:Administrador
+254|Informática: Visualizar Medios|248:Visualizar
+255|Informática: Técnico de Medios|249:Técnico
+256|Informática: Responsable|250:Responsable
+257|Informática: Administrador|251:Administrador
+258|Informática: Visualizar Taller|252:Visualizar
+259|Informática: Técnico de taller|253:Técnico
+271|Transferencias: Rol Visualizar Todo|263:Visualizar todas las Transferencias
+272|Transferencias: Rol Visualizar Proceso|264:Visualizar por Procesos
+273|Transferencias: Rol Inversionista|265:Gestión del Inversionista
+274|Transferencias: Rol Ejecutor|266:Gestión del Ejecutor
+275|Transferencias: Rol Técnico Productivo|267:Gestión del Técnico Productivo
+276|Transferencias: Rol Económico|268:Gestión Económica
+277|Transferencias: Rol Responsable|269:Responsable
+278|Transferencias: Rol Administrador|270:Administrador
+287|Vivienda: Rol Usuario|280:Usuario
+288|Vivienda: Rol Secretario Sindical|279:Secretario sindical
+289|Vivienda: Rol Secretario General|281:Secretario general
+290|Vivienda: Rol Validar Solicitud|282:Validar solicitud
+291|Vivienda: Rol Logística|283:Logística
+292|Vivienda: Rol Economía|284:Economía
+293|Vivienda: Rol Responsable|285:Responsable
+294|Vivienda: Rol Administrador|286:Administrador
+302|Solicitudes: Rol Especialista Ejecutante|300:Ejecutante
+303|Repositorio: Usuario|308:Usuario
+304|Repositorio: Creador|309:Creador
+305|Repositorio: Validación|310:Validación
+306|Repositorio: Responsable|311:Responsable
+307|Repositorio: Administrador|312:Administrador

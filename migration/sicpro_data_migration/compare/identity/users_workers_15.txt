@@ -1,0 +1,235 @@
+6|2167|abel.gonzalez|13|Abel Gonzalez Pulido|abel.gonzalez@etecsa.cu|||85121507009|12|Economía|t|f
+9|2457|adalberto.echazabal|16|Adalberto Felix Echazabal Ramirez|adalberto.echazabal@etecsa.cu|||67012102908|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+10|2350|adalberto.ortega|17|Adalberto Ortega Eguino|adalberto.ortega@etecsa.cu|||95123037189|3|Dirección de Proyectos de Telecomunicaciones|f|f
+16|2189|alberto.cancio|23|Alberto Cancio Rivero|alberto.cancio@etecsa.cu|||67102314601|13|Logística y Servicios|t|f
+17|2367|alberto.galvez|24|Alberto Galvez Arteaga|alberto.galvez@etecsa.cu|||64041831846|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+18|2160|albin.ebanks|25|Albin Ebanks Blanco|albin.ebanks@etecsa.cu|||78101040086|2|STAFF|f|f
+20|2150|alejandro.amartinez|27|Alejandro Alonso Martinez|alejandro.amartinez@etecsa.cu|||82020406820|11|Capital Humano|t|f
+22|2217|alejandro.santana|29|Alejandro Luis Santana Diaz|alejandro.santana@etecsa.cu|||63122620288|13|Logística y Servicios|t|f
+24|2625|alexander.ferrer|31|Alexander Ferrer Cardenas|alexander.ferrer@etecsa.cu|||76112003162|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+25|2360|alexei.perez|32|Alexei Perez de Cespedes|alexei.perez@etecsa.cu|||64092127907|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+26|2642|alexis.sosa|33|Alexis Sosa Alonso|alexis.sosa@etecsa.cu|||75012825166|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+27|2335|alfredo.betancourt|34|Alfredo Betancourt Arango|alfredo.betancourt@etecsa.cu|||55091401862|3|Dirección de Proyectos de Telecomunicaciones|f|f
+29|3152|alicia.rego|36|Alicia Elena Rego Rodriguez|alicia.rego@etecsa.cu|||65102513176|4|Dirección de Ejecución de Obras Civiles|t|f
+30|2130|amada.martinez|37|Amada Martinez Hernandez|amada.martinez@etecsa.cu|||65052901213|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+31|2381|amado.perez|38|Amado Perez Urrutia|amado.perez@etecsa.cu|||52091324380|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+32|2169|amanda.rodriguez|39|Amanda Cristina Rodriguez Riera|amanda.rodriguez@etecsa.cu|||98111106979|12|Economía|t|f
+33|2897|amarilys.campuzano|40|Amarilys Campuzano Nunez|amarilys.campuzano@etecsa.cu|||69042014175|4|Dirección de Ejecución de Obras Civiles|f|f
+34|2467|ana.gonzalez|41|Ana Gonzalez Dominguez|ana.gonzalez@etecsa.cu|||65040626459|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+35|2214|anam.blanco|42|Ana Maria Blanco Gonzalez|anam.blanco@etecsa.cu|||72052828717|2|STAFF|f|f
+36|2459|andres.cabrerapelier|43|Andres Cabrera Pelier|andres.cabrerapelier@etecsa.cu|||63020401784|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+41|2362|aniaska.muniz|48|Aniaska Muniz Castillo|aniaska.muniz@etecsa.cu|||78040731851|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+42|2131|annia.prieto|49|Annia Prieto Vidal|annia.prieto@etecsa.cu|||68102604314|10|Coordinación General|t|f
+45|2849|ariel.gonzalez|52|Ariel Gonzalez Pedroso|ariel.gonzalez@etecsa.cu|||80072504147|4|Dirección de Ejecución de Obras Civiles|f|f
+46|2357|ariel.fleitas|53|Ariel Jesus Fleitas Varela|ariel.fleitas@etecsa.cu|||70020300086|1|División de Proyecto y Ejecución de Obras|t|f
+48|2133|armando.solano|55|Armando Solano Aguilera|armando.solano@etecsa.cu|||63100400507|1|División de Proyecto y Ejecución de Obras|f|f
+51|2136|ayram.oromi|58|Ayram Oromi Fiorenzano|ayram.oromi@etecsa.cu|||71051011261|3|Dirección de Proyectos de Telecomunicaciones|t|f
+52|3154|baleini.machin|59|Baleini Machin Padron|baleini.machin@etecsa.cu|||82051008231|4|Dirección de Ejecución de Obras Civiles|t|f
+54|2127|benigno.sanchez|61|Benigno Victor Sanchez Curbelo|benigno.sanchez@etecsa.cu|||61022214606|10|Coordinación General|t|f
+58|2554|carlos.pulido|65|Carlos Jose Pulido Diaz|carlos.pulido@etecsa.cu|||60012815469|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+59|2726|carlos.cepero|66|Carlos Luis Cepero Santiago|carlos.cepero@etecsa.cu|||62081800421|4|Dirección de Ejecución de Obras Civiles|t|t
+60|2698|carlos.capote|67|Carlos Manuel Capote Rodriguez|carlos.capote@etecsa.cu|||62010205420|4|Dirección de Ejecución de Obras Civiles|f|f
+63|2844|carlos.valles|70|Carlos Miguel Valles Tejeda|carlos.valles@etecsa.cu|||62091515905|4|Dirección de Ejecución de Obras Civiles|t|f
+64|2377|catalina.gonzalez|71|Catalina Gonzalez Miramon|catalina.gonzalez@etecsa.cu|||64091600897|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+65|2291|cesar.diaz|72|Cesar Diaz Cardenas|cesar.diaz@etecsa.cu|||77111907061|3|Dirección de Proyectos de Telecomunicaciones|t|f
+66|2703|claudia.marti|73|Claudia Margarita Marti Aguila|claudia.marti@etecsa.cu|||90102026275|4|Dirección de Ejecución de Obras Civiles|t|f
+69|2162|daily.perez|76|Daily Perez Molano|daily.perez@etecsa.cu|||87111536258|12|Economía|f|f
+71|2145|daisy.hernandez|78|Daisy Hernandez Ramirez|daisy.hernandez@etecsa.cu|||65111719519|1|División de Proyecto y Ejecución de Obras|f|f
+73|2348|dania.medina|80|Dania Mary Medina Pantoja|dania.medina@etecsa.cu|||87120107155|3|Dirección de Proyectos de Telecomunicaciones|t|f
+74|3157|dania.almeida|81|Dania Rosa Almeida Valdes|dania.almeida@etecsa.cu|||71012917616|4|Dirección de Ejecución de Obras Civiles|t|f
+79|2701|david.rivera|86|David Rivera Estopinan|david.rivera@etecsa.cu|||56081000964|4|Dirección de Ejecución de Obras Civiles|f|f
+80|2171|dayana.loredo|87|Dayana Loredo Martinez|dayana.loredo@etecsa.cu|||86102507455|13|Logística y Servicios|t|f
+82|2373|dayane.borges|89|Dayane Borges Castellon|dayane.borges@etecsa.cu|||87081309696|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+83|2855|daylin.parra|90|Daylin Niurka Parra Martinez|daylin.parra@etecsa.cu|||95111230412|4|Dirección de Ejecución de Obras Civiles|f|f
+88|2174|diana.cardenas|95|Diana Cardenas Granados|diana.cardenas@etecsa.cu|||64041214735|2|STAFF|f|f
+89|2368|diego.perez|96|Diego Cesar Perez Hernandez|diego.perez@etecsa.cu|||47070916200|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+91|2839|edgar.haber|98|Edgar Haber Diaz|edgar.haber@etecsa.cu|||74061910422|4|Dirección de Ejecución de Obras Civiles|f|f
+92|2183|edmundo.atherton|99|Edmundo Atherton Barbier|edmundo.atherton@etecsa.cu|||59112010869|13|Logística y Servicios|t|f
+93|2172|eduardo.rangel|100|Eduardo Julio Rangel Gamez|eduardo.rangel@etecsa.cu|||62041200940|12|Economía|t|f
+95|2365|elainy.echazabal|102|Elainy Echazabal Gonzalez|elainy.echazabal@etecsa.cu|||91032430096|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|t
+96|2375|elio.benavides|103|Elio Benavides Gomez|elio.benavides@etecsa.cu|||56010806965|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+98|3155|elizaberht.delahoz|105|Elizaberht de la Hoz Solano|elizaberht.delahoz@etecsa.cu|||82111006876|4|Dirección de Ejecución de Obras Civiles|t|f
+99|2729|emeterio.chacon|106|Emeterio Chacon Torres|emeterio.chacon@etecsa.cu|||61090907469|4|Dirección de Ejecución de Obras Civiles|f|f
+103|2178|erich.fernandez|110|Erich Fernandez Medina|erich.fernandez@etecsa.cu|||74040121929|2|STAFF|f|f
+105|2685|erik.montano|112|Erik Montano Mena|erik.montano@etecsa.cu|||80122203768|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+106|2314|ernesto.acevedo|113|Ernesto Acevedo Nuñez|ernesto.acevedo@etecsa.cu|||73032209625|3|Dirección de Proyectos de Telecomunicaciones|f|f
+107|2180|esperanza.gonzalez|114|Esperanza Gonzalez Salinas|esperanza.gonzalez@etecsa.cu|||72080210833|2|STAFF|f|f
+108|2369|eugenio.mitjans|115|Eugenio Mitjans Garcia|eugenio.mitjans@etecsa.cu|||56122001823|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+111|2331|evelio.samuel|118|Evelio Samuel Martinez|evelio.samuel@etecsa.cu|||64080934461|3|Dirección de Proyectos de Telecomunicaciones|f|f
+113|2328|fidel.granda|120|Fidel Granda Guzman|fidel.granda@etecsa.cu|||62031714484|3|Dirección de Proyectos de Telecomunicaciones|f|f
+117|3165|gaston.marquez|124|Gaston Rafael Marquez Lescaille|gaston.marquez@etecsa.cu|||54112803209|4|Dirección de Ejecución de Obras Civiles|f|f
+118|2690|geanfranco.mata|125|Geanfranco Mata Venegas|geanfranco.mata@etecsa.cu|||90042927143|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+119|2379|genry.avila|126|Genry Avila Merino|genry.avila@etecsa.cu|||73041904868|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+121|2555|german.vazquez|128|German Alfredo Vazquez Rojas|german.vazquez@etecsa.cu|||49112528602|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+122|2846|gisela.rodriguez|129|Gisela Rodriguez Mora|gisela.rodriguez@etecsa.cu|||71041606412|4|Dirección de Ejecución de Obras Civiles|f|f
+125|2842|grethel.rivas|132|Grethel Rivas Bermudez|grethel.rivas@etecsa.cu|||72041108510|4|Dirección de Ejecución de Obras Civiles|f|f
+128|2706|hermes.rojas|135|Hermes Rojas Durades|hermes.rojas@etecsa.cu|||66121417346|4|Dirección de Ejecución de Obras Civiles|t|f
+132|2229|iliana.castellanos|139|Iliana Castellanos Paumier|iliana.castellanos@etecsa.cu|||72120306316|14|Tecnología de la Información|t|f
+133|2165|ines.hernandez|140|Ines Maria Hernandez La Rosa|ines.hernandez@etecsa.cu|||54012100317|2|STAFF|f|f
+134|2713|iraldis.morales|141|Iraldis Morales Martinez|iraldis.morales@etecsa.cu|||68061411256|4|Dirección de Ejecución de Obras Civiles|f|f
+137|3156|yanet.cordoves|144|Janet Maria Cordoves Monsibaez|yanet.cordoves@etecsa.cu|||71061730338|4|Dirección de Ejecución de Obras Civiles|f|f
+138|2135|janete.tamayo|145|Janete Tamayo Puentes|janete.tamayo@etecsa.cu|||70070632077|2|STAFF|f|f
+140|2190|joel.betancourt|147|Joel Betancourt Valiente|joel.betancourt@etecsa.cu|||82021608441|2|STAFF|f|f
+147|2321|jorge.falla|154|Jorge Ramon Falla Lopez|jorge.falla@etecsa.cu|||89012921063|3|Dirección de Proyectos de Telecomunicaciones|t|f
+149|2720|joseenrique.oliva|156|Jose Enrique Oliva Martin|joseenrique.oliva@etecsa.cu|||62030912348|4|Dirección de Ejecución de Obras Civiles|f|f
+150|2705|josemanuel.diaz|157|Jose Manuel Diaz Arauz|josemanuel.diaz@etecsa.cu|||55110300547|4|Dirección de Ejecución de Obras Civiles|f|t
+151|2700|josemanuel.gomez|158|Jose Manuel Gomez Leal|josemanuel.gomez@etecsa.cu|||63061104480|4|Dirección de Ejecución de Obras Civiles|f|t
+152|2346|jose.estrada|159|Jose Miguel Estrada Ramos|jose.estrada@etecsa.cu|||61092906087|3|Dirección de Proyectos de Telecomunicaciones|f|f
+154|2342|rodolfo.ferrer|161|Jose Rodolfo Ferrer Cuesta|rodolfo.ferrer@etecsa.cu|||66112601205|3|Dirección de Proyectos de Telecomunicaciones|f|f
+155|2370|juan.gonzalez|162|Juan Alberto Gonzalez Ramos|juan.gonzalez@etecsa.cu|||52012409462|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+158|2535|juan.torres|165|Juan Virgilio Torres Idavoy|juan.torres@etecsa.cu|||57082800081|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+161|2327|julio.arguelles|168|Julio Arguelles Manresa|julio.arguelles@etecsa.cu|||59061900581|3|Dirección de Proyectos de Telecomunicaciones|t|f
+162|2343|justo.llerena|169|Justo Lazaro Llerena Gonzalez|justo.llerena@etecsa.cu|||83080430684|3|Dirección de Proyectos de Telecomunicaciones|t|f
+165|2886|kenia.pardo|172|Kenia Teresita Pardo Garia|kenia.pardo@etecsa.cu|||80031807756|4|Dirección de Ejecución de Obras Civiles|f|f
+167|2338|lazaro.hernandez|174|Lazaro Hernandez Cardenas|lazaro.hernandez@etecsa.cu|||55082900485|3|Dirección de Proyectos de Telecomunicaciones|f|f
+168|2607|lazaro.menazorrilla|175|Lazaro Luis Mena Zorrilla|lazaro.menazorrilla@etecsa.cu|||60080114625|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+169|2153|lazaror.pereira|176|Lazaro Ruben Pereira Lara|lazaror.pereira@etecsa.cu|||85121725380|11|Capital Humano|f|f
+172|2259|liana.zayas|179|Liana Zayas Secada|liana.zayas@etecsa.cu|||66050212332|3|Dirección de Proyectos de Telecomunicaciones|t|f
+173|2134|lidia.orta|180|Lidia Orta Gener|lidia.orta@etecsa.cu|||62113026614|2|STAFF|f|t
+174|3382|liesly.scull|181|Liesly Scull Sanchez|liesly.scull@etecsa.cu|||83110404745|3|Dirección de Proyectos de Telecomunicaciones|t|f
+175|2847|luis.delacruz|182|Luis Ernesto de la Cruz Hurtado|luis.delacruz@etecsa.cu|||55110712142|4|Dirección de Ejecución de Obras Civiles|f|f
+177|2709|mabel.espino|184|Mabel Espino Suarez|mabel.espino@etecsa.cu|||64031020011|4|Dirección de Ejecución de Obras Civiles|f|f
+178|2147|mabel.saura|185|Mabel Saura Rodriguez|mabel.saura@etecsa.cu|||62102916937|2|STAFF|f|f
+180|2141|madelin.ricardo|187|Madelin Ricardo Leyva|madelin.ricardo@etecsa.cu|||74050616390|10|Coordinación General|t|f
+182|2264|magaly.somohano|189|Magaly Somohano Sanchez|magaly.somohano@etecsa.cu|||67101801273|3|Dirección de Proyectos de Telecomunicaciones|t|f
+185|2146|maite.marin|192|Maite del Carmen Marin Gonzalez|maite.marin@etecsa.cu|||71100301711|11|Capital Humano|t|f
+186|2409|manuel.robaina|193|Manuel Robaina Nunez|manuel.robaina@etecsa.cu|||63010116028|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+187|2420|manuel.ruyol|194|Manuel Ruyol Serrate|manuel.ruyol@etecsa.cu|||53091809923|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+188|2173|maria.alfonso|195|Maria Caridad Alfonso Morejon|maria.alfonso@etecsa.cu|||66062702212|10|Coordinación General|t|f
+189|2132|maria.barba|196|Maria Cristina Barba Filiberto|maria.barba@etecsa.cu|||55070626091|2|STAFF|f|f
+190|2339|dolores.azcuy|197|Maria Dolores Azcuy Castillo|dolores.azcuy@etecsa.cu|||62061801677|3|Dirección de Proyectos de Telecomunicaciones|f|f
+192|2255|mariam.gonzalez|199|Maria Mercedes Gonzalez Palma|mariam.gonzalez@etecsa.cu|||61041913594|3|Dirección de Proyectos de Telecomunicaciones|t|f
+194|2156|maria.santaballa|201|Maria del Carmen Santaballa Marquez|maria.santaballa@etecsa.cu|||80122505259|11|Capital Humano|f|f
+195|2253|mariela.mora|202|Mariela Mora Herrera|mariela.mora@etecsa.cu|||72122024172|3|Dirección de Proyectos de Telecomunicaciones|t|f
+196|2267|mariela.reboledo|203|Mariela Reboledo Flores|mariela.reboledo@etecsa.cu|||68032837491|3|Dirección de Proyectos de Telecomunicaciones|t|f
+199|3149|barbara.hernandez|206|Maxima Barbara Hernandez Huet|barbara.hernandez@etecsa.cu|||60051601336|4|Dirección de Ejecución de Obras Civiles|f|f
+200|2225|maybe.gomez|207|Maybe Caridad Gomez More|maybe.gomez@etecsa.cu|||70060202113|13|Logística y Servicios|t|f
+201|2534|maykel.quintana|208|Maykel Quintana Linares|maykel.quintana@etecsa.cu|||86022306022|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+203|2298|michel.fagundo|210|Michel Jesus Fagundo Heras|michel.fagundo@etecsa.cu|||88091310444|3|Dirección de Proyectos de Telecomunicaciones|f|f
+204|2237|margarita.cuesta|211|Migdalia Margarita Cuesta Viltres|margarita.cuesta@etecsa.cu|||67010902695|3|Dirección de Proyectos de Telecomunicaciones|t|f
+208|2137|mirta.galvez|215|Mirta Galvez Ferro|mirta.galvez@etecsa.cu|||62042501755|1|División de Proyecto y Ejecución de Obras|t|f
+209|2697|mirtha.hechavarria|216|Mirtha de los A. Hechavarria|mirtha.hechavarria@etecsa.cu|||62100202073|4|Dirección de Ejecución de Obras Civiles|f|f
+212|2361|nelson.petrucheli|219|Nelson Lazaro Menendez Petrucheli|nelson.petrucheli@etecsa.cu|||65060514460|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+213|2163|noraima.alfaro|220|Noraima Alfaro Ganganelly|noraima.alfaro@etecsa.cu|||59100800931|12|Economía|t|f
+214|2164|norma.rojas|221|Norma Niurka Rojas Justiz|norma.rojas@etecsa.cu|||79090503312|12|Economía|t|f
+215|2166|odiley.perez|222|Odiley Perez Romero|odiley.perez@etecsa.cu|||95011829139|12|Economía|f|f
+217|2341|olivia.borges|224|Olivia Borges Nodarse|olivia.borges@etecsa.cu|||80112904150|3|Dirección de Proyectos de Telecomunicaciones|f|f
+219|2704|orlando.rodriguez|226|Orlando David Rodriguez Gonzalez|orlando.rodriguez@etecsa.cu|||68123021547|4|Dirección de Ejecución de Obras Civiles|t|f
+221|2423|osmany.diaz|228|Osmani Díaz Mantilla|osmany.diaz@etecsa.cu|||71031901666|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+223|3158|otman.sanz|230|Otman Sabad Sanz Cordero|otman.sanz@etecsa.cu|||67031211643|4|Dirección de Ejecución de Obras Civiles|t|f
+226|2345|ramon.scull|233|Ramon Scull Roque|ramon.scull@etecsa.cu|||65042901384|3|Dirección de Proyectos de Telecomunicaciones|f|f
+233|2224|ricardo.beltran|240|Ricardo Beltran Martinez|ricardo.beltran@etecsa.cu|||56091403766|13|Logística y Servicios|t|f
+235|2702|ricardo.poll|242|Ricardo Poll Quintana|ricardo.poll@etecsa.cu|||73031212489|4|Dirección de Ejecución de Obras Civiles|t|f
+236|2152|roberto.oliva|243|Roberto Oliva Betancourt|roberto.oliva@etecsa.cu|||71082130145|11|Capital Humano|t|f
+240|2635|samuel.vazquez|247|Samuel Vazquez Cedeno|samuel.vazquez@etecsa.cu|||64082003923|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+241|2148|sandra.callis|248|Sandra Callis Caraballoso|sandra.callis@etecsa.cu|||71052813674|11|Capital Humano|t|f
+242|2854|sayuri.cruz|249|Sayuri Cruz Chong|sayuri.cruz@etecsa.cu|||71100208971|4|Dirección de Ejecución de Obras Civiles|t|f
+244|2159|shakira.carmona|251|Shakira Carmona Garcia|shakira.carmona@etecsa.cu|||61067691|2|STAFF|f|f
+247|3180|susana.riveira|254|Susana Riveira Ares|susana.riveira@etecsa.cu|||65021514897|4|Dirección de Ejecución de Obras Civiles|f|f
+249|2265|tania.legon|256|Tania Legon Perez|tania.legon@etecsa.cu|||72041813814|3|Dirección de Proyectos de Telecomunicaciones|f|f
+251|2155|thalia.menendez|258|Thalia Menéndez Vargas|thalia.menendez@etecsa.cu|||99052208330|2|STAFF|f|f
+253|2139|victoria.vazquez|260|Victoria de la Paz Vazquez Ojeda|victoria.vazquez@etecsa.cu|||60070914031|2|STAFF|f|f
+254|2138|vivian.ramos|261|Vivian Cristina Ramos Diaz|vivian.ramos@etecsa.cu|||87082508659|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+257|2176|wenkin.wong|264|Wenkin Wong Chiu|wenkin.wong@etecsa.cu|||93042931709|12|Economía|f|f
+258|2366|yadianys.suarez|265|Yadianys Suarez Ramirez|yadianys.suarez@etecsa.cu|||97042602330|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+259|2895|yahima.mesa|266|Yahima Mesa Jorlen|yahima.mesa@etecsa.cu|||80101304135|7|Vicepresidencia de Inversiones|t|f
+260|2718|yaima.fernandez|267|Yaima Fernandez Canto|yaima.fernandez@etecsa.cu|||86111704810|7|Vicepresidencia de Inversiones|t|f
+262|2717|yalile.rosabal|269|Yalile Rosabal Valdes|yalile.rosabal@etecsa.cu|||77032207459|4|Dirección de Ejecución de Obras Civiles|t|f
+264|2208|yamile.lopez|271|Yamilé López Nuñez|yamile.lopez@etecsa.cu|||77072606198|13|Logística y Servicios|t|f
+265|2436|yannyra.matute|272|Yannyra de Pilar Matute Tejo|yannyra.matute@etecsa.cu|||83090628093|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+266|2371|yohanca.vazquez|273|Yohanka Vazquez Sanchez|yohanca.vazquez@etecsa.cu|||79091006119|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+267|2157|yordan.tonely|274|Yordan Tonely Mena|yordan.tonely@etecsa.cu|||94090229707|2|STAFF|f|f
+268|2890|yosvanys.sosa|275|Yosvanys Alcides Sosa Ramirez|yosvanys.sosa@etecsa.cu|||80053106647|4|Dirección de Ejecución de Obras Civiles|f|f
+269|2142|yukdanys.lobaina|276|Yukdanys Lobaina Gamez|yukdanys.lobaina@etecsa.cu|||75062813452|10|Coordinación General|t|f
+270|2231|yuliet.hernandez|277|Yuliet Hernandez Gainza|yuliet.hernandez@etecsa.cu|||94101330499|2|STAFF|f|f
+272|2363|zuleidy.maique|279|Zuleidy Maique De La Rua|zuleidy.maique@etecsa.cu|||87121807211|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+274|2364|daniel.borrero|282|Daniel Barrero Reyes|daniel.borrero@etecsa.cu|||88050610322|1|División de Proyecto y Ejecución de Obras|t|f
+275|2978|yoel.igarza|283|Yoel Igarza nueva|yoel.igarza@etecsa.cu|||72081806661|4|Dirección de Ejecución de Obras Civiles|t|f
+276|2919|osmany.gama|284|Osmany Gama Díaz|osmany.gama@etecsa.cu|||75082908120|4|Dirección de Ejecución de Obras Civiles|t|f
+277|2509|wilfredo.rosales|285|Wilfredo Rosales Olivet|wilfredo.rosales@etecsa.cu|||66050114966|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+278|2497|yesenia.cervantes|286|Yesenia Cervantes Delgado|yesenia.cervantes@etecsa.cu|||90110537052|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+279|2492|yoandy.cadena|287|Yoandy Cadena Linares|yoandy.cadena@etecsa.cu|||82112016620|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+280|2523|hugo.rodriguez|288|Hugo Rodríguez Vergel|hugo.rodriguez@etecsa.cu|||76030532621|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+281|2502|leonel.figueredo|289|Leonel Figueredo Fernández|leonel.figueredo@etecsa.cu|||86010825468|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+282|3295|irina.rodriguez|290|Irina Rodríguez Silva|irina.rodriguez@etecsa.cu|||77032205732|2|STAFF|f|f
+283|2246|mariselis.milanes|291|Mariselis Milanés Rodríguez|mariselis.milanes@etecsa.cu|||76020733479|3|Dirección de Proyectos de Telecomunicaciones|f|f
+284|2243|yosvany.napoles|292|Yosvany Nápoles Prieto|yosvany.napoles@etecsa.cu|||72081101265|3|Dirección de Proyectos de Telecomunicaciones|t|f
+286|3535|yenimar.villalobos|295|Yenimar Villalobos Ojeda|yenimar.villalobos@etecsa.cu|||71061415433|4|Dirección de Ejecución de Obras Civiles|t|f
+287|2154|teresa.perez|296|Teresa Victoria Perez Pacheco|teresa.perez@etecsa.cu|||79053020519|11|Capital Humano|t|f
+288|3316|danisleydis.hernandez|297|Danisleydis Hernández Rodríguez|danisleydis.hernandez@etecsa.cu|||96101809616|2|STAFF|f|f
+289|3318|yanier.jauregui|298|Yanier Jauregui|yanier.jauregui@etecsa.cu|||98010106585|2|STAFF|f|f
+290|2996|ifrain.naranjo|299|Ifrain Naranjo Naranjo|ifrain.naranjo@etecsa.cu|||67072920528|4|Dirección de Ejecución de Obras Civiles|t|f
+292|3327|laritsa.madan|302|Laritsa Madan Beyris|laritsa.madan@etecsa.cu|||72120513531|2|STAFF|f|f
+293|3294|alejandro.vazquez|305|Alejandro Agustín Vazquez|alejandro.vazquez@etecsa.cu|||59012129544|2|STAFF|f|f
+329|3317|marcos.labaut|341|Marcos Labaut Fonseca|marcos.labaut@etecsa.cu|||71032219842|4|Dirección de Ejecución de Obras Civiles|f|f
+330|3378|dianelys.perdomo|342|Dianelys Perdomo Meneses|dianelys.perdomo@etecsa.cu|||98022407450|2|STAFF|f|f
+353|3383|pedro.castro|365|Pedro Luis Castro Tabera|pedro.castro@etecsa.cu|||64092039984|13|Logística y Servicios|f|f
+370|3389|yeleinis.gonzalez|382|Yeleinis Gonzalez Tamayo|yeleinis.gonzalez@etecsa.cu|||81081417916|1|División de Proyecto y Ejecución de Obras|t|f
+375|3020|alexeis.tornes|387|Alexeis Tornes Gonzalez|alexeis.tornes@etecsa.cu|||79022320863|4|Dirección de Ejecución de Obras Civiles|f|f
+376|2987|zeida.nunez|388|Zeida Tomasa Nunez Gaskin|zeida.nunez@etecsa.cu|||63122108294|4|Dirección de Ejecución de Obras Civiles|f|f
+377|2991|yoel.blanco|389|Felix Yoel Blanco Rodriguez|yoel.blanco@etecsa.cu|||64083008243|4|Dirección de Ejecución de Obras Civiles|f|f
+378|3004|elvio.verdecia|390|Elvio Guillermo Verdecia Pasos|elvio.verdecia@etecsa.cu|||65021007824|4|Dirección de Ejecución de Obras Civiles|f|f
+379|2981|miguel.ramos|391|Miguel Luis Ramos Perez|miguel.ramos@etecsa.cu|||66093044647|4|Dirección de Ejecución de Obras Civiles|t|f
+380|3085|leonardo.fonseca|392|Leonardo Misael Fonseca Gonzalez|leonardo.fonseca@etecsa.cu|||74092913160|4|Dirección de Ejecución de Obras Civiles|f|f
+381|3145|darvis.torres|393|Darvis Torres Diaz|darvis.torres@etecsa.cu|||71080507265|4|Dirección de Ejecución de Obras Civiles|f|f
+382|3058|orlando.aliaga|394|Orlando Mario de Jesus Aliaga Fonseca|orlando.aliaga@etecsa.cu|||83092621665|4|Dirección de Ejecución de Obras Civiles|f|f
+383|3028|yurien.hamilton|395|Yurien Hamilton Mendoza|yurien.hamilton@etecsa.cu|||90092144046|4|Dirección de Ejecución de Obras Civiles|f|f
+384|2980|yordys.fernandez|396|Yordys Daniel Fernandez Jorge|yordys.fernandez@etecsa.cu|||85082723706|4|Dirección de Ejecución de Obras Civiles|f|f
+385|2983|cecilio.alvarez|397|Cecilio Gabriel Alvarez Galardy|cecilio.alvarez@etecsa.cu|||60032406549|4|Dirección de Ejecución de Obras Civiles|f|f
+386|2979|nilva.guerra|398|Nilva Guerra Silvera|nilva.guerra@etecsa.cu|||67050820516|4|Dirección de Ejecución de Obras Civiles|f|f
+387|2985|dolores.vazquez|399|Dolores Gelda Vazquez Garcia|dolores.vazquez@etecsa.cu|||67032106710|4|Dirección de Ejecución de Obras Civiles|t|t
+388|2982|william.martinez|400|Wiliam Martinez Lopez|william.martinez@etecsa.cu|||64071812589|4|Dirección de Ejecución de Obras Civiles|f|f
+389|2984|miguel.perezescalona|401|Miguel Perez Escalona|miguel.perezescalona@etecsa.cu|||75071814423|4|Dirección de Ejecución de Obras Civiles|f|f
+390|2986|eusebio.rodriguez|402|Eusebio Primo Rodriguez Mejias|eusebio.rodriguez@etecsa.cu|||65121508083|4|Dirección de Ejecución de Obras Civiles|f|f
+398|3352|berny.tornes|410|Berny Tornes Chang|berny.tornes@etecsa.cu|||79120104149|4|Dirección de Ejecución de Obras Civiles|t|f
+399|3403|hiram.cabrera|411|Hiram Alberto Cabrera Benitez|hiram.cabrera@etecsa.cu|||66030227008|4|Dirección de Ejecución de Obras Civiles|f|f
+400|2845|miguel.gutierrez|412|Miguel Eduardo Gutierrez Cabaña|miguel.gutierrez@etecsa.cu|||66092901749|4|Dirección de Ejecución de Obras Civiles|f|f
+403|2144|sunhay.triana|415|Sunhay Triana Banos|sunhay.triana@etecsa.cu|||1092168657|2|STAFF|f|f
+406|3315|lourdes.portelles|418|Lourdes Maria Portelles Rodriguez|lourdes.portelles@etecsa.cu|||67031400111|4|Dirección de Ejecución de Obras Civiles|f|f
+407|3406|ariel.guillot|419|Ariel Guillot Montes|ariel.guillot@etecsa.cu|||70092109503|4|Dirección de Ejecución de Obras Civiles|f|f
+408|2894|kenia.langer|420|Kenia Langer Rodriguez|kenia.langer@etecsa.cu|||80072215219|4|Dirección de Ejecución de Obras Civiles|f|f
+409|2565|sergio.estrada|421|Sergio Yudiser Estrada Ortiz|sergio.estrada@etecsa.cu|||94071028508|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+411|2234|adiel.alvarez|423|Adiel Alvarez Alvarez|adiel.alvarez@etecsa.cu|||96070908583|3|Dirección de Proyectos de Telecomunicaciones|f|f
+412|3384|alain.torres|424|Alain Torres Gandara|alain.torres@etecsa.cu|||97112607107|3|Dirección de Proyectos de Telecomunicaciones|f|f
+413|3376|carlos.fine|425|Carlos Reynier Fine de Armas|carlos.fine@etecsa.cu|||94120229021|3|Dirección de Proyectos de Telecomunicaciones|f|f
+414|3386|luismiguel.perez|426|Luis Miguel Perez Fernandez|luismiguel.perez@etecsa.cu|||97100607060|3|Dirección de Proyectos de Telecomunicaciones|f|f
+415|2333|juan.pinon|427|Juan M. Pinon Rodriguez|juan.pinon@etecsa.cu|||63041200981|3|Dirección de Proyectos de Telecomunicaciones|f|f
+416|2330|raul.lopez|428|Raul Eduardo Lopez Serrano|raul.lopez@etecsa.cu|||59101301265|3|Dirección de Proyectos de Telecomunicaciones|t|f
+417|2245|arnaldo.bernal|429|Arnaldo Albino Bernal Delgado|arnaldo.bernal@etecsa.cu|||65091502527|3|Dirección de Proyectos de Telecomunicaciones|f|f
+421|3423|madelaine.dearmas|433|Madelaine de Armas Diaz|madelaine.dearmas@etecsa.cu|||80011913430|3|Dirección de Proyectos de Telecomunicaciones|t|f
+423|2244|vicente.rivera|435|Vicente Manuel Rivera Rodriguez|vicente.rivera@etecsa.cu|||68052115982|3|Dirección de Proyectos de Telecomunicaciones|f|f
+427|3448|mayelin.rvazquez|439|MAYELÍN RODRÍGUEZ VÁZQUEZ|mayelin.rvazquez@etecsa.cu|||72012401070|1|División de Proyecto y Ejecución de Obras|t|f
+428|2695|fabian.regalado|440|FABIÁN REGALADO PÉREZ|fabian.regalado@etecsa.cu|||72062603541|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|t
+431|3424|airelys.campos|443|Airelys Campos Herrera|airelys.campos@etecsa.cu|||79071910796|10|Coordinación General|t|f
+432|3393|lester.marbot|444|Lester Marbot Pino|lester.marbot@etecsa.cu|||78100206867|2|STAFF|f|f
+449|3558|rebeca.valdes|461|Rebeca Maria Valdes Valdes|rebeca.valdes@etecsa.cu|||72112125552|12|Economía|t|f
+455|3471|melba.guerra|467|Melba Guerra Téllez|melba.guerra@etecsa.cu|||80072105236|4|Dirección de Ejecución de Obras Civiles|t|f
+457|3579|niurka.rcobas|469|Niurka Rodriguez Cobas|niurka.rcobas@etecsa.cu|||72091613793|4|Dirección de Ejecución de Obras Civiles|t|f
+461|3554|yusleivi.izaguirre|473|Yusleivi Mercedes Izaguirre Hernandez|yusleivi.izaguirre@etecsa.cu|||82101808632|11|Capital Humano|f|f
+463|3553|olga.vidal|475|Olga Lidia Vidal Noel|olga.vidal@etecsa.cu|||70100528796|10|Coordinación General|t|f
+464|2921|jorge.ramos|476|Jorge Luis Ramos Piloto|jorge.ramos@etecsa.cu|||75053108183|4|Dirección de Ejecución de Obras Civiles|t|f
+465|3562|ingrid.diaz|477|Ingrid Diaz Lopez|ingrid.diaz@etecsa.cu|||79050905257|2|STAFF|f|f
+470|3568|anielys.herrera|482|Anielys Herrera Nuviola|anielys.herrera@etecsa.cu|||87111906615|14|Tecnología de la Información|f|f
+473|3555|esludian.rodriguez|485|Esludian Rodriguez Lorenzo|esludian.rodriguez@etecsa.cu|||81092204130|11|Capital Humano|t|f
+474|2191|alfredo.duarte|486|Alfredo Manuel Duarte Alvarez|alfredo.duarte@etecsa.cu|||63010119903|2|STAFF|f|f
+475|3550|rodney.rodriguez|487|Rodney Rodriguez Despaigne|rodney.rodriguez@etecsa.cu|||98101000105|11|Capital Humano|f|f
+476|3580|miladys.capo|488|Miladys Capo Medina|miladys.capo@etecsa.cu|||72062135352|4|Dirección de Ejecución de Obras Civiles|t|f
+481|3474|millamis.leyva|493|Millamis Celeste Leyva Provance|millamis.leyva@etecsa.cu|||73012205732|4|Dirección de Ejecución de Obras Civiles|t|f
+485|3502|leonel.leon|497|Leonel Antonio Leon Martin|leonel.leon@etecsa.cu|||65092502766|4|Dirección de Ejecución de Obras Civiles|t|f
+486|3515|anaisy.garcia|498|Anaisy Garcia Pulido|anaisy.garcia@etecsa.cu|||85030814519|4|Dirección de Ejecución de Obras Civiles|t|f
+494|2861|mario.gonzalez|506|Nestor Mario Gonzalez Campa|mario.gonzalez@etecsa.cu|||71101911640|4|Dirección de Ejecución de Obras Civiles|t|t
+495|3682|omar.ardanal|507|Omar Martinez Ardanal|omar.ardanal@etecsa.cu|||85072431860|13|Logística y Servicios|t|t
+498|3683|vladimir.abo|515|Vladimir Abo Olivera|vladimir.abo@etecsa.cu|||74091301603|13|Logística y Servicios|t|f
+503|3569|daylee.mompie|520|Daylee Mompie Marti|daylee.mompie@etecsa.cu|||87091431372|14|Tecnología de la Información|t|f
+504|3416|daniel.calderon|521|Daniel Ricardo Calderon Estevez|daniel.calderon@etecsa.cu|||03030866629|14|Tecnología de la Información|t|f
+505|3365|yannick.campos|522|Yannick Campos Mesa|yannick.campos@etecsa.cu|||89101521770|14|Tecnología de la Información|f|f
+506|3612|yamil.diago|523|Yamil Alfonso Diago Bent|yamil.diago@etecsa.cu|||73100424004|11|Capital Humano|t|f
+507|3551|ralkis.benitez|524|Ralkis Ezequiel Benitez Suarez|ralkis.benitez@etecsa.cu|||75012505261|13|Logística y Servicios|t|f
+510|3613|yordan.castillo|527|Jose Yordan Castillo Landa|yordan.castillo@etecsa.cu|||82100127520|11|Capital Humano|t|f
+512|3719|ivon.gonzalez|529|Ivon Gonzalez Acosta|ivon.gonzalez@etecsa.cu|||93082307851|11|Capital Humano|t|f
+515|3394|jorge.sacre|532|Jorge Mario Sacre Izquierdo|jorge.sacre@etecsa.cu|||62082710988|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|t
+516|3527|leodamys.balda|533|Leodamys Balda Sicre|leodamys.balda@etecsa.cu|||93102832291|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|t|f
+517|3399|reinier.brocal|534|Reinier Brocal Noblet|reinier.brocal@etecsa.cu|||84042828046|6|Dirección de Ejecución de Obras de Instalaciones Tecnológicas|f|f
+519|3556|tairy.garcia|536|Tairy Garcia Hernandez|tairy.garcia@etecsa.cu|||70090610752|11|Capital Humano|t|f
+525|3771|anibal.andres|542|Anibal Andres Zayas|anibal.andres@etecsa.cu|||67030712785|1|División de Proyecto y Ejecución de Obras|t|f
+526|3388|sheyla.elizondo|543|Sheyla de la Caridad Elizondo Morales|sheyla.elizondo@etecsa.cu|||91061228175|11|Capital Humano|t|f
