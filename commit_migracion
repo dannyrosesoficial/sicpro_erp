@@ -1,0 +1,8 @@
+cd /home/daniel.borrero/SICPRO-ERP/MESA_DE_LUZ/Odoo19/sicproerp
+git checkout 19.0
+git status
+git add migration/
+git status
+git commit -m "Agrega documentación de migración Odoo 15 a 19 - v7"
+git push origin 19.0
+git status
