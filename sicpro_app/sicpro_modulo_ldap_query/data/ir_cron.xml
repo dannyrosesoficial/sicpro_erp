@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- Cron para registrar los usuarios que están en el ldap -->
+    <record id="ldap_registros_query_ldap" model="ir.cron">
+      <field name="name">LDAP: Registrar Trabajadores del LDAP</field>
+      <field name="model_id" ref="sicpro_modulo_ldap_query.model_sicpro_app_modulo_ldap_registros"/>
+      <field name="state">code</field>
+      <field name="code">model.cron_registrar_trabajadores_ldap()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+  </data>
+</odoo>

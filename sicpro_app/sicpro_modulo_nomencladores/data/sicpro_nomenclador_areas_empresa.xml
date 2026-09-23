@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo noupdate="1">
+  <record model="sicpro.nomenclador.areas.empresa" id="Area_1">
+    <field name="name">1</field>
+    <field name="descripcion">STAFF</field>
+  </record>
+  <record model="sicpro.nomenclador.areas.empresa" id="Area_2">
+    <field name="name">2</field>
+    <field name="descripcion">Economía</field>
+  </record>
+  <record model="sicpro.nomenclador.areas.empresa" id="Area_3">
+    <field name="name">3</field>
+    <field name="descripcion">Recursos Humanos</field>
+  </record>
+  <record model="sicpro.nomenclador.areas.empresa" id="Area_4">
+    <field name="name">4</field>
+    <field name="descripcion">Tecnologías de la Información</field>
+  </record>
+  <record model="sicpro.nomenclador.areas.empresa" id="Area_5">
+    <field name="name">5</field>
+    <field name="descripcion">Proyectos</field>
+  </record>
+  <record model="sicpro.nomenclador.areas.empresa" id="Area_6">
+    <field name="name">6</field>
+    <field name="descripcion">DEOCT</field>
+  </record>
+  <record model="sicpro.nomenclador.areas.empresa" id="Area_7">
+    <field name="name">7</field>
+    <field name="descripcion">DEOIT</field>
+  </record>
+  <record model="sicpro.nomenclador.areas.empresa" id="Area_8">
+    <field name="name">8</field>
+    <field name="descripcion">Servicios</field>
+  </record>
+    <record model="sicpro.nomenclador.areas.empresa" id="Area_9">
+    <field name="name">9</field>
+    <field name="descripcion">Coordinación General</field>
+  </record>
+
+</odoo>

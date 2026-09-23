@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data>
+    <record id="metrologia_centro_calibracion_1" model="sicpro.app.metrologia.centro.calibracion">
+      <field name="name">TRI</field>
+    </record>
+    <record id="metrologia_centro_calibracion_2" model="sicpro.app.metrologia.centro.calibracion">
+      <field name="name">GEOCUBA</field>
+    </record>
+    <record id="metrologia_centro_calibracion_3" model="sicpro.app.metrologia.centro.calibracion">
+      <field name="name">INIMET</field>
+    </record>
+    <record id="metrologia_centro_calibracion_4" model="sicpro.app.metrologia.centro.calibracion">
+      <field name="name">ENIA</field>
+    </record>
+    <record id="metrologia_centro_calibracion_5" model="sicpro.app.metrologia.centro.calibracion">
+      <field name="name">INS METROLOGIA</field>
+    </record>
+  </data>
+</odoo>

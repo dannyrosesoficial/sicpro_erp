@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record id="base.main_company" model="res.company">
+      <field name="name">División de Proyecto y Ejecución de Obras</field>
+      <field name="identificador_corto">DVPE</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">False</field>
+      <field name="login_redes_sociales">True</field>
+      <field name="country_id">51</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+    </record>
+  </data>
+
+  <data noupdate="1">
+    <record model="res.company" id="proceso_staff">
+      <field name="name">STAFF</field>
+      <field name="identificador_corto">STAFF</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">False</field>
+      <field name="country_id">51</field>
+      <field name="parent_id">1</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">2</field>
+    </record>
+
+    <record model="res.company" id="proceso_proyecto">
+      <field name="name">Dirección de Proyectos de Telecomunicaciones</field>
+      <field name="identificador_corto">PROYECTOS</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">True</field>
+      <field name="country_id">51</field>
+      <field name="parent_id">1</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">3</field>
+    </record>
+
+    <record model="res.company" id="proceso_deoct">
+      <field name="name">Dirección de Ejecución de Obras Civiles</field>
+      <field name="identificador_corto">DEOCT</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">True</field>
+      <field name="country_id">51</field>
+      <field name="parent_id">1</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">4</field>
+    </record>
+
+    <record model="res.company" id="proceso_deoit">
+      <field name="name">Dirección de Ejecución de Obras de Instalaciones Tecnológicas</field>
+      <field name="identificador_corto">DEOIT</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">True</field>
+      <field name="country_id">51</field>
+      <field name="parent_id">1</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">6</field>
+    </record>
+
+    <record model="res.company" id="proceso_coordinacion">
+      <field name="name">Coordinación General</field>
+      <field name="identificador_corto">Coordinación General</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">False</field>
+      <field name="country_id">51</field>
+      <field name="parent_id">1</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">7</field>
+    </record>
+
+    <record model="res.company" id="proceso_rrhh">
+      <field name="name">Capital Humano</field>
+      <field name="identificador_corto">Capital Humano</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">False</field>
+      <field name="country_id">51</field>
+      <field name="parent_id">1</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">8</field>
+    </record>
+
+    <record model="res.company" id="proceso_economia">
+      <field name="name">Economía</field>
+      <field name="identificador_corto">Economía</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">False</field>
+      <field name="country_id">51</field>
+      <field name="parent_id">1</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">9</field>
+    </record>
+
+    <record model="res.company" id="proceso_logistica">
+      <field name="name">Logística y Servicios</field>
+      <field name="identificador_corto">Logística y Servicios</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">False</field>
+      <field name="country_id">51</field>
+      <field name="parent_id">1</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">10</field>
+    </record>
+
+    <record model="res.company" id="proceso_ti">
+      <field name="name">Tecnología de la Información</field>
+      <field name="identificador_corto">Tecnología de la Información</field>
+      <field name="street">Carlos III / Calle Santiago y Belascoain</field>
+      <field name="street2">Edificio Masónico</field>
+      <field name="city">Centro Habana</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">False</field>
+      <field name="country_id">51</field>
+      <field name="parent_id">1</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">11</field>
+    </record>
+
+    <record model="res.company" id="proceso_inversiones">
+      <field name="name">Vicepresidencia de Inversiones</field>
+      <field name="identificador_corto">VPIV</field>
+      <field name="street">Ave 3ra / Calle 72 y Calle 76</field>
+      <field name="street2">Miramar Trade Center</field>
+      <field name="city">Playa</field>
+      <field name="zip">10400</field>
+      <field name="phone">+53 52183663</field>
+      <field name="email">sicproerp@etecsa.cu</field>
+      <field name="website">https://www.dvpe.etecsa.cu</field>
+      <field name="ejecuta_proceso">False</field>
+      <field name="country_id">51</field>
+      <field name="logo" type="base64" file="sicpro_app_administracion/static/src/img/etecsaId_300_8.png"/>
+      <field name="sequence">12</field>
+    </record>
+  </data>
+</odoo>

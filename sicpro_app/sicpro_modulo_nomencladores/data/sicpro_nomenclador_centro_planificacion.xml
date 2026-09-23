@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo noupdate="1">
+  <record model="sicpro.nomenclador.centro.planificacion" id="Centro_BV">
+    <field name="name">C031</field>
+    <field name="descripcion">Buena Vista (General)</field>
+  </record>
+  <record model="sicpro.nomenclador.centro.planificacion" id="Centro_G">
+    <field name="name">C016</field>
+    <field name="descripcion">Granma</field>
+  </record>
+  <record model="sicpro.nomenclador.centro.planificacion" id="Centro_SS">
+    <field name="name">C011</field>
+    <field name="descripcion">Sancti Spíritus</field>
+  </record>
+
+</odoo>

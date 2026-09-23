@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_1">
+      <field name="name">RM Estructura Torres</field>
+    </record>
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_3">
+      <field name="name">RM Instalación</field>
+    </record>
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_4">
+      <field name="name">Pendiente. Obra Civil</field>
+    </record>
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_5">
+      <field name="name">Equipo Tecnológico</field>
+    </record>
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_8">
+      <field name="name">Pendiente de Insumos</field>
+    </record>
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_9">
+      <field name="name">Transporte</field>
+    </record>
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_10">
+      <field name="name">Equipos Especializados</field>
+    </record>
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_11">
+      <field name="name">Combustible</field>
+    </record>
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_12">
+      <field name="name">Permisos y Accesos</field>
+    </record>
+    <record model="sicpro.app.ordenes.paralizacion" id="ordenes_paralizacion_13">
+      <field name="name">Otros</field>
+    </record>
+  </data>
+</odoo>

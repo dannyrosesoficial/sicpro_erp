@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.ordenes.consecutivos" id="ordenes_consecutivos_proyecto_1">
+      <field name="name">IPP</field>
+      <field name="moneda">P</field>
+      <field name="tipo">inversiones</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.consecutivos" id="ordenes_consecutivos_proyecto_2">
+      <field name="name">MTOP</field>
+      <field name="moneda">P</field>
+      <field name="tipo">mantenimiento</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+
+    <record model="sicpro.app.ordenes.consecutivos" id="ordenes_consecutivos_deoct_1">
+      <field name="name">IEJB</field>
+      <field name="moneda">P</field>
+      <field name="tipo">inversiones</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.consecutivos" id="ordenes_consecutivos_deoct_2">
+      <field name="name">MTOB</field>
+      <field name="moneda">P</field>
+      <field name="tipo">mantenimiento</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+
+    <record model="sicpro.app.ordenes.consecutivos" id="ordenes_consecutivos_deoit_1">
+      <field name="name">IEJT</field>
+      <field name="moneda">P</field>
+      <field name="tipo">inversiones</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.consecutivos" id="ordenes_consecutivos_deoit_2">
+      <field name="name">MTOT</field>
+      <field name="moneda">P</field>
+      <field name="tipo">mantenimiento</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo noupdate="1">
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_SIN_DEF">
+    <field name="name">SIN DEFINIR</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_ESTABIL">
+    <field name="name">ESTABIL</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_GRB_EXT_DV">
+    <field name="name">GRB_EXT_DV</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_HUB">
+    <field name="name">HUB</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_IMPRESOR">
+    <field name="name">IMPRESOR</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_MONITOR">
+    <field name="name">MONITOR</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_NOTEBOOK">
+    <field name="name">NOTEBOOK</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_PC">
+    <field name="name">PC</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_PRINT_SERV">
+    <field name="name">PRINT_SERV</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_ROUTER">
+    <field name="name">ROUTER</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_SCANNER">
+    <field name="name">SCANNER</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_SERVIDOR">
+    <field name="name">SERVIDOR</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_SWITCH">
+    <field name="name">SWITCH</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_T_EX_DD">
+    <field name="name">T_EX_DD</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tipo.equipo" id="TE_UPS">
+    <field name="name">UPS</field>
+  </record>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.solicitudes.etiquetas" id="solicitudes_etiqueta_1">
+      <field name="name">Obra priorizada</field>
+      <field name="color">1</field>
+    </record>
+    <record model="sicpro.app.solicitudes.etiquetas" id="solicitudes_etiqueta_2">
+      <field name="name">Urgente</field>
+      <field name="color">2</field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="1">
+    <record model="discuss.channel" id="channel_staff">
+      <field name="name">STAFF</field>
+      <field name="description">Canal privado para los trabajadores del STAFF.</field>
+      <field name="group_ids" eval="[Command.link(ref('sicpro_app_administracion.grupo_canal_staff'))]"/>
+    </record>
+    <record model="discuss.channel" id="channel_doit">
+      <field name="name">DEOIT</field>
+      <field name="description">Canal privado para los trabajadores de la DEOIT.</field>
+      <field name="group_ids" eval="[Command.link(ref('sicpro_app_administracion.grupo_canal_deoit'))]"/>
+    </record>
+    <record model="discuss.channel" id="channel_deoct">
+      <field name="name">DEOCT</field>
+      <field name="description">Canal privado para los trabajadores de la DEOCT.</field>
+      <field name="group_ids" eval="[Command.link(ref('sicpro_app_administracion.grupo_canal_deoct'))]"/>
+    </record>
+    <record model="discuss.channel" id="channel_proyecto">
+      <field name="name">PROYECTO</field>
+      <field name="description">Canal privado para los trabajadores de Proyectos.</field>
+      <field name="group_ids" eval="[Command.link(ref('sicpro_app_administracion.grupo_canal_proyectos'))]"/>
+    </record>
+
+    <record model="discuss.channel" id="channel_soporte">
+      <field name="name">SOPORTE TÉCNICO</field>
+      <field name="description">Canal publicó para las solicitudes de soporte técnico.</field>
+      <field name="group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+
+    <record model="discuss.channel" id="mail.channel_all_employees">
+      <field name="name">Comunidad DVPE</field>
+      <field name="description">Canal público para los trabajadores de la DVPE.</field>
+      <field name="group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+
+
+  </data>
+
+
+</odoo>

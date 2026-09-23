@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record id="trabajadores_educacion_tipo_1" model="sicpro.app.trabajadores.educacion.tipos">
+      <field name="name">Experto</field>
+      <field name="pago">0</field>
+      <field name="ch">False</field>
+      <field name="sequence">1</field>
+    </record>
+    <record id="trabajadores_educacion_tipo_2" model="sicpro.app.trabajadores.educacion.tipos">
+      <field name="name">Doctor</field>
+      <field name="pago">800</field>
+      <field name="ch">False</field>
+      <field name="sequence">2</field>
+    </record>
+    <record id="trabajadores_educacion_tipo_3" model="sicpro.app.trabajadores.educacion.tipos">
+      <field name="name">Master</field>
+      <field name="pago">400</field>
+      <field name="ch">False</field>
+      <field name="sequence">3</field>
+    </record>
+    <record id="trabajadores_educacion_tipo_4" model="sicpro.app.trabajadores.educacion.tipos">
+      <field name="name">Diplomados</field>
+      <field name="pago">0</field>
+      <field name="ch">False</field>
+      <field name="sequence">4</field>
+    </record>
+    <record id="trabajadores_educacion_tipo_5" model="sicpro.app.trabajadores.educacion.tipos">
+      <field name="name">Reconocimiento Interno</field>
+      <field name="pago">0</field>
+      <field name="ch">False</field>
+      <field name="sequence">5</field>
+    </record>
+    <record id="trabajadores_educacion_tipo_6" model="sicpro.app.trabajadores.educacion.tipos">
+      <field name="name">Certificación y Homologación Personas</field>
+      <field name="pago">0</field>
+      <field name="ch">True</field>
+      <field name="sequence">6</field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.soporte.estados.paquetes" id="estadov_1">
+        <field name="name">Borrador</field>
+        <field name="closed">False</field>
+        <field name="fold">False</field>
+        <field name="inicial">True</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.paquetes" id="estado_paquetes_2">
+        <field name="name">En Prueba</field>
+        <field name="closed">False</field>
+        <field name="fold">False</field>
+        <field name="inicial">False</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.paquetes" id="estado_paquetes_5">
+        <field name="name">En Producción</field>
+        <field name="closed">True</field>
+        <field name="fold">False</field>
+        <field name="inicial">False</field>
+    </record>
+      <record model="sicpro.app.soporte.estados.paquetes" id="estado_paquetes_6">
+        <field name="name">No Procede</field>
+        <field name="closed">False</field>
+        <field name="fold">True</field>
+        <field name="inicial">False</field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+
+    <record model="sicpro.app.soporte.canales" id="canal_1">
+        <field name="name">#Soporte Técnico</field>
+    </record>
+    <record model="sicpro.app.soporte.canales" id="canal_2">
+        <field name="name">#general</field>
+    </record>
+      <record model="sicpro.app.soporte.canales" id="canal_">
+        <field name="name">Ticket</field>
+    </record>
+      <record model="sicpro.app.soporte.canales" id="canal_3">
+        <field name="name">Correo</field>
+    </record><record model="sicpro.app.soporte.canales" id="canal_4">
+        <field name="name">Verbal</field>
+    </record>
+
+
+  </data>
+</odoo>

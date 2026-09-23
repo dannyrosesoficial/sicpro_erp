@@ -1,4 +1,0 @@
-1|__system__|SICPRO ERP|f|2
-2|admin|Administrator|t|3
-3|public|Public user|f|4
-4|portaltemplate|Portal User Template|f|5

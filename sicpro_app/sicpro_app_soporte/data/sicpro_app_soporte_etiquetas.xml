@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+      <record model="sicpro.app.soporte.etiquetas" id="etiquetas_1">
+        <field name="name">Sin Definir</field>
+    </record>
+    <record model="sicpro.app.soporte.etiquetas" id="etiquetas_2">
+        <field name="name">Login y Accesos</field>
+    </record>
+    <record model="sicpro.app.soporte.etiquetas" id="etiquetas_3">
+        <field name="name">Roles y Permisos</field>
+    </record>
+    <record model="sicpro.app.soporte.etiquetas" id="etiquetas_4">
+        <field name="name">Desarrollos Integrales</field>
+    </record>
+    <record model="sicpro.app.soporte.etiquetas" id="etiquetas_5">
+        <field name="name">Modificaciones Generales</field>
+    </record>
+    <record model="sicpro.app.soporte.etiquetas" id="etiquetas_6">
+        <field name="name">Modificación de Modelos</field>
+    </record>
+    <record model="sicpro.app.soporte.etiquetas" id="etiquetas_7">
+        <field name="name">Modificación de Vistas</field>
+    </record>
+    <record model="sicpro.app.soporte.etiquetas" id="etiquetas_8">
+        <field name="name">Modificación de Informes</field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_proyecto_1">
+      <field name="sequence">1</field>
+      <field name="name">Sin comenzar</field>
+      <field name="is_fecha_inicial">True</field>
+      <field name="fold">False</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_proyecto_2">
+      <field name="sequence">2</field>
+      <field name="name">En proceso</field>
+      <field name="is_en_proceso">True</field>
+      <field name="fold">False</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_proyecto_3">
+      <field name="sequence">3</field>
+      <field name="name">Paralizada</field>
+      <field name="is_paralizado">True</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_proyecto_4">
+      <field name="sequence">4</field>
+      <field name="name">Terminada</field>
+      <field name="is_terminada">True</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_proyecto_5">
+      <field name="sequence">5</field>
+      <field name="name">Cancelada</field>
+      <field name="is_cancelado">True</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoct_6">
+      <field name="sequence">6</field>
+      <field name="name">Preparación Técnica</field>
+      <field name="is_preparacion_tecnica">True</field>
+      <field name="fold">False</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoct_7">
+      <field name="sequence">7</field>
+      <field name="name">Sin comenzar</field>
+      <field name="is_fecha_inicial">True</field>
+      <field name="fold">False</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoct_8">
+      <field name="sequence">8</field>
+      <field name="name">En proceso</field>
+      <field name="is_en_proceso">True</field>
+      <field name="fold">False</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoct_9">
+      <field name="sequence">9</field>
+      <field name="name">Paralizada</field>
+      <field name="is_paralizado">True</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoct_10">
+      <field name="sequence">10</field>
+      <field name="name">Cargar Gastos</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoct_11">
+      <field name="sequence">11</field>
+      <field name="name">Terminada</field>
+      <field name="is_terminada">True</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoct_12">
+      <field name="sequence">12</field>
+      <field name="name">Cancelada</field>
+      <field name="is_cancelado">True</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoit_13">
+      <field name="sequence">13</field>
+      <field name="name">Preparación Técnica</field>
+      <field name="is_preparacion_tecnica">True</field>
+      <field name="fold">False</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoit_14">
+      <field name="sequence">14</field>
+      <field name="name">Sin comenzar</field>
+      <field name="is_fecha_inicial">True</field>
+      <field name="fold">False</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoit_15">
+      <field name="sequence">15</field>
+      <field name="name">En proceso</field>
+      <field name="is_en_proceso">True</field>
+      <field name="fold">False</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoit_16">
+      <field name="sequence">16</field>
+      <field name="name">Paralizada</field>
+      <field name="is_paralizado">True</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoit_17">
+      <field name="sequence">17</field>
+      <field name="name">Cargar Gastos</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoit_18">
+      <field name="sequence">18</field>
+      <field name="name">Terminada</field>
+      <field name="is_terminada">True</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.estados" id="ordenes_estado_deoit_19">
+      <field name="sequence">19</field>
+      <field name="name">Cancelada</field>
+      <field name="is_cancelado">True</field>
+      <field name="fold">True</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_1">
+      <field name="name">7282001010</field>
+      <field name="descripcion">Inv.c/Medios Propios Salarios</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_2">
+      <field name="name">7282001020</field>
+      <field name="descripcion">Inv.c/Medios Propios Trabajo Extraordinario</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_3">
+      <field name="name">7282001040</field>
+      <field name="descripcion">Inv.c/Medios Propios Salario Variable</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_4">
+      <field name="name">7282001060</field>
+      <field name="descripcion">Inv.c/Medios Propios Plus-Otros Pagos</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_5">
+      <field name="name">7282001061</field>
+      <field name="descripcion">Inv.c/Medios Propios Plus-Condiciones Laborales</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_6">
+      <field name="name">7282001200</field>
+      <field name="descripcion">Inv.c/Medios Propios Materiales</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_7">
+      <field name="name">7282002070</field>
+      <field name="descripcion">Inv.c/Medios Propios Reserva para Vacaciones</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_8">
+      <field name="name">7282003011</field>
+      <field name="descripcion">Inv.c/Medios Propios Combustible Diesel</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_9">
+      <field name="name">7282003012</field>
+      <field name="descripcion">Inv.c/Medios Propios Combustible Gasolina regular</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_10">
+      <field name="name">7282003013</field>
+      <field name="descripcion">Inv.c/Medios Propios Combustible Gasolina Especial</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_11">
+      <field name="name">7282006020</field>
+      <field name="descripcion">Inv.c/Medios Propios 12.5% Contrib.Seguridad Social</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_12">
+      <field name="name">7282081120</field>
+      <field name="descripcion">Inv.c/Medios Propios Alimentos Elaborados</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_13">
+      <field name="name">7282081720</field>
+      <field name="descripcion">Inv.c/Medios Propios Transportación Alimentos Elaborados</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_14">
+      <field name="name">7282081740</field>
+      <field name="descripcion">Inv.c/Medios Propios Arrend/transp. y Equipos</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_15">
+      <field name="name">7282081990</field>
+      <field name="descripcion">Inv.c/Medios Propios Otros Servicios</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_16">
+      <field name="name">7282082010</field>
+      <field name="descripcion">Inv.c/Medios Propios Dietas</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_17">
+      <field name="name">7282082020</field>
+      <field name="descripcion">Inv.c/Medios Propios Viajes Nacionales</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_18">
+      <field name="name">7282082110</field>
+      <field name="descripcion">Inv.c/Medios Propios Hospedaje</field>
+    </record>
+    <record model="sicpro.app.transferencias.cuentas.gastos" id="trasferencia_cuenta_gastos_19">
+      <field name="name">7285000000</field>
+      <field name="descripcion">Inv.c/Medios Propios, Traspasos Ejecutora</field>
+      <field name="traspasos">True</field>
+    </record>
+  </data>
+</odoo>

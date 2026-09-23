@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <record model="sicpro.app.credenciales.accesos" id="credencial_accesos_1">
+    <field name="name">TOTAL DIRECCION</field>
+    <field name="color">1</field>
+  </record>
+  <record model="sicpro.app.credenciales.accesos" id="credencial_accesos_2">
+    <field name="name">EDIFICIO MASÓNICOS</field>
+    <field name="color">2</field>
+  </record>
+  <record model="sicpro.app.credenciales.accesos" id="credencial_accesos_3">
+    <field name="name">LUYANO</field>
+    <field name="color">3</field>
+  </record>
+  <record model="sicpro.app.credenciales.accesos" id="credencial_accesos_4">
+    <field name="name">MANTILLA</field>
+    <field name="color">4</field>
+  </record>
+</odoo>

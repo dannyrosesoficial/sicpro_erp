@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record id="sopote_tecnico_sequence" model="ir.sequence">
+      <field name="name">Soporte Técnico Sequence</field>
+      <field name="code">sicpro.app.soporte.sequence</field>
+      <field name="prefix">ST</field>
+      <field name="padding">5</field>
+      <field name="company_id"/>
+    </record>
+  </data>
+</odoo>

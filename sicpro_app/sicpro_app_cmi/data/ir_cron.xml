@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data noupdate="0">
+       <!-- Cron para verificar el vencimiento de las acciones -->
+        <record id="cmi_acciones_vencimiento" model="ir.cron">
+            <field name="name">CMI: Inicio y Vencimiento de las Acciones</field>
+            <field name="model_id" ref="sicpro_app_cmi.model_sicpro_app_cmi_acciones"/>
+            <field name="state">code</field>
+            <field name="code">model.acciones_vencimiento_acciones()</field>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+        </record>
+    </data>
+</odoo>

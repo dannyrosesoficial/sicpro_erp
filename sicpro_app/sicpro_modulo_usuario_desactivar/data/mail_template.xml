@@ -1,0 +1,1349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="1">
+
+    <!--
+    ==============================================================================
+    1. PLANTILLA: AVISO DE EJECUCIÓN LDAP (ADMINISTRADORES)
+    ==============================================================================
+    - Propósito: Notificar que el proceso cron de desactivación LDAP finalizó con éxito.
+    - Destinatario: Grupo de Administradores de Notificaciones de SICPRO.
+    - Desencadenante: Finalización del método 'cron_desactiva_usuarios_ldap'.
+    - Variables clave: Ninguna específica del usuario, es un correo general de sistema.
+    ==============================================================================
+    -->
+    <record id="administracion_ejecucion_desactivacion_ldap" model="mail.template">
+      <field name="name">Usuarios: Control Usuarios LDAP</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Control de Usuarios LDAP Realizado</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle">
+                                  <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                  <br/>
+                                  <span style="font-size:20px; font-weight: bold;">Control LDAP</span>
+                                </td>
+                                <td valign="middle" align="right">
+                                  <img
+                                      t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro%204.png"
+                                      style="padding:0px; margin: 0px; height: auto; width: 120px;" alt="SICPRO Logo"/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" style="text-align:center;">
+                                  <hr style="background-color:rgb(204,204,204); border:medium none; clear:both; display:block; font-size:0px; min-height:1px; line-height:0; margin: 16px 0px 16px 0px;"
+                                      width="100%"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que ha sido ejecutado el control LDAP con éxito para los usuarios de la
+                                    plataforma SICPRO ERP.
+                                    <br/>
+                                    <br/>
+                                    <div style="margin:16px 0px 16px 0px;">
+                                      <a t-att-href="object.get_base_url()"
+                                         style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                        Iniciar Sesión
+                                      </a>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    --
+                                    <br/>
+                                    Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="text-align:center;">
+                                  <hr style="background-color:rgb(204,204,204); border:medium none; clear:both; display:block; font-size:0px; min-height:1px; line-height:0; margin: 16px 0px 16px 0px;"
+                                      width="100%"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle" align="left">
+                                  <t t-out="object.company_id.name"/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="opacity:0.7;" valign="middle" align="left">
+                                  <t t-if="object.company_id.phone">
+                                    <t t-out="object.company_id.phone"/>
+                                  </t>
+                                  <t t-if="object.company_id.email">
+                                    |
+                                    <a t-attf-href="mailto:{{ object.company_id.email }}" style="color:#454748;">
+                                      <t t-out="object.company_id.email"/>
+                                    </a>
+                                  </t>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  <br/>
+                  <table
+                      style="min-width:590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                      width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="text-align:center; font-size: 13px;">
+                          Recibes notificaciones con la tecnología de
+                          <b>
+                            <span style="color:rgb(7, 140, 7);">SICPRO</span>
+                          </b>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="text-align:center; font-size: 13px;">
+                          <p style="font-size:10px;">© 2019 - 2026 División de Proyectos y Ejecución de Obras, DVPE.</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+
+    <!--
+    ==============================================================================
+    2. PLANTILLA: DESACTIVACIÓN POR LDAP (USUARIO DVPE)
+    ==============================================================================
+    - Propósito: Informar al usuario que su cuenta fue bloqueada en SICPRO.
+    - Destinatario: Usuario interno (DVPE).
+    - Desencadenante: El usuario no existe en LDAP o su estado es 'noaccess'.
+    - Variables clave: trabajador, ocupacion_id, departamento, login_date.
+    ==============================================================================
+    -->
+    <record id="administracion_desactivar_usuario_ldap" model="mail.template">
+      <field name="name">Usuarios: Desactivar Usuarios LDAP (DVPE)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Usuario SICPRO Desactivado</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle">
+                                  <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                  <br/>
+                                  <span style="font-size:20px; font-weight: bold;">Usuario Desactivado</span>
+                                </td>
+                                <td valign="middle" align="right">
+                                  <img
+                                      t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro%204.png"
+                                      style="padding:0px; margin: 0px; height: auto; width: 120px;" alt="Logo SICPRO"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 16px 8px 16px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que ha sido desactivado el usuario de la plataforma SICPRO ERP por
+                                    encontrarse desactivado o inexistente en el LDAP empresarial.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.trabajador">
+                                      <b>Trabajador:</b>
+                                      <t t-out="object.trabajador.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.ocupacion_id">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.ocupacion_id.name.name if object.ocupacion_id.name else 'No especificado'"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.departamento">
+                                      <b>Área:</b>
+                                      <t t-out="object.departamento.name"/>
+                                      <br/>
+                                      <b>Proceso:</b>
+                                      <t t-out="object.departamento.company_id.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.login_date">
+                                      <b>Fecha de última entrada:</b>
+                                      <t t-out="format_date(object.login_date)"/>
+                                      <br/>
+                                    </t>
+
+                                    <div style="margin:16px 0px 16px 0px;">
+                                      <a t-att-href="object.get_base_url()"
+                                         style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                        Iniciar Sesión
+                                      </a>
+                                    </div>
+                                    <br/>--<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+    <!--
+    ==============================================================================
+    3. PLANTILLA: DESACTIVACIÓN POR LDAP (USUARIO INVERSIONISTA)
+    ==============================================================================
+    - Propósito: Informar al usuario Inversionista que su cuenta fue bloqueada en SICPRO.
+    - Destinatario: Usuario externo/Inversionista.
+    - Desencadenante: El usuario no existe en LDAP o su estado es 'noaccess'.
+    - Variables clave: nombre_inversionista, inversionista_cargo, inversionista_territorio, login_date.
+    ==============================================================================
+    -->
+    <record id="administracion_desactivar_usuario_ldap_inversionistas" model="mail.template">
+      <field name="name">Usuarios: Desactivar Usuarios LDAP (Inversionistas)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Usuario SICPRO Desactivado</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle">
+                                  <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                  <br/>
+                                  <span style="font-size:20px; font-weight: bold;">Usuario Desactivado</span>
+                                </td>
+                                <td valign="middle" align="right">
+                                  <img
+                                      t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro%204.png"
+                                      style="padding:0px; margin: 0px; height: auto; width: 120px;" alt="Logo SICPRO"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 16px 8px 16px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que ha sido desactivado el usuario <strong>Inversionista</strong> de la
+                                    plataforma SICPRO ERP.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.nombre_inversionista">
+                                      <b>Trabajador:</b>
+                                      <t t-out="object.nombre_inversionista.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_cargo">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.inversionista_cargo"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_territorio">
+                                      <b>Territorio:</b>
+                                      <t t-out="object.inversionista_territorio.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_provincia">
+                                      <b>Provincia:</b>
+                                      <t t-out="object.inversionista_provincia.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.login_date">
+                                      <b>Fecha de última entrada:</b>
+                                      <t t-out="format_date(object.login_date)"/>
+                                      <br/>
+                                    </t>
+
+                                    <div style="margin:16px 0px 16px 0px;">
+                                      <a t-att-href="object.get_base_url()"
+                                         style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                        Iniciar Sesión
+                                      </a>
+                                    </div>
+                                    <br/>--<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+    <!--
+    ==============================================================================
+    4. PLANTILLA: DESACTIVACIÓN POR FALTA DE ACCESO (USUARIO DVPE)
+    ==============================================================================
+    - Propósito: Informar al usuario que su cuenta fue desactivada por inactividad.
+    - Destinatario: Usuario interno (DVPE).
+    - Desencadenante: Cron de limpieza de usuarios inactivos.
+    - Variables clave: trabajador, ocupacion_id, departamento, login_date.
+    ==============================================================================
+    -->
+    <record id="administracion_desactivar_usuario_acceso" model="mail.template">
+      <field name="name">Usuarios: Desactivar Usuarios Acceso (DVPE)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Usuario SICPRO Desactivado (Acceso)</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle">
+                                  <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                  <br/>
+                                  <span style="font-size:20px; font-weight: bold;">Usuario Desactivado</span>
+                                </td>
+                                <td valign="middle" align="right">
+                                  <img
+                                      t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro%204.png"
+                                      style="padding:0px; margin: 0px; height: auto; width: 120px;" alt="Logo SICPRO"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 16px 8px 16px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que su usuario ha sido desactivado por falta de uso prolongado de la
+                                    plataforma SICPRO ERP.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.trabajador">
+                                      <b>Trabajador:</b>
+                                      <t t-out="object.trabajador.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.ocupacion_id">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.ocupacion_id.name.name if object.ocupacion_id.name else 'No especificado'"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.departamento">
+                                      <b>Área:</b>
+                                      <t t-out="object.departamento.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.login_date">
+                                      <b>Fecha de última entrada:</b>
+                                      <t t-out="format_date(object.login_date)"/>
+                                      <br/>
+                                    </t>
+
+                                    <div style="margin:16px 0px 16px 0px;">
+                                      <a t-att-href="object.get_base_url()"
+                                         style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                        Iniciar Sesión
+                                      </a>
+                                    </div>
+                                    <br/>--<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+    <!--
+    ==============================================================================
+    5. PLANTILLA: DESACTIVACIÓN POR FALTA DE ACCESO (USUARIO INVERSIONISTA)
+    ==============================================================================
+    - Propósito: Informar al Inversionista que su cuenta fue desactivada por inactividad.
+    - Destinatario: Usuario externo/Inversionista.
+    - Desencadenante: Cron de limpieza de usuarios inactivos.
+    - Variables clave: nombre_inversionista, inversionista_cargo, login_date.
+    ==============================================================================
+    -->
+    <record id="administracion_desactivar_usuario_acceso_inversionistas" model="mail.template">
+      <field name="name">Usuarios: Desactivar Usuarios Acceso (Inversionistas)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Usuario SICPRO Desactivado (Acceso)</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle">
+                                  <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                  <br/>
+                                  <span style="font-size:20px; font-weight: bold;">Usuario Desactivado</span>
+                                </td>
+                                <td valign="middle" align="right">
+                                  <img
+                                      t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro%204.png"
+                                      style="padding:0px; margin: 0px; height: auto; width: 120px;" alt="Logo SICPRO"/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" style="text-align:center;">
+                                  <hr style="background-color:rgb(204,204,204); border:medium none; clear:both; display:block; font-size:0px; min-height:1px; line-height:0; margin: 16px 0px 16px 0px;"
+                                      width="100%"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que su usuario ha sido desactivado por no hacer uso de la plataforma
+                                    SICPRO ERP, póngase en contacto con el administrador.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.nombre_inversionista">
+                                      <b>Trabajador:</b>
+                                      <t t-out="object.nombre_inversionista.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_cargo">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.inversionista_cargo"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_territorio">
+                                      <b>Territorio:</b>
+                                      <t t-out="object.inversionista_territorio.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_provincia">
+                                      <b>Provincia:</b>
+                                      <t t-out="object.inversionista_provincia.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.login_date">
+                                      <b>Fecha de última entrada:</b>
+                                      <t t-out="format_date(object.login_date)"/>
+                                      <br/>
+                                    </t>
+
+                                    <div style="margin:16px 0px 16px 0px;">
+                                      <a t-att-href="object.get_base_url()"
+                                         style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                        Iniciar Sesión
+                                      </a>
+                                    </div>
+                                    <br/>--<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="text-align:center;">
+                                  <hr style="background-color:rgb(204,204,204); border:medium none; clear:both; display:block; font-size:0px; min-height:1px; line-height:0; margin: 16px 0px 16px 0px;"
+                                      width="100%"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle" align="left">
+                                  <t t-out="object.company_id.name"/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="opacity:0.7;" valign="middle" align="left">
+                                  <t t-if="object.company_id.phone">
+                                    <t t-out="object.company_id.phone"/>
+                                  </t>
+                                  <t t-if="object.company_id.email">
+                                    |
+                                    <a t-attf-href="mailto:{{ object.company_id.email }}" style="color:#454748;">
+                                      <t t-out="object.company_id.email"/>
+                                    </a>
+                                  </t>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  <br/>
+                  <table
+                      style="min-width:590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                      width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="text-align:center; font-size: 13px;">
+                          Recibes notificaciones con la tecnología de
+                          <b>
+                            <span style="color:rgb(7, 140, 7);">SICPRO</span>
+                          </b>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="text-align:center; font-size: 13px;">
+                          <p style="font-size:10px;">© 2019 - 2026 División de Proyectos y Ejecución de Obras, DVPE.</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+
+    <!--
+    ==============================================================================
+    6. PLANTILLA: DESACTIVACIÓN POR REGISTRO INCOMPLETO (USUARIO DVPE)
+    ==============================================================================
+    - Propósito: Informar al usuario que su cuenta fue eliminada/desactivada por no validar su registro.
+    - Destinatario: Usuario interno (DVPE).
+    - Desencadenante: Cron que detecta registros iniciales nunca completados.
+    - Variables clave: create_date (Fecha de registro).
+    ==============================================================================
+    -->
+    <record id="administracion_desactivar_usuario_registro" model="mail.template">
+      <field name="name">Usuarios: Desactivar Usuarios Registro (DVPE)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Usuario SICPRO Desactivado (Registro)</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle">
+                                  <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                  <br/>
+                                  <span style="font-size:20px; font-weight: bold;">Usuario Desactivado</span>
+                                </td>
+                                <td valign="middle" align="right">
+                                  <img
+                                      t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro%204.png"
+                                      style="padding:0px; margin: 0px; height: auto; width: 120px;" alt="Logo SICPRO"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 16px 8px 16px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que su usuario ha sido desactivado por no haber validado el registro de
+                                    la plataforma SICPRO ERP.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.trabajador">
+                                      <b>Trabajador:</b>
+                                      <t t-out="object.trabajador.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.ocupacion_id">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.ocupacion_id.name.name if object.ocupacion_id.name else 'No asignado'"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.departamento">
+                                      <b>Área:</b>
+                                      <t t-out="object.departamento.name"/>
+                                      <br/>
+                                      <b>Proceso:</b>
+                                      <t t-out="object.departamento.company_id.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.create_date">
+                                      <b>Fecha de registro:</b>
+                                      <t t-out="format_date(object.create_date)"/>
+                                      <br/>
+                                    </t>
+
+                                    <div style="margin:16px 0px 16px 0px;">
+                                      <a t-att-href="object.get_base_url()"
+                                         style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                        Iniciar Sesión
+                                      </a>
+                                    </div>
+                                    <br/>--<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+    <!--
+    ==============================================================================
+    7. PLANTILLA: DESACTIVACIÓN POR REGISTRO INCOMPLETO (USUARIO INVERSIONISTA)
+    ==============================================================================
+    - Propósito: Informar al Inversionista que su cuenta fue desactivada por no validar su registro.
+    - Destinatario: Usuario externo/Inversionista.
+    - Desencadenante: Cron que detecta registros iniciales nunca completados.
+    - Variables clave: create_date (Fecha de registro).
+    ==============================================================================
+    -->
+    <record id="administracion_desactivar_usuario_registro_inversionistas" model="mail.template">
+      <field name="name">Usuarios: Desactivar Usuarios Registro (Inversionistas)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Usuario SICPRO Desactivado (Registro)</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 16px 8px 16px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que su usuario ha sido desactivado por no haber validado el registro de
+                                    la plataforma SICPRO ERP.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.nombre_inversionista">
+                                      <b>Trabajador:</b>
+                                      <t t-out="object.nombre_inversionista.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_cargo">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.inversionista_cargo"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_territorio">
+                                      <b>Territorio:</b>
+                                      <t t-out="object.inversionista_territorio.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_provincia">
+                                      <b>Provincia:</b>
+                                      <t t-out="object.inversionista_provincia.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.create_date">
+                                      <b>Fecha de registro:</b>
+                                      <t t-out="format_date(object.create_date)"/>
+                                      <br/>
+                                    </t>
+                                    <br/>
+                                    --<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+
+    <!--
+    ==============================================================================
+    8. PLANTILLA: AVISO PREVIO A DESACTIVACIÓN POR ACCESO (USUARIO DVPE)
+    ==============================================================================
+    - Propósito: Alertar al usuario que su cuenta está en riesgo de desactivación por inactividad.
+    - Destinatario: Usuario interno (DVPE).
+    - Desencadenante: Cron de prevención.
+    - Variables clave: ctx.get('dias') -> Días restantes antes del bloqueo.
+    ==============================================================================
+    -->
+    <record id="administracion_aviso_desactivar_usuario_acceso" model="mail.template">
+      <field name="name">Usuarios: Aviso de Desactivar Usuarios Acceso (DVPE)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Aviso de Desactivación del Usuario SICPRO</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 16px 8px 16px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que si no accede al sistema en un periodo de
+                                    <span style="font-weight: bolder;">
+                                      <t t-out="ctx.get('dias') or 'pocos'"/>
+                                    </span>
+                                    días, su usuario será desactivado por inactividad.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.trabajador">
+                                      <b>Trabajador:</b>
+                                      <t t-out="object.trabajador.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.ocupacion_id">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.ocupacion_id.name.name if object.ocupacion_id.name else 'No especificado'"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.departamento">
+                                      <b>Área:</b>
+                                      <t t-out="object.departamento.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.login_date">
+                                      <b>Fecha de última entrada:</b>
+                                      <t t-out="format_date(object.login_date)"/>
+                                      <br/>
+                                    </t>
+                                    <br/>
+                                    --<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+    <!--
+    ==============================================================================
+    9. PLANTILLA: AVISO PREVIO A DESACTIVACIÓN POR ACCESO (USUARIO INVERSIONISTA)
+    ==============================================================================
+    - Propósito: Alertar al Inversionista que su cuenta está en riesgo de desactivación.
+    - Destinatario: Usuario externo/Inversionista.
+    - Desencadenante: Cron de prevención.
+    - Variables clave: ctx.get('dias') -> Días restantes antes del bloqueo.
+    ==============================================================================
+    -->
+    <record id="administracion_aviso_desactivar_usuario_acceso_inversionistas" model="mail.template">
+      <field name="name">Usuarios: Aviso de Desactivar Usuarios Acceso (Inversionistas)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Aviso de Desactivación del Usuario SICPRO</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle">
+                                  <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                  <br/>
+                                  <span style="font-size:20px; font-weight: bold;">Aviso de Desactivación</span>
+                                </td>
+                                <td valign="middle" align="right">
+                                  <img
+                                      t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro%204.png"
+                                      style="padding:0px; margin: 0px; height: auto; width: 120px;" alt="Logo SICPRO"/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" style="text-align:center;">
+                                  <hr style="background-color:rgb(204,204,204); border:none; min-height:1px; margin: 16px 0px 16px 0px;"
+                                      width="100%"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que si no accede al sistema en un periodo de
+                                    <span style="font-weight: bolder;">
+                                      <t t-out="ctx.get('dias') or 'pocos'"/>
+                                    </span>
+                                    días su usuario será desactivado por no hacer uso de la plataforma SICPRO ERP.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.nombre_inversionista">
+                                      <b>Trabajador:</b>
+                                      <t t-out="object.nombre_inversionista.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_cargo">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.inversionista_cargo"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_territorio">
+                                      <b>Territorio:</b>
+                                      <t t-out="object.inversionista_territorio.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_provincia">
+                                      <b>Provincia:</b>
+                                      <t t-out="object.inversionista_provincia.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.login_date">
+                                      <b>Fecha de última entrada:</b>
+                                      <t t-out="format_date(object.login_date)"/>
+                                      <br/>
+                                    </t>
+
+                                    <div style="margin:16px 0px 16px 0px;">
+                                      <a t-att-href="object.get_base_url()"
+                                         style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                        Iniciar Sesión
+                                      </a>
+                                    </div>
+                                    <br/>--<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  <br/>
+                  <table
+                      style="min-width:590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                      width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="text-align:center; font-size: 13px;">
+                          Recibes notificaciones con la tecnología de
+                          <b>
+                            <span style="color:rgb(7, 140, 7);">SICPRO</span>
+                          </b>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="text-align:center; font-size: 10px;">
+                          <p>© 2019 - 2026 División de Proyectos y Ejecución de Obras, DVPE.
+                            <br/>
+                            Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+
+    <!--
+    ==============================================================================
+    10. PLANTILLA: AVISO PREVIO A DESACTIVACIÓN POR REGISTRO (USUARIO DVPE)
+    ==============================================================================
+    - Propósito: Alertar al usuario que debe completar su registro para no perder su cuenta.
+    - Destinatario: Usuario interno (DVPE).
+    - Desencadenante: Cron de aviso a usuarios nuevos sin validar.
+    - Variables clave: ctx.get('dias') -> Días restantes para completar registro.
+    ==============================================================================
+    -->
+    <record id="administracion_aviso_desactivar_usuario_registro" model="mail.template">
+      <field name="name">Usuarios: Aviso de Desactivar Usuarios Registro (DVPE)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Aviso de Desactivación del Usuario SICPRO</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td valign="middle">
+                                  <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                  <br/>
+                                  <span style="font-size:20px; font-weight: bold;">Aviso de Registro Pendiente</span>
+                                </td>
+                                <td valign="middle" align="right">
+                                  <img
+                                      t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro%204.png"
+                                      style="padding:0px; margin: 0px; height: auto; width: 120px;" alt="Logo SICPRO"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 16px 8px 16px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que si no valida su registro en un periodo de
+                                    <span style="font-weight: bolder;">
+                                      <t t-out="ctx.get('dias') or 'pocos'"/>
+                                    </span>
+                                    días su usuario será desactivado por no completar el proceso inicial en SICPRO ERP.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.trabajador">
+                                      <b>Trabajador:</b>
+                                      <t t-out="object.trabajador.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.ocupacion_id">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.ocupacion_id.name.name if object.ocupacion_id.name else 'No asignado'"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.departamento">
+                                      <b>Área:</b>
+                                      <t t-out="object.departamento.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.create_date">
+                                      <b>Fecha de registro:</b>
+                                      <t t-out="format_date(object.create_date)"/>
+                                      <br/>
+                                    </t>
+
+                                    <div style="margin:16px 0px 16px 0px;">
+                                      <a t-att-href="object.get_base_url()"
+                                         style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                        Completar Registro
+                                      </a>
+                                    </div>
+                                    <br/>--<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+    <!--
+    ==============================================================================
+    11. PLANTILLA: AVISO PREVIO A DESACTIVACIÓN POR REGISTRO (USUARIO INVERSIONISTA)
+    ==============================================================================
+    - Propósito: Alertar al Inversionista que debe completar su registro para no perder su cuenta.
+    - Destinatario: Usuario externo/Inversionista.
+    - Desencadenante: Cron de aviso a usuarios nuevos sin validar.
+    - Variables clave: ctx.get('dias') -> Días restantes para completar registro.
+    ==============================================================================
+    -->
+    <record id="administracion_aviso_desactivar_usuario_registro_inversionistas" model="mail.template">
+      <field name="name">Usuarios: Aviso de Desactivar Usuarios Registro (Inversionistas)</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email_formatted or user.email_formatted) }}&gt;
+      </field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-LDAP: Aviso de Desactivación del Usuario SICPRO</field>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <table
+              style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+              cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+              <tr>
+                <td align="center">
+                  <table style="padding:16px; background-color: white; color: #454748; border-collapse:separate;"
+                         width="590" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td style="min-width:590px;" align="center">
+                          <table
+                              style="min-width:590px; background-color: white; padding: 16px 8px 16px 8px; border-collapse:separate;"
+                              width="590" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:13px;" valign="top">
+                                  <div>
+                                    Se informa que si no accede al sistema en un periodo de
+                                    <span style="font-weight: bolder;">
+                                      <t t-out="ctx.get('dias') or 'pocos'"/>
+                                    </span>
+                                    días su usuario será desactivado por no validar su registro.
+                                    <br/>
+                                    <br/>
+
+                                    <t t-if="object.nombre_inversionista">
+                                      <b>Inversionista:</b>
+                                      <t t-out="object.nombre_inversionista.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_cargo">
+                                      <b>Cargo:</b>
+                                      <t t-out="object.inversionista_cargo"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.inversionista_territorio">
+                                      <b>Territorio:</b>
+                                      <t t-out="object.inversionista_territorio.name"/>
+                                      <br/>
+                                    </t>
+
+                                    <t t-if="object.create_date">
+                                      <b>Fecha de registro:</b>
+                                      <t t-out="format_date(object.create_date)"/>
+                                      <br/>
+                                    </t>
+                                    <br/>
+                                    --<br/>Equipo de administración SICPRO ERP.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </field>
+    </record>
+
+  </data>
+</odoo>

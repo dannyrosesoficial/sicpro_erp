@@ -1,5 +1,0 @@
-221|discuss.channel|{"en_US": "Discussion Channel", "es_ES": "Canal de conversaciones"}
-219|discuss.channel.member|{"en_US": "Channel Member", "es_ES": "Miembro del canal"}
-220|discuss.channel.rtc.session|{"en_US": "Mail RTC session", "es_ES": "Sesión de comunicación en tiempo real por correo"}
-707|sicpro.app.solicitudes.oportunidades|{"en_US": "Solicitudes y oportunidades"}
-693|sicpro.app.vivienda.proveedor|{"en_US": "Proveedor del programa de la vivienda"}

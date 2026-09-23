@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo noupdate="1">
+  <record model="sicpro.app.medios.informaticos.tramites" id="T_ENTREGADO">
+    <field name="name">Entregado al usuario y reparado</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tramites" id="T_PDTE_ENTREG">
+    <field name="name">Pendiente de entregar al usuario. Reparado</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tramites" id="TPP_INFORM">
+    <field name="name">En Informática. Pendiente por piezas</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tramites" id="TB_INFORM">
+    <field name="name">En Informática. Para tramitar baja con economía</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tramites" id="T_DF_TALLER">
+    <field name="name">Destino Final Taller VPTI</field>
+  </record>
+  <record model="sicpro.app.medios.informaticos.tramites" id="T_REENV_MAF">
+    <field name="name">Reenviado MAF</field>
+  </record>
+</odoo>

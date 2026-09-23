@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="1">
+    <record model="sicpro.app.transferencias.gastos.ordenes.morosidad" id="morosidad_gastos_1">
+      <field name="sequence">1</field>
+      <field name="name">5</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.transferencias.gastos.ordenes.morosidad" id="morosidad_gastos_2">
+      <field name="sequence">2</field>
+      <field name="name">5</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.transferencias.gastos.ordenes.morosidad" id="morosidad_gastos_3">
+      <field name="sequence">3</field>
+      <field name="name">5</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+  </data>
+</odoo>

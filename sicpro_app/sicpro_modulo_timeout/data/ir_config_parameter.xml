@@ -1,0 +1,19 @@
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo noupdate="1">
+  <record id="inactive_session_time_out_delay" model="ir.config_parameter">
+    <field name="key">inactive_session_time_out_delay</field>
+    <field name="value">1800</field>
+  </record>
+  <record id="inactive_session_time_out_ignored_url" model="ir.config_parameter">
+    <field name="key">inactive_session_time_out_ignored_url</field>
+    <field name="value">/calendar/notify,/websocket</field>
+  </record>
+</odoo>

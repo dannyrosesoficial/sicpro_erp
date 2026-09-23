@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- Plantilla de feliz cumpleaños -->
+    <record id="plantilla_felicitacion_cumpleaños" model="mail.template">
+      <field name="name">Trabajadores: Feliz Cumpleaños</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Trabajadores: Te desea un Feliz Cumpleaños</field>
+      <field name="body_html"><![CDATA[
+        <div
+            style="background-color: #010203; padding: 40px 20px; text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: white;">
+
+          <div style="margin-bottom: 30px; text-align: center;">
+            <div
+                style="display: inline-block; width: 60px; height: 75px; background-color: #b60f61; border-radius: 50% 50% 50% 50%; margin: 5px; line-height: 75px; font-size: 35px; font-weight: bold; color: white; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);">
+              !
+            </div>
+            <div
+                style="display: inline-block; width: 60px; height: 75px; background-color: #f2702d; border-radius: 50% 50% 50% 50%; margin: 5px; line-height: 75px; font-size: 35px; font-weight: bold; color: white; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);">
+              F
+            </div>
+            <div
+                style="display: inline-block; width: 60px; height: 75px; background-color: #2db5a7; border-radius: 50% 50% 50% 50%; margin: 5px; line-height: 75px; font-size: 35px; font-weight: bold; color: white; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);">
+              E
+            </div>
+            <div
+                style="display: inline-block; width: 60px; height: 75px; background-color: #be3df4; border-radius: 50% 50% 50% 50%; margin: 5px; line-height: 75px; font-size: 35px; font-weight: bold; color: white; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);">
+              L
+            </div>
+            <div
+                style="display: inline-block; width: 60px; height: 75px; background-color: #b4e043; border-radius: 50% 50% 50% 50%; margin: 5px; line-height: 75px; font-size: 35px; font-weight: bold; color: white; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);">
+              I
+            </div>
+            <div
+                style="display: inline-block; width: 60px; height: 75px; background-color: #f2c23a; border-radius: 50% 50% 50% 50%; margin: 5px; line-height: 75px; font-size: 35px; font-weight: bold; color: white; box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);">
+              Z
+            </div>
+          </div>
+
+          <h1 style="color: #ffffff; font-size: 28px; font-weight: normal; margin: 0; padding: 0;">
+            Muchas felicidades en este día tan especial.
+          </h1>
+          <h2 style="color: #ffffff; font-size: 24px; font-weight: normal; margin: 10px 0;">
+            El cumpleaños más feliz para:
+          </h2>
+
+          <div style="margin: 30px 0;">
+            <span
+                style="font-size: 42px; color: #ffff00; font-weight: bold; text-decoration: underline; display: block;">
+              <t t-out="object.name"/>
+            </span>
+          </div>
+
+          <div
+              style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #333; color: #888888; font-size: 13px;">
+            <p style="margin: 5px 0;">Equipo de administración <strong>SICPRO ERP</strong>.</p>
+            <p style="margin: 5px 0; font-style: italic;">Nota: Este es un correo generado automáticamente. Por favor,
+              no responda.
+            </p>
+          </div>
+
+        </div>
+        ]]></field>
+    </record>
+
+    <!-- Plantilla de nueva medida -->
+    <record id="trabajadores_medidas_disciplinarias_nueva" model="mail.template">
+      <field name="name">Trabajadores: Medidas disciplinarias (Nueva)</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores_disiplinaria_acciones"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Trabajadores: {{ object.create_uid.name }} ha solicitado una Medida disciplinaria - {{ object.name }}</field>
+      <field name="body_html" type="html">
+        <table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif;
+                color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px;
+                                         border-collapse:separate;" width="590" cellspacing="0" cellpadding="0"
+                               border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO
+                                </span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;"> Medida:
+                                  <t t-out="object.name"/>
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>Ha sido solicitada una nueva medida disciplinaria,
+                                  a continuación se relacionan todos los
+                                  datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Trabajador:</b>
+                                  <t t-out="object.trabajador_id.name"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Área:</b>
+                                  <t t-out="object.departamento.name"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Solicitante:</b>
+                                  <t t-out="object.solicita_medida.name"/>
+                                  <b><br></br>Cargo:</b>
+                                  <t t-out="object.cargo_solicitante.name.name"/>
+                                  <br></br>
+                                  <b>Departamento:</b>
+                                  <t t-out="object.departamento_solicitante.name"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Motivo de la solicitud:</b>
+                                  <t t-out="object.motivo.name"/>
+                                  <br></br>
+                                  <b>Fecha de Infracción:</b>
+                                  <t t-out="format_datetime(object.fecha_infraccion)"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Notas:</b>
+                                  <t t-out="object.note"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <t t-set="website_url"
+                                       t-value="object.get_base_url()"></t>
+
+                                    <a t-att-href='website_url'
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      Iniciar Sesión
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email"
+                                     style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website"
+                                     style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023
+                            División de Proyectos y Ejecución de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico,
+                            Ave. Carlos III / Calle Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+
+    <!-- Plantilla de cambios de medidas -->
+    <record id="trabajadores_medidas_disciplinarias_cambios" model="mail.template">
+      <field name="name">Trabajadores: Medidas disciplinarias (Cambios)</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores_disiplinaria_acciones"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Trabajadores: {{ object.write_uid.name }} ha modificado la Medida disciplinaria - {{ object.name }}</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO
+                                </span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;"> Medida:
+                                  <t t-out="object.name"/>
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>Ha sido modificada la medida disciplinaria al
+                                  estado de
+                                  <b>
+                                    <t t-out="object.estado_secundario"/>
+                                  </b>
+                                  , a continuación se relacionan todos los datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Trabajador:</b>
+                                  <t t-out="object.trabajador_id.name"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Área:</b>
+                                  <t t-out="object.departamento.name"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Solicitante:</b>
+                                  <t t-out="object.solicita_medida.name"/>
+                                  <b><br></br>Cargo:</b>
+                                  <t t-out="object.cargo_solicitante.name.name"/>
+                                  <br></br>
+                                  <b>Departamento:</b>
+                                  <t t-out="object.departamento_solicitante.name"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Motivo de la solicitud:</b>
+                                  <t t-out="object.motivo.name"/>
+                                  <br></br>
+                                  <b>Fecha de Infracción:</b>
+                                  <t t-out="format_datetime(object.fecha_infraccion)"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Notas:</b>
+                                  <t t-out="object.note"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b><b>Fecha de Expiración</b>:</b>
+                                  <t t-out="format_date(object.fecha_expiracion)"/>
+                                  <br></br>
+                                  <b>Detalles de la Medida:</b>
+                                  <t t-out="object.acciones_detalles"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <t t-set="website_url"
+                                       t-value="object.get_base_url()"></t>
+
+                                    <a t-att-href='website_url'
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      Iniciar Sesión
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email"
+                                     style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website"
+                                     style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023
+                            División de Proyectos y Ejecución de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico,
+                            Ave. Carlos III / Calle Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </field>
+    </record>
+
+    <!-- Plantilla de expiracion de medidas -->
+    <record id="trabajadores_medidas_disciplinarias_expira" model="mail.template">
+      <field name="name">Trabajadores: Medidas disciplinarias (Expira)</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores_disiplinaria_acciones"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Trabajadores: Ha expirado la Medida disciplinaria - {{ object.name }}</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO
+                                </span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;"> Medida:
+                                  <t t-out="object.name"/>
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>La medida disciplinaria a expirado, a continuación
+                                  se relacionan todos los datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Trabajador:</b>
+                                  <t t-out="object.trabajador_id.name"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Área:</b>
+                                  <t t-out="object.departamento.name"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Solicitante:</b>
+                                  <t t-out="object.solicita_medida.name"/>
+                                  <b><br></br>Cargo:</b>
+                                  <t t-out="object.cargo_solicitante.name.name"/>
+                                  <br></br>
+                                  <b>Departamento:</b>
+                                  <t t-out="object.departamento_solicitante.name"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Motivo de la solicitud:</b>
+                                  <t t-out="object.motivo.name"/>
+                                  <br></br>
+                                  <b>Fecha de Infracción:</b>
+                                  <t t-out="format_datetime(object.fecha_infraccion)"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Notas:</b>
+                                  <t t-out="object.note"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b><b>Fecha de Expiración</b>:</b>
+                                  <t t-out="format_date(object.fecha_expiracion)"/>
+                                  <br></br>
+                                  <b>Detalles de la Medida:</b>
+                                  <t t-out="object.acciones_detalles"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <t t-set="website_url"
+                                       t-value="object.get_base_url()"></t>
+
+                                    <a t-att-href='website_url'
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      Iniciar Sesión
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email"
+                                     style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website"
+                                     style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023
+                            División de Proyectos y Ejecución de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico,
+                            Ave. Carlos III / Calle Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+
+    <!-- Plantilla de expiracion de certificaciones y homologaciones -->
+    <record id="trabajadores_certificaciones_expira" model="mail.template">
+      <field name="name">Trabajadores: Certificaciones y homologaciones (Expira)</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores_educacion"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Trabajadores: Ha expirado una Certificación del trabajador - {{ object.employee_id.plaza_id }}</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO
+                                </span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;">
+                                  Certificación u Homologación
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>La Certificación u Homologación del trabajador
+                                  <b>
+                                    <t t-out="object.employee_id.name"/>
+                                  </b>
+                                  a expirado, a continuación se relacionan todos los
+                                  datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Certificación:</b>
+                                  <i>
+                                    <font style="font-size: 14px;">
+                                      <t t-out="object.name"/>
+                                    </font>
+                                  </i>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Trabajador:</b>
+                                  <t t-out="object.employee_id.name"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Tipo:</b>
+                                  <t t-out="object.line_type_id.name"/>
+                                  <b><br></br>Fecha de inicio:</b>
+                                  <t t-out="format_date(object.date_start)"/>
+                                  <br></br>
+                                  <b>Fecha de terminación:</b>
+                                  <t t-out="format_date(object.date_end)"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Fecha de Expiración:</b>
+                                  <t t-out="format_date(object.fecha_expiracion)"/>
+                                  <br></br>
+                                  <b>Días de Validación:</b>
+                                  <t t-out="object.dias_validacion"/>
+                                  días
+                                  <br></br>
+                                  <br></br>
+                                  <b>Descripción:</b>
+                                  <t t-out="object.description"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <t t-set="website_url"
+                                       t-value="object.get_base_url()"></t>
+
+                                    <a t-att-href='website_url'
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      Iniciar Sesión
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email"
+                                     style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website"
+                                     style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023
+                            División de Proyectos y Ejecución de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico,
+                            Ave. Carlos III / Calle Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </field>
+    </record>
+
+    <!-- Plantilla de expiracion de documentación -->
+    <record id="trabajadores_documentacion_expira" model="mail.template">
+      <field name="name">Trabajadores: Documentación del Trabajador (Expira)</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores_documentos"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Trabajadores: Ha expirado la documentación del trabajador - {{ object.trabajadores_id.plaza_id }}</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO
+                                </span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;">
+                                  Documentación
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>La documentación del trabajador
+                                  <b>
+                                    <t t-out="object.trabajadores_id.name"/>
+                                  </b>
+                                  a expirado, a continuación se relacionan todos los
+                                  datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Número del Documento:</b>
+                                  <i>
+                                    <font style="font-size: 14px;">
+                                      <t t-out="object.name"/>
+                                    </font>
+                                  </i>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Trabajador:</b>
+                                  <t t-out="object.trabajadores_id.name"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Tipo:</b>
+                                  <t t-out="object.tipo_documento.name"/>
+                                  <b><br></br>Fecha de agregado:</b>
+                                  <t t-out="format_date(object.fecha_agregado)"/>
+                                  <br></br>
+                                  <b>Fecha de expiración:</b>
+                                  <t t-out="format_date(object.fecha_expira)"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Descripción:</b>
+                                  <t t-out="object.descripcion"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <t t-set="website_url"
+                                       t-value="object.get_base_url()"></t>
+
+                                    <a t-att-href='website_url'
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      Iniciar Sesión
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email"
+                                     style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website"
+                                     style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023
+                            División de Proyectos y Ejecución de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico,
+                            Ave. Carlos III / Calle Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+  </data>
+</odoo>

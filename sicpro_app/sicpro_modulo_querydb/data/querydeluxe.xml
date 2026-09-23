@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo noupdate="1">
+
+  <record id="drop_table_mytable" model="querydeluxe">
+    <field name="name">DROP TABLE mytable;</field>
+    <field name="note">Eliminar la tabla 'mytable'</field>
+  </record>
+
+  <record id="insert_into_mytable" model="querydeluxe">
+    <field name="name">INSERT INTO mytable VALUES (30, 'first rec', 'this is the first record');</field>
+    <field name="note">Insertar una fila en la tabla 'mytable' con la columna y el tipo correspondientes</field>
+  </record>
+
+  <record id="create_table_mytable" model="querydeluxe">
+    <field name="name">CREATE TABLE mytable (id Integer, name char(10), description char(40));</field>
+    <field name="note">Crear una tabla 'mytable' con columnas para id, nombre y descripción</field>
+  </record>
+
+  <record id="update_res_partner_email" model="querydeluxe">
+    <field name="name">UPDATE res_partner AS a SET email = CONCAT(a.name,'@company_mail.com');</field>
+    <field name="note">Modificar todos los correos electrónicos de los contactos siguiendo la regla 'nombre del
+      contacto'+'@company_mail.com'
+    </field>
+  </record>
+
+  <record id="update_res_users_password" model="querydeluxe">
+    <field name="name">UPDATE res_users SET password = 'my_45_password' WHERE id = 10;</field>
+    <field name="note">Modificar la contraseña a 'my_45_password' para el usuario con id = 10</field>
+  </record>
+
+  <record id="select_versions" model="querydeluxe">
+    <field name="name">SELECT version();</field>
+    <field name="note">La versión de la instancia de PostgreSQL</field>
+  </record>
+
+  <record id="select_pg_user" model="querydeluxe">
+    <field name="name">SELECT * FROM pg_user;</field>
+    <field name="note">Lista de todos los usuarios que utilizan PostgreSQL</field>
+  </record>
+
+  <record id="select_datname_pg_database" model="querydeluxe">
+    <field name="name">SELECT datname FROM pg_database;</field>
+    <field name="note">Lista de todas las bases de datos dentro de PostgreSQL</field>
+  </record>
+
+  <record id="select_pg_catalog_pg_table" model="querydeluxe">
+    <field name="name">SELECT * FROM pg_catalog.pg_tables;</field>
+    <field name="note">Mostrar todas las tablas dentro de la base de datos actual</field>
+  </record>
+
+  <record id="select_res_partner" model="querydeluxe">
+    <field name="name">SELECT name,phone,email FROM res_partner;</field>
+    <field name="note">Mostrar todos los registros del modelo res.partner con los atributos de nombre, teléfono y correo
+      electrónico
+    </field>
+  </record>
+</odoo>

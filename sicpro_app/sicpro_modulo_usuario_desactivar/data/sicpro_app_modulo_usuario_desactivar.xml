@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- plantilla del único registro para desactivar usuarios -->
+    <record id="desactiva_usuarios_unique_id_1" model="sicpro.app.modulo.usuario.desactivar">
+      <field name="dias">15</field>
+      <field name="tipo">registro</field>
+      <field name="name">Servicio-registro</field>
+    </record>
+    <record id="desactiva_usuarios_unique_id_2" model="sicpro.app.modulo.usuario.desactivar">
+      <field name="dias">45</field>
+      <field name="tipo">acceso</field>
+      <field name="name">Servicio-acceso</field>
+    </record>
+    <record id="desactiva_usuarios_unique_id_3" model="sicpro.app.modulo.usuario.desactivar">
+      <field name="dias">0</field>
+      <field name="tipo">ldap</field>
+      <field name="name">Servicio-ldap</field>
+    </record>
+  </data>
+</odoo>

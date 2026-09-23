@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record id="email_template_edi_jitsi_meet" model="mail.template">
+      <field name="name">VideoConferencia: Enviar invitación</field>
+      <field name="model_id" ref="sicpro_app_video_conferencias.model_sicpro_app_videoconferencias_usuarioexterno"/>
+      <field name="subject">Invitación: {{ object.meeting_name }}</field>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="email_to">{{ object.name }}</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="body_html" type="html">
+        <div style="margin: 0px; padding: 0px;">
+          <p style="margin: 0px; padding: 0px; font-size: 13px;">
+            Estimado/a,
+            <br/>
+            <br/>
+            Ha sido invitado a una videoconferencia gestionada por <strong>SICPRO ERP</strong>.
+            <br/>
+            <br/>
+            <strong>Detalles de la reunión:</strong>
+            <ul>
+              <li>
+                <strong>Asunto:</strong>
+                <t t-out="object.meeting_name"/>
+              </li>
+              <li>
+                <strong>Fecha:</strong>
+                <t t-out="format_datetime(object.meeting_date, tz='America/Havana', dt_format='dd/MM/yyyy HH:mm')"/>
+                (Hora de Cuba)
+              </li>
+            </ul>
+            <br/>
+            Para unirse a la sala, haga clic en el siguiente botón:
+            <br/>
+            <br/>
+            <center>
+              <a t-att-href="object.meeting_url"
+                 style="background-color: #875A7B; padding: 10px 20px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 16px;">
+                UNIRSE A LA REUNIÓN
+              </a>
+            </center>
+            <br/>
+            <br/>
+            Si el botón no funciona, puede copiar y pegar este enlace en su navegador:
+            <br/>
+            <a t-att-href="object.meeting_url" style="color: #875A7B;">
+                <t t-out="object.meeting_url"/>
+            </a>
+            <br/>
+            <br/>
+            Saludos,
+            <br/>
+            <strong>SICPRO ERP</strong>
+          </p>
+        </div>
+      </field>
+    </record>
+  </data>
+</odoo>

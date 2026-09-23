@@ -1,0 +1,38 @@
+[Unit]
+Description=SICPRO ERP - Odoo 19
+Requires=postgresql.service
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+
+User=odoo
+Group=odoo
+
+WorkingDirectory=/opt/odoo/sicproerp/odoo
+
+ExecStart=/opt/odoo/sicproerp/venv/bin/python \
+  /opt/odoo/sicproerp/odoo/odoo-bin \
+  --config=/opt/odoo/sicproerp-data/config/odoo/odoo.config
+
+Restart=always
+RestartSec=5s
+
+LimitNOFILE=65535
+
+KillSignal=SIGTERM
+KillMode=mixed
+TimeoutStartSec=120
+TimeoutStopSec=300
+
+StandardOutput=journal
+StandardError=journal
+
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=full
+
+ReadWritePaths=/opt/odoo/sicproerp-data
+
+[Install]
+WantedBy=multi-user.target

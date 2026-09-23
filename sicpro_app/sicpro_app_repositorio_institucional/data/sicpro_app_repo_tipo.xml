@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data noupdate="0">
+        <!-- Tipos de repositorios -->
+        <record id="tipo_repositorio_1" model="sicpro.app.repo.tipo">
+            <field name="name">Artículo de Revista</field>
+            <field name="descripcion">Escrito original y revisado por pares que presenta resultados específicos
+                publicados en una revista periódica.
+            </field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="tipo_repositorio_2" model="sicpro.app.repo.tipo">
+            <field name="name">Tesis/Disertación</field>
+            <field name="descripcion">Trabajo de investigación extenso y original exigido para obtener un grado
+                académico (Maestría/Doctorado).
+            </field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="tipo_repositorio_3" model="sicpro.app.repo.tipo">
+            <field name="name">Libro/Capítulo</field>
+            <field name="descripcion">Libro: Cobertura amplia y sistemática de un tema. Capítulo: Sección específica
+                dentro de un libro editado por varios autores.
+            </field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="tipo_repositorio_4" model="sicpro.app.repo.tipo">
+            <field name="name">Informe Técnico</field>
+            <field name="descripcion">Documento detallado que reporta el proceso y resultados de un proyecto técnico o
+                investigación específica para una organización.
+            </field>
+            <field name="sequence">4</field>
+        </record>
+        <record id="tipo_repositorio_5" model="sicpro.app.repo.tipo">
+            <field name="name">Ponencia/Actas de Congreso</field>
+            <field name="descripcion">Ponencia: Comunicación breve presentada oralmente en un evento. Actas: Colección
+                publicada de estas ponencias. Difunde trabajo reciente.
+            </field>
+            <field name="sequence">5</field>
+        </record>
+
+
+    </data>
+</odoo>

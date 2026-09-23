@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <!-- Plantilla de aviso de usuario desactivado -->
+    <record id="credenciales_usuario_desactivado" model="mail.template">
+        <field name="name">Credenciales: Usuario desactivado</field>
+        <field name="model_id" ref="sicpro_app_credenciales.model_sicpro_app_credenciales"/>
+        <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+        <field name="subject">•SICPRO ERP-Credenciales: Usuario vencido - {{ object.trabajador.name }}</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td align="center">
+                                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="min-width:590px;" align="center">
+                                                <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign="middle">
+                                                                <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br/>
+                                                                <span style="font-size:20px;font-weight: bold;">
+                                                                    <t t-out="object.trabajador.name"/>
+                                                                </span>
+                                                            </td>
+                                                            <td valign="middle" align="right">
+                                                                <img t-attf-src="/sicpro_app_administracion/static/src/img/logo_sicpro%204.png" style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2" style="text-align:center;">
+                                                                <hr style="background-color:rgb(204,204,204);border:none;min-height:1px;margin: 16px 0px 16px 0px;" width="100%"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="min-width:590px;" align="center">
+                                                <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="font-size:13px;" valign="top">
+                                                                <div>
+                                                                    Ha sido desactivado un usuario por vencerse el periodo de su credencial, a continuación se relacionan todos los datos:<br/><br/>
+                                                                    <b>Trabajador:</b> <t t-out="object.trabajador.name"/><br/><br/>
+                                                                    <b>Área:</b> <t t-out="object.area_id.name"/><br/><br/>
+                                                                    <b>Proceso:</b> <t t-out="object.company_id.name"/><br/>
+                                                                    <b>Cargo:</b> <t t-out="object.ocupacion_id.name.name"/><br/><br/>
+
+                                                                    <b>Credencial:</b>
+                                                                    <t t-if="object.tipo_credencial and 'PROVISIONAL' in object.tipo_credencial.name">
+                                                                        <t t-out="object.no_credencial_provisional"/>
+                                                                    </t>
+                                                                    <t t-if="object.tipo_credencial and 'ESPECIAL' in object.tipo_credencial.name">
+                                                                        <t t-out="object.no_credencial_especial"/>
+                                                                    </t>
+                                                                    <br/><br/>
+                                                                    <b>Accesos:</b> <t t-out="object.accesos_credencial.name"/><br/>
+                                                                    <b>Alcance:</b> <t t-out="object.alcance_credencial.name"/><br/><br/>
+                                                                    <b>Fecha de Entrega:</b> <t t-out="object.fecha_entrega"/><br/><br/>
+
+                                                                    <div style="margin:16px 0px 16px 0px;">
+                                                                        <a t-att-href="'/mail/view?model=%s&amp;res_id=%s' % ('sicpro.app.credenciales', object.id)"
+                                                                           style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                                                            Ver Usuario Desactivado
+                                                                        </a>
+                                                                    </div>
+                                                                    <br/>
+                                                                    --<br/>Equipo de administración SICPRO ERP.
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="text-align:center;">
+                                                                <hr style="background-color:rgb(204,204,204);border:none;min-height:1px;margin: 16px 0px 16px 0px;" width="100%"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </field>
+    </record>
+</odoo>

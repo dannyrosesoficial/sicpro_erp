@@ -1,0 +1,2299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record id="icon_fab_500px" model="sicpro.nomenclador.iconos">
+      <field name="name">500px (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-500px</field>
+    </record>
+    <record id="icon_fab_accessible_icon" model="sicpro.nomenclador.iconos">
+      <field name="name">Accessible Icon (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-accessible-icon</field>
+    </record>
+    <record id="icon_fab_accusoft" model="sicpro.nomenclador.iconos">
+      <field name="name">Accusoft (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-accusoft</field>
+    </record>
+    <record id="icon_fab_acquisitions_incorporated" model="sicpro.nomenclador.iconos">
+      <field name="name">Acquisitions Incorporated (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-acquisitions-incorporated</field>
+    </record>
+    <record id="icon_fab_adn" model="sicpro.nomenclador.iconos">
+      <field name="name">App.net (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-adn</field>
+    </record>
+    <record id="icon_fab_adversal" model="sicpro.nomenclador.iconos">
+      <field name="name">Adversal (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-adversal</field>
+    </record>
+    <record id="icon_fab_affiliatetheme" model="sicpro.nomenclador.iconos">
+      <field name="name">affiliatetheme (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-affiliatetheme</field>
+    </record>
+    <record id="icon_fab_airbnb" model="sicpro.nomenclador.iconos">
+      <field name="name">Airbnb (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-airbnb</field>
+    </record>
+    <record id="icon_fab_algolia" model="sicpro.nomenclador.iconos">
+      <field name="name">Algolia (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-algolia</field>
+    </record>
+    <record id="icon_fab_alipay" model="sicpro.nomenclador.iconos">
+      <field name="name">Alipay (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-alipay</field>
+    </record>
+    <record id="icon_fab_amazon" model="sicpro.nomenclador.iconos">
+      <field name="name">Amazon (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-amazon</field>
+    </record>
+    <record id="icon_fab_amazon_pay" model="sicpro.nomenclador.iconos">
+      <field name="name">Amazon Pay (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-amazon-pay</field>
+    </record>
+    <record id="icon_fab_amilia" model="sicpro.nomenclador.iconos">
+      <field name="name">Amilia (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-amilia</field>
+    </record>
+    <record id="icon_fab_android" model="sicpro.nomenclador.iconos">
+      <field name="name">Android (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-android</field>
+    </record>
+    <record id="icon_fab_angellist" model="sicpro.nomenclador.iconos">
+      <field name="name">AngelList (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-angellist</field>
+    </record>
+    <record id="icon_fab_angrycreative" model="sicpro.nomenclador.iconos">
+      <field name="name">Angry Creative (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-angrycreative</field>
+    </record>
+    <record id="icon_fab_angular" model="sicpro.nomenclador.iconos">
+      <field name="name">Angular (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-angular</field>
+    </record>
+    <record id="icon_fab_app_store" model="sicpro.nomenclador.iconos">
+      <field name="name">App Store (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-app-store</field>
+    </record>
+    <record id="icon_fab_app_store_ios" model="sicpro.nomenclador.iconos">
+      <field name="name">iOS App Store (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-app-store-ios</field>
+    </record>
+    <record id="icon_fab_apper" model="sicpro.nomenclador.iconos">
+      <field name="name">Apper Systems AB (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-apper</field>
+    </record>
+    <record id="icon_fab_apple" model="sicpro.nomenclador.iconos">
+      <field name="name">Apple (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-apple</field>
+    </record>
+    <record id="icon_fab_apple_pay" model="sicpro.nomenclador.iconos">
+      <field name="name">Apple Pay (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-apple-pay</field>
+    </record>
+    <record id="icon_fab_artstation" model="sicpro.nomenclador.iconos">
+      <field name="name">Artstation (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-artstation</field>
+    </record>
+    <record id="icon_fab_asymmetrik" model="sicpro.nomenclador.iconos">
+      <field name="name">Asymmetrik, Ltd. (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-asymmetrik</field>
+    </record>
+    <record id="icon_fab_atlassian" model="sicpro.nomenclador.iconos">
+      <field name="name">Atlassian (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-atlassian</field>
+    </record>
+    <record id="icon_fab_audible" model="sicpro.nomenclador.iconos">
+      <field name="name">Audible (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-audible</field>
+    </record>
+    <record id="icon_fab_autoprefixer" model="sicpro.nomenclador.iconos">
+      <field name="name">Autoprefixer (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-autoprefixer</field>
+    </record>
+    <record id="icon_fab_avianex" model="sicpro.nomenclador.iconos">
+      <field name="name">avianex (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-avianex</field>
+    </record>
+    <record id="icon_fab_aviato" model="sicpro.nomenclador.iconos">
+      <field name="name">Aviato (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-aviato</field>
+    </record>
+    <record id="icon_fab_aws" model="sicpro.nomenclador.iconos">
+      <field name="name">Amazon Web Services (AWS) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-aws</field>
+    </record>
+    <record id="icon_fab_bandcamp" model="sicpro.nomenclador.iconos">
+      <field name="name">Bandcamp (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-bandcamp</field>
+    </record>
+    <record id="icon_fab_battle_net" model="sicpro.nomenclador.iconos">
+      <field name="name">Battle.net (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-battle-net</field>
+    </record>
+    <record id="icon_fab_behance" model="sicpro.nomenclador.iconos">
+      <field name="name">Behance (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-behance</field>
+    </record>
+    <record id="icon_fab_behance_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Behance Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-behance-square</field>
+    </record>
+    <record id="icon_fab_bimobject" model="sicpro.nomenclador.iconos">
+      <field name="name">BIMobject (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-bimobject</field>
+    </record>
+    <record id="icon_fab_bitbucket" model="sicpro.nomenclador.iconos">
+      <field name="name">Bitbucket (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-bitbucket</field>
+    </record>
+    <record id="icon_fab_bitcoin" model="sicpro.nomenclador.iconos">
+      <field name="name">Bitcoin (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-bitcoin</field>
+    </record>
+    <record id="icon_fab_bity" model="sicpro.nomenclador.iconos">
+      <field name="name">Bity (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-bity</field>
+    </record>
+    <record id="icon_fab_black_tie" model="sicpro.nomenclador.iconos">
+      <field name="name">Font Awesome Black Tie (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-black-tie</field>
+    </record>
+    <record id="icon_fab_blackberry" model="sicpro.nomenclador.iconos">
+      <field name="name">BlackBerry (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-blackberry</field>
+    </record>
+    <record id="icon_fab_blogger" model="sicpro.nomenclador.iconos">
+      <field name="name">Blogger (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-blogger</field>
+    </record>
+    <record id="icon_fab_blogger_b" model="sicpro.nomenclador.iconos">
+      <field name="name">Blogger B (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-blogger-b</field>
+    </record>
+    <record id="icon_fab_bluetooth" model="sicpro.nomenclador.iconos">
+      <field name="name">Bluetooth (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-bluetooth</field>
+    </record>
+    <record id="icon_fab_bluetooth_b" model="sicpro.nomenclador.iconos">
+      <field name="name">Bluetooth (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-bluetooth-b</field>
+    </record>
+    <record id="icon_fab_bootstrap" model="sicpro.nomenclador.iconos">
+      <field name="name">Bootstrap (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-bootstrap</field>
+    </record>
+    <record id="icon_fab_btc" model="sicpro.nomenclador.iconos">
+      <field name="name">BTC (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-btc</field>
+    </record>
+    <record id="icon_fab_buffer" model="sicpro.nomenclador.iconos">
+      <field name="name">Buffer (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-buffer</field>
+    </record>
+    <record id="icon_fab_buromobelexperte" model="sicpro.nomenclador.iconos">
+      <field name="name">Büromöbel-Experte GmbH &amp; Co. KG. (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-buromobelexperte</field>
+    </record>
+    <record id="icon_fab_buy_n_large" model="sicpro.nomenclador.iconos">
+      <field name="name">Buy n Large (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-buy-n-large</field>
+    </record>
+    <record id="icon_fab_buysellads" model="sicpro.nomenclador.iconos">
+      <field name="name">BuySellAds (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-buysellads</field>
+    </record>
+    <record id="icon_fab_canadian_maple_leaf" model="sicpro.nomenclador.iconos">
+      <field name="name">Canadian Maple Leaf (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-canadian-maple-leaf</field>
+    </record>
+    <record id="icon_fab_cc_amazon_pay" model="sicpro.nomenclador.iconos">
+      <field name="name">Amazon Pay Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-amazon-pay</field>
+    </record>
+    <record id="icon_fab_cc_amex" model="sicpro.nomenclador.iconos">
+      <field name="name">American Express Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-amex</field>
+    </record>
+    <record id="icon_fab_cc_apple_pay" model="sicpro.nomenclador.iconos">
+      <field name="name">Apple Pay Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-apple-pay</field>
+    </record>
+    <record id="icon_fab_cc_diners_club" model="sicpro.nomenclador.iconos">
+      <field name="name">Diner's Club Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-diners-club</field>
+    </record>
+    <record id="icon_fab_cc_discover" model="sicpro.nomenclador.iconos">
+      <field name="name">Discover Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-discover</field>
+    </record>
+    <record id="icon_fab_cc_jcb" model="sicpro.nomenclador.iconos">
+      <field name="name">JCB Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-jcb</field>
+    </record>
+    <record id="icon_fab_cc_mastercard" model="sicpro.nomenclador.iconos">
+      <field name="name">MasterCard Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-mastercard</field>
+    </record>
+    <record id="icon_fab_cc_paypal" model="sicpro.nomenclador.iconos">
+      <field name="name">Paypal Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-paypal</field>
+    </record>
+    <record id="icon_fab_cc_stripe" model="sicpro.nomenclador.iconos">
+      <field name="name">Stripe Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-stripe</field>
+    </record>
+    <record id="icon_fab_cc_visa" model="sicpro.nomenclador.iconos">
+      <field name="name">Visa Credit Card (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cc-visa</field>
+    </record>
+    <record id="icon_fab_centercode" model="sicpro.nomenclador.iconos">
+      <field name="name">Centercode (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-centercode</field>
+    </record>
+    <record id="icon_fab_centos" model="sicpro.nomenclador.iconos">
+      <field name="name">Centos (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-centos</field>
+    </record>
+    <record id="icon_fab_chrome" model="sicpro.nomenclador.iconos">
+      <field name="name">Chrome (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-chrome</field>
+    </record>
+    <record id="icon_fab_chromecast" model="sicpro.nomenclador.iconos">
+      <field name="name">Chromecast (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-chromecast</field>
+    </record>
+    <record id="icon_fab_cloudflare" model="sicpro.nomenclador.iconos">
+      <field name="name">Cloudflare (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cloudflare</field>
+    </record>
+    <record id="icon_fab_cloudscale" model="sicpro.nomenclador.iconos">
+      <field name="name">cloudscale.ch (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cloudscale</field>
+    </record>
+    <record id="icon_fab_cloudsmith" model="sicpro.nomenclador.iconos">
+      <field name="name">Cloudsmith (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cloudsmith</field>
+    </record>
+    <record id="icon_fab_cloudversify" model="sicpro.nomenclador.iconos">
+      <field name="name">cloudversify (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cloudversify</field>
+    </record>
+    <record id="icon_fab_codepen" model="sicpro.nomenclador.iconos">
+      <field name="name">Codepen (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-codepen</field>
+    </record>
+    <record id="icon_fab_codiepie" model="sicpro.nomenclador.iconos">
+      <field name="name">Codie Pie (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-codiepie</field>
+    </record>
+    <record id="icon_fab_confluence" model="sicpro.nomenclador.iconos">
+      <field name="name">Confluence (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-confluence</field>
+    </record>
+    <record id="icon_fab_connectdevelop" model="sicpro.nomenclador.iconos">
+      <field name="name">Connect Develop (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-connectdevelop</field>
+    </record>
+    <record id="icon_fab_contao" model="sicpro.nomenclador.iconos">
+      <field name="name">Contao (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-contao</field>
+    </record>
+    <record id="icon_fab_cotton_bureau" model="sicpro.nomenclador.iconos">
+      <field name="name">Cotton Bureau (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cotton-bureau</field>
+    </record>
+    <record id="icon_fab_cpanel" model="sicpro.nomenclador.iconos">
+      <field name="name">cPanel (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cpanel</field>
+    </record>
+    <record id="icon_fab_creative_commons" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons</field>
+    </record>
+    <record id="icon_fab_creative_commons_by" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Attribution (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-by</field>
+    </record>
+    <record id="icon_fab_creative_commons_nc" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Noncommercial (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-nc</field>
+    </record>
+    <record id="icon_fab_creative_commons_nc_eu" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Noncommercial (Euro Sign) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-nc-eu</field>
+    </record>
+    <record id="icon_fab_creative_commons_nc_jp" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Noncommercial (Yen Sign) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-nc-jp</field>
+    </record>
+    <record id="icon_fab_creative_commons_nd" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons No Derivative Works (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-nd</field>
+    </record>
+    <record id="icon_fab_creative_commons_pd" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Public Domain (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-pd</field>
+    </record>
+    <record id="icon_fab_creative_commons_pd_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Creative Commons Public Domain (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-pd-alt</field>
+    </record>
+    <record id="icon_fab_creative_commons_remix" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Remix (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-remix</field>
+    </record>
+    <record id="icon_fab_creative_commons_sa" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Share Alike (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-sa</field>
+    </record>
+    <record id="icon_fab_creative_commons_sampling" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Sampling (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-sampling</field>
+    </record>
+    <record id="icon_fab_creative_commons_sampling_plus" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Sampling + (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-sampling-plus</field>
+    </record>
+    <record id="icon_fab_creative_commons_share" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons Share (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-share</field>
+    </record>
+    <record id="icon_fab_creative_commons_zero" model="sicpro.nomenclador.iconos">
+      <field name="name">Creative Commons CC0 (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-creative-commons-zero</field>
+    </record>
+    <record id="icon_fab_critical_role" model="sicpro.nomenclador.iconos">
+      <field name="name">Critical Role (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-critical-role</field>
+    </record>
+    <record id="icon_fab_css3" model="sicpro.nomenclador.iconos">
+      <field name="name">CSS 3 Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-css3</field>
+    </record>
+    <record id="icon_fab_css3_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate CSS3 Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-css3-alt</field>
+    </record>
+    <record id="icon_fab_cuttlefish" model="sicpro.nomenclador.iconos">
+      <field name="name">Cuttlefish (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-cuttlefish</field>
+    </record>
+    <record id="icon_fab_d_and_d" model="sicpro.nomenclador.iconos">
+      <field name="name">Dungeons &amp; Dragons (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-d-and-d</field>
+    </record>
+    <record id="icon_fab_d_and_d_beyond" model="sicpro.nomenclador.iconos">
+      <field name="name">D&amp;D Beyond (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-d-and-d-beyond</field>
+    </record>
+    <record id="icon_fab_dailymotion" model="sicpro.nomenclador.iconos">
+      <field name="name">dailymotion (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-dailymotion</field>
+    </record>
+    <record id="icon_fab_dashcube" model="sicpro.nomenclador.iconos">
+      <field name="name">DashCube (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-dashcube</field>
+    </record>
+    <record id="icon_fab_deezer" model="sicpro.nomenclador.iconos">
+      <field name="name">Deezer (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-deezer</field>
+    </record>
+    <record id="icon_fab_delicious" model="sicpro.nomenclador.iconos">
+      <field name="name">Delicious (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-delicious</field>
+    </record>
+    <record id="icon_fab_deploydog" model="sicpro.nomenclador.iconos">
+      <field name="name">deploy.dog (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-deploydog</field>
+    </record>
+    <record id="icon_fab_deskpro" model="sicpro.nomenclador.iconos">
+      <field name="name">Deskpro (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-deskpro</field>
+    </record>
+    <record id="icon_fab_dev" model="sicpro.nomenclador.iconos">
+      <field name="name">DEV (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-dev</field>
+    </record>
+    <record id="icon_fab_deviantart" model="sicpro.nomenclador.iconos">
+      <field name="name">deviantART (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-deviantart</field>
+    </record>
+    <record id="icon_fab_dhl" model="sicpro.nomenclador.iconos">
+      <field name="name">DHL (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-dhl</field>
+    </record>
+    <record id="icon_fab_diaspora" model="sicpro.nomenclador.iconos">
+      <field name="name">Diaspora (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-diaspora</field>
+    </record>
+    <record id="icon_fab_digg" model="sicpro.nomenclador.iconos">
+      <field name="name">Digg Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-digg</field>
+    </record>
+    <record id="icon_fab_digital_ocean" model="sicpro.nomenclador.iconos">
+      <field name="name">Digital Ocean (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-digital-ocean</field>
+    </record>
+    <record id="icon_fab_discord" model="sicpro.nomenclador.iconos">
+      <field name="name">Discord (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-discord</field>
+    </record>
+    <record id="icon_fab_discourse" model="sicpro.nomenclador.iconos">
+      <field name="name">Discourse (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-discourse</field>
+    </record>
+    <record id="icon_fab_dochub" model="sicpro.nomenclador.iconos">
+      <field name="name">DocHub (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-dochub</field>
+    </record>
+    <record id="icon_fab_docker" model="sicpro.nomenclador.iconos">
+      <field name="name">Docker (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-docker</field>
+    </record>
+    <record id="icon_fab_draft2digital" model="sicpro.nomenclador.iconos">
+      <field name="name">Draft2digital (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-draft2digital</field>
+    </record>
+    <record id="icon_fab_dribbble" model="sicpro.nomenclador.iconos">
+      <field name="name">Dribbble (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-dribbble</field>
+    </record>
+    <record id="icon_fab_dribbble_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Dribbble Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-dribbble-square</field>
+    </record>
+    <record id="icon_fab_dropbox" model="sicpro.nomenclador.iconos">
+      <field name="name">Dropbox (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-dropbox</field>
+    </record>
+    <record id="icon_fab_drupal" model="sicpro.nomenclador.iconos">
+      <field name="name">Drupal Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-drupal</field>
+    </record>
+    <record id="icon_fab_dyalog" model="sicpro.nomenclador.iconos">
+      <field name="name">Dyalog (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-dyalog</field>
+    </record>
+    <record id="icon_fab_earlybirds" model="sicpro.nomenclador.iconos">
+      <field name="name">Earlybirds (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-earlybirds</field>
+    </record>
+    <record id="icon_fab_ebay" model="sicpro.nomenclador.iconos">
+      <field name="name">eBay (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ebay</field>
+    </record>
+    <record id="icon_fab_edge" model="sicpro.nomenclador.iconos">
+      <field name="name">Edge Browser (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-edge</field>
+    </record>
+    <record id="icon_fab_edge_legacy" model="sicpro.nomenclador.iconos">
+      <field name="name">Edge Legacy Browser (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-edge-legacy</field>
+    </record>
+    <record id="icon_fab_elementor" model="sicpro.nomenclador.iconos">
+      <field name="name">Elementor (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-elementor</field>
+    </record>
+    <record id="icon_fab_ello" model="sicpro.nomenclador.iconos">
+      <field name="name">Ello (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ello</field>
+    </record>
+    <record id="icon_fab_ember" model="sicpro.nomenclador.iconos">
+      <field name="name">Ember (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ember</field>
+    </record>
+    <record id="icon_fab_empire" model="sicpro.nomenclador.iconos">
+      <field name="name">Galactic Empire (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-empire</field>
+    </record>
+    <record id="icon_fab_envira" model="sicpro.nomenclador.iconos">
+      <field name="name">Envira Gallery (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-envira</field>
+    </record>
+    <record id="icon_fab_erlang" model="sicpro.nomenclador.iconos">
+      <field name="name">Erlang (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-erlang</field>
+    </record>
+    <record id="icon_fab_ethereum" model="sicpro.nomenclador.iconos">
+      <field name="name">Ethereum (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ethereum</field>
+    </record>
+    <record id="icon_fab_etsy" model="sicpro.nomenclador.iconos">
+      <field name="name">Etsy (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-etsy</field>
+    </record>
+    <record id="icon_fab_evernote" model="sicpro.nomenclador.iconos">
+      <field name="name">Evernote (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-evernote</field>
+    </record>
+    <record id="icon_fab_expeditedssl" model="sicpro.nomenclador.iconos">
+      <field name="name">ExpeditedSSL (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-expeditedssl</field>
+    </record>
+    <record id="icon_fab_facebook" model="sicpro.nomenclador.iconos">
+      <field name="name">Facebook (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-facebook</field>
+    </record>
+    <record id="icon_fab_facebook_f" model="sicpro.nomenclador.iconos">
+      <field name="name">Facebook F (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-facebook-f</field>
+    </record>
+    <record id="icon_fab_facebook_messenger" model="sicpro.nomenclador.iconos">
+      <field name="name">Facebook Messenger (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-facebook-messenger</field>
+    </record>
+    <record id="icon_fab_facebook_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Facebook Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-facebook-square</field>
+    </record>
+    <record id="icon_fab_fantasy_flight_games" model="sicpro.nomenclador.iconos">
+      <field name="name">Fantasy Flight-games (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-fantasy-flight-games</field>
+    </record>
+    <record id="icon_fab_fedex" model="sicpro.nomenclador.iconos">
+      <field name="name">FedEx (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-fedex</field>
+    </record>
+    <record id="icon_fab_fedora" model="sicpro.nomenclador.iconos">
+      <field name="name">Fedora (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-fedora</field>
+    </record>
+    <record id="icon_fab_figma" model="sicpro.nomenclador.iconos">
+      <field name="name">Figma (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-figma</field>
+    </record>
+    <record id="icon_fab_firefox" model="sicpro.nomenclador.iconos">
+      <field name="name">Firefox (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-firefox</field>
+    </record>
+    <record id="icon_fab_firefox_browser" model="sicpro.nomenclador.iconos">
+      <field name="name">Firefox Browser (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-firefox-browser</field>
+    </record>
+    <record id="icon_fab_first_order" model="sicpro.nomenclador.iconos">
+      <field name="name">First Order (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-first-order</field>
+    </record>
+    <record id="icon_fab_first_order_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate First Order (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-first-order-alt</field>
+    </record>
+    <record id="icon_fab_firstdraft" model="sicpro.nomenclador.iconos">
+      <field name="name">firstdraft (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-firstdraft</field>
+    </record>
+    <record id="icon_fab_flickr" model="sicpro.nomenclador.iconos">
+      <field name="name">Flickr (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-flickr</field>
+    </record>
+    <record id="icon_fab_flipboard" model="sicpro.nomenclador.iconos">
+      <field name="name">Flipboard (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-flipboard</field>
+    </record>
+    <record id="icon_fab_fly" model="sicpro.nomenclador.iconos">
+      <field name="name">Fly (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-fly</field>
+    </record>
+    <record id="icon_fab_font_awesome" model="sicpro.nomenclador.iconos">
+      <field name="name">Font Awesome (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-font-awesome</field>
+    </record>
+    <record id="icon_fab_font_awesome_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Font Awesome (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-font-awesome-alt</field>
+    </record>
+    <record id="icon_fab_font_awesome_flag" model="sicpro.nomenclador.iconos">
+      <field name="name">Font Awesome Flag (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-font-awesome-flag</field>
+    </record>
+    <record id="icon_fab_font_awesome_logo_full" model="sicpro.nomenclador.iconos">
+      <field name="name">Font Awesome Full Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-font-awesome-logo-full</field>
+    </record>
+    <record id="icon_fab_fonticons" model="sicpro.nomenclador.iconos">
+      <field name="name">Fonticons (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-fonticons</field>
+    </record>
+    <record id="icon_fab_fonticons_fi" model="sicpro.nomenclador.iconos">
+      <field name="name">Fonticons Fi (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-fonticons-fi</field>
+    </record>
+    <record id="icon_fab_fort_awesome" model="sicpro.nomenclador.iconos">
+      <field name="name">Fort Awesome (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-fort-awesome</field>
+    </record>
+    <record id="icon_fab_fort_awesome_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Fort Awesome (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-fort-awesome-alt</field>
+    </record>
+    <record id="icon_fab_forumbee" model="sicpro.nomenclador.iconos">
+      <field name="name">Forumbee (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-forumbee</field>
+    </record>
+    <record id="icon_fab_foursquare" model="sicpro.nomenclador.iconos">
+      <field name="name">Foursquare (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-foursquare</field>
+    </record>
+    <record id="icon_fab_free_code_camp" model="sicpro.nomenclador.iconos">
+      <field name="name">freeCodeCamp (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-free-code-camp</field>
+    </record>
+    <record id="icon_fab_freebsd" model="sicpro.nomenclador.iconos">
+      <field name="name">FreeBSD (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-freebsd</field>
+    </record>
+    <record id="icon_fab_fulcrum" model="sicpro.nomenclador.iconos">
+      <field name="name">Fulcrum (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-fulcrum</field>
+    </record>
+    <record id="icon_fab_galactic_republic" model="sicpro.nomenclador.iconos">
+      <field name="name">Galactic Republic (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-galactic-republic</field>
+    </record>
+    <record id="icon_fab_galactic_senate" model="sicpro.nomenclador.iconos">
+      <field name="name">Galactic Senate (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-galactic-senate</field>
+    </record>
+    <record id="icon_fab_get_pocket" model="sicpro.nomenclador.iconos">
+      <field name="name">Get Pocket (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-get-pocket</field>
+    </record>
+    <record id="icon_fab_gg" model="sicpro.nomenclador.iconos">
+      <field name="name">GG Currency (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-gg</field>
+    </record>
+    <record id="icon_fab_gg_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">GG Currency Circle (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-gg-circle</field>
+    </record>
+    <record id="icon_fab_git" model="sicpro.nomenclador.iconos">
+      <field name="name">Git (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-git</field>
+    </record>
+    <record id="icon_fab_git_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Git Alt (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-git-alt</field>
+    </record>
+    <record id="icon_fab_git_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Git Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-git-square</field>
+    </record>
+    <record id="icon_fab_github" model="sicpro.nomenclador.iconos">
+      <field name="name">GitHub (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-github</field>
+    </record>
+    <record id="icon_fab_github_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate GitHub (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-github-alt</field>
+    </record>
+    <record id="icon_fab_github_square" model="sicpro.nomenclador.iconos">
+      <field name="name">GitHub Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-github-square</field>
+    </record>
+    <record id="icon_fab_gitkraken" model="sicpro.nomenclador.iconos">
+      <field name="name">GitKraken (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-gitkraken</field>
+    </record>
+    <record id="icon_fab_gitlab" model="sicpro.nomenclador.iconos">
+      <field name="name">GitLab (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-gitlab</field>
+    </record>
+    <record id="icon_fab_gitter" model="sicpro.nomenclador.iconos">
+      <field name="name">Gitter (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-gitter</field>
+    </record>
+    <record id="icon_fab_glide" model="sicpro.nomenclador.iconos">
+      <field name="name">Glide (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-glide</field>
+    </record>
+    <record id="icon_fab_glide_g" model="sicpro.nomenclador.iconos">
+      <field name="name">Glide G (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-glide-g</field>
+    </record>
+    <record id="icon_fab_gofore" model="sicpro.nomenclador.iconos">
+      <field name="name">Gofore (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-gofore</field>
+    </record>
+    <record id="icon_fab_goodreads" model="sicpro.nomenclador.iconos">
+      <field name="name">Goodreads (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-goodreads</field>
+    </record>
+    <record id="icon_fab_goodreads_g" model="sicpro.nomenclador.iconos">
+      <field name="name">Goodreads G (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-goodreads-g</field>
+    </record>
+    <record id="icon_fab_google" model="sicpro.nomenclador.iconos">
+      <field name="name">Google Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-google</field>
+    </record>
+    <record id="icon_fab_google_drive" model="sicpro.nomenclador.iconos">
+      <field name="name">Google Drive (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-google-drive</field>
+    </record>
+    <record id="icon_fab_google_pay" model="sicpro.nomenclador.iconos">
+      <field name="name">Google Pay (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-google-pay</field>
+    </record>
+    <record id="icon_fab_google_play" model="sicpro.nomenclador.iconos">
+      <field name="name">Google Play (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-google-play</field>
+    </record>
+    <record id="icon_fab_google_plus" model="sicpro.nomenclador.iconos">
+      <field name="name">Google Plus (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-google-plus</field>
+    </record>
+    <record id="icon_fab_google_plus_g" model="sicpro.nomenclador.iconos">
+      <field name="name">Google Plus G (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-google-plus-g</field>
+    </record>
+    <record id="icon_fab_google_plus_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Google Plus Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-google-plus-square</field>
+    </record>
+    <record id="icon_fab_google_wallet" model="sicpro.nomenclador.iconos">
+      <field name="name">Google Wallet (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-google-wallet</field>
+    </record>
+    <record id="icon_fab_gratipay" model="sicpro.nomenclador.iconos">
+      <field name="name">Gratipay (Gittip) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-gratipay</field>
+    </record>
+    <record id="icon_fab_grav" model="sicpro.nomenclador.iconos">
+      <field name="name">Grav (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-grav</field>
+    </record>
+    <record id="icon_fab_gripfire" model="sicpro.nomenclador.iconos">
+      <field name="name">Gripfire, Inc. (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-gripfire</field>
+    </record>
+    <record id="icon_fab_grunt" model="sicpro.nomenclador.iconos">
+      <field name="name">Grunt (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-grunt</field>
+    </record>
+    <record id="icon_fab_guilded" model="sicpro.nomenclador.iconos">
+      <field name="name">Guilded (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-guilded</field>
+    </record>
+    <record id="icon_fab_gulp" model="sicpro.nomenclador.iconos">
+      <field name="name">Gulp (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-gulp</field>
+    </record>
+    <record id="icon_fab_hacker_news" model="sicpro.nomenclador.iconos">
+      <field name="name">Hacker News (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hacker-news</field>
+    </record>
+    <record id="icon_fab_hacker_news_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Hacker News Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hacker-news-square</field>
+    </record>
+    <record id="icon_fab_hackerrank" model="sicpro.nomenclador.iconos">
+      <field name="name">Hackerrank (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hackerrank</field>
+    </record>
+    <record id="icon_fab_hips" model="sicpro.nomenclador.iconos">
+      <field name="name">Hips (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hips</field>
+    </record>
+    <record id="icon_fab_hire_a_helper" model="sicpro.nomenclador.iconos">
+      <field name="name">HireAHelper (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hire-a-helper</field>
+    </record>
+    <record id="icon_fab_hive" model="sicpro.nomenclador.iconos">
+      <field name="name">Hive Blockchain Network (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hive</field>
+    </record>
+    <record id="icon_fab_hooli" model="sicpro.nomenclador.iconos">
+      <field name="name">Hooli (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hooli</field>
+    </record>
+    <record id="icon_fab_hornbill" model="sicpro.nomenclador.iconos">
+      <field name="name">Hornbill (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hornbill</field>
+    </record>
+    <record id="icon_fab_hotjar" model="sicpro.nomenclador.iconos">
+      <field name="name">Hotjar (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hotjar</field>
+    </record>
+    <record id="icon_fab_houzz" model="sicpro.nomenclador.iconos">
+      <field name="name">Houzz (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-houzz</field>
+    </record>
+    <record id="icon_fab_html5" model="sicpro.nomenclador.iconos">
+      <field name="name">HTML 5 Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-html5</field>
+    </record>
+    <record id="icon_fab_hubspot" model="sicpro.nomenclador.iconos">
+      <field name="name">HubSpot (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-hubspot</field>
+    </record>
+    <record id="icon_fab_ideal" model="sicpro.nomenclador.iconos">
+      <field name="name">iDeal (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ideal</field>
+    </record>
+    <record id="icon_fab_imdb" model="sicpro.nomenclador.iconos">
+      <field name="name">IMDB (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-imdb</field>
+    </record>
+    <record id="icon_fab_innosoft" model="sicpro.nomenclador.iconos">
+      <field name="name">Innosoft (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-innosoft</field>
+    </record>
+    <record id="icon_fab_instagram" model="sicpro.nomenclador.iconos">
+      <field name="name">Instagram (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-instagram</field>
+    </record>
+    <record id="icon_fab_instagram_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Instagram Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-instagram-square</field>
+    </record>
+    <record id="icon_fab_instalod" model="sicpro.nomenclador.iconos">
+      <field name="name">InstaLOD (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-instalod</field>
+    </record>
+    <record id="icon_fab_intercom" model="sicpro.nomenclador.iconos">
+      <field name="name">Intercom (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-intercom</field>
+    </record>
+    <record id="icon_fab_internet_explorer" model="sicpro.nomenclador.iconos">
+      <field name="name">Internet-explorer (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-internet-explorer</field>
+    </record>
+    <record id="icon_fab_invision" model="sicpro.nomenclador.iconos">
+      <field name="name">InVision (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-invision</field>
+    </record>
+    <record id="icon_fab_ioxhost" model="sicpro.nomenclador.iconos">
+      <field name="name">ioxhost (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ioxhost</field>
+    </record>
+    <record id="icon_fab_itch_io" model="sicpro.nomenclador.iconos">
+      <field name="name">itch.io (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-itch-io</field>
+    </record>
+    <record id="icon_fab_itunes" model="sicpro.nomenclador.iconos">
+      <field name="name">iTunes (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-itunes</field>
+    </record>
+    <record id="icon_fab_itunes_note" model="sicpro.nomenclador.iconos">
+      <field name="name">Itunes Note (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-itunes-note</field>
+    </record>
+    <record id="icon_fab_java" model="sicpro.nomenclador.iconos">
+      <field name="name">Java (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-java</field>
+    </record>
+    <record id="icon_fab_jedi_order" model="sicpro.nomenclador.iconos">
+      <field name="name">Jedi Order (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-jedi-order</field>
+    </record>
+    <record id="icon_fab_jenkins" model="sicpro.nomenclador.iconos">
+      <field name="name">Jenkis (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-jenkins</field>
+    </record>
+    <record id="icon_fab_jira" model="sicpro.nomenclador.iconos">
+      <field name="name">Jira (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-jira</field>
+    </record>
+    <record id="icon_fab_joget" model="sicpro.nomenclador.iconos">
+      <field name="name">Joget (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-joget</field>
+    </record>
+    <record id="icon_fab_joomla" model="sicpro.nomenclador.iconos">
+      <field name="name">Joomla Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-joomla</field>
+    </record>
+    <record id="icon_fab_js" model="sicpro.nomenclador.iconos">
+      <field name="name">JavaScript (JS) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-js</field>
+    </record>
+    <record id="icon_fab_js_square" model="sicpro.nomenclador.iconos">
+      <field name="name">JavaScript (JS) Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-js-square</field>
+    </record>
+    <record id="icon_fab_jsfiddle" model="sicpro.nomenclador.iconos">
+      <field name="name">jsFiddle (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-jsfiddle</field>
+    </record>
+    <record id="icon_fab_kaggle" model="sicpro.nomenclador.iconos">
+      <field name="name">Kaggle (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-kaggle</field>
+    </record>
+    <record id="icon_fab_keybase" model="sicpro.nomenclador.iconos">
+      <field name="name">Keybase (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-keybase</field>
+    </record>
+    <record id="icon_fab_keycdn" model="sicpro.nomenclador.iconos">
+      <field name="name">KeyCDN (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-keycdn</field>
+    </record>
+    <record id="icon_fab_kickstarter" model="sicpro.nomenclador.iconos">
+      <field name="name">Kickstarter (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-kickstarter</field>
+    </record>
+    <record id="icon_fab_kickstarter_k" model="sicpro.nomenclador.iconos">
+      <field name="name">Kickstarter K (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-kickstarter-k</field>
+    </record>
+    <record id="icon_fab_korvue" model="sicpro.nomenclador.iconos">
+      <field name="name">KORVUE (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-korvue</field>
+    </record>
+    <record id="icon_fab_laravel" model="sicpro.nomenclador.iconos">
+      <field name="name">Laravel (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-laravel</field>
+    </record>
+    <record id="icon_fab_lastfm" model="sicpro.nomenclador.iconos">
+      <field name="name">last.fm (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-lastfm</field>
+    </record>
+    <record id="icon_fab_lastfm_square" model="sicpro.nomenclador.iconos">
+      <field name="name">last.fm Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-lastfm-square</field>
+    </record>
+    <record id="icon_fab_leanpub" model="sicpro.nomenclador.iconos">
+      <field name="name">Leanpub (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-leanpub</field>
+    </record>
+    <record id="icon_fab_less" model="sicpro.nomenclador.iconos">
+      <field name="name">Less (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-less</field>
+    </record>
+    <record id="icon_fab_line" model="sicpro.nomenclador.iconos">
+      <field name="name">Line (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-line</field>
+    </record>
+    <record id="icon_fab_linkedin" model="sicpro.nomenclador.iconos">
+      <field name="name">LinkedIn (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-linkedin</field>
+    </record>
+    <record id="icon_fab_linkedin_in" model="sicpro.nomenclador.iconos">
+      <field name="name">LinkedIn In (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-linkedin-in</field>
+    </record>
+    <record id="icon_fab_linode" model="sicpro.nomenclador.iconos">
+      <field name="name">Linode (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-linode</field>
+    </record>
+    <record id="icon_fab_linux" model="sicpro.nomenclador.iconos">
+      <field name="name">Linux (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-linux</field>
+    </record>
+    <record id="icon_fab_lyft" model="sicpro.nomenclador.iconos">
+      <field name="name">lyft (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-lyft</field>
+    </record>
+    <record id="icon_fab_magento" model="sicpro.nomenclador.iconos">
+      <field name="name">Magento (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-magento</field>
+    </record>
+    <record id="icon_fab_mailchimp" model="sicpro.nomenclador.iconos">
+      <field name="name">Mailchimp (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-mailchimp</field>
+    </record>
+    <record id="icon_fab_mandalorian" model="sicpro.nomenclador.iconos">
+      <field name="name">Mandalorian (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-mandalorian</field>
+    </record>
+    <record id="icon_fab_markdown" model="sicpro.nomenclador.iconos">
+      <field name="name">Markdown (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-markdown</field>
+    </record>
+    <record id="icon_fab_mastodon" model="sicpro.nomenclador.iconos">
+      <field name="name">Mastodon (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-mastodon</field>
+    </record>
+    <record id="icon_fab_maxcdn" model="sicpro.nomenclador.iconos">
+      <field name="name">MaxCDN (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-maxcdn</field>
+    </record>
+    <record id="icon_fab_mdb" model="sicpro.nomenclador.iconos">
+      <field name="name">Material Design for Bootstrap (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-mdb</field>
+    </record>
+    <record id="icon_fab_medapps" model="sicpro.nomenclador.iconos">
+      <field name="name">MedApps (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-medapps</field>
+    </record>
+    <record id="icon_fab_medium" model="sicpro.nomenclador.iconos">
+      <field name="name">Medium (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-medium</field>
+    </record>
+    <record id="icon_fab_medium_m" model="sicpro.nomenclador.iconos">
+      <field name="name">Medium M (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-medium-m</field>
+    </record>
+    <record id="icon_fab_medrt" model="sicpro.nomenclador.iconos">
+      <field name="name">MRT (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-medrt</field>
+    </record>
+    <record id="icon_fab_meetup" model="sicpro.nomenclador.iconos">
+      <field name="name">Meetup (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-meetup</field>
+    </record>
+    <record id="icon_fab_megaport" model="sicpro.nomenclador.iconos">
+      <field name="name">Megaport (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-megaport</field>
+    </record>
+    <record id="icon_fab_mendeley" model="sicpro.nomenclador.iconos">
+      <field name="name">Mendeley (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-mendeley</field>
+    </record>
+    <record id="icon_fab_microblog" model="sicpro.nomenclador.iconos">
+      <field name="name">Micro.blog (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-microblog</field>
+    </record>
+    <record id="icon_fab_microsoft" model="sicpro.nomenclador.iconos">
+      <field name="name">Microsoft (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-microsoft</field>
+    </record>
+    <record id="icon_fab_mix" model="sicpro.nomenclador.iconos">
+      <field name="name">Mix (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-mix</field>
+    </record>
+    <record id="icon_fab_mixcloud" model="sicpro.nomenclador.iconos">
+      <field name="name">Mixcloud (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-mixcloud</field>
+    </record>
+    <record id="icon_fab_mixer" model="sicpro.nomenclador.iconos">
+      <field name="name">Mixer (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-mixer</field>
+    </record>
+    <record id="icon_fab_mizuni" model="sicpro.nomenclador.iconos">
+      <field name="name">Mizuni (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-mizuni</field>
+    </record>
+    <record id="icon_fab_modx" model="sicpro.nomenclador.iconos">
+      <field name="name">MODX (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-modx</field>
+    </record>
+    <record id="icon_fab_monero" model="sicpro.nomenclador.iconos">
+      <field name="name">Monero (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-monero</field>
+    </record>
+    <record id="icon_fab_napster" model="sicpro.nomenclador.iconos">
+      <field name="name">Napster (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-napster</field>
+    </record>
+    <record id="icon_fab_neos" model="sicpro.nomenclador.iconos">
+      <field name="name">Neos (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-neos</field>
+    </record>
+    <record id="icon_fab_nimblr" model="sicpro.nomenclador.iconos">
+      <field name="name">Nimblr (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-nimblr</field>
+    </record>
+    <record id="icon_fab_node" model="sicpro.nomenclador.iconos">
+      <field name="name">Node.js (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-node</field>
+    </record>
+    <record id="icon_fab_node_js" model="sicpro.nomenclador.iconos">
+      <field name="name">Node.js JS (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-node-js</field>
+    </record>
+    <record id="icon_fab_npm" model="sicpro.nomenclador.iconos">
+      <field name="name">npm (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-npm</field>
+    </record>
+    <record id="icon_fab_ns8" model="sicpro.nomenclador.iconos">
+      <field name="name">NS8 (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ns8</field>
+    </record>
+    <record id="icon_fab_nutritionix" model="sicpro.nomenclador.iconos">
+      <field name="name">Nutritionix (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-nutritionix</field>
+    </record>
+    <record id="icon_fab_octopus_deploy" model="sicpro.nomenclador.iconos">
+      <field name="name">Octopus Deploy (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-octopus-deploy</field>
+    </record>
+    <record id="icon_fab_odnoklassniki" model="sicpro.nomenclador.iconos">
+      <field name="name">Odnoklassniki (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-odnoklassniki</field>
+    </record>
+    <record id="icon_fab_odnoklassniki_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Odnoklassniki Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-odnoklassniki-square</field>
+    </record>
+    <record id="icon_fab_old_republic" model="sicpro.nomenclador.iconos">
+      <field name="name">Old Republic (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-old-republic</field>
+    </record>
+    <record id="icon_fab_opencart" model="sicpro.nomenclador.iconos">
+      <field name="name">OpenCart (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-opencart</field>
+    </record>
+    <record id="icon_fab_openid" model="sicpro.nomenclador.iconos">
+      <field name="name">OpenID (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-openid</field>
+    </record>
+    <record id="icon_fab_opera" model="sicpro.nomenclador.iconos">
+      <field name="name">Opera (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-opera</field>
+    </record>
+    <record id="icon_fab_optin_monster" model="sicpro.nomenclador.iconos">
+      <field name="name">Optin Monster (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-optin-monster</field>
+    </record>
+    <record id="icon_fab_orcid" model="sicpro.nomenclador.iconos">
+      <field name="name">ORCID (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-orcid</field>
+    </record>
+    <record id="icon_fab_osi" model="sicpro.nomenclador.iconos">
+      <field name="name">Open Source Initiative (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-osi</field>
+    </record>
+    <record id="icon_fab_page4" model="sicpro.nomenclador.iconos">
+      <field name="name">page4 Corporation (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-page4</field>
+    </record>
+    <record id="icon_fab_pagelines" model="sicpro.nomenclador.iconos">
+      <field name="name">Pagelines (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pagelines</field>
+    </record>
+    <record id="icon_fab_palfed" model="sicpro.nomenclador.iconos">
+      <field name="name">Palfed (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-palfed</field>
+    </record>
+    <record id="icon_fab_patreon" model="sicpro.nomenclador.iconos">
+      <field name="name">Patreon (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-patreon</field>
+    </record>
+    <record id="icon_fab_paypal" model="sicpro.nomenclador.iconos">
+      <field name="name">Paypal (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-paypal</field>
+    </record>
+    <record id="icon_fab_penny_arcade" model="sicpro.nomenclador.iconos">
+      <field name="name">Penny Arcade (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-penny-arcade</field>
+    </record>
+    <record id="icon_fab_perbyte" model="sicpro.nomenclador.iconos">
+      <field name="name">PerByte (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-perbyte</field>
+    </record>
+    <record id="icon_fab_periscope" model="sicpro.nomenclador.iconos">
+      <field name="name">Periscope (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-periscope</field>
+    </record>
+    <record id="icon_fab_phabricator" model="sicpro.nomenclador.iconos">
+      <field name="name">Phabricator (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-phabricator</field>
+    </record>
+    <record id="icon_fab_phoenix_framework" model="sicpro.nomenclador.iconos">
+      <field name="name">Phoenix Framework (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-phoenix-framework</field>
+    </record>
+    <record id="icon_fab_phoenix_squadron" model="sicpro.nomenclador.iconos">
+      <field name="name">Phoenix Squadron (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-phoenix-squadron</field>
+    </record>
+    <record id="icon_fab_php" model="sicpro.nomenclador.iconos">
+      <field name="name">PHP (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-php</field>
+    </record>
+    <record id="icon_fab_pied_piper" model="sicpro.nomenclador.iconos">
+      <field name="name">Pied Piper Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pied-piper</field>
+    </record>
+    <record id="icon_fab_pied_piper_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Pied Piper Logo (Old) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pied-piper-alt</field>
+    </record>
+    <record id="icon_fab_pied_piper_hat" model="sicpro.nomenclador.iconos">
+      <field name="name">Pied Piper Hat (Old) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pied-piper-hat</field>
+    </record>
+    <record id="icon_fab_pied_piper_pp" model="sicpro.nomenclador.iconos">
+      <field name="name">Pied Piper PP Logo (Old) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pied-piper-pp</field>
+    </record>
+    <record id="icon_fab_pied_piper_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Pied Piper Square Logo (Old) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pied-piper-square</field>
+    </record>
+    <record id="icon_fab_pinterest" model="sicpro.nomenclador.iconos">
+      <field name="name">Pinterest (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pinterest</field>
+    </record>
+    <record id="icon_fab_pinterest_p" model="sicpro.nomenclador.iconos">
+      <field name="name">Pinterest P (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pinterest-p</field>
+    </record>
+    <record id="icon_fab_pinterest_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Pinterest Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pinterest-square</field>
+    </record>
+    <record id="icon_fab_playstation" model="sicpro.nomenclador.iconos">
+      <field name="name">PlayStation (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-playstation</field>
+    </record>
+    <record id="icon_fab_product_hunt" model="sicpro.nomenclador.iconos">
+      <field name="name">Product Hunt (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-product-hunt</field>
+    </record>
+    <record id="icon_fab_pushed" model="sicpro.nomenclador.iconos">
+      <field name="name">Pushed (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-pushed</field>
+    </record>
+    <record id="icon_fab_python" model="sicpro.nomenclador.iconos">
+      <field name="name">Python (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-python</field>
+    </record>
+    <record id="icon_fab_qq" model="sicpro.nomenclador.iconos">
+      <field name="name">QQ (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-qq</field>
+    </record>
+    <record id="icon_fab_quinscape" model="sicpro.nomenclador.iconos">
+      <field name="name">QuinScape (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-quinscape</field>
+    </record>
+    <record id="icon_fab_quora" model="sicpro.nomenclador.iconos">
+      <field name="name">Quora (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-quora</field>
+    </record>
+    <record id="icon_fab_r_project" model="sicpro.nomenclador.iconos">
+      <field name="name">R Project (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-r-project</field>
+    </record>
+    <record id="icon_fab_raspberry_pi" model="sicpro.nomenclador.iconos">
+      <field name="name">Raspberry Pi (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-raspberry-pi</field>
+    </record>
+    <record id="icon_fab_ravelry" model="sicpro.nomenclador.iconos">
+      <field name="name">Ravelry (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ravelry</field>
+    </record>
+    <record id="icon_fab_react" model="sicpro.nomenclador.iconos">
+      <field name="name">React (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-react</field>
+    </record>
+    <record id="icon_fab_reacteurope" model="sicpro.nomenclador.iconos">
+      <field name="name">ReactEurope (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-reacteurope</field>
+    </record>
+    <record id="icon_fab_readme" model="sicpro.nomenclador.iconos">
+      <field name="name">ReadMe (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-readme</field>
+    </record>
+    <record id="icon_fab_rebel" model="sicpro.nomenclador.iconos">
+      <field name="name">Rebel Alliance (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-rebel</field>
+    </record>
+    <record id="icon_fab_red_river" model="sicpro.nomenclador.iconos">
+      <field name="name">red river (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-red-river</field>
+    </record>
+    <record id="icon_fab_reddit" model="sicpro.nomenclador.iconos">
+      <field name="name">reddit Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-reddit</field>
+    </record>
+    <record id="icon_fab_reddit_alien" model="sicpro.nomenclador.iconos">
+      <field name="name">reddit Alien (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-reddit-alien</field>
+    </record>
+    <record id="icon_fab_reddit_square" model="sicpro.nomenclador.iconos">
+      <field name="name">reddit Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-reddit-square</field>
+    </record>
+    <record id="icon_fab_redhat" model="sicpro.nomenclador.iconos">
+      <field name="name">Redhat (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-redhat</field>
+    </record>
+    <record id="icon_fab_renren" model="sicpro.nomenclador.iconos">
+      <field name="name">Renren (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-renren</field>
+    </record>
+    <record id="icon_fab_replyd" model="sicpro.nomenclador.iconos">
+      <field name="name">replyd (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-replyd</field>
+    </record>
+    <record id="icon_fab_researchgate" model="sicpro.nomenclador.iconos">
+      <field name="name">Researchgate (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-researchgate</field>
+    </record>
+    <record id="icon_fab_resolving" model="sicpro.nomenclador.iconos">
+      <field name="name">Resolving (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-resolving</field>
+    </record>
+    <record id="icon_fab_rev" model="sicpro.nomenclador.iconos">
+      <field name="name">Rev.io (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-rev</field>
+    </record>
+    <record id="icon_fab_rocketchat" model="sicpro.nomenclador.iconos">
+      <field name="name">Rocket.Chat (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-rocketchat</field>
+    </record>
+    <record id="icon_fab_rockrms" model="sicpro.nomenclador.iconos">
+      <field name="name">Rockrms (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-rockrms</field>
+    </record>
+    <record id="icon_fab_rust" model="sicpro.nomenclador.iconos">
+      <field name="name">Rust (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-rust</field>
+    </record>
+    <record id="icon_fab_safari" model="sicpro.nomenclador.iconos">
+      <field name="name">Safari (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-safari</field>
+    </record>
+    <record id="icon_fab_salesforce" model="sicpro.nomenclador.iconos">
+      <field name="name">Salesforce (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-salesforce</field>
+    </record>
+    <record id="icon_fab_sass" model="sicpro.nomenclador.iconos">
+      <field name="name">Sass (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-sass</field>
+    </record>
+    <record id="icon_fab_schlix" model="sicpro.nomenclador.iconos">
+      <field name="name">SCHLIX (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-schlix</field>
+    </record>
+    <record id="icon_fab_scribd" model="sicpro.nomenclador.iconos">
+      <field name="name">Scribd (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-scribd</field>
+    </record>
+    <record id="icon_fab_searchengin" model="sicpro.nomenclador.iconos">
+      <field name="name">Searchengin (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-searchengin</field>
+    </record>
+    <record id="icon_fab_sellcast" model="sicpro.nomenclador.iconos">
+      <field name="name">Sellcast (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-sellcast</field>
+    </record>
+    <record id="icon_fab_sellsy" model="sicpro.nomenclador.iconos">
+      <field name="name">Sellsy (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-sellsy</field>
+    </record>
+    <record id="icon_fab_servicestack" model="sicpro.nomenclador.iconos">
+      <field name="name">Servicestack (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-servicestack</field>
+    </record>
+    <record id="icon_fab_shirtsinbulk" model="sicpro.nomenclador.iconos">
+      <field name="name">Shirts in Bulk (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-shirtsinbulk</field>
+    </record>
+    <record id="icon_fab_shopify" model="sicpro.nomenclador.iconos">
+      <field name="name">Shopify (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-shopify</field>
+    </record>
+    <record id="icon_fab_shopware" model="sicpro.nomenclador.iconos">
+      <field name="name">Shopware (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-shopware</field>
+    </record>
+    <record id="icon_fab_simplybuilt" model="sicpro.nomenclador.iconos">
+      <field name="name">SimplyBuilt (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-simplybuilt</field>
+    </record>
+    <record id="icon_fab_sistrix" model="sicpro.nomenclador.iconos">
+      <field name="name">SISTRIX (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-sistrix</field>
+    </record>
+    <record id="icon_fab_sith" model="sicpro.nomenclador.iconos">
+      <field name="name">Sith (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-sith</field>
+    </record>
+    <record id="icon_fab_sketch" model="sicpro.nomenclador.iconos">
+      <field name="name">Sketch (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-sketch</field>
+    </record>
+    <record id="icon_fab_skyatlas" model="sicpro.nomenclador.iconos">
+      <field name="name">skyatlas (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-skyatlas</field>
+    </record>
+    <record id="icon_fab_skype" model="sicpro.nomenclador.iconos">
+      <field name="name">Skype (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-skype</field>
+    </record>
+    <record id="icon_fab_slack" model="sicpro.nomenclador.iconos">
+      <field name="name">Slack Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-slack</field>
+    </record>
+    <record id="icon_fab_slack_hash" model="sicpro.nomenclador.iconos">
+      <field name="name">Slack Hashtag (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-slack-hash</field>
+    </record>
+    <record id="icon_fab_slideshare" model="sicpro.nomenclador.iconos">
+      <field name="name">Slideshare (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-slideshare</field>
+    </record>
+    <record id="icon_fab_snapchat" model="sicpro.nomenclador.iconos">
+      <field name="name">Snapchat (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-snapchat</field>
+    </record>
+    <record id="icon_fab_snapchat_ghost" model="sicpro.nomenclador.iconos">
+      <field name="name">Snapchat Ghost (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-snapchat-ghost</field>
+    </record>
+    <record id="icon_fab_snapchat_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Snapchat Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-snapchat-square</field>
+    </record>
+    <record id="icon_fab_soundcloud" model="sicpro.nomenclador.iconos">
+      <field name="name">SoundCloud (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-soundcloud</field>
+    </record>
+    <record id="icon_fab_sourcetree" model="sicpro.nomenclador.iconos">
+      <field name="name">Sourcetree (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-sourcetree</field>
+    </record>
+    <record id="icon_fab_speakap" model="sicpro.nomenclador.iconos">
+      <field name="name">Speakap (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-speakap</field>
+    </record>
+    <record id="icon_fab_speaker_deck" model="sicpro.nomenclador.iconos">
+      <field name="name">Speaker Deck (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-speaker-deck</field>
+    </record>
+    <record id="icon_fab_spotify" model="sicpro.nomenclador.iconos">
+      <field name="name">Spotify (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-spotify</field>
+    </record>
+    <record id="icon_fab_squarespace" model="sicpro.nomenclador.iconos">
+      <field name="name">Squarespace (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-squarespace</field>
+    </record>
+    <record id="icon_fab_stack_exchange" model="sicpro.nomenclador.iconos">
+      <field name="name">Stack Exchange (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-stack-exchange</field>
+    </record>
+    <record id="icon_fab_stack_overflow" model="sicpro.nomenclador.iconos">
+      <field name="name">Stack Overflow (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-stack-overflow</field>
+    </record>
+    <record id="icon_fab_stackpath" model="sicpro.nomenclador.iconos">
+      <field name="name">Stackpath (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-stackpath</field>
+    </record>
+    <record id="icon_fab_staylinked" model="sicpro.nomenclador.iconos">
+      <field name="name">StayLinked (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-staylinked</field>
+    </record>
+    <record id="icon_fab_steam" model="sicpro.nomenclador.iconos">
+      <field name="name">Steam (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-steam</field>
+    </record>
+    <record id="icon_fab_steam_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Steam Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-steam-square</field>
+    </record>
+    <record id="icon_fab_steam_symbol" model="sicpro.nomenclador.iconos">
+      <field name="name">Steam Symbol (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-steam-symbol</field>
+    </record>
+    <record id="icon_fab_sticker_mule" model="sicpro.nomenclador.iconos">
+      <field name="name">Sticker Mule (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-sticker-mule</field>
+    </record>
+    <record id="icon_fab_strava" model="sicpro.nomenclador.iconos">
+      <field name="name">Strava (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-strava</field>
+    </record>
+    <record id="icon_fab_stripe" model="sicpro.nomenclador.iconos">
+      <field name="name">Stripe (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-stripe</field>
+    </record>
+    <record id="icon_fab_stripe_s" model="sicpro.nomenclador.iconos">
+      <field name="name">Stripe S (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-stripe-s</field>
+    </record>
+    <record id="icon_fab_studiovinari" model="sicpro.nomenclador.iconos">
+      <field name="name">Studio Vinari (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-studiovinari</field>
+    </record>
+    <record id="icon_fab_stumbleupon" model="sicpro.nomenclador.iconos">
+      <field name="name">StumbleUpon Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-stumbleupon</field>
+    </record>
+    <record id="icon_fab_stumbleupon_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">StumbleUpon Circle (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-stumbleupon-circle</field>
+    </record>
+    <record id="icon_fab_superpowers" model="sicpro.nomenclador.iconos">
+      <field name="name">Superpowers (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-superpowers</field>
+    </record>
+    <record id="icon_fab_supple" model="sicpro.nomenclador.iconos">
+      <field name="name">Supple (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-supple</field>
+    </record>
+    <record id="icon_fab_suse" model="sicpro.nomenclador.iconos">
+      <field name="name">Suse (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-suse</field>
+    </record>
+    <record id="icon_fab_swift" model="sicpro.nomenclador.iconos">
+      <field name="name">Swift (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-swift</field>
+    </record>
+    <record id="icon_fab_symfony" model="sicpro.nomenclador.iconos">
+      <field name="name">Symfony (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-symfony</field>
+    </record>
+    <record id="icon_fab_teamspeak" model="sicpro.nomenclador.iconos">
+      <field name="name">TeamSpeak (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-teamspeak</field>
+    </record>
+    <record id="icon_fab_telegram" model="sicpro.nomenclador.iconos">
+      <field name="name">Telegram (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-telegram</field>
+    </record>
+    <record id="icon_fab_telegram_plane" model="sicpro.nomenclador.iconos">
+      <field name="name">Telegram Plane (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-telegram-plane</field>
+    </record>
+    <record id="icon_fab_tencent_weibo" model="sicpro.nomenclador.iconos">
+      <field name="name">Tencent Weibo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-tencent-weibo</field>
+    </record>
+    <record id="icon_fab_the_red_yeti" model="sicpro.nomenclador.iconos">
+      <field name="name">The Red Yeti (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-the-red-yeti</field>
+    </record>
+    <record id="icon_fab_themeco" model="sicpro.nomenclador.iconos">
+      <field name="name">Themeco (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-themeco</field>
+    </record>
+    <record id="icon_fab_themeisle" model="sicpro.nomenclador.iconos">
+      <field name="name">ThemeIsle (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-themeisle</field>
+    </record>
+    <record id="icon_fab_think_peaks" model="sicpro.nomenclador.iconos">
+      <field name="name">Think Peaks (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-think-peaks</field>
+    </record>
+    <record id="icon_fab_tiktok" model="sicpro.nomenclador.iconos">
+      <field name="name">TikTok (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-tiktok</field>
+    </record>
+    <record id="icon_fab_trade_federation" model="sicpro.nomenclador.iconos">
+      <field name="name">Trade Federation (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-trade-federation</field>
+    </record>
+    <record id="icon_fab_trello" model="sicpro.nomenclador.iconos">
+      <field name="name">Trello (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-trello</field>
+    </record>
+    <record id="icon_fab_tumblr" model="sicpro.nomenclador.iconos">
+      <field name="name">Tumblr (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-tumblr</field>
+    </record>
+    <record id="icon_fab_tumblr_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Tumblr Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-tumblr-square</field>
+    </record>
+    <record id="icon_fab_twitch" model="sicpro.nomenclador.iconos">
+      <field name="name">Twitch (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-twitch</field>
+    </record>
+    <record id="icon_fab_twitter" model="sicpro.nomenclador.iconos">
+      <field name="name">Twitter (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-twitter</field>
+    </record>
+    <record id="icon_fab_twitter_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Twitter Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-twitter-square</field>
+    </record>
+    <record id="icon_fab_typo3" model="sicpro.nomenclador.iconos">
+      <field name="name">Typo3 (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-typo3</field>
+    </record>
+    <record id="icon_fab_uber" model="sicpro.nomenclador.iconos">
+      <field name="name">Uber (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-uber</field>
+    </record>
+    <record id="icon_fab_ubuntu" model="sicpro.nomenclador.iconos">
+      <field name="name">Ubuntu (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ubuntu</field>
+    </record>
+    <record id="icon_fab_uikit" model="sicpro.nomenclador.iconos">
+      <field name="name">UIkit (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-uikit</field>
+    </record>
+    <record id="icon_fab_umbraco" model="sicpro.nomenclador.iconos">
+      <field name="name">Umbraco (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-umbraco</field>
+    </record>
+    <record id="icon_fab_uncharted" model="sicpro.nomenclador.iconos">
+      <field name="name">Uncharted Software (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-uncharted</field>
+    </record>
+    <record id="icon_fab_uniregistry" model="sicpro.nomenclador.iconos">
+      <field name="name">Uniregistry (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-uniregistry</field>
+    </record>
+    <record id="icon_fab_unity" model="sicpro.nomenclador.iconos">
+      <field name="name">Unity 3D (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-unity</field>
+    </record>
+    <record id="icon_fab_unsplash" model="sicpro.nomenclador.iconos">
+      <field name="name">Unsplash (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-unsplash</field>
+    </record>
+    <record id="icon_fab_untappd" model="sicpro.nomenclador.iconos">
+      <field name="name">Untappd (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-untappd</field>
+    </record>
+    <record id="icon_fab_ups" model="sicpro.nomenclador.iconos">
+      <field name="name">UPS (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ups</field>
+    </record>
+    <record id="icon_fab_usb" model="sicpro.nomenclador.iconos">
+      <field name="name">USB (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-usb</field>
+    </record>
+    <record id="icon_fab_usps" model="sicpro.nomenclador.iconos">
+      <field name="name">United States Postal Service (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-usps</field>
+    </record>
+    <record id="icon_fab_ussunnah" model="sicpro.nomenclador.iconos">
+      <field name="name">us-Sunnah Foundation (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-ussunnah</field>
+    </record>
+    <record id="icon_fab_vaadin" model="sicpro.nomenclador.iconos">
+      <field name="name">Vaadin (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-vaadin</field>
+    </record>
+    <record id="icon_fab_viacoin" model="sicpro.nomenclador.iconos">
+      <field name="name">Viacoin (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-viacoin</field>
+    </record>
+    <record id="icon_fab_viadeo" model="sicpro.nomenclador.iconos">
+      <field name="name">Viadeo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-viadeo</field>
+    </record>
+    <record id="icon_fab_viadeo_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Viadeo Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-viadeo-square</field>
+    </record>
+    <record id="icon_fab_viber" model="sicpro.nomenclador.iconos">
+      <field name="name">Viber (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-viber</field>
+    </record>
+    <record id="icon_fab_vimeo" model="sicpro.nomenclador.iconos">
+      <field name="name">Vimeo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-vimeo</field>
+    </record>
+    <record id="icon_fab_vimeo_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Vimeo Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-vimeo-square</field>
+    </record>
+    <record id="icon_fab_vimeo_v" model="sicpro.nomenclador.iconos">
+      <field name="name">Vimeo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-vimeo-v</field>
+    </record>
+    <record id="icon_fab_vine" model="sicpro.nomenclador.iconos">
+      <field name="name">Vine (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-vine</field>
+    </record>
+    <record id="icon_fab_vk" model="sicpro.nomenclador.iconos">
+      <field name="name">VK (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-vk</field>
+    </record>
+    <record id="icon_fab_vnv" model="sicpro.nomenclador.iconos">
+      <field name="name">VNV (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-vnv</field>
+    </record>
+    <record id="icon_fab_vuejs" model="sicpro.nomenclador.iconos">
+      <field name="name">Vue.js (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-vuejs</field>
+    </record>
+    <record id="icon_fab_watchman_monitoring" model="sicpro.nomenclador.iconos">
+      <field name="name">Watchman Monitoring (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-watchman-monitoring</field>
+    </record>
+    <record id="icon_fab_waze" model="sicpro.nomenclador.iconos">
+      <field name="name">Waze (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-waze</field>
+    </record>
+    <record id="icon_fab_weebly" model="sicpro.nomenclador.iconos">
+      <field name="name">Weebly (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-weebly</field>
+    </record>
+    <record id="icon_fab_weibo" model="sicpro.nomenclador.iconos">
+      <field name="name">Weibo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-weibo</field>
+    </record>
+    <record id="icon_fab_weixin" model="sicpro.nomenclador.iconos">
+      <field name="name">Weixin (WeChat) (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-weixin</field>
+    </record>
+    <record id="icon_fab_whatsapp" model="sicpro.nomenclador.iconos">
+      <field name="name">What's App (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-whatsapp</field>
+    </record>
+    <record id="icon_fab_whatsapp_square" model="sicpro.nomenclador.iconos">
+      <field name="name">What's App Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-whatsapp-square</field>
+    </record>
+    <record id="icon_fab_whmcs" model="sicpro.nomenclador.iconos">
+      <field name="name">WHMCS (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-whmcs</field>
+    </record>
+    <record id="icon_fab_wikipedia_w" model="sicpro.nomenclador.iconos">
+      <field name="name">Wikipedia W (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wikipedia-w</field>
+    </record>
+    <record id="icon_fab_windows" model="sicpro.nomenclador.iconos">
+      <field name="name">Windows (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-windows</field>
+    </record>
+    <record id="icon_fab_wix" model="sicpro.nomenclador.iconos">
+      <field name="name">Wix (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wix</field>
+    </record>
+    <record id="icon_fab_wizards_of_the_coast" model="sicpro.nomenclador.iconos">
+      <field name="name">Wizards of the Coast (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wizards-of-the-coast</field>
+    </record>
+    <record id="icon_fab_wodu" model="sicpro.nomenclador.iconos">
+      <field name="name">Wodu (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wodu</field>
+    </record>
+    <record id="icon_fab_wolf_pack_battalion" model="sicpro.nomenclador.iconos">
+      <field name="name">Wolf Pack Battalion (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wolf-pack-battalion</field>
+    </record>
+    <record id="icon_fab_wordpress" model="sicpro.nomenclador.iconos">
+      <field name="name">WordPress Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wordpress</field>
+    </record>
+    <record id="icon_fab_wordpress_simple" model="sicpro.nomenclador.iconos">
+      <field name="name">Wordpress Simple (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wordpress-simple</field>
+    </record>
+    <record id="icon_fab_wpbeginner" model="sicpro.nomenclador.iconos">
+      <field name="name">WPBeginner (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wpbeginner</field>
+    </record>
+    <record id="icon_fab_wpexplorer" model="sicpro.nomenclador.iconos">
+      <field name="name">WPExplorer (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wpexplorer</field>
+    </record>
+    <record id="icon_fab_wpforms" model="sicpro.nomenclador.iconos">
+      <field name="name">WPForms (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wpforms</field>
+    </record>
+    <record id="icon_fab_wpressr" model="sicpro.nomenclador.iconos">
+      <field name="name">wpressr (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-wpressr</field>
+    </record>
+    <record id="icon_fab_xbox" model="sicpro.nomenclador.iconos">
+      <field name="name">Xbox (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-xbox</field>
+    </record>
+    <record id="icon_fab_xing" model="sicpro.nomenclador.iconos">
+      <field name="name">Xing (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-xing</field>
+    </record>
+    <record id="icon_fab_xing_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Xing Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-xing-square</field>
+    </record>
+    <record id="icon_fab_y_combinator" model="sicpro.nomenclador.iconos">
+      <field name="name">Y Combinator (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-y-combinator</field>
+    </record>
+    <record id="icon_fab_yahoo" model="sicpro.nomenclador.iconos">
+      <field name="name">Yahoo Logo (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-yahoo</field>
+    </record>
+    <record id="icon_fab_yammer" model="sicpro.nomenclador.iconos">
+      <field name="name">Yammer (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-yammer</field>
+    </record>
+    <record id="icon_fab_yandex" model="sicpro.nomenclador.iconos">
+      <field name="name">Yandex (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-yandex</field>
+    </record>
+    <record id="icon_fab_yandex_international" model="sicpro.nomenclador.iconos">
+      <field name="name">Yandex International (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-yandex-international</field>
+    </record>
+    <record id="icon_fab_yarn" model="sicpro.nomenclador.iconos">
+      <field name="name">Yarn (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-yarn</field>
+    </record>
+    <record id="icon_fab_yelp" model="sicpro.nomenclador.iconos">
+      <field name="name">Yelp (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-yelp</field>
+    </record>
+    <record id="icon_fab_yoast" model="sicpro.nomenclador.iconos">
+      <field name="name">Yoast (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-yoast</field>
+    </record>
+    <record id="icon_fab_youtube" model="sicpro.nomenclador.iconos">
+      <field name="name">YouTube (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-youtube</field>
+    </record>
+    <record id="icon_fab_youtube_square" model="sicpro.nomenclador.iconos">
+      <field name="name">YouTube Square (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-youtube-square</field>
+    </record>
+    <record id="icon_fab_zhihu" model="sicpro.nomenclador.iconos">
+      <field name="name">Zhihu (FAB)</field>
+      <field name="tipo">fab</field>
+      <field name="clase_icono">fa-zhihu</field>
+    </record>
+  </data>
+</odoo>

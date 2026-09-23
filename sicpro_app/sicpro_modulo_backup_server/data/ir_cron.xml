@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+    <data>
+        <record id="sicpro_backup_local_ignite_crone" model="ir.cron">
+            <field name="name">Copia de seguridad - Ejecutar</field>
+            <field name="model_id" ref="model_sicpro_backup_local"/>
+            <field name="state">code</field>
+            <field name="code">model.ignite_backup_server_crone()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+
+        <record id="backup_file_remove_cron" model="ir.cron">
+            <field name="name">Copia de seguridad - Eliminar</field>
+            <field name="model_id" ref="model_sicpro_backup_local"/>
+            <field name="state">code</field>
+            <field name="code">model.remove_old_backups()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+
+    </data>
+</odoo>

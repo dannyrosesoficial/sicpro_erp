@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data noupdate="0">
+        <record model="sicpro.app.transporte.estado" id="transporte_estado_1">
+            <field name="name">Nuevo</field>
+            <field name="sequence">0</field>
+        </record>
+        <record model="sicpro.app.transporte.estado" id="transporte_estado_2">
+            <field name="name">En Explotación</field>
+            <field name="sequence">1</field>
+        </record>
+        <record model="sicpro.app.transporte.estado" id="transporte_estado_3">
+            <field name="name">Roto</field>
+            <field name="sequence">2</field>
+        </record>
+        <record model="sicpro.app.transporte.estado" id="transporte_estado_4">
+            <field name="name">Baja</field>
+            <field name="sequence">3</field>
+        </record>
+        <record model="sicpro.app.transporte.estado" id="transporte_estado_5">
+            <field name="name">Otros</field>
+            <field name="sequence">4</field>
+        </record>
+
+
+    </data>
+
+
+</odoo>

@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record id="icon_far_address_book" model="sicpro.nomenclador.iconos">
+      <field name="name">Address Book (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-address-book</field>
+    </record>
+    <record id="icon_far_address_card" model="sicpro.nomenclador.iconos">
+      <field name="name">Address Card (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-address-card</field>
+    </record>
+    <record id="icon_far_angry" model="sicpro.nomenclador.iconos">
+      <field name="name">Angry Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-angry</field>
+    </record>
+    <record id="icon_far_arrow_alt_circle_down" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Arrow Circle Down (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-arrow-alt-circle-down</field>
+    </record>
+    <record id="icon_far_arrow_alt_circle_left" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Arrow Circle Left (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-arrow-alt-circle-left</field>
+    </record>
+    <record id="icon_far_arrow_alt_circle_right" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Arrow Circle Right (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-arrow-alt-circle-right</field>
+    </record>
+    <record id="icon_far_arrow_alt_circle_up" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Arrow Circle Up (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-arrow-alt-circle-up</field>
+    </record>
+    <record id="icon_far_bell" model="sicpro.nomenclador.iconos">
+      <field name="name">bell (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-bell</field>
+    </record>
+    <record id="icon_far_bell_slash" model="sicpro.nomenclador.iconos">
+      <field name="name">Bell Slash (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-bell-slash</field>
+    </record>
+    <record id="icon_far_bookmark" model="sicpro.nomenclador.iconos">
+      <field name="name">bookmark (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-bookmark</field>
+    </record>
+    <record id="icon_far_building" model="sicpro.nomenclador.iconos">
+      <field name="name">Building (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-building</field>
+    </record>
+    <record id="icon_far_calendar" model="sicpro.nomenclador.iconos">
+      <field name="name">Calendar (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-calendar</field>
+    </record>
+    <record id="icon_far_calendar_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Calendar (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-calendar-alt</field>
+    </record>
+    <record id="icon_far_calendar_check" model="sicpro.nomenclador.iconos">
+      <field name="name">Calendar Check (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-calendar-check</field>
+    </record>
+    <record id="icon_far_calendar_minus" model="sicpro.nomenclador.iconos">
+      <field name="name">Calendar Minus (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-calendar-minus</field>
+    </record>
+    <record id="icon_far_calendar_plus" model="sicpro.nomenclador.iconos">
+      <field name="name">Calendar Plus (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-calendar-plus</field>
+    </record>
+    <record id="icon_far_calendar_times" model="sicpro.nomenclador.iconos">
+      <field name="name">Calendar Times (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-calendar-times</field>
+    </record>
+    <record id="icon_far_caret_square_down" model="sicpro.nomenclador.iconos">
+      <field name="name">Caret Square Down (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-caret-square-down</field>
+    </record>
+    <record id="icon_far_caret_square_left" model="sicpro.nomenclador.iconos">
+      <field name="name">Caret Square Left (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-caret-square-left</field>
+    </record>
+    <record id="icon_far_caret_square_right" model="sicpro.nomenclador.iconos">
+      <field name="name">Caret Square Right (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-caret-square-right</field>
+    </record>
+    <record id="icon_far_caret_square_up" model="sicpro.nomenclador.iconos">
+      <field name="name">Caret Square Up (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-caret-square-up</field>
+    </record>
+    <record id="icon_far_chart_bar" model="sicpro.nomenclador.iconos">
+      <field name="name">Bar Chart (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-chart-bar</field>
+    </record>
+    <record id="icon_far_check_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">Check Circle (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-check-circle</field>
+    </record>
+    <record id="icon_far_check_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Check Square (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-check-square</field>
+    </record>
+    <record id="icon_far_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">Circle (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-circle</field>
+    </record>
+    <record id="icon_far_clipboard" model="sicpro.nomenclador.iconos">
+      <field name="name">Clipboard (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-clipboard</field>
+    </record>
+    <record id="icon_far_clock" model="sicpro.nomenclador.iconos">
+      <field name="name">Clock (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-clock</field>
+    </record>
+    <record id="icon_far_clone" model="sicpro.nomenclador.iconos">
+      <field name="name">Clone (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-clone</field>
+    </record>
+    <record id="icon_far_closed_captioning" model="sicpro.nomenclador.iconos">
+      <field name="name">Closed Captioning (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-closed-captioning</field>
+    </record>
+    <record id="icon_far_comment" model="sicpro.nomenclador.iconos">
+      <field name="name">comment (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-comment</field>
+    </record>
+    <record id="icon_far_comment_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Comment (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-comment-alt</field>
+    </record>
+    <record id="icon_far_comment_dots" model="sicpro.nomenclador.iconos">
+      <field name="name">Comment Dots (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-comment-dots</field>
+    </record>
+    <record id="icon_far_comments" model="sicpro.nomenclador.iconos">
+      <field name="name">comments (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-comments</field>
+    </record>
+    <record id="icon_far_compass" model="sicpro.nomenclador.iconos">
+      <field name="name">Compass (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-compass</field>
+    </record>
+    <record id="icon_far_copy" model="sicpro.nomenclador.iconos">
+      <field name="name">Copy (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-copy</field>
+    </record>
+    <record id="icon_far_copyright" model="sicpro.nomenclador.iconos">
+      <field name="name">Copyright (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-copyright</field>
+    </record>
+    <record id="icon_far_credit_card" model="sicpro.nomenclador.iconos">
+      <field name="name">Credit Card (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-credit-card</field>
+    </record>
+    <record id="icon_far_dizzy" model="sicpro.nomenclador.iconos">
+      <field name="name">Dizzy Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-dizzy</field>
+    </record>
+    <record id="icon_far_dot_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">Dot Circle (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-dot-circle</field>
+    </record>
+    <record id="icon_far_edit" model="sicpro.nomenclador.iconos">
+      <field name="name">Edit (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-edit</field>
+    </record>
+    <record id="icon_far_envelope" model="sicpro.nomenclador.iconos">
+      <field name="name">Envelope (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-envelope</field>
+    </record>
+    <record id="icon_far_envelope_open" model="sicpro.nomenclador.iconos">
+      <field name="name">Envelope Open (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-envelope-open</field>
+    </record>
+    <record id="icon_far_eye" model="sicpro.nomenclador.iconos">
+      <field name="name">Eye (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-eye</field>
+    </record>
+    <record id="icon_far_eye_slash" model="sicpro.nomenclador.iconos">
+      <field name="name">Eye Slash (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-eye-slash</field>
+    </record>
+    <record id="icon_far_file" model="sicpro.nomenclador.iconos">
+      <field name="name">File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file</field>
+    </record>
+    <record id="icon_far_file_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-alt</field>
+    </record>
+    <record id="icon_far_file_archive" model="sicpro.nomenclador.iconos">
+      <field name="name">Archive File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-archive</field>
+    </record>
+    <record id="icon_far_file_audio" model="sicpro.nomenclador.iconos">
+      <field name="name">Audio File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-audio</field>
+    </record>
+    <record id="icon_far_file_code" model="sicpro.nomenclador.iconos">
+      <field name="name">Code File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-code</field>
+    </record>
+    <record id="icon_far_file_excel" model="sicpro.nomenclador.iconos">
+      <field name="name">Excel File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-excel</field>
+    </record>
+    <record id="icon_far_file_image" model="sicpro.nomenclador.iconos">
+      <field name="name">Image File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-image</field>
+    </record>
+    <record id="icon_far_file_pdf" model="sicpro.nomenclador.iconos">
+      <field name="name">PDF File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-pdf</field>
+    </record>
+    <record id="icon_far_file_powerpoint" model="sicpro.nomenclador.iconos">
+      <field name="name">Powerpoint File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-powerpoint</field>
+    </record>
+    <record id="icon_far_file_video" model="sicpro.nomenclador.iconos">
+      <field name="name">Video File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-video</field>
+    </record>
+    <record id="icon_far_file_word" model="sicpro.nomenclador.iconos">
+      <field name="name">Word File (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-file-word</field>
+    </record>
+    <record id="icon_far_flag" model="sicpro.nomenclador.iconos">
+      <field name="name">flag (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-flag</field>
+    </record>
+    <record id="icon_far_flushed" model="sicpro.nomenclador.iconos">
+      <field name="name">Flushed Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-flushed</field>
+    </record>
+    <record id="icon_far_folder" model="sicpro.nomenclador.iconos">
+      <field name="name">Folder (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-folder</field>
+    </record>
+    <record id="icon_far_folder_open" model="sicpro.nomenclador.iconos">
+      <field name="name">Folder Open (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-folder-open</field>
+    </record>
+    <record id="icon_far_font_awesome_logo_full" model="sicpro.nomenclador.iconos">
+      <field name="name">Font Awesome Full Logo (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-font-awesome-logo-full</field>
+    </record>
+    <record id="icon_far_frown" model="sicpro.nomenclador.iconos">
+      <field name="name">Frowning Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-frown</field>
+    </record>
+    <record id="icon_far_frown_open" model="sicpro.nomenclador.iconos">
+      <field name="name">Frowning Face With Open Mouth (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-frown-open</field>
+    </record>
+    <record id="icon_far_futbol" model="sicpro.nomenclador.iconos">
+      <field name="name">Futbol (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-futbol</field>
+    </record>
+    <record id="icon_far_gem" model="sicpro.nomenclador.iconos">
+      <field name="name">Gem (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-gem</field>
+    </record>
+    <record id="icon_far_grimace" model="sicpro.nomenclador.iconos">
+      <field name="name">Grimacing Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grimace</field>
+    </record>
+    <record id="icon_far_grin" model="sicpro.nomenclador.iconos">
+      <field name="name">Grinning Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin</field>
+    </record>
+    <record id="icon_far_grin_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Grinning Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-alt</field>
+    </record>
+    <record id="icon_far_grin_beam" model="sicpro.nomenclador.iconos">
+      <field name="name">Grinning Face With Smiling Eyes (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-beam</field>
+    </record>
+    <record id="icon_far_grin_beam_sweat" model="sicpro.nomenclador.iconos">
+      <field name="name">Grinning Face With Sweat (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-beam-sweat</field>
+    </record>
+    <record id="icon_far_grin_hearts" model="sicpro.nomenclador.iconos">
+      <field name="name">Smiling Face With Heart-Eyes (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-hearts</field>
+    </record>
+    <record id="icon_far_grin_squint" model="sicpro.nomenclador.iconos">
+      <field name="name">Grinning Squinting Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-squint</field>
+    </record>
+    <record id="icon_far_grin_squint_tears" model="sicpro.nomenclador.iconos">
+      <field name="name">Rolling on the Floor Laughing (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-squint-tears</field>
+    </record>
+    <record id="icon_far_grin_stars" model="sicpro.nomenclador.iconos">
+      <field name="name">Star-Struck (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-stars</field>
+    </record>
+    <record id="icon_far_grin_tears" model="sicpro.nomenclador.iconos">
+      <field name="name">Face With Tears of Joy (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-tears</field>
+    </record>
+    <record id="icon_far_grin_tongue" model="sicpro.nomenclador.iconos">
+      <field name="name">Face With Tongue (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-tongue</field>
+    </record>
+    <record id="icon_far_grin_tongue_squint" model="sicpro.nomenclador.iconos">
+      <field name="name">Squinting Face With Tongue (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-tongue-squint</field>
+    </record>
+    <record id="icon_far_grin_tongue_wink" model="sicpro.nomenclador.iconos">
+      <field name="name">Winking Face With Tongue (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-tongue-wink</field>
+    </record>
+    <record id="icon_far_grin_wink" model="sicpro.nomenclador.iconos">
+      <field name="name">Grinning Winking Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-grin-wink</field>
+    </record>
+    <record id="icon_far_hand_lizard" model="sicpro.nomenclador.iconos">
+      <field name="name">Lizard (Hand) (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-lizard</field>
+    </record>
+    <record id="icon_far_hand_paper" model="sicpro.nomenclador.iconos">
+      <field name="name">Paper (Hand) (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-paper</field>
+    </record>
+    <record id="icon_far_hand_peace" model="sicpro.nomenclador.iconos">
+      <field name="name">Peace (Hand) (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-peace</field>
+    </record>
+    <record id="icon_far_hand_point_down" model="sicpro.nomenclador.iconos">
+      <field name="name">Hand Pointing Down (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-point-down</field>
+    </record>
+    <record id="icon_far_hand_point_left" model="sicpro.nomenclador.iconos">
+      <field name="name">Hand Pointing Left (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-point-left</field>
+    </record>
+    <record id="icon_far_hand_point_right" model="sicpro.nomenclador.iconos">
+      <field name="name">Hand Pointing Right (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-point-right</field>
+    </record>
+    <record id="icon_far_hand_point_up" model="sicpro.nomenclador.iconos">
+      <field name="name">Hand Pointing Up (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-point-up</field>
+    </record>
+    <record id="icon_far_hand_pointer" model="sicpro.nomenclador.iconos">
+      <field name="name">Pointer (Hand) (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-pointer</field>
+    </record>
+    <record id="icon_far_hand_rock" model="sicpro.nomenclador.iconos">
+      <field name="name">Rock (Hand) (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-rock</field>
+    </record>
+    <record id="icon_far_hand_scissors" model="sicpro.nomenclador.iconos">
+      <field name="name">Scissors (Hand) (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-scissors</field>
+    </record>
+    <record id="icon_far_hand_spock" model="sicpro.nomenclador.iconos">
+      <field name="name">Spock (Hand) (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hand-spock</field>
+    </record>
+    <record id="icon_far_handshake" model="sicpro.nomenclador.iconos">
+      <field name="name">Handshake (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-handshake</field>
+    </record>
+    <record id="icon_far_hdd" model="sicpro.nomenclador.iconos">
+      <field name="name">HDD (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hdd</field>
+    </record>
+    <record id="icon_far_heart" model="sicpro.nomenclador.iconos">
+      <field name="name">Heart (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-heart</field>
+    </record>
+    <record id="icon_far_hospital" model="sicpro.nomenclador.iconos">
+      <field name="name">hospital (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hospital</field>
+    </record>
+    <record id="icon_far_hourglass" model="sicpro.nomenclador.iconos">
+      <field name="name">Hourglass (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-hourglass</field>
+    </record>
+    <record id="icon_far_id_badge" model="sicpro.nomenclador.iconos">
+      <field name="name">Identification Badge (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-id-badge</field>
+    </record>
+    <record id="icon_far_id_card" model="sicpro.nomenclador.iconos">
+      <field name="name">Identification Card (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-id-card</field>
+    </record>
+    <record id="icon_far_image" model="sicpro.nomenclador.iconos">
+      <field name="name">Image (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-image</field>
+    </record>
+    <record id="icon_far_images" model="sicpro.nomenclador.iconos">
+      <field name="name">Images (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-images</field>
+    </record>
+    <record id="icon_far_keyboard" model="sicpro.nomenclador.iconos">
+      <field name="name">Keyboard (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-keyboard</field>
+    </record>
+    <record id="icon_far_kiss" model="sicpro.nomenclador.iconos">
+      <field name="name">Kissing Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-kiss</field>
+    </record>
+    <record id="icon_far_kiss_beam" model="sicpro.nomenclador.iconos">
+      <field name="name">Kissing Face With Smiling Eyes (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-kiss-beam</field>
+    </record>
+    <record id="icon_far_kiss_wink_heart" model="sicpro.nomenclador.iconos">
+      <field name="name">Face Blowing a Kiss (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-kiss-wink-heart</field>
+    </record>
+    <record id="icon_far_laugh" model="sicpro.nomenclador.iconos">
+      <field name="name">Grinning Face With Big Eyes (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-laugh</field>
+    </record>
+    <record id="icon_far_laugh_beam" model="sicpro.nomenclador.iconos">
+      <field name="name">Laugh Face with Beaming Eyes (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-laugh-beam</field>
+    </record>
+    <record id="icon_far_laugh_squint" model="sicpro.nomenclador.iconos">
+      <field name="name">Laughing Squinting Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-laugh-squint</field>
+    </record>
+    <record id="icon_far_laugh_wink" model="sicpro.nomenclador.iconos">
+      <field name="name">Laughing Winking Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-laugh-wink</field>
+    </record>
+    <record id="icon_far_lemon" model="sicpro.nomenclador.iconos">
+      <field name="name">Lemon (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-lemon</field>
+    </record>
+    <record id="icon_far_life_ring" model="sicpro.nomenclador.iconos">
+      <field name="name">Life Ring (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-life-ring</field>
+    </record>
+    <record id="icon_far_lightbulb" model="sicpro.nomenclador.iconos">
+      <field name="name">Lightbulb (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-lightbulb</field>
+    </record>
+    <record id="icon_far_list_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate List (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-list-alt</field>
+    </record>
+    <record id="icon_far_map" model="sicpro.nomenclador.iconos">
+      <field name="name">Map (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-map</field>
+    </record>
+    <record id="icon_far_meh" model="sicpro.nomenclador.iconos">
+      <field name="name">Neutral Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-meh</field>
+    </record>
+    <record id="icon_far_meh_blank" model="sicpro.nomenclador.iconos">
+      <field name="name">Face Without Mouth (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-meh-blank</field>
+    </record>
+    <record id="icon_far_meh_rolling_eyes" model="sicpro.nomenclador.iconos">
+      <field name="name">Face With Rolling Eyes (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-meh-rolling-eyes</field>
+    </record>
+    <record id="icon_far_minus_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Minus Square (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-minus-square</field>
+    </record>
+    <record id="icon_far_money_bill_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Money Bill (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-money-bill-alt</field>
+    </record>
+    <record id="icon_far_moon" model="sicpro.nomenclador.iconos">
+      <field name="name">Moon (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-moon</field>
+    </record>
+    <record id="icon_far_newspaper" model="sicpro.nomenclador.iconos">
+      <field name="name">Newspaper (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-newspaper</field>
+    </record>
+    <record id="icon_far_object_group" model="sicpro.nomenclador.iconos">
+      <field name="name">Object Group (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-object-group</field>
+    </record>
+    <record id="icon_far_object_ungroup" model="sicpro.nomenclador.iconos">
+      <field name="name">Object Ungroup (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-object-ungroup</field>
+    </record>
+    <record id="icon_far_paper_plane" model="sicpro.nomenclador.iconos">
+      <field name="name">Paper Plane (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-paper-plane</field>
+    </record>
+    <record id="icon_far_pause_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">Pause Circle (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-pause-circle</field>
+    </record>
+    <record id="icon_far_play_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">Play Circle (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-play-circle</field>
+    </record>
+    <record id="icon_far_plus_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Plus Square (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-plus-square</field>
+    </record>
+    <record id="icon_far_question_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">Question Circle (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-question-circle</field>
+    </record>
+    <record id="icon_far_registered" model="sicpro.nomenclador.iconos">
+      <field name="name">Registered Trademark (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-registered</field>
+    </record>
+    <record id="icon_far_sad_cry" model="sicpro.nomenclador.iconos">
+      <field name="name">Crying Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-sad-cry</field>
+    </record>
+    <record id="icon_far_sad_tear" model="sicpro.nomenclador.iconos">
+      <field name="name">Loudly Crying Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-sad-tear</field>
+    </record>
+    <record id="icon_far_save" model="sicpro.nomenclador.iconos">
+      <field name="name">Save (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-save</field>
+    </record>
+    <record id="icon_far_share_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Share Square (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-share-square</field>
+    </record>
+    <record id="icon_far_smile" model="sicpro.nomenclador.iconos">
+      <field name="name">Smiling Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-smile</field>
+    </record>
+    <record id="icon_far_smile_beam" model="sicpro.nomenclador.iconos">
+      <field name="name">Beaming Face With Smiling Eyes (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-smile-beam</field>
+    </record>
+    <record id="icon_far_smile_wink" model="sicpro.nomenclador.iconos">
+      <field name="name">Winking Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-smile-wink</field>
+    </record>
+    <record id="icon_far_snowflake" model="sicpro.nomenclador.iconos">
+      <field name="name">Snowflake (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-snowflake</field>
+    </record>
+    <record id="icon_far_square" model="sicpro.nomenclador.iconos">
+      <field name="name">Square (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-square</field>
+    </record>
+    <record id="icon_far_star" model="sicpro.nomenclador.iconos">
+      <field name="name">Star (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-star</field>
+    </record>
+    <record id="icon_far_star_half" model="sicpro.nomenclador.iconos">
+      <field name="name">star-half (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-star-half</field>
+    </record>
+    <record id="icon_far_sticky_note" model="sicpro.nomenclador.iconos">
+      <field name="name">Sticky Note (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-sticky-note</field>
+    </record>
+    <record id="icon_far_stop_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">Stop Circle (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-stop-circle</field>
+    </record>
+    <record id="icon_far_sun" model="sicpro.nomenclador.iconos">
+      <field name="name">Sun (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-sun</field>
+    </record>
+    <record id="icon_far_surprise" model="sicpro.nomenclador.iconos">
+      <field name="name">Hushed Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-surprise</field>
+    </record>
+    <record id="icon_far_thumbs_down" model="sicpro.nomenclador.iconos">
+      <field name="name">thumbs-down (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-thumbs-down</field>
+    </record>
+    <record id="icon_far_thumbs_up" model="sicpro.nomenclador.iconos">
+      <field name="name">thumbs-up (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-thumbs-up</field>
+    </record>
+    <record id="icon_far_times_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">Times Circle (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-times-circle</field>
+    </record>
+    <record id="icon_far_tired" model="sicpro.nomenclador.iconos">
+      <field name="name">Tired Face (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-tired</field>
+    </record>
+    <record id="icon_far_trash_alt" model="sicpro.nomenclador.iconos">
+      <field name="name">Alternate Trash (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-trash-alt</field>
+    </record>
+    <record id="icon_far_user" model="sicpro.nomenclador.iconos">
+      <field name="name">User (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-user</field>
+    </record>
+    <record id="icon_far_user_circle" model="sicpro.nomenclador.iconos">
+      <field name="name">User Circle (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-user-circle</field>
+    </record>
+    <record id="icon_far_window_close" model="sicpro.nomenclador.iconos">
+      <field name="name">Window Close (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-window-close</field>
+    </record>
+    <record id="icon_far_window_maximize" model="sicpro.nomenclador.iconos">
+      <field name="name">Window Maximize (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-window-maximize</field>
+    </record>
+    <record id="icon_far_window_minimize" model="sicpro.nomenclador.iconos">
+      <field name="name">Window Minimize (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-window-minimize</field>
+    </record>
+    <record id="icon_far_window_restore" model="sicpro.nomenclador.iconos">
+      <field name="name">Window Restore (FAR)</field>
+      <field name="tipo">far</field>
+      <field name="clase_icono">fa-window-restore</field>
+    </record>
+  </data>
+</odoo>

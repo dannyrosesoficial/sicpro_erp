@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- Eliminar manual las plantillas
+    <delete id="auth_signup.set_password_email" models="mail.template"/>
+    <delete id="auth_signup.reset_password_email" models="mail.template"/>
+    <delete id="auth_signup.mail_template_user_signup_account_created" models="mail.template"/>
+    <delete id="auth_signup.mail_template_data_unregistered_users" models="mail.template"/>
+    -->
+
+    <record id="plantilla_invitacion_sicpro" model="mail.template">
+      <field name="name">Usuarios: Invitación a usar SICPRO ERP</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="subject">•SICPRO ERP: {{ object.create_uid.name }} le invita a conectarse a SICPRO ERP</field>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="email_to">{{ object.email_formatted }}</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO
+                                </span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;">
+                                  <t t-out="object.name"/>
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>Estimado/a <t t-out="object.name"/>,
+                                  <br></br>
+                                  <br></br>
+                                  Ha sido invitado/a
+                                  <t t-out="object.company_id.name"/>
+                                  para conectarse en SICPRO ERP.
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <t t-set="website_url"
+                                       t-value="object.get_base_url()"></t>
+                                    <a t-att-href='website_url'
+                                       style="color:rgb(124, 123, 173);background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      Aceptar invitación
+
+                                    </a>
+                                  </div>
+                                  Su dominio SICPRO es:
+                                  <b>
+                                    <a t-att-href='website_url'>
+                                      <t t-out="website_url"/>
+                                    </a>
+                                  </b>
+                                  <br></br>
+                                  Su usuario es:
+                                  <b>
+                                    <a t-attf-href="/web/login?login={{ object.login }}"
+                                       target="_blank">
+                                      <t t-out="object.login"/>
+                                    </a>
+                                  </b>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>Nunca ha escuchado de SICPRO?, es un
+                                  sistema desarrollado para la planificación de los
+                                  recursos de la División de Proyectos y Ejecución, un
+                                  sistema de planeación diseñado para reducir el
+                                  tiempo de respuesta, ciclo de producción, optimizar
+                                  la calidad, mejorar el manejo de activos, reducir
+                                  costos, optimizando la comunicación. SICPRO ERP es
+                                  una herramienta que soporta de forma integrada los
+                                  procesos claves de la división. Permite realizar
+                                  operaciones tales como la generación de solicitudes
+                                  de ejecución, ordenes de trabajo, la elaboración de
+                                  las preparaciones técnicas, el control de los gastos
+                                  certificados, y la gestión de subprocesos como los
+                                  de transporte y capital humano, etc.
+                                  <br></br>
+                                  <br></br>Es una solución que se enfoca en las
+                                  necesidades de la DVPE, tomando una visión de los
+                                  procesos para cumplir los objetivos corporativos,
+                                  buscando integrar todas las funciones de la empresa.
+                                  Es un sistema de gestión de la información
+                                  estructurado para satisfacer las demandas de
+                                  soluciones de la gestión empresarial, basado en el
+                                  ofrecimiento de una solución completa que permita a
+                                  los procesos claves evaluar, implementar y gestionar
+                                  más fácilmente su negocio.
+                                  <br></br>
+                                  <br></br>
+                                  Dele un vistazo para descubrir la herramienta.
+                                  <br></br>
+                                  <br></br>
+                                  ¡Disfrute de SICPRO!<br></br> --<br></br>Equipo de
+                                  administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email"
+                                     style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website"
+                                     style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023
+                            División de Proyectos y Ejecución de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico,
+                            Ave. Carlos III / Calle Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </field>
+      <field name="lang">{{ object.partner_id.lang }}</field>
+      <field name="auto_delete" eval="False"/>
+    </record>
+
+    <record id="plantilla_reset_pass_sicpro" model="mail.template">
+      <field name="name">Usuarios: Reset Contraseña SICPRO ERP</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="subject">•SICPRO ERP: Cambio de Contraseña</field>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="email_to">{{ object.email_formatted }}</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Su usuario</span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;">
+                                  <t t-out="object.name"/>
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>Estimado/a <t t-out="object.name"/>,
+                                  <br></br>
+                                  <br></br>
+                                  Se solicitó un restablecimiento de contraseña para
+                                  la cuenta vinculada a este correo electrónico.
+                                  El sistema <b>SICPRO ERP</b> no tiene habilitado el
+                                  cambio de contraseñas, para realizar dicha acción
+                                  utilize las herramientas habilitadas por la empresa.
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  ¡Disfrute de SICPRO!<br></br> --<br></br>Equipo de
+                                  administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email"
+                                     style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website"
+                                     style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023
+                            División de Proyectos y Ejecución de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico,
+                            Ave. Carlos III / Calle Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </field>
+      <field name="lang">{{ object.partner_id.lang }}</field>
+      <field name="auto_delete" eval="False"/>
+    </record>
+
+    <record id="plantilla_recordatorio_invitacion_sicpro" model="mail.template">
+      <field name="name">Usuarios: Usuarios sin registrar en SICPRO ERP</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="subject">•SICPRO ERP: Recordatorio para usuarios no registrados</field>
+      <field name="email_from">{{ object.company_id.partner_id.email_formatted }}</field>
+      <field name="email_to">{{ object.email_formatted }}</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO
+                                </span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;">
+                                  <t t-out="object.name"/>
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding: 0px; margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <t t-set="invited_users"
+                                 t-value="ctx.get('invited_users', [])"/>
+                              <td style="text-align:left">
+                                <span style="font-size:20px;font-weight: bold;">
+                                  Invitaciones pendientes
+                                </span>
+                                <br></br>
+                                <br></br>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>
+                                  Estimado/a <t t-out="object.name"/>,
+                                  <br></br>
+                                  <br></br>
+                                  Agregó los siguientes usuarios a su base de datos
+                                  pero aún no se han registrado:
+                                  <ul>
+                                    <t t-foreach="invited_users"
+                                       t-as="invited_user">
+                                      <li t-out="invited_user or ''">
+                                        demo@example.com
+                                      </li>
+                                    </t>
+                                  </ul>
+                                  Haga un seguimiento con ellos para que puedan
+                                  acceder al sistema SICPRO ERP y comenzar a trabajar
+                                  en linea con la división.
+                                  <br></br>
+                                  <br></br>
+                                  ¡Que tenga un buen día!
+                                  <br></br>
+                                  ¡Disfrute de SICPRO!
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email"
+                                     style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website"
+                                     style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size: 10px;" class="text-600">© 2019 - 2023
+                            División de Proyectos y Ejecución de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size: 10px;" class="text-600">Edificio Masónico,
+                            Ave. Carlos III / Calle Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </field>
+      <field name="lang">{{ object.partner_id.lang }}</field>
+      <field name="auto_delete" eval="False"/>
+    </record>
+
+    <record id="plantilla_actualizacion_roles" model="mail.template">
+      <field name="name">Usuarios: Actualización de Roles de los Usuarios</field>
+      <field name="model_id" ref="base.model_res_users"/>
+      <field name="subject">•SICPRO ERP: Sus roles de usuario SICPRO han sido actualizados.</field>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="email_to">{{ object.email_formatted }}</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO
+                                </span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;">
+                                  <t t-out="object.name"/>
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding: 0px; margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <t t-set="invited_users" t-value="object.role_line_ids"/>
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="text-align:left">
+                                <span style="font-size:20px;font-weight: bold;">
+                                  Actualización de roles de usuarios
+                                </span>
+                                <br></br>
+                                <br></br>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>
+                                  Estimado/a <t t-out="object.name"/>,
+                                  <br></br>
+                                  <br></br>
+                                  Sus roles de usuarios para el sistema SICPRO ERP
+                                  fueron actualizados correctamente:
+
+                                  <ul>
+                                    <t t-foreach="invited_users"
+                                       t-as="invited_user">
+                                      <li>
+                                        <span style="font-weight: bold;">Rol:
+                                        </span>
+                                        <t t-out="invited_user.role_id.name"/>
+                                        -
+                                        <span style="font-weight: bold;">Fecha
+                                          Inicio:
+                                        </span>
+                                        <t t-out="format_date(invited_user.date_from)"/>
+                                        -
+                                        <span style="font-weight: bold;">Fecha
+                                          Fin:
+                                        </span>
+                                        <t t-out="format_date(invited_user.date_to)"/>
+                                      </li>
+                                    </t>
+                                  </ul>
+                                  Haga un seguimiento de sus permisos en el sistema
+                                  SICPRO ERP y comienza a trabajar en línea con la
+                                  División.
+                                  <br></br>
+                                  <br></br>
+                                  <span
+                                      style="box-sizing:border-box;line-height:inherit;font-weight: bolder; font-size: 11px;">
+                                    <font style="color: #630000;">IMPORTANTE:
+                                    </font>
+                                    En el caso de ser solicitado un reinicio de usuario, el sistema estará esperando la
+                                    primera
+                                    entrada por un periodo de 24 horas, pasado este tiempo sin realizarse el acceso se
+                                    procederá
+                                    a desactivar nuevamente.
+                                  </span>
+                                  <br></br>
+                                  <br></br>
+                                  ¡Que tenga un buen día!
+                                  <br></br>
+                                  ¡Disfrute de SICPRO!
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email"
+                                     style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website"
+                                     style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size: 10px;" class="text-600">© 2019 - 2023
+                            División de Proyectos y Ejecución de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size: 10px;" class="text-600">Edificio Masónico,
+                            Ave. Carlos III / Calle Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </field>
+      <field name="lang">{{ object.partner_id.lang }}</field>
+      <field name="auto_delete" eval="False"/>
+    </record>
+
+  </data>
+</odoo>

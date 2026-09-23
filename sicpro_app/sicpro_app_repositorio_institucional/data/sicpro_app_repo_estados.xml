@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data noupdate="0">
+        <record model="sicpro.app.repo.estados" id="repositorios_estados_1">
+            <field name="sequence">1</field>
+            <field name="name">Borrador</field>
+            <field name="is_inicial">True</field>
+            <field name="is_won">False</field>
+            <field name="is_cancelado">False</field>
+        </record>
+        <record model="sicpro.app.repo.estados" id="repositorios_estados_2">
+            <field name="sequence">2</field>
+            <field name="name">Pendiente de Revisión</field>
+            <field name="is_inicial">False</field>
+            <field name="is_won">False</field>
+            <field name="is_cancelado">False</field>
+            <field name="is_revision">True</field>
+        </record>
+        <record model="sicpro.app.repo.estados" id="repositorios_estados_3">
+            <field name="sequence">3</field>
+            <field name="name">Publicado</field>
+            <field name="is_inicial">False</field>
+            <field name="is_won">True</field>
+            <field name="is_cancelado">False</field>
+        </record>
+        <record model="sicpro.app.repo.estados" id="repositorios_estados_4">
+            <field name="sequence">4</field>
+            <field name="name">Cancelado</field>
+            <field name="is_inicial">False</field>
+            <field name="is_won">False</field>
+            <field name="is_cancelado">True</field>
+        </record>
+    </data>
+
+
+</odoo>

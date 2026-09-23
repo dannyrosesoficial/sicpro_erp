@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+
+<odoo>
+  <data noupdate="0">
+    <!-- Cron para dar aviso de los gastos pendientes por el inversionista -->
+    <record id="transferencias_cron_gastos_pendientes" model="ir.cron">
+      <field name="name">Transferencias: Aviso de Gastos Pendientes</field>
+      <field name="model_id" ref="sicpro_app_transferencias_gastos.model_sicpro_app_transferencias_gastos_ordenes"/>
+      <field name="state">code</field>
+      <field name="code">model.cron_gastos_pendientes_inversionistas()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+  </data>
+</odoo>

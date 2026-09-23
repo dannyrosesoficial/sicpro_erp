@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo noupdate="1">
+  <record model="sicpro.nomenclador.emplazamientos" id="Emplaz_SS">
+    <field name="name">SSPIRITUS</field>
+    <field name="centro_planificacion" ref="sicpro_modulo_nomencladores.Centro_SS"/>
+  </record>
+  <record model="sicpro.nomenclador.emplazamientos" id="Emplaz_G">
+    <field name="name">GRANMA</field>
+    <field name="centro_planificacion" ref="sicpro_modulo_nomencladores.Centro_G"/>
+  </record>
+  <record model="sicpro.nomenclador.emplazamientos" id="Emplaz_TL">
+    <field name="name">T-LUYANÓ</field>
+    <field name="centro_planificacion" ref="sicpro_modulo_nomencladores.Centro_BV"/>
+  </record>
+  <record model="sicpro.nomenclador.emplazamientos" id="Emplaz_EM">
+    <field name="name">MASÓNICO</field>
+    <field name="centro_planificacion" ref="sicpro_modulo_nomencladores.Centro_BV"/>
+  </record>
+  <record model="sicpro.nomenclador.emplazamientos" id="Emplaz_TM">
+    <field name="name">T-MANTILLA</field>
+    <field name="centro_planificacion" ref="sicpro_modulo_nomencladores.Centro_BV"/>
+  </record>
+  <record model="sicpro.nomenclador.emplazamientos" id="Emplaz_CH">
+    <field name="name">CHUSMITA</field>
+    <field name="centro_planificacion" ref="sicpro_modulo_nomencladores.Centro_BV"/>
+  </record>
+  <record model="sicpro.nomenclador.emplazamientos" id="Emplaz_N">
+    <field name="name">NARANJITO</field>
+    <field name="centro_planificacion" ref="sicpro_modulo_nomencladores.Centro_BV"/>
+  </record>
+</odoo>

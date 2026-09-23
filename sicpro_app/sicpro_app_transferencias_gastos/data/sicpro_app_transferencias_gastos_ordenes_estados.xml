@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.transferencias.gastos.ordenes.estados" id="transferencias_gastos_ordenes_estado_1">
+      <field name="sequence">1</field>
+      <field name="name">Revisión Técnico</field>
+      <field name="fold">False</field>
+      <field name="inicial">True</field>
+      <field name="terminado">False</field>
+      <field name="color_barra">info</field>
+      <field name="rol_interno">dtp</field>
+      <field name="valor_tecnico_gastos">revision_dtp</field>
+      <field name="devuelto_economia">False</field>
+      <field name="cron_morosidad">False</field>
+    </record>
+
+    <record model="sicpro.app.transferencias.gastos.ordenes.estados" id="transferencias_gastos_ordenes_estado_3">
+      <field name="sequence">3</field>
+      <field name="name">Validación Ejecutor</field>
+      <field name="fold">False</field>
+      <field name="inicial">False</field>
+      <field name="terminado">False</field>
+      <field name="color_barra">info</field>
+      <field name="rol_interno">ejecutores</field>
+      <field name="valor_tecnico_gastos">validacion_ejecutor</field>
+      <field name="devuelto_economia">False</field>
+      <field name="cron_morosidad">False</field>
+    </record>
+
+    <record model="sicpro.app.transferencias.gastos.ordenes.estados" id="transferencias_gastos_ordenes_estado_4">
+      <field name="sequence">4</field>
+      <field name="name">Rechazado Ejecutor</field>
+      <field name="fold">True</field>
+      <field name="inicial">False</field>
+      <field name="terminado">False</field>
+      <field name="color_barra">warning</field>
+      <field name="rol_interno">dtp</field>
+      <field name="valor_tecnico_gastos">rechazado_ejecutor</field>
+      <field name="devuelto_economia">False</field>
+      <field name="cron_morosidad">False</field>
+    </record>
+
+    <record model="sicpro.app.transferencias.gastos.ordenes.estados" id="transferencias_gastos_ordenes_estado_5">
+      <field name="sequence">5</field>
+      <field name="name">Validación Inversionista</field>
+      <field name="fold">False</field>
+      <field name="inicial">False</field>
+      <field name="terminado">False</field>
+      <field name="color_barra">info</field>
+      <field name="rol_interno">inversionistas</field>
+      <field name="valor_tecnico_gastos">validacion_inversionista</field>
+      <field name="devuelto_economia">False</field>
+      <field name="cron_morosidad">True</field>
+    </record>
+
+    <record model="sicpro.app.transferencias.gastos.ordenes.estados" id="transferencias_gastos_ordenes_estado_6">
+      <field name="sequence">6</field>
+      <field name="name">Rechazado Inversionista</field>
+      <field name="fold">True</field>
+      <field name="inicial">False</field>
+      <field name="terminado">False</field>
+      <field name="color_barra">danger</field>
+      <field name="rol_interno">ejecutores</field>
+      <field name="valor_tecnico_gastos">rechazado_inversionista</field>
+      <field name="devuelto_economia">False</field>
+      <field name="cron_morosidad">False</field>
+    </record>
+
+    <record model="sicpro.app.transferencias.gastos.ordenes.estados" id="transferencias_gastos_ordenes_estado_7">
+      <field name="sequence">7</field>
+      <field name="name">En Espera por Contabilizar</field>
+      <field name="fold">False</field>
+      <field name="inicial">False</field>
+      <field name="terminado">False</field>
+      <field name="color_barra">warning</field>
+      <field name="rol_interno">economia</field>
+      <field name="valor_tecnico_gastos">espera_contabilizar</field>
+      <field name="devuelto_economia">False</field>
+      <field name="cron_morosidad">False</field>
+    </record>
+
+    <record model="sicpro.app.transferencias.gastos.ordenes.estados" id="transferencias_gastos_ordenes_estado_8">
+      <field name="sequence">8</field>
+      <field name="name">Contabilizada</field>
+      <field name="fold">False</field>
+      <field name="inicial">False</field>
+      <field name="terminado">True</field>
+      <field name="color_barra">success</field>
+      <field name="rol_interno">economia</field>
+      <field name="valor_tecnico_gastos">contabilizado</field>
+      <field name="devuelto_economia">False</field>
+      <field name="cron_morosidad">False</field>
+    </record>
+
+    <record model="sicpro.app.transferencias.gastos.ordenes.estados" id="transferencias_gastos_ordenes_estado_9">
+      <field name="sequence">9</field>
+      <field name="name">Pendiente a Transferir</field>
+      <field name="fold">True</field>
+      <field name="inicial">False</field>
+      <field name="terminado">False</field>
+      <field name="color_barra">danger</field>
+      <field name="rol_interno">economia</field>
+      <field name="valor_tecnico_gastos">pendiente_contabilizar</field>
+      <field name="devuelto_economia">True</field>
+      <field name="cron_morosidad">False</field>
+    </record>
+  </data>
+</odoo>

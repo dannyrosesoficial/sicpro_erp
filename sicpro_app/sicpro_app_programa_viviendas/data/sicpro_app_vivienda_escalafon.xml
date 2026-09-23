@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data>
+    <record id='vivienda_escalafon_1' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>1</field>
+    </record>
+    <record id='vivienda_escalafon_2' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>2</field>
+    </record>
+    <record id='vivienda_escalafon_3' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>3</field>
+    </record>
+    <record id='vivienda_escalafon_4' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>4</field>
+    </record>
+    <record id='vivienda_escalafon_5' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>5</field>
+    </record>
+    <record id='vivienda_escalafon_6' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>6</field>
+    </record>
+    <record id='vivienda_escalafon_7' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>7</field>
+    </record>
+    <record id='vivienda_escalafon_8' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>8</field>
+    </record>
+    <record id='vivienda_escalafon_9' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>9</field>
+    </record>
+    <record id='vivienda_escalafon_10' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>10</field>
+    </record>
+    <record id='vivienda_escalafon_11' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>11</field>
+    </record>
+    <record id='vivienda_escalafon_12' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>12</field>
+    </record>
+    <record id='vivienda_escalafon_13' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>13</field>
+    </record>
+    <record id='vivienda_escalafon_14' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>14</field>
+    </record>
+    <record id='vivienda_escalafon_15' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>15</field>
+    </record>
+    <record id='vivienda_escalafon_16' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>16</field>
+    </record>
+    <record id='vivienda_escalafon_17' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>17</field>
+    </record>
+    <record id='vivienda_escalafon_18' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>18</field>
+    </record>
+    <record id='vivienda_escalafon_19' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>19</field>
+    </record>
+    <record id='vivienda_escalafon_20' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>20</field>
+    </record>
+    <record id='vivienda_escalafon_21' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>21</field>
+    </record>
+    <record id='vivienda_escalafon_22' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>22</field>
+    </record>
+    <record id='vivienda_escalafon_23' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>23</field>
+    </record>
+    <record id='vivienda_escalafon_24' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>24</field>
+    </record>
+    <record id='vivienda_escalafon_25' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>25</field>
+    </record>
+    <record id='vivienda_escalafon_26' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>26</field>
+    </record>
+    <record id='vivienda_escalafon_27' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>27</field>
+    </record>
+    <record id='vivienda_escalafon_28' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>28</field>
+    </record>
+    <record id='vivienda_escalafon_29' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>29</field>
+    </record>
+    <record id='vivienda_escalafon_30' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>30</field>
+    </record>
+    <record id='vivienda_escalafon_31' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>31</field>
+    </record>
+    <record id='vivienda_escalafon_32' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>32</field>
+    </record>
+    <record id='vivienda_escalafon_33' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>33</field>
+    </record>
+    <record id='vivienda_escalafon_34' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>34</field>
+    </record>
+    <record id='vivienda_escalafon_35' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>35</field>
+    </record>
+    <record id='vivienda_escalafon_36' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>36</field>
+    </record>
+    <record id='vivienda_escalafon_37' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>37</field>
+    </record>
+    <record id='vivienda_escalafon_38' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>38</field>
+    </record>
+    <record id='vivienda_escalafon_39' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>39</field>
+    </record>
+    <record id='vivienda_escalafon_40' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>40</field>
+    </record>
+    <record id='vivienda_escalafon_41' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>41</field>
+    </record>
+    <record id='vivienda_escalafon_42' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>42</field>
+    </record>
+    <record id='vivienda_escalafon_43' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>43</field>
+    </record>
+    <record id='vivienda_escalafon_44' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>44</field>
+    </record>
+    <record id='vivienda_escalafon_45' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>45</field>
+    </record>
+    <record id='vivienda_escalafon_46' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>46</field>
+    </record>
+    <record id='vivienda_escalafon_47' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>47</field>
+    </record>
+    <record id='vivienda_escalafon_48' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>48</field>
+    </record>
+    <record id='vivienda_escalafon_49' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>49</field>
+    </record>
+    <record id='vivienda_escalafon_50' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>50</field>
+    </record>
+    <record id='vivienda_escalafon_51' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>51</field>
+    </record>
+    <record id='vivienda_escalafon_52' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>52</field>
+    </record>
+    <record id='vivienda_escalafon_53' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>53</field>
+    </record>
+    <record id='vivienda_escalafon_54' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>54</field>
+    </record>
+    <record id='vivienda_escalafon_55' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>55</field>
+    </record>
+    <record id='vivienda_escalafon_56' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>56</field>
+    </record>
+    <record id='vivienda_escalafon_57' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>57</field>
+    </record>
+    <record id='vivienda_escalafon_58' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>58</field>
+    </record>
+    <record id='vivienda_escalafon_59' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>59</field>
+    </record>
+    <record id='vivienda_escalafon_60' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>60</field>
+    </record>
+    <record id='vivienda_escalafon_61' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>61</field>
+    </record>
+    <record id='vivienda_escalafon_62' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>62</field>
+    </record>
+    <record id='vivienda_escalafon_63' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>63</field>
+    </record>
+    <record id='vivienda_escalafon_64' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>64</field>
+    </record>
+    <record id='vivienda_escalafon_65' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>65</field>
+    </record>
+    <record id='vivienda_escalafon_66' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>66</field>
+    </record>
+    <record id='vivienda_escalafon_67' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>67</field>
+    </record>
+    <record id='vivienda_escalafon_68' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>68</field>
+    </record>
+    <record id='vivienda_escalafon_69' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>69</field>
+    </record>
+    <record id='vivienda_escalafon_70' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>70</field>
+    </record>
+    <record id='vivienda_escalafon_71' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>71</field>
+    </record>
+    <record id='vivienda_escalafon_72' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>72</field>
+    </record>
+    <record id='vivienda_escalafon_73' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>73</field>
+    </record>
+    <record id='vivienda_escalafon_74' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>74</field>
+    </record>
+    <record id='vivienda_escalafon_75' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>75</field>
+    </record>
+    <record id='vivienda_escalafon_76' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>76</field>
+    </record>
+    <record id='vivienda_escalafon_77' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>77</field>
+    </record>
+    <record id='vivienda_escalafon_78' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>78</field>
+    </record>
+    <record id='vivienda_escalafon_79' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>79</field>
+    </record>
+    <record id='vivienda_escalafon_80' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>80</field>
+    </record>
+    <record id='vivienda_escalafon_81' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>81</field>
+    </record>
+    <record id='vivienda_escalafon_82' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>82</field>
+    </record>
+    <record id='vivienda_escalafon_83' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>83</field>
+    </record>
+    <record id='vivienda_escalafon_84' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>84</field>
+    </record>
+    <record id='vivienda_escalafon_85' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>85</field>
+    </record>
+    <record id='vivienda_escalafon_86' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>86</field>
+    </record>
+    <record id='vivienda_escalafon_87' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>87</field>
+    </record>
+    <record id='vivienda_escalafon_88' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>88</field>
+    </record>
+    <record id='vivienda_escalafon_89' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>89</field>
+    </record>
+    <record id='vivienda_escalafon_90' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>90</field>
+    </record>
+    <record id='vivienda_escalafon_91' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>91</field>
+    </record>
+    <record id='vivienda_escalafon_92' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>92</field>
+    </record>
+    <record id='vivienda_escalafon_93' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>93</field>
+    </record>
+    <record id='vivienda_escalafon_94' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>94</field>
+    </record>
+    <record id='vivienda_escalafon_95' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>95</field>
+    </record>
+    <record id='vivienda_escalafon_96' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>96</field>
+    </record>
+    <record id='vivienda_escalafon_97' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>97</field>
+    </record>
+    <record id='vivienda_escalafon_98' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>98</field>
+    </record>
+    <record id='vivienda_escalafon_99' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>99</field>
+    </record>
+    <record id='vivienda_escalafon_100' model='sicpro.app.vivienda.escalafon'>
+      <field name='name'>100</field>
+    </record>
+  </data>
+</odoo>

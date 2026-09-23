@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data noupdate="0">
+        <record id="license_cc_by" model="sicpro.app.repo.licencia">
+            <field name="name">Creative Commons Reconocimiento 4.0</field>
+            <field name="siglas">CC BY 4.0</field>
+            <field name="url">https://creativecommons.org/licenses/by/4.0/deed.es</field>
+            <field name="description">La licencia más permisiva de CC. Permite a otros copiar, distribuir, modificar y
+                usar la obra (incluso comercialmente), siempre que se dé crédito al autor original.
+            </field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="license_cc_by_nc" model="sicpro.app.repo.licencia">
+            <field name="name">Creative Commons Reconocimiento-NoComercial 4.0</field>
+            <field name="siglas">CC BY-NC 4.0</field>
+            <field name="url">https://creativecommons.org/licenses/by-nc/4.0/deed.es</field>
+            <field name="description">Permite a otros copiar, distribuir y modificar la obra, pero solo para fines no
+                comerciales. Requiere que se dé crédito al autor original.
+            </field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="license_restricted" model="sicpro.app.repo.licencia">
+            <field name="name">Derechos de Autor Reservados (Restringido)</field>
+            <field name="siglas">Copyright</field>
+            <field name="description">El autor o titular retiene todos los derechos sobre la obra. Se requiere un
+                permiso explícito del titular para cualquier uso, reproducción, modificación o distribución de la obra.
+                Es la opción por defecto en la mayoría de las legislaciones.
+            </field>
+            <field name="sequence">3</field>
+        </record>
+
+    </data>
+
+
+</odoo>

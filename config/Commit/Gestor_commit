@@ -1,0 +1,58 @@
+cd /home/daniel.borrero/SICPRO-ERP/MESA_DE_LUZ/Odoo19/sicproerp
+git checkout 19.0
+git status
+git add migration/
+git status
+git commit -m "Agrega documentación de migración Odoo 15 a 19 - v7"
+git push origin 19.0
+git status
+
+Resumen de los 4 procedimientos
+
+A. PC → GitHub:
+cd ~/SICPRO-ERP/MESA_DE_LUZ/Odoo19/sicproerp
+git status
+git diff --name-status
+git add .
+git status
+git commit -m "DESCRIPCION DEL CAMBIO"
+git push github Dev_Daniel
+
+B. PC → ETECSA:
+cd ~/SICPRO-ERP/MESA_DE_LUZ/Odoo19/sicproerp
+git status
+git fetch etecsa
+git add .
+git status
+#Si ya hiciste el commit para GitHub, NO vuelvas a hacer git commit.
+git commit -m "DESCRIPCION DEL CAMBIO"
+git push etecsa Dev_Daniel
+
+C. ETECSA → servidor:
+Primera vez:
+
+sudo -u odoo -H bash
+cd /opt/odoo
+git clone --branch 19.0 --single-branch https://gitlab.etecsa.cu/daniel.borrero/sicpro-erp.git /opt/odoo/sicproerp
+
+Posteriormente, para una actualización controlada:
+
+cd /opt/odoo/sicproerp
+git fetch origin
+git status
+git log -1 --oneline
+
+Y, según el procedimiento de despliegue aprobado, actualizar al commit deseado.
+
+D. GitHub → otra PC/carpeta:
+Primera vez:
+
+git clone --branch Dev_Daniel --single-branch git@github.com:dannyrosesoficial/sicpro_erp.git ~/SICPRO-ERP/MESA_DE_LUZ/Odoo19/sicproerp
+
+Posteriormente:
+
+cd ~/SICPRO-ERP/MESA_DE_LUZ/Odoo19/sicproerp
+git status
+git pull --ff-only
+Regla que te recomiendo conservar
+

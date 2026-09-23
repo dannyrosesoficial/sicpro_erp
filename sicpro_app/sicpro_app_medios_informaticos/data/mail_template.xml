@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- Plantilla de envío a Taller -->
+    <record id="medios_informaticos_envio_taller" model="mail.template">
+        <field name="name">Informática: Envío a taller</field>
+        <field name="model_id" ref="sicpro_app_medios_informaticos.model_sicpro_app_medios_informaticos_taller"/>
+        <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+        <field name="auto_delete" eval="False"/>
+        <field name="subject">•SICPRO ERP-Informática: {{ object.create_uid.name }} ha creado un nuevo envío a taller - {{ object.name.display_name }}</field>
+        <field name="body_html" type="html">
+            <table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                    <!-- ENCABEZADO -->
+                                    <tr>
+                                        <td style="min-width:590px;" align="center">
+                                            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="middle">
+                                                            <span style="font-size:10px;">Bienvenido/a a SICPRO</span><br/>
+                                                            <span style="font-size:20px;font-weight: bold;">
+                                                                Envío a taller Inventario: <t t-out="object.name.display_name"/>
+                                                            </span>
+                                                        </td>
+                                                        <td valign="middle" align="right">
+                                                            <img t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="padding:0px;margin: 0px; height: auto; width: 80px;"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" style="text-align:center;">
+                                                            <hr style="background-color:rgb(204,204,204);border:none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENIDO -->
+                                    <tr>
+                                        <td style="min-width:590px;" align="center">
+                                            <table style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="font-size:13px;" valign="top">
+                                                            <div>
+                                                                Ha sido creado un nuevo envío a taller con los siguientes datos:<br/><br/>
+                                                                <b>Tique:</b> <t t-out="object.no_tique"/><br/>
+                                                                <b>Fecha Entrada:</b> <t t-out="object.fecha_entrada"/><br/>
+                                                                <b>Responsable:</b> <t t-out="object.responsable"/><br/>
+                                                                <b>Equipo:</b> <t t-out="object.equipo"/><br/>
+                                                                <b>Unidad Organizativa:</b> <t t-out="object.unidad_org.name"/><br/>
+                                                                <b>Dictamen Técnico:</b> <t t-out="object.dictamen_tec or 'N/A'"/><br/>
+                                                                <b>No. Orden Taller:</b> <t t-out="object.no_orden_taller or 'Pendiente'"/><br/><br/>
+
+                                                                <div style="margin:16px 0px 16px 0px;">
+                                                                    <a t-attf-href="{{ object.get_base_url() }}/mail/view?model=sicpro.app.medios.informaticos.taller&amp;res_id={{ object.id }}"
+                                                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                                                      Ver Registro en SICPRO
+                                                                    </a>
+                                                                </div>
+                                                                <br/>
+                                                                --<br/>Equipo de administración SICPRO ERP.
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- PIE -->
+                                    <tr>
+                                        <td style="min-width:590px;" align="center">
+                                            <hr style="background-color:rgb(204,204,204);border:none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" width="100%"/>
+                                            <table style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                                <tbody>
+                                                    <tr><td valign="middle" align="left"><t t-out="object.company_id.name"/></td></tr>
+                                                    <tr>
+                                                        <td style="opacity:0.7;" valign="middle" align="left">
+                                                            <t t-out="object.company_id.phone"/>
+                                                            <t t-if="object.company_id.email"> | <a t-attf-href="mailto:{{ object.company_id.email }}" style="color:#454748;"><t t-out="object.company_id.email"/></a></t>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- POWERED BY -->
+                    <tr>
+                        <td align="center">
+                            <table style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align:center;font-size: 11px;">
+                                            Notificación generada por <b><span style="color:rgb(7, 140, 7);">SICPRO ERP</span></b><br/>
+                                            © 2019 - 2026 División de Proyectos y Ejecución de Obras, DVPE.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </field>
+    </record>
+
+    <!-- Plantilla cuando se cierra tique -->
+    <record id="medios_informaticos_cerrar_tique" model="mail.template">
+        <field name="name">Informática: Tique cerrado</field>
+        <field name="model_id" ref="sicpro_app_medios_informaticos.model_sicpro_app_medios_informaticos_taller"/>
+        <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+        <field name="auto_delete" eval="False"/>
+        <field name="subject">•SICPRO ERP-Informática: Tique cerrado - {{ object.no_tique }}</field>
+        <field name="body_html" type="html">
+            <!-- (Estructura idéntica a la anterior, ajustando los campos de cierre) -->
+            <table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td style="min-width:590px;" align="center">
+                                            <span style="font-size:20px;font-weight: bold;">Tique Finalizado: <t t-out="object.no_tique"/></span>
+                                            <hr style="background-color:rgb(204,204,204);border:none;min-height:1px;margin:16px 0px;"/>
+                                            <div style="font-size:13px; text-align:left;">
+                                                El tique ha sido cerrado con éxito:<br/><br/>
+                                                <b>No. Inventario:</b> <t t-out="object.name.display_name"/><br/>
+                                                <b>Fecha Recogida:</b> <t t-out="object.fecha_recogida"/><br/>
+                                                <b>Dictamen Final:</b> <t t-out="object.dictamen_tec"/><br/>
+                                                <b>Trámite:</b> <t t-out="object.tramite"/><br/><br/>
+
+                                                <div style="margin:16px 0px;">
+                                                    <a t-attf-href="{{ object.get_base_url() }}/mail/view?model=sicpro.app.medios.informaticos.taller&amp;res_id={{ object.id }}"
+                                                       style="background-color:#28a745;padding: 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+                                                      Ver detalles del cierre
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </field>
+    </record>
+
+    <!-- Plantilla de baja -->
+    <record id="medios_informaticos_baja" model="mail.template">
+        <field name="name">Informática: Baja de medio informático</field>
+        <field name="model_id" ref="sicpro_app_medios_informaticos.model_sicpro_app_medios_informaticos_bajas"/>
+        <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+        <field name="auto_delete" eval="False"/>
+        <field name="subject">•SICPRO ERP-Informática: Baja de medio informático - {{ object.name.display_name }}</field>
+        <field name="body_html" type="html">
+            <table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                    <!-- ENCABEZADO -->
+                                    <tr>
+                                        <td style="min-width:590px;" align="center">
+                                            <table style="width:100%; background-color: white; padding: 0px 8px; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="middle">
+                                                            <span style="font-size:10px;">Sistema SICPRO</span><br/>
+                                                            <span style="font-size:18px;font-weight: bold;">
+                                                                Notificación de Baja: <t t-out="object.name.display_name"/>
+                                                            </span>
+                                                        </td>
+                                                        <td valign="middle" align="right">
+                                                            <img t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="height: auto; width: 80px;"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr style="background-color:rgb(204,204,204); border:none; min-height:1px; margin: 16px 8px;"/>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENIDO -->
+                                    <tr>
+                                        <td style="padding: 0px 16px; font-size:13px; text-align:left;">
+                                            <div>
+                                                Se ha formalizado la baja de un medio informático. Detalles del proceso:<br/><br/>
+                                                <b>Equipo:</b> <t t-out="object.denominacion"/><br/>
+                                                <b>Orden Mantenimiento Taller:</b> <t t-out="object.no_orden_mtto_taller or 'N/A'"/><br/>
+                                                <b>Fecha Acta Destino Final:</b> <t t-out="object.fecha_acta_destino_final"/><br/>
+                                                <b>Dictamen Técnico SERTOD:</b> <t t-out="object.dictamen_tec"/><br/>
+                                                <b>Expediente Economía:</b> <t t-out="object.no_exp_economia"/><br/>
+                                                <b>Acuerdo Consejo Dirección:</b> <t t-out="object.no_acta_acuerdo_consejo_dir"/><br/><br/>
+
+                                                <div style="margin:24px 0px;">
+                                                    <a t-attf-href="{{ object.get_base_url() }}/mail/view?model=sicpro.app.medios.informaticos.bajas&amp;res_id={{ object.id }}"
+                                                       style="background-color:#d9534f; padding: 10px 20px; text-decoration: none; color: #fff; border-radius: 5px; font-weight:bold;">
+                                                      Ver Registro de Baja
+                                                    </a>
+                                                </div>
+                                                <br/>
+                                                --<br/>Equipo de administración SICPRO ERP.
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </field>
+    </record>
+
+    <!-- Plantilla de pendiente por piezas -->
+    <record id="medios_informaticos_pdtes_piezas" model="mail.template">
+        <field name="name">Informática: Medio informático pendiente por piezas</field>
+        <field name="model_id" ref="sicpro_app_medios_informaticos.model_sicpro_app_medios_informaticos_pdtes_piezas"/>
+        <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+        <field name="auto_delete" eval="False"/>
+        <field name="subject">•SICPRO ERP-Informática: Pendiente por piezas - {{ object.name.display_name }}</field>
+        <field name="body_html" type="html">
+            <table style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;" width="590" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td style="min-width:590px;" align="center">
+                                            <table style="width:100%; background-color: white; padding: 0px 8px; border-collapse:separate;" cellspacing="0" cellpadding="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="middle">
+                                                            <span style="font-size:10px;">Sistema SICPRO</span><br/>
+                                                            <span style="font-size:18px;font-weight: bold;">
+                                                                Pendiente por Piezas: <t t-out="object.name.display_name"/>
+                                                            </span>
+                                                        </td>
+                                                        <td valign="middle" align="right">
+                                                            <img t-attf-src="{{ object.get_base_url() }}/sicpro_app_administracion/static/src/img/logo_sicpro 4.png" style="height: auto; width: 80px;"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr style="background-color:rgb(204,204,204); border:none; min-height:1px; margin: 16px 8px;"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0px 16px; font-size:13px; text-align:left;">
+                                            <div>
+                                                Se ha registrado un equipo como <b>Pendiente por Piezas</b>:<br/><br/>
+                                                <b>Tique:</b> <t t-out="object.no_tique"/><br/>
+                                                <b>No. de Orden:</b> <t t-out="object.no_orden"/><br/>
+                                                <b>Equipo/Denominación:</b> <t t-out="object.equipo"/> (<t t-out="object.denominacion"/>)<br/>
+                                                <b>Área/Usuario:</b> <t t-out="object.area.name"/> / <t t-out="object.usuario_ant.name"/><br/>
+                                                <b>Pieza Necesaria:</b> <t t-out="object.pieza_orden_trabajo"/><br/><br/>
+
+                                                <t t-if="object.observaciones_glpi">
+                                                    <div style="background-color:#f8f9fa; padding:10px; border-left:4px solid #875A7B;">
+                                                        <b>Obs. GLPI:</b> <t t-out="object.observaciones_glpi"/>
+                                                    </div><br/>
+                                                </t>
+
+                                                <div style="margin:24px 0px;">
+                                                    <a t-attf-href="{{ object.get_base_url() }}/mail/view?model=sicpro.app.medios.informaticos.pdtes.piezas&amp;res_id={{ object.id }}"
+                                                       style="background-color:#f0ad4e; padding: 10px 20px; text-decoration: none; color: #fff; border-radius: 5px; font-weight:bold;">
+                                                      Gestionar Pendiente
+                                                    </a>
+                                                </div>
+                                                <br/>
+                                                --<br/>Equipo de administración SICPRO ERP.
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- PIE DE PÁGINA COMÚN -->
+                                    <tr>
+                                        <td style="font-size:11px; text-align:center; color:#999; padding-top:20px;">
+                                            © 2019 - 2026 División de Proyectos y Ejecución de Obras, DVPE.<br/>
+                                            Generado automáticamente por SICPRO ERP.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </field>
+    </record>
+  </data>
+</odoo>

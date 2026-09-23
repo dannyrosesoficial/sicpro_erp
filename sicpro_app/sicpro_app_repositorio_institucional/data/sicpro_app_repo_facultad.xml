@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data noupdate="0">
+        <record id="facultad_1" model="sicpro.app.repo.facultad">
+            <field name="name">Universidad de La Habana (UH)</field>
+            <field name="descripcion">Universidad de Ciencias, Humanidades y Técnicas. La Habana.</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="facultad_2" model="sicpro.app.repo.facultad">
+            <field name="name">Universidad Tecnológica de La Habana "José Antonio Echeverría" (CUJAE)</field>
+            <field name="descripcion">Universidad Técnica principal. La Habana.</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="facultad_3" model="sicpro.app.repo.facultad">
+            <field name="name">Universidad Central "Marta Abreu" de Las Villas (UCLV)</field>
+            <field name="descripcion">Universidad de Ciencias, Humanidades y Técnicas. Villa Clara.</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="facultad_4" model="sicpro.app.repo.facultad">
+            <field name="name">Universidad de Oriente (UO)</field>
+            <field name="descripcion">Universidad de Ciencias, Humanidades y Técnicas. Santiago de Cuba.</field>
+            <field name="sequence">4</field>
+        </record>
+        <record id="facultad_5" model="sicpro.app.repo.facultad">
+            <field name="name">Universidad de Ciencias Informáticas (UCI)</field>
+            <field name="descripcion">Universidad enfocada en Informática y Ciencias. La Habana.</field>
+            <field name="sequence">5</field>
+        </record>
+        <record id="facultad_6" model="sicpro.app.repo.facultad">
+            <field name="name">Universidades de Ciencias Médicas</field>
+            <field name="descripcion">Diversas sedes en todo el país (ej. La Habana, Santiago).</field>
+            <field name="sequence">6</field>
+        </record>
+
+
+    </data>
+</odoo>

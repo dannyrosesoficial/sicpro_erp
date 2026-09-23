@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- Estados de Reuniones -->
+    <record id="event_stage_new" model="sicpro.app.reuniones.estados">
+      <field name="name">Borrador</field>
+      <field name="description">Nueva reunión creada</field>
+      <field name="sequence">1</field>
+    </record>
+    <record id="event_stage_booked" model="sicpro.app.reuniones.estados">
+      <field name="name">En Espera</field>
+      <field name="description">Pendiente a su realización</field>
+      <field name="sequence">2</field>
+    </record>
+    <record id="event_stage_announced" model="sicpro.app.reuniones.estados">
+      <field name="name">Pospuesta</field>
+      <field name="description">Reunión planificada para otro momento</field>
+      <field name="sequence">3</field>
+    </record>
+    <record id="event_stage_done" model="sicpro.app.reuniones.estados">
+      <field name="name">Cumplida</field>
+      <field name="description">Reunión Cumplida</field>
+      <field name="sequence">5</field>
+      <field name="pipe_end" eval="True"/>
+      <field name="fold" eval="True"/>
+    </record>
+    <record id="event_stage_cancelled" model="sicpro.app.reuniones.estados">
+      <field name="name">Cancelada</field>
+      <field name="description">Reunión cancelada</field>
+      <field name="sequence">6</field>
+      <field name="pipe_end" eval="True"/>
+      <field name="fold" eval="True"/>
+    </record>
+  </data>
+</odoo>

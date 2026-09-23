@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_1">
+      <field name="name">(OE)ASEG.LOGISTICO</field>
+      <field name="plan">P.SEGU19</field>
+      <field name="consecutivo">82</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_2">
+      <field name="name">(OE)ASEG.LOGISTICO</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">69</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_3">
+      <field name="name">(OE)ACCESO</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">50</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_4">
+      <field name="name">(OE)ASEG.INF.TECNOLOG</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">62</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_5">
+      <field name="name">(OE)S.APL.Y CONTROL</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">51</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_6">
+      <field name="name">(OE)ASEG.COMERCIAL</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">60</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_7">
+      <field name="name">(OE)ASEG.SIST.INF,</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">63</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_8">
+      <field name="name">(OE)REDES TRANSPT.TX</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">52</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_9">
+      <field name="name">(OE)RED MOVIL</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">81</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_10">
+      <field name="name">(OE)ASEG.OTROS</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">65</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_11">
+      <field name="name">(OE)FERROCARRILES</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">53</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_12">
+      <field name="name">(OE) CABLE SUBACUAT.</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">28</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_13">
+      <field name="name">(OE)ASEG.OPERACIONES</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">61</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_14">
+      <field name="name">(OE)AC.FIJ E INAL.</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">64</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_proyecto_15">
+      <field name="name">(OE)ASEG.LOGISTIC</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">90</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_proyecto"/>
+    </record>
+
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_1">
+      <field name="name">(OE)ASEG.LOGISTICO</field>
+      <field name="plan">P.SEGU19</field>
+      <field name="consecutivo">82</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_2">
+      <field name="name">(OE)ASEG.LOGISTICO</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">69</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_3">
+      <field name="name">(OE)ACCESO</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">50</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_4">
+      <field name="name">(OE)ASEG.INF.TECNOLOG</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">62</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_5">
+      <field name="name">(OE)S.APL.Y CONTROL</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">51</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_6">
+      <field name="name">(OE)ASEG.COMERCIAL</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">60</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_7">
+      <field name="name">(OE)ASEG.SIST.INF,</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">63</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_8">
+      <field name="name">(OE)REDES TRANSPT.TX</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">52</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_9">
+      <field name="name">(OE)RED MOVIL</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">81</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_10">
+      <field name="name">(OE)ASEG.OTROS</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">65</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_11">
+      <field name="name">(OE)FERROCARRILES</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">53</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_12">
+      <field name="name">(OE) CABLE SUBACUAT.</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">28</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_13">
+      <field name="name">(OE)ASEG.OPERACIONES</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">61</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_14">
+      <field name="name">(OE)AC.FIJ E INAL.</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">64</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoct_15">
+      <field name="name">(OE)ASEG.LOGISTIC</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">90</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoct"/>
+    </record>
+
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_1">
+      <field name="name">(OE)ASEG.LOGISTICO</field>
+      <field name="plan">P.SEGU19</field>
+      <field name="consecutivo">82</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_2">
+      <field name="name">(OE)ASEG.LOGISTICO</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">69</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_3">
+      <field name="name">(OE)ACCESO</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">50</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_4">
+      <field name="name">(OE)ASEG.INF.TECNOLOG</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">62</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_5">
+      <field name="name">(OE)S.APL.Y CONTROL</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">51</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_6">
+      <field name="name">(OE)ASEG.COMERCIAL</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">60</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_7">
+      <field name="name">(OE)ASEG.SIST.INF,</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">63</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_8">
+      <field name="name">(OE)REDES TRANSPT.TX</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">52</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_9">
+      <field name="name">(OE)RED MOVIL</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">81</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_10">
+      <field name="name">(OE)ASEG.OTROS</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">65</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_11">
+      <field name="name">(OE)FERROCARRILES</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">53</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_12">
+      <field name="name">(OE) CABLE SUBACUAT.</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">28</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_13">
+      <field name="name">(OE)ASEG.OPERACIONES</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">61</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_14">
+      <field name="name">(OE)AC.FIJ E INAL.</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">64</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+    <record model="sicpro.app.ordenes.programa.inversiones" id="programa_inversiones_deoit_15">
+      <field name="name">(OE)ASEG.LOGISTIC</field>
+      <field name="plan">P.EJEC</field>
+      <field name="consecutivo">90</field>
+      <field name="company_id" ref="sicpro_app_administracion.proceso_deoit"/>
+    </record>
+  </data>
+</odoo>

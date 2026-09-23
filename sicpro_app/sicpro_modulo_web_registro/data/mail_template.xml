@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+
+    <!-- Plantilla de aviso de solicitud creada -->
+    <record id="solicitud_acceso_roles_creada" model="mail.template">
+      <field name="name">Usuarios: Solicitud de Acceso Creada</field>
+      <field name="model_id" ref="sicpro_modulo_web_registro.model_sicpro_modulo_solicitud_acceso"/>
+      <field name="email_from">"SICPRO ERP" {{ (object.company_id.email or user.email) }}</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP: Nueva Solicitud de acceso al SICPRO ERP.</field>
+
+      <field name="report_template_ids" eval="[(4, ref('sicpro_modulo_web_registro.informe_planilla_acceso_action'))]"/>
+
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                <br/>
+                                <span style="font-size:20px;font-weight: bold;">
+                                  Estimado/a
+                                  <t t-out="object.name"/>
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img t-att-src="'/sicpro_app_administracion/static/src/img/logo_sicpro_4.png'"
+                                     style="padding: 0px; margin: 0px; height: auto; width: 120px;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>
+                                  Se informa que ha sido creada una nueva solicitud de acceso al sistema <strong>SICPRO
+                                  ERP</strong>.
+                                  El estado actual es <strong>Pendiente</strong>, en espera de la recepción de la
+                                  documentación firmada.
+                                  <br/>
+                                  <br/>
+                                  <div style="background-color: #f9f9f9; padding: 10px; border-radius: 5px;">
+                                    <b>Nombre del Solicitante:</b>
+                                    <t t-out="object.name"/>
+                                    <br/>
+                                    <b>Cargo:</b>
+                                    <t t-out="object.cargo"/>
+                                    <br/>
+                                    <b>Área:</b>
+                                    <t t-out="object.area"/>
+                                    <br/>
+                                    <b>Proceso:</b>
+                                    <t t-out="object.uo"/>
+                                    <br/>
+                                    <b>Contactos:</b>
+                                    <t t-out="object.telefonos"/>
+                                    <br/>
+                                    <b>Fecha de la Solicitud:</b>
+                                    <t t-out="format_date(object.solicitado_por_fecha)"/>
+                                    <br/>
+                                    <b>Tipo de Movimiento:</b>
+                                    <t t-out="dict(object._fields['tipo_movimiento'].selection).get(object.tipo_movimiento)"/>
+                                    <br/>
+                                  </div>
+                                  <br/>
+                                  <br/>
+                                  --<br/>Equipo de administración SICPRO ERP
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email" style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="min-width:590px; padding: 16px;">
+                <p style="font-size: 10px; color: #777777;">
+                  © 2019 - 2026 División de Proyectos y Ejecución de Obras, DVPE.
+                  <br/>
+                  Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+
+    <!-- Plantilla de aviso de solicitud rechazada -->
+    <record id="solicitud_acceso_roles_rechazada" model="mail.template">
+      <field name="name">Usuarios: Solicitud de Acceso Rechazada</field>
+      <field name="model_id" ref="sicpro_modulo_web_registro.model_sicpro_modulo_solicitud_acceso"/>
+      <field name="email_from">"SICPRO ERP" {{ (object.company_id.email or user.email) }}</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP: Su solicitud de acceso ha sido rechazada.</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Notificación de SICPRO</span>
+                                <br/>
+                                <span style="font-size:20px;font-weight: bold;">
+                                  Estimado/a
+                                  <t t-out="object.name"/>
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img t-att-src="'/sicpro_app_administracion/static/src/img/logo_sicpro_4.png'"
+                                     style="padding: 0px; margin: 0px; height: auto; width: 120px;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div style="line-height: 1.6;">
+                                  Se informa que la solicitud de acceso al sistema <strong>SICPRO ERP</strong> realizada
+                                  por usted ha sido <span style="color: #d9534f; font-weight: bold;">rechazada</span>.
+                                  <br/>
+                                  <br/>
+                                  <div
+                                      style="background-color: #fff5f5; border-left: 4px solid #d9534f; padding: 15px;">
+                                    <b style="color: #d9534f;">Motivo del Rechazo:</b>
+                                    <br/>
+                                    <t t-out="object.rechazado_motivo or 'No se especificó un motivo.'"/>
+                                  </div>
+                                  <br/>
+                                  <br/>
+                                  Si considera que se trata de un error o desea corregir los datos, puede realizar una
+                                  nueva solicitud presionando el siguiente botón:
+                                  <br/>
+                                  <br/>
+                                  <div style="text-align: center; margin: 32px 0px;">
+                                    <a t-att-href="'%s/web/registro/' % (object.get_base_url())"
+                                       style="background-color:#875A7B; padding: 12px 24px; text-decoration: none; color: #fff; border-radius: 5px; font-size:15px; font-weight: bold;">
+                                      Nueva Solicitud
+                                    </a>
+                                  </div>
+                                  <br/>
+                                  --<br/>Equipo de administración SICPRO ERP
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email" style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="min-width:590px; padding: 16px;">
+                <p style="font-size: 10px; color: #777777;">
+                  © 2019 - 2026 División de Proyectos y Ejecución de Obras, DVPE.
+                  <br/>
+                  Edificio Masónico, Ave. Carlos III / Calle Santiago y Belascoain.
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+
+  </data>
+</odoo>

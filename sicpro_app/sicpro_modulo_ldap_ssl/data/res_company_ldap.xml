@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="res.company.ldap" id="ldap1">
+      <field name="ldap_server">lds.etecsa.cu</field>
+      <field name="ldap_server_port">636</field>
+      <field name="ldap_base">ou=etecsa.cu,ou=People,dc=etecsa,dc=cu</field>
+      <field name="ldap_filter">(&amp;(objectClass=inetOrgPerson)(accountStatus=active)(uid=%s))</field>
+      <field name="ldap_binddn">uid=rouser,ou=special users,dc=etecsa,dc=cu</field>
+      <field name="ldap_password">r0us3r</field>
+      <field name="create_user">False</field>
+      <field name="company">1</field>
+    </record>
+  </data>
+</odoo>

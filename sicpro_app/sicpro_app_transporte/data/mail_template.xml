@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+
+    <!-- Plantilla solicitud de piquera -->
+    <record id="transporte_solicitud_piquera" model="mail.template">
+      <field name="name">Transporte: Solicitud de Piquera</field>
+      <field name="model_id" ref="sicpro_app_transporte.model_sicpro_app_transporte_piquera"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Transporte: Solicitud de servicio a piquera</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif;                 color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px;                                          border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;"> Solicitud de Servicio a Piquera</span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>Ha sido creada una nueva solicitud de servicio a piquera, a continuación se
+                                  relacionan todos
+                                  los datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Solicitante:</b>
+                                  <t t-out="object.solicitante.name"/>
+                                  <b><br></br>Cargo:</b>
+                                  <t t-out="object.cargo.name.name"/>
+                                  <b><br></br>Teléfono:</b>
+                                  <t t-out="object.movil"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>consecutivo:</b>
+                                  <t t-out="object.sequence_consecutivo"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Fecha del Servicio:</b>
+                                  <t t-out="format_date(object.fecha_servicio)"/>
+                                  <b><br></br>Cantidad de Personas:</b>
+                                  <t t-out="object.cantidad_personas"/>
+                                  <br></br>
+                                  <b>Salida:</b>
+                                  <t t-out="object.salida.name"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Hora de Salida:</b>
+                                  <t t-out="object.hora_salida" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <b>Hora de Regreso:</b>
+                                  <t t-out="object.hora_regreso" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Destino:</b>
+                                  <t t-out="object.destino"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <a t-att-href="'/mail/view?model=%s&amp;res_id=%s' % ('sicpro.app.transporte.piquera', object.id,)"
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      ver Registro de la Piquera
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email" style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website" style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023 División de Proyectos y Ejecución
+                            de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle
+                            Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+
+    <!-- Plantilla aprobación de piquera -->
+    <record id="transporte_aprobacion_piquera" model="mail.template">
+      <field name="name">Transporte: Aprobación de Piquera</field>
+      <field name="model_id" ref="sicpro_app_transporte.model_sicpro_app_transporte_piquera"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Transporte: Aprobación de servicio de piquera</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif;                 color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px;                                          border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;">Servicio a Piquera Aprobado</span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>La solicitud de servicio a piquera a sido aprobada, a continuación se relacionan
+                                  todos los
+                                  datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Chofer:</b>
+                                  <t t-out="object.chofer"/>
+                                  <b><br></br>Teléfono:</b>
+                                  <t t-out="object.contacto"/>
+                                  <b><br></br>Chapa:</b>
+                                  <t t-out="object.chapa"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>consecutivo:</b>
+                                  <t t-out="object.sequence_consecutivo"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Fecha del Servicio:</b>
+                                  <t t-out="format_date(object.fecha_servicio)"/>
+                                  <b><br></br>Cantidad de Personas:</b>
+                                  <t t-out="object.cantidad_personas"/>
+                                  <br></br>
+                                  <b>Salida:</b>
+                                  <t t-out="object.salida.name"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Hora de Salida:</b>
+                                  <t t-out="object.hora_salida" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <b>Hora de Regreso:</b>
+                                  <t t-out="object.hora_regreso" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Detalles / Notas:</b>
+                                  <t t-out="object.notas"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <a t-att-href="'/mail/view?model=%s&amp;res_id=%s' % ('sicpro.app.transporte.piquera', object.id,)"
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      ver Registro de la Piquera
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email" style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website" style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023 División de Proyectos y Ejecución
+                            de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle
+                            Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+
+    <!-- Plantilla aprobación de piquera con modificación de hora -->
+    <record id="transporte_aprobacion_mod_hora_piquera" model="mail.template">
+      <field name="name">Transporte: Aprobación de Piquera</field>
+      <field name="model_id" ref="sicpro_app_transporte.model_sicpro_app_transporte_piquera"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Transporte: Aprobación de servicio de piquera</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif;                 color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px;                                          border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;">Servicio a Piquera Aprobado</span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>La solicitud de servicio a piquera ha sido aprobada con modificaciones en la hora
+                                  de salida
+                                  y regreso, a continuación se relacionan todos los datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Chofer:</b>
+                                  <t t-out="object.chofer"/>
+                                  <b><br></br>Teléfono:</b>
+                                  <t t-out="object.contacto"/>
+                                  <b><br></br>Chapa:</b>
+                                  <t t-out="object.chapa"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>consecutivo:</b>
+                                  <t t-out="object.sequence_consecutivo"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Fecha del Servicio:</b>
+                                  <t t-out="format_date(object.fecha_servicio)"/>
+                                  <b><br></br>Cantidad de Personas:</b>
+                                  <t t-out="object.cantidad_personas"/>
+                                  <br></br>
+                                  <b>Salida:</b>
+                                  <t t-out="object.salida.name"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Hora de Salida:</b>
+                                  <t t-out="object.hora_salida" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <b>Hora de Regreso:</b>
+                                  <t t-out="object.hora_regreso" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Detalles / Notas:</b>
+                                  <t t-out="object.notas"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <a t-att-href="'/mail/view?model=%s&amp;res_id=%s' % ('sicpro.app.transporte.piquera', object.id,)"
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      ver Registro de la Piquera
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email" style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website" style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023 División de Proyectos y Ejecución
+                            de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle
+                            Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+
+    <!-- Plantilla rechazó de piquera -->
+    <record id="transporte_rechazo_piquera" model="mail.template">
+      <field name="name">Transporte: Rechazo de Piquera</field>
+      <field name="model_id" ref="sicpro_app_transporte.model_sicpro_app_transporte_piquera"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Transporte: Solicitud de piquera rechazada</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif;                 color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px;                                          border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;"> Solicitud de Servicio a Piquera
+                                  Rechazada
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>Ha sido rechazada su solicitud de servicio a piquera, a continuación se relacionan
+                                  todos los
+                                  datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Rechaza:</b>
+                                  <t t-out="object.rechaza.name"/>
+                                  <b><br></br>Cargo:</b>
+                                  <t t-out="object.cargo_rechaza.name.name"/>
+                                  <b><br></br>Teléfono:</b>
+                                  <t t-out="object.movil_rechaza"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>consecutivo:</b>
+                                  <t t-out="object.sequence_consecutivo"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Fecha del Servicio:</b>
+                                  <t t-out="format_date(object.fecha_servicio)"/>
+                                  <b><br></br>Cantidad de Personas:</b>
+                                  <t t-out="object.cantidad_personas"/>
+                                  <br></br>
+                                  <b>Salida:</b>
+                                  <t t-out="object.salida.name"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Hora de Salida:</b>
+                                  <t t-out="object.hora_salida" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <b>Hora de Regreso:</b>
+                                  <t t-out="object.hora_regreso" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Motivo de rechazo:</b>
+                                  <t t-out="object.motivo_rechazo"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <a t-att-href="'/mail/view?model=%s&amp;res_id=%s' % ('sicpro.app.transporte.piquera', object.id,)"
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      ver Registro de la Piquera
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email" style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website" style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023 División de Proyectos y Ejecución
+                            de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle
+                            Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+
+    <!-- Plantilla cancelación de piquera -->
+    <record id="transporte_cancelacion_piquera" model="mail.template">
+      <field name="name">Transporte: Cancelación de Piquera</field>
+      <field name="model_id" ref="sicpro_app_transporte.model_sicpro_app_transporte_piquera"/>
+      <field name="email_from">"SICPRO ERP" &lt;{{ (object.company_id.email or user.email) }}&gt;</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="subject">•SICPRO ERP-Transporte: Solicitud de piquera cancelada</field>
+      <field name="body_html" type="html">
+        <table
+            style="padding-top:16px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif;                 color: #454748; width: 100%; border-collapse:separate;"
+            cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td align="center">
+                <table style="padding:16px;background-color: white; color: #454748; border-collapse:separate;"
+                       width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <!-- ENCABEZADO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px;                                          border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle">
+                                <span style="font-size:10px;">Bienvenido/a a SICPRO</span>
+                                <br></br>
+                                <span style="font-size:20px;font-weight: bold;"> Solicitud de Servicio a Piquera
+                                  Cancelada
+                                </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                <img src="/sicpro_app_administracion/static/src/img/logo_sicpro 4.png"
+                                     style="padding:0px;margin: 0px; height: auto; width: 25%;"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- CONTENIDO -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="font-size:13px;" valign="top">
+                                <div>Ha sido cancelada su solicitud de servicio a piquera, a continuación se relacionan
+                                  todos los
+                                  datos:
+                                  <br></br>
+                                  <br></br>
+                                  <b>Cancela:</b>
+                                  <t t-out="object.rechaza.name"/>
+                                  <b><br></br>Cargo:</b>
+                                  <t t-out="object.cargo_rechaza.name.name"/>
+                                  <b><br></br>Teléfono:</b>
+                                  <t t-out="object.movil_rechaza"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>consecutivo:</b>
+                                  <t t-out="object.sequence_consecutivo"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Fecha del Servicio:</b>
+                                  <t t-out="format_date(object.fecha_servicio)"/>
+                                  <b><br></br>Cantidad de Personas:</b>
+                                  <t t-out="object.cantidad_personas"/>
+                                  <br></br>
+                                  <b>Salida:</b>
+                                  <t t-out="object.salida.name"/>
+                                  <b>
+                                    <br></br>
+                                  </b>
+                                  <br></br>
+                                  <b>Hora de Salida:</b>
+                                  <t t-out="object.hora_salida" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <b>Hora de Regreso:</b>
+                                  <t t-out="object.hora_regreso" t-options="{'widget': 'float_time'}"/>
+                                  <br></br>
+                                  <br></br>
+                                  <b>Motivo de cancelación:</b>
+                                  <t t-out="object.motivo_cancelacion"/>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  <div style="margin:16px 0px 16px 0px;">
+                                    <a t-att-href="'/mail/view?model=%s&amp;res_id=%s' % ('sicpro.app.transporte.piquera', object.id,)"
+                                       style="background-color:#875A7B;padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                      ver Registro de la Piquera
+                                    </a>
+                                  </div>
+                                  <br></br>
+                                  <br></br>
+                                  <br></br>
+                                  --<br></br>Equipo de administración SICPRO ERP.
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:center;">
+                                <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"
+                                    width="100%"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- PIE -->
+                    <tr>
+                      <td style="min-width:590px;" align="center">
+                        <table
+                            style="min-width:590px;background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                            width="590" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td valign="middle" align="left">
+                                <t t-out="object.company_id.name"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="opacity:0.7;" valign="middle" align="left">
+                                <t t-out="object.company_id.phone"/>
+                                <t t-if="object.company_id.email">
+                                  |
+                                  <a t-att-href="'mailto:%s' % object.company_id.email" style="color:#454748;">
+                                    <t t-out="object.company_id.email"/>
+                                  </a>
+                                </t>
+                                <t t-if="object.company_id.website">
+                                  |
+                                  <a t-att-href="'%s' % object.company_id.website" style="color:#454748;">
+                                    <t t-out="website_url"/>
+                                  </a>
+                                </t>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+              <td style="min-width:590px;" align="center">
+                <br></br>
+                <table
+                    style="min-width:590px;background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"
+                    width="590" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        Recibes notificaciones con la tecnología de
+                        <b>
+                          <a target="_blank" style="color:#875A7B;">
+                            <font style="color:rgb(7, 140, 7);">SICPRO</font>
+                          </a>
+                          <font style="color:rgb(7, 140, 7);">
+                            <br></br>
+                          </font>
+                        </b>
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td style="text-align:center;font-size: 13px;">
+                        <p>
+                          <font style="font-size:10px;" class="text-600">© 2019 - 2023 División de Proyectos y Ejecución
+                            de Obras, DVPE.
+                          </font>
+                          <br></br>
+                          <font style="font-size:10px;" class="text-600">Edificio Masónico, Ave. Carlos III / Calle
+                            Santiago y Belascoain.
+                          </font>
+                        </p>
+                      </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </field>
+    </record>
+
+  </data>
+</odoo>

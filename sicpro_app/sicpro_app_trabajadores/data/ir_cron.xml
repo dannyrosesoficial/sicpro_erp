@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- Cron para activar el correo de feliz cumpleaños -->
+    <record id="birthday_notification_mail" model="ir.cron">
+      <field name="name">Trabajadores: Notificación de Cumpleaños</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores"/>
+      <field name="state">code</field>
+      <field name="code">model.send_birthday_mail()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+
+    <!-- Cron para activar el control de las medidas disciplinarias -->
+    <record id="trabajadores_medidas_expiracion_mail" model="ir.cron">
+      <field name="name">Trabajadores: Expiración de Medidas disciplinarias</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores_disiplinaria_acciones"/>
+      <field name="state">code</field>
+      <field name="code">model.send_expira_medida_mail()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+
+    <!-- Cron para activar el control de las certificaciones y homologaciones -->
+    <record id="trabajadores_educacion_expira_certificacion_mail" model="ir.cron">
+      <field name="name">Trabajadores: Expiración de Certificaciones</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores_educacion"/>
+      <field name="state">code</field>
+      <field name="code">model.send_expira_certificacion_mail()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+
+    <!-- Cron para activar el control de la documentación -->
+    <record id="trabajadores_documentacion_expira_mail" model="ir.cron">
+      <field name="name">Trabajadores: Expiración de la Documentación</field>
+      <field name="model_id" ref="sicpro_app_trabajadores.model_sicpro_app_trabajadores_documentos"/>
+      <field name="state">code</field>
+      <field name="code">model.send_expira_documento_mail()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+  </data>
+</odoo>

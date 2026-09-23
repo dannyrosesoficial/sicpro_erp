@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- Estados de acuerdos -->
+    <record id="reuniones_lugar_1" model="sicpro.app.reuniones.lugares">
+      <field name="name">Oficina DC DVPE</field>
+      <field name="color">1</field>
+      <field name="tipo">interno</field>
+    </record>
+    <record id="reuniones_lugar_2" model="sicpro.app.reuniones.lugares">
+      <field name="name">Oficina SE DVPE</field>
+      <field name="color">2</field>
+      <field name="tipo">interno</field>
+    </record>
+    <record id="reuniones_lugar_3" model="sicpro.app.reuniones.lugares">
+      <field name="name">S/R718</field>
+      <field name="color">3</field>
+      <field name="tipo">interno</field>
+    </record>
+    <record id="reuniones_lugar_4" model="sicpro.app.reuniones.lugares">
+      <field name="name">S/R Camilo Cienfuegos</field>
+      <field name="color">4</field>
+      <field name="tipo">interno</field>
+    </record>
+    <record id="reuniones_lugar_5" model="sicpro.app.reuniones.lugares">
+      <field name="name">S/R 8vo Piso</field>
+      <field name="color">5</field>
+      <field name="tipo">interno</field>
+    </record>
+    <record id="reuniones_lugar_6" model="sicpro.app.reuniones.lugares">
+      <field name="name">Aula 9no Piso</field>
+      <field name="color">6</field>
+      <field name="tipo">interno</field>
+    </record>
+  </data>
+</odoo>

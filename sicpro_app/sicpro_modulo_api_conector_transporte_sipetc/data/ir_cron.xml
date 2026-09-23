@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- Cron para actualizar los datos del Conector RestApi con SICPRO -->
+    <record id="transporte_conector_rest_api_sicpro" model="ir.cron">
+      <field name="name">Conector API-SIPETC: Actualizar SICPRO desde RestApi</field>
+      <field name="model_id" ref="sicpro_modulo_api_conector.model_sicpro_modulo_api_conector"/>
+      <field name="state">code</field>
+      <field name="code">model.conector_api_cron_sicpro_app_transporte_sipetc()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+
+  </data>
+</odoo>

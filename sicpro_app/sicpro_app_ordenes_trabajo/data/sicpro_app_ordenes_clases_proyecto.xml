@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.ordenes.clases.proyecto" id="ordenes_clase_proyecto_1">
+      <field name="name">A</field>
+      <field name="nombre">Asistencia técnica de Proyectos</field>
+    </record>
+    <record model="sicpro.app.ordenes.clases.proyecto" id="ordenes_clase_proyecto_2">
+      <field name="name">P</field>
+      <field name="nombre">Proyecto de Proyectos</field>
+    </record>
+    <record model="sicpro.app.ordenes.clases.proyecto" id="ordenes_clase_proyecto_3">
+      <field name="name">E</field>
+      <field name="nombre">Estudios de Proyectos</field>
+    </record>
+    <record model="sicpro.app.ordenes.clases.proyecto" id="ordenes_clase_proyecto_4">
+      <field name="name">S</field>
+      <field name="nombre">Supervisión de Proyectos</field>
+      <field name="control_autor">True</field>
+    </record>
+    <record model="sicpro.app.ordenes.clases.proyecto" id="ordenes_clase_proyecto_5">
+      <field name="name">G</field>
+      <field name="nombre">Proyectista General</field>
+    </record>
+    <record model="sicpro.app.ordenes.clases.proyecto" id="ordenes_clase_proyecto_6">
+      <field name="name">T</field>
+      <field name="nombre">Topografía</field>
+    </record>
+  </data>
+</odoo>

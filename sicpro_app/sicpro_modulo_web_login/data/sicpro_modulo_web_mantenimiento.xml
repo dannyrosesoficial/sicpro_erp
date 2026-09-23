@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="1">
+    <record id="default_maintenance_config" model="sicpro.modulo.web.mantenimiento">
+      <field name="name">Configuración de Mantenimiento SICPRO</field>
+      <field name="active_maintenance">False</field>
+      <field name="estimated_time">00:60:00</field>
+      <field name="maintenance_password">admin123</field>
+      <field name="confirm_maintenance_password">admin123</field>
+    </record>
+  </data>
+</odoo>

@@ -1,4 +1,0 @@
- trabajador_id_19 | trabajador_name_19 | identification_19 | user_id_19 | login_19 | active_19 | partner_id_19 | partner_name_19 
-------------------+--------------------+-------------------+------------+----------+-----------+---------------+-----------------
-(0 filas)
-

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <!-- Cron para desactivar los usuarios que esten desactivados o no existan en el ldap -->
+    <record id="administracion_desactiva_usuarios_ldap" model="ir.cron">
+      <field name="name">Usuarios: Desactivar Usuarios LDAP</field>
+      <field name="model_id" ref="sicpro_modulo_usuario_desactivar.model_sicpro_app_modulo_usuario_desactivar"/>
+      <field name="state">code</field>
+      <field name="code">model.cron_desactiva_usuarios_ldap()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+
+    <!-- Cron para desactivar los usuarios sin acceder al sistema por tiempo específico -->
+    <record id="administracion_desactiva_usuarios_acceso" model="ir.cron">
+      <field name="name">Usuarios: Desactivar Usuarios por Tiempo de Acceso</field>
+      <field name="model_id" ref="sicpro_modulo_usuario_desactivar.model_sicpro_app_modulo_usuario_desactivar"/>
+      <field name="state">code</field>
+      <field name="code">model.cron_desactiva_usuarios_acceso()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+
+    <!-- Cron para desactivar los usuarios sin validar el registro por tiempo específico -->
+    <record id="administracion_desactiva_usuarios_registro" model="ir.cron">
+      <field name="name">Usuarios: Desactivar Usuarios por Tiempo de Registro</field>
+      <field name="model_id" ref="sicpro_modulo_usuario_desactivar.model_sicpro_app_modulo_usuario_desactivar"/>
+      <field name="state">code</field>
+      <field name="code">model.cron_desactiva_usuarios_registro()</field>
+      <field eval="True" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+    </record>
+  </data>
+</odoo>

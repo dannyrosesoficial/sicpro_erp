@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_1">
+      <field name="name">enero</field>
+      <field name="color">1</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/enero.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_2">
+      <field name="name">febrero</field>
+      <field name="color">2</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/febrero.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_3">
+      <field name="name">marzo</field>
+      <field name="color">3</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/marzo.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_4">
+      <field name="name">abril</field>
+      <field name="color">4</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/abril.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_5">
+      <field name="name">mayo</field>
+      <field name="color">5</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/mayo.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_6">
+      <field name="name">junio</field>
+      <field name="color">6</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/junio.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_7">
+      <field name="name">julio</field>
+      <field name="color">7</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/julio.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_8">
+      <field name="name">agosto</field>
+      <field name="color">8</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/agosto.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_9">
+      <field name="name">septiembre</field>
+      <field name="color">9</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/septiembre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_10">
+      <field name="name">octubre</field>
+      <field name="color">10</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/octubre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_11">
+      <field name="name">noviembre</field>
+      <field name="color">11</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/noviembre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_12">
+      <field name="name">diciembre</field>
+      <field name="color">12</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/diciembre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_13">
+      <field name="name">1t</field>
+      <field name="color">1</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/primer_trimestre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_14">
+      <field name="name">2t</field>
+      <field name="color">2</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/segundo_trimestre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_15">
+      <field name="name">3t</field>
+      <field name="color">3</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/tercer_trimestre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_16">
+      <field name="name">4t</field>
+      <field name="color">4</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/cuarto_trimestre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_17">
+      <field name="name">1s</field>
+      <field name="color">5</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/primer_semestre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_18">
+      <field name="name">2s</field>
+      <field name="color">6</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/segundo_semestre.png"/>
+    </record>
+    <record model="sicpro.app.cmi.perspectivas.periodos" id="periodo_19">
+      <field name="name">anual</field>
+      <field name="color">7</field>
+      <field name="image_128" type="base64" file="sicpro_app_cmi/static/src/img/periodos/anio.png"/>
+    </record>
+  </data>
+</odoo>

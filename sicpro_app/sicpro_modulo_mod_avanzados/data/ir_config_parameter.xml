@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="1">
+    <function model="ir.config_parameter" name="set_param" eval="('app_system_name', 'SICPRO ERP')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_show_lang', 'True')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_show_debug', 'False')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_show_documentation', 'False')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_show_documentation_dev', 'False')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_show_support', 'False')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_show_account', 'False')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_show_enterprise', 'False')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_show_share', 'False')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_show_poweredby', 'False')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_documentation_url', 'https://')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_documentation_dev_url', 'https://')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_support_url', 'https://')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_account_title', 'Titulo')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_account_url', 'https://')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_ribbon_name', '')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_ribbon_color', '#f0f0f0')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_ribbon_background_color', 'rgba(255,0,0,.4)')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_navbar_pos_pc', 'top')"/>
+    <function model="ir.config_parameter" name="set_param" eval="('app_navbar_pos_mobile', 'bottom')"/>
+  </data>
+</odoo>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo noupdate="1">
+  <record model="sicpro.nomenclador.anios" id="anios_1">
+    <field name="name">2021</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_2">
+    <field name="name">2022</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_3">
+    <field name="name">2023</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_4">
+    <field name="name">2024</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_5">
+    <field name="name">2025</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_6">
+    <field name="name">2026</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_7">
+    <field name="name">2027</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_8">
+    <field name="name">2028</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_9">
+    <field name="name">2029</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_10">
+    <field name="name">2030</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_11">
+    <field name="name">2031</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_12">
+    <field name="name">2032</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_13">
+    <field name="name">2033</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_14">
+    <field name="name">2034</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_15">
+    <field name="name">2035</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_16">
+    <field name="name">2036</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_17">
+    <field name="name">2037</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_18">
+    <field name="name">2038</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_19">
+    <field name="name">2039</field>
+  </record>
+  <record model="sicpro.nomenclador.anios" id="anios_20">
+    <field name="name">2040</field>
+  </record>
+
+</odoo>

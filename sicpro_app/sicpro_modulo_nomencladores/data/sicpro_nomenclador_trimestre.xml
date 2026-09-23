@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo noupdate="1">
+  <record model="sicpro.nomenclador.trimestre" id="Primer_trimestre">
+    <field name="name">I</field>
+    <field name="descripcion">Primer Trimestre</field>
+  </record>
+  <record model="sicpro.nomenclador.trimestre" id="Segundo_trimestre">
+    <field name="name">II</field>
+    <field name="descripcion">Segundo Trimestre</field>
+  </record>
+  <record model="sicpro.nomenclador.trimestre" id="Tercer_trimestre">
+    <field name="name">III</field>
+    <field name="descripcion">Tercer Trimestre</field>
+  </record>
+  <record model="sicpro.nomenclador.trimestre" id="Cuarto_trimestre">
+    <field name="name">IV</field>
+    <field name="descripcion">Cuarto Trimestre</field>
+  </record>
+</odoo>

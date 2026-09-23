@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data noupdate="0">
+       <!-- Cron para revisar las fechas de las instrucciones -->
+        <record id="instrucciones_revision_fechas" model="ir.cron">
+            <field name="name">Instrucciones: Verificar Fechas de Inicio y Fin</field>
+            <field name="model_id" ref="sicpro_app_instrucciones.model_sicpro_app_instrucciones_instruccion"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_ejecutar_revision_fechas()</field>
+            <field eval="True" name="active" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+        </record>
+    </data>
+</odoo>

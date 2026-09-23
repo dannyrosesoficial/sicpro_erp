@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+  <data noupdate="0">
+
+    <record id="mail.ir_cron_mail_scheduler_action" model="ir.cron">
+      <field name="name">Correo: Gestor de colas de correos</field>
+      <field name="model_id" ref="mail.model_mail_mail"/>
+      <field name="state">code</field>
+      <field name="code">model.process_email_queue()</field>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">30</field>
+      <field name="interval_type">minutes</field>
+    </record>
+
+  </data>
+</odoo>

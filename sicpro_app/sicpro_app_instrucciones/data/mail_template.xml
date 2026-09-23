@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+PROYECTO: SICPRO ERP
+AUTOR: Daniel Barrero Reyes (Danny Rose's)
+CONTACTO: daniel.borrero@etecsa.cu
+Copyright (C) 2020-2026 SICPRO ERP.
+Todos los derechos reservados.
+##############################################################################
+-->
+<odoo>
+    <data noupdate="0">
+        <record id="instrucciones_enviar_aviso_jefe" model="mail.template">
+            <field name="name">Instrucciones: Aviso al Jefe</field>
+            <field name="model_id" ref="sicpro_app_instrucciones.model_sicpro_app_instrucciones_instruccion"/>
+            <field name="email_from">{{ (object.company_id.email or user.email) }}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="subject">SICPRO ERP | Control de Instrucción Asignado: {{ object.name }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td align="center">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="590" style="padding:16px; background-color: white; color: #454748;">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="min-width:590px;">
+                                                    <table width="590" style="min-width:590px; background-color: white; padding: 0px 8px;">
+                                                        <tr>
+                                                            <td valign="middle">
+                                                                <span style="font-size: 10px;">Gestión de Capital Humano</span><br/>
+                                                                <span style="font-size: 20px; font-weight: bold;">Instrucción: <t t-out="object.name"/></span>
+                                                            </td>
+                                                            <td valign="middle" align="right">
+                                                                <img t-attf-src="/logo.png?company={{ object.company_id.id }}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="Logo"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <hr style="background-color:rgb(204,204,204); border:none; height:1px; margin: 16px 0px;"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 0px 8px; font-size: 13px;">
+                                                    <p>Estimado/a responsable,</p>
+                                                    <p>Se le ha asignado el control de una instrucción periódica. Como jefe de área, debe verificar que el personal bajo su cargo complete la evaluación técnica.</p>
+                                                    <div style="background-color: #F8F9FA; padding: 15px; border-radius: 5px; margin: 15px 0px;">
+                                                        <strong>Detalles del Proceso:</strong><br/>
+                                                        • <b>Tipo:</b> <t t-out="object.tipo"/><br/>
+                                                        • <b>Instructor:</b> <t t-out="object.user_id.name"/><br/>
+                                                        • <b>Vigencia:</b> Desde <t t-out="format_date(object.fecha_inicio)"/> hasta <t t-out="format_date(object.fecha_fin)"/><br/>
+                                                    </div>
+                                                    <p><strong>Notas del Instructor:</strong></p>
+                                                    <p t-out="object.descripcion or 'Sin notas adicionales.'"></p>
+
+                                                    <div style="margin: 30px 0px; text-align: center;">
+                                                        <a t-attf-href="/mail/view?model=sicpro.app.instrucciones.instruccion&amp;res_id={{ object.id }}"
+                                                           style="background-color: #875A7B; padding: 12px 24px; text-decoration: none; color: #fff; border-radius: 5px; font-weight: bold;">
+                                                            Ver Panel de Control
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 16px 8px; font-size: 11px; border-top: 1px solid #EEE;">
+                                                    <strong t-out="object.company_id.name"/><br/>
+                                                    <t t-out="object.company_id.phone or ''"/> | <t t-out="object.company_id.email or ''"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </field>
+        </record>
+
+        <record id="instrucciones_enviar_aviso_trabajador" model="mail.template">
+            <field name="name">Instrucciones: Aviso al Trabajador</field>
+            <field name="model_id" ref="sicpro_app_instrucciones.model_sicpro_app_instrucciones_instruccion"/>
+            <field name="email_from">{{ (object.company_id.email or user.email) }}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="subject">Nueva Instrucción Asignada: {{ object.name }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="padding-top:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td align="center">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="590" style="padding:16px; background-color: white; color: #454748;">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="min-width:590px;">
+                                                    <table width="590" style="min-width:590px; background-color: white; padding: 0px 8px;">
+                                                        <tr>
+                                                            <td valign="middle">
+                                                                <span style="font-size: 10px;">Portal del Empleado</span><br/>
+                                                                <span style="font-size: 20px; font-weight: bold;">Instrucción Pendiente</span>
+                                                            </td>
+                                                            <td valign="middle" align="right">
+                                                                <img t-attf-src="/logo.png?company={{ object.company_id.id }}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="Logo"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <hr style="background-color:rgb(204,204,204); border:none; height:1px; margin: 16px 0px;"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 0px 8px; font-size: 13px;">
+                                                    <p>Hola,</p>
+                                                    <p>Se te ha asignado una nueva instrucción técnica obligatoria: <strong><t t-out="object.name"/></strong>.</p>
+                                                    <p>Por favor, accede al sistema para revisar los materiales didácticos y realizar el cuestionario de evaluación antes del <strong><t t-out="format_date(object.fecha_fin)"/></strong>.</p>
+
+                                                    <div style="margin: 30px 0px; text-align: center;">
+                                                        <a t-attf-href="/mail/view?model=sicpro.app.instrucciones.instruccion&amp;res_id={{ object.id }}"
+                                                           style="background-color: #28a745; padding: 12px 24px; text-decoration: none; color: #fff; border-radius: 5px; font-weight: bold;">
+                                                            Comenzar Instrucción
+                                                        </a>
+                                                    </div>
+
+                                                    <p style="font-size: 11px; color: #666;">
+                                                        * Recuerda que es necesario aceptar el acuerdo de términos antes de iniciar la prueba.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 16px 8px; font-size: 11px; border-top: 1px solid #EEE;">
+                                                    <strong t-out="object.company_id.name"/><br/>
+                                                    Soporte SICPRO ERP
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>
