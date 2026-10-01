@@ -12,14 +12,16 @@ from odoo import api, fields, models
 from random import randint
 import qrcode
 from io import BytesIO
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 import datetime
 from datetime import datetime, date
 import json
 import base64
 import os
 from odoo.addons.sicpro_app_administracion.models.constants import MSG_SOPORTE_SICPRO
+import logging
 
+_logger = logging.getLogger(__name__)
 
 class Credenciales(models.Model):
     _name = 'sicpro.app.credenciales'
@@ -155,37 +157,76 @@ class Credenciales(models.Model):
                 dic.append(value.trabajador.id)
         self.dominio_trabajador = json.dumps([('id', 'not in', dic)])
 
+    # def generate_qr(self):
+    #     if self.name:
+    #         qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=4, )
+    #
+    #         # Añadir el número de credencial según el tipo de credencial
+    #         if 'PERMANENTE' in self.tipo_credencial.name:
+    #             qr.add_data('Credencial: ' + self.no_credencial_permanente)
+    #         elif 'CONSTRUCTOR' in self.tipo_credencial.name:
+    #             qr.add_data('Credencial: ' + self.no_credencial_constructores)
+    #         elif 'ESPECIAL' in self.tipo_credencial.name:
+    #             qr.add_data('Credencial: ' + self.no_credencial_especial)
+    #         else:
+    #             qr.add_data('Credencial: ' + self.no_credencial_provisional)
+    #
+    #         qr.add_data('\n')
+    #         qr.add_data(self.name)
+    #         qr.add_data('\n')
+    #         if not self.personal_externo:
+    #             qr.add_data(self.ocupacion_id.name.name)
+    #             qr.add_data('\n')
+    #             qr.add_data('Plaza: ' + self.plaza_id)
+    #             qr.add_data('\n')
+    #             qr.add_data(self.company_id.name)
+    #         qr.make(fit=True)
+    #         img = qr.make_image()
+    #         tmp = BytesIO()
+    #         img.save(tmp, format="PNG")
+    #         qr_img = base64.b64encode(tmp.getvalue())
+    #         self.qr_code = qr_img
+    #     else:
+    #         raise UserError('Chequear el nombre del trabajador' + MSG_SOPORTE_SICPRO)
+
     def generate_qr(self):
-        if self.name:
-            qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=4, )
+        if not self.name:
+            raise UserError(
+                'Chequear el nombre del trabajador' + MSG_SOPORTE_SICPRO)
 
-            # Añadir el número de credencial según el tipo de credencial
-            if 'PERMANENTE' in self.tipo_credencial.name:
-                qr.add_data('Credencial: ' + self.no_credencial_permanente)
-            elif 'CONSTRUCTOR' in self.tipo_credencial.name:
-                qr.add_data('Credencial: ' + self.no_credencial_constructores)
-            elif 'ESPECIAL' in self.tipo_credencial.name:
-                qr.add_data('Credencial: ' + self.no_credencial_especial)
-            else:
-                qr.add_data('Credencial: ' + self.no_credencial_provisional)
+        qr = qrcode.QRCode(version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10,
+            border=4, )
 
-            qr.add_data('\n')
-            qr.add_data(self.name)
-            qr.add_data('\n')
-            if not self.personal_externo:
-                qr.add_data(self.ocupacion_id.name.name)
-                qr.add_data('\n')
-                qr.add_data('Plaza: ' + self.plaza_id)
-                qr.add_data('\n')
-                qr.add_data(self.company_id.name)
-            qr.make(fit=True)
-            img = qr.make_image()
-            tmp = BytesIO()
-            img.save(tmp, format="PNG")
-            qr_img = base64.b64encode(tmp.getvalue())
-            self.qr_code = qr_img
+        tipo_name = self.tipo_credencial.name or ''
+        if 'PERMANENTE' in tipo_name:
+            numero = self.no_credencial_permanente or ''
+        elif 'CONSTRUCTOR' in tipo_name:
+            numero = self.no_credencial_constructores or ''
+        elif 'ESPECIAL' in tipo_name:
+            numero = self.no_credencial_especial or ''
         else:
-            raise UserError('Chequear el nombre del trabajador' + MSG_SOPORTE_SICPRO)
+            numero = self.no_credencial_provisional or ''
+
+        qr.add_data('Credencial: ' + str(numero))
+        qr.add_data('\n')
+        qr.add_data(self.name or '')
+        qr.add_data('\n')
+
+        if not self.personal_externo:
+            if self.ocupacion_id and self.ocupacion_id.name:
+                # ojo: si ocupacion_id.name es Char, quita el segundo .name
+                qr.add_data(self.ocupacion_id.name.name or '')
+                qr.add_data('\n')
+            qr.add_data('Plaza: ' + (self.plaza_id or ''))
+            qr.add_data('\n')
+            qr.add_data(self.company_id.name or '')
+
+        qr.make(fit=True)
+        img = qr.make_image()
+        tmp = BytesIO()
+        img.save(tmp, format="PNG")
+        self.qr_code = base64.b64encode(tmp.getvalue())
 
     # calcula el tiempo de validez del pase o credencial
     @api.depends('fecha_entrega', 'tipo_credencial')
@@ -263,29 +304,76 @@ class Credenciales(models.Model):
         self.cancelacion_active = False
         self.active = True
 
-    @api.model
-    def create(self, vals):
-        res = super(Credenciales, self).create(vals)
-        # Crear la secuencia de incremento para el consecutivo según el tipo de credencial
-        if 'PERMANENTE' in res['tipo_credencial'].name:
-            res['no_credencial_permanente'] = self.env['ir.sequence'].next_by_code(
-                'credencial_permanente_consecutivo_incrementar')
-        elif 'CONSTRUCTOR' in res['tipo_credencial'].name:
-            res['no_credencial_constructores'] = self.env['ir.sequence'].next_by_code(
-                'credencial_constructores_consecutivo_incrementar')
-        elif 'ESPECIAL' in res['tipo_credencial'].name:
-            res['no_credencial_especial'] = self.env['ir.sequence'].next_by_code(
-                'credencial_especial_consecutivo_incrementar')
-        else:
-            res['no_credencial_provisional'] = self.env['ir.sequence'].next_by_code(
-                'credencial_provisional_consecutivo_incrementar')
+    # @api.model
+    # def create(self, vals):
+    #     res = super(Credenciales, self).create(vals)
+    #     # Crear la secuencia de incremento para el consecutivo según el tipo de credencial
+    #     if 'PERMANENTE' in res['tipo_credencial'].name:
+    #         res['no_credencial_permanente'] = self.env['ir.sequence'].next_by_code(
+    #             'credencial_permanente_consecutivo_incrementar')
+    #     elif 'CONSTRUCTOR' in res['tipo_credencial'].name:
+    #         res['no_credencial_constructores'] = self.env['ir.sequence'].next_by_code(
+    #             'credencial_constructores_consecutivo_incrementar')
+    #     elif 'ESPECIAL' in res['tipo_credencial'].name:
+    #         res['no_credencial_especial'] = self.env['ir.sequence'].next_by_code(
+    #             'credencial_especial_consecutivo_incrementar')
+    #     else:
+    #         res['no_credencial_provisional'] = self.env['ir.sequence'].next_by_code(
+    #             'credencial_provisional_consecutivo_incrementar')
+    #
+    #     if res['tiene_laptop']:
+    #         res['no_credencial_laptop'] = self.env['ir.sequence'].next_by_code(
+    #             'credencial_laptop_consecutivo_incrementar')
+    #
+    #     res.generate_qr()
+    #     return res
 
-        if res['tiene_laptop']:
-            res['no_credencial_laptop'] = self.env['ir.sequence'].next_by_code(
-                'credencial_laptop_consecutivo_incrementar')
 
-        res.generate_qr()
-        return res
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        seq_env = self.env['ir.sequence']
+        Tipo = self.env['sicpro.app.credenciales.tipo']
+
+        for vals in vals_list:
+            tipo_id = vals.get('tipo_credencial')
+            nombre = Tipo.browse(tipo_id).name or '' if tipo_id else ''
+
+            # Solo genera el número si NO viene ya en vals (importación respeta CSV)
+            if 'PERMANENTE' in nombre and not vals.get(
+                'no_credencial_permanente'):
+                vals['no_credencial_permanente'] = (seq_env.next_by_code(
+                    'credencial_permanente_consecutivo_incrementar') or '')
+            elif 'CONSTRUCTOR' in nombre and not vals.get(
+                'no_credencial_constructores'):
+                vals['no_credencial_constructores'] = (seq_env.next_by_code(
+                    'credencial_constructores_consecutivo_incrementar') or '')
+            elif 'ESPECIAL' in nombre and not vals.get(
+                'no_credencial_especial'):
+                vals['no_credencial_especial'] = (seq_env.next_by_code(
+                    'credencial_especial_consecutivo_incrementar') or '')
+            elif 'PROVISIONAL' in nombre and not vals.get(
+                'no_credencial_provisional'):
+                vals['no_credencial_provisional'] = (seq_env.next_by_code(
+                    'credencial_provisional_consecutivo_incrementar') or '')
+
+            if vals.get('tiene_laptop') and not vals.get(
+                'no_credencial_laptop'):
+                vals['no_credencial_laptop'] = (seq_env.next_by_code(
+                    'credencial_laptop_consecutivo_incrementar') or '')
+
+        records = super().create(vals_list)
+
+        # Durante una importación masiva saltamos el QR: se generará después en bloque
+        if not self.env.context.get('skip_qr_generation'):
+            for rec in records:
+                try:
+                    rec.generate_qr()
+                except Exception as e:
+                    _logger.warning("QR no generado para credencial %s: %s",
+                                    rec.id, e)
+
+        return records
 
     def update(self, vals):
         # Para que al renderizar la imagen se vea el cambio se pasan a vals todas las resoluciones de imágenes

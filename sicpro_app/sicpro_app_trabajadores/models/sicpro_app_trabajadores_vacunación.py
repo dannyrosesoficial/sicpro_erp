@@ -16,16 +16,18 @@ class TrabajadoresVacunacion(models.Model):
     _order = "fecha asc"
 
     plaza_id = fields.Char(string="# Plaza", required=True)
-    name = fields.Many2one('sicpro.app.trabajadores', required=False, )
     tipo_vacuna = fields.Char(string='Tipo de Vacuna', required=False)
     fecha = fields.Date(string='Fecha', required=False)
+    name = fields.Many2one('sicpro.app.trabajadores', string='Trabajador',
+        compute='_compute_name', store=True, readonly=False, )
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        records = super(TrabajadoresVacunacion, self).create(vals_list)
-        for res in records:
-            trabajador = self.env['sicpro.app.trabajadores'].search(
-                [('plaza_id', '=', vals.get('plaza_id')), ])
-            res.name = trabajador.id
-            return res
-        return None
+    @api.depends('plaza_id')
+    def _compute_name(self):
+        for rec in self:
+            if rec.plaza_id:
+                trabajador = self.env['sicpro.app.trabajadores'].search(
+                    [('plaza_id', '=', rec.plaza_id)], limit=1)
+                rec.name = trabajador.id if trabajador else False
+            else:
+                rec.name = False
+
